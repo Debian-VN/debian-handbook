@@ -1155,14 +1155,14 @@ uV48hsT8cj0paqVXl5+P9Ww8XIE3clxNpE/45/tvKvkqGOeysc6OPAqsIw6HYFY9
 
 	<para>If you have a source package, you can use the
 	<command>dpkg-source</command> command (from the
-	<emphasis>dpkg-dev</emphasis> package) to decompress it:</para>
+	<emphasis role="pkg">dpkg-dev</emphasis> package) to decompress it:</para>
 
         <screen><computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-1.dsc</userinput>
 </screen>
 
 	<para>You can also use <command>apt-get</command> to download a
 	source package and unpack it right away. It requires that the
-	appropriate <emphasis>deb-src</emphasis> lines be present in the
+	appropriate <literal>deb-src</literal> lines be present in the
 	<filename>/etc/apt/sources.list</filename> file, however (for
 	further details, see <xref linkend="sect.apt-sources.list"/>).
 	These are used to list the “sources” of source packages
@@ -1361,7 +1361,7 @@ E: missing dependencies. Try to use the option -f.
       option, followed by the package name.</para>
 
       <example>
-        <title>Removal and purge of the <emphasis>debian-cd</emphasis> package</title>
+        <title>Removal and purge of the <emphasis role="pkg">debian-cd</emphasis> package</title>
 
         <screen><computeroutput># </computeroutput><userinput>dpkg -r debian-cd</userinput>
 <computeroutput>(Reading database ... 97747 files and directories currently installed.)
@@ -1691,7 +1691,8 @@ Setting up gcc-4.7-base:armhf (4.7.2-5) ...
 	same</literal>” header field to tell the packaging system that the
 	various architectures of the package can be safely co-installed (and
 	that those packages can only satisfy dependencies of packages of the
-	same architecture). Since multi-arch made its debut in Debian Wheezy,
+	same architecture). Since multi-arch made its debut in Debian
+	<emphasis role="distribution">Wheezy</emphasis>,
 	not all libraries have been converted yet (but all libraries which
 	were embedded in <emphasis role="pkg">ia32-libs</emphasis> do!).
 	</para>
