@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2013-12-30 17:37+0100\n"
-"PO-Revision-Date: 2014-06-09 16:27+0200\n"
-"Last-Translator: Claudio F Filho <filhocf@gmail.com>\n"
+"PO-Revision-Date: 2014-09-26 12:54+0200\n"
+"Last-Translator: Fred Maranhão <fred.maranhao@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://debian.weblate.org/projects"
 "/debian-handbook/09_unix-services/pt_BR/>\n"
 "Language: pt-BR\n"
@@ -237,10 +237,14 @@ msgid "Kernel modules also have options that can be configured by putting some f
 msgstr "Os módulos do kernel também tem opções que podem ser configuradas colocando alguns arquivos em <filename>/etc/modprobe.d/ </filename>. Essas opções são definidas com as diretivas como esta: <literal>opções<replaceable>nome do módulo</replaceable><replaceable>nome da opção</replaceable>=<replaceable>valor da opção</replaceable> </literal>. Várias opções podem ser especificadas com uma única diretiva, se necessário."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "These configuration files are intended for <command>modprobe</command> — the program that loads a kernel module with its dependencies (modules can indeed call other modules). This program is provided by the <emphasis role=\"pkg\">module-init-tools</emphasis> package."
 msgid "These configuration files are intended for <command>modprobe</command> — the program that loads a kernel module with its dependencies (modules can indeed call other modules). This program is provided by the <emphasis role=\"pkg\">kmod</emphasis> package."
-msgstr "Estes arquivos de configuração são destinados para o <command> modprobe </command> - o programa que carrega um módulo do kernel com suas dependências (módulos podem realmente chamar outros módulos). Este programa é fornecido pelo pacote <emphasis role=\"pkg\">module-init-tools</emphasis>."
+msgstr ""
+"Estes arquivos de configuração são destinados para o <command> modprobe "
+"</command> - o programa que carrega um módulo do kernel com suas "
+"dependências (módulos podem realmente chamar outros módulos). Este programa "
+"é fornecido pelo pacote <emphasis role=\"pkg\">kmod</emphasis>."
 
 #. Tag: indexterm
 #, no-c-format
@@ -248,16 +252,35 @@ msgid "<primary><command>modprobe</command></primary>"
 msgstr "<primary><command>modprobe</command></primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary><emphasis role=\"pkg\">krdc</emphasis></primary>"
 msgid "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
-msgstr "<primary><emphasis role=\"pkg\">krdc</emphasis></primary>"
+msgstr "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose name start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started. In <emphasis role=\"distribution\">Squeeze</emphasis>, the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm</command>)."
 msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose name start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started, but nowadays the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm</command>)."
-msgstr "Após este estágio, o <command>init</command> assume o controle e inicializa os programas habilitados no nível de execução padrão (que geralmente é no nível de execução 2). Ele executa <command>/etc/init.d/rc 2</command>, um script que inicia todos os serviços que estão listados em  <filename>/etc/rc2.d/</filename> e os quais tem o nome com a letra inicial \"S\". O número de duas casas que se segue tinha sido historicamente utilizado para definir a ordem em que os serviços teve de ser iniciado.  No <emphasis role=\"distribution\">Squeeze</emphasis>, o sistema de boot padrão usa <command>insserv</command>, o qual agenda automaticamente tudo, baseado nas dependencias dos scripts. Desta forma, Cada script de inicialização declara as condições que devem ser cumpridos para iniciar ou parar o serviço (por exemplo, se ele deve começar antes ou depois de outro serviço); <command>init</command> em seguida, lança-os na ordem que satisfaça estas condições. A numeração estática dos scripts, portanto, não são mais levados em consideração (mas eles sempre devem ter um nome começando por \"S\" seguido por dois digitos e o nome atual do script usado por suas dependências). Geralmente, serviços base (tal como registros com o <command>rsyslog</command>, ou numeração de portas com  <command>portmap</command>) são inicializados primeiro, seguidos por serviços padrões e a interface gráfica (<command>gdm</command>)."
+msgstr ""
+"Após este estágio, o <command>init</command> assume o controle e inicializa "
+"os programas habilitados no nível de execução padrão (que geralmente é no "
+"nível de execução 2). Ele executa <command>/etc/init.d/rc 2</command>, um "
+"script que inicia todos os serviços que estão listados em  "
+"<filename>/etc/rc2.d/</filename> e que comaçam com a letra \"S\". O número "
+"de duas casas que se segue tinha sido historicamente utilizado para definir "
+"a ordem em que os serviços teve de ser iniciado.  Atualmente, o sistema de "
+"boot padrão usa <command>insserv</command>, o qual agenda automaticamente "
+"tudo, baseado nas dependências dos scripts. Desta forma, Cada script de "
+"inicialização declara as condições que devem ser cumpridos para iniciar ou "
+"parar o serviço (por exemplo, se ele deve começar antes ou depois de outro "
+"serviço); <command>init</command> em seguida, lança-os na ordem que "
+"satisfaça estas condições. A numeração estática dos scripts, portanto, não "
+"são mais levados em consideração (mas eles sempre devem ter um nome "
+"começando por \"S\" seguido por dois digitos e o nome atual do script usado "
+"por suas dependências). Geralmente, serviços base (tal como registros com o "
+"<command>rsyslog</command>, ou numeração de portas com  "
+"<command>portmap</command>) são inicializados primeiro, seguidos por "
+"serviços padrões e a interface gráfica (<command>gdm</command>)."
 
 #. Tag: para
 #, no-c-format
@@ -270,28 +293,60 @@ msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
 msgstr "<emphasis>ALTERNATIVA</emphasis> Outros sistemas de inicializações"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "This book describes the boot system used by default in Debian (as implemented by <emphasis role=\"pkg\">sysvinit</emphasis> package), which is derived and inherited from <emphasis>System V</emphasis> Unix systems, but there are others."
 msgid "This book describes the boot system used by default in Debian (as implemented by the <emphasis role=\"pkg\">sysvinit</emphasis> package), which is derived and inherited from <emphasis>System V</emphasis> Unix systems, but there are others. <emphasis role=\"distribution\">Jessie</emphasis> will likely come with another init system by default since the current one is no longer suited to the dynamic nature of computing."
-msgstr "Este livro descreve o sistema de inicialização usado por padrão no Debian (como implementado pelo pacote <emphasis role=\"pkg\">sysvinit</emphasis>), que é derivado e herdado dos sistemas Unix <emphasis>System V</emphasis>, mas existem outros."
+msgstr ""
+"Este livro descreve o sistema de inicialização usado por padrão no Debian ("
+"como implementado pelo pacote <emphasis role=\"pkg\">sysvinit</emphasis>), "
+"que é derivado e herdado dos sistemas Unix <emphasis>System V</emphasis>, "
+"mas existem outros. <emphasis role=\"distribution\">Jessie</emphasis> "
+"provavelmente virá com outro sistema init por padrão já que o atual não é "
+"mais adequado para a natureza dinâmica da computação."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<emphasis role=\"pkg\">file-rc</emphasis> is another boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order"
 msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
-msgstr "<emphasis role=\"pkg\">file-rc</emphasis> é um outro sistema de inicialização com um processo muito simples. Ele mantém a ideia de runlevels (níveis de execução), mas substitui os diretórios e links simbólicos com um arquivo de configuração, que indica em <command>init</command> os processos que devem ser iniciados e sua ordem de inicialização"
+msgstr ""
+"<emphasis role=\"pkg\">file-rc</emphasis> é um sistema de inicialização com "
+"um processo muito simples. Ele mantém a ideia de runlevels (níveis de "
+"execução), mas substitui os diretórios e links simbólicos com um arquivo de "
+"configuração, que diz ao <command>init</command> os processos que devem ser "
+"iniciados e sua ordem de inicialização."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "The newly arrived <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Squeeze</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
 msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
-msgstr "O recém-chegado sistema <command>upstart</command> ainda não está perfeitamente testado no Debian. Ele é baseado em eventos: scripts de inicialização não são mais executados em uma ordem sequencial, mas em resposta a eventos como a conclusão de um outro script do qual eles são dependentes. Este sistema, iniciado pelo Ubuntu, está presente no Debian <emphasis role=\"distribution\">Squeeze</emphasis>, mas não é o padrão; ele vem, de fato, como um substituto para o <emphasis role=\"pkg\"> sysvinit</emphasis>, e uma das funções iniciadas pelo <command>upstart</command> é iniciar os scripts escritos para sistemas tradicionais, especialmente aqueles do pacote <emphasis role=\"pkg\">sysv-rc</emphasis>."
+msgstr ""
+"O recém-chegado sistema <command>upstart</command> ainda não está "
+"perfeitamente testado no Debian. Ele é baseado em eventos: scripts de "
+"inicialização não são mais executados em uma ordem sequencial, mas em "
+"resposta a eventos como a conclusão de um outro script do qual eles são "
+"dependentes. Este sistema, iniciado pelo Ubuntu, está presente no Debian <"
+"emphasis role=\"distribution\">Wheezy</emphasis>, mas não é o padrão; ele "
+"vem, de fato, como um substituto para o <emphasis role=\"pkg\""
+">sysvinit</emphasis>, e uma das funções iniciadas pelo "
+"<command>upstart</command> é iniciar os scripts escritos para sistemas "
+"tradicionais, especialmente aqueles do pacote <emphasis role=\"pkg\">sysv-"
+"rc</emphasis>."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Another new option is <command>systemd</command>, but it still lacks the maturity needed to be part of <emphasis role=\"distribution\">Squeeze</emphasis>. Its approach is opposite to the previous systems; instead of preemptively launching all services, and having to deal with the question of scheduling, <command>systemd</command> chooses to start services on demand, somewhat along the principle of <command>inetd</command>. But this means that the boot system must be able to know how services are made available (it could be through a socket, a filesystem, or others), and thus requires small modifications of those services."
 msgid "Another new option that is gaining a lot of traction is <command>systemd</command>. Its approach is opposite to the previous systems; instead of preemptively launching all services, and having to deal with the question of scheduling, <command>systemd</command> chooses to start services on demand, somewhat along the principle of <command>inetd</command>. But this means that the boot system must be able to know how services are made available (it could be through a socket, a filesystem, or others), and thus requires small modifications of those services. It also provides backwards compatibility to System V init scripts."
-msgstr "Uma outra nova opção é o <command>systemd</command>, mas não tem ainda a  maturidade necessária para ser parte do <emphasis role=\"distribution\">Squeeze</emphasis>. Sua abordagem é oposta aos sistemas anteriores, em vez de carregar antecipadamente todos os serviços, e ter que lidar com a questão de planejamento,<command>systemd</command> ele escolhe para iniciar os serviços sob demanda, aproximadamente ao longo do principal <command>inetd</command>.Porém isso significa que o sistema de inicialização deve ser capaz de conhecer como os serviços são disponibilizados (que poderia ser através de um soquete, um sistema de arquivos, ou outros), e portanto, requer pequenas modificações desses serviços."
+msgstr ""
+"Uma outra nova opção que está ganhando muita força é o "
+"<command>systemd</command>. Sua abordagem é oposta aos sistemas anteriores, "
+"em vez de carregar antecipadamente todos os serviços, e ter que lidar com a "
+"questão de planejamento,o <command>systemd</command> opta por iniciar os "
+"serviços sob demanda, mais ou menos como o <command>inetd</command> faz. "
+"Porém isso significa que o sistema de inicialização deve ser capaz de saber "
+"como os serviços são disponibilizados (que poderia ser através de um "
+"soquete, um sistema de arquivos, ou outros), e portanto, requerer pequenas "
+"modificações desses serviços. Ele também fornece retrocompatibilidade com os "
+"scripts System V."
 
 #. Tag: para
 #, no-c-format
@@ -434,10 +489,11 @@ msgid "<emphasis>BACK TO BASICS</emphasis> Client, server"
 msgstr "<emphasis>DE VOLTA AO BÁSICO</emphasis> Cliente, servidor"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>server</primary><secondary>client/server architecture</secondary>"
 msgid "<primary>client</primary><secondary>client/server architecture</secondary>"
-msgstr "<primary>servidor</primary><secondary>arquitetura cliente/servidor</secondary>"
+msgstr ""
+"<primary>cliente</primary><secondary>arquitetura cliente/servidor</secondary>"
 
 #. Tag: indexterm
 #, no-c-format
@@ -470,21 +526,24 @@ msgid "<primary>SSH</primary>"
 msgstr "<primary>SSH</primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "<primary>Secure Shell</primary>"
 msgstr "<primary>Secure Shell</primary>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "The <emphasis>SSH</emphasis> (Secure SHell) protocol, contrary to <emphasis>telnet</emphasis>, was designed with security and reliability in mind. Connections using SSH are secure: the partner is authenticated and all data exchanges are encrypted."
 msgid "The <emphasis>SSH</emphasis> (Secure SHell) protocol was designed with security and reliability in mind. Connections using SSH are secure: the partner is authenticated and all data exchanges are encrypted."
-msgstr "O protocolo <emphasis>SSH</emphasis> (Secure SHell), ao contrário do <emphasis>telnet</emphasis>, foi projetado com segurança e confiabilidade em mente. Conexões usando SSH estão seguras: o parceiro é autenticado e todas as trocas de dados criptografadas."
+msgstr ""
+"O protocolo <emphasis>SSH</emphasis> (Secure SHell) foi projetado com "
+"segurança e confiabilidade em mente. Conexões usando SSH estão seguras: o "
+"parceiro é autenticado e todas as trocas de dados criptografadas."
 
 #. Tag: title
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<emphasis>CULTURE</emphasis> SSH compared to RSH"
 msgid "<emphasis>CULTURE</emphasis> Telnet and RSH are obsolete"
-msgstr "<emphasis>CULTURA</emphasis> SSH comparado ao RSH"
+msgstr "<emphasis>CULTURA</emphasis> Telnet e RSH estão obsoletos"
 
 #. Tag: indexterm
 #, no-c-format
@@ -492,10 +551,10 @@ msgid "<primary><command>telnet</command></primary>"
 msgstr "<primary><command>telnet</command></primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary><command>rsync</command></primary>"
 msgid "<primary><command>rsh</command></primary>"
-msgstr "<primary><command>rsync</command></primary>"
+msgstr "<primary><command>rsh</command></primary>"
 
 #. Tag: para
 #, no-c-format
@@ -523,9 +582,11 @@ msgid "SSH also offers two file transfer services. <command>scp</command> is a c
 msgstr "SSH também oferece dois serviços de transferência de arquivo. <command>scp</command> é uma ferramenta de linha de comando que pode ser usada como <command>cp</command>, exceto que qualquer caminho a outra máquina é prefixado com o nome da máquina, seguido por dois-pontos."
 
 #. Tag: screen
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "<computeroutput>$ </computeroutput><userinput>scp file machine:/tmp/</userinput>\n"
-msgstr "<computeroutput>$ </computeroutput><userinput>scp file machine:/tmp/</userinput>\n"
+msgstr ""
+"<computeroutput>$ </computeroutput><userinput>scp arquivo "
+"máquina:/tmp/</userinput>\n"
 
 #. Tag: para
 #, no-c-format
@@ -573,10 +634,15 @@ msgid "The option to fork a project is a direct result of the very nature of fre
 msgstr "A opção de dividir um projeto é um resultado direto da própria natureza do software livre, uma divisão é um evento saudável, quando se permite a continuação de um projeto como software livre (por exemplo, em caso de alterações de licença). Uma divisão decorrente de divergências técnicas ou pessoais é muitas vezes um desperdício de recursos humanos; outra resolução seria preferível. Fusões de dois projetos que já passaram por uma divisão anterior não são desconhecidos."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Since <emphasis role=\"distribution\">Etch</emphasis>, OpenSSH is split into two packages. The client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt-get install ssh</command>)."
 msgid "OpenSSH is split into two packages: the client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt-get install ssh</command>)."
-msgstr "Desde o <emphasis role=\"distribution\">Etch</emphasis>, o OpenSSH é dividido em dois pacotes. A parte do cliente está no pacote <emphasis role=\"pkg\">openssh-client</emphasis>, e o pacote do servidor está no <emphasis role=\"pkg\">openssh-server</emphasis>. O meta-pacote <emphasis role=\"pkg\">ssh</emphasis> depende de ambas as partes e facilita a instalação de ambos (<command>apt-get install ssh</command>)."
+msgstr ""
+"O OpenSSH é dividido em dois pacotes. A parte do cliente está no pacote <"
+"emphasis role=\"pkg\">openssh-client</emphasis>, e o pacote do servidor está "
+"no <emphasis role=\"pkg\">openssh-server</emphasis>. O meta-pacote <emphasis "
+"role=\"pkg\">ssh</emphasis> depende de ambas as partes e facilita a "
+"instalação de ambos (<command>apt-get install ssh</command>)."
 
 #. Tag: title
 #, no-c-format
@@ -592,6 +658,25 @@ msgstr "Cada vez que alguém se conecta por SSH, o servidor remoto pede uma senh
 #, no-c-format
 msgid "The user generates a key pair on the client machine with <command>ssh-keygen -t rsa</command>; the public key is stored in <filename>~/.ssh/id_rsa.pub</filename>, while the corresponding private key is stored in <filename>~/.ssh/id_rsa</filename>. The user then uses <command>ssh-copy-id <replaceable>server</replaceable></command> to add their public key to the <filename>~/.ssh/authorized_keys</filename> file on the server. If the private key was not protected with a “passphrase” at the time of its creation, all subsequent logins on the server will work without a password. Otherwise, the private key must be decrypted each time by entering the passphrase. Fortunately, <command>ssh-agent</command> allows us to keep private keys in memory to not have to regularly re-enter the password. For this, you simply use <command>ssh-add</command> (once per work session) provided that the session is already associated with a functional instance of <command>ssh-agent</command>. Debian activates it by default in graphical sessions, but this can be deactivated by changing <filename>/etc/X11/Xsession.options</filename>. For a console session, you can manually start it with <command>eval $(ssh-agent)</command>."
 msgstr ""
+"O usuário gera um par de chaves na máquina cliente com <command>ssh-keygen -"
+"t rsa</command>; a chave pública é armazenada em "
+"<filename>~/.ssh/id_rsa.pub</filename>,enquanto o chave privada "
+"correspondente é armazenada em <filename>~/.ssh/id_rsa</filename>.O usuário "
+"em seguida usa \n"
+"<command>ssh-copy-id <replaceable>server</replaceable></command> para "
+"adicionar a sua chave pública no servidor "
+"<filename>~/.ssh/authorized_keys</filename>.Se a chave privada não estava "
+"protegida por uma \"senha\" no momento de sua criação, todos os logins "
+"subsequentes sobre o servidor vão funcionar sem uma senha.Caso contrário, a "
+"chave privada deve ser decifrada a cada momento digitando a "
+"senha.Felizmente, <command>ssh-agent</command>  nos permite manter as chaves "
+"privadas na memória para não ter que  re-digitar com frequencia a senha.Para "
+"isso, basta usar  <command>ssh-add</command> (uma vez por sessão de trabalho)"
+",desde que a sessão já está associado a uma instância funcional do \n"
+"<command>ssh-agent</command>.O Debian ativa por padrão nas sessões gráficas, "
+"mas isso pode ser desativado alterando "
+"<filename>/etc/X11/Xsession.options</filename>.Para uma sessão de console, "
+"você pode iniciá-lo manualmente com <command>eval $(ssh-agent)</command>."
 
 #. Tag: title
 #, no-c-format
@@ -609,10 +694,20 @@ msgid "<emphasis>CULTURE</emphasis> OpenSSL flaw in Debian <emphasis role=\"dist
 msgstr "<emphasis>CULTURA</emphasis> Falha do OpenSSL no Debian <emphasis role=\"distribution\">Etch</emphasis>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "The OpenSSL library, as initially provided in Debian <emphasis role=\"distribution\">Etch</emphasis>, had a serious problem in its random number generator (RNG). Indeed, the Debian maintainer had made a change in order for the library to not be the source of warnings for programs using it and that would be analyzed by memory testing tools like <command>valgrind</command>. Unfortunately, this change also meant that the RNG was employing only one source of entropy corresponding to the process number (PID) whose 32,000 possible values do not offer enough randomness. <ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
 msgid "The OpenSSL library, as initially provided in Debian <emphasis role=\"distribution\">Etch</emphasis>, had a serious problem in its random number generator (RNG). Indeed, the Debian maintainer had made a change so that applications using it would no longer generate warnings when analyzed by memory testing tools like <command>valgrind</command>. Unfortunately, this change also meant that the RNG was employing only one source of entropy corresponding to the process number (PID) whose 32,000 possible values do not offer enough randomness. <ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
-msgstr "A biblioteca OpenSSL, como inicialmente previsto no Debian <emphasis role=\"distribution\">Etch</emphasis>,tinha um grave problema no seu gerador de número aleatório (RNG). De fato, o mantenedor Debian tinha feito uma mudança para que a biblioteca não fosse a fonte de advertências para os programas que o utilizam e que seriam analisados por ferramentas de teste de memória como <command>valgrind</command>.Infelizmente, esta mudança também significou que o RNG estava empregando apenas uma fonte de entropia que corresponde ao número do processo (PID), cujos 32.000 possíveis valores não oferecem aleatoriedade suficiente.<ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
+msgstr ""
+"A biblioteca OpenSSL, como era inicialmente fornecida no Debian <emphasis "
+"role=\"distribution\">Etch</emphasis>, tinha um grave problema no seu "
+"gerador de número aleatório (Random Number Generator - RNG). De fato, o "
+"mantenedor Debian tinha feito uma mudança para que aplicações usando ela não "
+"gerassem avisos quando analisadas por ferramentas de teste de memória como "
+"<command>valgrind</command>.Infelizmente, esta mudança também significou que "
+"o RNG estava empregando apenas uma fonte de entropia que corresponde ao "
+"número do processo (PID), cujos 32.000 possíveis valores não oferecem "
+"aleatoriedade suficiente. <ulink type=\"block\" url=\""
+"http://www.debian.org/security/2008/dsa-1571\" />"
 
 #. Tag: para
 #, no-c-format
@@ -628,6 +723,13 @@ msgstr "Uma análise mais completa do incidente mostra que ele é o resultado de
 #, no-c-format
 msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian patch tracker were developed. <ulink type=\"block\" url=\"http://patch-tracker.debian.org\" />"
 msgstr ""
+"É difícil nessas condições de encontrar as medidas corretivas para evitar "
+"que tais incidentes não se repitam. A lição a ser aprendida aqui é que cada "
+"divergência que o Debian introduz ao upstream deve ser justificada, "
+"documentada, submetida ao upstream quando possível, e amplamente divulgada. "
+"É nesta perspectiva que o novo formato de pacote de origem (\"3.0 (quilt)\") "
+"e o patch rastreador Debian foram desenvolvidos. <ulink type=\"block\" url=\""
+"http://patch-tracker.debian.org\" />"
 
 #. Tag: title
 #, no-c-format
@@ -660,13 +762,13 @@ msgid "<emphasis>VOCABULARY</emphasis> Tunnel"
 msgstr "<emphasis>VOCABULÁRIO</emphasis> Túnel"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>tunnel SSH</primary><seealso>VPN</seealso>"
 msgid "<primary>tunnel (SSH)</primary><seealso>VPN</seealso>"
-msgstr "<primary>túnel SSH</primary><seealso>VPN</seealso>"
+msgstr "<primary>túnel (SSH)</primary><seealso>VPN</seealso>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>tunnel SSH</primary><seealso>VPN</seealso>"
 msgid "<primary>SSH tunnel</primary><seealso>VPN</seealso>"
 msgstr "<primary>túnel SSH</primary><seealso>VPN</seealso>"
@@ -837,10 +939,10 @@ msgid "<primary><command>xdm</command></primary>"
 msgstr "<primary><command>xdm</command></primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary><command>gdm</command></primary>"
 msgid "<primary><command>lightdm</command></primary>"
-msgstr "<primary><command>gdm</command></primary>"
+msgstr "<primary><command>lightdm</command></primary>"
 
 #. Tag: indexterm
 #, no-c-format
@@ -923,9 +1025,9 @@ msgid "Each file or directory has specific permissions for three categories of u
 msgstr "Cada arquivo ou diretório têm permissões específicas para três categorias de usuários:"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "its owner (symbolized by <literal>u</literal> as in “user”);"
-msgstr "seu dono (simbolizado por <literal>u</literal> como em “user”);"
+msgstr "seu dono (simbolizado por <literal>u</literal> como em \"user\");"
 
 #. Tag: para
 #, no-c-format
@@ -973,10 +1075,10 @@ msgid "<primary>modification, right</primary>"
 msgstr "<primary>modificação, direito</primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>modification, right</primary>"
 msgid "<primary>execution, right</primary>"
-msgstr "<primary>modificação, direito</primary>"
+msgstr "<primary>execução, direito de</primary>"
 
 #. Tag: para
 #, no-c-format
@@ -1014,15 +1116,17 @@ msgid "A directory is handled differently. Read access gives the right to consul
 msgstr ""
 
 #. Tag: title
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "<emphasis>SECURITY</emphasis> <literal>setgid</literal> directory and <emphasis>sticky bit</emphasis>"
-msgstr "<emphasis>SEGURANÇA</emphasis> <literal>setgid</literal> diretório e <emphasis>sticky bit</emphasis>"
+msgstr ""
+"<emphasis>SEGURANÇA</emphasis> <literal>setgid</literal> diretório e "
+"<emphasis>sticky bit</emphasis>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary><literal>setgid</literal>, right</primary>"
 msgid "<primary><literal>setgid</literal> directory</primary>"
-msgstr "<primary><literal>setgid</literal>, direito</primary>"
+msgstr "<primary><literal>setgid</literal>diretório</primary>"
 
 #. Tag: para
 #, no-c-format
@@ -1085,10 +1189,10 @@ msgid "<primary>octal representation of rights</primary>"
 msgstr "<primary>representação octal dos direitos</primary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>service</primary><secondary>restart</secondary>"
 msgid "<primary>rights</primary><secondary>octal representation</secondary>"
-msgstr "<primary>serviço</primary><secondary>reiniciar</secondary>"
+msgstr "<primary>direitos</primary><secondary>reresentação octal</secondary>"
 
 #. Tag: para
 #, no-c-format
@@ -1196,10 +1300,10 @@ msgid "Since no interface is perfect, you may be tempted to try several solution
 msgstr ""
 
 #. Tag: title
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Administrating On a Web Interface: <command>webmin</command>"
 msgid "Administrating on a Web Interface: <command>webmin</command>"
-msgstr "Administrando Por uma Interface Web: <command>webmin</command>"
+msgstr "Administrando por uma Interface Web: <command>webmin</command>"
 
 #. Tag: indexterm
 #, no-c-format
@@ -1297,16 +1401,17 @@ msgid "The administration interface is available in a web browser at <literal>ht
 msgstr ""
 
 #. Tag: title
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
 msgid "<emphasis>ALTERNATIVE</emphasis> GNOME control center"
-msgstr "<emphasis>ALTERNATIVAS</emphasis> Outros sistemas de inicializações"
+msgstr "<emphasis>ALTERNATIVA</emphasis> centro de controle GNOME"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary><emphasis role=\"pkg\">tsclient</emphasis></primary>"
 msgid "<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>"
-msgstr "<primary><emphasis role=\"pkg\">tsclient</emphasis></primary>"
+msgstr ""
+"<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>"
 
 #. Tag: para
 #, no-c-format
@@ -1374,10 +1479,10 @@ msgid "<primary>files</primary><secondary>log files</secondary>"
 msgstr "<primary>arquivos</primary><secondary>arquivos de log</secondary>"
 
 #. Tag: indexterm
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<primary>logs</primary><secondary>distribution</secondary>"
 msgid "<primary>logs</primary><secondary>dispatching</secondary>"
-msgstr "<primary>logs</primary><secondary>distribuição</secondary>"
+msgstr "<primary>logs</primary><secondary>despachar</secondary>"
 
 #. Tag: title
 #, no-c-format
@@ -1650,9 +1755,12 @@ msgid "Each significant line of the <filename>/etc/inetd.conf</filename> file de
 msgstr "Cada linha significativa do arquivo <filename>/etc/inetd.conf</filename> descreve um servidor através de sete campos (separados por espaços):"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "The TCP or UDP port number, or the service name (which is mapped to a standard port number with the information contained in the <filename>/etc/services</filename> file)."
-msgstr "O número da porta TCP ou UDP, ou do serviço de nomes (o qual é mapeado para o número da porta padrão com a informação contida no arquivo <filename>/etc/services</filename>)."
+msgstr ""
+"O número da porta TCP ou UDP, ou o nome do serviço (o qual é mapeado para o "
+"número da porta padrão com a informação contida no arquivo "
+"<filename>/etc/services</filename>)."
 
 #. Tag: para
 #, no-c-format
@@ -1670,9 +1778,9 @@ msgid "The options: two possible values: <literal>wait</literal> or <literal>now
 msgstr ""
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "The user name of the user under whose identity the server will run."
-msgstr "O nome do usuário do usuário o qual a identidade o servidor executará."
+msgstr "O nome de usuário do usuário cuja identidade o servidor executará."
 
 #. Tag: para
 #, no-c-format
@@ -1695,7 +1803,7 @@ msgid "Excerpt from <filename>/etc/inetd.conf</filename>"
 msgstr "Excerto do <filename>/etc/inetd.conf</filename>"
 
 #. Tag: programlisting
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
 #| "finger stream tcp nowait  nobody     /usr/sbin/tcpd     /usr/sbin/in.fingerd\n"
@@ -1706,7 +1814,7 @@ msgid ""
 "ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i\n"
 msgstr ""
 "talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
-"finger stream tcp nowait  nobody     /usr/sbin/tcpd     /usr/sbin/in.fingerd\n"
+"finger stream tcp nowait  nobody     /usr/sbin/tcpd     in.fingerd\n"
 "ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i\n"
 
 #. Tag: indexterm
