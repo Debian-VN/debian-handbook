@@ -44,7 +44,7 @@
     </sidebar>
 
     <para>This section only gives a quick peek at the commands. They all
-    have many options not described here; accordingly, they also have
+    have many options not described here, so please refer to the
     abundant documentation in their respective manual pages.</para>
     <section>
       <title>Browsing the Directory Tree and Managing Files</title>
@@ -86,7 +86,7 @@ Documents  Music      Public    Videos</computeroutput>
       <replaceable>directory</replaceable></command>. The
       <command>mv</command> command allows <emphasis>moving</emphasis>
       and/or renaming files and directories; <emphasis>removing</emphasis>
-      a file involves <command>rm
+      a file is achieved with <command>rm
       <replaceable>file</replaceable></command>.</para>
 
       <screen>
@@ -108,13 +108,13 @@ Documents  Music      Public</computeroutput>
       <title>Displaying and Modifying Text Files</title>
 
       <para>The <command>cat <replaceable>file</replaceable></command>
-      command (intended to <emphasis>concatenate</emphasis> files on its
-      standard output) reads a file and displays its contents in the
+      command (intended to <emphasis>concatenate</emphasis> files to the
+      standard output device) reads a file and displays its contents on the
       terminal. If the file is too big to fit on a screen, use a pager such
       as <command>less</command> (or <command>more</command>) to display it
       page by page.</para>
 
-      <para>The <command>editor</command> command always points at a text
+      <para>The <command>editor</command> command starts a text
       editor (such as <command>vi</command> or <command>nano</command>) and
       allows creating, modifying and reading text files. The simplest files
       can sometimes be created directly from the command interpreter thanks
@@ -123,8 +123,9 @@ Documents  Music      Public</computeroutput>
       <replaceable>file</replaceable> with
       “<replaceable>text</replaceable>” as its contents. Adding a line
       at the end of this file is possible too, with a command such as
-      <command>echo "<replaceable>line</replaceable>"
-      &gt;&gt;<replaceable>file</replaceable></command>.</para>
+      <command>echo "<replaceable>moretext</replaceable>"
+      &gt;&gt;<replaceable>file</replaceable></command>. Note the
+      <literal>&gt;&gt;</literal> in this example.</para>
     </section>
     <section>
       <title>Searching for Files and within Files</title>
@@ -133,7 +134,7 @@ Documents  Music      Public</computeroutput>
       <replaceable>criteria</replaceable></command> command looks for files
       in the hierarchy under <replaceable>directory</replaceable> according
       to several criteria. The most commonly used criterion is
-      <literal>-name <replaceable>name</replaceable></literal>: it allows
+      <literal>-name <replaceable>name</replaceable></literal>: that allows
       looking for a file by its name.</para>
 
       <para>The <command>grep <replaceable>expression</replaceable>
@@ -148,17 +149,17 @@ Documents  Music      Public</computeroutput>
       <title>Managing Processes</title>
 
       <para>The <command>ps aux</command> command lists the processes
-      currently running and allows identifying them by their
+      currently running and helps identifying them by showing their
       <emphasis>pid</emphasis> (process id). Once the
       <emphasis>pid</emphasis> of a process is known, the <command>kill
       -<replaceable>signal</replaceable>
       <replaceable>pid</replaceable></command> command allows sending it a
       signal (if the process belongs to the current user). Several signals
       exist; most commonly used are <literal>TERM</literal> (a request to
-      terminate) and <literal>KILL</literal> (a heavy-handed kill).</para>
+      terminate gracefully) and <literal>KILL</literal> (a forced kill).</para>
 
       <para>The command interpreter can also run programs in the background
-      if the command ends with “&amp;”. By using the ampersand, the
+      if the command is followed by a “&amp;”. By using the ampersand, the
       user resumes control of the shell immediately even though the command
       is still running (hidden from the user; as a background process). The
       <command>jobs</command> command lists the processes running in the
@@ -183,7 +184,7 @@ Documents  Music      Public</computeroutput>
       the filesystem. Its <literal>-h</literal> option (for <emphasis>human
       readable</emphasis>) converts the sizes into a more legible unit
       (usually mebibytes or gibibytes). In a similar fashion, the
-      <command>free</command> command understands the <literal>-m</literal>
+      <command>free</command> command supports the <literal>-m</literal>
       and <literal>-g</literal> options, and displays its data either in
       mebibytes or in gibibytes, respectively.</para>
 
@@ -288,7 +289,10 @@ tmpfs                   514208    269136    245072  53% /dev/shm
         <listitem>
 	  <para><filename>/proc/</filename> and <filename>/sys/</filename>
 	  are specific to the Linux kernel (and not part of the FHS). They
-	  are used by the kernel for exporting data to user-space.</para>
+	  are used by the kernel for exporting data to user-space
+	  (see <xref linkend="sect.userspace-presentation" /> and <xref
+	  linkend="sect.user-space" /> for explanations about this
+	  concept).</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -614,7 +618,7 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       working.</para>
       <indexterm><primary><command>mkfs</command></primary></indexterm>
 
-      <para>There are many filesystems, corresponding to many ways of
+      <para>There are many filesystem formats, corresponding to many ways of
       physically storing data on disks. The most widely known are
       <emphasis>ext2</emphasis>, <emphasis>ext3</emphasis> and
       <emphasis>ext4</emphasis>, but others exist. For instance,
@@ -631,7 +635,7 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       should only be run once, except if one deliberately wishes to wipe a
       filesystem and start afresh.</para>
 
-      <para>There are even network filesystems, such as
+      <para>There are also network filesystems, such as
       <acronym>NFS</acronym>, where data is not stored on a local disk.
       Instead, data is transmitted through the network to a server that
       stores and retrieves them on demand. The filesystem abstraction
@@ -667,7 +671,7 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       (<emphasis>process identifier</emphasis>).</para>
 
       <para>Unix-like kernels (including Linux), like most other modern
-      operating systems, are able of “multi-tasking”. In other words,
+      operating systems, are capable of “multi-tasking”. In other words,
       they allow running many processes “at the same time”. There's
       actually only one running process at any one time, but the kernel
       cuts time into small slices and runs each process in turn. Since
@@ -677,17 +681,18 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       rest of the time. The kernel's job is to adjust its scheduling
       mechanisms to keep that illusion, while maximizing the global system
       performance. If the time slices are too long, the application may
-      lack in snappiness and user interactivity. Too short, and the system
+      not appear as responsive as desired. Too short, and the system
       loses time switching tasks too frequently. These decisions can be
       tweaked with process priorities. High-priority processes will run for
-      longer and more frequent time slices than low-priority
+      longer and with more frequent time slices than low-priority
       processes.</para>
 
       <sidebar>
         <title><emphasis>NOTE</emphasis> Multi-processor systems (and variants)</title>
 
-	<para>The restriction described here is only a corner
-	case. The actual restriction is that there can only be one
+	<para>The limitation described above of only one process being
+	able to run at a time, doesn't always apply. The actual
+	restriction is that there can only be one
 	running process <emphasis>per processor core</emphasis> at a
 	time. Multi-processor, multi-core or “hyper-threaded” systems
 	allow several processes to run in parallel. The same
@@ -706,13 +711,13 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       <title>Rights Management</title>
 
       <para>Unix-like systems are also multi-user. They provide a
-      rights management system that allows separate groups and users;
-      it also allows choosing to permit or block actions based on
-      permissions. The kernel manages, for each process, data allowing
-      permission checking. Most of the time, this means the process'
-      “identity” is the same as the user that started it. And the
-      process is only able to take the actions allowed to its
-      owner. For instance, trying to open a file requires the kernel
+      rights management system that supports separate users and groups;
+      it also allows control over actions based on
+      permissions. The kernel manages data for each process, allowing
+      it to control permissions. Most of the time, a process is identified
+      by the user who started the process. That process is only permitted
+      to take those actions available to its owner. For instance, trying
+      to open a file requires the kernel
       to check the process identity against access permissions (for
       more details on this particular example, see <xref
       linkend="sect.rights-management"/>).</para>
@@ -726,24 +731,24 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
     <para>“User-space” refers to the runtime environment of normal (as
     opposed to kernel) processes. This does not necessarily mean these
     processes are actually started by users because a standard system
-    routinely has several “daemon” processes running before the user
-    even opens a session. Daemon processes are user-space processes.</para>
+    normally has several “daemon” (or background) processes running before the user
+    even opens a session. Daemon processes are also considered user-space processes.</para>
     <section id="sect.process-basics">
       <title>Process</title>
       <indexterm><primary><command>init</command></primary></indexterm>
 
       <para>When the kernel gets past its initialization phase, it starts
       the very first process, <command>init</command>. Process #1 alone is
-      very rarely useful by itself, and Unix-like systems run with a whole
-      lifecycle of processes.</para>
+      very rarely useful by itself, and Unix-like systems run with many
+      additional processes.</para>
       <indexterm><primary><emphasis>fork</emphasis></primary></indexterm>
 
       <para>First of all, a process can clone itself (this is known as a
-      <emphasis>fork</emphasis>). The kernel allocates a new, but
-      identical, process memory space, and another process to use it. At
-      this point in time, the only difference between these two processes
-      is their <emphasis>pid</emphasis>. The new process is customarily
-      called a child process, and the process whose
+      <emphasis>fork</emphasis>). The kernel allocates a new (but
+      identical) process memory space, and another process to use it. At
+      this time, the only difference between these two processes
+      is their <emphasis>pid</emphasis>. The new process is usually
+      called a child process, and the original process whose
       <emphasis>pid</emphasis> doesn't change, is called the parent
       process.</para>
 
@@ -826,9 +831,8 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       advance), while the recipient only has to open the file and read its
       contents.</para>
       <indexterm><primary><emphasis>pipe</emphasis></primary></indexterm>
-      <indexterm><primary><emphasis>pipe</emphasis></primary></indexterm>
 
-      <para>In the case where one does not wish to store data on disk, one
+      <para>In the case where you do not wish to store data on disk, you
       can use a <emphasis>pipe</emphasis>, which is simply an object with
       two ends; bytes written in one end are readable at the other. If the
       ends are controlled by separate processes, this leads to a simple and
@@ -897,14 +901,14 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       be transmitted are control messages such as “pause execution” or
       “resume execution”. Unix (and Linux) provides a mechanism known
       as <emphasis>signals</emphasis>, through which a process can simply
-      send a signal (chosen within a fixed list of a few tens of predefined
+      send a specific signal (chosen from a predefined list of
       signals) to another process. The only requirement is to know the
       <emphasis>pid</emphasis> of the target.</para>
 
       <para>For more complex communications, there are also mechanisms
       allowing a process to open access, or share, part of its
-      allocated memory to other processes. Memory shared between them
-      can be used to move data across.</para>
+      allocated memory to other processes. Memory now shared between them
+      can be used to move data between the processes.</para>
 
       <para>Finally, network connections can also help processes
       communicate; these processes can even be running on different
@@ -939,9 +943,9 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       </itemizedlist>
 
       <para>Thanks to those libraries, applications can reuse existing
-      code. Their development is thus correspondingly simplified, in
-      particular when many applications reuse the same functions. Since
-      libraries are often developed by different persons, the global
+      code. Application development is simplified since
+      many applications can reuse the same functions. With
+      libraries often developed by different persons, the global
       development of the system is closer to Unix's historical
       philosophy.</para>
 
@@ -951,7 +955,7 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
 	<para>One of the fundamental concepts that underlies the Unix
 	family of operating systems is that each tool should only do one
 	thing, and do it well; applications can then reuse these tools to
-	build more advanced logic on top. This Way can be seen in many
+	build more advanced logic on top. This philosophy can be seen in many
 	incarnations. Shell scripts may be the best example: they assemble
 	complex sequences of very simple tools (such as
 	<command>grep</command>, <command>wc</command>,
