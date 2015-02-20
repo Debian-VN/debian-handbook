@@ -35,12 +35,13 @@
       <title><emphasis>QUICK LOOK</emphasis> Starting the command interpreter</title>
 
       <para>A command-line environment can be run from the graphical
-      desktop, by an application known as a “terminal”, such as those
-      found under the <menuchoice><guimenu>Applications</guimenu>
-      <guisubmenu>Accessories</guisubmenu></menuchoice> menu for GNOME, and
-      in <menuchoice><guimenu>K</guimenu>
+      desktop, by an application known as a “terminal”. In GNOME,
+      you can start it from the “Activities” overview (that you get
+      when you move the mouse in the top-left corner of the screen) by
+      typing the first letters of the application name. In KDE, you will
+      find it in the <menuchoice><guimenu>K</guimenu>
       <guisubmenu>Applications</guisubmenu>
-      <guisubmenu>System</guisubmenu></menuchoice> for KDE.</para>
+      <guisubmenu>System</guisubmenu></menuchoice> menu.</para>
     </sidebar>
 
     <para>This section only gives a quick peek at the commands. They all
@@ -260,6 +261,11 @@ tmpfs                   514208    269136    245072  53% /dev/shm
 	  personal files;</para>
         </listitem>
         <listitem>
+          <para><filename>/run/</filename>: volatile runtime data that does not
+          persist across reboots (not yet included in the FHS);
+          </para>
+        </listitem>
+        <listitem>
 	  <para><filename>/sbin/</filename>: system programs;</para>
         </listitem>
         <listitem>
@@ -423,8 +429,10 @@ tmpfs                   514208    269136    245072  53% /dev/shm
       </sidebar>
     </section>
     <section id="sect.bios">
-      <title>The Starter: the BIOS</title>
+      <title>The Starter: the BIOS or UEFI</title>
       <indexterm><primary>BIOS</primary></indexterm>
+      <indexterm><primary>UEFI</primary></indexterm>
+      <indexterm><primary>Master Boot Record (MBR)</primary></indexterm>
 
       <para>Hardware, on its own, is unable to perform useful tasks without
       a corresponding piece of software driving it. Controlling and
@@ -434,20 +442,22 @@ tmpfs                   514208    269136    245072  53% /dev/shm
 
       <para>This symbiosis between hardware and software does not happen on
       its own. When the computer is first powered up, some initial setup is
-      required. This role is assumed by the BIOS, a tiny piece of software
+      required. This role is assumed by the BIOS or UEFI, a piece of software
       embedded into the main board that runs automatically upon power-up.
       Its primary task is searching for software it can hand over control
-      to. Usually, this involves looking for the first hard disk with a
-      boot sector (also known as the <emphasis>master boot
-      record</emphasis> or <acronym>MBR</acronym>), loading that boot
-      sector, and running it. From then on, the BIOS is usually not
-      involved (until the next boot).</para>
+      to. Usually, in the BIOS case, this involves looking for the first
+      hard disk with a boot sector (also known as the <emphasis>master
+      boot record</emphasis> or <acronym>MBR</acronym>), loading that
+      boot sector, and running it. From then on, the BIOS is usually not
+      involved (until the next boot). In the case of UEFI, the process
+      involves scanning disks to find a dedicated EFI partition containing
+      further EFI applications to execute.</para>
 
       <sidebar>
-        <title><emphasis>TOOL</emphasis> Setup, the BIOS configuration tool</title>
+        <title><emphasis>TOOL</emphasis> Setup, the BIOS/UEFI configuration tool</title>
         <indexterm><primary><emphasis>Setup</emphasis></primary></indexterm>
 
-	<para>The BIOS also contains a piece of software called Setup,
+	<para>The BIOS/UEFI also contains a piece of software called Setup,
 	designed to allow configuring aspects of the computer. In
 	particular, it allows choosing which boot device is preferred (for
 	instance, the floppy disk or CD-ROM drive), setting the system
@@ -458,7 +468,7 @@ tmpfs                   514208    269136    245072  53% /dev/shm
 	choice is flashed on screen while booting.</para>
       </sidebar>
 
-      <para>The boot sector, in turn, contains another tiny piece of
+      <para>The boot sector (or the EFI partition), in turn, contains another piece of
       software, called the bootloader, whose purpose is to find and run an
       operating system. Since this bootloader is not embedded in the main
       board but loaded from disk, it can be smarter than the BIOS, which
@@ -470,7 +480,29 @@ tmpfs                   514208    269136    245072  53% /dev/shm
       on. Eventually, a kernel is found, loaded into memory, and
       executed.</para>
 
-      <para>The BIOS is also in charge of detecting and initializing a
+      <sidebar>
+        <title><emphasis>NOTE</emphasis> UEFI, a modern replacement to the BIOS</title>
+        <indexterm><primary>UEFI</primary></indexterm>
+        <indexterm><primary>Secure Boot</primary></indexterm>
+
+        <para>UEFI is a relatively recent development. Most new computers will
+        support UEFI booting, but usually they also support BIOS booting alongside
+        for backwards compatibility with operating systems that are not ready
+        to exploit UEFI.
+        </para>
+        <para>This new system gets rid of some of the limitations of BIOS
+        booting: with the usage of a dedicated partition, the bootloaders no longer
+        need special tricks to fit in a tiny <emphasis>master boot record</emphasis>
+        and then discover the kernel to boot. Even better, with a suitably
+        built Linux kernel, UEFI can directly boot the kernel without any
+        intermediary bootloader.  UEFI is also the basic foundation used
+        to deliver <emphasis>Secure Boot</emphasis>, a technology ensuring
+        that you run only software validated by your operating system
+        vendor.
+        </para>
+      </sidebar>
+
+      <para>The BIOS/UEFI is also in charge of detecting and initializing a
       number of devices. Obviously, this includes the IDE/SATA devices
       (usually hard disk(s) and CD/DVD-ROM drives), but also PCI devices.
       Detected devices are often listed on screen during the boot process.
@@ -484,7 +516,7 @@ tmpfs                   514208    269136    245072  53% /dev/shm
     <section id="sect.kernel">
       <title>The Kernel</title>
 
-      <para>Both the BIOS and the bootloader only run for a few seconds
+      <para>Both the BIOS/UEFI and the bootloader only run for a few seconds
       each; now we're getting to the first piece of software that runs for
       a longer time, the operating system kernel. This kernel assumes the
       role of a conductor in an orchestra, and ensures coordination between
@@ -757,18 +789,13 @@ Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth
       from the parent process. In many cases, though, this child
       process executes another program. With a few exceptions, its
       memory is simply replaced by that of the new program, and
-      execution of this new program begins.  One of the very first
-      actions of process number 1, for instance, is to duplicate
-      itself (which means there are, for a tiny amount of time, two
-      running copies of the same <command>init</command> process), but
-      the child process is then replaced by the first system
-      initialization script, usually
-      <filename>/etc/init.d/rcS</filename>. This script, in turn,
-      clones itself and runs several other programs. At some point,
-      one process among <command>init</command>'s offspring starts a
-      graphical interface for users to log in to (the actual sequence
-      of events is described in more details in <xref
-      linkend="sect.system-boot"/>).</para>
+      execution of this new program begins. This is the mechanism
+      used by the init process (with process number 1) to start
+      additional services and execute the whole startup sequence.
+      At some point, one process among <command>init</command>'s offspring
+      starts a graphical interface for users to log in to (the actual
+      sequence of events is described in more details in
+      <xref linkend="sect.system-boot"/>).</para>
 
       <para>When a process finishes the task for which it was started, it
       terminates. The kernel then recovers the memory assigned to this
