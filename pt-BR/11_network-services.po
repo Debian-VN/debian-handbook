@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2013-12-30 17:37+0100\n"
-"PO-Revision-Date: 2015-02-17 18:35+0200\n"
-"Last-Translator: Herbert Parentes Fortes Neto <hpfn@ig.com.br>\n"
+"PO-Revision-Date: 2015-03-19 02:41+0200\n"
+"Last-Translator: Fred Maranhão <fred.maranhao@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects"
 "/debian-handbook/11_network-services/pt_BR/>\n"
 "Language: pt-BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #. Tag: keyword
 #, no-c-format
@@ -1597,7 +1597,7 @@ msgid "Once the <emphasis role=\"pkg\">clamav-milter</emphasis> package is insta
 msgstr ""
 "Uma vez que o pacote <emphasis role=\"pkg\">clamav-milter</emphasis> esteja "
 "instalado, o milter deve ser reconfigurado para rodar em uma porta TCP ao "
-"invés do nomeado socket padrão. Isso pode ser feito com <command>dpkg-"
+"invés do soquete nomeado padrão. Isso pode ser feito com <command>dpkg-"
 "reconfigure clamav-milter</command>. Quando questionado pela “Communication "
 "interface with Sendmail”, responda “<literal>inet:10002@127.0.0.1</literal>”."
 
@@ -2532,8 +2532,8 @@ msgid "The authentication system used in the above example (<literal>Basic</lite
 msgstr ""
 "O sistema de autenticação usado no exemplo acima (<literal>Basic</literal>) "
 "tem uma segurança mínima já que a senha é enviada em texto puro (ela apenas "
-"é codificada com <emphasis>base64</emphasis>, o que é uma codificação "
-"simples, ao invés do método criptografado). Também deve ser notado que os "
+"é codificada com <emphasis>base64</emphasis>, que é uma codificação simples, "
+"ao invés de um método criptografado). Também deve ser notado que os "
 "documentos “protegidos” por esse mecanismo também trafegam pela rede em "
 "texto puro. Se segurança é importante, toda a conexão HTTP deve ser "
 "criptografada com SSL."
@@ -2734,10 +2734,10 @@ msgid "All these parameters are documented by comments in the template file. In 
 msgstr ""
 "Todos esses parâmetros são documentados através de comentários no arquivo de "
 "exemplo. Em particular, os parâmetros <varname>LogFile</varname> e "
-"<varname>LogFormat</varname> que descrevem a localização e o formato do "
-"arquivo de log é a informação que ele contém; <varname>SiteDomain</varname> "
-"e <varname>HostAliases</varname> listam os vários nomes sob o qual o site "
-"web principal é conhecido."
+"<varname>LogFormat</varname> descrevem a localização e o formato do arquivo "
+"de log e a informação que ele contém; <varname>SiteDomain</varname> e "
+"<varname>HostAliases</varname> listam os vários nomes pelos quais o site web "
+"principal é conhecido."
 
 #. Tag: para
 #, no-c-format
@@ -2746,8 +2746,8 @@ msgstr ""
 "Para sites com alto tráfego, <varname>DNSLookup</varname> geralmente não "
 "deveria ser configurado como <literal>1</literal>; para sites menores, como "
 "o da Falcot descrito acima, essa configuração permite ter relatórios mais "
-"legíveis, que incluem o nome completo da máquina ao invés de endereços IP "
-"crus."
+"legíveis, que incluem o nome completo da máquina ao invés de simplesmente "
+"endereços IP."
 
 #. Tag: title
 #, no-c-format
@@ -2768,7 +2768,7 @@ msgstr ""
 #, no-c-format
 msgid "AWStats will also be enabled for other virtual hosts; each virtual host needs its own configuration file, such as <filename>/etc/awstats/awstats.www.falcot.org.conf</filename>."
 msgstr ""
-"O AWStats também irá ser habilitado para outros hosts virtuais; cada host "
+"O AWStats também será habilitado para outros hosts virtuais; cada host "
 "virtual precisa de um arquivo de configuração próprio como "
 "<filename>/etc/awstats/awstats.www.falcot.org.conf</filename>."
 
@@ -2813,7 +2813,7 @@ msgstr ""
 msgid "After a few minutes (and once the script has been run a few times), the results are available online: <ulink type=\"block\" url=\"http://www.falcot.com/cgi-bin/awstats.pl\" /><ulink type=\"block\" url=\"http://www.falcot.org/cgi-bin/awstats.pl\" />"
 msgstr ""
 "Após alguns minutos (e uma vez que o script tenha sido rodado algumas vezes)"
-", os resultados estão disponíveis online: <ulink type=\"block\" url=\""
+", os resultados ficarão disponíveis online: <ulink type=\"block\" url=\""
 "http://www.falcot.com/cgi-bin/awstats.pl\" /><ulink type=\"block\" url=\""
 "http://www.falcot.org/cgi-bin/awstats.pl\" />"
 
@@ -2831,7 +2831,7 @@ msgstr ""
 "log do Apache sejam rotacionados. Olhando a diretiva "
 "<literal>prerotate</literal> do arquivo "
 "<filename>/etc/logrotate.d/apache2</filename>, isso pode ser resolvido "
-"colocando um symlink  em "
+"colocando um link simbólico em "
 "<filename>/usr/share/awstats/tools/update.sh</filename> no "
 "<filename>/etc/logrotate.d/httpd-prerotate</filename>:"
 
@@ -2909,11 +2909,11 @@ msgstr "<primary>FTP (<emphasis>File Transfer Protocol</emphasis>)</primary>"
 #, no-c-format
 msgid "FTP (<emphasis>File Transfer Protocol</emphasis>) is one of the first protocols of the Internet (RFC 959 was issued in 1985!). It was used to distribute files before the Web was even born (the HTTP protocol was created in 1990, and formally defined in its 1.0 version by RFC 1945, issued in 1996)."
 msgstr ""
-"FTP (<emphasis>File Transfer Protocol</emphasis>) é um dos primeiros "
-"protocolos da internet (RFC 959 foi emitida em 1985!). Ele era usado para "
+"O FTP (<emphasis>File Transfer Protocol</emphasis>) é um dos primeiros "
+"protocolos da internet (a RFC 959 foi emitida em 1985!). Ele era usado para "
 "distribuir arquivos antes mesmo que a Web tivesse nascido (o protocolo HTTP "
 "foi criado em 1990, e formalmente definido em sua versão 1.0 pela RFC 1945, "
-"imitida em 1996)."
+"emitida em 1996)."
 
 #. Tag: para
 #, no-c-format
@@ -3038,7 +3038,7 @@ msgstr "<emphasis>DOCUMENTAÇÃO</emphasis> NFS HOWTO"
 msgid "Even though it is relatively old, the NFS HOWTO is full of interesting information, including methods for optimizing performance. It also describes a way to secure NFS transfers with an SSH tunnel; however, that technique precludes the use of <command>lockd</command>. <ulink type=\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
 msgstr ""
 "Mesmo que ele seja relativamente antigo, o NFS HOWTO é cheio de informações "
-"interessantes, incluindo métodos para optimizar a performance. ele também "
+"interessantes, incluindo métodos para optimizar o desempenho. Ele também "
 "descreve uma maneira segura do NFS fazer transferências com um túnel SSH; "
 "contudo, essa técnica impede o uso do <command>lockd</command>. <ulink type="
 "\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
@@ -3061,7 +3061,7 @@ msgstr ""
 "apenas máquinas que tem permissão de usá-lo possam se conectar nos vários "
 "servidores RPC requeridos. O firewall tem também que bloquear <emphasis>IP "
 "spoofing</emphasis> para prevenir que uma máquina de fora atue como uma de "
-"dentro, e acesso às portas apropriadas tem que ser restritos às máquinas "
+"dentro, e acesso às portas apropriadas tem que ser restrito às máquinas "
 "destinadas a acessar os compartilhamentos NFS."
 
 #. Tag: title
@@ -3090,9 +3090,9 @@ msgstr "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
 #, no-c-format
 msgid "RPC services register to a directory known as the <emphasis>portmapper</emphasis>. A client wishing to perform an NFS query first addresses the <emphasis>portmapper</emphasis> (on port 111, either TCP or UDP), and asks for the NFS server; the reply usually mentions port 2049 (the default for NFS). Not all RPC services necessarily use a fixed port."
 msgstr ""
-"Os serviços RPC se registra em diretório conhecido como "
+"Os serviços RPC se registram em um diretório conhecido como "
 "<emphasis>portmapper</emphasis>. Um cliente querendo realizar uma consulta "
-"NFS primeiro aborda o <emphasis>portmapper</emphasis> (na porta 111, seja "
+"NFS primeiro consulta o <emphasis>portmapper</emphasis> (na porta 111, seja "
 "TCP ou UDP), e pergunta pelo servidor NFS; a resposta gralmente vem pela "
 "porta 2049 (a padrão para o NFS). Nem todos os serviços RPC necessariamente "
 "usam uma porta fixa."
@@ -3107,7 +3107,7 @@ msgstr ""
 "serviços usam uma porta aleatória (atribuída pelo "
 "<emphasis>portmapper</emphasis>) por padrão, o que torna difícil filtrar o "
 "tráfego que tem como alvo esses serviços. Os administradores da Falcot Corp "
-"encontraram uma solução para esse problema, descrita abaixo."
+"encontraram um jeitinho para resolver esse problema, descrito abaixo."
 
 #. Tag: indexterm
 #, no-c-format
@@ -3355,8 +3355,8 @@ msgstr ""
 #, no-c-format
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr ""
-"Cada máquina pode ser identificada tanto pelo seu nome DNS quanto seu "
-"endereço IP. Todo um conjunto de máquinas podem também ser especificado "
+"Cada máquina pode ser identificada tanto pelo seu nome no DNS quanto seu "
+"endereço IP. Todo um conjunto de máquinas pode também ser especificado "
 "usando tanto uma sintaxe como <literal>*.falcot.com</literal> ou um "
 "intervalo de endereços IP como <literal>192.168.0.0/255.255.255.0</literal> "
 "ou <literal>192.168.0.0/24</literal>."
@@ -3383,28 +3383,28 @@ msgstr "<primary>NFS</primary><secondary>opções</secondary>"
 msgid "By default, the server only answers an NFS query when the current disk operation is complete (<literal>sync</literal> option); this can be disabled with the <literal>async</literal> option. Asynchronous writes increase performance a bit, but they decrease reliability since there's a data loss risk in case of the server crashing between the acknowledgment of the write and the actual write on disk. Since the default value changed recently (as compared to the historical value of NFS), an explicit setting is recommended."
 msgstr ""
 "Por padrão, o servidor apenas responde a uma consulta NFS quando a operação "
-"de disco corrente é concluída  (<literal>sync</literal> option); isso pode "
+"de disco corrente é concluída  (opção <literal>sync</literal>); isso pode "
 "ser desabilitado com a opção <literal>async</literal>. A escrita assíncrona "
 "aumenta um pouco a performance, mas ela diminui a confiança já que existe o "
-"risco de perda de dados no caso de interrompimento do servidor entre o "
-"conhecimento da escrita e a real escrita no disco. Como o valor padrão foi "
-"alterado recentemente (ao comparado ao valor histórico do NFS), uma "
-"configuração explícita é recomendado."
+"risco de perda de dados no caso do servidor falhar entre comunicar a escrita "
+"e realmente  escrever no disco. Como o valor padrão foi alterado "
+"recentemente (comparado ao valor histórico do NFS), uma configuração "
+"explícita é recomendada."
 
 #. Tag: para
 #, no-c-format
 msgid "In order to not give root access to the filesystem to any NFS client, all queries appearing to come from a root user are considered by the server as coming from the <literal>nobody</literal> user. This behavior corresponds to the <literal>root_squash</literal> option, and is enabled by default. The <literal>no_root_squash</literal> option, which disables this behavior, is risky and should only be used in controlled environments. The <literal>anonuid=<replaceable>uid</replaceable></literal> and <literal>anongid=<replaceable>gid</replaceable></literal> options allow specifying another fake user to be used instead of UID/GID 65534 (which corresponds to user <literal>nobody</literal> and group <literal>nogroup</literal>)."
 msgstr ""
-"Para que não seja dado acesso ao root ao sistema de arquivos a nenhum "
+"Para que não seja dado acesso de root no sistema de arquivos a nenhum "
 "cliente NFS, todas as consultas que parecem vir do usuário root são "
 "consideradas pelo servidor como vindo do usuário <literal>nobody</literal>. "
-"Esse comportamento corresponde a opção <literal>root_squash</literal>, e é "
-"habilitado por padrão. A opção <literal>no_root_squash</literal>, a qual "
+"Esse comportamento corresponde à opção <literal>root_squash</literal>, e é "
+"habilitado por padrão. A opção <literal>no_root_squash</literal>, que "
 "desabilita esse comportamento, é arriscada e só deveria ser usada em "
 "ambientes controlados. As opções "
 "<literal>anonuid=<replaceable>uid</replaceable></literal> e "
 "<literal>anongid=<replaceable>gid</replaceable></literal> permitem "
-"especificar outro usuário falso a ser usado ao invés de UID/GID 65534 (o que "
+"especificar outro usuário falso a ser usado ao invés de UID/GID 65534 (que "
 "corresponde ao usuário <literal>nobody</literal> e ao grupo "
 "<literal>nogroup</literal>)."
 
@@ -3429,7 +3429,7 @@ msgstr ""
 "apenas inicia o servidor se o <filename>/etc/exports</filename> lista um ou "
 "mais compartilhamentos NFS válidos. Na configuração inicial, uma vez que "
 "esse arquivo tenha sido editado para conter entradas válidas, o servidor NFS "
-"tem que por seguinte ser iniciado com os seguintes comandos:"
+"já pode ser iniciado com o seguinte comando:"
 
 #. Tag: screen
 #, no-c-format
@@ -3948,7 +3948,7 @@ msgstr ""
 "Essa seção documenta como os administradores da Falcot foram ainda mais "
 "além, tornando o servidor Samba em um controlador de domínio fornecendo "
 "perfis móveis (o que permite aos usuários encontrar seus desktop não "
-"importando qual máquinas eles se conectam)."
+"importando em qual máquinas eles se conectam)."
 
 #. Tag: indexterm
 #, no-c-format
@@ -3993,19 +3993,19 @@ msgid "Specifies the location of the users' home directories. These are stored o
 msgstr ""
 "Especifica a localização dos diretórios \"home\" dos usuários. Estes são "
 "armazenados em um compartilhamento dedicado, o qual permite habilitar opções "
-"específicas (em particular, <literal>profile acls</literal>, um requerimento "
+"específicas (em particular, <literal>profile acls</literal>, um requisito "
 "para compatibilidade com Windows 2000, XP e Vista)."
 
 #. Tag: para
 #, no-c-format
 msgid "Specifies the <emphasis>batch</emphasis> (non-interactive) script that is to be run on the client Windows machine every time a session is opened. In this case, <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. The script needs to be in DOS format, where the lines are separated by a carriage-return character and a line-feed character; if the file was created on Linux, running <command>unix2dos</command> will convert it."
 msgstr ""
-"Especifica o script <emphasis>batch</emphasis> (não-interativo) que é rodado "
-"em uma máquina Windows cliente toda vez que uma sessão é aberta. Neste caso, "
-"<filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. O script "
-"precisa estar no formato DOS, aonde as linhas são separadas pelo caractere \""
-"carriage-return\" e o caractere \"line-feed\"; se o arquivo foi criado no "
-"Linux, executar <command>unix2dos</command> irá convertê-lo."
+"Especifica o script <emphasis>batch</emphasis> (não-interativo) que é "
+"executado em uma máquina Windows cliente toda vez que uma sessão é aberta. "
+"Neste caso, <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. "
+"O script precisa estar no formato DOS, onde as linhas são separadas pelo "
+"caractere \"carriage-return\" e o caractere \"line-feed\"; se o arquivo foi "
+"criado no Linux, executar <command>unix2dos</command> irá convertê-lo."
 
 #. Tag: para
 #, no-c-format
@@ -4298,8 +4298,8 @@ msgstr ""
 #, no-c-format
 msgid "Indicate the manufacturer/model of the printer, or directly provide a working printer description file (PPD)."
 msgstr ""
-"Indicar o fabricante/modelo da impressora, ou forneça diretamente um arquivo "
-"de descrição da impressora de trabalho (PPD)."
+"Indicar o fabricante/modelo da impressora, ou fornecer diretamente um "
+"arquivo funcional de descrição da impressora (PPD)."
 
 #. Tag: para
 #, no-c-format
@@ -4329,7 +4329,7 @@ msgstr ""
 #, no-c-format
 msgid "Filtering server: if use of the proxy is mandated (and outgoing connections are blocked unless they go through the proxy), then the proxy can determine whether or not the request is to be granted."
 msgstr ""
-"Servidor de filtragem: se o uso do proxy é mandatório (e conexões de saída "
+"Servidor de filtragem: se o uso do proxy é obrigatório (e conexões de saída "
 "são bloqueadas a menos que elas passem através do proxy), então o proxy pode "
 "determinar quando a requisição pode ser concedida."
 
@@ -4372,13 +4372,13 @@ msgstr ""
 #, no-c-format
 msgid "Prior to installing, care should be taken to check that the system can identify its own complete name: the <command>hostname -f</command> must return a fully-qualified name (including a domain). If it does not, then the <filename>/etc/hosts</filename> file should be edited to contain the full name of the system (for instance, <literal>arrakis.falcot.com</literal>). The official computer name should be validated with the network administrator in order to avoid potential name conflicts."
 msgstr ""
-"Antes da instalação, devesse tomar o cuidado de checar que o sistema pode "
+"Antes da instalação, deve-se tomar o cuidado de checar que o sistema pode "
 "identificar seu próprio nome completo: o <command>hostname -f</command> tem "
 "que retornar um nome completo qualificado (incluindo o domínio). Se não, "
 "então o arquivo <filename>/etc/hosts</filename> deve ser editado para conter "
 "o nome completo do sistema (por exemplo, "
 "<literal>arrakis.falcot.com</literal>). O nome oficial do computador deve "
-"ser validado pelo administrador de rede para qeu seja evitado potenciais "
+"ser validado pelo administrador de rede para que sejam evitados potenciais "
 "conflitos de nome."
 
 #. Tag: title
@@ -4391,7 +4391,7 @@ msgstr "Configurando um Cache"
 msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
 msgstr ""
 "Habilitar o recurso de cache no servidor é uma simples questão de editar o "
-"arquivo  de configuração <filename>/etc/squid/squid.conf</filename> e "
+"arquivo de configuração <filename>/etc/squid/squid.conf</filename> e "
 "permitir que máquinas da rede local executem consultas através do proxy. Os "
 "exemplos a seguir mostram as modificações feitas pelos administradores da "
 "Falcot Corp:"
@@ -4437,7 +4437,7 @@ msgstr "Configurando um Filtro"
 #, no-c-format
 msgid "<command>squid</command> itself does not perform the filtering; this action is delegated to <command>squidGuard</command>. The former must then be configured to interact with the latter. This involves adding the following directive to the <filename>/etc/squid/squid.conf</filename> file:"
 msgstr ""
-"<command>squid</command> sozinho não faz a filtragem; essa ação é delegada "
+"O <command>squid</command> sozinho não faz a filtragem; essa ação é delegada "
 "ao <command>squidGuard</command>. O primeiro tem então que ser configurado "
 "para interagir com o último. Isso envolve a adição da seguinte diretiva ao "
 "arquivo <filename>/etc/squid/squid.conf</filename>:"
@@ -4750,8 +4750,8 @@ msgstr "Preenchendo o Diretório"
 msgid "Since an empty database is not particularly useful, we're going to inject into it all the existing directories; this includes the users, groups, services and hosts databases."
 msgstr ""
 "Como um banco de dados vazio não é particularmente útil, nós vamos injetar "
-"nele todos os diretórios existentes; isso inclui os usuários, grupos, "
-"serviços e bancos de dados hospedados."
+"nele todos os diretórios existentes; isso inclui os banco de dados de "
+"usuários, grupos, serviços e máquinas."
 
 #. Tag: para
 #, no-c-format
@@ -4804,7 +4804,7 @@ msgid "The <command>migrate_all_online.sh</command> asks a few questions about t
 msgstr ""
 "<command>migrate_all_online.sh</command> faz algumas perguntas sobre o banco "
 "de dados LDAP para o qual os dados serão migrados. <xref linkend=\"tab-"
-"migrate-all\" xrefstyle=\"select: label nopage\" /> sumariza as respostas "
+"migrate-all\" xrefstyle=\"select: label nopage\" /> resume as respostas "
 "dadas no caso da Falcot."
 
 #. Tag: title
@@ -4881,7 +4881,7 @@ msgstr ""
 "Nós ignoramos a migração do arquivo <filename>/etc/aliases</filename> "
 "dliberadamente, já que o schema padrão, como o fornecido pelo Debian não "
 "inclui as estruturas que esse script usa para descrever \"email aliases\". "
-"Se quisermos integrar esse dado em um diretório, o arquivo "
+"Se quisermos integrar esse dado no diretório, o arquivo "
 "<filename>/etc/ldap/schema/misc.schema</filename> deve ser adicionado ao "
 "schema padrão."
 
@@ -4942,7 +4942,7 @@ msgstr ""
 "informações para o sistema de diretórios. Para usar o LDAP como fonte de "
 "dados para o NSS requer a instalação do pacote <emphasis role=\"pkg\">libnss-"
 "ldap</emphasis>. Sua instalação faz algumas perguntas; as respostas estão "
-"sumarizadas em <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label "
+"resumidas em <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label "
 "nopage\" />."
 
 #. Tag: indexterm
@@ -4958,7 +4958,7 @@ msgstr "Configurando o pacote <emphasis role=\"pkg\">libnss-ldap</emphasis>"
 #. Tag: entry
 #, no-c-format
 msgid "LDAP server Uniform Resource Identifier"
-msgstr ""
+msgstr "Servidor LDAP Uniform Resource Identifier"
 
 #. Tag: entry
 #, no-c-format
@@ -5128,10 +5128,10 @@ msgstr "<emphasis>ATENÇÃO</emphasis> Autenticação quebrada"
 #, no-c-format
 msgid "Changing the standard PAM configuration used by various programs is a sensitive operation. A mistake can lead to broken authentication, which could prevent logging in. Keeping a root shell open is therefore a good precaution. If configuration errors occur, they can be then fixed and the services restarted with minimal effort."
 msgstr ""
-"Alterar a configuração padrão do PAM, usada por vários programas, é uma "
+"Alterar a configuração padrão do PAM usada por vários programas é uma "
 "operação delicada. Um erro pode levar a erros de autenticação, o que pode "
 "impedir um início de sessão. Manter um shell root aberto é então uma boa "
-"precaução. Se acontecerem erros de configuração, eles podem então serem "
+"precaução. Se acontecerem erros de configuração, eles podem então ser "
 "consertados e os serviços reiniciados com um mínimo de esforço."
 
 #. Tag: para
@@ -5194,9 +5194,9 @@ msgstr ""
 "automaticamente adapta a configuração padrão do PAM definida nos arquivos "
 "<filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-"
 "password</filename> e <filename>/etc/pam.d/common-account</filename>. Esse "
-"mecanismo usa a dedicada ferramenta <command>pam-auth-update</command> ("
+"mecanismo usa a ferramenta dedicada <command>pam-auth-update</command> ("
 "fornecida pelo pacote <emphasis role=\"pkg\">libpam-runtime</emphasis>). "
-"essa ferramenta pode também ser rodada pelo administrador caso eles queiram "
+"Essa ferramenta pode também ser rodada pelo administrador caso ele queira "
 "habilitar ou desabilitar módulos PAM."
 
 #. Tag: indexterm
@@ -5323,6 +5323,14 @@ msgstr ""
 #, no-c-format
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
 msgstr ""
+"O daemon <command>slapd</command> também precisa ser informado para usar "
+"essas chaves para criptografia. A configuração do servidor LDAP é gerenciada "
+"dinamicamente: a configuração pode ser atualizada através de operações "
+"normais do LDAP no objeto hierárquico <literal>cn=config</literal>, e o "
+"servidor atualiza o <filename>/etc/ldap/slapd.d</filename> em tempo real "
+"para fazer com que a configuração seja persistente. "
+"<command>ldapmodify</command> é, assim, a ferramenta certa para atualizar a "
+"configuração:"
 
 #. Tag: title
 #, no-c-format
@@ -5384,6 +5392,9 @@ msgstr "<primary><command>ldapvi</command></primary>"
 #, no-c-format
 msgid "With <command>ldapvi</command>, you can display an LDIF output of any part of the LDAP directory, make some changes in the text editor, and let the tool do the corresponding LDAP operations for you."
 msgstr ""
+"Com o <command>ldapvi</command>, você pode exibir a saída do LDIF de "
+"qualquer parte do diretório LDAP, fazer algumas mudanças no editor de texto, "
+"e deixar a ferramenta fazer as correspondentes operações LDAP para você."
 
 #. Tag: para
 #, no-c-format
@@ -5565,6 +5576,10 @@ msgstr ""
 #, no-c-format
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
 msgstr ""
+"Por último, mas não menos importante,, a URI padrão do LDAP e a base DN "
+"padrão usada por várias ferramentas de linha de comando podem ser "
+"modificadas em <filename>/etc/ldap/ldap.conf</filename>. Isso irá evitar, "
+"consideravelmente, digitação."
 
 #. Tag: title
 #, no-c-format
@@ -5612,6 +5627,11 @@ msgstr ""
 #, no-c-format
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
 msgstr ""
+"Esse capítulo mostrou apenas uma fração dos softwares servidores disponível; "
+"contudo, a maioria dos serviços de rede comuns foram descritos. Agora é hora "
+"de um capítulo ainda mais técnico: nós iremos entrar mais detalhadamente "
+"ainda em alguns conceitos, descrevendo implementações massivas e "
+"virtualização."
 
 #~ msgid "<primary>mail</primary><secondary>electronic</secondary>"
 #~ msgstr "<primary>correio</primary><secondary>eletrônico</secondary>"
