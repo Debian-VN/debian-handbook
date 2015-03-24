@@ -53,7 +53,7 @@
     the bootloader, often from a file on a hard drive or from the network.
     It contains the bare minimum required by the kernel to load the
     “true” root filesystem: this may be driver modules for the hard
-    drive, or other devices without which the system can not boot, or, more
+    drive, or other devices without which the system cannot boot, or, more
     frequently, initialization scripts and modules for assembling RAID
     arrays, opening encrypted partitions, activating LVM volumes, etc. Once
     the root partition is mounted, the initramfs hands over control to the
@@ -188,7 +188,7 @@
     the programs enabled in the default runlevel (which is usually runlevel
     2). It executes <command>/etc/init.d/rc 2</command>, a script that
     starts all services which are listed in
-    <filename>/etc/rc2.d/</filename> and whose name start with the “S”
+    <filename>/etc/rc2.d/</filename> and whose names start with the “S”
     letter. The two-figures number that follows had historically been used
     to define the order in which services had to be started, but nowadays
     the default boot system uses <command>insserv</command>, which schedules
@@ -246,7 +246,7 @@
 
       <para>Another new option that is gaining a lot of traction is
       <command>systemd</command>. Its approach is opposite to
-      the previous systems; instead of preemptively launching all services,
+      the previous systems; instead of pre-emptively launching all services,
       and having to deal with the question of scheduling,
       <command>systemd</command> chooses to start services on demand,
       somewhat along the principle of <command>inetd</command>. But this
@@ -1004,7 +1004,7 @@
     rights.</para>
 
     <para>Note that the use of octal notation only allows to set all the
-    rights at once on a file; you can not use it to simply add a new right,
+    rights at once on a file; you cannot use it to simply add a new right,
     such as read access for the group owner, since you must take into
     account the existing rights and compute the new corresponding numerical
     value.</para>
@@ -1076,7 +1076,7 @@
     <para>Since no interface is perfect, you may be tempted to try several
     solutions. This is to be avoided as much as possible, since different
     tools are sometimes incompatible in their work methods. Even if they
-    all target to be very flexible and try to adopt the configuration file
+    all aim to be very flexible and try to adopt the configuration file
     as a single reference, they are not always able to integrate external
     changes.</para>
     <section id="sect.webmin">
@@ -1104,7 +1104,7 @@
       <sidebar>
         <title><emphasis>SECURITY</emphasis> Changing the root password</title>
 
-	<para>On first login, identification is conduced with the root
+	<para>On the first login, identification is conducted with the root
 	username and its usual password. It is recommended to change the
 	password used for <command>webmin</command> as soon as possible, so
 	that if it is compromised, the root password for the server will
@@ -1894,7 +1894,7 @@ job 31 at Fri Jul 27 09:00:00 2012</computeroutput>
       started with <command>nice</command> it is not too late to fix it;
       the <command>renice</command> command changes the priority of an
       already running process, in either direction (but reducing the
-      “niceness” of a process is reserved to the root user).</para>
+      “niceness” of a process is reserved for the root user).</para>
     </sidebar>
 
     <para>Installation of the <emphasis role="pkg">anacron</emphasis>
@@ -1915,10 +1915,10 @@ job 31 at Fri Jul 27 09:00:00 2012</computeroutput>
     <para>The quota system allows limiting disk space allocated to a user
     or group of users. To set it up, you must have a kernel that supports
     it (compiled with the <varname>CONFIG_QUOTA</varname> option) — as is
-    the case of Debian kernels. The quota management software is found in
+    the case with Debian kernels. The quota management software is found in
     the <emphasis role="pkg">quota</emphasis> Debian package.</para>
 
-    <para>To activate them in a filesystem, you have to indicate the
+    <para>To activate quota in a filesystem, you have to indicate the
     <literal>usrquota</literal> and <literal>grpquota</literal> options in
     <filename>/etc/fstab</filename> for the user and group quotas,
     respectively. Rebooting the computer will then update the quotas in the
@@ -2056,7 +2056,7 @@ job 31 at Fri Jul 27 09:00:00 2012</computeroutput>
         <indexterm><primary>link</primary><secondary>hard link</secondary></indexterm>
         <indexterm><primary>hard link</primary></indexterm>
 
-	<para>A hard link, as opposed to a symbolic link, can not be
+	<para>A hard link, as opposed to a symbolic link, cannot be
 	differentiated from the linked file. Creating a hard link is
 	essentially the same as giving an existing file a second name. This
 	is why the deletion of a hard link only removes one of the names
@@ -2226,7 +2226,7 @@ exclude:
       <sidebar>
         <title><emphasis>GOING FURTHER</emphasis> Backing up SQL and LDAP services</title>
 
-	<para>Many services (such as SQL or LDAP databases) can not be
+	<para>Many services (such as SQL or LDAP databases) cannot be
 	backed up by simply copying their files (unless they are properly
 	interrupted during creation of the backups, which is frequently
 	problematic, since they are intended to be available at all times).
@@ -2328,7 +2328,7 @@ exclude:
 	<filename>/etc/udev/rules.d/70-persistent-net.rules</filename>.</para>
 
 	<para>This mechanism has some side effects that you should know
-	about. Let's consider the case of computer that has only one PCI
+	about. Let's consider the case of a computer that has only one PCI
 	network card. The network interface is named
 	<literal>eth0</literal>, logically. Now say the card breaks down,
 	and the administrator replaces it; the new card will have a new MAC
@@ -2396,7 +2396,7 @@ exclude:
 	  “usb”, “ide”, “net”, “firmware”, etc.);</para>
         </listitem>
         <listitem>
-	  <para><literal>ATTR{<replaceable>attribut</replaceable>}</literal>:
+	  <para><literal>ATTR{<replaceable>attribute</replaceable>}</literal>:
 	  file contents of the <replaceable>attribute</replaceable> file in
 	  the
 	  <filename>/sys/<replaceable>$devpath</replaceable>/</filename>
@@ -2504,7 +2504,7 @@ exclude:
       <para>The above lists are not complete (they include only the most
       important parameters), but the
       <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry>
-      manual page should be.</para>
+      manual page should be exhaustive.</para>
     </section>
     <section>
       <title>A concrete example</title>

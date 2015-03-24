@@ -625,7 +625,7 @@ smtpd_recipient_restrictions = permit_mynetworks,
 	rule that requires outside messages to be addressed to us; messages
 	sent to an address not served by this server are rejected. Without
 	this rule, a server becomes an open relay that allows spammers to
-	sent unsolicited emails; this rule is therefore mandatory, and it
+	send unsolicited emails; this rule is therefore mandatory, and it
 	will be best included near the beginning of the list, so that no
 	other rules may authorize the message before its destination has
 	been checked.</para>
@@ -691,7 +691,7 @@ smtpd_data_restrictions = reject_unauth_pipelining
 
 	<para>The validation and restriction system would not be complete
 	without a way to apply checks to the message contents. Postfix
-	differentiates the checks applying on the email headers from those
+	differentiates the checks applying to the email headers from those
 	applying to the email body.</para>
 
         <example>
@@ -776,8 +776,8 @@ body_checks = regexp:/etc/postfix/body_checks
       message is initially rejected with a temporary error code, and only
       accepted on a further try after some delay. This filtering is
       particularly efficient against spam sent by the many machines
-      infected by worms and viruses, since these software rarely act as
-      full SMTP agents (by checking the error code and retrying failed
+      infected by worms and viruses, since this software rarely acts as
+      a full SMTP agent (by checking the error code and retrying failed
       messages later), especially since many of the harvested addresses are
       really invalid and retrying would only mean losing time.</para>
 
@@ -1028,7 +1028,7 @@ smtpd_milters = inet:[127.0.0.1]:10002
 
       <para>Being able to send emails requires an SMTP server to be
       reachable; it also requires said SMTP server to send emails through
-      it. For roaming users, that may need regularly changing the
+      it. For roaming users, this may need regularly changing the
       configuration of the SMTP client, since Falcot's SMTP server rejects
       messages coming from IP addresses apparently not belonging to the
       company. Two solutions exist: either the roaming user installs an
