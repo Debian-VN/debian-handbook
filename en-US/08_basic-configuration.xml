@@ -124,13 +124,14 @@
 
       <para>The first question invites you to select “locales” to
       support. Selecting all English locales (meaning those beginning
-      with “<literal>en_US</literal>”) is a reasonable choice. Do not
-      hesitate to choose other locales if the machine will host foreign
-      users. The list of locales enabled on the system is stored in the
-      <filename>/etc/locale.gen</filename> file. It is possible to edit
-      this file by hand, but you should run <command>locale-gen</command>
-      after any modifications. It will generate the necessary files for the
-      added locales to work, and remove any obsolete files.</para>
+      with “<literal>en_</literal>”) is a reasonable choice. Do not
+      hesitate to also enable other locales if the machine will host
+      foreign users. The list of locales enabled on the system is
+      stored in the <filename>/etc/locale.gen</filename> file. It is
+      possible to edit this file by hand, but you should run
+      <command>locale-gen</command> after any modifications. It will
+      generate the necessary files for the added locales to work, and
+      remove any obsolete files.</para>
 
       <para>The second question, entitled “Default locale for the system environment”,
       requests a default locale. The recommended choice in the U.S.A. is
@@ -435,8 +436,8 @@ $ </computeroutput><userinput>ls travail/</userinput>
       Just remember to deactivate all entries in
       <filename>/etc/network/interfaces</filename> if you want
       Network Manager to handle them.
-      <ulink type="block" url="http://wiki.gnome.org/NetworkManager/SystemSettings"/>
-      <ulink type="block" url="http://projects.gnome.org/NetworkManager/developers/api/09/ref-settings.html"/>
+      <ulink type="block" url="http://wiki.gnome.org/NetworkManager/SystemSettings/jessie"/>
+      <ulink type="block" url="https://developer.gnome.org/NetworkManager/0.9/ref-settings.html"/>
       </para>
     </sidebar>
 
@@ -535,16 +536,6 @@ iface eth0 inet static
       <indexterm><primary><command>pon</command></primary></indexterm>
       <indexterm><primary><command>poff</command></primary></indexterm>
 
-      <sidebar>
-        <title><emphasis>TOOL</emphasis> On-demand connection with <command>diald</command></title>
-        <indexterm><primary><command>diald</command></primary></indexterm>
-        <indexterm><primary>connection</primary><secondary>on demand</secondary></indexterm>
-
-	<para><command>diald</command> is an on-demand connection service
-	that automatically establishes a connection when needed, by
-	detecting an outgoing IP packet and disconnecting after a period of
-	inactivity.</para>
-      </sidebar>
     </section>
     <section id="sect.adsl">
       <title>Connecting through an ADSL Modem</title>
@@ -580,18 +571,51 @@ iface eth0 inet static
         <indexterm><primary><literal>dsl-provider</literal></primary></indexterm>
 
         <sidebar>
-          <title><emphasis>TIP</emphasis> Starting <command>ppp</command> via <command>init</command></title>
+          <title><emphasis>TIP</emphasis> Starting <command>ppp</command> at boot</title>
+          <indexterm><primary><command>systemd</command></primary></indexterm>
           <indexterm><primary><command>init</command></primary></indexterm>
 
-	  <para>PPP connections over ADSL are, by definition, intermittent.
-	  Since they are usually not billed according to time, there are few
-	  downsides to the temptation of keeping them always open; one
-	  simple means to do so is to use the <command>init</command>
-	  process to control the connection. All that's needed is to add a
-	  line such as the following at the end of the
-	  <filename>/etc/inittab</filename> file; then, any time the
-	  connection is disconnected, <command>init</command> will
-	  reconnect it.</para>
+	  <para>PPP connections over ADSL are, by definition,
+	  intermittent.  Since they are usually not billed according
+	  to time, there are few downsides to the temptation of
+	  keeping them always open.  The standard means to do so is to
+	  use the init system.</para>
+
+          <para>The default init system on <emphasis
+	  role="distribution">Jessie</emphasis> is
+	  <command>systemd</command>.  Adding an automatically
+	  restarting task for the ADSL connection is a simple matter
+	  of creating a “unit file” such as
+	  <filename>/etc/systemd/system/adsl-connection.service</filename>, with contents such as the following:
+</para>
+
+<programlisting>[Unit]
+Description=ADSL connection
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/pppd call dsl-provider
+Restart=always
+
+[Install]
+WantedBy=multi-user.target</programlisting>
+
+          <para>Once this unit file has been defined, it needs to be
+          enabled with <command>systemctl enable
+          adsl-connection</command>.  Then the loop can be started
+          manually with <command>systemctl start
+          adsl-connection</command>; it will also be started
+          automatically on boot.
+          </para>
+
+          <para>On systems not using <command>systemd</command>
+          (including <emphasis role="distribution">Wheezy</emphasis>
+          and earlier versions of Debian), the standard SystemV init
+          works differently.  On such systems, all that's needed is to
+          add a line such as the following at the end of the
+          <filename>/etc/inittab</filename> file; then, any time the
+          connection is disconnected, <command>init</command> will
+          reconnect it.</para>
 
           <programlisting>
 adsl:2345:respawn:/usr/sbin/pppd call dsl-provider
@@ -635,11 +659,11 @@ adsl:2345:respawn:/usr/sbin/pppd call dsl-provider
 	  other card, and vice-versa. This is the purpose of a crossover
 	  cable, and the reason it is used.</para>
 
-          <para>Note that this distinction is becoming less relevant
-          over time, as modern network cards are able do detect the
-          type of cable present and adapt accordingly, so it won't be
-          unusual that both kinds of cable will work in a given
-          location.</para>
+          <para>Note that this distinction has become almost
+          irrelevant over time, as modern network cards are able do
+          detect the type of cable present and adapt accordingly, so
+          it won't be unusual that both kinds of cable will work in a
+          given location.</para>
         </sidebar>
 
 	<para>Most “ADSL routers” on the market can be used like this, as
@@ -655,7 +679,7 @@ adsl:2345:respawn:/usr/sbin/pppd call dsl-provider
       <para>Many Falcot engineers have a laptop computer that, for
       professional purposes, they also use at home. The network
       configuration to use differs according to location. At home, it may
-      be a wifi network (protected by a WEP key), while the workplace uses
+      be a wifi network (protected by a WPA key), while the workplace uses
       a wired network for greater security and more bandwidth.</para>
 
       <para>To avoid having to manually connect or disconnect the
@@ -817,6 +841,12 @@ nameserver 212.27.32.176
 nameserver 212.27.32.177
 nameserver 8.8.8.8
 </programlisting>
+
+        <para>Note that the <filename>/etc/resolv.conf</filename> file
+        may be handled automatically (and overwritten) when the
+        network is managed by NetworkManager or configured via
+        DHCP.</para>
+
       </section>
       <section id="sect.etc-hosts">
         <title>The <filename>/etc/hosts</filename> file</title>
@@ -1261,7 +1291,7 @@ nameserver 8.8.8.8
   <section id="sect.shell-environment">
     <title>Shell Environment</title>
 
-    <para>Command interpreters (or shells) are frequently a user's first
+    <para>Command interpreters (or shells) can be a user's first
     point of contact with the computer, and they must therefore be rather
     friendly. Most of them use initialization scripts that allow
     configuration of their behavior (automatic completion, prompt text,
@@ -1427,14 +1457,15 @@ nameserver 8.8.8.8
     </sidebar>
 
     <para>After installation of these different packages,
-    <command>cups</command> is administered easily through a web interface
-    accessible at the local address:
-    <literal>http://localhost:631/</literal>. There you can add printers
-    (including network printers), remove, and administer them. You can also
-    administer <command>cups</command> with the
-    <command>system-config-printer</command> graphical interface (from the
-    Debian package of the same name), which is installed by default if the
-    “Desktop environment” task is chosen.</para>
+    <command>cups</command> is administered easily through a web
+    interface accessible at the local address:
+    <literal>http://localhost:631/</literal>. There you can add
+    printers (including network printers), remove, and administer
+    them.  You can also administer <command>cups</command> with the
+    graphical interface provided by the desktop environment.  Finally,
+    there is also the <command>system-config-printer</command>
+    graphical interface (from the Debian package of the same
+    name).</para>
     <indexterm><primary><command>cups</command></primary><secondary>administration</secondary></indexterm>
 
     <sidebar>
@@ -1495,12 +1526,13 @@ nameserver 8.8.8.8
 	doesn't need to be persistent and is thus a RAM-based filesystem
 	that starts empty and contains only the relevant entries.</para>
 
-	<para>The kernel communicates lots of information about any newly added
-	device and hands out a pair of major/minor numbers to identify it. With
-	this <command>udevd</command> can create the special file under the
-	name and with the permissions that it wants. It can also create aliases
-	and do additional actions (initialization or registration tasks for
-	example). <command>udevd</command>'s behavior is driven by a
+	<para>The kernel communicates lots of information about any
+	newly added device and hands out a pair of major/minor numbers
+	to identify it. With this <command>udevd</command> can create
+	the special file under the name and with the permissions that
+	it wants. It can also create aliases and perform additional
+	actions (such as initialization or registration
+	tasks). <command>udevd</command>'s behavior is driven by a
 	large set of (customizable) rules.</para>
 
 	<para>With dynamically assigned names, you can thus keep the same name
@@ -1512,35 +1544,29 @@ nameserver 8.8.8.8
 	both at the same time since <command>udevd</command> can be
 	configured to automatically create a symbolic link.</para>
 
-	<para>Previously, some kernel modules did automatically load
-	when you tried to access the corresponding device file; henceforth,
-	the peripheral's special file no longer exists prior to loading the
-	module, which is no big deal, since most modules are loaded on boot
-	thanks to automatic hardware detection. But for undetectable
-	peripherals (such as older disk drives or PS/2 mice), this doesn't
+	<para>In ancient times, some kernel modules did automatically
+	load when you tried to access the corresponding device file.
+	This is no longer the case, and the peripheral's special file
+	no longer exists prior to loading the module; this is no big
+	deal, since most modules are loaded on boot thanks to
+	automatic hardware detection. But for undetectable peripherals
+	(such as very old disk drives or PS/2 mice), this doesn't
 	work. Consider adding the modules, <literal>floppy</literal>,
 	<literal>psmouse</literal> and <literal>mousedev</literal> to
-	<filename>/etc/modules</filename> in order to force loading them on
-	boot.</para>
+	<filename>/etc/modules</filename> in order to force loading
+	them on boot.</para>
       </sidebar>
 
       <indexterm><primary>hard drive, names</primary></indexterm>
       <indexterm><primary>names</primary><secondary>of hard drives</secondary></indexterm>
 
-      <para>Configuration of the bootloader must identify the different
-      hard drives and their partitions. Linux uses “block” special files
-      stored in the <filename>/dev/</filename> directory,
-      for this purpose. Historically, <filename>/dev/hda</filename> was the
-      master disk on the first IDE controller, and
-      <filename>/dev/hdb</filename> its first slave,
-      <filename>/dev/hdc</filename> and <filename>/dev/hdd</filename>
-      being, respectively, the master and slave disks on the second IDE
-      controller, and so on down for any others.
-      <filename>/dev/sda</filename> corresponded to the first SCSI drive,
-      <filename>/dev/sdb</filename> being the second, etc. Since Debian
-      <emphasis role="distribution">Squeeze</emphasis>, this naming scheme
-      has been unified by the Linux kernel, and
-      all hard drives (IDE/PATA, SATA, SCSI, USB, IEEE 1394) are now
+      <para>Configuration of the bootloader must identify the
+      different hard drives and their partitions. Linux uses “block”
+      special files stored in the <filename>/dev/</filename>
+      directory, for this purpose.  Since Debian <emphasis
+      role="distribution">Squeeze</emphasis>, the naming scheme for
+      hard drives has been unified by the Linux kernel, and all hard
+      drives (IDE/PATA, SATA, SCSI, USB, IEEE 1394) are now
       represented by <filename>/dev/sd*</filename>.</para>
 
       <para>Each partition is represented by its number on the disk on
@@ -1548,16 +1574,36 @@ nameserver 8.8.8.8
       first partition on the first disk, and <filename>/dev/sdb3</filename>
       is the third partition on the second disk.</para>
 
-      <para>The PC architecture (or “i386”) is limited to four
-      “primary” partitions per disk. To go beyond this limitation, one
-      of them must be created as an “extended” partition, and it can
-      then contain additional “secondary” partitions. These secondary
-      partitions must be numbered from 5. Thus the first secondary
-      partition could be <filename>/dev/sda5</filename>, followed by
-      <filename>/dev/sda6</filename>, etc.</para>
       <indexterm><primary>partition</primary><secondary>primary</secondary></indexterm>
       <indexterm><primary>partition</primary><secondary>extended</secondary></indexterm>
       <indexterm><primary>partition</primary><secondary>secondary</secondary></indexterm>
+      <indexterm><primary>partition table</primary><secondary>MS-DOS
+      format</secondary></indexterm>
+      <para>The PC architecture (or “i386”, including its younger
+      cousin “amd64”) has long been limited to using the “MS-DOS”
+      partition table format, which only allows four “primary”
+      partitions per disk. To go beyond this limitation under this
+      scheme, one of them has to be created as an “extended”
+      partition, and it can then contain additional “secondary”
+      partitions. These secondary partitions are numbered from 5. Thus
+      the first secondary partition could be
+      <filename>/dev/sda5</filename>, followed by
+      <filename>/dev/sda6</filename>, etc.</para>
+
+      <para>Another restriction of the MS-DOS partition table format is
+      that it only allows disks up to 2 TiB in size, which is becoming
+      less and less of a theoretical problem.</para>
+
+      <indexterm><primary>GPT</primary><secondary>partition table
+      format</secondary></indexterm> <indexterm><primary>partition
+      table</primary><secondary>GPT format</secondary></indexterm>
+      <para>A new partition table format called GPT loosens these
+      constraints on the number of partitions (it allows up to 128
+      partitions when using standard settings) and on the size of the
+      disks (up to 8 ZiB, which is more than 8 billion terabytes).  If
+      you intend to create many physical partitions on the same disk,
+      you should therefore ensure you're creating the partition table
+      in the GPT format when partitioning your disk.</para>
 
       <para>It is not always easy to remember what disk is connected to
       which SATA controller, or in third position in the SCSI chain,
@@ -1674,15 +1720,19 @@ other=/dev/sda1
         <title><emphasis>NOTE</emphasis> Disk names for GRUB</title>
 
 	<para>GRUB can only identify hard drives based on information
-	provided by the BIOS. <literal>(hd0)</literal> corresponds to the
-	first disk thus detected, <literal>(hd1)</literal> the second, etc.
-	In most cases, this order corresponds exactly to the usual order of
-	disks under Linux, but problems can occur when you associate SCSI
-	and IDE disks. GRUB stores correspondences that it detects in the
-	file <filename>/boot/grub/device.map</filename>. If you find errors
+	provided by the BIOS. <literal>(hd0)</literal> corresponds to
+	the first disk thus detected, <literal>(hd1)</literal> the
+	second, etc.  In most cases, this order corresponds exactly to
+	the usual order of disks under Linux, but problems can occur
+	when you associate SCSI and IDE disks. GRUB stores
+	correspondences that it detects in the file
+	<filename>/boot/grub/device.map</filename>. If you find errors
 	there (because you know that your BIOS detects drives in a
 	different order), correct them manually and run
-	<command>grub-install</command> again.</para>
+	<command>grub-install</command> again.
+	<command>grub-mkdevicemap</command> can help creating a
+	<filename>device.map</filename> file from which to
+	start.</para>
 
 	<para>Partitions also have a specific name in GRUB. When you use
 	“classical” partitions in MS-DOS format, the first partition on
@@ -1836,9 +1886,9 @@ macosx=/dev/sda5
 
       <screen id="screen.tz">
 <computeroutput>$ </computeroutput><userinput>date</userinput>
-<computeroutput>Wed Mar 28 15:51:19 CEST 2012</computeroutput>
+<computeroutput>Thu Feb 19 11:25:18 CET 2015</computeroutput>
 <computeroutput>$ </computeroutput><userinput>TZ="Pacific/Honolulu" date</userinput>
-<computeroutput>Wed Mar 28 03:51:21 HST 2012</computeroutput></screen>
+<computeroutput>Thu Feb 19 00:25:21 HST 2015</computeroutput></screen>
 
       <sidebar>
         <title><emphasis>NOTE</emphasis> System clock, hardware clock</title>
@@ -2365,14 +2415,14 @@ arrakis:/shared /shared         nfs     defaults        0       0
       kernel versions, new features not yet (entirely) merged in the upstream
       Linux tree, and sometimes even Debian specific changes.</para>
 
-      <para>The remainder of this section focuses on the 3.2 version of
+      <para>The remainder of this section focuses on the 3.16 version of
       the Linux kernel, but the examples can, of course, be adapted to the
       particular version of the kernel that you want.</para>
 
       <para>We assume the <emphasis
-      role="pkg">linux-source-3.2</emphasis> package has been installed.
+      role="pkg">linux-source-3.16</emphasis> package has been installed.
       It contains
-      <filename>/usr/src/linux-source-3.2.tar.bz2</filename>, a
+      <filename>/usr/src/linux-source-3.16.tar.xz</filename>, a
       compressed archive of the kernel sources. You must extract these
       files in a new directory (not directly under
       <filename>/usr/src/</filename>, since there is no need for special
@@ -2381,7 +2431,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
 
       <screen>
 <computeroutput>$ </computeroutput><userinput>mkdir ~/kernel; cd ~/kernel</userinput>
-<computeroutput>$ </computeroutput><userinput>tar -xjf /usr/src/linux-source-3.2.tar.bz2</userinput>
+<computeroutput>$ </computeroutput><userinput>tar -xaf /usr/src/linux-source-3.16.tar.xz</userinput>
 </screen>
 
       <sidebar>
@@ -2422,7 +2472,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       kernel sources.</para>
 
       <screen>
-<computeroutput>$ </computeroutput><userinput>cp /boot/config-3.2.0-4-amd64 ~/kernel/linux-source-3.2/.config</userinput>
+<computeroutput>$ </computeroutput><userinput>cp /boot/config-3.16.0-4-amd64 ~/kernel/linux-source-3.16/.config</userinput>
 </screen>
 
       <para>Unless you need to change the configuration, you can stop here
@@ -2503,8 +2553,8 @@ arrakis:/shared /shared         nfs     defaults        0       0
       that contains the kernel image and the associated modules,
       <emphasis role="pkg">linux-headers-<replaceable>version</replaceable></emphasis>
       which contains the header files required to build external modules,
-      <emphasis role="pkg">linux-firmware-image-<replaceable>version</replaceable></emphasis>
-      which contains the firmware files needed by some drivers,
+<!---      <emphasis role="pkg">linux-firmware-image-<replaceable>version</replaceable></emphasis>
+      which contains the firmware files needed by some drivers, -->
       <emphasis role="pkg">linux-image-<replaceable>version</replaceable>-dbg</emphasis>
       which contains the debugging symbols for the kernel image and its modules,
       and <emphasis role="pkg">linux-libc-dev</emphasis> which contains headers
@@ -2526,10 +2576,9 @@ arrakis:/shared /shared         nfs     defaults        0       0
 <computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-falcot KDEB_PKGVERSION=1</userinput>
 [...]
 <computeroutput>$ </computeroutput><userinput>ls ../*.deb</userinput>
-<computeroutput>../linux-firmware-image-3.2.46-falcot_1_amd64.deb
-../linux-headers-3.2.46-falcot_1_amd64.deb
-../linux-image-3.2.46-falcot_1_amd64.deb
-../linux-image-3.2.46-falcot-dbg_1_amd64.deb
+<computeroutput>../linux-headers-3.16.7-ckt4-falcot_1_amd64.deb
+../linux-image-3.16.7-ckt4-falcot_1_amd64.deb
+../linux-image-3.16.7-ckt4-falcot-dbg_1_amd64.deb
 ../linux-libc-dev_1_amd64.deb
 </computeroutput>
 </screen>
@@ -2541,11 +2590,11 @@ arrakis:/shared /shared         nfs     defaults        0       0
       <indexterm><primary><command>dkms</command></primary></indexterm>
 
       <para>Some modules are maintained outside of the official Linux
-      kernel. To use them, they must be compiled alongside the matching
-      kernel. A number of common third party modules are provided by Debian
-      in dedicated packages, such as <emphasis
-      role="pkg">virtualbox-source</emphasis> (kernel support for the VirtualBox
-      virtualization solution) or <emphasis role="pkg">oss4-source</emphasis> (Open
+      kernel. To use them, they must be compiled alongside the
+      matching kernel. A number of common third party modules are
+      provided by Debian in dedicated packages, such as <emphasis
+      role="pkg">xtables-addons-source</emphasis> (extra modules for
+      iptables) or <emphasis role="pkg">oss4-source</emphasis> (Open
       Sound System, some alternative audio drivers).</para>
 
       <para>These external packages are many and varied and we won't list
@@ -2557,13 +2606,13 @@ arrakis:/shared /shared         nfs     defaults        0       0
       module(s) it needs to function under Linux.</para>
 
       <para>For example, let's look at the <emphasis
-      role="pkg">virtualbox-source</emphasis> package: after installation, a
+      role="pkg">xtables-addons-source</emphasis> package: after installation, a
       <filename>.tar.bz2</filename> of the module's sources is stored in
       <filename>/usr/src/</filename>. While we could manually extract
       the tarball and build the module, in practice we prefer to automate
       all this using DKMS. Most modules offer the required DKMS integration
       in a package ending with a <literal>-dkms</literal> suffix. In our case,
-      installing <emphasis role="pkg">virtualbox-dkms</emphasis> is all that is
+      installing <emphasis role="pkg">xtables-addons-dkms</emphasis> is all that is
       needed to compile the kernel module for the current kernel provided that
       we have the <emphasis role="pkg">linux-headers-*</emphasis> package
       matching the installed kernel. For instance, if you use
@@ -2571,31 +2620,32 @@ arrakis:/shared /shared         nfs     defaults        0       0
       also install <emphasis role="pkg">linux-headers-amd64</emphasis>.</para>
 
       <screen>
-<computeroutput>$ </computeroutput><userinput>sudo apt-get install virtualbox-dkms</userinput>
+<computeroutput>$ </computeroutput><userinput>sudo apt-get install xtables-addons-common-dkms</userinput>
 <computeroutput>
 [...]
-Loading new virtualbox-4.1.18 DKMS files...
+Setting up xtables-addons-dkms (2.6-1) ...
+Loading new xtables-addons-2.6 DKMS files...
 First Installation: checking all kernels...
-Building only for 3.2.0-4-amd64
-Building initial module for 3.2.0-4-amd64
+Building only for 3.16.0-4-amd64
+Building initial module for 3.16.0-4-amd64
 Done.
 
-vboxdrv:
+xt_ACCOUNT:
 Running module version sanity check.
  - Original module
    - No original module exists within this kernel
  - Installation
-   - Installing to /lib/modules/3.2.0-4-amd64/updates/dkms/
+   - Installing to /lib/modules/3.16.0-4-amd64/updates/dkms/
 [...]
 DKMS: install completed.
 $ </computeroutput><userinput>sudo dkms status</userinput>
-<computeroutput>virtualbox, 4.1.18, 3.2.0-4-amd64, x86_64: installed
-virtualbox-guest, 4.1.18, 3.2.0-4-amd64, x86_64: installed
-$ </computeroutput><userinput>sudo modinfo vboxdrv</userinput>
-<computeroutput>filename:       /lib/modules/3.2.0-4-amd64/updates/dkms/vboxdrv.ko
-version:        4.1.18_Debian (0x00190000)
+<computeroutput>xtables-addons, 2.6, 3.16.0-4-amd64, x86_64: installed
+$ </computeroutput><userinput>sudo modinfo xt_ACCOUNT</userinput>
+<computeroutput>filename:       /lib/modules/3.16.0-4-amd64/updates/dkms/xt_ACCOUNT.ko
 license:        GPL
-description:    Oracle VM VirtualBox Support Driver
+alias:          ipt_ACCOUNT
+author:         Intra2net AG &lt;opensource@intra2net.com&gt;
+description:    Xtables: per-IP accounting for large prefixes
 [...]
 </computeroutput>
 </screen>
@@ -2604,14 +2654,15 @@ description:    Oracle VM VirtualBox Support Driver
         <title><emphasis>ALTERNATIVE</emphasis> module-assistant</title>
         <indexterm><primary><emphasis role="pkg">module-assistant</emphasis></primary></indexterm>
 
-	<para>Before DKMS, <emphasis role="pkg">module-assistant</emphasis>
-	was the simplest solution to build and deploy kernel modules. It
-	can still be used, in particular for packages lacking DKMS
-	integration: with a simple command like <command>module-assistant
-	auto-install virtualbox</command>
-	(or <command>m-a a-i virtualbox</command> for short),
-	the modules are compiled for the current kernel, put in a new Debian package,
-	and that package gets installed on the fly.
+	<para>Before DKMS, <emphasis
+	role="pkg">module-assistant</emphasis> was the simplest
+	solution to build and deploy kernel modules. It can still be
+	used, in particular for packages lacking DKMS integration:
+	with a simple command like <command>module-assistant
+	auto-install xtables-addons</command> (or <command>m-a a-i
+	xtables-addons</command> for short), the modules are compiled
+	for the current kernel, put in a new Debian package, and that
+	package gets installed on the fly.
 	</para>
       </sidebar>
     </section>
@@ -2638,10 +2689,10 @@ description:    Oracle VM VirtualBox Support Driver
       compilation of the kernel as described above.</para>
 
       <screen>
-<computeroutput>$ </computeroutput><userinput>cd ~/kernel/linux-source-3.2</userinput>
+<computeroutput>$ </computeroutput><userinput>cd ~/kernel/linux-source-3.16</userinput>
 <computeroutput>$ </computeroutput><userinput>make clean</userinput>
-<computeroutput>$ </computeroutput><userinput>zcat /usr/src/kernel-patches/diffs/grsecurity2/grsecurity-2.9.1-3.2.21-201206221855.patch.gz | patch -p1</userinput>
-<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-grsec</userinput>
+<computeroutput>$ </computeroutput><userinput>zcat /usr/src/kernel-patches/diffs/grsecurity2/grsecurity-3.0-3.17.1-201410250027.patch.gz | patch -p1</userinput><!--
+<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-grsec</userinput> -->
 </screen>
 
       <para>Note that a given patch may not necessarily work with every
@@ -2711,7 +2762,7 @@ description:    Oracle VM VirtualBox Support Driver
       where <literal><replaceable>package</replaceable>.deb</literal> is
       the name of a <emphasis role="pkg">linux-image</emphasis> package
       such as
-      <filename>linux-image-3.2.48-falcot_1_amd64.deb</filename>.</para>
+      <filename>linux-image-3.16.7-ckt4-falcot_1_amd64.deb</filename>.</para>
 
       <para>The configuration steps described in this chapter are basic and
       can lead both to a server system or a workstation, and it can be
