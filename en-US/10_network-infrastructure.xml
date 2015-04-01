@@ -290,27 +290,38 @@ net.ipv4.tcp_syncookies = 1
 	to them, if they know about the trusted root certificates.</para>
 
 	<para>OpenVPN follows this rule. Since public CAs only emit
-	certificates in exchange for a (hefty) fee, it is also possible to
-	create a private certification authority within the company. For
-	that purpose, OpenVPN provides the <emphasis>easy-rsa</emphasis>
-	tool which serves as an X.509 certification infrastructure. Its
-	implementation is a set of scripts using the
-	<command>openssl</command> command; these scripts can be found
-	under
-	<filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>.</para>
+	certificates in exchange for a (hefty) fee, it is also
+	possible to create a private certification authority within
+	the company.  The <emphasis role="pkg">easy-rsa</emphasis>
+	package provides tools to serve as an X.509 certification
+	infrastructure, implemented as a set of scripts using the
+	<command>openssl</command> command.</para>
 
-	<para>The Falcot Corp administrators use this tool to create the
-	required certificates, both for the server and the clients. This
-	allows the configuration of all clients to be similar since they
-	will only have to be set up so as to trust certificates coming from
-	Falcot's local CA. This CA is the first certificate to create; to
-	this end, the administrators copy the directory containing
-	<emphasis>easy-rsa</emphasis> into a more appropriate location,
-	preferably on a machine not connected to the network in order to
-	mitigate the risk of the CA's private key being stolen.</para>
+        <sidebar><title><emphasis>NOTE</emphasis> <emphasis>easy-rsa</emphasis> before <emphasis role="distribution">Jessie</emphasis></title>
+
+        <para>In versions of Debian up to <emphasis
+        role="distribution">Wheezy</emphasis>,
+        <emphasis>easy-rsa</emphasis> was distributed as part of the
+        <emphasis role="pkg">openvpn</emphasis> package, and its
+        scripts were to be found under
+        <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>.
+        Setting up a CA involved copying that directory, instead of
+        using the <command>make-cadir</command> command as documented
+        here.  </para></sidebar>
+
+	<para>The Falcot Corp administrators use this tool to create
+	the required certificates, both for the server and the
+	clients. This allows the configuration of all clients to be
+	similar since they will only have to be set up so as to trust
+	certificates coming from Falcot's local CA. This CA is the
+	first certificate to create; to this end, the administrators
+	set up a directory with the files required for the CA in an
+	appropriate location, preferably on a machine not connected to
+	the network in order to mitigate the risk of the CA's private
+	key being stolen.</para>
 
         <screen>
-<computeroutput>$ </computeroutput><userinput>cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 pki-falcot
+<computeroutput>$ </computeroutput><userinput>make-cadir pki-falcot
 </userinput><computeroutput>$ </computeroutput><userinput>cd pki-falcot</userinput>
 </screen>
 
@@ -332,8 +343,12 @@ export KEY_PROVINCE="Loire"
 export KEY_CITY="Saint-Étienne"
 export KEY_ORG="Falcot Corp"
 export KEY_EMAIL="admin@falcot.com"
+export KEY_OU="Certificate authority"
+export KEY_NAME="Certificate authority for Falcot Corp"
+# If you'd like to sign all keys with the same Common Name, uncomment the KEY_CN export below
+# export KEY_CN="CommonName"
 $ </computeroutput><userinput>. ./vars
-</userinput><computeroutput>NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/rhertzog/pki-falcot/keys
+</userinput><computeroutput>NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/roland/pki-falcot/keys
 $ </computeroutput><userinput>./clean-all
 </userinput>
 </screen>
@@ -346,8 +361,8 @@ $ </computeroutput><userinput>./clean-all
         <screen>
 <computeroutput>$ </computeroutput><userinput>./build-ca</userinput>
 <computeroutput>Generating a 2048 bit RSA private key
-..............................................++++++
-.......................++++++
+...................................................................+++
+...+++
 writing new private key to 'ca.key'
 -----
 You are about to be asked to enter information that will be incorporated
@@ -361,9 +376,9 @@ Country Name (2 letter code) [FR]:
 State or Province Name (full name) [Loire]:
 Locality Name (eg, city) [Saint-Étienne]:
 Organization Name (eg, company) [Falcot Corp]:
-Organizational Unit Name (eg, section) []:
+Organizational Unit Name (eg, section) [Certificate authority]:
 Common Name (eg, your name or your server's hostname) [Falcot Corp CA]:
-Name []:
+Name [Certificate authority for Falcot Corp]:
 Email Address [admin@falcot.com]:
 </computeroutput>
 </screen>
@@ -380,8 +395,8 @@ Email Address [admin@falcot.com]:
         <screen>
 <computeroutput>$ </computeroutput><userinput>./build-key-server vpn.falcot.com
 </userinput><computeroutput>Generating a 2048 bit RSA private key
-...............++++++
-...........++++++
+.....................................................................................................................+++
+...........+++
 writing new private key to 'vpn.falcot.com.key'
 -----
 You are about to be asked to enter information that will be incorporated
@@ -395,16 +410,16 @@ Country Name (2 letter code) [FR]:
 State or Province Name (full name) [Loire]:
 Locality Name (eg, city) [Saint-Étienne]:
 Organization Name (eg, company) [Falcot Corp]:
-Organizational Unit Name (eg, section) []:
+Organizational Unit Name (eg, section) [Certificate authority]:
 Common Name (eg, your name or your server's hostname) [vpn.falcot.com]:
-Name []:
+Name [Certificate authority for Falcot Corp]:
 Email Address [admin@falcot.com]:
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:
 An optional company name []:
-Using configuration from /home/rhertzog/pki-falcot/openssl.cnf
+Using configuration from /home/roland/pki-falcot/openssl-1.0.0.cnf
 Check that the request matches the signature
 Signature ok
 The Subject's Distinguished Name is as follows
@@ -412,9 +427,11 @@ countryName           :PRINTABLE:'FR'
 stateOrProvinceName   :PRINTABLE:'Loire'
 localityName          :T61STRING:'Saint-\0xFFFFFFC3\0xFFFFFF89tienne'
 organizationName      :PRINTABLE:'Falcot Corp'
+organizationalUnitName:PRINTABLE:'Certificate authority'
 commonName            :PRINTABLE:'vpn.falcot.com'
+name                  :PRINTABLE:'Certificate authority for Falcot Corp'
 emailAddress          :IA5STRING:'admin@falcot.com'
-Certificate is to be certified until Oct  9 13:57:42 2020 GMT (3650 days)
+Certificate is to be certified until Mar  6 14:54:56 2025 GMT (3650 days)
 Sign the certificate? [y/n]:</computeroutput><userinput>y
 </userinput><computeroutput>
 
@@ -424,7 +441,7 @@ Data Base Updated
 $ </computeroutput><userinput>./build-dh
 </userinput><computeroutput>Generating DH parameters, 2048 bit long safe prime, generator 2
 This is going to take a long time
-..............+.......+.................................++*++*++*
+[…]
 </computeroutput>
 </screen>
 
@@ -434,9 +451,10 @@ This is going to take a long time
 
         <screen>
 <computeroutput>$ </computeroutput><userinput>./build-key JoeSmith
-</userinput><computeroutput>Generating a 2048 bit RSA private key
-................++++++
-.............................++++++
+</userinput><computeroutput>./build-key JoeSmith
+Generating a 2048 bit RSA private key
+................................+++
+..............................................+++
 writing new private key to 'JoeSmith.key'
 -----
 You are about to be asked to enter information that will be incorporated
@@ -450,10 +468,8 @@ Country Name (2 letter code) [FR]:
 State or Province Name (full name) [Loire]:
 Locality Name (eg, city) [Saint-Étienne]:
 Organization Name (eg, company) [Falcot Corp]:
-Organizational Unit Name (eg, section) []:
-Common Name (eg, your name or your server's hostname) [JoeSmith]:</computeroutput><userinput>Joe Smith
-</userinput><computeroutput>Name []:
-Email Address [admin@falcot.com]:</computeroutput><userinput>joe@falcot.com
+Organizational Unit Name (eg, section) [Certificate authority]:</computeroutput><userinput>Development unit
+</userinput><computeroutput>Common Name (eg, your name or your server's hostname) [JoeSmith]:</computeroutput><userinput>Joe Smith
 </userinput><computeroutput>[…]</computeroutput></screen>
 
 	<para>Now all certificates have been created, they need to be
@@ -605,7 +621,6 @@ Email Address [admin@falcot.com]:</computeroutput><userinput>joe@falcot.com
     <section id="sect.ipsec">
       <title>IPsec</title>
       <indexterm><primary>IPsec</primary></indexterm>
-      <indexterm><primary><command>openswan</command></primary></indexterm>
       <indexterm><primary><command>strongswan</command></primary></indexterm>
       <indexterm><primary><command>racoon</command></primary></indexterm>
 
@@ -627,9 +642,8 @@ Email Address [admin@falcot.com]:</computeroutput><userinput>joe@falcot.com
       explicitly writing the parameters for all hosts in a non-trivial set
       of machines quickly becomes an arduous task, since the number of
       tunnels grows fast. Installing an IKE daemon (for <emphasis>IPsec Key
-      Exchange</emphasis>) such as <emphasis role="pkg">racoon</emphasis>,
-      <emphasis role="pkg">strongswan</emphasis> or <emphasis
-      role="pkg">openswan</emphasis> makes the process much simpler by
+      Exchange</emphasis>) such as <emphasis role="pkg">racoon</emphasis> or
+      <emphasis role="pkg">strongswan</emphasis> makes the process much simpler by
       bringing administration together at a central point, and more secure
       by rotating the keys periodically.
       </para>
@@ -1431,9 +1445,9 @@ if_prefix=eth0
 	<indexterm><primary>nibble format</primary></indexterm>
 
 	<para>Reverse zones have a particular name. The zone covering the
-	<literal>192.168.0.0/16</literal> network need to be named
+	<literal>192.168.0.0/16</literal> network needs to be named
 	<literal>168.192.in-addr.arpa</literal>: the IP address components
-	are reversed, and followed by the <emphasis>in-addr.arpa</emphasis>
+	are reversed, and followed by the <literal>in-addr.arpa</literal>
 	suffix.</para>
 
 	<para>For IPv6 networks, the suffix is <literal>ip6.arpa</literal> and
@@ -1447,13 +1461,14 @@ if_prefix=eth0
         <title><emphasis>TIP</emphasis> Testing the DNS server</title>
 
 	<para>The <command>host</command> command (in the <emphasis
-	role="pkg">bind9-host</emphasis> package) queries a DNS server, and
-	can be used to test the server configuration. For example,
-	<command>host machine.falcot.com localhost</command> checks the
-	local server's reply for the <literal>machine.falcot.com</literal>
-	query. The <command>host <replaceable>ipaddress</replaceable>
-	localhost</command> tests the reverse resolution.</para>
-        <indexterm><primary><command>host</command></primary></indexterm>
+	role="pkg">bind9-host</emphasis> package) queries a DNS
+	server, and can be used to test the server configuration. For
+	example, <command>host machine.falcot.com localhost</command>
+	checks the local server's reply for the
+	<literal>machine.falcot.com</literal> query. <command>host
+	<replaceable>ipaddress</replaceable> localhost</command> tests
+	the reverse resolution.</para>
+	<indexterm><primary><command>host</command></primary></indexterm>
       </sidebar>
 
       <para>The following configuration excerpts, taken from the Falcot
@@ -1751,20 +1766,37 @@ allow-update { 127.0.0.1 192.168.0.1 212.94.201.10 !any };
 <computeroutput># </computeroutput><userinput>netstat -tupan</userinput>
 <computeroutput>Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      2224/sshd       
-tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      994/exim4       
-tcp        0      0 192.168.1.241:22        192.168.1.128:47372     ESTABLISHED 2944/sshd: roland [
-tcp        0      0 192.168.1.241:22        192.168.1.128:32970     ESTABLISHED 2232/sshd: roland [
-tcp6       0      0 :::22                   :::*                    LISTEN      2224/sshd       
-tcp6       0      0 ::1:25                  :::*                    LISTEN      994/exim4       
-udp        0      0 0.0.0.0:68              0.0.0.0:*                           633/dhclient    
-udp        0      0 192.168.1.241:123       0.0.0.0:*                           764/ntpd        
-udp        0      0 127.0.0.1:123           0.0.0.0:*                           764/ntpd        
-udp        0      0 0.0.0.0:123             0.0.0.0:*                           764/ntpd        
-udp6       0      0 fe80::a00:27ff:fe6c:123 :::*                                764/ntpd        
-udp6       0      0 2002:52e0:87e4:0:a0:123 :::*                                764/ntpd        
-udp6       0      0 ::1:123                 :::*                                764/ntpd        
-udp6       0      0 :::123                  :::*                                764/ntpd        
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      397/rpcbind     
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      431/sshd        
+tcp        0      0 0.0.0.0:36568           0.0.0.0:*               LISTEN      407/rpc.statd   
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      762/exim4       
+tcp        0    272 192.168.1.242:22        192.168.1.129:44452     ESTABLISHED 1172/sshd: roland [
+tcp6       0      0 :::111                  :::*                    LISTEN      397/rpcbind     
+tcp6       0      0 :::22                   :::*                    LISTEN      431/sshd        
+tcp6       0      0 ::1:25                  :::*                    LISTEN      762/exim4       
+tcp6       0      0 :::35210                :::*                    LISTEN      407/rpc.statd   
+udp        0      0 0.0.0.0:39376           0.0.0.0:*                           916/dhclient    
+udp        0      0 0.0.0.0:996             0.0.0.0:*                           397/rpcbind     
+udp        0      0 127.0.0.1:1007          0.0.0.0:*                           407/rpc.statd   
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           916/dhclient    
+udp        0      0 0.0.0.0:48720           0.0.0.0:*                           451/avahi-daemon: r
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           397/rpcbind     
+udp        0      0 192.168.1.242:123       0.0.0.0:*                           539/ntpd        
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           539/ntpd        
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           539/ntpd        
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           451/avahi-daemon: r
+udp        0      0 0.0.0.0:39172           0.0.0.0:*                           407/rpc.statd   
+udp6       0      0 :::996                  :::*                                397/rpcbind     
+udp6       0      0 :::34277                :::*                                407/rpc.statd   
+udp6       0      0 :::54852                :::*                                916/dhclient    
+udp6       0      0 :::111                  :::*                                397/rpcbind     
+udp6       0      0 :::38007                :::*                                451/avahi-daemon: r
+udp6       0      0 fe80::5054:ff:fe99::123 :::*                                539/ntpd        
+udp6       0      0 2001:bc8:3a7e:210:a:123 :::*                                539/ntpd        
+udp6       0      0 2001:bc8:3a7e:210:5:123 :::*                                539/ntpd        
+udp6       0      0 ::1:123                 :::*                                539/ntpd        
+udp6       0      0 :::123                  :::*                                539/ntpd        
+udp6       0      0 :::5353                 :::*                                451/avahi-daemon: r
 </computeroutput></screen>
 
       <para>As expected, this lists established connections, two SSH
@@ -1796,64 +1828,47 @@ udp6       0      0 :::123                  :::*                                
       <manvolnum>1</manvolnum> </citerefentry> manual page.</para>
 
       <screen width="80" role="scale">
-<computeroutput># </computeroutput><userinput>nmap mirwiz</userinput>
+<computeroutput># </computeroutput><userinput>nmap mirtuel</userinput>
 <computeroutput>
-nmap 192.168.1.30
+Starting Nmap 6.47 ( http://nmap.org ) at 2015-03-09 16:46 CET
+Nmap scan report for mirtuel (192.168.1.242)
+Host is up (0.000013s latency).
+rDNS record for 192.168.1.242: mirtuel.internal.placard.fr.eu.org
+Not shown: 998 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
 
-Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 11:00 CET
-Nmap scan report for mirwiz (192.168.1.30)
-Host is up (0.000015s latency).
-Not shown: 997 closed ports
-PORT      STATE SERVICE
-22/tcp    open  ssh
-111/tcp   open  rpcbind
-10000/tcp open  snet-sensor-mgmt
-
-Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
+Nmap done: 1 IP address (1 host up) scanned in 2.41 seconds
 # </computeroutput><userinput>nmap -A localhost</userinput>
 <computeroutput>
-Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 10:54 CET
+Starting Nmap 6.47 ( http://nmap.org ) at 2015-03-09 16:46 CET
 Nmap scan report for localhost (127.0.0.1)
-Host is up (0.000084s latency).
+Host is up (0.000013s latency).
 Other addresses for localhost (not scanned): 127.0.0.1
-Not shown: 996 closed ports
-PORT      STATE SERVICE VERSION
-22/tcp    open  ssh     OpenSSH 6.0p1 Debian 4 (protocol 2.0)
-| ssh-hostkey: 1024 ea:47:e5:04:a0:b8:70:29:c2:94:3d:fe:a8:b8:b4:02 (DSA)
-|_2048 81:5c:a4:56:ff:c0:bf:0d:cd:e6:cc:48:2f:15:78:ea (RSA)
-25/tcp    open  smtp    Exim smtpd 4.80
-| smtp-commands: mirwiz.internal.placard.fr.eu.org Hello localhost [127.0.0.1], SIZE 52428800, 8BITMIME, PIPELINING, HELP, 
+Not shown: 997 closed ports
+PORT    STATE SERVICE VERSION
+22/tcp  open  ssh     OpenSSH 6.7p1 Debian 3 (protocol 2.0)
+|_ssh-hostkey: ERROR: Script execution failed (use -d to debug)
+25/tcp  open  smtp    Exim smtpd 4.84
+| smtp-commands: mirtuel Hello localhost [127.0.0.1], SIZE 52428800, 8BITMIME, PIPELINING, HELP, 
 |_ Commands supported: AUTH HELO EHLO MAIL RCPT DATA NOOP QUIT RSET HELP 
-111/tcp   open  rpcbind
+111/tcp open  rpcbind 2-4 (RPC #100000)
 | rpcinfo: 
 |   program version   port/proto  service
 |   100000  2,3,4        111/tcp  rpcbind
 |   100000  2,3,4        111/udp  rpcbind
-|   100024  1          40114/tcp  status
-|_  100024  1          55628/udp  status
-10000/tcp open  http    MiniServ 1.660 (Webmin httpd)
-| ndmp-version: 
-|_  ERROR: Failed to get host information from server
-|_http-methods: No Allow or Public header in OPTIONS response (status code 200)
-|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
-No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).
-TCP/IP fingerprint:
-OS:SCAN(V=6.00%E=4%D=11/13%OT=22%CT=1%CU=40107%PV=N%DS=0%DC=L%G=Y%TM=52834C
-OS:9E%P=x86_64-unknown-linux-gnu)SEQ(SP=102%GCD=1%ISR=105%TI=Z%CI=Z%II=I%TS
-OS:=8)OPS(O1=M400CST11NW5%O2=M400CST11NW5%O3=M400CNNT11NW5%O4=M400CST11NW5%
-OS:O5=M400CST11NW5%O6=M400CST11)WIN(W1=8000%W2=8000%W3=8000%W4=8000%W5=8000
-OS:%W6=8000)ECN(R=Y%DF=Y%T=41%W=8018%O=M400CNNSNW5%CC=Y%Q=)T1(R=Y%DF=Y%T=41
-OS:%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=41%W=0%S=A%A=Z%F=R%O=
-OS:%RD=0%Q=)T5(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=41%
-OS:W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=
-OS:)U1(R=Y%DF=N%T=41%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%
-OS:DFI=N%T=41%CD=S)
-
+|   100024  1          36568/tcp  status
+|_  100024  1          39172/udp  status
+Device type: general purpose
+Running: Linux 3.X
+OS CPE: cpe:/o:linux:linux_kernel:3
+OS details: Linux 3.7 - 3.15
 Network Distance: 0 hops
-Service Info: Host: mirwiz.internal.placard.fr.eu.org; OS: Linux; CPE: cpe:/o:linux:kernel
+Service Info: Host: mirtuel; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 48.20 seconds
+Nmap done: 1 IP address (1 host up) scanned in 11.54 seconds
 </computeroutput>
 </screen>
 
@@ -1861,7 +1876,7 @@ Nmap done: 1 IP address (1 host up) scanned in 48.20 seconds
       that not all applications listen on all IP addresses; since Exim4 is
       only accessible on the <literal>lo</literal> loopback interface, it
       only appears during an analysis of <literal>localhost</literal> and
-      not when scanning <literal>mirwiz</literal> (which maps to the
+      not when scanning <literal>mirtuel</literal> (which maps to the
       <literal>eth0</literal> interface on the same machine).</para>
     </section>
     <section id="sect.sniffers">
@@ -1883,7 +1898,7 @@ Nmap done: 1 IP address (1 host up) scanned in 48.20 seconds
 
       <para>A more recent (and more modern) tool,
       <command>wireshark</command> (in the <emphasis
-      role="pkg">wireshark</emphasis> package), is slowly becoming the new
+      role="pkg">wireshark</emphasis> package), has become the new
       reference in network traffic analysis due to its many decoding
       modules that allow for a simplified analysis of the captured packets.
       The packets are displayed graphically with an organization based on
