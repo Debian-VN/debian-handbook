@@ -282,12 +282,13 @@ virtual_alias_maps = hash:/etc/postfix/virtual
 </programlisting>
         </example>
 
-	<para>The <filename>/etc/postfix/virtual</filename> file describes
-	mapping with a rather straightforward syntax: each line contains
-	two fields separated by whitespace; the first field is the alias
-	name, the second field is a list of email addresses where it
-	redirects. The special <literal>@domain.com</literal> syntax
-	covers all remaining aliases in a domain.</para>
+	<para>The <filename>/etc/postfix/virtual</filename> file
+	describes a mapping with a rather straightforward syntax: each
+	line contains two fields separated by whitespace; the first
+	field is the alias name, the second field is a list of email
+	addresses where it redirects. The special
+	<literal>@domain.com</literal> syntax covers all remaining
+	aliases in a domain.</para>
 
         <example>
           <title>Example <filename>/etc/postfix/virtual</filename> file</title>
@@ -1126,7 +1127,7 @@ relay_host = [mail.falcot.com]
 
     <para>The Falcot Corp administrators decided to use the Apache HTTP
     server, included in Debian <emphasis
-    role="distribution">Wheezy</emphasis> at version 2.2.22.</para>
+    role="distribution">Jessie</emphasis> at version 2.4.10.</para>
     <indexterm><primary><command>apache</command></primary></indexterm>
     <indexterm><primary>server</primary><secondary>web</secondary></indexterm>
     <indexterm><primary>web server</primary></indexterm>
@@ -1161,21 +1162,20 @@ relay_host = [mail.falcot.com]
       concentrated in the policy used to handle parallel processing of many
       requests; this policy is implemented by an MPM (short for
       <emphasis>Multi-Processing Module</emphasis>). Among the available
-      MPMs, <emphasis role="pkg">apache2-mpm-worker</emphasis> uses
+      MPMs, <emphasis>worker</emphasis> uses
       <emphasis>threads</emphasis> (lightweight processes), whereas
-      <emphasis role="pkg">apache2-mpm-prefork</emphasis> uses a pool of
+      <emphasis>prefork</emphasis> uses a pool of
       processes created in advance (the traditional way, and the only one
-      available in Apache 1.3). <emphasis
-      role="pkg">apache2-mpm-event</emphasis> also uses threads, but they
+      available in Apache 1.3). <emphasis>event</emphasis> also uses threads, but they
       are terminated earlier, when the incoming connection is only kept
       open by the HTTP <emphasis>keep-alive</emphasis> feature.</para>
 
       <para>The Falcot administrators also install <emphasis
-      role="pkg">libapache2-mod-php5</emphasis> so as to include the PHP
-      support in Apache. This causes <emphasis
-      role="pkg">apache2-mpm-worker</emphasis> to be removed, and <emphasis
-      role="pkg">apache2-mpm-prefork</emphasis> to be installed instead,
-      since PHP only works under that particular MPM.</para>
+      role="pkg">libapache2-mod-php5</emphasis> so as to include the
+      PHP support in Apache. This causes the
+      <emphasis>worker</emphasis> MPM to be disabled, and
+      <emphasis>prefork</emphasis> to be used instead, since PHP
+      only works under that particular MPM.</para>
 
       <sidebar>
         <title><emphasis>SECURITY</emphasis> Execution under the <literal>www-data</literal> user</title>
@@ -1194,14 +1194,16 @@ relay_host = [mail.falcot.com]
 	<literal>SuexecUserGroup
 	<replaceable>user</replaceable><replaceable>group</replaceable></literal>
 	directive in the Apache configuration.</para>
-        <indexterm><primary><emphasis role="pkg">apache2-mpm-itk</emphasis></primary></indexterm>
+        <indexterm><primary><emphasis role="pkg">libapache2-mpm-itk</emphasis></primary></indexterm>
 
-	<para>Another possibility is to use a dedicated MPM, such as the
-	one provided by <emphasis role="pkg">apache2-mpm-itk</emphasis>.
-	This particular one has a slightly different behavior: it allows
-	“isolating” virtual hosts so that they each run as a different
-	user. A vulnerability in one website therefore cannot compromise
-	files belonging to the owner of another website.</para>
+	<para>Another possibility is to use a dedicated MPM, such as
+	the one provided by <emphasis
+	role="pkg">libapache2-mpm-itk</emphasis>.  This particular one
+	has a slightly different behavior: it allows “isolating”
+	virtual hosts (actually, sets of pages) so that they each run
+	as a different user. A vulnerability in one website therefore
+	cannot compromise files belonging to the owner of another
+	website.</para>
       </sidebar>
 
       <sidebar>
@@ -1209,7 +1211,7 @@ relay_host = [mail.falcot.com]
 
 	<para>The full list of Apache standard modules can be found online.
 	<ulink type="block"
-	url="http://httpd.apache.org/docs/2.2/mod/index.html"/></para>
+	url="http://httpd.apache.org/docs/2.4/mod/index.html"/></para>
       </sidebar>
 
       <para>Apache is a modular server, and many features are implemented
@@ -1235,14 +1237,14 @@ relay_host = [mail.falcot.com]
         <indexterm><primary>HTTPS</primary></indexterm>
         <indexterm><primary>HTTP</primary><secondary>secure</secondary></indexterm>
 
-	<para>Apache 2.2 includes the SSL module required for secure HTTP
+	<para>Apache 2.4 includes the SSL module required for secure HTTP
 	(HTTPS) out of the box. It just needs to be enabled with
 	<command>a2enmod ssl</command>, then the required directives have
 	to be added to the configuration files. A configuration example is
 	provided in
-	<filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>.
+	<filename>/etc/apache2/sites-available/default-ssl.conf</filename>.
 	<ulink type="block"
-	url="http://httpd.apache.org/docs/2.2/mod/mod_ssl.html"/></para>
+	url="http://httpd.apache.org/docs/2.4/mod/mod_ssl.html"/></para>
 
 	<para>Some extra care must be taken if you want to favor
 	SSL connections with <emphasis>Perfect Forward Secrecy</emphasis>
@@ -1282,12 +1284,10 @@ relay_host = [mail.falcot.com]
       (IPv6 can help there).</para>
 
       <para>The default configuration for Apache 2 enables name-based
-      virtual hosts (with the <literal>NameVirtualHost *:80</literal>
-      directive in the <filename>/etc/apache2/ports.conf</filename> file).
-      In addition, a default virtual host is defined in the
-      <literal>/etc/apache2/sites-enabled/000-default</literal> file; this
-      virtual host will be used if no host matching the request sent by the
-      client is found.</para>
+      virtual hosts.  In addition, a default virtual host is defined
+      in the <literal>/etc/apache2/sites-enabled/000-default</literal>
+      file; this virtual host will be used if no host matching the
+      request sent by the client is found.</para>
 
       <sidebar>
         <title><emphasis>CAUTION</emphasis> First virtual host</title>
@@ -1321,18 +1321,7 @@ relay_host = [mail.falcot.com]
 	since version 3.2.1, and all versions of Google Chrome.</para>
 
 	<para>The Apache package provided in Debian is built with support
-	for SNI; no particular configuration is therefore needed, apart
-	from enabling name-based virtual hosting on port 443 (SSL) as well
-	as the usual port 80. This is a simple matter of editing
-	<filename>/etc/apache2/ports.conf</filename> so it includes the
-	following:</para>
-
-        <programlisting>
-&lt;IfModule mod_ssl.c&gt;
-    NameVirtualHost *:443
-    Listen 443
-&lt;/IfModule&gt;
-</programlisting>
+	for SNI; no particular configuration is therefore needed.</para>
 
 	<para>Care should also be taken to ensure that the configuration
 	for the first virtual host (the one used by default) does enable
@@ -1542,13 +1531,44 @@ Adding password for user <replaceable>user</replaceable>
         <title>Restricting Access</title>
         <indexterm><primary>web access restriction</primary></indexterm>
 
-	<!-- XXX: This will change with Apache 2.4 in Jessie -->
+	<para>The <literal>Require</literal> directive controls access
+	restrictions for a directory (and its subdirectories,
+	recursively).</para>
+
+	<indexterm><primary>Apache directives</primary></indexterm>
+	<indexterm><primary>directives, Apache</primary></indexterm>
+	<indexterm><primary><literal>Require</literal>, Apache directive</primary></indexterm>
+
+	<para>It can be used to restrict access based on many
+	criteria; we will stop at describing access restriction based
+	on the IP address of the client, but it can be made much more
+	powerful than that, especially when several
+	<literal>Require</literal> directives are combined within a
+	<literal>RequireAll</literal> block.</para>
+
+        <example>
+          <title>Only allow from the local network</title>
+
+          <programlisting>Require ip 192.168.0.0/16
+</programlisting>
+        </example>
+
+      <sidebar>
+        <title><emphasis>ALTERNATIVE</emphasis> Old syntax</title>
+
+        <para>The <literal>Require</literal> syntax is only available
+        in Apache 2.4 (the version in <emphasis
+        role="distribution">Jessie</emphasis>).  For users of
+        <emphasis role="distribution">Wheezy</emphasis>, the
+        Apache 2.2 syntax is different, and we describe it here mainly
+        for reference, although it can also be made available in
+        Apache 2.4 using the <literal>mod_access_compat</literal>
+        module.</para>
+
 	<para>The <literal>Allow from</literal> and <literal>Deny
 	from</literal> directives control access restrictions for a
 	directory (and its subdirectories, recursively).</para>
 
-	<indexterm><primary>Apache directives</primary></indexterm>
-	<indexterm><primary>directives, Apache</primary></indexterm>
 	<indexterm><primary><literal>Allow from</literal>, Apache directive</primary></indexterm>
 	<indexterm><primary><literal>Deny from</literal>, Apache directive</primary></indexterm>
 	<indexterm><primary><literal>Order</literal>, Apache directive</primary></indexterm>
@@ -1580,7 +1600,8 @@ Allow from 192.168.0.0/16
 Deny from all
 </programlisting>
         </example>
-      </section>
+</sidebar>
+</section>
     </section>
     <section>
       <title>Log Analyzers</title>
@@ -2062,40 +2083,10 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
       <title>Samba Server</title>
 
       <para>The <emphasis role="pkg">samba</emphasis> package contains the
-      main two servers of Samba 3, <command>smbd</command> and
+      main two servers of Samba 4, <command>smbd</command> and
       <command>nmbd</command>.</para>
       <indexterm><primary><command>smbd</command></primary></indexterm>
       <indexterm><primary><command>nmbd</command></primary></indexterm>
-
-      <sidebar>
-	<!-- XXX: To drop in the Jessie version -->
-        <title><emphasis>TOOL</emphasis> Administrating Samba with SWAT</title>
-
-	<para>SWAT (<emphasis>Samba Web Administration Tool</emphasis>) is
-	a web interface that allows configuring the Samba service. Since
-	the <emphasis role="pkg">swat</emphasis> package does not enable
-	its configuration interface by default, it must be enabled manually
-	with <command>update-inetd --enable swat</command>.</para>
-        <indexterm><primary>SWAT</primary></indexterm>
-
-	<para><emphasis>SWAT</emphasis> then becomes available at the
-	<literal>http://localhost:901</literal> URL. Accessing it means
-	using the root account (and its usual password). Note that SWAT
-	rewrites the <filename>smb.conf</filename> in its own idiom, so it
-	makes sense to make a backup copy beforehand if you're only
-	interested in testing this tool.</para>
-
-	<para>SWAT is very user-friendly; its interface includes an
-	assistant that allows defining the server's role in three
-	questions. All global options can still be configured, as well as
-	those for all the existing shares, and of course new shares can be
-	added. Each option comes with a link to the relevant
-	documentation.</para>
-
-	<para>Unfortunately SWAT is no longer actively maintained and
-	will be dropped from the next version of Debian, known as
-	<emphasis role="distribution">Jessie</emphasis>.</para>
-      </sidebar>
 
       <sidebar>
         <title><emphasis>DOCUMENTATION</emphasis> Going further</title>
@@ -2110,13 +2101,9 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
         <indexterm><primary>domain controller</primary></indexterm>
         <indexterm><primary>Windows domain</primary></indexterm>
 
-	<para>The documentation available in the <emphasis
-	role="pkg">samba-doc</emphasis> package is very well written. In
-	particular, the <citetitle><foreignphrase>Samba 3 By
-	Example</foreignphrase></citetitle> document (available as
-	<filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>)
-	deals with a concrete use case that evolves alongside the growing
-	company.</para>
+	<para>The <emphasis role="pkg">samba-doc</emphasis> package
+	contains a wealth of commented example files in
+	<filename>/usr/share/doc/samba-doc/examples/</filename>.</para>
       </sidebar>
 
       <sidebar>
@@ -2130,8 +2117,8 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
         <indexterm><primary>Winbind</primary></indexterm>
 
 	<para>More information can be found in the
-	<filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename>
-	file.</para>
+	<filename>/usr/share/doc/samba-doc/examples/pam_winbind/</filename>
+	directory.</para>
       </sidebar>
       <section>
         <title>Configuring with <command>debconf</command></title>
@@ -2155,12 +2142,6 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
 	administrators rejected this option, since they intend to use the
 	Samba server itself as the WINS server.</para>
         <indexterm><primary>WINS</primary></indexterm>
-
-	<para>The last question is about whether servers should be started
-	by <command>inetd</command> or as stand-alone daemons. Using
-	<command>inetd</command> is only interesting when Samba is rarely
-	used; the Falcot administrators therefore picked stand-alone
-	daemons.</para>
       </section>
       <section>
         <title>Configuring Manually</title>
@@ -2485,7 +2466,7 @@ password = <replaceable>password</replaceable></programlisting>
     <section>
       <title>Installing</title>
 
-      <para>The <emphasis role="pkg">squid</emphasis> Debian package only
+      <para>The <emphasis role="pkg">squid3</emphasis> Debian package only
       contains the modular (caching) proxy. Turning it into a filtering
       server requires installing the additional <emphasis
       role="pkg">squidguard</emphasis> package. In addition, <emphasis
@@ -2505,13 +2486,13 @@ password = <replaceable>password</replaceable></programlisting>
       <title>Configuring a Cache</title>
 
       <para>Enabling the caching server feature is a simple matter of
-      editing the <filename>/etc/squid/squid.conf</filename> configuration
+      editing the <filename>/etc/squid3/squid.conf</filename> configuration
       file and allowing machines from the local network to run queries
       through the proxy. The following example shows the modifications made
       by the Falcot Corp administrators:</para>
 
       <example>
-        <title>The <filename>/etc/squid/squid.conf</filename> file (excerpts)</title>
+        <title>The <filename>/etc/squid3/squid.conf</filename> file (excerpts)</title>
 
         <programlisting>
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
@@ -2611,11 +2592,11 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
       servers.</para>
       <indexterm><primary><emphasis>slapd</emphasis></primary></indexterm>
 
-      <para>Installing <emphasis role="pkg">slapd</emphasis> is usually
-      non-interactive unless you have configured debconf to display
-      questions with lower priorities. Nevertheless, it is debconf-enabled,
-      and thus a simple <command>dpkg-reconfigure slapd</command>
-      can reconfigure the LDAP database:</para>
+      <para>Installing <emphasis role="pkg">slapd</emphasis> usually
+      asks very few questions, unless you have configured debconf to
+      display questions with lower priorities. Nevertheless, it is
+      debconf-enabled, and thus a simple <command>dpkg-reconfigure
+      slapd</command> can reconfigure the LDAP database:</para>
       <itemizedlist>
         <listitem>
 	  <para>Omit OpenLDAP server configuration? No, of course, we want
