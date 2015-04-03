@@ -133,7 +133,7 @@
       <!-- MAYCHANGE: version number -->
       <para>Debian has chosen to follow this recommendation, and, thus,
       name its distributions accordingly (thus, the latest stable release
-      is Debian GNU/Linux 7).</para>
+      is Debian GNU/Linux 8).</para>
     </sidebar>
 
     <para>Several factors have dictated this choice. The system
@@ -195,14 +195,16 @@
       <indexterm><primary>FreeBSD</primary></indexterm>
       <indexterm><primary>BSD</primary></indexterm>
 
+      <!-- MAYCHANGE: status of kfreebsd and stats:
+           https://buildd.debian.org/stats/ -->
       <para>Since Debian <emphasis
       role="distribution">Squeeze</emphasis>, it is possible to use
       Debian with a FreeBSD kernel on 32 and 64 bit computers; this is
       what the <literal>kfreebsd-i386</literal> and
       <literal>kfreebsd-amd64</literal> architectures mean. While
-      these architectures are labeled “experimental” (Technology
-      Preview), about 90 % of the software packaged by Debian is
-      available for them.</para>
+      these architectures are not “official release architectures”,
+      about 90 % of the software packaged by Debian is available for
+      them.</para>
 
       <para>These architectures may be an appropriate choice for Falcot
       Corp administrators, especially for a firewall (the kernel supports
@@ -276,7 +278,8 @@
         </listitem>
         <listitem>
 	  <para>Statistically, new versions are released every 18 to 24
-	  months, a schedule which is agreeable to administrators.</para>
+          months, and they are supported for 5 years, a schedule which
+          is agreeable to administrators.</para>
         </listitem>
         <listitem>
 	  <para>A survey of several French service companies specialized in
@@ -287,26 +290,47 @@
         </listitem>
         <listitem>
 	  <para>Finally, Debian is available on a multitude of
-	  architectures, including Sparc; it will, thus, be possible to
-	  install it on Falcot Corp's several Sun servers.</para>
+          architectures, including ppc64el for OpenPOWER processors; it
+          will, thus, be possible to install it on Falcot Corp's latest
+          IBM servers.</para>
         </listitem>
       </itemizedlist>
 
+      <sidebar>
+        <title><emphasis>IN PRACTICE</emphasis> Debian Long Term Support</title>
+        <para>The Debian Long Term Support (LTS) project started in 2014
+        and aims to provide 5 years of security support to all stable
+        Debian releases. As LTS is of primary importance to
+        organizations with large deployments, the project tries to pool
+        resources from Debian-using companies.
+        <ulink type="block" url="https://wiki.debian.org/LTS"/>
+        </para>
+        <para>Falcot Corp is not big enough to let one member of its IT staff
+        contribute to the LTS project, so the company opted to subscribe
+        to Freexian's Debian LTS contract and provides financial support.
+        Thanks to this, the Falcot administrators know that the packages
+        they use will be handled in priority and they have a direct
+        contact with the LTS team in case of problems.
+        <ulink type="block" url="https://wiki.debian.org/LTS/Funding"/>
+        <ulink type="block" url="http://www.freexian.com/services/debian-lts.html"/>
+        </para>
+      </sidebar>
+
       <para>Once Debian has been chosen, the matter of which version to use
       must be decided. Let us see why the administrators have picked Debian
-      Wheezy.</para>
+      Jessie.</para>
     </section>
   </section>
   <section id="sect.why-debian-stable">
-    <title>Why Debian Wheezy?</title>
+    <title>Why Debian Jessie?</title>
 
     <para>Every Debian release starts its life as a continuously changing
     distribution, also known as “<emphasis
     role="distribution">Testing</emphasis>”. But at the time when you
-    will read those lines, Debian Wheezy should be the latest “<emphasis
+    will read those lines, Debian Jessie should be the latest “<emphasis
     role="distribution">Stable</emphasis>” version of Debian.</para>
 
-    <para>The choice of Debian Wheezy is well justified based on the fact
+    <para>The choice of Debian Jessie is well justified based on the fact
     that any administrator concerned about the quality of their servers
     will naturally gravitate towards the stable version of Debian.
     Even if the previous stable release might still be supported for a
