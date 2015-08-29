@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-07-08 09:41+0000\n"
-"PO-Revision-Date: 2015-07-08 19:35+0900\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
+"PO-Revision-Date: 2015-08-29 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -110,14 +110,59 @@ msgid "When you boot the computer, the many messages scrolling by on the console
 msgstr "コンピュータを起動する際、コンソール画面にスクロールされる多くのメッセージには、実行されている多くの自動初期化と自動設定に関する情報が表示されます。この段階の挙動を少し変えたいと思う事があるかもしれません。これは起動処理をよく理解する必要がある事を意味しています。これがこの節の目的です。"
 
 #. Tag: para
-#, no-c-format
-msgid "First, the BIOS takes control of the computer, detects the disks, loads the <emphasis>Master Boot Record</emphasis>, and executes the bootloader. The bootloader takes over, finds the kernel on the disk, loads and executes it. The kernel is then initialized, and starts to search for and mount the partition containing the root filesystem, and finally executes the first program — <command>init</command>. Frequently, this “root partition” and this <command>init</command> are, in fact, located in a virtual filesystem that only exists in RAM (hence its name, “initramfs”, formerly called “initrd” for “initialization RAM disk”). This filesystem is loaded in memory by the bootloader, often from a file on a hard drive or from the network. It contains the bare minimum required by the kernel to load the “true” root filesystem: this may be driver modules for the hard drive, or other devices without which the system can not boot, or, more frequently, initialization scripts and modules for assembling RAID arrays, opening encrypted partitions, activating LVM volumes, etc. Once the root partition is mounted, the initramfs hands over control to the real init, and the machine goes back to the standard boot process."
+#, fuzzy, no-c-format
+msgid "First, the BIOS takes control of the computer, detects the disks, loads the <emphasis>Master Boot Record</emphasis>, and executes the bootloader. The bootloader takes over, finds the kernel on the disk, loads and executes it. The kernel is then initialized, and starts to search for and mount the partition containing the root filesystem, and finally executes the first program — <command>init</command>. Frequently, this “root partition” and this <command>init</command> are, in fact, located in a virtual filesystem that only exists in RAM (hence its name, “initramfs”, formerly called “initrd” for “initialization RAM disk”). This filesystem is loaded in memory by the bootloader, often from a file on a hard drive or from the network. It contains the bare minimum required by the kernel to load the “true” root filesystem: this may be driver modules for the hard drive, or other devices without which the system cannot boot, or, more frequently, initialization scripts and modules for assembling RAID arrays, opening encrypted partitions, activating LVM volumes, etc. Once the root partition is mounted, the initramfs hands over control to the real init, and the machine goes back to the standard boot process."
 msgstr "最初に BIOS がコンピュータを制御し、ディスクを検出し、<emphasis>Master Boot Record</emphasis> を読み込み、ブートローダを実行します。以降、ブートローダが引き継ぎ、ディスクからカーネルを見つけ、カーネルを読み込んで実行します。そして、カーネルが初期化され、root ファイルシステムを含むパーティションの検索とマウントを開始し、最後に最初のプログラム - <command>init</command> - を実行します。実際には、「root パーティション」と <command>init</command> は RAM の中にだけ存在する仮想ファイルシステム (そのためこの名前は「initramfs」、以前は「初期化 RAM ディスク」という意味で「initrd」と呼ばれていました) 上に置かれている事が多いです。このファイルシステムは、多くの場合ハードドライブのファイルかネットワークから、ブートローダによってメモリに読み込まれます。このファイルシステムには、カーネルが「真の」root ファイルシステムを読み込むために必要な最低限の要素が含まれています: ハードドライブやそれなしではシステムが起動できないその他のデバイスのドライバモジュール、より頻繁にあるのが、RAID アレイを組み立て、暗号化されたパーティションを開き、LVM ボリュームを有効化するなどの初期化スクリプトとモジュールです。一度 root パーティションがマウントされたら、initramfs は制御を真の init に渡し、マシンは標準的な起動処理に戻ります。"
+
+#. Tag: title
+#, fuzzy, no-c-format
+msgid "Boot sequence of a computer running Linux with systemd"
+msgstr "Linux の動くコンピュータの起動シーケンス"
+
+#. Tag: title
+#, no-c-format
+msgid "The systemd init system"
+msgstr ""
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "The “real init” is currently provided by <emphasis role=\"pkg\">systemd</emphasis> and this section documents this init system."
+msgstr "「真の init」は現在 <emphasis role=\"pkg\">sysv-rc</emphasis> (「System V」) によって提供されています。この節ではこの init システムに付いて説明します。"
+
+#. Tag: title
+#, fuzzy, no-c-format
+msgid "<emphasis>CULTURE</emphasis> Before <command>systemd</command>"
+msgstr "<emphasis>ALTERNATIVE</emphasis> 他の <command>inetd</command> コマンド"
 
 #. Tag: para
 #, no-c-format
-msgid "The “real init” is currently provided by <emphasis role=\"pkg\">sysv-rc</emphasis> (“System V”) and this section documents this init system."
-msgstr "「真の init」は現在 <emphasis role=\"pkg\">sysv-rc</emphasis> (「System V」) によって提供されています。この節ではこの init システムに付いて説明します。"
+msgid "<command>systemd</command> is a relatively recent “init system”, and although it was already available, to a certain extent, in <emphasis role=\"distribution\">Wheezy</emphasis>, it has only become the default in Debian <emphasis role=\"distribution\">Jessie</emphasis>. Previous releases relied, by default, on the “System V init” (in the <emphasis role=\"pkg\">sysv-rc</emphasis> package), a much more traditional system. We describe the SysV init later on."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
+msgstr "<emphasis>ALTERNATIVE</emphasis> 他の起動システム"
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "This book describes the boot system used by default in Debian <emphasis role=\"distribution\">Jessie</emphasis> (as implemented by the <emphasis role=\"pkg\">systemd</emphasis> package), as well as the previous default, <emphasis role=\"pkg\">sysvinit</emphasis>, which is derived and inherited from <emphasis>System_V</emphasis> Unix systems; there are others."
+msgstr "この本は Debian のデフォルトで使われる起動システム (<emphasis role=\"pkg\">sysvinit</emphasis> パッケージによる実装) を説明します。このシステムは <emphasis>System V</emphasis> Unix システムから生まれて受け継がれましたが、他の起動システムも存在します。<emphasis role=\"distribution\">Jessie</emphasis> はデフォルトで他の init システムを搭載するでしょう。なぜなら、現在の init システムはもはやコンピュータの動的性質には適さないからです。"
+
+#. Tag: para
+#, no-c-format
+msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
+msgstr "<emphasis role=\"pkg\">file-rc</emphasis> は極めて単純なやり方を使う起動システムです。<emphasis role=\"pkg\">file-rc</emphasis> はランレベルの原則を守りますが、ディレクトリとシンボリックリンクを設定ファイルで置換します。この設定ファイルを使っては <command>init</command> に対して起動するプロセスとその起動順を伝えます。"
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Jessie</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
+msgstr "Debian は <command>upstart</command> システムをまだ完全に試していません。<command>upstart</command> はイベントに基づく起動システムです: init スクリプトはもはや逐次的順序でなく、あるスクリプトが依存する他のスクリプトの完了等のイベントに応じて起動されます。Ubuntu の始めたこのシステムは Debian <emphasis role=\"distribution\">Wheezy</emphasis> に含まれますが、デフォルトではありません; 実際のところ、<command>upstart</command> は <emphasis role=\"pkg\">sysvinit</emphasis> の代替として始まりました。<command>upstart</command> の起動するタスクの 1 つが <emphasis role=\"pkg\">sysv-rc</emphasis> パッケージの提供する伝統的なシステム向けに書かれたスクリプトを起動します。"
+
+#. Tag: para
+#, no-c-format
+msgid "There are also other systems and other operating modes, such as <command>runit</command>, <command>minit</command>, or <command>initng</command>, but they are relatively specialized and not widespread."
+msgstr "他の起動システムや他の動作モードも存在します。例えば <command>runit</command>、<command>minit</command>、<command>initng</command> 等です。しかしこれらは比較的特殊で広く使われていません。"
 
 #. Tag: title
 #, no-c-format
@@ -149,9 +194,220 @@ msgstr "<primary>プロセス</primary>"
 msgid "A process is the representation in memory of a running program. It includes all of the information necessary for the proper execution of the software (the code itself, but also the data that it has in memory, the list of files that it has opened, the network connections it has established, etc.). A single program may be instantiated into several processes, not necessarily running under different user IDs."
 msgstr "プロセスとは、実行中のプログラムのメモリ内表現です。プロセスには、ソフトウェアを適切に実行するために必要なすべての情報が含まれます (ソフトウェアのコードだけでなく、ソフトウェアが所有するメモリ内のデータ、ソフトウェアが開いたファイルのリスト、ソフトウェアが確立したネットワーク接続など)。単独のプログラムは複数のプロセスにインスタンス化されるかもしれませんし、異なるユーザ ID の下で実行される必要はありません。"
 
+#. Tag: title
+#, no-c-format
+msgid "<emphasis>SECURITY</emphasis> Using a shell as <command>init</command> to gain root rights"
+msgstr "<emphasis>SECURITY</emphasis> root 権を獲得するために <command>init</command> としてシェルを使う"
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "By convention, the first process that is booted is the <command>init</command> program (which is a symbolic link to <filename>/lib/systemd/systemd</filename> by default). However, it is possible to pass an <literal>init</literal> option to the kernel indicating a different program."
+msgstr "慣例により、起動される最初のプロセスは <command>init</command> プログラムです。しかしながら、カーネルに異なるプログラムを示す <literal>init</literal> オプションを渡す事が可能です。"
+
+#. Tag: indexterm
+#, no-c-format
+msgid "<primary><command>init</command></primary>"
+msgstr "<primary><command>init</command></primary>"
+
 #. Tag: para
 #, no-c-format
-msgid "Init executes several processes, following instructions from the <filename>/etc/inittab</filename> file. The first program that is executed (which corresponds to the <emphasis>sysinit</emphasis> step) is <command>/etc/init.d/rcS</command>, a script that executes all of the programs in the <filename>/etc/rcS.d/</filename> directory. <indexterm><primary><filename>/etc/init.d/rcS</filename></primary></indexterm> <indexterm><primary><filename>rcS</filename></primary></indexterm> <indexterm><primary><filename>/etc/init.d/rcS.d/</filename></primary></indexterm> <indexterm><primary><filename>rcS.d</filename></primary></indexterm>"
+msgid "Any person who is able to access the computer can press the <keycap>Reset</keycap> button, and thus reboot it. Then, at the bootloader's prompt, it is possible to pass the <literal>init=/bin/sh</literal> option to the kernel to gain root access without knowing the administrator's password."
+msgstr "コンピュータに触る事ができる人は誰でも、<keycap>Reset</keycap> ボタンを押して、コンピュータを再起動する事が可能です。そして、ブートローダプロンプトでカーネルに <literal>init=/bin/sh</literal> オプションを渡せば、管理者パスワードを知らなくても root 権を取得できます。"
+
+#. Tag: para
+#, no-c-format
+msgid "To prevent this, you can protect the bootloader itself with a password. You might also think about protecting access to the BIOS (a password protection mechanism is almost always available), without which a malicious intruder could still boot the machine on a removable media containing its own Linux system, which they could then use to access data on the computer's hard drives."
+msgstr "これを避けるため、パスワードでブートローダを保護する事が可能です。さらに BIOS へのアクセスも保護したいと考えるかもしれません (パスワード保護機能はほぼ必ず付いています)。パスワードが無ければ、悪意ある侵入者が、自分の Linux システムを含むリムーバブルメディアからマシンを起動して、コンピュータのハードドライブのデータにアクセスするかもしれません。"
+
+#. Tag: para
+#, no-c-format
+msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There's no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
+msgstr "最後に、ほとんどの BIOS では、汎用的なパスワードが使えることに注意してください。当初、汎用パスワードはパスワードを忘れた人向けのトラブルシューティングを意図していましたが、今や汎用パスワードは公開されインターネットから入手できます (ご自分の手で、検索エンジンで「generic BIOS passwords」を検索してみてください)。これらの保護により、マシンへの不正アクセスを完全に防ぐことはできないにせよ、それを遅らせる事になるでしょう。攻撃者が物理的にコンピュータにアクセスできる場合、確実にコンピュータを保護する方法はありません; 攻撃者はハードドライブを取り外して自分の制御下にあるコンピュータに接続したり、マシン本体ごと盗んだり、パスワードをリセットするために BIOS メモリを消去する事も可能です…"
+
+#. Tag: para
+#, no-c-format
+msgid "Systemd executes several processes, in charge of setting up the system: keyboard, drivers, filesystems, network, services. It does this while keeping a global view of the system as a whole, and the requirements of the components. Each component is described by a “unit file” (sometimes more); the general syntax is derived from the widely-used “*.ini files“ syntax, with <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> pairs grouped between <literal>[<replaceable>section</replaceable>]</literal> headers. Unit files are stored under <filename>/lib/systemd/system/</filename> and <filename>/etc/systemd/system/</filename>; they come in several flavours, but we'll focus on “services” and “targets” here."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory way (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here's the service file for SSH:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid ""
+"[Unit]\n"
+"Description=OpenBSD Secure Shell server\n"
+"After=network.target auditd.service\n"
+"ConditionPathExists=!/etc/ssh/sshd_not_to_be_run\n"
+"\n"
+"[Service]\n"
+"EnvironmentFile=-/etc/default/ssh\n"
+"ExecStart=/usr/sbin/sshd -D $SSHD_OPTS\n"
+"ExecReload=/bin/kill -HUP $MAINPID\n"
+"KillMode=process\n"
+"Restart=on-failure\n"
+"\n"
+"[Install]\n"
+"WantedBy=multi-user.target\n"
+"Alias=sshd.service"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "As you can see, there's very little code in there, only declarations. Systemd takes care of displaying progress reports, keeping track of the processes, and even restarting them when needed."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A systemd “target file” describes a state of the system, where a set of services are known to be operational. It can be thought of as an equivalent of the old-style runlevel. One of the targets is <literal>local-fs.target</literal>; when it is reached, the rest of the system can assume that all local filesystems are mounted and accessible. Other targets include <literal>network-online.target</literal> and <literal>sound.target</literal>. The dependencies of a target can be listed either within the target file (in the <literal>Requires=</literal> line), or using a symbolic link to a service file in the <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal> directory. For instance, <filename>/etc/systemd/system/printer.target.wants/</filename> contains a link to <filename>/lib/systemd/system/cups.service</filename>; systemd will therefore ensure CUPS is running in order to reach <literal>printer.target</literal>."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Since unit files are declarative rather than scripts or programs, they cannot be run directly, and they are only interpreted by systemd; several utilities therefore allow the administrator to interact with systemd and control the state of the system and of each component."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The first such utility is <command>systemctl</command>. When run without any arguments, it lists all the unit files known to systemd (except those that have been disabled), as well as their status. <command>systemctl status</command> gives a better view of the services, as well as the related processes. If given the name of a service (as in <command>systemctl status ntp.service</command>), it returns even more details, as well as the last few log lines related to the service (more on that later)."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Starting a service by hand is a simple matter of running <command>systemctl start <replaceable>servicename</replaceable>.service</command>. As one can guess, stopping the service is done with <command>systemctl stop <replaceable>servicename</replaceable>.service</command>; other subcommands include <command>reload</command> and <command>restart</command>."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "To control whether a service is active (i.e. whether it will get started automatically on boot), use <command>systemctl enable <replaceable>servicename</replaceable>.service</command> (or <command>disable</command>). <command>is-enabled</command> allows checking the status of the service."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "An interesting feature of systemd is that it includes a logging component named <command>journald</command>. It comes as a complement to more traditional logging systems such as <command>syslogd</command>, but it adds interesting features such as a formal link between a service and the messages it generates, and the ability to capture error messages generated by its initialisation sequence. The messages can be displayed later on, with a little help from the <command>journalctl</command> command. Without any arguments, it simply spews all log messages that occurred since system boot; it will rarely be used in such a manner. Most of the time, it will be used with a service identifier:"
+msgstr ""
+
+#. Tag: screen
+#, no-c-format
+msgid ""
+"<computeroutput># </computeroutput><userinput>journalctl -u ssh.service\n"
+"</userinput><computeroutput>-- Logs begin at Tue 2015-03-31 10:08:49 CEST, end at Tue 2015-03-31 17:06:02 CEST. --\n"
+"Mar 31 10:08:55 mirtuel sshd[430]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 10:08:55 mirtuel sshd[430]: Server listening on :: port 22.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Received SIGHUP; restarting.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Server listening on :: port 22.\n"
+"Mar 31 10:09:32 mirtuel sshd[1151]: Accepted password for roland from 192.168.1.129 port 53394 ssh2\n"
+"Mar 31 10:09:32 mirtuel sshd[1151]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
+"</computeroutput>"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Another useful command-line flag is <command>-f</command>, which instructs <command>journalctl</command> to keep displaying new messages as they are emitted (much in the manner of <command>tail -f <replaceable>file</replaceable></command>)."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If a service doesn't seem to be working as expected, the first step to debug the problem are to check that the service is actually running with <command>systemctl status</command>; if it is not, and the messages given by the first command are not enough to diagnose the problem, check the logs gathered by journald about that service. For instance, assume the SSH server doesn't work:"
+msgstr ""
+
+#. Tag: screen
+#, no-c-format
+msgid ""
+"<computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
+"</userinput><computeroutput>● ssh.service - OpenBSD Secure Shell server\n"
+"   Loaded: loaded (/lib/systemd/system/ssh.service; enabled)\n"
+"   Active: failed (Result: start-limit) since Tue 2015-03-31 17:30:36 CEST; 1s ago\n"
+"  Process: 1023 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)\n"
+"  Process: 1188 ExecStart=/usr/sbin/sshd -D $SSHD_OPTS (code=exited, status=255)\n"
+" Main PID: 1188 (code=exited, status=255)\n"
+"\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service start request repeated too quickly, refusing to start.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Failed to start OpenBSD Secure Shell server.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"# </computeroutput><userinput>journalctl -u ssh.service\n"
+"</userinput><computeroutput>-- Logs begin at Tue 2015-03-31 17:29:27 CEST, end at Tue 2015-03-31 17:30:36 CEST. --\n"
+"Mar 31 17:29:27 mirtuel sshd[424]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 17:29:27 mirtuel sshd[424]: Server listening on :: port 22.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Received SIGHUP; restarting.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Server listening on :: port 22.\n"
+"Mar 31 17:30:10 mirtuel sshd[1147]: Accepted password for roland from 192.168.1.129 port 38742 ssh2\n"
+"Mar 31 17:30:10 mirtuel sshd[1147]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
+"Mar 31 17:30:35 mirtuel sshd[1180]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:35 mirtuel sshd[1182]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:35 mirtuel sshd[1184]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel sshd[1186]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel sshd[1188]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service start request repeated too quickly, refusing to start.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Failed to start OpenBSD Secure Shell server.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"# </computeroutput><userinput>vi /etc/ssh/sshd_config\n"
+"</userinput><computeroutput># </computeroutput><userinput>systemctl start ssh.service\n"
+"</userinput><computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
+"</userinput><computeroutput>● ssh.service - OpenBSD Secure Shell server\n"
+"   Loaded: loaded (/lib/systemd/system/ssh.service; enabled)\n"
+"   Active: active (running) since Tue 2015-03-31 17:31:09 CEST; 2s ago\n"
+"  Process: 1023 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)\n"
+" Main PID: 1222 (sshd)\n"
+"   CGroup: /system.slice/ssh.service\n"
+"           └─1222 /usr/sbin/sshd -D\n"
+"# </computeroutput>"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "After checking the status of the service (failed), we went on to check the logs; they indicate an error in the configuration file. After editing the configuration file and fixing the error, we restart the service, then verify that it is indeed running."
+msgstr ""
+
+#. Tag: title
+#, fuzzy, no-c-format
+msgid "<emphasis>GOING FURTHER</emphasis> Other types of unit files"
+msgstr "<emphasis>GOING FURTHER</emphasis> スクリプトを使ったクォータの定義"
+
+#. Tag: para
+#, no-c-format
+msgid "We've only described the most basic of systemd's capabilities in this section. It offers many other interesting features; we'll only list a few here:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "socket activation: a “socket” unit file can be used to describe a network or Unix socket managed by systemd; this means that the socket will be created by systemd, and the actual service may be started on demand when an actual connection attempt comes. This roughly replicates the feature set of <command>inetd</command>."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "timers: a “timer” unit file describes events that occur with a fixed frequency; when a service is linked to such a timer, the corresponding task will be executed whenever the timer fires. In a similar fashion, a “time” unit file describes events that occur on specific times. This allows replicating part of the <command>cron</command> features."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "network: a “network“ unit file describes a network interface, which allows configuring such interfaces as well as expressing that a service depends on one particular interface being up."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "The System V init system"
+msgstr ""
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "The System V init system (which we'll call init for brevity) executes several processes, following instructions from the <filename>/etc/inittab</filename> file. The first program that is executed (which corresponds to the <emphasis>sysinit</emphasis> step) is <command>/etc/init.d/rcS</command>, a script that executes all of the programs in the <filename>/etc/rcS.d/</filename> directory. <indexterm><primary><filename>/etc/init.d/rcS</filename></primary></indexterm> <indexterm><primary><filename>rcS</filename></primary></indexterm> <indexterm><primary><filename>/etc/init.d/rcS.d/</filename></primary></indexterm> <indexterm><primary><filename>rcS.d</filename></primary></indexterm>"
 msgstr "init は、<filename>/etc/inittab</filename> ファイルの指示に従って、複数のプロセスを起動します。実行される最初のプログラム (<emphasis>sysinit</emphasis> 段階に相当します) は <command>/etc/init.d/rcS</command> で、これは <filename>/etc/rcS.d/</filename> ディレクトリに含まれるすべてのプログラムを起動するスクリプトです。<indexterm><primary><filename>/etc/init.d/rcS</filename></primary></indexterm> <indexterm><primary><filename>rcS</filename></primary></indexterm> <indexterm><primary><filename>/etc/init.d/rcS.d/</filename></primary></indexterm> <indexterm><primary><filename>rcS.d</filename></primary></indexterm>"
 
 #. Tag: para
@@ -191,36 +447,6 @@ msgstr "ネットワークファイルシステム (NFS) のマウント。"
 
 #. Tag: title
 #, no-c-format
-msgid "<emphasis>SECURITY</emphasis> Using a shell as <command>init</command> to gain root rights"
-msgstr "<emphasis>SECURITY</emphasis> root 権を獲得するために <command>init</command> としてシェルを使う"
-
-#. Tag: para
-#, no-c-format
-msgid "By convention, the first process that is booted is the <command>init</command> program. However, it is possible to pass an <literal>init</literal> option to the kernel indicating a different program."
-msgstr "慣例により、起動される最初のプロセスは <command>init</command> プログラムです。しかしながら、カーネルに異なるプログラムを示す <literal>init</literal> オプションを渡す事が可能です。"
-
-#. Tag: indexterm
-#, no-c-format
-msgid "<primary><command>init</command></primary>"
-msgstr "<primary><command>init</command></primary>"
-
-#. Tag: para
-#, no-c-format
-msgid "Any person who is able to access the computer can press the <keycap>Reset</keycap> button, and thus reboot it. Then, at the bootloader's prompt, it is possible to pass the <literal>init=/bin/sh</literal> option to the kernel to gain root access without knowing the administrator's password."
-msgstr "コンピュータに触る事ができる人は誰でも、<keycap>Reset</keycap> ボタンを押して、コンピュータを再起動する事が可能です。そして、ブートローダプロンプトでカーネルに <literal>init=/bin/sh</literal> オプションを渡せば、管理者パスワードを知らなくても root 権を取得できます。"
-
-#. Tag: para
-#, no-c-format
-msgid "To prevent this, you can protect the bootloader itself with a password. You might also think about protecting access to the BIOS (a password protection mechanism is almost always available), without which a malicious intruder could still boot the machine on a removable media containing its own Linux system, which they could then use to access data on the computer's hard drives."
-msgstr "これを避けるため、パスワードでブートローダを保護する事が可能です。さらに BIOS へのアクセスも保護したいと考えるかもしれません (パスワード保護機能はほぼ必ず付いています)。パスワードが無ければ、悪意ある侵入者が、自分の Linux システムを含むリムーバブルメディアからマシンを起動して、コンピュータのハードドライブのデータにアクセスするかもしれません。"
-
-#. Tag: para
-#, no-c-format
-msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There's no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
-msgstr "最後に、ほとんどの BIOS では、汎用的なパスワードが使えることに注意してください。当初、汎用パスワードはパスワードを忘れた人向けのトラブルシューティングを意図していましたが、今や汎用パスワードは公開されインターネットから入手できます (ご自分の手で、検索エンジンで「generic BIOS passwords」を検索してみてください)。これらの保護により、マシンへの不正アクセスを完全に防ぐことはできないにせよ、それを遅らせる事になるでしょう。攻撃者が物理的にコンピュータにアクセスできる場合、確実にコンピュータを保護する方法はありません; 攻撃者はハードドライブを取り外して自分の制御下にあるコンピュータに接続したり、マシン本体ごと盗んだり、パスワードをリセットするために BIOS メモリを消去する事も可能です…"
-
-#. Tag: title
-#, no-c-format
 msgid "<emphasis>BACK TO BASICS</emphasis> Kernel modules and options"
 msgstr "<emphasis>BACK TO BASICS</emphasis> カーネルモジュールとオプション"
 
@@ -250,44 +476,14 @@ msgid "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose name start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started, but nowadays the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm</command>)."
+#, fuzzy, no-c-format
+msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose names start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started, but nowadays the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm3</command>)."
 msgstr "この段階の後、<command>init</command> が引き継ぎ、デフォルトランレベル (通常ランレベル 2) で有効化されたプログラムを起動します。<command>init</command> は <command>/etc/init.d/rc 2</command> を実行します。これは <filename>/etc/rc2.d/</filename> 置かれて、「S」で始まる名前のすべてのサービスを開始するスクリプトです。「S」の後に続く 2 桁の数字は、歴史的言って、起動するサービスの順番を定義するために使われていました。しかし今やデフォルトの起動システムは <command>insserv</command> を使って、スクリプト同士の依存関係に従った起動順を自動的に決定します。このため、各起動スクリプトはサービスを起動または終了させる時に満足しなければいけない条件を宣言します (例えば、あるサービスは他のサービスの前または後に起動しなければいけないなど); そして、<command>init</command> は条件を満足するようにサービスを起動します。このため、スクリプトの静的な番号付けはもはや考慮されません (しかしスクリプトの名前は必ず「S」で始まり、その後ろに 2 桁の番号を付け、依存関係に使われる実際のスクリプトの名前を続けなければいけません)。一般に、ベースシステム (ログ記録を担当する <command>rsyslog</command> やポート割り当てを担当する <command>portmap</command>) が最初に起動され、その後に標準的なサービスとグラフィカルインターフェース (<command>gdm</command>) が起動されます。"
 
 #. Tag: para
 #, no-c-format
 msgid "This dependency-based boot system makes it possible to automate re-numbering, which could be rather tedious if it had to be done manually, and it limits the risks of human error, since scheduling is conducted according to the parameters that are indicated. Another benefit is that services can be started in parallel when they are independent from one another, which can accelerate the boot process."
 msgstr "この依存関係に基づく起動システムのお陰で、自動的な起動順の再定義が可能になります。これは手作業でやるにはちょっと退屈な作業で、人的ミスの危険性があります。なぜなら、起動順は宣言された依存関係に従って定義されるからです。別の利益として、他のサービスに依存しないサービスは並列して開始できるという点があります。この事により、起動処理を加速する事ができます。"
-
-#. Tag: title
-#, no-c-format
-msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
-msgstr "<emphasis>ALTERNATIVE</emphasis> 他の起動システム"
-
-#. Tag: para
-#, no-c-format
-msgid "This book describes the boot system used by default in Debian (as implemented by the <emphasis role=\"pkg\">sysvinit</emphasis> package), which is derived and inherited from <emphasis>System V</emphasis> Unix systems, but there are others. <emphasis role=\"distribution\">Jessie</emphasis> will likely come with another init system by default since the current one is no longer suited to the dynamic nature of computing."
-msgstr "この本は Debian のデフォルトで使われる起動システム (<emphasis role=\"pkg\">sysvinit</emphasis> パッケージによる実装) を説明します。このシステムは <emphasis>System V</emphasis> Unix システムから生まれて受け継がれましたが、他の起動システムも存在します。<emphasis role=\"distribution\">Jessie</emphasis> はデフォルトで他の init システムを搭載するでしょう。なぜなら、現在の init システムはもはやコンピュータの動的性質には適さないからです。"
-
-#. Tag: para
-#, no-c-format
-msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
-msgstr "<emphasis role=\"pkg\">file-rc</emphasis> は極めて単純なやり方を使う起動システムです。<emphasis role=\"pkg\">file-rc</emphasis> はランレベルの原則を守りますが、ディレクトリとシンボリックリンクを設定ファイルで置換します。この設定ファイルを使っては <command>init</command> に対して起動するプロセスとその起動順を伝えます。"
-
-#. Tag: para
-#, no-c-format
-msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
-msgstr "Debian は <command>upstart</command> システムをまだ完全に試していません。<command>upstart</command> はイベントに基づく起動システムです: init スクリプトはもはや逐次的順序でなく、あるスクリプトが依存する他のスクリプトの完了等のイベントに応じて起動されます。Ubuntu の始めたこのシステムは Debian <emphasis role=\"distribution\">Wheezy</emphasis> に含まれますが、デフォルトではありません; 実際のところ、<command>upstart</command> は <emphasis role=\"pkg\">sysvinit</emphasis> の代替として始まりました。<command>upstart</command> の起動するタスクの 1 つが <emphasis role=\"pkg\">sysv-rc</emphasis> パッケージの提供する伝統的なシステム向けに書かれたスクリプトを起動します。"
-
-#. Tag: para
-#, no-c-format
-msgid "Another new option that is gaining a lot of traction is <command>systemd</command>. Its approach is opposite to the previous systems; instead of preemptively launching all services, and having to deal with the question of scheduling, <command>systemd</command> chooses to start services on demand, somewhat along the principle of <command>inetd</command>. But this means that the boot system must be able to know how services are made available (it could be through a socket, a filesystem, or others), and thus requires small modifications of those services. It also provides backwards compatibility to System V init scripts."
-msgstr "別の新しい選択肢は <command>systemd</command> で、多くの注目を集めています。<command>systemd</command> は前に挙げたシステムと対極のやり方を取ります; 事前にすべてのサービスを起動して、起動順の問題を解決する代わりに、<command>systemd</command> は要求に応じてサービスを起動します。これは若干 <command>inetd</command> の原則と似ています。しかしこれは、起動システムは必ずサービスを利用可能にする方法を知らなければいけない (ソケット、ファイルシステム、その他を介すことで可能です) こと、を意味しており、サービスはこれに合わせて挙動を少し変更しなければいけません。さらに <command>systemd</command> は System V init スクリプトに対する後方互換性を提供します。"
-
-#. Tag: para
-#, no-c-format
-msgid "There are also other systems and other operating modes, such as <command>runit</command>, <command>minit</command>, or <command>initng</command>, but they are relatively specialized and not widespread."
-msgstr "他の起動システムや他の動作モードも存在します。例えば <command>runit</command>、<command>minit</command>、<command>initng</command> 等です。しかしこれらは比較的特殊で広く使われていません。"
 
 #. Tag: indexterm
 #, no-c-format
@@ -305,8 +501,8 @@ msgid "<command>init</command> distinguishes several runlevels, so it can switch
 msgstr "<command>init</command> は幾つかのランレベルを区別します。そうすることで、<command>telinit <replaceable>new-level</replaceable></command> コマンドを使ってあるランレベルから別のランレベルに切り替える事ができます。即座に <command>init</command> は新しいランレベルで <command>/etc/init.d/rc</command> を再実行します。このスクリプトは欠けているサービスを開始し、もはや不要なサービスを停止します。これを行うために、<command>init</command> は <filename>/etc/rc<replaceable>X</replaceable>.d</filename> の内容を参照します (ここで <replaceable>X</replaceable> は新しいランレベルです)。(「Start」の)「S」で始まるスクリプトは開始されるサービスです; (「Kill」の)「K」で始まるスクリプトは停止されるサービスです。このスクリプトは前のランレベルで既に起動されているサービスは開始しません。"
 
 #. Tag: para
-#, no-c-format
-msgid "By default, Debian uses four different runlevels:"
+#, fuzzy, no-c-format
+msgid "By default, System V init in Debian uses four different runlevels:"
 msgstr "デフォルトで、Debian は 4 つのランレベルを使います:"
 
 #. Tag: para
@@ -335,8 +531,8 @@ msgid "Other levels exist, especially 3 to 5. By default they are configured to 
 msgstr "他のレベル、特に 3 から 5 まで、も存在します。デフォルトでこれらのランレベルはレベル 2 と同じ様に動作しますが、管理者はこれを変えて (ランレベルに対応する <filename>/etc/rc<replaceable>X</replaceable>.d</filename> ディレクトリにスクリプトを追加したりおよび削除したりすることで) 特定の要求に順応させる事が可能です。"
 
 #. Tag: title
-#, no-c-format
-msgid "Boot sequence of a computer running Linux"
+#, fuzzy, no-c-format
+msgid "Boot sequence of a computer running Linux with System V init"
 msgstr "Linux の動くコンピュータの起動シーケンス"
 
 #. Tag: indexterm
@@ -605,8 +801,8 @@ msgid "Specifically, whenever OpenSSL was used to generate a key, it always prod
 msgstr "具体的に言えば、OpenSSL を使って鍵を生成した場合、生成された鍵は常に数十万 (32,000 かける鍵長種数) の既知の範囲内に有る鍵の内の 1 つになります。この脆弱性は、例えば OpenVPN など数多くのアプリケーションが使う SSH 鍵、SSL 鍵、X.509 証明書に、影響を与えました。クラッカーは、鍵を全種類試すだけで、不正にアクセスする事が可能でした。この問題の影響を減らす目的で、SSH デーモンは <emphasis role=\"pkg\">openssh-blacklist</emphasis> と <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> パッケージにリストされている問題の有る鍵を拒否するように変更されました。更に、<command>ssh-vulnkey</command> コマンドを使えば、システム内からこの脆弱性の影響を受けているかもしれない鍵を識別する事が可能です。"
 
 #. Tag: para
-#, no-c-format
-msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both at the OpenSSL project, as well as with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. The Debian maintainer, for his part, wanting to validate his modifications with the OpenSSL developers, simply explained his modifications without providing them the corresponding patch to review. He also did not clearly identify himself as the maintainer of the corresponding Debian package. Finally, in his maintenance choices, the maintainer did not clearly document the changes made to the original code; all the modifications are effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
+#, fuzzy, no-c-format
+msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both within the OpenSSL project and with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. On Debian's side, the maintainer wanted to validate the modifications with the OpenSSL developers, but simply explained the modifications without providing the corresponding patch to review and failed to mention his role within Debian. Finally, the maintenance choices were sub-optimal: the changes made to the original code were not clearly documented; all the modifications were effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
 msgstr "この出来事をいっそう詳しく調べると、これは OpenSSL プロジェクトおよび Debian パッケージメンテナ双方の持つ多数の (小さな) 問題の結果であるという事が、明らかになります。OpenSSL のように広く使われるライブラリは - 修正せずとも - <command>valgrind</command> でテストした時に警告を出すべきではありません。更に、コード (特に RNG と同様に慎重な箇所) はこのような誤解を避ける目的で詳しい注釈を付けられるべきです。Debian メンテナについて言えば、彼は OpenSSL 開発者から自分の修正に対する検証を受ける事を望んでいながら、自分の修正について詳しく説明せず、修正の検証に必要なパッチを OpenSSL 開発者に提供する事もしませんでした。さらに、彼は自分が OpenSSL に対応する Debian パッケージのメンテナである事を明らかにしませんでした。最終的に、彼のメンテナンス上の方針で、メンテナは文書の中で元のコードに対して行った修正を明らかにしませんでした; すべての修正は Subversion リポジトリに効果的に保存されますが、最終的にすべての修正はソースパッケージの作成中に 1 つのパッチにまとめられました。"
 
 #. Tag: para
@@ -745,8 +941,8 @@ msgid "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "First, the user must authorize sharing their session. The GNOME and KDE graphical desktop environments include, respectively, <command>vino</command> and <command>krfb</command>, which provide a graphical interface that allows sharing an existing session over VNC (both are identified as <emphasis>Desktop Sharing</emphasis> either in the GNOME application list or in the KDE menu). For other graphical desktop environments, the <command>x11vnc</command> command (from the Debian package of the same name) serves the same purpose; you can make it available to the user with an explicit icon."
+#, fuzzy, no-c-format
+msgid "First, the user must authorize sharing their session. The GNOME graphical desktop environment in <emphasis role=\"distribution\">Jessie</emphasis> includes that option in its configuration panel (contrary to previous versions of Debian, where the user had to install and run <command>vino</command>). KDE still requires using <command>krfb</command> to allow sharing an existing session over VNC. For other graphical desktop environments, the <command>x11vnc</command> command (from the Debian package of the same name) serves the same purpose; you can make it available to the user with an explicit icon."
 msgstr "最初に、ユーザは自分のセッションの権限を共有しなければいけません。GNOME と KDE グラフィカルデスクトップ環境には、それぞれ <command>vino</command> と <command>krfb</command> が含まれています。これらは VNC を通じて既存のセッションを共有する事が可能になるグラフィカルインターフェース提供します (GNOME アプリケーションリストか KDE メニューの中にある<emphasis>デスクトップ共有</emphasis>がこのプログラムです)。他のグラフィカルデスクトップ環境に対しては、<command>x11vnc</command> コマンド (同名の Debian パッケージに含まれます) がその代わりになります; 明確なアイコンを使って、ユーザがこれを使えるようにする事が可能です。"
 
 #. Tag: indexterm
@@ -805,8 +1001,8 @@ msgid "<emphasis>BACK TO BASICS</emphasis> Display manager"
 msgstr "<emphasis>BACK TO BASICS</emphasis> ディスプレイマネージャ"
 
 #. Tag: indexterm
-#, no-c-format
-msgid "<primary><command>gdm</command></primary>"
+#, fuzzy, no-c-format
+msgid "<primary><command>gdm3</command></primary>"
 msgstr "<primary><command>gdm</command></primary>"
 
 #. Tag: indexterm
@@ -835,8 +1031,8 @@ msgid "<primary>display manager</primary>"
 msgstr "<primary>ディスプレイマネージャ</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "<command>gdm</command>, <command>kdm</command>, <command>lightdm</command>, and <command>xdm</command> are Display Managers. They take control of the graphical interface shortly after boot in order to provide the user a login screen. Once the user has logged in, they execute the programs needed to start a graphical work session."
+#, fuzzy, no-c-format
+msgid "<command>gdm3</command>, <command>kdm</command>, <command>lightdm</command>, and <command>xdm</command> are Display Managers. They take control of the graphical interface shortly after boot in order to provide the user a login screen. Once the user has logged in, they execute the programs needed to start a graphical work session."
 msgstr "<command>gdm</command>、<command>kdm</command>、<command>lightdm</command>、<command>xdm</command> はディスプレイマネージャです。ディスプレイマネージャは起動直後にログイン画面をユーザに提供する目的でグラフィカルインターフェースを制御します。ユーザがログインしたら、ディスプレイマネージャはグラフィカル作業セッションを始めるために必要なプログラムを実行します。"
 
 #. Tag: para
@@ -850,8 +1046,8 @@ msgid "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query l
 msgstr "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query localhost -once -geometry 1024x768 -depth 16 securitytypes=none"
 
 #. Tag: para
-#, no-c-format
-msgid "Redirecting incoming connections to the display manager solves the problem of authentication, because only users with local accounts will pass the <command>gdm</command> login screen (or equivalent <command>kdm</command>, <command>xdm</command>, etc.). As this operation allows multiple simultaneous logins without any problem (provided the server is powerful enough), it can even be used to provide complete desktops for mobile users (or for less powerful desktop systems, configured as thin clients). Users simply login to the server's screen with <command>vncviewer <replaceable>server</replaceable>:50</command>, because the port used is 5950."
+#, fuzzy, no-c-format
+msgid "Redirecting incoming connections to the display manager solves the problem of authentication, because only users with local accounts will pass the <command>gdm3</command> login screen (or equivalent <command>kdm</command>, <command>xdm</command>, etc.). As this operation allows multiple simultaneous logins without any problem (provided the server is powerful enough), it can even be used to provide complete desktops for mobile users (or for less powerful desktop systems, configured as thin clients). Users simply login to the server's screen with <command>vncviewer <replaceable>server</replaceable>:50</command>, because the port used is 5950."
 msgstr "入ってくる接続をディスプレイマネージャに転送することにより、認証の問題が解決されます。なぜなら、ローカルアカウントを持つユーザだけが <command>gdm</command> (または同等の <command>kdm</command>、<command>xdm</command> など) のログイン画面を突破できるからです。このやり方は (サーバの性能が十分高いなら) なんの問題も無く複数の同時ログインを許すため、完全なデスクトップをモバイルユーザに対して (またはシンクライアントとして設定された非力なデスクトップシステムに対して) 提供するという用途にも応用できます。ユーザは単純に <command>vncviewer <replaceable>server</replaceable>:50</command> でサーバの画面にログインするだけです。なぜなら、使われているポートは 5950 番だからです。"
 
 #. Tag: indexterm
@@ -1085,8 +1281,8 @@ msgid "To represent special rights, you can prefix a fourth digit to this number
 msgstr "同じ原則に従って特別な権限を表す 4 番目の桁は先に説明した 3 桁の権限表記の前に付けます。<literal>setuid</literal>、<literal>setgid</literal>、<literal>sticky</literal> ビットがそれぞれ 4、2、1 に対応します。<command>chmod 4754</command> は前に説明した権限に加えて、<literal>setuid</literal> ビットを設定します。"
 
 #. Tag: para
-#, no-c-format
-msgid "Note that the use of octal notation only allows to set all the rights at once on a file; you can not use it to simply add a new right, such as read access for the group owner, since you must take into account the existing rights and compute the new corresponding numerical value."
+#, fuzzy, no-c-format
+msgid "Note that the use of octal notation only allows to set all the rights at once on a file; you cannot use it to simply add a new right, such as read access for the group owner, since you must take into account the existing rights and compute the new corresponding numerical value."
 msgstr "8 進数表記の権限設定が使えるのは、あるファイルに対するすべての権限を一度に設定する場合だけです; 例えば、所有グループに読み込み権限を与えるなどの、新しい権限を追加したい場合は使えません。なぜなら、既に設定されている権限を考慮して、新しい権限を数値表記に直さなければいけないからです。"
 
 #. Tag: title
@@ -1110,8 +1306,8 @@ msgid "<emphasis>TIP</emphasis> Changing the user and group"
 msgstr "<emphasis>TIP</emphasis> ユーザとグループの変更"
 
 #. Tag: para
-#, no-c-format
-msgid "Frequently you want to change the group of a file at the same time that you change the owner. The <command>chown</command> command has a special syntax for that: <command>chown <replaceable>user</replaceable>:<replaceable>group</replaceable></command>"
+#, fuzzy, no-c-format
+msgid "Frequently you want to change the group of a file at the same time that you change the owner. The <command>chown</command> command has a special syntax for that: <command>chown <replaceable>user</replaceable>:<replaceable>group</replaceable> <replaceable>file</replaceable></command>"
 msgstr "しばしば、ファイルのグループと所有者を同時に変更したい場合があります。この用途向けに <command>chown</command> コマンドには特別な構文があります: <command>chown <replaceable>user</replaceable>:<replaceable>group</replaceable></command>"
 
 #. Tag: title
@@ -1170,8 +1366,8 @@ msgid "Such an interface is only an aid, and not an end in itself. In all cases,
 msgstr "グラフィカルインターフェースは補助でしかなく、インターフェース自身は目的ではありません。どんな場合でも管理者は、様々な潜在的問題を理解してに対処するために、サービスの挙動に精通しなければいけません。"
 
 #. Tag: para
-#, no-c-format
-msgid "Since no interface is perfect, you may be tempted to try several solutions. This is to be avoided as much as possible, since different tools are sometimes incompatible in their work methods. Even if they all target to be very flexible and try to adopt the configuration file as a single reference, they are not always able to integrate external changes."
+#, fuzzy, no-c-format
+msgid "Since no interface is perfect, you may be tempted to try several solutions. This is to be avoided as much as possible, since different tools are sometimes incompatible in their work methods. Even if they all aim to be very flexible and try to adopt the configuration file as a single reference, they are not always able to integrate external changes."
 msgstr "どんなインターフェースも完璧ではありませんから、様々なインターフェースを試したくなるかもしれません。これは可能な限り避けるべきです。なぜなら、ツールが違えばそのやり方に互換性がない事もあるからです。ツールが、すべての目標をとても柔軟性の高い方法で取り扱い、基準としてその設定ファイルを採用しようとしていたとしても、ツールは外部からの変更を必ず統合できるわけではありません。"
 
 #. Tag: title
@@ -1190,8 +1386,8 @@ msgid "This is, without a doubt, one of the most successful administration inter
 msgstr "<command>webmin</command> が最も成功した管理インターフェースの 1 つであることは間違いないでしょう。<command>webmin</command> はモジュールシステムで、ウェブブラウザから管理され、幅広い領域とツールをカバーしています。更に、<command>webmin</command> は国際化されており、多くの言語で利用可能です。"
 
 #. Tag: para
-#, no-c-format
-msgid "Sadly, <command>webmin</command> is no longer part of Debian. Its Debian maintainer — Jaldhar H. Vyas — removed the packages he created because he no longer had the time required to maintain them at an acceptable quality level. Nobody has officially taken over, so <emphasis role=\"distribution\">Wheezy</emphasis> does not have the <command>webmin</command> package."
+#, fuzzy, no-c-format
+msgid "Sadly, <command>webmin</command> is no longer part of Debian. Its Debian maintainer — Jaldhar H. Vyas — removed the packages he created because he no longer had the time required to maintain them at an acceptable quality level. Nobody has officially taken over, so <emphasis role=\"distribution\">Jessie</emphasis> does not have the <command>webmin</command> package."
 msgstr "残念なことに、Debian はもはや <command>webmin</command> を配布していません。<command>webmin</command> の Debian メンテナ - Jaldhar H. Vyas さん - は自分の作ったこのパッケージを削除しました。なぜなら、彼にはもはや合格基準に達するだけの品質でメンテナンス作業を行うのに必要な時間が無かったからです。公式にパッケージを引き継ぐ人がいなかったため、<emphasis role=\"distribution\">Wheezy</emphasis> には <command>webmin</command> パッケージがありません。"
 
 #. Tag: para
@@ -1205,8 +1401,8 @@ msgid "<emphasis>SECURITY</emphasis> Changing the root password"
 msgstr "<emphasis>SECURITY</emphasis> root パスワードの変更"
 
 #. Tag: para
-#, no-c-format
-msgid "On first login, identification is conduced with the root username and its usual password. It is recommended to change the password used for <command>webmin</command> as soon as possible, so that if it is compromised, the root password for the server will not be involved, even if this confers important administrative rights to the machine."
+#, fuzzy, no-c-format
+msgid "On the first login, identification is conducted with the root username and its usual password. It is recommended to change the password used for <command>webmin</command> as soon as possible, so that if it is compromised, the root password for the server will not be involved, even if this confers important administrative rights to the machine."
 msgstr "最初のログインでは、root というユーザ名と root のパスワードを使って身分証明します。可能な限り早く、<command>webmin</command> 用のパスワードを変更する事を推奨します。<command>webmin</command> を使えばマシンに対する重要な管理上の権限が必要な操作が可能とは言っても、こうしておけば、<command>webmin</command> が不正アクセスを受けた場合でも、サーバの root パスワードは守られます。"
 
 #. Tag: para
@@ -1285,8 +1481,8 @@ msgid "<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>
 msgstr "<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "The GNOME project also provides multiple administration interfaces that are usually accessible via the “Settings” entry in the user menu on the top right. <command>gnome-control-center</command> is the main program that brings them all together but many of the system wide configuration tools are effectively provided by other packages (<emphasis role=\"pkg\">accountsservice</emphasis>, <emphasis role=\"pkg\">system-config-printer</emphasis>, etc.). Easy to use, these applications cover only a limited number of base services: user management, time configuration, network configuration, printer configuration, and so on."
+#, fuzzy, no-c-format
+msgid "The GNOME project also provides multiple administration interfaces that are usually accessible via the “Settings” entry in the user menu on the top right. <command>gnome-control-center</command> is the main program that brings them all together but many of the system wide configuration tools are effectively provided by other packages (<emphasis role=\"pkg\">accountsservice</emphasis>, <emphasis role=\"pkg\">system-config-printer</emphasis>, etc.). Although they are easy to use, these applications cover only a limited number of base services: user management, time configuration, network configuration, printer configuration, and so on."
 msgstr "GNOME プロジェクトは、通常右上に位置するユーザメニューの「設定」エントリから利用可能な、複数の管理インターフェースを提供します。<command>gnome-control-center</command> は複数の管理インターフェースを一纏めにしたメインプログラムですが、システム共通設定ツールの多くは他のパッケージによって提供されています (<emphasis role=\"pkg\">accountsservice</emphasis>、<emphasis role=\"pkg\">system-config-printer</emphasis> など)。それらのアプリケーションは使いやすく、基本サービスの一部だけをカバーします: ユーザ管理、時間設定、ネットワーク設定、プリンタ設定、など。"
 
 #. Tag: title
@@ -1615,8 +1811,8 @@ msgid "<emphasis>DEBIAN POLICY</emphasis> Register a server in <filename>inetd.c
 msgstr "<emphasis>DEBIAN POLICY</emphasis> <filename>inetd.conf</filename> へのサーバの登録"
 
 #. Tag: para
-#, no-c-format
-msgid "Packages frequently want to register a new server in the <filename>/etc/inetd.conf</filename> file, but Debian Policy prohibits any package from modifying a configuration file that it doesn't own. This is why the <command>updated-inetd</command> script (in the package with the same name) was created: It manages the configuration file, and other packages can thus use it to register a new server to the super-server's configuration."
+#, fuzzy, no-c-format
+msgid "Packages frequently want to register a new server in the <filename>/etc/inetd.conf</filename> file, but Debian Policy prohibits any package from modifying a configuration file that it doesn't own. This is why the <command>update-inetd</command> script (in the package with the same name) was created: It manages the configuration file, and other packages can thus use it to register a new server to the super-server's configuration."
 msgstr "多くの場合 inetd を使うサーバのパッケージは <filename>/etc/inetd.conf</filename> ファイルに自分を登録する事を望むのですが、Debian ポリシーはあるパッケージが提供する設定ファイルを他のパッケージが修正する事を禁止しています。このため、<command>updated-inetd</command> スクリプト (同名のパッケージに含まれます) が作成されました: <command>updated-inetd</command> スクリプトは設定ファイルを管理し、他のパッケージはこれを使って、スーパーサーバの設定に新しいサーバを登録します。"
 
 #. Tag: para
@@ -1724,6 +1920,11 @@ msgstr "Debian はデフォルトで <emphasis role=\"pkg\">openbsd-inetd</empha
 #, no-c-format
 msgid "This last incarnation of a super-server offers very interesting possibilities. Most notably, its configuration can be split into several files (stored, of course, in the <filename>/etc/xinetd.d/</filename> directory), which can make an administrator's life easier."
 msgstr "<emphasis role=\"pkg\">xinetd</emphasis> は大変興味深い機能を持っています。中でも注目すべきは、<emphasis role=\"pkg\">xinetd</emphasis> の設定を複数のファイル (これはもちろん <filename>/etc/xinetd.d/</filename> ディレクトリの中に保存されています) に分割できるという点です。このお陰で、管理がもっと楽になります。"
+
+#. Tag: para
+#, no-c-format
+msgid "It's even possible to emulate <command>inetd</command>'s behaviour with <command>systemd</command>'s socket-activation mechanism (see above)."
+msgstr ""
 
 #. Tag: title
 #, no-c-format
@@ -1983,6 +2184,16 @@ msgid "To execute a command a single time, just after booting the computer, you 
 msgstr "コンピュータを起動した後に、毎回コマンドを実行するためには、<literal>@reboot</literal> マクロを使ってください (<command>cron</command> を単純に再起動しただけでは <literal>@reboot</literal> でスケジュールされたコマンドは実行されません)。このマクロを使うには <emphasis>crontab</emphasis> 内の最初の 5 つのフィールドを置換してください。"
 
 #. Tag: title
+#, fuzzy, no-c-format
+msgid "<emphasis>ALTERNATIVE</emphasis> Emulating <command>cron</command> with <command>systemd</command>"
+msgstr "<emphasis>SECURITY</emphasis> <command>cron</command> または <command>atd</command> の使用制限"
+
+#. Tag: para
+#, no-c-format
+msgid "It is possible possible to emulate part of <command>crond</command>'s behaviour with <command>systemd</command>'s timer mechanism (see above)."
+msgstr ""
+
+#. Tag: title
 #, no-c-format
 msgid "Using the <command>at</command> Command"
 msgstr "<command>at</command> コマンドの利用"
@@ -1993,20 +2204,20 @@ msgid "<primary><command>at</command></primary>"
 msgstr "<primary><command>at</command></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "The <command>at</command> executes a command at a specified moment in the future. It takes the desired time and date as command-line parameters, and the command to be executed in its standard input. The command will be executed as if it had been entered in the current shell. <command>at</command> even takes care to retain the current environment, in order to reproduce the same conditions when it executes the command. The time is indicated by following the usual conventions: <literal>16:12</literal> or <literal>4:12pm</literal> represents 4:12 pm. The date can be specified in several European and Western formats, including <literal>DD.MM.YY</literal> (<literal>27.07.12</literal> thus representing 27 July 2012), <literal>YYYY-MM-DD</literal> (this same date being expressed as <literal>2012-07-27</literal>), <literal>MM/DD/[CC]YY</literal> (ie., <literal>12/25/12</literal> or <literal>12/25/2012</literal> will be December 25, 2012), or simple <literal>MMDD[CC]YY</literal> (so that <literal>122512</literal> or <literal>12252012</literal> will, likewise, represent December 25, 2012). Without it, the command will be executed as soon as the clock reaches the time indicated (the same day, or tomorrow if that time has already passed on the same day). You can also simply write “today” or “tomorrow”, which is self-explanatory."
+#, fuzzy, no-c-format
+msgid "The <command>at</command> executes a command at a specified moment in the future. It takes the desired time and date as command-line parameters, and the command to be executed in its standard input. The command will be executed as if it had been entered in the current shell. <command>at</command> even takes care to retain the current environment, in order to reproduce the same conditions when it executes the command. The time is indicated by following the usual conventions: <literal>16:12</literal> or <literal>4:12pm</literal> represents 4:12 pm. The date can be specified in several European and Western formats, including <literal>DD.MM.YY</literal> (<literal>27.07.15</literal> thus representing 27 July 2015), <literal>YYYY-MM-DD</literal> (this same date being expressed as <literal>2012-07-27</literal>), <literal>MM/DD/[CC]YY</literal> (ie., <literal>12/25/15</literal> or <literal>12/25/2015</literal> will be December 25, 2015), or simple <literal>MMDD[CC]YY</literal> (so that <literal>122515</literal> or <literal>12252012</literal> will, likewise, represent December 25, 2015). Without it, the command will be executed as soon as the clock reaches the time indicated (the same day, or tomorrow if that time has already passed on the same day). You can also simply write “today” or “tomorrow”, which is self-explanatory."
 msgstr "<command>at</command> は未来の特定の時点にコマンドを実行します。<command>at</command> は時刻と日付をコマンドラインパラメータで受け取り、実行するコマンドを標準入力で受け取ります。このコマンドは、あたかも現在のシェルで実行されたかの如く実行されます。<command>at</command> はコマンドを実行する際に現在と同じ状況を再現するために、現在の環境を保存するように気を付けます。時刻は以下のように普通の慣例に従って表現されます: <literal>16:12</literal> または <literal>4:12pm</literal> は午後 4:12 を意味します。日付はヨーロッパと西洋で使われる幾つかの書式で指定します。<literal>DD.MM.YY</literal> (<literal>27.07.12</literal> は 2012 年 7 月 27 日を意味します)、<literal>YYYY-MM-DD</literal> (<literal>2012-07-27</literal> は上と同じ日付を意味します)、<literal>MM/DD/[CC]YY</literal> (<literal>12/25/12</literal> や <literal>12/25/2012</literal> は 2012 年 12 月 25 日を意味します)、または単純な <literal>MMDD[CC]YY</literal> (<literal>122512</literal> や <literal>12252012</literal> は同様に 2012 年 12 月 25 日を意味します) などです。日付の指定がなければ、コマンドは最も早く到達した指定時刻に実行されます (当日中、または、指定時刻が既に過ぎていれば明日)。読んで字の通り「today」、「tomorrow」などと簡単に書く事も可能です。"
 
 #. Tag: screen
-#, no-c-format
+#, fuzzy, no-c-format
 msgid ""
 "\n"
-"<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.14 &lt;&lt;END</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.15 &lt;&lt;END</userinput>\n"
 "<computeroutput>&gt; </computeroutput><userinput>echo \"Don't forget to wish a Happy Birthday to Raphaël!\" \\</userinput>\n"
 "<computeroutput>&gt; </computeroutput><userinput>  | mail lolando@debian.org</userinput>\n"
 "<computeroutput>&gt; </computeroutput><userinput>END</userinput>\n"
 "<computeroutput>warning: commands will be executed using /bin/sh\n"
-"job 31 at Fri Jul 27 09:00:00 2012</computeroutput>"
+"job 31 at Mon Jul 27 09:00:00 2015</computeroutput>"
 msgstr ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.14 &lt;&lt;END</userinput>\n"
@@ -2072,8 +2283,8 @@ msgid "<command>nice</command> works with levels of “niceness”: the positive
 msgstr "<command>nice</command> は「niceness」と呼ばれる優先度と連動します: 正の優先度 (1 から 19) は低い優先度、これに対して、負の優先度 (-1 から-20) は高い優先度です。負の (高い) 優先度を使えるのは root だけです。「niceness」を与えなければ (<citerefentry><refentrytitle>nice</refentrytitle> <manvolnum>1</manvolnum></citerefentry> マニュアルページ参照)、<command>nice</command> は現在の優先度を正方向に 10 だけ増加します。"
 
 #. Tag: para
-#, no-c-format
-msgid "If you discover that an already running task should have been started with <command>nice</command> it is not too late to fix it; the <command>renice</command> command changes the priority of an already running process, in either direction (but reducing the “niceness” of a process is reserved to the root user)."
+#, fuzzy, no-c-format
+msgid "If you discover that an already running task should have been started with <command>nice</command> it is not too late to fix it; the <command>renice</command> command changes the priority of an already running process, in either direction (but reducing the “niceness” of a process is reserved for the root user)."
 msgstr "既に実行中のタスクの中に <command>nice</command> で開始するべきプロセスを発見した場合、今からでも優先度を修正する事が可能です; <command>renice</command> コマンドは実行中のプロセスの優先度を変更します。優先度を低くする事も高くする事も可能です (ただし、「niceness」を減らす (優先度を高くする) 事ができるのは root だけです)。"
 
 #. Tag: para
@@ -2092,13 +2303,13 @@ msgid "<primary>quota</primary>"
 msgstr "<primary>quota</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "The quota system allows limiting disk space allocated to a user or group of users. To set it up, you must have a kernel that supports it (compiled with the <varname>CONFIG_QUOTA</varname> option) — as is the case of Debian kernels. The quota management software is found in the <emphasis role=\"pkg\">quota</emphasis> Debian package."
+#, fuzzy, no-c-format
+msgid "The quota system allows limiting disk space allocated to a user or group of users. To set it up, you must have a kernel that supports it (compiled with the <varname>CONFIG_QUOTA</varname> option) — as is the case with Debian kernels. The quota management software is found in the <emphasis role=\"pkg\">quota</emphasis> Debian package."
 msgstr "クォータシステムを使うことで、ユーザまたはユーザグループに割り当てられたディスク領域を制限する事が可能です。クォータを設定するには、クォータをサポートする (<varname>CONFIG_QUOTA</varname> オプションを有効化してコンパイルされた) カーネルを使わなければいけません - Debian カーネルはクォータをサポートします。クォータ管理ソフトウェアは <emphasis role=\"pkg\">quota</emphasis> Debian パッケージに含まれています。"
 
 #. Tag: para
-#, no-c-format
-msgid "To activate them in a filesystem, you have to indicate the <literal>usrquota</literal> and <literal>grpquota</literal> options in <filename>/etc/fstab</filename> for the user and group quotas, respectively. Rebooting the computer will then update the quotas in the absence of disk activity (a necessary condition for proper accounting of already used disk space)."
+#, fuzzy, no-c-format
+msgid "To activate quota in a filesystem, you have to indicate the <literal>usrquota</literal> and <literal>grpquota</literal> options in <filename>/etc/fstab</filename> for the user and group quotas, respectively. Rebooting the computer will then update the quotas in the absence of disk activity (a necessary condition for proper accounting of already used disk space)."
 msgstr "あるファイルシステムでクォータを有効化するには、<filename>/etc/fstab</filename> の中でそれぞれユーザやグループクォータに対応する <literal>usrquota</literal> や <literal>grpquota</literal> オプションを使います。この後コンピュータを再起動すると、ディスク活動の無いときに (これは既に利用されているディスク領域を適切に計量する必要条件です)、クォータが更新されます。"
 
 #. Tag: para
@@ -2267,8 +2478,8 @@ msgid "<primary>hard link</primary>"
 msgstr "<primary>ハードリンク</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "A hard link, as opposed to a symbolic link, can not be differentiated from the linked file. Creating a hard link is essentially the same as giving an existing file a second name. This is why the deletion of a hard link only removes one of the names associated with the file. As long as another name is still assigned to the file, the data therein remain present on the filesystem. It is interesting to note that, unlike a copy, the hard link does not take up additional space on the hard drive."
+#, fuzzy, no-c-format
+msgid "A hard link, as opposed to a symbolic link, cannot be differentiated from the linked file. Creating a hard link is essentially the same as giving an existing file a second name. This is why the deletion of a hard link only removes one of the names associated with the file. As long as another name is still assigned to the file, the data therein remain present on the filesystem. It is interesting to note that, unlike a copy, the hard link does not take up additional space on the hard drive."
 msgstr "ハードリンクはシンボリックリンクと異なり、リンクされたファイルと区別する事ができません。本質的に、ハードリンクの作成は既存のファイルに別名を与えることと同義です。そのため、ハードリンクの削除はそのファイルに関連する名前を削除するに過ぎません。他の名前がまだそのファイルに関連付けられている場合、データの実体ファイルシステムから削除されません。コピーと異なり、ハードリンクはハードドライブ上に追加的な領域を必要としない点について注意することは興味深いです。"
 
 #. Tag: para
@@ -2432,8 +2643,8 @@ msgid "<emphasis>GOING FURTHER</emphasis> Backing up SQL and LDAP services"
 msgstr "<emphasis>GOING FURTHER</emphasis> SQL と LDAP サービスのバックアップ"
 
 #. Tag: para
-#, no-c-format
-msgid "Many services (such as SQL or LDAP databases) can not be backed up by simply copying their files (unless they are properly interrupted during creation of the backups, which is frequently problematic, since they are intended to be available at all times). As such, it is necessary to use an “export” mechanism to create a “data dump” that can be safely backed up. These are often quite large, but they compress well. To reduce the storage space required, you will only store a complete text file per week, and a <command>diff</command> each day, which is created with a command of the type <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command>. The <command>xdelta</command> program produces incremental differences from binary dumps."
+#, fuzzy, no-c-format
+msgid "Many services (such as SQL or LDAP databases) cannot be backed up by simply copying their files (unless they are properly interrupted during creation of the backups, which is frequently problematic, since they are intended to be available at all times). As such, it is necessary to use an “export” mechanism to create a “data dump” that can be safely backed up. These are often quite large, but they compress well. To reduce the storage space required, you will only store a complete text file per week, and a <command>diff</command> each day, which is created with a command of the type <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command>. The <command>xdelta</command> program produces incremental differences from binary dumps."
 msgstr "多くのサービス (SQL や LDAP データベースなど) は単純にファイルをコピーするだけではバックアップできません (それらのサービスをバックアップの作成中に適切に中断しない限りバックアップできません。サービスの中断は通常問題です。なぜなら、サービスは常に利用可能である事を意図されているからです)。そのような場合、安全にバックアップ可能な「データダンプ」を作るために「エクスポート」メカニズムを使う事が必要です。データダンプは通常サイズのとても大きいファイルですが、よく圧縮できます。要求されるストレージ領域を減らすために、完全なテキストファイルを保存するのは 1 週間に 1 回、<command>diff</command> を保存するのは毎日にするでしょう。差分は <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command> で生成されます。バイナリダンプから増分差分を作成するには <command>xdelta</command> プログラムを使ってください。"
 
 #. Tag: indexterm
@@ -2552,8 +2763,8 @@ msgid "<emphasis>IN PRACTICE</emphasis> Network card management"
 msgstr "<emphasis>IN PRACTICE</emphasis> ネットワークカード管理"
 
 #. Tag: para
-#, no-c-format
-msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the 2.6 kernel no longer guarantees fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
+#, fuzzy, no-c-format
+msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, kernel versions later than 2.6 no longer guarantee fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
 msgstr "多くのコンピュータは複数のネットワークカードを持っており (2 つの有線インターフェースと 1 つの wifi インターフェース)、<emphasis>hotplug</emphasis> はほとんどのバスタイプをサポートするので 2.6 カーネルはもはや名前の固定されたネットワークインターフェースを生成しません。しかし <filename>/etc/network/interfaces</filename> の中で自分のネットワークを設定したいユーザは名前を固定しなければいけません!"
 
 #. Tag: para
@@ -2562,8 +2773,8 @@ msgid "It would be difficult to ask every user to create their own <emphasis>ude
 msgstr "この問題を解決する目的で、各ユーザに自分の <emphasis>udev</emphasis> ルールを作るようにお願いするのは難しいでしょう。そのため <emphasis>udev</emphasis> は比較的独特なやり方で設定されました; 最初の起動時 (より一般的に言えば、新しいネットワークカードが初めて見つかった時) に、<emphasis>udev</emphasis> はネットワークインターフェースの名前と MAC アドレスを基にして、2 度目の起動から同じ名前を割り当てられるような新しいルールを作ります。これらのルールは <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> に保存されています。"
 
 #. Tag: para
-#, no-c-format
-msgid "This mechanism has some side effects that you should know about. Let's consider the case of computer that has only one PCI network card. The network interface is named <literal>eth0</literal>, logically. Now say the card breaks down, and the administrator replaces it; the new card will have a new MAC address. Since the old card was assigned the name, <literal>eth0</literal>, the new one will be assigned <literal>eth1</literal>, even though the <literal>eth0</literal> card is gone for good (and the network will not be functional because <filename>/etc/network/interfaces</filename> likely configures an <literal>eth0</literal> interface). In this case, it is enough to simply delete the <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> file before rebooting the computer. The new card will then be given the expected <literal>eth0</literal> name."
+#, fuzzy, no-c-format
+msgid "This mechanism has some side effects that you should know about. Let's consider the case of a computer that has only one PCI network card. The network interface is named <literal>eth0</literal>, logically. Now say the card breaks down, and the administrator replaces it; the new card will have a new MAC address. Since the old card was assigned the name, <literal>eth0</literal>, the new one will be assigned <literal>eth1</literal>, even though the <literal>eth0</literal> card is gone for good (and the network will not be functional because <filename>/etc/network/interfaces</filename> likely configures an <literal>eth0</literal> interface). In this case, it is enough to simply delete the <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> file before rebooting the computer. The new card will then be given the expected <literal>eth0</literal> name."
 msgstr "このメカニズムには幾つかの副作用がありますので、それについて知っておくべきです。コンピュータが PCI ネットワークカードを 1 つだけ持っている場合について考えましょう。このネットワークインターフェースは必然的に <literal>eth0</literal> と名付けられます。カードが壊れて、管理者がそれを交換したとしましょう; 新しいカードは新しい MAC アドレスを持っています。古いカードには <literal>eth0</literal> という名前が割り当てられていたため、<literal>eth0</literal> カードが完全に消え去っているにも関わらず、新しいカードには <literal>eth1</literal> という名前が割り当てられます (ネットワークは機能しません。なぜなら、<filename>/etc/network/interfaces</filename> で <literal>eth0</literal> インターフェースを設定しているからです)。この場合、コンピュータの再起動前に単純に <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> ファイルを削除すれば十分です。新しいカードはおそらく <literal>eth0</literal> という名前を与えられるでしょう。"
 
 #. Tag: title
@@ -2612,8 +2823,8 @@ msgid "<literal>SUBSYSTEM</literal>: the kernel subsystem which generated the re
 msgstr "<literal>SUBSYSTEM</literal>: 要求を生成したカーネルサブシステム (種類は沢山ありますが、「usb」、「ide」、「net」、「firmware」などがその例です);"
 
 #. Tag: para
-#, no-c-format
-msgid "<literal>ATTR{<replaceable>attribut</replaceable>}</literal>: file contents of the <replaceable>attribute</replaceable> file in the <filename>/sys/<replaceable>$devpath</replaceable>/</filename> directory of the device. This is where you find the MAC address and other bus specific identifiers;"
+#, fuzzy, no-c-format
+msgid "<literal>ATTR{<replaceable>attribute</replaceable>}</literal>: file contents of the <replaceable>attribute</replaceable> file in the <filename>/sys/<replaceable>$devpath</replaceable>/</filename> directory of the device. This is where you find the MAC address and other bus specific identifiers;"
 msgstr "<literal>ATTR{<replaceable>attribut</replaceable>}</literal>: デバイスの <filename>/sys/<replaceable>$devpath</replaceable>/</filename> ディレクトリ内の <replaceable>attribute</replaceable> ファイルの内容。これで MAC アドレスやその他のバス固有識別子が判ります。"
 
 #. Tag: para
@@ -2707,8 +2918,8 @@ msgid "and, finally, <literal>%%</literal> and <literal>$$</literal> for the per
 msgstr "そして最後に、<literal>%%</literal> と <literal>$$</literal> はそれぞれパーセントとドル記号を意味します。"
 
 #. Tag: para
-#, no-c-format
-msgid "The above lists are not complete (they include only the most important parameters), but the <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> manual page should be."
+#, fuzzy, no-c-format
+msgid "The above lists are not complete (they include only the most important parameters), but the <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> manual page should be exhaustive."
 msgstr "上のリストは完全なものではありません (最も重要なパラメータの抜粋です)。完全なリストは <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> マニュアルページをご覧ください。"
 
 #. Tag: title
@@ -2927,3 +3138,6 @@ msgstr "グラフィックカードドライバはスタンバイが上手くで
 #, no-c-format
 msgid "After this overview of basic services common to many Unix systems, we will focus on the environment of the administered machines: the network. Many services are required for the network to work properly. They will be discussed in the next chapter."
 msgstr "多くの Unix システムで共通の基本的サービスの概要の後、管理されているマシンの環境に焦点を合わせます: ネットワークです。多くのサービスはネットワークを正しく動作させる事を必要とします。次の章ではこれについて議論します。"
+
+#~ msgid "Another new option that is gaining a lot of traction is <command>systemd</command>. Its approach is opposite to the previous systems; instead of preemptively launching all services, and having to deal with the question of scheduling, <command>systemd</command> chooses to start services on demand, somewhat along the principle of <command>inetd</command>. But this means that the boot system must be able to know how services are made available (it could be through a socket, a filesystem, or others), and thus requires small modifications of those services. It also provides backwards compatibility to System V init scripts."
+#~ msgstr "別の新しい選択肢は <command>systemd</command> で、多くの注目を集めています。<command>systemd</command> は前に挙げたシステムと対極のやり方を取ります; 事前にすべてのサービスを起動して、起動順の問題を解決する代わりに、<command>systemd</command> は要求に応じてサービスを起動します。これは若干 <command>inetd</command> の原則と似ています。しかしこれは、起動システムは必ずサービスを利用可能にする方法を知らなければいけない (ソケット、ファイルシステム、その他を介すことで可能です) こと、を意味しており、サービスはこれに合わせて挙動を少し変更しなければいけません。さらに <command>systemd</command> は System V init スクリプトに対する後方互換性を提供します。"

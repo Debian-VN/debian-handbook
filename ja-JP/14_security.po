@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-07-08 09:41+0000\n"
-"PO-Revision-Date: 2015-07-08 19:55+0900\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
+"PO-Revision-Date: 2015-08-29 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -465,8 +465,8 @@ msgid "The previous section lists available actions, but not their respective op
 msgstr "前の節で利用可能な動作を説明しましたが、その動作に対するオプションを説明していませんでした。例えば、<literal>LOG</literal> 動作は以下のオプションを持ちます:"
 
 #. Tag: para
-#, no-c-format
-msgid "<literal>--log-priority</literal>, with default value <literal>warning</literal>, indicates the <command>syslog</command> message priority;"
+#, fuzzy, no-c-format
+msgid "<literal>--log-level</literal>, with default value <literal>warning</literal>, indicates the <command>syslog</command> severity level;"
 msgstr "<literal>--log-priority</literal> は記録する <command>syslog</command> メッセージの優先度を指定します。デフォルトの場合 <literal>warning</literal> 以上の優先度を持つメッセージが記録されます;"
 
 #. Tag: para
@@ -1452,8 +1452,8 @@ msgid "Each SELinux module provides a set of file labeling rules, but it is also
 msgstr "各 SELinux モジュールには、ファイルラベル付けルール群が含まれますが、さらに SELinux モジュールは特別な場合に応じてラベル付けルールをカスタマイズする事が可能です。例えば、ウェブサーバに <filename>/srv/www/</filename> ファイル階層内のファイルを読む事を許可する場合、<command>semanage fcontext -a -t httpd_sys_content_t \"/srv/www(/.*)?\"</command> を実行し、その後 <command>restorecon -R /srv/www/</command> を実行します。最初のコマンドで新しいラベル付けルールを登録し、次のコマンドで現在のラベル付けルールに基いてファイルタイプを再設定します。"
 
 #. Tag: para
-#, no-c-format
-msgid "Similarly, TCP/UDP ports are labeled in a way that ensures that only the corresponding daemons can listen to them. For instance, if you want that the web server be able to listen on port 8080, you should run <command>semanage port -m -t http_port_t -p tcp 8080</command>."
+#, fuzzy, no-c-format
+msgid "Similarly, TCP/UDP ports are labeled in a way that ensures that only the corresponding daemons can listen to them. For instance, if you want the web server to be able to listen on port 8080, you should run <command>semanage port -m -t http_port_t -p tcp 8080</command>."
 msgstr "同様に、TCP/UDP ポートをラベル付けして、ポート番号とそのポートのリッスンを許可するデーモンを対応付ける事が可能です。例えば、ウェブサーバがポート 8080 番をリッスンする事を許可するには、<command>semanage port -m -t http_port_t -p tcp 8080</command> を実行します。"
 
 #. Tag: para

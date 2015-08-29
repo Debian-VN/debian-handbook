@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-07-08 09:41+0000\n"
-"PO-Revision-Date: 2015-07-08 19:42+0900\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
+"PO-Revision-Date: 2015-08-29 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -405,8 +405,8 @@ msgstr ""
 "virtual_alias_maps = hash:/etc/postfix/virtual"
 
 #. Tag: para
-#, no-c-format
-msgid "The <filename>/etc/postfix/virtual</filename> file describes mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
+#, fuzzy, no-c-format
+msgid "The <filename>/etc/postfix/virtual</filename> file describes a mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
 msgstr "<filename>/etc/postfix/virtual</filename> ファイルは、かなり直接的な構文で、対応付けを記述します: 各行には空白で分割された 2 つのフィールドが含まれます; 最初のフィールドは別名、2 番目のフィールドはリダイレクトする電子メールアドレスのリストです。<literal>@domain.com</literal> 特殊構文を使うことで、そのドメインに含まれるすべての残りの別名をカバーする事も可能です。"
 
 #. Tag: title
@@ -795,8 +795,8 @@ msgstr ""
 "    reject_non_fqdn_recipient"
 
 #. Tag: para
-#, no-c-format
-msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to sent unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
+#, fuzzy, no-c-format
+msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to send unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
 msgstr "<literal>reject_unauth_destination</literal> は基本的なルールで、受け入れ要求のあったメッセージが自分達宛である事を確認します; このサーバに無いアドレス宛のメッセージを拒否するようになります。このルールが無い場合、サーバはスパマーが迷惑メールの送信に使う第三者中継サーバになります; このため <literal>reject_unauth_destination</literal> ルールは必須で、リストの最初に近い位置に置くのが最良です。そうすれば、メッセージの宛先をチェックする前に、他のルールがそのメッセージの受け入れを許可する事を避けられます。"
 
 #. Tag: para
@@ -864,8 +864,8 @@ msgid "Filtering Based on the Message Contents"
 msgstr "メッセージ内容に基づくフィルタリング"
 
 #. Tag: para
-#, no-c-format
-msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying on the email headers from those applying to the email body."
+#, fuzzy, no-c-format
+msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying to the email headers from those applying to the email body."
 msgstr "メッセージ内容を確認する事により、妥当性確認と制限システムが完成します。Postfix は電子メール本文や電子メールヘッダの内容に対して確認を適用し、その妥当性を識別する事が可能です。"
 
 #. Tag: title
@@ -956,8 +956,8 @@ msgid "<primary>greylisting</primary>"
 msgstr "<primary>greylisting</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since these software rarely act as full SMTP agents (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
+#, fuzzy, no-c-format
+msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since this software rarely acts as a full SMTP agent (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
 msgstr "「Greylisting」はフィルタリング技術です。この技術を使うことで、最初にメッセージを一時的なエラーコードと共に拒否し、少しの遅延の後に何回か試行すれば許可するというような挙動が可能です。このフィルタリングは特にワームとウィルスに侵された数多くのマシンが送信するスパムに対して効果的です。なぜなら、ワームやウィルスは完全な SMTP エージェントとして振る舞うことはほとんど無い (エラーコードを確認して失敗したメッセージを後から再試行することはほとんど無い) ですし、特に収集されたアドレスのほとんどは実際のところ無効という事を考慮すると、再試行は時間の無駄にしかならないからです。"
 
 #. Tag: para
@@ -1233,8 +1233,8 @@ msgid "Authenticated SMTP"
 msgstr "SMTP 認証"
 
 #. Tag: para
-#, no-c-format
-msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, that may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
+#, fuzzy, no-c-format
+msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, this may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
 msgstr "電子メールを送信するには、SMTP サーバにアクセスする必要があります; つまり、電子メールを送信するには上で設定した SMTP サーバが必要です。ローミングユーザの場合、SMTP クライアントの設定を定期的に変更する必要があるかもしれません。なぜなら、Falcot の SMTP サーバは明らかに会社に所属しない IP アドレスから受け取ったメッセージを拒否するからです。2 つの解決策が存在します: ローミングユーザが自分のコンピュータに SMTP サーバをインストールするか、雇用者としての認証を済ませた後に会社のサーバを使うかのどちらか一方です。自分の SMTP サーバをインストールするという解決策は推奨されません。なぜなら、コンピュータは永久的に接続されているわけではないからです。さらに、問題の起きた際にメッセージを再送信する事ができないからです。我々は認証を行うという解決策に注目します。"
 
 #. Tag: para
@@ -1345,8 +1345,8 @@ msgid "Web Server (HTTP)"
 msgstr "ウェブサーバ (HTTP)"
 
 #. Tag: para
-#, no-c-format
-msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Wheezy</emphasis> at version 2.2.22."
+#, fuzzy, no-c-format
+msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Jessie</emphasis> at version 2.4.10."
 msgstr "Falcot Corp 管理者は Debian <emphasis role=\"distribution\">Wheezy</emphasis> に含まれるバージョン 2.2.22 の Apache HTTP サーバを使うことに決めました。"
 
 #. Tag: indexterm
@@ -1405,13 +1405,13 @@ msgid "By default, installing the <emphasis role=\"pkg\">apache2</emphasis> pack
 msgstr "デフォルトで、<emphasis role=\"pkg\">apache2</emphasis> パッケージをインストールすると Apache の <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> バージョンがインストールされます。<emphasis role=\"pkg\">apache2</emphasis> パッケージははメタパッケージであり、Apache バージョンの 1 つがが実際にインストールされている事を確保するためだけに提供されています。"
 
 #. Tag: para
-#, no-c-format
-msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
+#, fuzzy, no-c-format
+msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis>worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis>prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis>event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
 msgstr "Apache 2 の亜種同士の主な違いは、多くのリクエストを並列処理する際の取り扱い方法に関するポリシーです; このポリシーは MPM (<emphasis>Multi-Processing Module</emphasis> の略) によって実装されています。利用可能な MPM の中でも特に、<emphasis role=\"pkg\">apache2-mpm-worker</emphasis> は <emphasis>スレッド</emphasis> (軽量プロセス) を使います。これに対して <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> は予め生成したプロセスプール (古典的方法、Apache 1.3 ではこれしか使えません) を使います。<emphasis role=\"pkg\">apache2-mpm-event</emphasis> はスレッドを使いますが、入って来る接続が HTTP の <emphasis>keep-alive</emphasis> 機能を使ってオープン状態を保存するためだけのものの場合、スレッドを早く終わらせます。"
 
 #. Tag: para
-#, no-c-format
-msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> to be removed, and <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> to be installed instead, since PHP only works under that particular MPM."
+#, fuzzy, no-c-format
+msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the <emphasis>worker</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
 msgstr "Falcot の管理者はさらに Apache で PHP サポートを有効化するために <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> をインストールします。こうすることで、<emphasis role=\"pkg\">apache2-mpm-worker</emphasis> が削除され、代わりに <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> がインストールされます。なぜなら、 PHP はこの MPM の下でしか動かないからです。"
 
 #. Tag: title
@@ -1440,13 +1440,13 @@ msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule 
 msgstr "<emphasis>suexec</emphasis> モジュールを使うことで、このルールを迂回する事が可能です。こうすることで、一部の CGI スクリプトを別のユーザの権限で実行する事が可能です。設定を行うには、Apache 設定ファイルの <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> 指示文を使います。"
 
 #. Tag: indexterm
-#, no-c-format
-msgid "<primary><emphasis role=\"pkg\">apache2-mpm-itk</emphasis></primary>"
+#, fuzzy, no-c-format
+msgid "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">apache2-mpm-itk</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">apache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
+#, fuzzy, no-c-format
+msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts (actually, sets of pages) so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
 msgstr "もう一つの可能性は、例えば <emphasis role=\"pkg\">apache2-mpm-itk</emphasis> の提供する MPM などの、専用 MPM を使う事です。この専用 MPM の挙動は少し異なります: これは仮想ホストを「隔離」し、各仮想ホストを異なるユーザの権限で実行します。このため、あるウェブサイトの持つ脆弱性によって、他のウェブサイトの所有者の持つファイルが危険に晒される事が無くなります。"
 
 #. Tag: title
@@ -1455,8 +1455,8 @@ msgid "<emphasis>QUICK LOOK</emphasis> List of modules"
 msgstr "<emphasis>QUICK LOOK</emphasis> モジュールのリスト"
 
 #. Tag: para
-#, no-c-format
-msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/index.html\" />"
+#, fuzzy, no-c-format
+msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
 msgstr "Apache の標準的なモジュールをオンラインで見る事が可能です。<ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/index.html\" />"
 
 #. Tag: para
@@ -1485,8 +1485,8 @@ msgid "<primary>HTTP</primary><secondary>secure</secondary>"
 msgstr "<primary>HTTP</primary><secondary>secure</secondary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Apache 2.2 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
+#, fuzzy, no-c-format
+msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
 msgstr "Apache 2.2 には、すぐに使える安全な HTTP (HTTPS) に必要な SSL モジュールが含まれます。これを有効化するには、<command>a2enmod ssl</command> を使い、必要な指示文を設定ファイルに追加しなければいけません。設定例は <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename> で提供されています。<ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
 
 #. Tag: para
@@ -1525,8 +1525,8 @@ msgid "The (increasing) scarcity of IPv4 addresses usually favors the second met
 msgstr "IPv4 アドレスは (ますます) 不足し続けているため、通常 2 番目の方法が好まれます; しかしながらこの方法では、仮想ホストが HTTPS を提供する必要がある場合、より複雑です。なぜなら、SSL プロトコルは常にホスト名に基づく仮想ホスト機能を規定しているとは限らないからです; そのような組み合わせを可能にする SNI 拡張 (<emphasis>Server Name Indication</emphasis>) はすべてのブラウザで正しく使えるとは限りません。1 つのサーバで復数の HTTPS サイトを運用する必要がある場合、HTTPS サイトは通常異なるポートを使うか、異なる IP アドレスを使う (IPv6 が役立ちます) ことで識別されます。"
 
 #. Tag: para
-#, no-c-format
-msgid "The default configuration for Apache 2 enables name-based virtual hosts (with the <literal>NameVirtualHost *:80</literal> directive in the <filename>/etc/apache2/ports.conf</filename> file). In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
+#, fuzzy, no-c-format
+msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
 msgstr "Apache 2 のデフォルト設定では、ホスト名に基づく仮想ホスト機能が有効にされています (<filename>/etc/apache2/ports.conf</filename> ファイルの <literal>NameVirtualHost *:80</literal> 指示文がこれに対応します)。加えて、<literal>/etc/apache2/sites-enabled/000-default</literal> ファイルの中でデフォルトの仮想ホストが定義されています; クライアントによって送信された要求に一致するホストが見つからない場合、この仮想ホストが使われます。"
 
 #. Tag: title
@@ -1561,23 +1561,8 @@ msgstr "SNI の前に、Apache は常にデフォルトの仮想ホストの定�
 
 #. Tag: para
 #, no-c-format
-msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed, apart from enabling name-based virtual hosting on port 443 (SSL) as well as the usual port 80. This is a simple matter of editing <filename>/etc/apache2/ports.conf</filename> so it includes the following:"
-msgstr "Debian の提供する Apache パッケージは SNI サポートを有効化した状態でビルドされています; 通常のポート 80 番と同様にポート 443 番 (SSL) でホスト名に基づく仮想ホスト機能を有効化する事を除けば、特別な設定は不要です。<filename>/etc/apache2/ports.conf</filename> を編集して、以下の内容を含めるだけで簡単に設定する事が可能です:"
-
-#. Tag: programlisting
-#, no-c-format
-msgid ""
-"\n"
-"&lt;IfModule mod_ssl.c&gt;\n"
-"    NameVirtualHost *:443\n"
-"    Listen 443\n"
-"&lt;/IfModule&gt;"
+msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed."
 msgstr ""
-"\n"
-"&lt;IfModule mod_ssl.c&gt;\n"
-"    NameVirtualHost *:443\n"
-"    Listen 443\n"
-"&lt;/IfModule&gt;"
 
 #. Tag: para
 #, no-c-format
@@ -1841,6 +1826,41 @@ msgstr "アクセス制限"
 #, no-c-format
 msgid "<primary>web access restriction</primary>"
 msgstr "<primary>ウェブアクセス制限</primary>"
+
+#. Tag: para
+#, fuzzy, no-c-format
+msgid "The <literal>Require</literal> directive controls access restrictions for a directory (and its subdirectories, recursively)."
+msgstr "<literal>Allow from</literal> と <literal>Deny from</literal> 指示文を使うことで、あるディレクトリへのアクセスを制御 (とサブディレクトリへのアクセスを再帰的に制御) します。"
+
+#. Tag: indexterm
+#, fuzzy, no-c-format
+msgid "<primary><literal>Require</literal>, Apache directive</primary>"
+msgstr "<primary><literal>Order</literal>、Apache 指示文</primary>"
+
+#. Tag: para
+#, no-c-format
+msgid "It can be used to restrict access based on many criteria; we will stop at describing access restriction based on the IP address of the client, but it can be made much more powerful than that, especially when several <literal>Require</literal> directives are combined within a <literal>RequireAll</literal> block."
+msgstr ""
+
+#. Tag: title
+#, fuzzy, no-c-format
+msgid "Only allow from the local network"
+msgstr "デフォルトで拒否して、ローカルネットワークからのアクセスを許可する例"
+
+#. Tag: programlisting
+#, no-c-format
+msgid "Require ip 192.168.0.0/16"
+msgstr ""
+
+#. Tag: title
+#, fuzzy, no-c-format
+msgid "<emphasis>ALTERNATIVE</emphasis> Old syntax"
+msgstr "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
+
+#. Tag: para
+#, no-c-format
+msgid "The <literal>Require</literal> syntax is only available in Apache 2.4 (the version in <emphasis role=\"distribution\">Jessie</emphasis>). For users of <emphasis role=\"distribution\">Wheezy</emphasis>, the Apache 2.2 syntax is different, and we describe it here mainly for reference, although it can also be made available in Apache 2.4 using the <literal>mod_access_compat</literal> module."
+msgstr ""
 
 #. Tag: para
 #, no-c-format
@@ -2568,8 +2588,8 @@ msgid "Samba Server"
 msgstr "Samba サーバ"
 
 #. Tag: para
-#, no-c-format
-msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 3, <command>smbd</command> and <command>nmbd</command>."
+#, fuzzy, no-c-format
+msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 4, <command>smbd</command> and <command>nmbd</command>."
 msgstr "<emphasis role=\"pkg\">samba</emphasis> パッケージには、Samba 3 の主要な 2 種類のサーバ <command>smbd</command> と <command>nmbd</command> が含まれます。"
 
 #. Tag: indexterm
@@ -2581,36 +2601,6 @@ msgstr "<primary><command>smbd</command></primary>"
 #, no-c-format
 msgid "<primary><command>nmbd</command></primary>"
 msgstr "<primary><command>nmbd</command></primary>"
-
-#. Tag: title
-#, no-c-format
-msgid "<emphasis>TOOL</emphasis> Administrating Samba with SWAT"
-msgstr "<emphasis>TOOL</emphasis> SWAT を使った Samba の管理"
-
-#. Tag: para
-#, no-c-format
-msgid "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) is a web interface that allows configuring the Samba service. Since the <emphasis role=\"pkg\">swat</emphasis> package does not enable its configuration interface by default, it must be enabled manually with <command>update-inetd --enable swat</command>."
-msgstr "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) は Samba サービスを設定するウェブインターフェースです。<emphasis role=\"pkg\">swat</emphasis> パッケージはデフォルトで設定インターフェースを有効化していないため、<command>update-inetd --enable swat</command> を使って有効化しなければいけません。"
-
-#. Tag: indexterm
-#, no-c-format
-msgid "<primary>SWAT</primary>"
-msgstr "<primary>SWAT</primary>"
-
-#. Tag: para
-#, no-c-format
-msgid "<emphasis>SWAT</emphasis> then becomes available at the <literal>http://localhost:901</literal> URL. Accessing it means using the root account (and its usual password). Note that SWAT rewrites the <filename>smb.conf</filename> in its own idiom, so it makes sense to make a backup copy beforehand if you're only interested in testing this tool."
-msgstr "<emphasis>SWAT</emphasis> は <literal>http://localhost:901</literal> URL から利用可能になります。<literal>http://localhost:901</literal> にアクセスすることは、root アカウント (と root パスワード) を使う事を意味します。SWAT は <filename>smb.conf</filename> を独自の表現で書き換える事に注意してください。SWAT をテストすることだけに興味が有る場合、事前に <filename>smb.conf</filename>  のバックアップコピーを取る事が賢明です。"
-
-#. Tag: para
-#, no-c-format
-msgid "SWAT is very user-friendly; its interface includes an assistant that allows defining the server's role in three questions. All global options can still be configured, as well as those for all the existing shares, and of course new shares can be added. Each option comes with a link to the relevant documentation."
-msgstr "SWAT はとてもユーザフレンドリーです; そのインターフェースには、3 つの質問を使ってサーバの役割を定義するための補助機能が含まれます。すべてのグローバルオプションおよび既存の共有に対するオプションを設定したり、もちろん新しい共有を追加する事も可能です。それぞれのオプションには、対応する文書へのリンクが併記されています。"
-
-#. Tag: para
-#, no-c-format
-msgid "Unfortunately SWAT is no longer actively maintained and will be dropped from the next version of Debian, known as <emphasis role=\"distribution\">Jessie</emphasis>."
-msgstr "残念なことに、SWAT はもはや活発に保守されていないため、Debian の次期バージョンである <emphasis role=\"distribution\">Jessie</emphasis> では提供されない予定です。"
 
 #. Tag: title
 #, no-c-format
@@ -2634,8 +2624,8 @@ msgstr "<primary>Windows ドメイン</primary>"
 
 #. Tag: para
 #, no-c-format
-msgid "The documentation available in the <emphasis role=\"pkg\">samba-doc</emphasis> package is very well written. In particular, the <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> document (available as <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) deals with a concrete use case that evolves alongside the growing company."
-msgstr "<emphasis role=\"pkg\">samba-doc</emphasis> パッケージに含まれる文書はとても良く書けています。特に、<citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> 文書 (<filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename> から読めます) では、会社の成長と共に適用するべき具体的な設定例が説明されています。"
+msgid "The <emphasis role=\"pkg\">samba-doc</emphasis> package contains a wealth of commented example files in <filename>/usr/share/doc/samba-doc/examples/</filename>."
+msgstr ""
 
 #. Tag: title
 #, no-c-format
@@ -2653,8 +2643,8 @@ msgid "<primary>Winbind</primary>"
 msgstr "<primary>Winbind</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename> file."
+#, fuzzy, no-c-format
+msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/examples/pam_winbind/</filename> directory."
 msgstr "より詳しい情報は <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename> ファイルで説明されています。"
 
 #. Tag: title
@@ -2681,11 +2671,6 @@ msgstr "次の質問で、DHCP デーモンによって提供される情報を�
 #, no-c-format
 msgid "<primary>WINS</primary>"
 msgstr "<primary>WINS</primary>"
-
-#. Tag: para
-#, no-c-format
-msgid "The last question is about whether servers should be started by <command>inetd</command> or as stand-alone daemons. Using <command>inetd</command> is only interesting when Samba is rarely used; the Falcot administrators therefore picked stand-alone daemons."
-msgstr "最後の質問で、サーバを <command>inetd</command> を使って起動するか、独立したデーモンとして運用するかを尋ねられます。<command>inetd</command> を使う選択肢は Samba を滅多に使わない場合を除けば効果的とはいえません; このため Falcot の管理者は独立したデーモンとして運用する事を選びました。"
 
 #. Tag: title
 #, no-c-format
@@ -3178,8 +3163,8 @@ msgid "Installing"
 msgstr "インストール"
 
 #. Tag: para
-#, no-c-format
-msgid "The <emphasis role=\"pkg\">squid</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
+#, fuzzy, no-c-format
+msgid "The <emphasis role=\"pkg\">squid3</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
 msgstr "<emphasis role=\"pkg\">squid</emphasis> Debian パッケージには、モジュール式 (キャッシュ) プロキシだけが含まれます。Squid をフィルタリングサーバとして使うには、追加で <emphasis role=\"pkg\">squidguard</emphasis> パッケージをインストールする必要があります。加えて、<emphasis role=\"pkg\">squid-cgi</emphasis> には、Squid プロキシ用の問い合わせおよび管理インターフェースが含まれます。"
 
 #. Tag: para
@@ -3193,13 +3178,13 @@ msgid "Configuring a Cache"
 msgstr "キャッシュの設定"
 
 #. Tag: para
-#, no-c-format
-msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
+#, fuzzy, no-c-format
+msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid3/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
 msgstr "キャッシュサーバを有効化するには、<filename>/etc/squid/squid.conf</filename> 設定ファイルを編集し、ローカルネットワークからのマシンがプロキシを介して問い合わせを実行する事を許可するだけで簡単に可能です。以下の例は Falcot Corp 管理者の行った変更を表わしています:"
 
 #. Tag: title
-#, no-c-format
-msgid "The <filename>/etc/squid/squid.conf</filename> file (excerpts)"
+#, fuzzy, no-c-format
+msgid "The <filename>/etc/squid3/squid.conf</filename> file (excerpts)"
 msgstr "<filename>/etc/squid/squid.conf</filename> ファイル (抜粋)"
 
 #. Tag: programlisting
@@ -3334,8 +3319,8 @@ msgid "<primary><emphasis>slapd</emphasis></primary>"
 msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> is usually non-interactive unless you have configured debconf to display questions with lower priorities. Nevertheless, it is debconf-enabled, and thus a simple <command>dpkg-reconfigure slapd</command> can reconfigure the LDAP database:"
+#, fuzzy, no-c-format
+msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions, unless you have configured debconf to display questions with lower priorities. Nevertheless, it is debconf-enabled, and thus a simple <command>dpkg-reconfigure slapd</command> can reconfigure the LDAP database:"
 msgstr "<emphasis role=\"pkg\">slapd</emphasis> のインストールは、debconf を設定して低い優先度の質問を表示するようにしていない限り、通常非対話的です。とは言っても、<emphasis role=\"pkg\">slapd</emphasis> は debconf を使うパッケージですから、<command>dpkg-reconfigure slapd</command> を使えば簡単に LDAP データベースを再設定する事が可能です。"
 
 #. Tag: para
@@ -4206,3 +4191,43 @@ msgstr ""
 #, no-c-format
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
 msgstr "この章では、利用可能なサーバソフトウェアの内のほんの僅かなソフトウェアだけに注目しました; しかしながら、ほとんどの一般的なネットワークサービスについて言及しました。今や、より技術的な章に入る準備が整ったと言えます: 一部の概念に関してより詳細を解説し、大規模な配備と仮想化について説明します。"
+
+#~ msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed, apart from enabling name-based virtual hosting on port 443 (SSL) as well as the usual port 80. This is a simple matter of editing <filename>/etc/apache2/ports.conf</filename> so it includes the following:"
+#~ msgstr "Debian の提供する Apache パッケージは SNI サポートを有効化した状態でビルドされています; 通常のポート 80 番と同様にポート 443 番 (SSL) でホスト名に基づく仮想ホスト機能を有効化する事を除けば、特別な設定は不要です。<filename>/etc/apache2/ports.conf</filename> を編集して、以下の内容を含めるだけで簡単に設定する事が可能です:"
+
+#~ msgid ""
+#~ "\n"
+#~ "&lt;IfModule mod_ssl.c&gt;\n"
+#~ "    NameVirtualHost *:443\n"
+#~ "    Listen 443\n"
+#~ "&lt;/IfModule&gt;"
+#~ msgstr ""
+#~ "\n"
+#~ "&lt;IfModule mod_ssl.c&gt;\n"
+#~ "    NameVirtualHost *:443\n"
+#~ "    Listen 443\n"
+#~ "&lt;/IfModule&gt;"
+
+#~ msgid "<emphasis>TOOL</emphasis> Administrating Samba with SWAT"
+#~ msgstr "<emphasis>TOOL</emphasis> SWAT を使った Samba の管理"
+
+#~ msgid "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) is a web interface that allows configuring the Samba service. Since the <emphasis role=\"pkg\">swat</emphasis> package does not enable its configuration interface by default, it must be enabled manually with <command>update-inetd --enable swat</command>."
+#~ msgstr "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) は Samba サービスを設定するウェブインターフェースです。<emphasis role=\"pkg\">swat</emphasis> パッケージはデフォルトで設定インターフェースを有効化していないため、<command>update-inetd --enable swat</command> を使って有効化しなければいけません。"
+
+#~ msgid "<primary>SWAT</primary>"
+#~ msgstr "<primary>SWAT</primary>"
+
+#~ msgid "<emphasis>SWAT</emphasis> then becomes available at the <literal>http://localhost:901</literal> URL. Accessing it means using the root account (and its usual password). Note that SWAT rewrites the <filename>smb.conf</filename> in its own idiom, so it makes sense to make a backup copy beforehand if you're only interested in testing this tool."
+#~ msgstr "<emphasis>SWAT</emphasis> は <literal>http://localhost:901</literal> URL から利用可能になります。<literal>http://localhost:901</literal> にアクセスすることは、root アカウント (と root パスワード) を使う事を意味します。SWAT は <filename>smb.conf</filename> を独自の表現で書き換える事に注意してください。SWAT をテストすることだけに興味が有る場合、事前に <filename>smb.conf</filename>  のバックアップコピーを取る事が賢明です。"
+
+#~ msgid "SWAT is very user-friendly; its interface includes an assistant that allows defining the server's role in three questions. All global options can still be configured, as well as those for all the existing shares, and of course new shares can be added. Each option comes with a link to the relevant documentation."
+#~ msgstr "SWAT はとてもユーザフレンドリーです; そのインターフェースには、3 つの質問を使ってサーバの役割を定義するための補助機能が含まれます。すべてのグローバルオプションおよび既存の共有に対するオプションを設定したり、もちろん新しい共有を追加する事も可能です。それぞれのオプションには、対応する文書へのリンクが併記されています。"
+
+#~ msgid "Unfortunately SWAT is no longer actively maintained and will be dropped from the next version of Debian, known as <emphasis role=\"distribution\">Jessie</emphasis>."
+#~ msgstr "残念なことに、SWAT はもはや活発に保守されていないため、Debian の次期バージョンである <emphasis role=\"distribution\">Jessie</emphasis> では提供されない予定です。"
+
+#~ msgid "The documentation available in the <emphasis role=\"pkg\">samba-doc</emphasis> package is very well written. In particular, the <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> document (available as <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) deals with a concrete use case that evolves alongside the growing company."
+#~ msgstr "<emphasis role=\"pkg\">samba-doc</emphasis> パッケージに含まれる文書はとても良く書けています。特に、<citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> 文書 (<filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename> から読めます) では、会社の成長と共に適用するべき具体的な設定例が説明されています。"
+
+#~ msgid "The last question is about whether servers should be started by <command>inetd</command> or as stand-alone daemons. Using <command>inetd</command> is only interesting when Samba is rarely used; the Falcot administrators therefore picked stand-alone daemons."
+#~ msgstr "最後の質問で、サーバを <command>inetd</command> を使って起動するか、独立したデーモンとして運用するかを尋ねられます。<command>inetd</command> を使う選択肢は Samba を滅多に使わない場合を除けば効果的とはいえません; このため Falcot の管理者は独立したデーモンとして運用する事を選びました。"
