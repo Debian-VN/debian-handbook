@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-08-28 11:29+0200\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
 "PO-Revision-Date: 2014-11-18 22:02+0200\n"
 "Last-Translator: Georg Korger <georg.korger@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/debian-handbook/10_network-infrastructure/de/>\n"
@@ -232,7 +232,7 @@ msgid "Enough theory, let's get practical. Turning a Debian system into a gatewa
 msgstr "Genug der Theorie. Um aus einem Debian-System ein Gateway zu machen, genügt es die passende Option im Linux-Kernel zu aktivieren. Dies geschieht im virtuellen <filename>/proc/</filename>-Verzeichnis:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>echo 1 &gt; /proc/sys/net/ipv4/conf/default/forwarding</userinput>"
@@ -251,7 +251,7 @@ msgid "The <filename>/etc/sysctl.conf</filename> file"
 msgstr "Die Datei <filename>/etc/sysctl.conf</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "net.ipv4.conf.default.forwarding = 1\n"
@@ -400,20 +400,36 @@ msgid "However, anyone can create a key pair, store any identity on it, and pret
 msgstr "Jedoch kann jeder ein Schlüsselpaar erstellen, eine beliebige Identität in ihm ablegen und so eine andere Identität vortäuschen. Ein Lösungskonzept beruht auf einer <emphasis>Certification Authority</emphasis> (CA, Zertifizierungsstelle), das durch den Standard X.509 formalisiert ist. Dieser Begriff bezeichnet eine Organisation, die ein vertrauenswürdiges Schlüsselpaar bereithält, das als <emphasis>Stammzertifikat</emphasis> bezeichnet wird. Dieses Zertifikat wird nur dazu benutzt, andere Zertifikate (Schlüsselpaare) zu signieren, nachdem die erforderlichen Schritte zur Überprüfung der Identität, die auf ihm abgelegt ist, unternommen worden sind. X.509-Anwendungen können dann vorgelegte Zertifikate überprüfen, wenn sie die vertrauenswürdigen Stammzertifikate kennen."
 
 #. Tag: para
-#, no-c-format
-msgid "OpenVPN follows this rule. Since public CAs only emit certificates in exchange for a (hefty) fee, it is also possible to create a private certification authority within the company. For that purpose, OpenVPN provides the <emphasis>easy-rsa</emphasis> tool which serves as an X.509 certification infrastructure. Its implementation is a set of scripts using the <command>openssl</command> command; these scripts can be found under <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>."
+#, fuzzy, no-c-format
+#| msgid "OpenVPN follows this rule. Since public CAs only emit certificates in exchange for a (hefty) fee, it is also possible to create a private certification authority within the company. For that purpose, OpenVPN provides the <emphasis>easy-rsa</emphasis> tool which serves as an X.509 certification infrastructure. Its implementation is a set of scripts using the <command>openssl</command> command; these scripts can be found under <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>."
+msgid "OpenVPN follows this rule. Since public CAs only emit certificates in exchange for a (hefty) fee, it is also possible to create a private certification authority within the company. The <emphasis role=\"pkg\">easy-rsa</emphasis> package provides tools to serve as an X.509 certification infrastructure, implemented as a set of scripts using the <command>openssl</command> command."
 msgstr "OpenVPN folgt dieser Regel. Da öffentliche Zertifizierungstellen Zertifikate nur gegen eine (hohe) Gebühr ausstellen, können private Zertifizierungsstellen auch innerhalb eines Unternehmens eingerichtet werden. OpenVPN stellt zur Einrichtung einer X.509-Zertifizierungsinfrastruktur das Programm <emphasis>easy-rsa</emphasis> berei. Es besteht aus einem Satz von Skripten, die den Befehl <command>openssl</command> verwenden; diese Skripte sind unter <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename> zu finden."
+
+#. Tag: title
+#, no-c-format
+msgid "<emphasis>NOTE</emphasis> <emphasis>easy-rsa</emphasis> before <emphasis role=\"distribution\">Jessie</emphasis>"
+msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "The Falcot Corp administrators use this tool to create the required certificates, both for the server and the clients. This allows the configuration of all clients to be similar since they will only have to be set up so as to trust certificates coming from Falcot's local CA. This CA is the first certificate to create; to this end, the administrators copy the directory containing <emphasis>easy-rsa</emphasis> into a more appropriate location, preferably on a machine not connected to the network in order to mitigate the risk of the CA's private key being stolen."
+msgid "In versions of Debian up to <emphasis role=\"distribution\">Wheezy</emphasis>, <emphasis>easy-rsa</emphasis> was distributed as part of the <emphasis role=\"pkg\">openvpn</emphasis> package, and its scripts were to be found under <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>. Setting up a CA involved copying that directory, instead of using the <command>make-cadir</command> command as documented here."
+msgstr ""
+
+#. Tag: para
+#, fuzzy, no-c-format
+#| msgid "The Falcot Corp administrators use this tool to create the required certificates, both for the server and the clients. This allows the configuration of all clients to be similar since they will only have to be set up so as to trust certificates coming from Falcot's local CA. This CA is the first certificate to create; to this end, the administrators copy the directory containing <emphasis>easy-rsa</emphasis> into a more appropriate location, preferably on a machine not connected to the network in order to mitigate the risk of the CA's private key being stolen."
+msgid "The Falcot Corp administrators use this tool to create the required certificates, both for the server and the clients. This allows the configuration of all clients to be similar since they will only have to be set up so as to trust certificates coming from Falcot's local CA. This CA is the first certificate to create; to this end, the administrators set up a directory with the files required for the CA in an appropriate location, preferably on a machine not connected to the network in order to mitigate the risk of the CA's private key being stolen."
 msgstr "Die Administratoren der Falcot Corp. verwenden dieses Hilfsprogramm, um die erforderlichen Zertifikate sowohl für den Server, als auch die Clients zu erstellen. Dies ermöglicht eine ähnliche Konfiguration aller Clients, da sie nur so eingerichtet werden müssen, dass sie Zertifikaten von Falcots lokaler Zertifizierungsstelle vertrauen. Für diese Stelle wird das erste Zertifikat erstellt; hierzu kopieren die Administratoren das Verzeichnis, das <emphasis>easy-rsa</emphasis> enthält, an einen passenderen Ort, vorzugsweise auf einen nicht mit dem Netzwerk verbundenen Rechner, um so das Risiko des Schlüsseldiebstahls zu verringern."
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput>$ </computeroutput><userinput>cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 pki-falcot\n"
+#| "</userinput><computeroutput>$ </computeroutput><userinput>cd pki-falcot</userinput>"
 msgid ""
 "\n"
-"<computeroutput>$ </computeroutput><userinput>cp -r /usr/share/doc/openvpn/examples/easy-rsa/2.0 pki-falcot\n"
+"<computeroutput>$ </computeroutput><userinput>make-cadir pki-falcot\n"
 "</userinput><computeroutput>$ </computeroutput><userinput>cd pki-falcot</userinput>"
 msgstr ""
 "\n"
@@ -426,7 +442,25 @@ msgid "They then store the required parameters into the <filename>vars</filename
 msgstr "Dann werden die erforderlichen Parameter in der Datei <filename>vars</filename> gespeichert, insbesondere diejenigen, die mit dem Präfix <literal>KEY_</literal> versehen sind; diese Variablen werden dann in die Umgebung integriert:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput>$ </computeroutput><userinput>vim vars\n"
+#| "</userinput><computeroutput>$ </computeroutput><userinput>grep KEY_ vars\n"
+#| "</userinput><computeroutput>export KEY_CONFIG=`$EASY_RSA/whichopensslcnf $EASY_RSA`\n"
+#| "export KEY_DIR=\"$EASY_RSA/keys\"\n"
+#| "echo NOTE: If you run ./clean-all, I will be doing a rm -rf on $KEY_DIR\n"
+#| "export KEY_SIZE=2048\n"
+#| "export KEY_EXPIRE=3650\n"
+#| "export KEY_COUNTRY=\"FR\"\n"
+#| "export KEY_PROVINCE=\"Loire\"\n"
+#| "export KEY_CITY=\"Saint-Étienne\"\n"
+#| "export KEY_ORG=\"Falcot Corp\"\n"
+#| "export KEY_EMAIL=\"admin@falcot.com\"\n"
+#| "$ </computeroutput><userinput>. ./vars\n"
+#| "</userinput><computeroutput>NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/rhertzog/pki-falcot/keys\n"
+#| "$ </computeroutput><userinput>./clean-all\n"
+#| "</userinput>"
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>vim vars\n"
@@ -441,8 +475,12 @@ msgid ""
 "export KEY_CITY=\"Saint-Étienne\"\n"
 "export KEY_ORG=\"Falcot Corp\"\n"
 "export KEY_EMAIL=\"admin@falcot.com\"\n"
+"export KEY_OU=\"Certificate authority\"\n"
+"export KEY_NAME=\"Certificate authority for Falcot Corp\"\n"
+"# If you'd like to sign all keys with the same Common Name, uncomment the KEY_CN export below\n"
+"# export KEY_CN=\"CommonName\"\n"
 "$ </computeroutput><userinput>. ./vars\n"
-"</userinput><computeroutput>NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/rhertzog/pki-falcot/keys\n"
+"</userinput><computeroutput>NOTE: If you run ./clean-all, I will be doing a rm -rf on /home/roland/pki-falcot/keys\n"
 "$ </computeroutput><userinput>./clean-all\n"
 "</userinput>"
 msgstr ""
@@ -470,13 +508,37 @@ msgid "The next step is the creation of the CA's key pair itself (the two parts 
 msgstr "Im nächsten Schritt wird das Schlüsselpaar der Zertifizierungsstelle erzeugt (die beiden Teile des Schlüsselpaars werden im Verlauf dieses Schritts unter <filename>keys/ca.crt</filename> und <filename>keys/ca.key</filename> gespeichert:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput>$ </computeroutput><userinput>./build-ca</userinput>\n"
+#| "<computeroutput>Generating a 2048 bit RSA private key\n"
+#| "..............................................++++++\n"
+#| ".......................++++++\n"
+#| "writing new private key to 'ca.key'\n"
+#| "-----\n"
+#| "You are about to be asked to enter information that will be incorporated\n"
+#| "into your certificate request.\n"
+#| "What you are about to enter is what is called a Distinguished Name or a DN.\n"
+#| "There are quite a few fields but you can leave some blank\n"
+#| "For some fields there will be a default value,\n"
+#| "If you enter '.', the field will be left blank.\n"
+#| "-----\n"
+#| "Country Name (2 letter code) [FR]:\n"
+#| "State or Province Name (full name) [Loire]:\n"
+#| "Locality Name (eg, city) [Saint-Étienne]:\n"
+#| "Organization Name (eg, company) [Falcot Corp]:\n"
+#| "Organizational Unit Name (eg, section) []:\n"
+#| "Common Name (eg, your name or your server's hostname) [Falcot Corp CA]:\n"
+#| "Name []:\n"
+#| "Email Address [admin@falcot.com]:\n"
+#| "</computeroutput>"
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>./build-ca</userinput>\n"
 "<computeroutput>Generating a 2048 bit RSA private key\n"
-"..............................................++++++\n"
-".......................++++++\n"
+"...................................................................+++\n"
+"...+++\n"
 "writing new private key to 'ca.key'\n"
 "-----\n"
 "You are about to be asked to enter information that will be incorporated\n"
@@ -490,9 +552,9 @@ msgid ""
 "State or Province Name (full name) [Loire]:\n"
 "Locality Name (eg, city) [Saint-Étienne]:\n"
 "Organization Name (eg, company) [Falcot Corp]:\n"
-"Organizational Unit Name (eg, section) []:\n"
+"Organizational Unit Name (eg, section) [Certificate authority]:\n"
 "Common Name (eg, your name or your server's hostname) [Falcot Corp CA]:\n"
-"Name []:\n"
+"Name [Certificate authority for Falcot Corp]:\n"
 "Email Address [admin@falcot.com]:\n"
 "</computeroutput>"
 msgstr ""
@@ -521,18 +583,69 @@ msgstr ""
 "</computeroutput>\n"
 
 #. Tag: para
-#, no-c-format
-msgid "The certificate for the VPN server can now be created, as well as the Diffie-Hellman parameters required for the server side of an SSL/TLS connection. The VPN server is identified by its DNS name <literal>vpn.falcot.com</literal>; this name is re-used for the generated key files (<filename>keys/vpn.falcot.com.crt</filename> for the public certificate, <filename>keys/vpn.falcot.com.key</filename>for the private key):"
+#, fuzzy, no-c-format
+#| msgid "The certificate for the VPN server can now be created, as well as the Diffie-Hellman parameters required for the server side of an SSL/TLS connection. The VPN server is identified by its DNS name <literal>vpn.falcot.com</literal>; this name is re-used for the generated key files (<filename>keys/vpn.falcot.com.crt</filename> for the public certificate, <filename>keys/vpn.falcot.com.key</filename>for the private key):"
+msgid "The certificate for the VPN server can now be created, as well as the Diffie-Hellman parameters required for the server side of an SSL/TLS connection. The VPN server is identified by its DNS name <literal>vpn.falcot.com</literal>; this name is re-used for the generated key files (<filename>keys/vpn.falcot.com.crt</filename> for the public certificate, <filename>keys/vpn.falcot.com.key</filename> for the private key):"
 msgstr "Jetzt kann das Zertifikat für den VPN-Server erstellt werden, wie auch die Diffie-Hellmann-Parameter, die für die Serverseite einer SSL/TLS-Verbindung benötigt werden. Der VPN-Server ist mit seinem DNS-Namen <literal>vpn.falcot.com</literal> gekennzeichnet; dieser Name wird für die erzeugten Schlüsseldateien wiederverwendet (<filename>keys/vpn.falcot.com.crt</filename> für das öffentliche Zertifikat, <filename>keys/vpn.falcot.com.key</filename> für den privaten Schlüssel):"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput>$ </computeroutput><userinput>./build-key-server vpn.falcot.com\n"
+#| "</userinput><computeroutput>Generating a 2048 bit RSA private key\n"
+#| "...............++++++\n"
+#| "...........++++++\n"
+#| "writing new private key to 'vpn.falcot.com.key'\n"
+#| "-----\n"
+#| "You are about to be asked to enter information that will be incorporated\n"
+#| "into your certificate request.\n"
+#| "What you are about to enter is what is called a Distinguished Name or a DN.\n"
+#| "There are quite a few fields but you can leave some blank\n"
+#| "For some fields there will be a default value,\n"
+#| "If you enter '.', the field will be left blank.\n"
+#| "-----\n"
+#| "Country Name (2 letter code) [FR]:\n"
+#| "State or Province Name (full name) [Loire]:\n"
+#| "Locality Name (eg, city) [Saint-Étienne]:\n"
+#| "Organization Name (eg, company) [Falcot Corp]:\n"
+#| "Organizational Unit Name (eg, section) []:\n"
+#| "Common Name (eg, your name or your server's hostname) [vpn.falcot.com]:\n"
+#| "Name []:\n"
+#| "Email Address [admin@falcot.com]:\n"
+#| "\n"
+#| "Please enter the following 'extra' attributes\n"
+#| "to be sent with your certificate request\n"
+#| "A challenge password []:\n"
+#| "An optional company name []:\n"
+#| "Using configuration from /home/rhertzog/pki-falcot/openssl.cnf\n"
+#| "Check that the request matches the signature\n"
+#| "Signature ok\n"
+#| "The Subject's Distinguished Name is as follows\n"
+#| "countryName           :PRINTABLE:'FR'\n"
+#| "stateOrProvinceName   :PRINTABLE:'Loire'\n"
+#| "localityName          :T61STRING:'Saint-\\0xFFFFFFC3\\0xFFFFFF89tienne'\n"
+#| "organizationName      :PRINTABLE:'Falcot Corp'\n"
+#| "commonName            :PRINTABLE:'vpn.falcot.com'\n"
+#| "emailAddress          :IA5STRING:'admin@falcot.com'\n"
+#| "Certificate is to be certified until Oct  9 13:57:42 2020 GMT (3650 days)\n"
+#| "Sign the certificate? [y/n]:</computeroutput><userinput>y\n"
+#| "</userinput><computeroutput>\n"
+#| "\n"
+#| "1 out of 1 certificate requests certified, commit? [y/n]</computeroutput><userinput>y\n"
+#| "</userinput><computeroutput>Write out database with 1 new entries\n"
+#| "Data Base Updated\n"
+#| "$ </computeroutput><userinput>./build-dh\n"
+#| "</userinput><computeroutput>Generating DH parameters, 2048 bit long safe prime, generator 2\n"
+#| "This is going to take a long time\n"
+#| "..............+.......+.................................++*++*++*\n"
+#| "</computeroutput>"
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>./build-key-server vpn.falcot.com\n"
 "</userinput><computeroutput>Generating a 2048 bit RSA private key\n"
-"...............++++++\n"
-"...........++++++\n"
+".....................................................................................................................+++\n"
+"...........+++\n"
 "writing new private key to 'vpn.falcot.com.key'\n"
 "-----\n"
 "You are about to be asked to enter information that will be incorporated\n"
@@ -546,16 +659,16 @@ msgid ""
 "State or Province Name (full name) [Loire]:\n"
 "Locality Name (eg, city) [Saint-Étienne]:\n"
 "Organization Name (eg, company) [Falcot Corp]:\n"
-"Organizational Unit Name (eg, section) []:\n"
+"Organizational Unit Name (eg, section) [Certificate authority]:\n"
 "Common Name (eg, your name or your server's hostname) [vpn.falcot.com]:\n"
-"Name []:\n"
+"Name [Certificate authority for Falcot Corp]:\n"
 "Email Address [admin@falcot.com]:\n"
 "\n"
 "Please enter the following 'extra' attributes\n"
 "to be sent with your certificate request\n"
 "A challenge password []:\n"
 "An optional company name []:\n"
-"Using configuration from /home/rhertzog/pki-falcot/openssl.cnf\n"
+"Using configuration from /home/roland/pki-falcot/openssl-1.0.0.cnf\n"
 "Check that the request matches the signature\n"
 "Signature ok\n"
 "The Subject's Distinguished Name is as follows\n"
@@ -563,9 +676,11 @@ msgid ""
 "stateOrProvinceName   :PRINTABLE:'Loire'\n"
 "localityName          :T61STRING:'Saint-\\0xFFFFFFC3\\0xFFFFFF89tienne'\n"
 "organizationName      :PRINTABLE:'Falcot Corp'\n"
+"organizationalUnitName:PRINTABLE:'Certificate authority'\n"
 "commonName            :PRINTABLE:'vpn.falcot.com'\n"
+"name                  :PRINTABLE:'Certificate authority for Falcot Corp'\n"
 "emailAddress          :IA5STRING:'admin@falcot.com'\n"
-"Certificate is to be certified until Oct  9 13:57:42 2020 GMT (3650 days)\n"
+"Certificate is to be certified until Mar  6 14:54:56 2025 GMT (3650 days)\n"
 "Sign the certificate? [y/n]:</computeroutput><userinput>y\n"
 "</userinput><computeroutput>\n"
 "\n"
@@ -575,7 +690,7 @@ msgid ""
 "$ </computeroutput><userinput>./build-dh\n"
 "</userinput><computeroutput>Generating DH parameters, 2048 bit long safe prime, generator 2\n"
 "This is going to take a long time\n"
-"..............+.......+.................................++*++*++*\n"
+"[…]\n"
 "</computeroutput>"
 msgstr ""
 "\n"
@@ -634,13 +749,38 @@ msgid "The following step creates certificates for the VPN clients; one certific
 msgstr "Der folgende Schritt erstellt Zertifikate für die VPN-Clients; für jeden Rechner oder jede Person, der das VPN nutzen darf, ist ein eigenes Zertifikat erforderlich:"
 
 #. Tag: screen
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput>$ </computeroutput><userinput>./build-key JoeSmith\n"
+#| "</userinput><computeroutput>Generating a 2048 bit RSA private key\n"
+#| "................++++++\n"
+#| ".............................++++++\n"
+#| "writing new private key to 'JoeSmith.key'\n"
+#| "-----\n"
+#| "You are about to be asked to enter information that will be incorporated\n"
+#| "into your certificate request.\n"
+#| "What you are about to enter is what is called a Distinguished Name or a DN.\n"
+#| "There are quite a few fields but you can leave some blank\n"
+#| "For some fields there will be a default value,\n"
+#| "If you enter '.', the field will be left blank.\n"
+#| "-----\n"
+#| "Country Name (2 letter code) [FR]:\n"
+#| "State or Province Name (full name) [Loire]:\n"
+#| "Locality Name (eg, city) [Saint-Étienne]:\n"
+#| "Organization Name (eg, company) [Falcot Corp]:\n"
+#| "Organizational Unit Name (eg, section) []:\n"
+#| "Common Name (eg, your name or your server's hostname) [JoeSmith]:</computeroutput><userinput>Joe Smith\n"
+#| "</userinput><computeroutput>Name []:\n"
+#| "Email Address [admin@falcot.com]:</computeroutput><userinput>joe@falcot.com\n"
+#| "</userinput><computeroutput>[…]</computeroutput>"
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>./build-key JoeSmith\n"
-"</userinput><computeroutput>Generating a 2048 bit RSA private key\n"
-"................++++++\n"
-".............................++++++\n"
+"</userinput><computeroutput>./build-key JoeSmith\n"
+"Generating a 2048 bit RSA private key\n"
+"................................+++\n"
+"..............................................+++\n"
 "writing new private key to 'JoeSmith.key'\n"
 "-----\n"
 "You are about to be asked to enter information that will be incorporated\n"
@@ -654,10 +794,8 @@ msgid ""
 "State or Province Name (full name) [Loire]:\n"
 "Locality Name (eg, city) [Saint-Étienne]:\n"
 "Organization Name (eg, company) [Falcot Corp]:\n"
-"Organizational Unit Name (eg, section) []:\n"
-"Common Name (eg, your name or your server's hostname) [JoeSmith]:</computeroutput><userinput>Joe Smith\n"
-"</userinput><computeroutput>Name []:\n"
-"Email Address [admin@falcot.com]:</computeroutput><userinput>joe@falcot.com\n"
+"Organizational Unit Name (eg, section) [Certificate authority]:</computeroutput><userinput>Development unit\n"
+"</userinput><computeroutput>Common Name (eg, your name or your server's hostname) [JoeSmith]:</computeroutput><userinput>Joe Smith\n"
 "</userinput><computeroutput>[…]</computeroutput>"
 msgstr ""
 "\n"
@@ -776,11 +914,6 @@ msgstr "<primary>IPsec</primary>"
 
 #. Tag: indexterm
 #, no-c-format
-msgid "<primary><command>openswan</command></primary>"
-msgstr "<primary><command>openswan</command></primary>"
-
-#. Tag: indexterm
-#, no-c-format
 msgid "<primary><command>strongswan</command></primary>"
 msgstr "<primary><command>strongswan</command></primary>"
 
@@ -790,8 +923,9 @@ msgid "<primary><command>racoon</command></primary>"
 msgstr "<primary><command>racoon</command></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "IPsec, despite being the standard in IP VPNs, is rather more involved in its implementation. The IPsec engine itself is integrated in the Linux kernel; the required user-space parts, the control and configuration tools, are provided by the <emphasis role=\"pkg\">ipsec-tools</emphasis> package. In concrete terms, each host's <filename>/etc/ipsec-tools.conf</filename> contains the parameters for <emphasis>IPsec tunnels</emphasis> (or <emphasis>Security Associations</emphasis>, in the IPsec terminology) that the host is concerned with; the <command>/etc/init.d/setkey</command> script provides a way to start and stop a tunnel (each tunnel is a secure link to another host connected to the virtual private network). This file can be built by hand from the documentation provided by the <citerefentry><refentrytitle>setkey</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page. However, explicitly writing the parameters for all hosts in a non-trivial set of machines quickly becomes an arduous task, since the number of tunnels grows fast. Installing an IKE daemon (for <emphasis>IPsec Key Exchange</emphasis>) such as <emphasis role=\"pkg\">racoon</emphasis>, <emphasis role=\"pkg\">strongswan</emphasis> or <emphasis role=\"pkg\">openswan</emphasis> makes the process much simpler by bringing administration together at a central point, and more secure by rotating the keys periodically."
+#, fuzzy, no-c-format
+#| msgid "IPsec, despite being the standard in IP VPNs, is rather more involved in its implementation. The IPsec engine itself is integrated in the Linux kernel; the required user-space parts, the control and configuration tools, are provided by the <emphasis role=\"pkg\">ipsec-tools</emphasis> package. In concrete terms, each host's <filename>/etc/ipsec-tools.conf</filename> contains the parameters for <emphasis>IPsec tunnels</emphasis> (or <emphasis>Security Associations</emphasis>, in the IPsec terminology) that the host is concerned with; the <command>/etc/init.d/setkey</command> script provides a way to start and stop a tunnel (each tunnel is a secure link to another host connected to the virtual private network). This file can be built by hand from the documentation provided by the <citerefentry><refentrytitle>setkey</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page. However, explicitly writing the parameters for all hosts in a non-trivial set of machines quickly becomes an arduous task, since the number of tunnels grows fast. Installing an IKE daemon (for <emphasis>IPsec Key Exchange</emphasis>) such as <emphasis role=\"pkg\">racoon</emphasis>, <emphasis role=\"pkg\">strongswan</emphasis> or <emphasis role=\"pkg\">openswan</emphasis> makes the process much simpler by bringing administration together at a central point, and more secure by rotating the keys periodically."
+msgid "IPsec, despite being the standard in IP VPNs, is rather more involved in its implementation. The IPsec engine itself is integrated in the Linux kernel; the required user-space parts, the control and configuration tools, are provided by the <emphasis role=\"pkg\">ipsec-tools</emphasis> package. In concrete terms, each host's <filename>/etc/ipsec-tools.conf</filename> contains the parameters for <emphasis>IPsec tunnels</emphasis> (or <emphasis>Security Associations</emphasis>, in the IPsec terminology) that the host is concerned with; the <command>/etc/init.d/setkey</command> script provides a way to start and stop a tunnel (each tunnel is a secure link to another host connected to the virtual private network). This file can be built by hand from the documentation provided by the <citerefentry><refentrytitle>setkey</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page. However, explicitly writing the parameters for all hosts in a non-trivial set of machines quickly becomes an arduous task, since the number of tunnels grows fast. Installing an IKE daemon (for <emphasis>IPsec Key Exchange</emphasis>) such as <emphasis role=\"pkg\">racoon</emphasis> or <emphasis role=\"pkg\">strongswan</emphasis> makes the process much simpler by bringing administration together at a central point, and more secure by rotating the keys periodically."
 msgstr "Obwohl IPsec der Standard in IP-VPNs ist, ist es stärker an seiner Umsetzung beteiligt. Die IPsec-Engine ist im Linux-Kernel integriert; die erforderlichen Teile im User-Space sowie die Steuerungs- und Konfigurierungsprogramme werden vom Paket <emphasis role=\"pkg\">ipsec-tools</emphasis> bereitgestellt. Konkret enthält die Datei <filename>/etc/ipsec-tools.conf</filename> jedes Rechners die Parameter für die <emphasis>IPsec-Tunnel</emphasis> (oder in der IPsec-Terminologie: <emphasis>Security Associations</emphasis>), mit denen der Rechner zu tun hat; das Skript <command>/etc/init.d/setkey</command> bietet die Möglichkeit, einen Tunnel zu eröffnen oder zu schließen (jeder Tunnel ist eine sichere Verbindung zu einem anderen mit dem virtuellen privaten Netzwerk verbundenen Rechner). Diese Datei kann von Hand mithilfe der Dokumentation auf der Handbuchseite <citerefentry><refentrytitle>setkey</refentrytitle> <manvolnum>8</manvolnum></citerefentry> erstellt werden. Es wird jedoch schnell zu einer mühseligen Arbeit, die Parameter aller Rechner in einem nicht alltäglichen Satz von Geräten ausführlich niederzuschreiben, da die Anzahl der Tunnel schnell ansteigt. Die Installation eines IKE-Daemons (für <emphasis>IPsec Key Exchange</emphasis>), wie <emphasis role=\"pkg\">racoon</emphasis>, <emphasis role=\"pkg\">strongswan</emphasis> oder <emphasis role=\"pkg\">openswan</emphasis>, vereinfacht den Vorgang wesentlich durch das Bündeln der Verwaltung an einem zentralen Punkt und sicherer durch das regelmäßige Rotieren der Schlüssel."
 
 #. Tag: indexterm
@@ -840,8 +974,9 @@ msgid "<emphasis>SECURITY</emphasis> IPsec and firewalls"
 msgstr "<emphasis>SICHERHEIT</emphasis> IPsec und Firewalls"
 
 #. Tag: para
-#, no-c-format
-msgid "The standard mode of operation of IPsec involves data exchanges on UDP port 500 for key exchanges (also on UDP port 4500 in case NAT-T is in use). Moreover, IPsec packets use two dedicated IP protocols that the firewall must let through; reception of these packets is based on their protocol numbers, 50 (ESP) and 51 (AH)."
+#, fuzzy, no-c-format
+#| msgid "The standard mode of operation of IPsec involves data exchanges on UDP port 500 for key exchanges (also on UDP port 4500 in case NAT-T is in use). Moreover, IPsec packets use two dedicated IP protocols that the firewall must let through; reception of these packets is based on their protocol numbers, 50 (ESP) and 51 (AH)."
+msgid "The standard mode of operation of IPsec involves data exchanges on UDP port 500 for key exchanges (also on UDP port 4500 in the case that NAT-T is in use). Moreover, IPsec packets use two dedicated IP protocols that the firewall must let through; reception of these packets is based on their protocol numbers, 50 (ESP) and 51 (AH)."
 msgstr "In IPsec ist der Datenaustausch über den UDP-Port 500 für den Austausch von Schlüsseln voreingestellt (auch auf UDP-Port 4500, falls NAT-T benutzt wird). Darüberhinaus benutzen IPsec-Pakete zwei fest zugeordnete IP-Protokolle, die die Firewall durchlassen muss; der Empfang dieser Pakete basiert auf ihren Protokollnummern 50 (ESP) und 51 (AH)."
 
 #. Tag: indexterm
@@ -920,7 +1055,7 @@ msgid "The <filename>/etc/ppp/options.pptp</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/options.pptp</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# PPP options used for a PPTP connection\n"
@@ -942,7 +1077,7 @@ msgid "The <filename>/etc/ppp/peers/falcot</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/peers/falcot</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# vpn.falcot.com is the PPTP server\n"
@@ -972,7 +1107,7 @@ msgid "The <filename>/etc/ppp/ip-up.d/falcot</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/ip-up.d/falcot</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Create the route to the Falcot network\n"
@@ -994,7 +1129,7 @@ msgid "The <filename>/etc/ppp/ip-down.d/falcot</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/ip-down.d/falcot</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Delete the route to the Falcot network\n"
@@ -1056,7 +1191,7 @@ msgid "The <filename>/etc/pptpd.conf</filename> file"
 msgstr "Die Datei <filename>/etc/pptpd.conf</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# TAG: speed\n"
@@ -1173,7 +1308,7 @@ msgid "The <filename>/etc/ppp/pptpd-options</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/pptpd-options</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "## turn pppd syslog debugging on\n"
@@ -1248,7 +1383,7 @@ msgid "The <filename>/etc/ppp/chap-secrets</filename> file"
 msgstr "Die Datei <filename>/etc/ppp/chap-secrets</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Secrets for authentication using CHAP\n"
@@ -1403,7 +1538,7 @@ msgid "Changes in the <filename>/etc/network/interfaces</filename> file"
 msgstr "Änderungen in der Datei <filename>/etc/network/interfaces</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "iface eth0 inet dhcp\n"
@@ -1481,7 +1616,7 @@ msgid "The ToS field can be set by applications that generate IP packets, or mod
 msgstr "Das ToS-Feld kann durch Anwendungen, die IP-Pakete erzeugen, erstellt oder im laufenden Betrieb mit <emphasis>netfilter</emphasis> verändert werden. Die folgenden Regeln genügen, um die Ansprechbarkeit des SSH-Dienstes eines Servers zu erhöhen:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "iptables -t mangle -A PREROUTING -p tcp --sport ssh -j TOS --set-tos Minimize-Delay\n"
@@ -1657,7 +1792,7 @@ msgid "Example of IPv6 configuration"
 msgstr "Beispiel einer IPv6-Konfiguration"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "iface eth0 inet6 static\n"
@@ -1695,7 +1830,7 @@ msgid "IPv6 privacy extensions"
 msgstr "IPv6 Datenschutzerweiterungen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "iface eth0 inet6 auto\n"
@@ -1778,7 +1913,7 @@ msgid "IPv6 connectivity is proposed to all machines on a local network by addin
 msgstr "IPv6-Konnektivität wird allen Rechnern eines lokalen Netzes durch das Hinzufügen der folgenden drei Anweisungen zu der Datei <filename>/etc/gogoc/gogoc.conf</filename> angeboten (unter der Annahme, dass das lokale Netz mit der eth0-Schnittstelle verbunden ist):"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "host_type=router\n"
@@ -1976,8 +2111,9 @@ msgid "<primary>nibble format</primary>"
 msgstr "<primary>Nibble Format</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Reverse zones have a particular name. The zone covering the <literal>192.168.0.0/16</literal> network need to be named <literal>168.192.in-addr.arpa</literal>: the IP address components are reversed, and followed by the <emphasis>in-addr.arpa</emphasis> suffix."
+#, fuzzy, no-c-format
+#| msgid "Reverse zones have a particular name. The zone covering the <literal>192.168.0.0/16</literal> network need to be named <literal>168.192.in-addr.arpa</literal>: the IP address components are reversed, and followed by the <emphasis>in-addr.arpa</emphasis> suffix."
+msgid "Reverse zones have a particular name. The zone covering the <literal>192.168.0.0/16</literal> network needs to be named <literal>168.192.in-addr.arpa</literal>: the IP address components are reversed, and followed by the <literal>in-addr.arpa</literal> suffix."
 msgstr "Umgekehrte Zonen (reverse zones) haben eine besondere Bezeichnung. Die Zone, die das Netzwerk <literal>192.168.0.0/16</literal> erfasst, muss <literal>168.192.in-addr.arpa</literal> heißen: die IP-Adresskomponenten sind umgekehrt und gefolgt vom Suffix <emphasis>in-addr.arpa</emphasis>."
 
 #. Tag: para
@@ -1991,8 +2127,9 @@ msgid "<emphasis>TIP</emphasis> Testing the DNS server"
 msgstr "<emphasis>TIP</emphasis> Den DNS-Server testen"
 
 #. Tag: para
-#, no-c-format
-msgid "The <command>host</command> command (in the <emphasis role=\"pkg\">bind9-host</emphasis> package) queries a DNS server, and can be used to test the server configuration. For example, <command>host machine.falcot.com localhost</command> checks the local server's reply for the <literal>machine.falcot.com</literal> query. The <command>host <replaceable>ipaddress</replaceable> localhost</command> tests the reverse resolution."
+#, fuzzy, no-c-format
+#| msgid "The <command>host</command> command (in the <emphasis role=\"pkg\">bind9-host</emphasis> package) queries a DNS server, and can be used to test the server configuration. For example, <command>host machine.falcot.com localhost</command> checks the local server's reply for the <literal>machine.falcot.com</literal> query. The <command>host <replaceable>ipaddress</replaceable> localhost</command> tests the reverse resolution."
+msgid "The <command>host</command> command (in the <emphasis role=\"pkg\">bind9-host</emphasis> package) queries a DNS server, and can be used to test the server configuration. For example, <command>host machine.falcot.com localhost</command> checks the local server's reply for the <literal>machine.falcot.com</literal> query. <command>host <replaceable>ipaddress</replaceable> localhost</command> tests the reverse resolution."
 msgstr "Der Befehl <command>host</command> (im Paket <emphasis role=\"pkg\">bind9-host</emphasis>) fragt bei einem DNS-Server an und kann zum Testen der Serverkonfiguration dienen. Zum Beispiel überprüft der Befehl <command>host machine.falcot.com localhost</command> die Antwort des lokalen Servers auf eine Anfrage nach <literal>machine.falcot.com</literal>. Der Befehl <command>host <replaceable>ipaddress</replaceable> localhost</command> überprüft die umgekehrte Namensauflösung."
 
 #. Tag: indexterm
@@ -2021,7 +2158,7 @@ msgid "Excerpt of <filename>/etc/bind/named.conf.local</filename>"
 msgstr "Auszug aus der Datei <filename>/etc/bind/named.conf.local</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "zone \"falcot.com\" {\n"
@@ -2075,7 +2212,7 @@ msgid "Excerpt of <filename>/etc/bind/db.falcot.com</filename>"
 msgstr "Auszug aus der Datei <filename>/etc/bind/db.falcot.com</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "; falcot.com Zone \n"
 "; admin.falcot.com. =&gt; zone contact: admin@falcot.com\n"
@@ -2151,7 +2288,7 @@ msgid "Excerpt of <filename>/etc/bind/db.192.168</filename>"
 msgstr "Auszug aus der Datei <filename>/etc/bind/db.192.168</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "; Reverse zone for 192.168.0.0/16\n"
 "; admin.falcot.com. =&gt; zone contact: admin@falcot.com\n"
@@ -2234,7 +2371,7 @@ msgid "Excerpt of <filename>/etc/dhcp/dhcpd.conf</filename>"
 msgstr "Auszug aus der Datei <filename>/etc/dhcp/dhcpd.conf</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "#\n"
@@ -2325,7 +2462,7 @@ msgid "In the <command>bind</command> case, the <literal>allow-update</literal> 
 msgstr "Im Fall von <command>bind</command> muss die Anweisung <literal>allow-update</literal> zu jeder Zone, die der DHCP-Server editieren wird, hinzugefügt werden (die für die <literal>internal.falcot.com</literal>-Domain und die umgekehrte Zone). Diese Anweisung listet die IP-Adressen auf, denen die Aktualisierungen erlaubt sind; sie sollten daher die möglichen Adressen des DHCP-Servers enthalten (sowohl die lokale und, falls zutreffend, auch die öffentliche Adresse)."
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "allow-update { 127.0.0.1 192.168.0.1 212.94.201.10 !any };"
@@ -2409,26 +2546,63 @@ msgid "Other options, documented in the <citerefentry><refentrytitle>netstat</re
 msgstr "Andere Optionen, auf der Handbuchseite <citerefentry><refentrytitle>netstat</refentrytitle> <manvolnum>8</manvolnum></citerefentry> dokumentiert, bieten eine noch feinere Kontrolle über die angezeigten Ergebnisse. In der Praxis, werden die fünf ersten Optionen so häufig zusammen benutzt, dass der Befehl <command>netstat -tupan</command> für System- und Netzwerk-Administratoren praktisch zu einem Reflex geworden ist. Typische Ergebnisse auf einem geringfügig ausgelasteten Rechner können wie folgt aussehen:"
 
 #. Tag: screen
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>netstat -tupan</userinput>\n"
+#| "<computeroutput>Active Internet connections (servers and established)\n"
+#| "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name\n"
+#| "tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      2224/sshd       \n"
+#| "tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      994/exim4       \n"
+#| "tcp        0      0 192.168.1.241:22        192.168.1.128:47372     ESTABLISHED 2944/sshd: roland [\n"
+#| "tcp        0      0 192.168.1.241:22        192.168.1.128:32970     ESTABLISHED 2232/sshd: roland [\n"
+#| "tcp6       0      0 :::22                   :::*                    LISTEN      2224/sshd       \n"
+#| "tcp6       0      0 ::1:25                  :::*                    LISTEN      994/exim4       \n"
+#| "udp        0      0 0.0.0.0:68              0.0.0.0:*                           633/dhclient    \n"
+#| "udp        0      0 192.168.1.241:123       0.0.0.0:*                           764/ntpd        \n"
+#| "udp        0      0 127.0.0.1:123           0.0.0.0:*                           764/ntpd        \n"
+#| "udp        0      0 0.0.0.0:123             0.0.0.0:*                           764/ntpd        \n"
+#| "udp6       0      0 fe80::a00:27ff:fe6c:123 :::*                                764/ntpd        \n"
+#| "udp6       0      0 2002:52e0:87e4:0:a0:123 :::*                                764/ntpd        \n"
+#| "udp6       0      0 ::1:123                 :::*                                764/ntpd        \n"
+#| "udp6       0      0 :::123                  :::*                                764/ntpd        \n"
+#| "</computeroutput>"
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>netstat -tupan</userinput>\n"
 "<computeroutput>Active Internet connections (servers and established)\n"
 "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name\n"
-"tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      2224/sshd       \n"
-"tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      994/exim4       \n"
-"tcp        0      0 192.168.1.241:22        192.168.1.128:47372     ESTABLISHED 2944/sshd: roland [\n"
-"tcp        0      0 192.168.1.241:22        192.168.1.128:32970     ESTABLISHED 2232/sshd: roland [\n"
-"tcp6       0      0 :::22                   :::*                    LISTEN      2224/sshd       \n"
-"tcp6       0      0 ::1:25                  :::*                    LISTEN      994/exim4       \n"
-"udp        0      0 0.0.0.0:68              0.0.0.0:*                           633/dhclient    \n"
-"udp        0      0 192.168.1.241:123       0.0.0.0:*                           764/ntpd        \n"
-"udp        0      0 127.0.0.1:123           0.0.0.0:*                           764/ntpd        \n"
-"udp        0      0 0.0.0.0:123             0.0.0.0:*                           764/ntpd        \n"
-"udp6       0      0 fe80::a00:27ff:fe6c:123 :::*                                764/ntpd        \n"
-"udp6       0      0 2002:52e0:87e4:0:a0:123 :::*                                764/ntpd        \n"
-"udp6       0      0 ::1:123                 :::*                                764/ntpd        \n"
-"udp6       0      0 :::123                  :::*                                764/ntpd        \n"
+"tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      397/rpcbind     \n"
+"tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      431/sshd        \n"
+"tcp        0      0 0.0.0.0:36568           0.0.0.0:*               LISTEN      407/rpc.statd   \n"
+"tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      762/exim4       \n"
+"tcp        0    272 192.168.1.242:22        192.168.1.129:44452     ESTABLISHED 1172/sshd: roland [\n"
+"tcp6       0      0 :::111                  :::*                    LISTEN      397/rpcbind     \n"
+"tcp6       0      0 :::22                   :::*                    LISTEN      431/sshd        \n"
+"tcp6       0      0 ::1:25                  :::*                    LISTEN      762/exim4       \n"
+"tcp6       0      0 :::35210                :::*                    LISTEN      407/rpc.statd   \n"
+"udp        0      0 0.0.0.0:39376           0.0.0.0:*                           916/dhclient    \n"
+"udp        0      0 0.0.0.0:996             0.0.0.0:*                           397/rpcbind     \n"
+"udp        0      0 127.0.0.1:1007          0.0.0.0:*                           407/rpc.statd   \n"
+"udp        0      0 0.0.0.0:68              0.0.0.0:*                           916/dhclient    \n"
+"udp        0      0 0.0.0.0:48720           0.0.0.0:*                           451/avahi-daemon: r\n"
+"udp        0      0 0.0.0.0:111             0.0.0.0:*                           397/rpcbind     \n"
+"udp        0      0 192.168.1.242:123       0.0.0.0:*                           539/ntpd        \n"
+"udp        0      0 127.0.0.1:123           0.0.0.0:*                           539/ntpd        \n"
+"udp        0      0 0.0.0.0:123             0.0.0.0:*                           539/ntpd        \n"
+"udp        0      0 0.0.0.0:5353            0.0.0.0:*                           451/avahi-daemon: r\n"
+"udp        0      0 0.0.0.0:39172           0.0.0.0:*                           407/rpc.statd   \n"
+"udp6       0      0 :::996                  :::*                                397/rpcbind     \n"
+"udp6       0      0 :::34277                :::*                                407/rpc.statd   \n"
+"udp6       0      0 :::54852                :::*                                916/dhclient    \n"
+"udp6       0      0 :::111                  :::*                                397/rpcbind     \n"
+"udp6       0      0 :::38007                :::*                                451/avahi-daemon: r\n"
+"udp6       0      0 fe80::5054:ff:fe99::123 :::*                                539/ntpd        \n"
+"udp6       0      0 2001:bc8:3a7e:210:a:123 :::*                                539/ntpd        \n"
+"udp6       0      0 2001:bc8:3a7e:210:5:123 :::*                                539/ntpd        \n"
+"udp6       0      0 ::1:123                 :::*                                539/ntpd        \n"
+"udp6       0      0 :::123                  :::*                                539/ntpd        \n"
+"udp6       0      0 :::5353                 :::*                                451/avahi-daemon: r\n"
 "</computeroutput>"
 msgstr ""
 "\n"
@@ -2477,67 +2651,111 @@ msgid "A typical <command>nmap</command> invocation only uses the <literal>-A</l
 msgstr "Ein typischer <command>nmap</command>-Aufruf verwendet nur die Option <literal>-A</literal> (so dass <command>nmap</command> versucht, die Versionen der Server-Software, die es findet, zu identifizieren), gefolgt von einer oder mehreren IP-Adressen oder DNS-Namen der zu scannenden Rechner. Auch hier gibt es viel mehr Optionen für eine fein eingestellte Kontrolle des Verhaltens von <command>nmap</command>; bitte ziehen Sie die Dokumentation auf der Handbuchseite <citerefentry> <refentrytitle>nmap</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> zu Rate."
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>nmap mirwiz</userinput>\n"
+#| "<computeroutput>\n"
+#| "nmap 192.168.1.30\n"
+#| "\n"
+#| "Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 11:00 CET\n"
+#| "Nmap scan report for mirwiz (192.168.1.30)\n"
+#| "Host is up (0.000015s latency).\n"
+#| "Not shown: 997 closed ports\n"
+#| "PORT      STATE SERVICE\n"
+#| "22/tcp    open  ssh\n"
+#| "111/tcp   open  rpcbind\n"
+#| "10000/tcp open  snet-sensor-mgmt\n"
+#| "\n"
+#| "Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds\n"
+#| "# </computeroutput><userinput>nmap -A localhost</userinput>\n"
+#| "<computeroutput>\n"
+#| "Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 10:54 CET\n"
+#| "Nmap scan report for localhost (127.0.0.1)\n"
+#| "Host is up (0.000084s latency).\n"
+#| "Other addresses for localhost (not scanned): 127.0.0.1\n"
+#| "Not shown: 996 closed ports\n"
+#| "PORT      STATE SERVICE VERSION\n"
+#| "22/tcp    open  ssh     OpenSSH 6.0p1 Debian 4 (protocol 2.0)\n"
+#| "| ssh-hostkey: 1024 ea:47:e5:04:a0:b8:70:29:c2:94:3d:fe:a8:b8:b4:02 (DSA)\n"
+#| "|_2048 81:5c:a4:56:ff:c0:bf:0d:cd:e6:cc:48:2f:15:78:ea (RSA)\n"
+#| "25/tcp    open  smtp    Exim smtpd 4.80\n"
+#| "| smtp-commands: mirwiz.internal.placard.fr.eu.org Hello localhost [127.0.0.1], SIZE 52428800, 8BITMIME, PIPELINING, HELP, \n"
+#| "|_ Commands supported: AUTH HELO EHLO MAIL RCPT DATA NOOP QUIT RSET HELP \n"
+#| "111/tcp   open  rpcbind\n"
+#| "| rpcinfo: \n"
+#| "|   program version   port/proto  service\n"
+#| "|   100000  2,3,4        111/tcp  rpcbind\n"
+#| "|   100000  2,3,4        111/udp  rpcbind\n"
+#| "|   100024  1          40114/tcp  status\n"
+#| "|_  100024  1          55628/udp  status\n"
+#| "10000/tcp open  http    MiniServ 1.660 (Webmin httpd)\n"
+#| "| ndmp-version: \n"
+#| "|_  ERROR: Failed to get host information from server\n"
+#| "|_http-methods: No Allow or Public header in OPTIONS response (status code 200)\n"
+#| "|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).\n"
+#| "No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).\n"
+#| "TCP/IP fingerprint:\n"
+#| "OS:SCAN(V=6.00%E=4%D=11/13%OT=22%CT=1%CU=40107%PV=N%DS=0%DC=L%G=Y%TM=52834C\n"
+#| "OS:9E%P=x86_64-unknown-linux-gnu)SEQ(SP=102%GCD=1%ISR=105%TI=Z%CI=Z%II=I%TS\n"
+#| "OS:=8)OPS(O1=M400CST11NW5%O2=M400CST11NW5%O3=M400CNNT11NW5%O4=M400CST11NW5%\n"
+#| "OS:O5=M400CST11NW5%O6=M400CST11)WIN(W1=8000%W2=8000%W3=8000%W4=8000%W5=8000\n"
+#| "OS:%W6=8000)ECN(R=Y%DF=Y%T=41%W=8018%O=M400CNNSNW5%CC=Y%Q=)T1(R=Y%DF=Y%T=41\n"
+#| "OS:%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=41%W=0%S=A%A=Z%F=R%O=\n"
+#| "OS:%RD=0%Q=)T5(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=41%\n"
+#| "OS:W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=\n"
+#| "OS:)U1(R=Y%DF=N%T=41%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%\n"
+#| "OS:DFI=N%T=41%CD=S)\n"
+#| "\n"
+#| "Network Distance: 0 hops\n"
+#| "Service Info: Host: mirwiz.internal.placard.fr.eu.org; OS: Linux; CPE: cpe:/o:linux:kernel\n"
+#| "\n"
+#| "OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .\n"
+#| "Nmap done: 1 IP address (1 host up) scanned in 48.20 seconds\n"
+#| "</computeroutput>"
 msgid ""
 "\n"
-"<computeroutput># </computeroutput><userinput>nmap mirwiz</userinput>\n"
+"<computeroutput># </computeroutput><userinput>nmap mirtuel</userinput>\n"
 "<computeroutput>\n"
-"nmap 192.168.1.30\n"
+"Starting Nmap 6.47 ( http://nmap.org ) at 2015-03-09 16:46 CET\n"
+"Nmap scan report for mirtuel (192.168.1.242)\n"
+"Host is up (0.000013s latency).\n"
+"rDNS record for 192.168.1.242: mirtuel.internal.placard.fr.eu.org\n"
+"Not shown: 998 closed ports\n"
+"PORT    STATE SERVICE\n"
+"22/tcp  open  ssh\n"
+"111/tcp open  rpcbind\n"
 "\n"
-"Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 11:00 CET\n"
-"Nmap scan report for mirwiz (192.168.1.30)\n"
-"Host is up (0.000015s latency).\n"
-"Not shown: 997 closed ports\n"
-"PORT      STATE SERVICE\n"
-"22/tcp    open  ssh\n"
-"111/tcp   open  rpcbind\n"
-"10000/tcp open  snet-sensor-mgmt\n"
-"\n"
-"Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds\n"
+"Nmap done: 1 IP address (1 host up) scanned in 2.41 seconds\n"
 "# </computeroutput><userinput>nmap -A localhost</userinput>\n"
 "<computeroutput>\n"
-"Starting Nmap 6.00 ( http://nmap.org ) at 2013-11-13 10:54 CET\n"
+"Starting Nmap 6.47 ( http://nmap.org ) at 2015-03-09 16:46 CET\n"
 "Nmap scan report for localhost (127.0.0.1)\n"
-"Host is up (0.000084s latency).\n"
+"Host is up (0.000013s latency).\n"
 "Other addresses for localhost (not scanned): 127.0.0.1\n"
-"Not shown: 996 closed ports\n"
-"PORT      STATE SERVICE VERSION\n"
-"22/tcp    open  ssh     OpenSSH 6.0p1 Debian 4 (protocol 2.0)\n"
-"| ssh-hostkey: 1024 ea:47:e5:04:a0:b8:70:29:c2:94:3d:fe:a8:b8:b4:02 (DSA)\n"
-"|_2048 81:5c:a4:56:ff:c0:bf:0d:cd:e6:cc:48:2f:15:78:ea (RSA)\n"
-"25/tcp    open  smtp    Exim smtpd 4.80\n"
-"| smtp-commands: mirwiz.internal.placard.fr.eu.org Hello localhost [127.0.0.1], SIZE 52428800, 8BITMIME, PIPELINING, HELP, \n"
+"Not shown: 997 closed ports\n"
+"PORT    STATE SERVICE VERSION\n"
+"22/tcp  open  ssh     OpenSSH 6.7p1 Debian 3 (protocol 2.0)\n"
+"|_ssh-hostkey: ERROR: Script execution failed (use -d to debug)\n"
+"25/tcp  open  smtp    Exim smtpd 4.84\n"
+"| smtp-commands: mirtuel Hello localhost [127.0.0.1], SIZE 52428800, 8BITMIME, PIPELINING, HELP, \n"
 "|_ Commands supported: AUTH HELO EHLO MAIL RCPT DATA NOOP QUIT RSET HELP \n"
-"111/tcp   open  rpcbind\n"
+"111/tcp open  rpcbind 2-4 (RPC #100000)\n"
 "| rpcinfo: \n"
 "|   program version   port/proto  service\n"
 "|   100000  2,3,4        111/tcp  rpcbind\n"
 "|   100000  2,3,4        111/udp  rpcbind\n"
-"|   100024  1          40114/tcp  status\n"
-"|_  100024  1          55628/udp  status\n"
-"10000/tcp open  http    MiniServ 1.660 (Webmin httpd)\n"
-"| ndmp-version: \n"
-"|_  ERROR: Failed to get host information from server\n"
-"|_http-methods: No Allow or Public header in OPTIONS response (status code 200)\n"
-"|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).\n"
-"No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).\n"
-"TCP/IP fingerprint:\n"
-"OS:SCAN(V=6.00%E=4%D=11/13%OT=22%CT=1%CU=40107%PV=N%DS=0%DC=L%G=Y%TM=52834C\n"
-"OS:9E%P=x86_64-unknown-linux-gnu)SEQ(SP=102%GCD=1%ISR=105%TI=Z%CI=Z%II=I%TS\n"
-"OS:=8)OPS(O1=M400CST11NW5%O2=M400CST11NW5%O3=M400CNNT11NW5%O4=M400CST11NW5%\n"
-"OS:O5=M400CST11NW5%O6=M400CST11)WIN(W1=8000%W2=8000%W3=8000%W4=8000%W5=8000\n"
-"OS:%W6=8000)ECN(R=Y%DF=Y%T=41%W=8018%O=M400CNNSNW5%CC=Y%Q=)T1(R=Y%DF=Y%T=41\n"
-"OS:%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=41%W=0%S=A%A=Z%F=R%O=\n"
-"OS:%RD=0%Q=)T5(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=41%\n"
-"OS:W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=41%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=\n"
-"OS:)U1(R=Y%DF=N%T=41%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%\n"
-"OS:DFI=N%T=41%CD=S)\n"
-"\n"
+"|   100024  1          36568/tcp  status\n"
+"|_  100024  1          39172/udp  status\n"
+"Device type: general purpose\n"
+"Running: Linux 3.X\n"
+"OS CPE: cpe:/o:linux:linux_kernel:3\n"
+"OS details: Linux 3.7 - 3.15\n"
 "Network Distance: 0 hops\n"
-"Service Info: Host: mirwiz.internal.placard.fr.eu.org; OS: Linux; CPE: cpe:/o:linux:kernel\n"
+"Service Info: Host: mirtuel; OS: Linux; CPE: cpe:/o:linux:linux_kernel\n"
 "\n"
 "OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .\n"
-"Nmap done: 1 IP address (1 host up) scanned in 48.20 seconds\n"
+"Nmap done: 1 IP address (1 host up) scanned in 11.54 seconds\n"
 "</computeroutput>"
 msgstr ""
 "\n"
@@ -2602,8 +2820,9 @@ msgstr ""
 "</computeroutput>\n"
 
 #. Tag: para
-#, no-c-format
-msgid "As expected, the SSH and Exim4 applications are listed. Note that not all applications listen on all IP addresses; since Exim4 is only accessible on the <literal>lo</literal> loopback interface, it only appears during an analysis of <literal>localhost</literal> and not when scanning <literal>mirwiz</literal> (which maps to the <literal>eth0</literal> interface on the same machine)."
+#, fuzzy, no-c-format
+#| msgid "As expected, the SSH and Exim4 applications are listed. Note that not all applications listen on all IP addresses; since Exim4 is only accessible on the <literal>lo</literal> loopback interface, it only appears during an analysis of <literal>localhost</literal> and not when scanning <literal>mirwiz</literal> (which maps to the <literal>eth0</literal> interface on the same machine)."
+msgid "As expected, the SSH and Exim4 applications are listed. Note that not all applications listen on all IP addresses; since Exim4 is only accessible on the <literal>lo</literal> loopback interface, it only appears during an analysis of <literal>localhost</literal> and not when scanning <literal>mirtuel</literal> (which maps to the <literal>eth0</literal> interface on the same machine)."
 msgstr "Wie erwartet sind die SSH- und Exim4-Anwendungen aufgelistet. Beachten Sie, dass nicht alle Anwendungen an allen IP-Adressen auf Anfragen warten; da Exim4 nur auf der Loopback-Schnittstelle <literal>lo</literal> erreichbar ist, taucht es nur bei einer Analyse von <literal>localhost</literal> auf und nicht, wenn <literal>mirwiz</literal> gescannt wird (das als <literal>eth0</literal>-Schnittstelle auf demselben Rechners abgebildet wird)."
 
 #. Tag: title
@@ -2632,8 +2851,9 @@ msgid "<primary><command>wireshark</command></primary>"
 msgstr "<primary><command>wireshark</command></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "A more recent (and more modern) tool, <command>wireshark</command> (in the <emphasis role=\"pkg\">wireshark</emphasis> package), is slowly becoming the new reference in network traffic analysis due to its many decoding modules that allow for a simplified analysis of the captured packets. The packets are displayed graphically with an organization based on the protocol layers. This allows a user to visualize all protocols involved in a packet. For example, given a packet containing an HTTP request, <command>wireshark</command> displays, separately, the information concerning the physical layer, the Ethernet layer, the IP packet information, the TCP connection parameters, and finally the HTTP request itself."
+#, fuzzy, no-c-format
+#| msgid "A more recent (and more modern) tool, <command>wireshark</command> (in the <emphasis role=\"pkg\">wireshark</emphasis> package), is slowly becoming the new reference in network traffic analysis due to its many decoding modules that allow for a simplified analysis of the captured packets. The packets are displayed graphically with an organization based on the protocol layers. This allows a user to visualize all protocols involved in a packet. For example, given a packet containing an HTTP request, <command>wireshark</command> displays, separately, the information concerning the physical layer, the Ethernet layer, the IP packet information, the TCP connection parameters, and finally the HTTP request itself."
+msgid "A more recent (and more modern) tool, <command>wireshark</command> (in the <emphasis role=\"pkg\">wireshark</emphasis> package), has become the new reference in network traffic analysis due to its many decoding modules that allow for a simplified analysis of the captured packets. The packets are displayed graphically with an organization based on the protocol layers. This allows a user to visualize all protocols involved in a packet. For example, given a packet containing an HTTP request, <command>wireshark</command> displays, separately, the information concerning the physical layer, the Ethernet layer, the IP packet information, the TCP connection parameters, and finally the HTTP request itself."
 msgstr "Ein jüngeres (und moderneres) Programm, <command>wireshark</command> (im Paket <emphasis role=\"pkg\">wireshark</emphasis>), wird allmählich aufgrund seiner zahlreichen Entschlüsselungsmodule, die eine vereinfachte Analyse der erfassten Pakete ermöglichen. zur neuen Referenz in der Netzverkehrsanalyse. Die Pakete werden grafisch in einer Gliederung angezeigt, die auf den Protokollschichten beruht. Dies ermöglicht es einem Benutzer, sich ein Bild von allen an einem Paket beteiligten Protokollen zu machen. Zum Beispiel gäbe es ein Paket, das eine HTTP-Anfrage enthält, dann zeigt <command>wireshark</command> getrennt die physikalische Schicht, die Ethernet-Schicht, die IP-Paketinformation, die TCP-Verbindungsparameter und schließlich die HTTP-Anfrage selbst an."
 
 #. Tag: title
@@ -2680,6 +2900,9 @@ msgstr "<primary><command>tethereal</command></primary>"
 #, no-c-format
 msgid "<command>wireshark</command> seems to be relatively young; however, it is only the new name for a software application previously known as <command>ethereal</command>. When its main developer left the company where he was employed, he was not able to arrange for the transfer of the registered trademark. As an alternative he went for a name change; only the name and the icons for the software actually changed."
 msgstr "<command>wireshark</command> scheint relativ jung zu sein, jedoch ist es nur der neue Name eines Computerprogramms, das früher als <command>ethereal</command> bekannt war. Als sein Hauptentwickler das Unternehmen, bei dem er beschäftigt war, verließ, konnte er die Übertragung des eingetragenen Warenzeichens nicht aushandeln. Als Alternative wählte er einen Namenswechsel; in der Tat haben sich nur der Name und das Symbol geändert."
+
+#~ msgid "<primary><command>openswan</command></primary>"
+#~ msgstr "<primary><command>openswan</command></primary>"
 
 #~ msgid "Presentation"
 #~ msgstr "Präsentation"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-08-28 11:29+0200\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
 "PO-Revision-Date: 2014-11-10 21:44+0200\n"
 "Last-Translator: Georg Korger <georg.korger@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/debian-handbook/11_network-services/de/>\n"
@@ -235,7 +235,7 @@ msgid "Initial <filename>/etc/postfix/main.cf</filename> file"
 msgstr "Anfängliche <filename>/etc/postfix/main.cf</filename>-Datei"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
@@ -394,7 +394,7 @@ msgid "Directives to add in the <filename>/etc/postfix/main.cf</filename> file"
 msgstr "In die Datei <filename>/etc/postfix/main.cf</filename> einzufügende Anweisungen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "virtual_alias_domains = falcotsbrand.com\n"
@@ -405,8 +405,9 @@ msgstr ""
 "virtual_alias_maps = hash:/etc/postfix/virtual\n"
 
 #. Tag: para
-#, no-c-format
-msgid "The <filename>/etc/postfix/virtual</filename> file describes mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
+#, fuzzy, no-c-format
+#| msgid "The <filename>/etc/postfix/virtual</filename> file describes mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
+msgid "The <filename>/etc/postfix/virtual</filename> file describes a mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
 msgstr "Die Datei <filename>/etc/postfix/virtual</filename> stellt Zuordnungen in einer recht einfachen Syntax dar: jede Zeile enthält zwei durch Leerzeichen getrennte Felder; das erste Feld ist der Alias-Name, das zweite eine Liste der E-Mail-Adressen, an die er weiterleitet. Die spezielle Syntax <literal>@domain.com</literal> deckt alle übrigen Aliasse in der Domain ab."
 
 #. Tag: title
@@ -415,7 +416,7 @@ msgid "Example <filename>/etc/postfix/virtual</filename> file"
 msgstr "Beispiel der Datei <filename>/etc/postfix/virtual</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "webmaster@falcotsbrand.com  jean@falcot.com\n"
@@ -476,7 +477,7 @@ msgid "The <literal>virtual_uid_maps</literal> parameter (respectively <literal>
 msgstr "Der Paramater <literal>virtual_uid_maps</literal> (beziehungsweise <literal>virtual_gid_maps</literal>) verweist auf die Datei, die den Bezug zwischen der E-Mail-Adresse und dem Systembenutzer (beziehungsweise der Gruppe) enthält, dem das entsprechende Postfach „gehört“. Um alle Postfächer zusammen fassen zu können, die dem selben Benutzer beziehungsweise der selben Gruppe gehören, weist man mittels der Syntax <literal>static:5000</literal> eine feste UID/GID (hier mit dem Wert 5000) zu."
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "virtual_mailbox_domains = falcot.org\n"
@@ -499,7 +500,7 @@ msgid "The <filename>/etc/postfix/vmailbox</filename> file"
 msgstr "Die Datei <filename>/etc/postfix/vmailbox</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Jean's email is stored as maildir, with\n"
@@ -563,7 +564,7 @@ msgid "Restrictions Based on Client Address"
 msgstr "Beschränkungen aufgrund von Client-Adressen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_client_restrictions = permit_mynetworks,\n"
@@ -670,7 +671,7 @@ msgid "Restrictions on the name announced in <literal>EHLO</literal>"
 msgstr "Beschränkungen für den in <literal>EHLO</literal> genannten Namen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_helo_restrictions = permit_mynetworks,\n"
@@ -727,7 +728,7 @@ msgid "Sender checks"
 msgstr "Überprüfung des Absenders"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_sender_restrictions = \n"
@@ -782,7 +783,7 @@ msgid "Recipient checks"
 msgstr "Überprüfung des Empfängers"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_recipient_restrictions = permit_mynetworks, \n"
@@ -795,8 +796,9 @@ msgstr ""
 "    reject_non_fqdn_recipient\n"
 
 #. Tag: para
-#, no-c-format
-msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to sent unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
+#, fuzzy, no-c-format
+#| msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to sent unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
+msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to send unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
 msgstr "Die grundlegende Regel lautet <literal>reject_unauth_destination</literal>, und sie verlangt, dass externe Nachrichten an uns adressiert sein müssen; Nachrichten an eine Adresse, die von diesem Server nicht bedient wird, werden zurückgewiesen. Ohne diese Regel wird ein Server zu einem offenen Übermittler, der es Spammern erlaubt, unerwünschte E-Mails zu verschicken; diese Regel ist daher obligatorisch, und sie wird am besten ziemlich am Anfang der Liste platziert, damit nicht andere Regeln die Nachricht zulassen, bevor ihre Zieladresse überprüft worden ist."
 
 #. Tag: para
@@ -825,7 +827,7 @@ msgid "<literal>DATA</literal> checks"
 msgstr "Überprüfungen von <literal>DATA</literal>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_data_restrictions = reject_unauth_pipelining"
@@ -864,8 +866,9 @@ msgid "Filtering Based on the Message Contents"
 msgstr "Filtern aufgrund des Nachrichteninhalts"
 
 #. Tag: para
-#, no-c-format
-msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying on the email headers from those applying to the email body."
+#, fuzzy, no-c-format
+#| msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying on the email headers from those applying to the email body."
+msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying to the email headers from those applying to the email body."
 msgstr "Das Überprüfungs- und Beschränkungssystem wäre nicht vollständig ohne eine Möglichkeit, Überprüfungen des Nachrichteninhalts durchzuführen. Postfix unterscheidet die Überprüfungen, die es auf die E-Mail-Kopfzeilen anwendet, von denen, die es für den E-Mail-Inhalt benutzt."
 
 #. Tag: title
@@ -874,7 +877,7 @@ msgid "Enabling content-based filters"
 msgstr "Inhaltsbezogene Filter aktivieren"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "header_checks = regexp:/etc/postfix/header_checks\n"
@@ -910,7 +913,7 @@ msgid "Example <filename>/etc/postfix/header_checks</filename> file"
 msgstr "Beispiel einer Datei <filename>/etc/postfix/header_checks</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "/^X-Mailer: GOTO Sarbacane/ REJECT I fight spam (GOTO Sarbacane)\n"
@@ -956,8 +959,9 @@ msgid "<primary>greylisting</primary>"
 msgstr "<primary>greylisting</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since these software rarely act as full SMTP agents (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
+#, fuzzy, no-c-format
+#| msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since these software rarely act as full SMTP agents (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
+msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since this software rarely acts as a full SMTP agent (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
 msgstr "„Greylisting“ ist eine Filtertechnik, der zufolge eine Nachricht zunächst mit einem vorläufigen Fehlercode zurückgewiesen und erst bei einem weiteren Versuch nach einer gewissen Verzögerung angenommen wird. Dieses Filtern ist vor allem gegen Spam wirkungsvoll, der von den vielen mit Würmern und Viren infizierten Rechnern verschickt wird, da diese Programme nur selten als vollständige SMTP-Agenten agieren (mit Überprüfung des Fehlercodes und einem späteren erneuten Zustellversuch für gescheiterte Nachrichten), vor allem weil viele der gesammelten Adressen in Wirklichkeit ungültig sind und ein erneuter Versuch nur Zeitverschwendung wäre."
 
 #. Tag: para
@@ -971,7 +975,7 @@ msgid "Once <emphasis role=\"pkg\">postgrey</emphasis> is installed, it runs as 
 msgstr "Sobald <emphasis role=\"pkg\">postgrey</emphasis> installiert ist, läuft es als Daemon und nimmt an Port 10023 Verbindungen an. Postfix kann dann auf seine Verwendung eingestellt werden, indem der Parameter <literal>check_policy_service</literal> als zusätzliche Bedingung hinzugefügt wird:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtpd_recipient_restrictions = permit_mynetworks,\n"
@@ -1054,7 +1058,7 @@ msgid "Defining restriction classes in <filename>main.cf</filename>"
 msgstr "Beschränkungsklassen in <filename>main.cf</filename> festlegen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "smtpd_restriction_classes = greylisting, aggressive, permissive\n"
 "\n"
@@ -1084,7 +1088,7 @@ msgid "The <filename>/etc/postfix/recipient_access</filename> file"
 msgstr "Die Datei <filename>/etc/postfix/recipient_access</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Unfiltered addresses\n"
@@ -1192,7 +1196,7 @@ msgid "The last step involves telling Postfix to use the recently-configured fil
 msgstr "Im letzten Schritt wird Postfix angewiesen, den neu konfigurierten Filter zu verwenden. Dies geschieht einfach durch das Hinzufügen der folgenden Anweisung zu <filename>/etc/postfix/main.cf</filename>:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Virus check with clamav-milter\n"
@@ -1233,8 +1237,9 @@ msgid "Authenticated SMTP"
 msgstr "Authentifiziertes SMTP"
 
 #. Tag: para
-#, no-c-format
-msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, that may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
+#, fuzzy, no-c-format
+#| msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, that may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
+msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, this may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
 msgstr "Um E-Mails verschicken zu können, ist es erforderlich, dass ein SMTP-Server erreichbar ist; besagter SMTP-Server muss außerdem E-Mails durchleiten. Für Benutzer, die auf Reisen sind, würde dies bedeuten, dass die Konfiguration des SMTP-Clients regelmäßig geändert werden muss, da Falcots SMTP-Server Nachrichten abweist, die von IP-Adressen kommen, die offensichtlich nicht zum Unternehmen gehören. Es gibt zwei Lösungen: Entweder installiert ein Benutzer auf Reisen einen SMTP-Server auf seinem Rechner, oder er benutzt weiterhin den Unternehmensserver unter Verwendung einiger Hilfsmittel, mit denen er sich als Angestellter authentifiziert. Die erste Lösung wird nicht empfohlen, da der Rechner nicht ununterbrochen verbunden wäre und im Falle von Problemen nicht wiederholt versuchen könnte, Nachrichten zu senden; wir werden uns daher auf die zweite Lösung konzentrieren."
 
 #. Tag: para
@@ -1269,7 +1274,7 @@ msgid "Enabling SASL in <filename>/etc/postfix/main.cf</filename>"
 msgstr "SASL in <filename>/etc/postfix/main.cf</filename> aktivieren"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Enable SASL authentication\n"
@@ -1308,7 +1313,7 @@ msgid "Most email clients are able to authenticate to an SMTP server before send
 msgstr "Die meisten E-Mail-Clients können sich bei einem SMTP-Server authentifizieren, bevor sie abgehende Nachrichten verschicken, und die Verwendung dieses Merkmals ist einfach eine Frage der passenden Parametereinstellung. Falls der verwendete Client diese Fähigkeit nicht besitzt, besteht eine Umgehungslösung darin, einen lokalen Postfix-Server zu verwenden und ihn für die Weiterleitung der E-Mails über den entfernten SMTP-Server einzustellen. In diesem Fall wird das lokale Postfix selbst der Client sein, der sich bei SASL authentifiziert. Hier sind die erforderlichen Parameter:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "smtp_sasl_auth_enable = yes\n"
@@ -1326,7 +1331,7 @@ msgid "The <filename>/etc/postfix/sasl_passwd</filename> file needs to contain t
 msgstr "Die Datei <filename>/etc/postfix/sasl_passwd</filename> muss den Benutzernamen und das Passwort zur Authentifizierung beim Server <literal>mail.falcot.com</literal> enthalten. Hier ist ein Beispiel:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "[mail.falcot.com]   joe:LyinIsji"
@@ -1345,8 +1350,9 @@ msgid "Web Server (HTTP)"
 msgstr "Webserver (HTTP)"
 
 #. Tag: para
-#, no-c-format
-msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Wheezy</emphasis> at version 2.2.22."
+#, fuzzy, no-c-format
+#| msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Wheezy</emphasis> at version 2.2.22."
+msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Jessie</emphasis> at version 2.4.10."
 msgstr "Die Falcot Corp. Administratoren haben sich entschlossen, den Apache HTTP-Server zu verwenden, der in der Version 2.2.22 in Debian <emphasis role=\"distribution\">Wheezy</emphasis> enthalten ist."
 
 #. Tag: indexterm
@@ -1405,13 +1411,15 @@ msgid "By default, installing the <emphasis role=\"pkg\">apache2</emphasis> pack
 msgstr "Standardmäßig wird beim Installieren des Pakets <emphasis role=\"pkg\">apache2</emphasis> auch die Apache-Version <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> installiert. Das Paket <emphasis role=\"pkg\">apache2</emphasis> ist eine leere Hülle, mit der lediglich sichergestellt wird, dass eine der Apache-Versionen tatsächlich installiert wird."
 
 #. Tag: para
-#, no-c-format
-msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
+#, fuzzy, no-c-format
+#| msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
+msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis>worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis>prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis>event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
 msgstr "Die Unterschiede in den Apache-2-Varianten beziehen sich in erster Linie auf das Regelwerk, das beim Umgang mit der parallelen Verarbeitung zahlreicher Anfragen verwendet wird; dieses Regelwerk wird durch ein MPM (kurz für <emphasis>Multi-Processing Module</emphasis>) umgesetzt. Von den verfügbaren MPMs verwendet <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> sogenannte <emphasis>Threads</emphasis> (leichtgewichtige Prozesse), wohingegen <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> eine Anzahl zuvor erstellter Prozesse benutzt (dies ist der traditionelle Weg und der einzige, der unter Apache 1.3 verfügbar war). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> verwendet ebenfalls Threads, die jedoch früher beendet werden, wenn die ankommende Verbindung lediglich durch die HTTP-Funktion <emphasis>keep-alive</emphasis> offen gehalten wird."
 
 #. Tag: para
-#, no-c-format
-msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> to be removed, and <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> to be installed instead, since PHP only works under that particular MPM."
+#, fuzzy, no-c-format
+#| msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> to be removed, and <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> to be installed instead, since PHP only works under that particular MPM."
+msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the <emphasis>worker</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
 msgstr "Die Falcot Administratoren installieren auch <emphasis role=\"pkg\">libapache2-mod-php5</emphasis>, um die Unterstützung für PHP in Apache einzubeziehen. Dies führt dazu, dass <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> entfernt und <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> stattdessen installiert wird, da PHP nur unter diesem speziellen MPM funktioniert."
 
 #. Tag: title
@@ -1440,13 +1448,15 @@ msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule 
 msgstr "Der Einsatz der <emphasis>suexec</emphasis>-Module macht es möglich, diese Regel zu umgehen, so dass einige CGI-Skripte unter der Identität eines anderen Benutzers ausgeführt werden. Dies wird mit einer Anweisung der Art <literal>SuexecUserGroup <replaceable>benutzer</replaceable><replaceable>gruppe</replaceable></literal> in der Apache-Konfiguration eingestellt."
 
 #. Tag: indexterm
-#, no-c-format
-msgid "<primary><emphasis role=\"pkg\">apache2-mpm-itk</emphasis></primary>"
+#, fuzzy, no-c-format
+#| msgid "<primary><emphasis role=\"pkg\">apache2-mpm-itk</emphasis></primary>"
+msgid "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">apache2-mpm-itk</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">apache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
+#, fuzzy, no-c-format
+#| msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">apache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
+msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts (actually, sets of pages) so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
 msgstr "Eine weitere Möglichkeit besteht darin, ein speziell hierfür vorgesehenes MPM zu benutzen, wie das von <emphasis role=\"pkg\">apache2-mpm-itk</emphasis> bereitgestellte. Dieses Modul weist ein etwas abweichendes Verhalten auf: es ermöglicht das „Isolieren“ virtueller Hosts, so dass jeder von ihnen als ein anderer Benutzer läuft. Eine Schwachstelle in einer Website kann somit keine Dateien gefährden, die dem Benutzer einer anderen Website gehören."
 
 #. Tag: title
@@ -1455,8 +1465,9 @@ msgid "<emphasis>QUICK LOOK</emphasis> List of modules"
 msgstr "<emphasis>KURZER BLICK</emphasis> Liste der Module"
 
 #. Tag: para
-#, no-c-format
-msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/index.html\" />"
+#, fuzzy, no-c-format
+#| msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/index.html\" />"
+msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
 msgstr "Eine vollständige Liste der Apache-Standardmodule ist online zu finden. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/index.html\" />"
 
 #. Tag: para
@@ -1485,8 +1496,9 @@ msgid "<primary>HTTP</primary><secondary>secure</secondary>"
 msgstr "<primary>HTTP</primary><secondary>sicheres</secondary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Apache 2.2 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
+#, fuzzy, no-c-format
+#| msgid "Apache 2.2 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
+msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
 msgstr "Apache 2.2 bringt von vornherein das für sicheres HTTP (HTTPS) erforderliche Modul mit. Man muss es nur durch den Befehl <command>a2enmod ssl</command> aktivieren und danach die erforderlichen Anweisungen zur Konfigurationsdatei hinzufügen. Ein Konfigurationsbeispiel wird in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename> bereitgestellt. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
 
 #. Tag: para
@@ -1525,8 +1537,9 @@ msgid "The (increasing) scarcity of IPv4 addresses usually favors the second met
 msgstr "Die (zunehmende) Knappheit von IPv4-Adressen begünstigt gewöhnlich die zweite Methode; jedoch ist sie komplizierter, wenn der virtuelle Host auch HTTPS bereitstellen muss, da das SSL-Protokoll nicht von jeher virtuelles Hosting auf Namensbasis ermöglicht hat. Nicht alle Browser können mit der SNI-Erweiterung (<emphasis>Server Name Indication</emphasis>), die diese Kombination ermöglicht, umgehen. Wenn mehrere HTTPS-Seiten auf demselben Server laufen müssen, werden sie gewöhnlich dadurch unterschieden, dass sie auf verschiedenen Ports laufen oder unter verschiedenen IP-Adressen (IPv6 ist hier hilfreich)."
 
 #. Tag: para
-#, no-c-format
-msgid "The default configuration for Apache 2 enables name-based virtual hosts (with the <literal>NameVirtualHost *:80</literal> directive in the <filename>/etc/apache2/ports.conf</filename> file). In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
+#, fuzzy, no-c-format
+#| msgid "The default configuration for Apache 2 enables name-based virtual hosts (with the <literal>NameVirtualHost *:80</literal> directive in the <filename>/etc/apache2/ports.conf</filename> file). In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
+msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
 msgstr "Die Standardkonfiguration für Apache 2 aktiviert virtuelle Hosts auf Namensbasis (mit der Anweisung <literal>NameVirtualHost *:80</literal> in der Datei <filename>/etc/apache2/ports.conf</filename>). Zusätzlich wird ein voreingestellter virtueller Host in der Datei <literal>/etc/apache2/sites-enabled/000-default</literal> ausgewiesen; dieser virtuelle Host wird verwendet, wenn es keinen anderen Host gibt, der zur Anfrage des Clients passt."
 
 #. Tag: title
@@ -1561,23 +1574,8 @@ msgstr "Vor SNI hätte Apache stets das Zertifikat des voreingestellten virtuell
 
 #. Tag: para
 #, no-c-format
-msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed, apart from enabling name-based virtual hosting on port 443 (SSL) as well as the usual port 80. This is a simple matter of editing <filename>/etc/apache2/ports.conf</filename> so it includes the following:"
-msgstr "Das von Debian bereitgestellte Apache-Paket ist mit Unterstützung für SNI ausgestattet; daher ist keine besondere Konfigurierung erforderlich, abgesehen von der Aktivierung virtuellen Hostings auf Namensbasis an Port 443 (SSL) zusätzlich zu dem üblichen Port 80. Dies geschieht einfach durch das Editieren von <filename>/etc/apache2/ports.conf</filename>, so dass es dann Folgendes enthält:"
-
-#. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
-msgid ""
-"\n"
-"&lt;IfModule mod_ssl.c&gt;\n"
-"    NameVirtualHost *:443\n"
-"    Listen 443\n"
-"&lt;/IfModule&gt;"
+msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed."
 msgstr ""
-"\n"
-"&lt;IfModule mod_ssl.c&gt;\n"
-"    NameVirtualHost *:443\n"
-"    Listen 443\n"
-"&lt;/IfModule&gt;\n"
 
 #. Tag: para
 #, no-c-format
@@ -1595,7 +1593,7 @@ msgid "The <filename>/etc/apache2/sites-available/www.falcot.org</filename> file
 msgstr "Die Datei <filename>/etc/apache2/sites-available/www.falcot.org</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "&lt;VirtualHost *:80&gt;\n"
@@ -1622,7 +1620,7 @@ msgid "The <filename>/etc/apache2/conf.d/customlog</filename> file"
 msgstr "Die Datei <filename>/etc/apache2/conf.d/customlog</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# New log format including (virtual) host name\n"
@@ -1679,7 +1677,7 @@ msgid "Directory block"
 msgstr "Verzeichnisblock"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "&lt;Directory /var/www&gt;\n"
@@ -1786,7 +1784,7 @@ msgid "<filename>.htaccess</filename> file requiring authentication"
 msgstr "Authentifizierung für die Datei <filename>.htaccess</filename> verlangen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Require valid-user\n"
@@ -1843,6 +1841,45 @@ msgid "<primary>web access restriction</primary>"
 msgstr "<primary>Web-Zugangsbeschränkung</primary>"
 
 #. Tag: para
+#, fuzzy, no-c-format
+#| msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives control access restrictions for a directory (and its subdirectories, recursively)."
+msgid "The <literal>Require</literal> directive controls access restrictions for a directory (and its subdirectories, recursively)."
+msgstr "Die Direktiven <literal>Allow from</literal> und <literal>Deny from</literal> steuern Zugriffsbeschränkungen für Verzeichnisse (und, rekursiv, deren Unterverzeichnisse)."
+
+#. Tag: indexterm
+#, fuzzy, no-c-format
+#| msgid "<primary><literal>Order</literal>, Apache directive</primary>"
+msgid "<primary><literal>Require</literal>, Apache directive</primary>"
+msgstr "<primary><literal>Order</literal>, Apache directive</primary>"
+
+#. Tag: para
+#, no-c-format
+msgid "It can be used to restrict access based on many criteria; we will stop at describing access restriction based on the IP address of the client, but it can be made much more powerful than that, especially when several <literal>Require</literal> directives are combined within a <literal>RequireAll</literal> block."
+msgstr ""
+
+#. Tag: title
+#, fuzzy, no-c-format
+#| msgid "Reject by default but allow from the local network"
+msgid "Only allow from the local network"
+msgstr "Als Voreinstellung zurückweisen, aber vom lokalen Netzwerk aus erlauben"
+
+#. Tag: programlisting
+#, no-c-format
+msgid "Require ip 192.168.0.0/16"
+msgstr ""
+
+#. Tag: title
+#, fuzzy, no-c-format
+#| msgid "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
+msgid "<emphasis>ALTERNATIVE</emphasis> Old syntax"
+msgstr "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
+
+#. Tag: para
+#, no-c-format
+msgid "The <literal>Require</literal> syntax is only available in Apache 2.4 (the version in <emphasis role=\"distribution\">Jessie</emphasis>). For users of <emphasis role=\"distribution\">Wheezy</emphasis>, the Apache 2.2 syntax is different, and we describe it here mainly for reference, although it can also be made available in Apache 2.4 using the <literal>mod_access_compat</literal> module."
+msgstr ""
+
+#. Tag: para
 #, no-c-format
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives control access restrictions for a directory (and its subdirectories, recursively)."
 msgstr "Die Direktiven <literal>Allow from</literal> und <literal>Deny from</literal> steuern Zugriffsbeschränkungen für Verzeichnisse (und, rekursiv, deren Unterverzeichnisse)."
@@ -1878,7 +1915,7 @@ msgid "Reject by default but allow from the local network"
 msgstr "Als Voreinstellung zurückweisen, aber vom lokalen Netzwerk aus erlauben"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Order deny,allow\n"
@@ -1931,7 +1968,7 @@ msgid "The first configuration step is the customization of the <filename>/etc/a
 msgstr "Der erste Konfigurierungsschritt besteht darin, die Datei <filename>/etc/awstats/awstats.conf</filename> anzupassen. Die Falcot Administratoren lassen sie bis auf die folgenden Parameter unverändert:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "LogFile=\"/var/log/apache2/access.log\"\n"
@@ -1980,7 +2017,7 @@ msgid "AWStats configuration file for a virtual host"
 msgstr "AWStats-Konfigurationsdatei für einen virtuellen Host"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Include \"/etc/awstats/awstats.conf\"\n"
@@ -1998,7 +2035,7 @@ msgid "AWStats uses many icons stored in the <filename>/usr/share/awstats/icon/<
 msgstr "AWStats verwendet zahlreiche im Verzeichnis <filename>/usr/share/awstats/icon/</filename> gespeicherte Piktogramme. Damit diese Symbole auf der Website zur Verfügung stehen, muss die Apache-Konfiguration durch das Hinzufügen folgender Anweisung angepasst werden:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Alias /awstats-icon/ /usr/share/awstats/icon/"
@@ -2022,7 +2059,7 @@ msgid "In order for the statistics to take all the logs into account, <emphasis>
 msgstr "Damit die Statistiken alle Protokolle berücksichtigen, muss <emphasis>AWStats</emphasis> unmittelbar vor dem Rotieren der Apache-Protokolldateien ausgeführt werden. Ein Blick auf die Direktive <literal>prerotate</literal> in der Datei <filename>/etc/logrotate.d/apache2</filename>, zeigt, dass man das durch Einfügen eines Symlinks auf  <filename>/usr/share/awstats/tools/update.sh</filename> in <filename>/etc/logrotate.d/httpd-prerotate</filename> erreicht:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
@@ -2263,7 +2300,7 @@ msgid "The <filename>/etc/default/nfs-kernel-server</filename> file"
 msgstr "Die Datei  <filename>/etc/default/nfs-kernel-server</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Number of servers to start up\n"
@@ -2313,7 +2350,7 @@ msgid "The <filename>/etc/default/nfs-common</filename> file"
 msgstr "Die Datei <filename>/etc/default/nfs-common</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# If you do not set values for the NEED_ options, they will be attempted\n"
@@ -2373,7 +2410,7 @@ msgid "The <filename>/etc/modprobe.d/lockd</filename> file"
 msgstr "Die Datei <filename>/etc/modprobe.d/lockd</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "options lockd nlm_udpport=2045 nlm_tcpport=2045"
@@ -2412,7 +2449,7 @@ msgid "<primary><filename>/etc/exports</filename></primary>"
 msgstr "<primary><filename>/etc/exports</filename></primary>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "/directory/to/share machine1(option1,option2,...) machine2(...) ..."
@@ -2461,7 +2498,7 @@ msgid "The <filename>/etc/init.d/nfs-kernel-server</filename> boot script only s
 msgstr "Das Start-Skript <filename>/etc/init.d/nfs-kernel-server</filename> startet den Server nur dann, wenn <filename>/etc/exports</filename> eine oder mehrere gültig NFS-Freigaben auflistet. Daher muss der NFS-Server, sobald diese Datei bei der Erstkonfigurierung dahingehend geändert wurde, dass sie gültige Einträge enthält, mit folgendem Befehl gestartet werden:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
@@ -2509,7 +2546,7 @@ msgid "NFS entry in the <filename>/etc/fstab</filename> file"
 msgstr "NFS-Eintrag in der Datei <filename>/etc/fstab</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
@@ -2568,8 +2605,9 @@ msgid "Samba Server"
 msgstr "Samba-Server"
 
 #. Tag: para
-#, no-c-format
-msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 3, <command>smbd</command> and <command>nmbd</command>."
+#, fuzzy, no-c-format
+#| msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 3, <command>smbd</command> and <command>nmbd</command>."
+msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 4, <command>smbd</command> and <command>nmbd</command>."
 msgstr "Das Paket <emphasis role=\"pkg\">samba</emphasis> enthält die beiden Hauptserver von Samba 3, <command>smbd</command> und <command>nmbd</command>."
 
 #. Tag: indexterm
@@ -2581,36 +2619,6 @@ msgstr "<primary><command>smbd</command></primary>"
 #, no-c-format
 msgid "<primary><command>nmbd</command></primary>"
 msgstr "<primary><command>nmbd</command></primary>"
-
-#. Tag: title
-#, no-c-format
-msgid "<emphasis>TOOL</emphasis> Administrating Samba with SWAT"
-msgstr "<emphasis>HILFSPROGRAMM</emphasis> Samba mit SWAT verwalten"
-
-#. Tag: para
-#, no-c-format
-msgid "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) is a web interface that allows configuring the Samba service. Since the <emphasis role=\"pkg\">swat</emphasis> package does not enable its configuration interface by default, it must be enabled manually with <command>update-inetd --enable swat</command>."
-msgstr "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) ist eine Webschnittstelle, die es ermöglicht, den Samba-Dienst zu konfigurieren. Da das Paket <emphasis role=\"pkg\">swat</emphasis> seine Konfiguration nicht standardmäßig aktiviert, muss sie manuell mit dem Befehl <command>update-inetd --enable swat</command> aktiviert werden."
-
-#. Tag: indexterm
-#, no-c-format
-msgid "<primary>SWAT</primary>"
-msgstr "<primary>SWAT</primary>"
-
-#. Tag: para
-#, no-c-format
-msgid "<emphasis>SWAT</emphasis> then becomes available at the <literal>http://localhost:901</literal> URL. Accessing it means using the root account (and its usual password). Note that SWAT rewrites the <filename>smb.conf</filename> in its own idiom, so it makes sense to make a backup copy beforehand if you're only interested in testing this tool."
-msgstr "<emphasis>SWAT</emphasis> kann dann über die URL <literal>http://localhost:901</literal> erreicht werden. Für den Zugriff wird das Administratorkonto (und sein übliches Passwort) benutzt. Beachten Sie, dass SWAT die Datei <filename>smb.conf</filename> in seiner eigenen Ausdrucksweise umformuliert. Daher ist es sinnvoll, vorher eine Sicherungskopie anzulegen, falls Sie dieses Programm nur ausprobieren möchten."
-
-#. Tag: para
-#, no-c-format
-msgid "SWAT is very user-friendly; its interface includes an assistant that allows defining the server's role in three questions. All global options can still be configured, as well as those for all the existing shares, and of course new shares can be added. Each option comes with a link to the relevant documentation."
-msgstr "SWAT ist sehr benutzerfreundlich; seine Schnittstelle schließt einen Assistenten ein, der es ermöglicht, die Rolle des Servers durch drei Fragen festzulegen. Alle allgemein gültigen Optionen können dann noch konfiguriert werden, wie auch diejenigen für alle vorhandenen Freigaben, und natürlich können neue Freigaben hinzugefügt werden. Jede Option verfügt über einen Link zu ihrer dazugehörigen Dokumentation."
-
-#. Tag: para
-#, no-c-format
-msgid "Unfortunately SWAT is no longer actively maintained and will be dropped from the next version of Debian, known as <emphasis role=\"distribution\">Jessie</emphasis>."
-msgstr "Leider wird SWAT nicht länger aktiv weiterentwickelt und wird aus der nächsten Version von DEBIAN, <emphasis role=\"distribution\">Jessie</emphasis>, verschwinden."
 
 #. Tag: title
 #, no-c-format
@@ -2634,8 +2642,8 @@ msgstr "<primary>Windows Domäne</primary>"
 
 #. Tag: para
 #, no-c-format
-msgid "The documentation available in the <emphasis role=\"pkg\">samba-doc</emphasis> package is very well written. In particular, the <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> document (available as <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) deals with a concrete use case that evolves alongside the growing company."
-msgstr "Die im Paket <emphasis role=\"pkg\">samba-doc</emphasis> enthaltene Dokumentation ist sehr gut geschrieben. So behandelt das Dokument <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> (verfügbar als <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) einen konkreten Anwendungsfall, der sich Seite an Seite mit einem wachsenden Unternehmen weiterentwickelt."
+msgid "The <emphasis role=\"pkg\">samba-doc</emphasis> package contains a wealth of commented example files in <filename>/usr/share/doc/samba-doc/examples/</filename>."
+msgstr ""
 
 #. Tag: title
 #, no-c-format
@@ -2653,8 +2661,9 @@ msgid "<primary>Winbind</primary>"
 msgstr "<primary>Winbind</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename> file."
+#, fuzzy, no-c-format
+#| msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename> file."
+msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/examples/pam_winbind/</filename> directory."
 msgstr "Weitere Informationen sind in der Datei <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/winbind.html</filename> zu finden."
 
 #. Tag: title
@@ -2682,11 +2691,6 @@ msgstr "Das Paket schlägt auch vor, den WINS-Server mithilfe der Information, d
 msgid "<primary>WINS</primary>"
 msgstr "<primary>WINS</primary>"
 
-#. Tag: para
-#, no-c-format
-msgid "The last question is about whether servers should be started by <command>inetd</command> or as stand-alone daemons. Using <command>inetd</command> is only interesting when Samba is rarely used; the Falcot administrators therefore picked stand-alone daemons."
-msgstr "Die letztzte Frage bezieht sich darauf, ob Server mit <command>inetd</command> oder als selbstständige Daemons gestartet werden sollen. Die Verwendung von <command>inetd</command> ist nur sinnvoll, wenn Samba selten benutzt wird; die Falcot Administratoren haben daher selbstständige Daemons ausgewählt."
-
 #. Tag: title
 #, no-c-format
 msgid "Configuring Manually"
@@ -2703,7 +2707,7 @@ msgid "The requirements at Falcot require other options to be modified in the <f
 msgstr "Aufgrund der Erfordernisse bei Falcot müssen weitere Optionen in der Konfigurationsdatei <filename>/etc/samba/smb.conf</filename> angepasst werden. Die folgenden Auszüge fassen die Änderungen zusammen, die im Abschnitt <literal>[global]</literal> vorgenommen wurden."
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "[global]\n"
@@ -2873,7 +2877,7 @@ msgid "They first added a few extra directives in the <literal>[global]</literal
 msgstr "Zunächst fügten sie einige zusätzliche Anweisungen zum Abschnitt <literal>[global]</literal> der Konfigurationsdatei hinzu:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "domain logons = yes              <co id=\"smb.conf.domainlogons\"></co>\n"
@@ -2913,7 +2917,7 @@ msgid "The <filename>logon.bat</filename> file"
 msgstr "Die Datei <filename>logon.bat</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "net time \\\\ARRAKIS /set /yes\n"
@@ -2931,7 +2935,7 @@ msgid "Two extra shares, and their associated directories, were also created:"
 msgstr "Es wurden außerdem zwei zusätzliche Freigaben und die dazugehörigen Verzeichnisse erstellt:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "[netlogon]\n"
@@ -3022,7 +3026,7 @@ msgid "Mounting a Windows share"
 msgstr "Eine Windows-Freigabe einhängen"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "mount -t cifs //arrakis/shared /shared \\\n"
@@ -3059,7 +3063,7 @@ msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab
 msgstr "EIn Einhängen einer Windows-Freigabe kann auch in <filename>/etc/fstab</filename> konfiguriert werden:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
@@ -3178,8 +3182,9 @@ msgid "Installing"
 msgstr "Installieren"
 
 #. Tag: para
-#, no-c-format
-msgid "The <emphasis role=\"pkg\">squid</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
+#, fuzzy, no-c-format
+#| msgid "The <emphasis role=\"pkg\">squid</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
+msgid "The <emphasis role=\"pkg\">squid3</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
 msgstr "Das Debian-Paket <emphasis role=\"pkg\">squid</emphasis> enthält nur den modularen (zwischenspeichernden) Proxy. Das Paket <emphasis role=\"pkg\">squidguard</emphasis> muss zusätzlich installiert werden, um ihn zu einem Filter-Server zu machen. Zusätzlich stellt <emphasis role=\"pkg\">squid-cgi</emphasis> eine Anfrage- und Verwaltungsschnittstelle für einen Squid-Proxy bereit."
 
 #. Tag: para
@@ -3193,17 +3198,19 @@ msgid "Configuring a Cache"
 msgstr "Einen Cache konfigurieren"
 
 #. Tag: para
-#, no-c-format
-msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
+#, fuzzy, no-c-format
+#| msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
+msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid3/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
 msgstr "Das Aktivieren der Zwischenspeicherung des Servers geschieht einfach dadurch, dass die Konfigurationsdatei <filename>/etc/squid/squid.conf</filename> editiert und es so Rechnern des lokalen Netzwerks ermöglicht wird, Anfragen durch den Proxy zu leiten. Das folgende Beispiel zeigt die von den Falcot Corp. Administratoren vorgenommenen Veränderungen:"
 
 #. Tag: title
-#, no-c-format
-msgid "The <filename>/etc/squid/squid.conf</filename> file (excerpts)"
+#, fuzzy, no-c-format
+#| msgid "The <filename>/etc/squid/squid.conf</filename> file (excerpts)"
+msgid "The <filename>/etc/squid3/squid.conf</filename> file (excerpts)"
 msgstr "Die Datei <filename>/etc/squid/squid.conf</filename> (Auszüge)"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS\n"
@@ -3245,7 +3252,7 @@ msgid "<primary><command>squidGuard</command></primary>"
 msgstr "<primary><command>squidGuard</command></primary>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf "
@@ -3334,8 +3341,9 @@ msgid "<primary><emphasis>slapd</emphasis></primary>"
 msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> is usually non-interactive unless you have configured debconf to display questions with lower priorities. Nevertheless, it is debconf-enabled, and thus a simple <command>dpkg-reconfigure slapd</command> can reconfigure the LDAP database:"
+#, fuzzy, no-c-format
+#| msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> is usually non-interactive unless you have configured debconf to display questions with lower priorities. Nevertheless, it is debconf-enabled, and thus a simple <command>dpkg-reconfigure slapd</command> can reconfigure the LDAP database:"
+msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions, unless you have configured debconf to display questions with lower priorities. Nevertheless, it is debconf-enabled, and thus a simple <command>dpkg-reconfigure slapd</command> can reconfigure the LDAP database:"
 msgstr "Die Installation von <emphasis role=\"pkg\">slapd</emphasis> läuft üblicherweise nicht interaktiv ab, es sei denn Sie haben debconf so konfiguriert, dass es Fragen mit niedriger Priorität anzeigt. Nichtsdestotrotz ist es debconf-fähig, und die LDAP-Datenbank kann deshalb mit einem einfachen Befehl <command>dpkg-reconfigure slapd</command> neu konfiguriert werden:"
 
 #. Tag: para
@@ -3399,7 +3407,7 @@ msgid "A minimal database is now configured, as demonstrated by the following qu
 msgstr "Eine minimale Datenbank ist jetzt konfiguriert, wie die folgende Anfrage zeigt:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>ldapsearch -x -b dc=falcot,dc=com</userinput>\n"
@@ -3503,7 +3511,7 @@ msgid "The actual migration operation is handled by the <command>migrate_all_onl
 msgstr "Der tatsächliche Übertragungsvorgang wird mit dem Befehl <command>migrate_all_online.sh</command> folgendermaßen ausgeführt:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>cd /usr/share/migrationtools</userinput>\n"
@@ -3704,7 +3712,7 @@ msgid "The <filename>/etc/nsswitch.conf</filename> file"
 msgstr "Die Datei <filename>/etc/nsswitch.conf</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# /etc/nsswitch.conf\n"
@@ -3914,7 +3922,7 @@ msgid "Now these keys have to be installed in their standard location, and we mu
 msgstr "Jetzt müssen diese Schlüssel an ihrem Standard-Platz installiert werden, und wir müssen dafür Sorge tragen, dass die private Datei vom LDAP-Sever gelesen werden kann, der unter der Userkennung <literal>openldap</literal> läuft:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# <userinput>adduser openldap ssl-cert</userinput>\n"
@@ -3947,7 +3955,7 @@ msgid "Configuring <command>slapd</command> for encryption"
 msgstr "<command>slapd</command> für eine Verschlüsselung konfigurieren"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# <userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
@@ -4004,7 +4012,7 @@ msgid "It is thus a convenient way to update the configuration of the LDAP serve
 msgstr "Es ist deshalb ein komfortabler Weg, die Konfiguration des LDAP-Servers einfach durch Ändern der Hierarchie <literal>cn=config</literal> auf dem Laufenden zu halten."
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# <userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config</userinput>"
@@ -4023,7 +4031,7 @@ msgid "The <filename>/etc/default/slapd</filename> file"
 msgstr "Die Datei <filename>/etc/default/slapd</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# Default location of the slapd.conf file or slapd.d cn=config directory. If\n"
@@ -4135,7 +4143,7 @@ msgid "LDAP clients also need to be able to authenticate the server. In a X.509 
 msgstr "LDAP-Clients müssen auch in der Lage sein, den Server zu authentifizieren. In einer X.500 Public-Key-Infrastruktur werden öffentliche Zertifikate mit dem Schlüssel einer Zertifikatsausgabestelle (CA, certificate authority) signiert. Mit <emphasis>easy-rsa</emphasis> haben die Administratoren von Falcot ihre eigene Zertifikatsstelle erzeugt und jetzt müssen sie  das System so konfigurieren, dass es den Unterschriften der Zertifikatsstelle von Falcot vertraut. Das tut man, indem man das CA-Zertifikat in <filename>/usr/local/share/ca-certificates</filename> einträgt und dann <command>update-ca-certificates</command> startet."
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "# <userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt</userinput>\n"
@@ -4166,7 +4174,7 @@ msgid "The <filename>/etc/ldap/ldap.conf</filename> file"
 msgstr "Die Datei <filename>/etc/ldap/ldap.conf</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "#\n"
 "# LDAP Defaults\n"
@@ -4206,6 +4214,46 @@ msgstr ""
 #, no-c-format
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
 msgstr "Dieses Kapitel hat nur einen Bruchteil der verfügbaren Serversoftware dargestellt; jedoch wurden die meisten der üblichen Netzwerkdienste beschrieben. Jetzt ist es Zeit für ein noch technischeres Kapitel: wir werden tiefer in die Einzelheiten einiger Konzepte eindringen, sowie Masseneinsätze und Virtualisierungen beschreiben."
+
+#~ msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed, apart from enabling name-based virtual hosting on port 443 (SSL) as well as the usual port 80. This is a simple matter of editing <filename>/etc/apache2/ports.conf</filename> so it includes the following:"
+#~ msgstr "Das von Debian bereitgestellte Apache-Paket ist mit Unterstützung für SNI ausgestattet; daher ist keine besondere Konfigurierung erforderlich, abgesehen von der Aktivierung virtuellen Hostings auf Namensbasis an Port 443 (SSL) zusätzlich zu dem üblichen Port 80. Dies geschieht einfach durch das Editieren von <filename>/etc/apache2/ports.conf</filename>, so dass es dann Folgendes enthält:"
+
+#~ msgid ""
+#~ "\n"
+#~ "&lt;IfModule mod_ssl.c&gt;\n"
+#~ "    NameVirtualHost *:443\n"
+#~ "    Listen 443\n"
+#~ "&lt;/IfModule&gt;"
+#~ msgstr ""
+#~ "\n"
+#~ "&lt;IfModule mod_ssl.c&gt;\n"
+#~ "    NameVirtualHost *:443\n"
+#~ "    Listen 443\n"
+#~ "&lt;/IfModule&gt;\n"
+
+#~ msgid "<emphasis>TOOL</emphasis> Administrating Samba with SWAT"
+#~ msgstr "<emphasis>HILFSPROGRAMM</emphasis> Samba mit SWAT verwalten"
+
+#~ msgid "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) is a web interface that allows configuring the Samba service. Since the <emphasis role=\"pkg\">swat</emphasis> package does not enable its configuration interface by default, it must be enabled manually with <command>update-inetd --enable swat</command>."
+#~ msgstr "SWAT (<emphasis>Samba Web Administration Tool</emphasis>) ist eine Webschnittstelle, die es ermöglicht, den Samba-Dienst zu konfigurieren. Da das Paket <emphasis role=\"pkg\">swat</emphasis> seine Konfiguration nicht standardmäßig aktiviert, muss sie manuell mit dem Befehl <command>update-inetd --enable swat</command> aktiviert werden."
+
+#~ msgid "<primary>SWAT</primary>"
+#~ msgstr "<primary>SWAT</primary>"
+
+#~ msgid "<emphasis>SWAT</emphasis> then becomes available at the <literal>http://localhost:901</literal> URL. Accessing it means using the root account (and its usual password). Note that SWAT rewrites the <filename>smb.conf</filename> in its own idiom, so it makes sense to make a backup copy beforehand if you're only interested in testing this tool."
+#~ msgstr "<emphasis>SWAT</emphasis> kann dann über die URL <literal>http://localhost:901</literal> erreicht werden. Für den Zugriff wird das Administratorkonto (und sein übliches Passwort) benutzt. Beachten Sie, dass SWAT die Datei <filename>smb.conf</filename> in seiner eigenen Ausdrucksweise umformuliert. Daher ist es sinnvoll, vorher eine Sicherungskopie anzulegen, falls Sie dieses Programm nur ausprobieren möchten."
+
+#~ msgid "SWAT is very user-friendly; its interface includes an assistant that allows defining the server's role in three questions. All global options can still be configured, as well as those for all the existing shares, and of course new shares can be added. Each option comes with a link to the relevant documentation."
+#~ msgstr "SWAT ist sehr benutzerfreundlich; seine Schnittstelle schließt einen Assistenten ein, der es ermöglicht, die Rolle des Servers durch drei Fragen festzulegen. Alle allgemein gültigen Optionen können dann noch konfiguriert werden, wie auch diejenigen für alle vorhandenen Freigaben, und natürlich können neue Freigaben hinzugefügt werden. Jede Option verfügt über einen Link zu ihrer dazugehörigen Dokumentation."
+
+#~ msgid "Unfortunately SWAT is no longer actively maintained and will be dropped from the next version of Debian, known as <emphasis role=\"distribution\">Jessie</emphasis>."
+#~ msgstr "Leider wird SWAT nicht länger aktiv weiterentwickelt und wird aus der nächsten Version von DEBIAN, <emphasis role=\"distribution\">Jessie</emphasis>, verschwinden."
+
+#~ msgid "The documentation available in the <emphasis role=\"pkg\">samba-doc</emphasis> package is very well written. In particular, the <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> document (available as <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) deals with a concrete use case that evolves alongside the growing company."
+#~ msgstr "Die im Paket <emphasis role=\"pkg\">samba-doc</emphasis> enthaltene Dokumentation ist sehr gut geschrieben. So behandelt das Dokument <citetitle><foreignphrase>Samba 3 By Example</foreignphrase></citetitle> (verfügbar als <filename>/usr/share/doc/samba-doc/htmldocs/Samba3-ByExample/index.html</filename>) einen konkreten Anwendungsfall, der sich Seite an Seite mit einem wachsenden Unternehmen weiterentwickelt."
+
+#~ msgid "The last question is about whether servers should be started by <command>inetd</command> or as stand-alone daemons. Using <command>inetd</command> is only interesting when Samba is rarely used; the Falcot administrators therefore picked stand-alone daemons."
+#~ msgstr "Die letztzte Frage bezieht sich darauf, ob Server mit <command>inetd</command> oder als selbstständige Daemons gestartet werden sollen. Die Verwendung von <command>inetd</command> ist nur sinnvoll, wenn Samba selten benutzt wird; die Falcot Administratoren haben daher selbstständige Daemons ausgewählt."
 
 #~ msgid "<primary>mail</primary><secondary>electronic</secondary>"
 #~ msgstr "<primary>Post</primary><secondary>elektronisch</secondary>"

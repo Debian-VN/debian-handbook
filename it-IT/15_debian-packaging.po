@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-28 11:29+0200\n"
+"POT-Creation-Date: 2015-08-29 09:00+0900\n"
 "PO-Revision-Date: 2014-10-08 17:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/15_debian-packaging/it/>\n"
@@ -90,8 +90,9 @@ msgid "The source of the package is now available in a directory named after the
 msgstr "Adesso si avrà il sorgente del pacchetto in una directory con lo stesso nome del pacchetto sorgente e della sua versione (per esempio, <emphasis>samba-3.6.16</emphasis>); qui verranno effettuate tutte le modifiche locali."
 
 #. Tag: para
-#, no-c-format
-msgid "The first thing to do is to change the package version number, so that the rebuilt packages can be distinguished from the original packages provided by Debian. Assuming the current version is <literal>3.6.16-2</literal>, we can create version <literal>3.6.16-2falcot1</literal>, which clearly indicates the origin of the package. This makes the package version number higher than the one provided by Debian, so that the package will easily install as an update do the original package. Such a change is best effected with the <command>dch</command> command (<emphasis>Debian CHangelog</emphasis>) from the <emphasis role=\"pkg\">devscripts</emphasis> package, with an command such as <command>dch --local falcot</command>. This invokes a text editor (<command>sensible-editor</command> — this should be your favorite editor if it's mentioned in the <varname>VISUAL</varname> or <varname>EDITOR</varname> environment variables, and the default editor otherwise) to allow documenting the differences brought by this rebuild. This editor shows us that <command>dch</command> really did change the <filename>debian/changelog</filename> file."
+#, fuzzy, no-c-format
+#| msgid "The first thing to do is to change the package version number, so that the rebuilt packages can be distinguished from the original packages provided by Debian. Assuming the current version is <literal>3.6.16-2</literal>, we can create version <literal>3.6.16-2falcot1</literal>, which clearly indicates the origin of the package. This makes the package version number higher than the one provided by Debian, so that the package will easily install as an update do the original package. Such a change is best effected with the <command>dch</command> command (<emphasis>Debian CHangelog</emphasis>) from the <emphasis role=\"pkg\">devscripts</emphasis> package, with an command such as <command>dch --local falcot</command>. This invokes a text editor (<command>sensible-editor</command> — this should be your favorite editor if it's mentioned in the <varname>VISUAL</varname> or <varname>EDITOR</varname> environment variables, and the default editor otherwise) to allow documenting the differences brought by this rebuild. This editor shows us that <command>dch</command> really did change the <filename>debian/changelog</filename> file."
+msgid "The first thing to do is to change the package version number, so that the rebuilt packages can be distinguished from the original packages provided by Debian. Assuming the current version is <literal>3.6.16-2</literal>, we can create version <literal>3.6.16-2falcot1</literal>, which clearly indicates the origin of the package. This makes the package version number higher than the one provided by Debian, so that the package will easily install as an update to the original package. Such a change is best effected with the <command>dch</command> command (<emphasis>Debian CHangelog</emphasis>) from the <emphasis role=\"pkg\">devscripts</emphasis> package, with an command such as <command>dch --local falcot</command>. This invokes a text editor (<command>sensible-editor</command> — this should be your favorite editor if it's mentioned in the <varname>VISUAL</varname> or <varname>EDITOR</varname> environment variables, and the default editor otherwise) to allow documenting the differences brought by this rebuild. This editor shows us that <command>dch</command> really did change the <filename>debian/changelog</filename> file."
 msgstr "La prima cosa da fare è cambiare il numero di versione del pacchetto, in modo che i pacchetti rigenerati possano essere distinti dai pacchetti originali forniti da Debian. Supponendo che la versione corrente sia la <literal>3.6.16-2</literal>, si utilizzerà la versione <literal>3.6.16-2falcot1</literal>, che indica chiaramente l'origine del pacchetto. In questo modo il numero di versione del pacchetto sarà superiore a quello fornito da Debian, così il pacchetto verrà installato come un aggiornamento del pacchetto originale. Questa modifica può essere effettuata dal comando <command>dch</command> (<emphasis>Debian CHangelog</emphasis>) del pacchetto <emphasis role=\"pkg\">devscripts</emphasis>, eseguendolo in questo modo: <command>dch --local falcot</command>. Questo comando richiama un editor di testo (<command>sensible-editor</command>, dovrebbe essere l'editor preferito se è stato impostato nelle variabili d'ambiente <varname>VISUAL</varname> o <varname>EDITOR</varname> altrimenti verrà utilizzato quello predefinito) per permettere di documentare le modifiche effettuate da questa rigenerazione del pacchetto. Questo editor mostra che <command>dch</command> ha modificato veramente il file <filename>debian/changelog</filename>."
 
 #. Tag: para
@@ -135,7 +136,7 @@ msgid "Rebuilding a package"
 msgstr "Rigenerazione di un pacchetto"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>dpkg-buildpackage -us -uc</userinput>\n"
@@ -226,7 +227,7 @@ msgid "Header file of the <emphasis>libxml-libxml-perl</emphasis> fake package"
 msgstr "File d'intestazione del pacchetto finto <emphasis>libxml-libxml-perl</emphasis>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Section: perl\n"
@@ -285,7 +286,7 @@ msgid "The first step is creating a <filename>falcot-data-1.0</filename> directo
 msgstr "Il primo passo è la creazione della directory <filename>falcot-data-1.0</filename> che conterrà il sorgente del pacchetto interessato. Il nome del pacchetto sarà logicamente <literal>falcot-data</literal> con il numero di versione <literal>1.0</literal>. L'amministratore mette i file dei documenti nella sotto-directory <filename>data</filename>. Dopo viene eseguito il comando <command>dh_make</command> (dal pacchetto <emphasis role=\"pkg\">dh-make</emphasis>) per aggiungere i file necessari per il processo di generazione del pacchetto, che saranno memorizzati nella sotto-directory <filename>debian</filename>:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>cd falcot-data-1.0</userinput>\n"
@@ -350,7 +351,7 @@ msgid "Most of the programs involved in package maintenance will look for your n
 msgstr "La maggior parte dei programmi coinvolti nella manutenzione dei pacchetti cercherà il nome del maintainer nelle variabili d'ambiente <varname>DEBFULLNAME</varname> e <varname>DEBEMAIL</varname> o <varname>EMAIL</varname>. Definire questi valori eviterà di doverli digitare più volte. Se la shell utilizza di solito è la <command>bash</command>, si può semplicemente aggiungere le seguenti due righe nei file <filename>~/.bashrc</filename> e <filename>~/.bash_profile</filename> (ovviamente bisogna sostituire i valori d'esempio):"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "export EMAIL=\"hertzog@debian.org\"\n"
@@ -376,7 +377,7 @@ msgid "The <filename>control</filename> file"
 msgstr "Il file <filename>control</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "Source: falcot-data\n"
@@ -424,7 +425,7 @@ msgid "The <filename>changelog</filename> file"
 msgstr "Il file <filename>changelog</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "falcot-data (1.0) internal; urgency=low\n"
@@ -452,7 +453,7 @@ msgid "The <filename>copyright</filename> file"
 msgstr "Il file <filename>copyright</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "This work was packaged for Debian by Raphael Hertzog &lt;hertzog@debian.org&gt;\n"
@@ -494,7 +495,7 @@ msgid "A <filename>Makefile</filename> file is a script used by the <command>mak
 msgstr "Il file <filename>Makefile</filename> è uno script utilizzato dal programma <command>make</command>, e descrive le regole su come generare un insieme di file da un altro, utilizzando le dipendenze ad albero (ad esempio, un programma può essere costruito da un insieme di file sorgenti). Il file <filename>Makefile</filename> descrive queste regole nel seguente formato:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "target: source1 source2 ...\n"
@@ -527,7 +528,7 @@ msgid "Although this file is the heart of the process, it increasingly contains 
 msgstr "Anche se questo file è il cuore di tutto il processo, contiene solo il minimo indispensabile per l'esecuzione di un insieme predefinito di comandi forniti dal programma <command>debhelper</command>. Questo è il caso per i file generati da <command>dh_make</command>. Per installare i file interessati, bisogna semplicemente configurare il comportamento del comando <command>dh_install</command> creando il seguente file <filename>debian/falcot-data.install</filename>:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "data/* usr/share/falcot-data/"
@@ -546,7 +547,7 @@ msgid "The <filename>menu</filename> file"
 msgstr "Il file <filename>menu</filename>"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "?package(falcot-data):needs=X11|wm section=Help\\\n"
@@ -625,7 +626,7 @@ msgid "To make deployment easier, they want to integrate these packages in a pac
 msgstr "Per rendere la distribuzione dei pacchetti più facile, si vuole integrare questi pacchetti in un pacchetto archivio che può essere utilizzato direttamente da APT. Per ovvi motivi di manutenzione, si vuole separare i pacchetti interni da quelli rigenerati localmente. L'obiettivo è che le voci corrispondenti nel file <filename>/etc/apt/sources.list</filename> siano le seguenti:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "deb http://packages.falcot.com/ updates/\n"
@@ -641,8 +642,9 @@ msgid "<primary><command>mini-dinstall</command></primary>"
 msgstr "<primary><command>mini-dinstall</command></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "The administrators therefore configure a virtual host on their internal HTTP server, with <filename>/srv/vhosts/packages/</filename> as the root of the associated web space. The management of the archive themselves is delegated to the <command>mini-dinstall</command> command (in the similarly-named package). This tool keeps an eye on an <filename>incoming/</filename> directory (in our case, <filename>/srv/vhosts/packages/mini-dinstall/incoming/</filename>) and waits for new packages there; when a package is uploaded, it is installed into a Debian archive at <filename>/srv/vhosts/packages/</filename>. The <command>mini-dinstall</command> command reads the <filename>*.changes</filename> file created when the Debian package is generated. These files contain a list of all other files associated to the version of the package (<filename>*.deb</filename>, <filename>*.dsc</filename>, <filename>*.diff.gz</filename>/<filename>*.debian.tar.gz</filename>, <filename>*.orig.tar.gz</filename>, or their equivalents with other compression tools), and they allow <command>mini-dinstall</command> to know which files to install. <filename>*.changes</filename> files also contain the name of the target distribution (often <literal>unstable</literal>) mentioned in the latest <filename>debian/changelog</filename> entry, and <command>mini-dinstall</command> uses this information to decide where the package should be installed. This is why administrators must always change this field before building a package, and set it to <literal>internal</literal> or <literal>updates</literal>, depending on the target location. <command>mini-dinstall</command> then generates the files required by APT, such as <filename>Packages.gz</filename>."
+#, fuzzy, no-c-format
+#| msgid "The administrators therefore configure a virtual host on their internal HTTP server, with <filename>/srv/vhosts/packages/</filename> as the root of the associated web space. The management of the archive themselves is delegated to the <command>mini-dinstall</command> command (in the similarly-named package). This tool keeps an eye on an <filename>incoming/</filename> directory (in our case, <filename>/srv/vhosts/packages/mini-dinstall/incoming/</filename>) and waits for new packages there; when a package is uploaded, it is installed into a Debian archive at <filename>/srv/vhosts/packages/</filename>. The <command>mini-dinstall</command> command reads the <filename>*.changes</filename> file created when the Debian package is generated. These files contain a list of all other files associated to the version of the package (<filename>*.deb</filename>, <filename>*.dsc</filename>, <filename>*.diff.gz</filename>/<filename>*.debian.tar.gz</filename>, <filename>*.orig.tar.gz</filename>, or their equivalents with other compression tools), and they allow <command>mini-dinstall</command> to know which files to install. <filename>*.changes</filename> files also contain the name of the target distribution (often <literal>unstable</literal>) mentioned in the latest <filename>debian/changelog</filename> entry, and <command>mini-dinstall</command> uses this information to decide where the package should be installed. This is why administrators must always change this field before building a package, and set it to <literal>internal</literal> or <literal>updates</literal>, depending on the target location. <command>mini-dinstall</command> then generates the files required by APT, such as <filename>Packages.gz</filename>."
+msgid "The administrators therefore configure a virtual host on their internal HTTP server, with <filename>/srv/vhosts/packages/</filename> as the root of the associated web space. The management of the archive itself is delegated to the <command>mini-dinstall</command> command (in the similarly-named package). This tool keeps an eye on an <filename>incoming/</filename> directory (in our case, <filename>/srv/vhosts/packages/mini-dinstall/incoming/</filename>) and waits for new packages there; when a package is uploaded, it is installed into a Debian archive at <filename>/srv/vhosts/packages/</filename>. The <command>mini-dinstall</command> command reads the <filename>*.changes</filename> file created when the Debian package is generated. These files contain a list of all other files associated with the version of the package (<filename>*.deb</filename>, <filename>*.dsc</filename>, <filename>*.diff.gz</filename>/<filename>*.debian.tar.gz</filename>, <filename>*.orig.tar.gz</filename>, or their equivalents with other compression tools), and these allow <command>mini-dinstall</command> to know which files to install. <filename>*.changes</filename> files also contain the name of the target distribution (often <literal>unstable</literal>) mentioned in the latest <filename>debian/changelog</filename> entry, and <command>mini-dinstall</command> uses this information to decide where the package should be installed. This is why administrators must always change this field before building a package, and set it to <literal>internal</literal> or <literal>updates</literal>, depending on the target location. <command>mini-dinstall</command> then generates the files required by APT, such as <filename>Packages.gz</filename>."
 msgstr "Gli amministratori quindi devono configurare un virtual host nel server HTTP interno, utilizzando la directory <filename>/srv/vhosts/packages/</filename> come radice dello spazio web associato. La gestione dell'archivio è delegata al comando <command>mini-dinstall</command> (presente nel pacchetto dal nome simile). Questo strumento controlla la directory <filename>incoming/</filename> (in questo caso, <filename>/srv/vhosts/packages/mini-dinstall/incoming/</filename>) e aspetta che vi siano inseriti dei nuovi pacchetti, quando un pacchetto viene caricato, viene installato in un archivio Debian in <filename>/srv/vhosts/packages/</filename>. Il comando <command>mini-dinstall</command> legge i file <filename>*.changes</filename> creati quando il pacchetto viene generato. Questi file contengono un elenco di tutti gli altri file associati alla versione del pacchetto (<filename>*.deb</filename>, <filename>*.dsc</filename>, <filename>*.diff.gz</filename>/<filename>*.debian.tar.gz</filename>, <filename>*.orig.tar.gz</filename>, o i loro equivalenti con altri strumenti di compressione), e permettono a <command>mini-dinstall</command> di sapere quali file installare. I file <filename>*.changes</filename> contengono anche il nome della distribuzione di destinazione (spesso <literal>unstable</literal>) citata nell'ultima voce del file <filename>debian/changelog</filename>, <command>mini-dinstall</command> usa questa informazione per decidere dove installare il pacchetto. È per questo che gli amministratori devono sempre cambiare questo campo prima di costruire un pacchetto, e impostarlo a <literal>internal</literal> o <literal>updates</literal>, a seconda del luogo di destinazione. <command>mini-dinstall</command> quindi genera i file necessari per APT, come ad esempio <filename>Packages.gz</filename>."
 
 #. Tag: title
@@ -661,7 +663,7 @@ msgid "If <command>mini-dinstall</command> seems too complex for your Debian arc
 msgstr "Se sembra troppo macchinoso far avviare <command>mini-dinstall</command> per un determinato archivio Debian, si può utilizzare al suo posto il comando <command>apt-ftparchive</command>. Questo strumento scansiona il contenuto di una directory e mostra (nello standard output) il corrispondente file <filename>Packages</filename>. Nel caso della Falcot Corp, gli amministratori possono caricare i pacchetti direttamente in <filename>/srv/vhosts/packages/updates/</filename> o <filename>/srv/vhosts/packages/internal/</filename>, quindi eseguire i seguenti comandi per creare i file <filename>Packages.gz</filename>:"
 
 #. Tag: screen
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>cd /srv/vhosts/packages</userinput>\n"
@@ -688,7 +690,7 @@ msgid "Configuring <command>mini-dinstall</command> requires setting up a <filen
 msgstr "Per la configurazione di <command>mini-dinstall</command> è necessario impostare il file <filename>~/.mini-dinstall.conf</filename>; nel caso della Falcot Corp, i contenuti sono i seguenti:"
 
 #. Tag: programlisting
-#, msgstr-has-trailing-newline, no-c-format
+#, no-c-format
 msgid ""
 "\n"
 "[DEFAULT]\n"
@@ -807,8 +809,9 @@ msgid "Tools"
 msgstr "Strumenti"
 
 #. Tag: para
-#, no-c-format
-msgid "Many tools help package maintainers in their work. This section describes them quickly, but does not give the full details, since they all have comprehensive documentation on their own."
+#, fuzzy, no-c-format
+#| msgid "Many tools help package maintainers in their work. This section describes them quickly, but does not give the full details, since they all have comprehensive documentation on their own."
+msgid "Many tools help package maintainers in their work. This section describes them quickly, but does not give the full details, since they all have comprehensive documentation of their own."
 msgstr "Molti strumenti aiutano i maintainer di pacchetti nel loro lavoro. In questa sezione verranno descritti brevemente, tralasciando tutti i dettagli, dal momento che tutti hanno una documentazione completa per conto proprio."
 
 #. Tag: title
@@ -907,8 +910,9 @@ msgid "<command>uscan</command> checks whether a new version of a software has b
 msgstr "<command>uscan</command> verifica se è stata rilasciata una nuova versione del software dall'autore originale; questo richiede il file <filename>debian/watch</filename> con una descrizione delle posizioni delle varie versioni."
 
 #. Tag: para
-#, no-c-format
-msgid "<command>debi</command> allows installing (with <command>dpkg -i</command>) the Debian package that was just generated, and avoid typing its full name and path."
+#, fuzzy, no-c-format
+#| msgid "<command>debi</command> allows installing (with <command>dpkg -i</command>) the Debian package that was just generated, and avoid typing its full name and path."
+msgid "<command>debi</command> allows installing (with <command>dpkg -i</command>) the Debian package that was just generated without the need to type its full name and path."
 msgstr "<command>debi</command> permette di installare (con <command>dpkg -i</command>) il pacchetto Debian che è stato appena generato, evitando di digitare il suo nome completo e il percorso."
 
 #. Tag: para
@@ -1007,8 +1011,9 @@ msgid "Acceptance Process"
 msgstr "Processo di accettazione"
 
 #. Tag: para
-#, no-c-format
-msgid "Becoming a Debian developer is not a simple administrative matter. The process is made of several steps, and is as much an initiation as it is a selection process. In any case, it is formalized and well-documented, so anyone can track their progression on the website dedicated to the new member process. <ulink type=\"block\" url=\"http://nm.debian.org/\" />"
+#, fuzzy, no-c-format
+#| msgid "Becoming a Debian developer is not a simple administrative matter. The process is made of several steps, and is as much an initiation as it is a selection process. In any case, it is formalized and well-documented, so anyone can track their progression on the website dedicated to the new member process. <ulink type=\"block\" url=\"http://nm.debian.org/\" />"
+msgid "Becoming a Debian developer is not a simple administrative matter. The process comprises several steps, and is as much an initiation as it is a selection process. In any case, it is formalized and well-documented, so anyone can track their progression on the website dedicated to the new member process. <ulink type=\"block\" url=\"http://nm.debian.org/\" />"
 msgstr "Diventare uno sviluppatore Debian non è una semplice questione amministrativa. Il processo è costituito da diverse fasi ed è più simile ad un'iniziazione, in quanto è un processo di selezione. In ogni caso, l'intero processo è ben formalizzato e documentato, in modo che chiunque sia in grado di monitorarne l'avanzamento di stato, sul sito web dedicato al processo per il nuovo maintainer. <ulink type=\"block\" url=\"http://nm.debian.org/\" />"
 
 #. Tag: title
@@ -1072,13 +1077,15 @@ msgid "Accepting the Principles"
 msgstr "Accettare i principi"
 
 #. Tag: para
-#, no-c-format
-msgid "These administrative formalities are followed with philosophical considerations. The point is to make sure that the candidate understands and accepts the social contract and the principles behind Free Software. Joining Debian is only possible if one shares the values that unite the current developers, as expressed in the founding texts (and summarized in <xref linkend=\"the-debian-project\" />)."
+#, fuzzy, no-c-format
+#| msgid "These administrative formalities are followed with philosophical considerations. The point is to make sure that the candidate understands and accepts the social contract and the principles behind Free Software. Joining Debian is only possible if one shares the values that unite the current developers, as expressed in the founding texts (and summarized in <xref linkend=\"the-debian-project\" />)."
+msgid "These administrative formalities are followed by philosophical considerations. The point is to make sure that the candidate understands and accepts the social contract and the principles behind Free Software. Joining Debian is only possible if one shares the values that unite the current developers, as expressed in the founding texts (and summarized in <xref linkend=\"the-debian-project\" />)."
 msgstr "Queste formalità amministrative sono seguite da considerazioni filosofiche. Il punto è fare in modo che il candidato capisca e accetti il contratto sociale e i principi alla base del Software Libero. Partecipare a Debian è possibile solo se si condividono i valori che uniscono gli attuali sviluppatori, espressi nei testi dei fondamentali (e riassunti in <xref linkend=\"the-debian-project\" />)."
 
 #. Tag: para
-#, no-c-format
-msgid "In addition, each candidate wishing to join Debian ranks is expected to know the workings of the project, and how to interact appropriately to solve the problems they will doubtless encounter as time passes. All of this information is generally documented in manuals targeting the new maintainers, and in the Debian developer's reference. An attentive reading of this document should be enough to answer the examiner's questions. If the answers are not satisfactory, the candidate will be informed. He will then have to read (again) the relevant documentation before trying again. In the cases where the existing documentation does not contain the appropriate answer for the question, the candidate can usually reach an answer with some practical experience within Debian, or potentially by discussing with other Debian developers. This mechanism ensures that candidates get involved somewhat in Debian before becoming a full part of it. It is a deliberate policy, by which candidates who eventually join the project are integrated as another piece of an infinitely extensible jigsaw puzzle."
+#, fuzzy, no-c-format
+#| msgid "In addition, each candidate wishing to join Debian ranks is expected to know the workings of the project, and how to interact appropriately to solve the problems they will doubtless encounter as time passes. All of this information is generally documented in manuals targeting the new maintainers, and in the Debian developer's reference. An attentive reading of this document should be enough to answer the examiner's questions. If the answers are not satisfactory, the candidate will be informed. He will then have to read (again) the relevant documentation before trying again. In the cases where the existing documentation does not contain the appropriate answer for the question, the candidate can usually reach an answer with some practical experience within Debian, or potentially by discussing with other Debian developers. This mechanism ensures that candidates get involved somewhat in Debian before becoming a full part of it. It is a deliberate policy, by which candidates who eventually join the project are integrated as another piece of an infinitely extensible jigsaw puzzle."
+msgid "In addition, each candidate wishing to join the Debian ranks is expected to know the workings of the project, and how to interact appropriately to solve the problems they will doubtless encounter as time passes. All of this information is generally documented in manuals targeting the new maintainers, and in the Debian developer's reference. An attentive reading of this document should be enough to answer the examiner's questions. If the answers are not satisfactory, the candidate will be informed. They will then have to read (again) the relevant documentation before trying again. In the cases where the existing documentation does not contain the appropriate answer for the question, the candidate can usually reach an answer with some practical experience within Debian, or potentially by discussing with other Debian developers. This mechanism ensures that candidates get involved somewhat in Debian before becoming a full part of it. It is a deliberate policy, by which candidates who eventually join the project are integrated as another piece of an infinitely extensible jigsaw puzzle."
 msgstr "Inoltre, ogni candidato che desidera aderire a Debian è tenuto a conoscere il funzionamento del progetto e come interagire in modo appropriato per risolvere i problemi che, senza dubbio, si incontreranno col passare del tempo. Tutte queste informazioni sono generalmente documentate nei manuali rivolti ai nuovi maintainer e nella guida di riferimento per lo sviluppatore Debian. Una lettura attenta di questo documento dovrebbe essere sufficiente per rispondere alle domande dell'esaminatore. Se le risposte non sono soddisfacenti, il candidato sarà informato. Quindi, egli dovrà leggere (nuovamente) la relativa documentazione prima di riprovare. Nei casi in cui la documentazione esistente non contenesse la risposta appropriata per la domanda, il candidato di solito può trovare una risposta, facendo un po' di esperienza pratica in Debian, oppure discutendone con altri sviluppatori Debian. Questo meccanismo garantisce che i candidati vengano coinvolti un po' in Debian prima di diventare parte integrante del progetto. Si tratta di una scelta intenzionale, con la quale i candidati che alla fine aderiranno al progetto sono integrati come un altro pezzo di un puzzle infinitamente espandibile."
 
 #. Tag: para
