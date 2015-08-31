@@ -4,10 +4,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-08-29 09:00+0900\n"
-"PO-Revision-Date: 2015-06-16 21:56+0200\n"
+"POT-Creation-Date: 2015-08-28 11:29+0200\n"
+"PO-Revision-Date: 2015-08-31 10:29+0200\n"
 "Last-Translator: Herbert Parentes Fortes Neto <hpfn@ig.com.br>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/debian-handbook/12_advanced-administration/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects"
+"/debian-handbook/12_advanced-administration/pt_BR/>\n"
 "Language: pt-BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
@@ -2236,6 +2237,11 @@ msgstr "<emphasis>NOTA</emphasis> Armazenamento em domU"
 #, no-c-format
 msgid "Entire hard disks can also be exported to the domU, as well as partitions, RAID arrays or pre-existing LVM logical volumes. These operations are not automated by <command>xen-create-image</command>, however, so editing the Xen image's configuration file is in order after its initial creation with <command>xen-create-image</command>."
 msgstr ""
+"Discos rígidos inteiros também podem ser exportados, assim como as "
+"partições, arrays RAID ou volumes lógicos pré existentes. No entanto, essas "
+"operações não são automatizadas pelo <command>xen-create-image</command>, "
+"então edita-se o arquivo de configuração da imagem do Xen após sua criação "
+"inicial com o <command>xen-create-mage</command>."
 
 #. Tag: para
 #, no-c-format
@@ -3964,76 +3970,144 @@ msgstr "<primary>Zabbix</primary>"
 #, no-c-format
 msgid "Although Munin and Nagios are in very common use, they are not the only players in the monitoring field, and each of them only handles half of the task (graphing on one side, alerting on the other). Zabbix, on the other hand, integrates both parts of monitoring; it also has a web interface for configuring the most common aspects. It has grown by leaps and bounds during the last few years, and can now be considered a viable contender; unfortunately, Zabbix isn't present in Debian <emphasis role=\"distribution\">Wheezy</emphasis> due to timing issues in the release process, but packages will be provided as backports or in unofficial repositories. <ulink type=\"block\" url=\"http://www.zabbix.org/\" />"
 msgstr ""
+"Embora o Munin e o Nagios sejam os mais populares, eles não são as únicas "
+"opções no campo de monitoramento, e cada um deles apenas lidam com metade da "
+"tarefa (gráficos de por um lado, alertas pelo outro). O Zabbix, por outro "
+"lado, integra ambas as partes de monitoramento; ele também têm uma interface "
+"web para configurar a maioria dos aspectos comuns. Ele cresceu aos tracos e "
+"barrancos durante os últimos anos, e pode agora ser considerado um "
+"concorrente viável; infelizmente, o Zabbix não está presente no Debian <"
+"emphasis role=\"distribution\">Wheezy</emphasis> devido a questões de falta "
+"sincronia no processo de lançamento, porém pacotes serão fornecidos como \""
+"backports\" ou através de repositórios não oficiais. <ulink type=\"block\" "
+"url=\"http://www.zabbix.org/\" />"
 
 #. Tag: title
 #, no-c-format
 msgid "<emphasis>ALTERNATIVE</emphasis> Icinga, a Nagios fork"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVA</emphasis> Icinga, um \"fork\" do Nagios"
 
 #. Tag: indexterm
 #, no-c-format
 msgid "<primary>Icinga</primary>"
-msgstr ""
+msgstr "<primary>Icinga</primary>"
 
 #. Tag: para
 #, no-c-format
 msgid "Spurred by divergences in opinions concerning the development model for Nagios (which is controlled by a company), a number of developers forked Nagios and use Icinga as their new name. Icinga is still compatible — so far — with Nagios configurations and plugins, but it also adds extra features. <ulink type=\"block\" url=\"http://www.icinga.org/\" />"
 msgstr ""
+"Estimulados por divergências nas opiniões que se referem ao modelo de "
+"desenvolvimento do Nagios (que é controlado por uma companhia), alguns "
+"desenvolvedores fizeram um \"fork\" do Nagios e usaram Icinga como seu novo "
+"nome. O Icinga ainda é compatível — até agora — com as configurações e "
+"extensões do Nagios, porém ele também adiciona funcionalidades extras. <"
+"ulink type=\"block\" url=\"http://www.icinga.org/\" />"
 
 #. Tag: title
 #, no-c-format
 msgid "Setting Up Munin"
-msgstr ""
+msgstr "Configurando o Munin"
 
 #. Tag: indexterm
 #, no-c-format
 msgid "<primary>Munin</primary>"
-msgstr ""
+msgstr "<primary>Munin</primary>"
 
 #. Tag: para
 #, no-c-format
 msgid "The purpose of Munin is to monitor many machines; therefore, it quite naturally uses a client/server architecture. The central host — the grapher — collects data from all the monitored hosts, and generates historical graphs."
 msgstr ""
+"O propósito do Munin é monitorar muitas máquinas; logo, é bem natural que "
+"ele use uma arquitetura cliente/servidor. A máquina (\"host\") central — que "
+"faz o gráfico (\"grapher\") — coleta dados de todas as máquinas (\"hosts\") "
+"monitoradas, e gera gráficos com os históricos."
 
 #. Tag: title
 #, no-c-format
 msgid "Configuring Hosts To Monitor"
-msgstr ""
+msgstr "Configurando As Máquinas A Serem Monitoradas"
 
 #. Tag: para
 #, no-c-format
 msgid "The first step is to install the <emphasis role=\"pkg\">munin-node</emphasis> package. The daemon installed by this package listens on port 4949 and sends back the data collected by all the active plugins. Each plugin is a simple program returning a description of the collected data as well as the latest measured value. Plugins are stored in <filename>/usr/share/munin/plugins/</filename>, but only those with a symbolic link in <filename>/etc/munin/plugins/</filename> are really used."
 msgstr ""
+"O primeiro passo é instalar o pacote <emphasis role=\"pkg\">munin-"
+"node</emphasis>. O serviço (\"daemon\") instalado por esse pacote escuta na "
+"porta 4949 e envia de volta os dados coletados por todas as extensões "
+"ativas. Cada extensão é um programa simples que retorna um descrição dos "
+"dados coletados, assim como o último valor medido. As extensões são "
+"armazenadas em <filename>/usr/share/munin/plugins/</filename>, mas apenas "
+"aquelas com uma ligação simbólica em <filename>/etc/munin/plugins/</filename>"
+" são realmente usadas."
 
 #. Tag: para
 #, no-c-format
 msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. It would be interesting to have comprehensive documentation for each plugin, but unfortunately there's no such official documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
 msgstr ""
+"Quando o pacote é instalado, um conjunto de extensões ativas é determinado "
+"com base nos softwares disponíveis e na configuração corrente da máquina (\""
+"host\"). Contudo, essa auto configuração depende da funcionalidade que cada "
+"extensão deve fornecer, e geralmente é uma boa ideia rever e ajustar os "
+"resultados manualmente. Seria interessante ter uma documentação completa "
+"para cada extensão, mas infelizmente não existe tal documentação oficial. "
+"Entretanto, todas as extensões são scripts e a maioria é bem simples e bem "
+"comentado. Navegar por <filename>/etc/munin/plugins/</filename> é portanto "
+"uma boa maneira de se ter uma ideia sobre para que cada extensão serve e "
+"determinar quais devem ser removidas. Similarmente, habilitar uma extensão "
+"interessante encontrada em <filename>/usr/share/munin/plugins/</filename> é "
+"uma simples questão de configurar uma ligação simbólica com <command>ln -sf "
+"/usr/share/munin/plugins/<replaceable>extensão</replaceable> "
+"/etc/munin/plugins/</command>. Note que quando o nome de uma extensão "
+"termina com um \"underscore\" - “_”, a extensão precisa de um parâmetro. "
+"Esse parâmetro tem que ser armazenados no nome da ligação simbólica; por "
+"exemplo, a extensão “if_”  tem que ser habilitada como uma ligação simbólica "
+"<filename>if_eth0</filename> para monitorar o tráfego de rede na interface "
+"eth0."
 
 #. Tag: para
 #, no-c-format
 msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>invoke-rc.d munin-node restart</command>."
 msgstr ""
+"Uma vez que todas as extensões estejam configuradas corretamente, a "
+"configuração do serviço (\"daemon\") tem que ser atualizada para descrever o "
+"controle de acesso aos dados coletados. Isso envolve a diretiva "
+"<literal>allow</literal> no arquivo <filename>/etc/munin/munin-"
+"node.conf</filename>. A configuração padão é <literal>allow ^127\\.0\\.0\\"
+".1$</literal>, e apenas permite acesso a máquina (\"host\") local. O "
+"administrador geralmente irá adicionar uma linha similar contendo o endereço "
+"IP da máquina que gera o gráfico (\"grapher host\"), e então reiniciar o "
+"serviço (\"daemon\") com <command>invoke-rc.d munin-node restart</command>."
 
 #. Tag: title
 #, no-c-format
 msgid "<emphasis>GOING FURTHER</emphasis> Creating local plugins"
-msgstr ""
+msgstr "<emphasis>APROFUNDANDO</emphasis> Criando extensões locais"
 
 #. Tag: para
 #, no-c-format
 msgid "Despite the lack of official documentation for standard plugins, Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
 msgstr ""
+"Apesar da falta de documentação oficial para as extensões padrões, o Munin "
+"inclui documentação detalhada sobre como as extensões devem se comportar e "
+"como desenvolver novas extensões. <ulink type=\"block\" url=\"http://munin-"
+"monitoring.org/wiki/Documentation\" />"
 
 #. Tag: para
 #, no-c-format
 msgid "A plugin is best tested when run in the same conditions as it would be when triggered by munin-node; this can be simulated by running <command>munin-run <replaceable>plugin</replaceable></command> as root. A potential second parameter given to this command (such as <literal>config</literal>) is passed to the plugin as a parameter."
 msgstr ""
+"Uma extensão é melhor testada quando executada nas mesmas condições "
+"encontradas quando iniciada pelo munin-node; isso pode ser simulado rodando "
+"<command>munin-run <replaceable>extensão</replaceable></command> como root. "
+"Um segundo parâmetro potecial dado a esse comando (tal como "
+"<literal>config</literal>) é passado para a extensão como um parâmetro."
 
 #. Tag: para
 #, no-c-format
 msgid "When a plugin is invoked with the <literal>config</literal> parameter, it must describe itself by returning a set of fields:"
 msgstr ""
+"Quando uma extensão é invocada com o parâmetro <literal>config</literal>, "
+"ela tem que descrever a si própria pelo retorno de um conjunto de campos:"
 
 #. Tag: screen
 #, no-c-format
@@ -4049,36 +4123,72 @@ msgid ""
 "load.info 5 minute load average\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>sudo munin-run load config\n"
+"</userinput><computeroutput>graph_title Load average\n"
+"graph_args --base 1000 -l 0\n"
+"graph_vlabel load\n"
+"graph_scale no\n"
+"graph_category system\n"
+"load.label load\n"
+"graph_info The load average of the machine describes how many processes are "
+"in the run-queue (scheduled to run \"immediately\").\n"
+"load.info 5 minute load average\n"
+"</computeroutput>"
 
 #. Tag: para
 #, no-c-format
 msgid "The various available fields are described by the “configuration protocol” specification available on the Munin website. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
 msgstr ""
+"Os vários campos disponíveis são descritos pela especificação “configuration "
+"protocol” disponível no site web do Munin. <ulink type=\"block\" url=\"http"
+"://munin-monitoring.org/wiki/protocol-config\" />"
 
 #. Tag: para
 #, no-c-format
 msgid "When invoked without a parameter, the plugin simply returns the last measured values; for instance, executing <command>sudo munin-run load</command> could return <literal>load.value 0.12</literal>."
 msgstr ""
+"Quando invocada sem um parâmetro, a extensão apenas retorna os últimos "
+"valores medidos; por exemplo, executando <command>sudo munin-run "
+"load</command> poderia retornar <literal>load.value 0.12</literal>."
 
 #. Tag: para
 #, no-c-format
 msgid "Finally, when a plugin is invoked with the <literal>autoconf</literal> parameter, it should return “yes” (and a 0 exit status) or “no” (with a 1 exit status) according to whether the plugin should be enabled on this host."
 msgstr ""
+"Finalmente, quando uma extensão é invocada com parâmetro "
+"<literal>autoconf</literal>, ela deveria retornar “yes” (e um status de "
+"término 0) ou “no” (com um status de término 1) de acordo sobre se a "
+"extensão deve ser habilitada nesta máquina (\"host\")."
 
 #. Tag: title
 #, no-c-format
 msgid "Configuring the Grapher"
-msgstr ""
+msgstr "Configurando a Máquina que faz o Gráfico (\"Grapher\")"
 
 #. Tag: para
 #, no-c-format
 msgid "The “grapher” is simply the computer that aggregates the data and generates the corresponding graphs. The required software is in the <emphasis role=\"pkg\">munin</emphasis> package. The standard configuration runs <command>munin-cron</command> (once every 5 minutes), which gathers data from all the hosts listed in <filename>/etc/munin/munin.conf</filename> (only the local host is listed by default), saves the historical data in RRD files (<emphasis>Round Robin Database</emphasis>, a file format designed to store data varying in time) stored under <filename>/var/lib/munin/</filename> and generates an HTML page with the graphs in <filename>/var/cache/munin/www/</filename>."
 msgstr ""
+"O “grapher” é simplesmente o computador que agrega os dados e gera os "
+"gráficos correspondentes. O software necessário está no pacote <emphasis "
+"role=\"pkg\">munin</emphasis>. A configuração padrão roda o <command>munin-"
+"cron</command> (uma vez a cada 5 minutos), que reune dados de todas as "
+"máquinas (\"hosts\") listados em <filename>/etc/munin/munin.conf</filename> ("
+"apenas a máquina (\"host\") local é listada por padrão), salva os dados "
+"históricos em arquivos RRD (<emphasis>Round Robin Database</emphasis>, um "
+"arquivo com formato desenvolvido par armazenar dados que variam com o tempo) "
+"armazenados em <filename>/var/lib/munin/</filename> e gera uma página HTML "
+"com os gráficos em <filename>/var/cache/munin/www/</filename>."
 
 #. Tag: para
 #, no-c-format
 msgid "All monitored machines must therefore be listed in the <filename>/etc/munin/munin.conf</filename> configuration file. Each machine is listed as a full section with a name matching the machine and at least an <literal>address</literal> entry giving the corresponding IP address."
 msgstr ""
+"Portanto todas as máquinas monitoradas tem que estar listadas no arquivo de "
+"configuração <filename>/etc/munin/munin.conf</filename>. Cada máquina é "
+"listada como uma seção completa, com um nome correspondendo com a máquina e "
+"pelo menos uma entrada com <literal>endereço</literal> dando o endereço IP "
+"correspondente."
 
 #. Tag: programlisting
 #, no-c-format
@@ -4087,31 +4197,49 @@ msgid ""
 "    address 192.168.0.12\n"
 "    use_node_name yes"
 msgstr ""
+"[ftp.falcot.com]\n"
+"    address 192.168.0.12\n"
+"    use_node_name yes"
 
 #. Tag: para
 #, no-c-format
 msgid "Sections can be more complex, and describe extra graphs that could be created by combining data coming from several machines. The samples provided in the configuration file are good starting points for customization."
 msgstr ""
+"Seções podem ser mais complexas, e descrever gráficos extras que poderiam "
+"ser criados pela combinação de dados vindos de várias máquinas. Os exemplos "
+"fornecidos no arquivo de configuração são um bom ponto de partida para "
+"customizações."
 
 #. Tag: para
 #, no-c-format
 msgid "The last step is to publish the generated pages; this involves configuring a web server so that the contents of <filename>/var/cache/munin/www/</filename> are made available on a website. Access to this website will often be restricted, using either an authentication mechanism or IP-based access control. See <xref linkend=\"sect.http-web-server\" /> for the relevant details."
 msgstr ""
+"O último passo é publicar as páginas geradas; isso envolve a configuração de "
+"um servidor web para que o conteúdo de "
+"<filename>/var/cache/munin/www/</filename> seja disponibilizado em um site "
+"web. O acesso a esse site web geralmente será restrito, pelo uso de um "
+"mecanismo de autenticação ou controle de acesso baseado em IP. Veja <xref "
+"linkend=\"sect.http-web-server\" /> para os detalhes relevantes."
 
 #. Tag: title
 #, no-c-format
 msgid "Setting Up Nagios"
-msgstr ""
+msgstr "Configurando o Nagios"
 
 #. Tag: indexterm
 #, no-c-format
 msgid "<primary>Nagios</primary>"
-msgstr ""
+msgstr "<primary>Nagios</primary>"
 
 #. Tag: para
 #, no-c-format
 msgid "Unlike Munin, Nagios does not necessarily require installing anything on the monitored hosts; most of the time, Nagios is used to check the availability of network services. For instance, Nagios can connect to a web server and check that a given web page can be obtained within a given time."
 msgstr ""
+"Diferentemente do Munin, o Nagios não necessariamente requer a instalação de "
+"alguma coisa nas máquinas (\"\"hosts\") monitoradas; na maioria das vezes, o "
+"Nagios é usado para conferir a disponibilidade de serviços de rede. Por "
+"exemplo, o Nagios pode se conectar em um servidor web e conferir que "
+"determinada página web pode ser obtida dentro de um determinado tempo."
 
 #. Tag: title
 #, no-c-format
@@ -4122,16 +4250,39 @@ msgstr "Instalando"
 #, no-c-format
 msgid "The first step in setting up Nagios is to install the <emphasis role=\"pkg\">nagios3</emphasis>, <emphasis role=\"pkg\">nagios-plugins</emphasis> and <emphasis role=\"pkg\">nagios3-doc</emphasis> packages. Installing the packages configures the web interface and creates a first <literal>nagiosadmin</literal> user (for which it asks for a password). Adding other users is a simple matter of inserting them in the <filename>/etc/nagios3/htpasswd.users</filename> file with Apache's <command>htpasswd</command> command. If no Debconf question was displayed during installation, <command>dpkg-reconfigure nagios3-cgi</command> can be used to define the <literal>nagiosadmin</literal> password."
 msgstr ""
+"O primeiro passo na configuração do Nagios é a instalação dos pacotes <"
+"emphasis role=\"pkg\">nagios3</emphasis>, <emphasis role=\"pkg\">nagios-"
+"plugins</emphasis> e <emphasis role=\"pkg\">nagios3-doc</emphasis>. "
+"Instalando esses pacotes é configurada a interface web e criado o primeiro "
+"usuário, <literal>nagiosadmin</literal> (para o qual é perguntado uma senha)"
+". Adicionar outros usuários é uma simples questão de inseri-los no arquivo "
+"<filename>/etc/nagios3/htpasswd.users</filename> com o comando do Apache "
+"<command>htpasswd</command>. Se nenhuma pergunta do Debconf foi exibida "
+"durante a instalação, <command>dpkg-reconfigure nagios3-cgi</command> pode "
+"ser usado para definir a senha do <literal>nagiosadmin</literal>."
 
 #. Tag: para
 #, no-c-format
 msgid "Pointing a browser at <literal>http://<replaceable>server</replaceable>/nagios3/</literal> displays the web interface; in particular, note that Nagios already monitors some parameters of the machine where it runs. However, some interactive features such as adding comments to a host do not work. These features are disabled in the default configuration for Nagios, which is very restrictive for security reasons."
 msgstr ""
+"Apontar o navegador para "
+"<literal>http://<replaceable>servidor</replaceable>/nagios3/</literal> exibe "
+"a interface web; em  particular, note que o Nagios já monitora alguns "
+"parâmetros da máquina aonde ele roda. Contudo, algumas funcionalidades "
+"interativas, tais como adicionar comentários a uma máquina (\"host\") não "
+"funciona. Esses recursos estão desabilitados pela configuração padrão do "
+"Nagios, que é muito restritiva por razões de segurança."
 
 #. Tag: para
 #, no-c-format
 msgid "As documented in <filename>/usr/share/doc/nagios3/README.Debian</filename>, enabling some features involves editing <filename>/etc/nagios3/nagios.cfg</filename> and setting its <literal>check_external_commands</literal> parameter to “1”. We also need to set up write permissions for the directory used by Nagios, with commands such as the following:"
 msgstr ""
+"Como ducomentado em <filename>/usr/share/doc/nagios3/README.Debian</filename>"
+", habilitar alguns recursos envolve a editar o "
+"<filename>/etc/nagios3/nagios.cfg</filename> e configurar o parâmetro "
+"<literal>check_external_commands</literal> para “1”. Nós tambéms precisamos "
+"configurar permissões de escrita para o diretório usado pelo Nagios, através "
+"de comandos como os seguintes:"
 
 #. Tag: screen
 #, no-c-format
@@ -4143,6 +4294,16 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 "
+"stop</userinput>\n"
+"<computeroutput>[...]\n"
+"# </computeroutput><userinput>dpkg-statoverride --update --add nagios www-"
+"data 2710 /var/lib/nagios3/rw\n"
+"</userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride "
+"--update --add nagios nagios 751 /var/lib/nagios3\n"
+"</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/"
+"nagios3 start</userinput>\n"
+"<computeroutput>[...]</computeroutput>"
 
 #. Tag: title
 #, no-c-format
@@ -4153,21 +4314,31 @@ msgstr "Configurando"
 #, no-c-format
 msgid "The Nagios web interface is rather nice, but it does not allow configuration, nor can it be used to add monitored hosts and services. The whole configuration is managed via files referenced in the central configuration file, <filename>/etc/nagios3/nagios.cfg</filename>."
 msgstr ""
+"A interface web do Nagios é bem legal, mas elas não permite configurações, "
+"nem pode ser usada para adicionar máquinas (\"hosts\") monitorados e "
+"serviços. Toda a configuração é gerenciada através de arquivos referenciados "
+"pelo arquivo de configuração central, "
+"<filename>/etc/nagios3/nagios.cfg</filename>."
 
 #. Tag: para
 #, no-c-format
 msgid "These files should not be dived into without some understanding of the Nagios concepts. The configuration lists objects of the following types:"
 msgstr ""
+"Não se deve mergulhar nesses arquivos sem algum entendimento dos conceitos "
+"do Nagios. A configuração lista objetos dos seguintes tipos:"
 
 #. Tag: para
 #, no-c-format
 msgid "a <emphasis>host</emphasis> is a machine to be monitored;"
-msgstr ""
+msgstr "um <emphasis>host</emphasis> é a máquina a ser monitorada;"
 
 #. Tag: para
 #, no-c-format
 msgid "a <emphasis>hostgroup</emphasis> is a set of hosts that should be grouped together for display, or to factor some common configuration elements;"
 msgstr ""
+"um <emphasis>hostgroup</emphasis> é um conjunto de máquinas que devem ser "
+"agrupadas para exibição, ou para fatorar alguns elementos comuns de "
+"configuração;"
 
 #. Tag: para
 #, no-c-format
@@ -4345,6 +4516,19 @@ msgstr ""
 #, no-c-format
 msgid "Many Nagios plugins allow checking some parameters local to a host; if many machines need these checks while a central installation gathers them, the NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>) plugin needs to be deployed. The <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> package needs to be installed on the Nagios server, and <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> on the hosts where local tests need to run. The latter gets its configuration from <filename>/etc/nagios/nrpe.cfg</filename>. This file should list the tests that can be started remotely, and the IP addresses of the machines allowed to trigger them. On the Nagios side, enabling these remote tests is a simple matter of adding matching services using the new <emphasis>check_nrpe</emphasis> command."
 msgstr ""
+"Muitas extensões Nagios permitem conferir alguns parâmetros locais de uma "
+"máquina (\"host\"); se muitas máquinas precisam dessas conferências enquanto "
+"uma instalação central as reune, a extensão NRPE (<emphasis>Nagios Remote "
+"Plugin Executor</emphasis>) precisa ser implantada. O pacote <emphasis role="
+"\"pkg\">nagios-nrpe-plugin</emphasis> precisa ser instalado no servidor "
+"Nagios, e o <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> nas "
+"máquinas (\"hosts\") aonde os testes locais precisam ser rodados. Esse "
+"último pega sua configuração de <filename>/etc/nagios/nrpe.cfg</filename>. "
+"Esse arquivo deve listar os testes que podem ser iniciados remotamente, e os "
+"endereços IP  das máquinas que tem permissão para iniciá-los. Pelo lado do "
+"Nagios, habilitar esses testes remotos é uma simples questão de adicionar os "
+"serviços correspondentes usando o novo comando "
+"<emphasis>check_nrpe</emphasis>."
 
 #~ msgid "Xen is currently only available for the i386 and amd64 architectures. Moreover, it uses processor instructions that haven't always been provided in all i386-class computers. Note that most of the Pentium-class (or better) processors made after 2001 will work, so this restriction won't apply to very many situations."
 #~ msgstr "O Xen está atualmente disponível apenas para as arquiteturas i386 e amd64. Além disso, ele usa instruções do processador que nem sempre foram fornecidas em todos os computadores classe i386. Note que a maioria dos processadores classe Pentium (ou melhor) feitos após 2001 irão funcionar, então essa restrição não se aplica em muitas situações."
