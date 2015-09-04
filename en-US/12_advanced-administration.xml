@@ -1485,14 +1485,15 @@ Device    Boot     Start       End   Sectors Size Id Type
 	url="http://www.vmware.com/"/></para>
       </listitem>
       <listitem>
-	<para>VirtualBox is a virtual machine that is mostly free
-	software (although some extra components are available under a
-	proprietary license).  It's younger than VMWare and restricted
-	to the i386 and amd64 architectures, but it still includes
-	some snapshotting and other interesting features. VirtualBox
-	has been part of Debian since <emphasis
-	role="distribution">Lenny</emphasis>. <ulink type="block"
-	url="http://www.virtualbox.org/"/></para>
+        <para>VirtualBox is a virtual machine that is mostly free software
+          (some extra components are available under a proprietary
+          license). Unfortunately it is in Debian's “contrib” section because it
+          includes some precompiled files that cannot be rebuilt without a
+          proprietary compiler. While younger than VMWare and restricted
+          to the i386 and amd64 architectures, it still includes some
+          snapshotting and other interesting features.
+          <ulink type="block" url="http://www.virtualbox.org/"/>
+        </para>
       </listitem>
     </itemizedlist>
     <section id="sect.xen">
@@ -2292,16 +2293,10 @@ root@testlxc:~# </computeroutput></screen>
       advantage of the processor instruction sets dedicated to
       virtualization (Intel-VT and AMD-V), which keeps KVM lightweight,
       elegant and not resource-hungry. The counterpart, of course, is that
-      KVM mainly works on i386 and amd64 processors, and only those recent
-      enough to have these instruction sets. You can ensure that you have
-      such a processor if you have “vmx” or “svm” in the CPU flags
+      KVM doesn't work on any computer but only on those with appropriate
+      processors. For x86-based computers, you can verify that you have
+      such a processor by looking for “vmx” or “svm” in the CPU flags
       listed in <filename>/proc/cpuinfo</filename>.</para>
-
-      <!--
-      TODO: add sidebar explaining the status of PowerPC, S390 port?
-      http://www.linux-kvm.org/page/Processor_support
-      http://www.linux-kvm.org/page/Status
-      -->
 
       <para>With Red Hat actively supporting its development, KVM has
       more or less become the reference for Linux
@@ -2388,6 +2383,17 @@ root@testlxc:~# </computeroutput></screen>
 <computeroutput>Pool srv-kvm created
 
 root@mirwiz:~# </computeroutput></screen>
+
+        <sidebar>
+          <title><emphasis>TIP</emphasis> Add your user to the libvirt group</title>
+          <para>All samples in this section assume that you are running commands
+          as root. Effectively, if you want to control a local libvirt
+          daemon, you need either to be root or to be a member of the
+          <literal>libvirt</literal> group (which is not the case by
+          default). Thus if you want to avoid using root rights too often,
+          you can add yoursel to the <literal>libvirt</literal> group and
+          run the various commands under your user identity.</para>
+        </sidebar>
 
 	<para>Let us now start the installation process for the virtual
 	machine, and have a closer look at
@@ -2573,7 +2579,6 @@ root@server's password: </computeroutput>
 	<para>All these subcommands take a virtual machine identifier as a
 	parameter.</para>
       </section>
-      <!-- TODO: continuer ici -->
       <section>
         <title>Installing an RPM based system in Debian with yum</title>
 
@@ -2585,85 +2590,29 @@ root@server's password: </computeroutput>
 	done using the <command>yum</command> utility (available in the package
 	of the same name).</para>
 	
-	<para>The procedure requires setting up a
-	<filename>yum.conf</filename> file containing the necessary
-	parameters, including the path to the source RPM repositories,
-	the path to the plugin configuration, and the destination
-	folder. For this example, we will assume that the environment
-	will be stored in <filename>/var/tmp/yum-bootstrap</filename>. The file
-	<filename>/var/tmp/yum-bootstrap/yum.conf</filename> file should look like
-	this:</para>
-	
-<programlisting>[main]
-reposdir=/var/tmp/yum-bootstrap/repos.d
-pluginconfpath=/var/tmp/yum-bootstrap/pluginconf.d
-cachedir=/var/cache/yum
-installroot=/path/to/destination/domU/install
-exclude=$exclude
-keepcache=1
-#debuglevel=4  
-#errorlevel=4
-pkgpolicy=newest
-distroverpkg=centos-release
-tolerant=1
-exactarch=1
-obsoletes=1
-gpgcheck=1
-plugins=1
-metadata_expire=1800</programlisting>
+        <para>The procedure requires using <command>rpm</command> to extract an
+        initial set of files, including notably <command>yum</command>
+        configuration files. And then calling <command>yum</command> to extract
+        the remaining set of packages. But since we call <command>yum</command>
+        from outside the chroot, we need to make some temporary changes.
+        In the sample below, the target chroot is
+        <filename>/srv/centos</filename>.</para>
 
-	    <para>The
-	    <filename>/var/tmp/yum-bootstrap/repos.d</filename>
-	    directory should contain the descriptions of the RPM
-            source repositories in <filename>*.repo</filename> files, just
-            as in <filename>/etc/yum.repos.d</filename> in an already
-	    installed RPM-based system. Here is an example for a
-	    CentOS 6 installation:</para>
-
-<programlisting>[base]
-name=CentOS-6 - Base
-#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os
-gpgcheck=1
-gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6
-   
-[updates]
-name=CentOS-6 - Updates
-#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates
-gpgcheck=1
-gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6
-
-[extras]
-name=CentOS-6 - Extras
-#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras
-gpgcheck=1
-gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6
-
-[centosplus]
-name=CentOS-6 - Plus
-#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus
-gpgcheck=1
-gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6
-</programlisting>
-
-	    <para>Finally,
-	    <filename>pluginconf.d/installonlyn.conf</filename> file
-	    should contain the following:</para>
-<programlisting>[main]
-enabled=1
-tokeep=5
-</programlisting>
-
-	    <para>Once all this is setup, make sure the
-	    <command>rpm</command> databases are correctly
-	    initialized, with a command such as <command>rpm
-	    --rebuilddb</command>.  An installation of CentOS 6 is
-	    then a matter of the following:</para>
-
-<screen><userinput>yum -c /var/tmp/yum-bootstrap/yum.conf -y install coreutils basesystem centos-release yum-basearchonly initscripts</userinput></screen>
+        <screen>
+<computeroutput># </computeroutput><userinput>rootdir="/srv/centos"</userinput>
+<computeroutput># </computeroutput><userinput>mkdir -p "$rootdir" /etc/rpm</userinput>
+<computeroutput># </computeroutput><userinput>echo "%_dbpath /var/lib/rpm" > /etc/rpm/macros.dbpath</userinput>
+<computeroutput># </computeroutput><userinput>wget http://mirror.centos.org/centos/7/os/x86_64/Packages/centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>
+<computeroutput># </computeroutput><userinput>rpm --nodeps --root "$rootdir" -i centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>
+<computeroutput>rpm: RPM should not be used directly install RPM packages, use Alien instead!
+rpm: However assuming you know what you are doing...
+warning: centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+</computeroutput>
+<computeroutput># </computeroutput><userinput>sed -i -e "s,gpgkey=file:///etc/,gpgkey=file://${rootdir}/etc/,g" $rootdir/etc/yum.repos.d/*.repo</userinput>
+<computeroutput># </computeroutput><userinput>yum --assumeyes --installroot $rootdir groupinstall core</userinput>
+[...]
+<computeroutput># </computeroutput><userinput>sed -i -e "s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g" $rootdir/etc/yum.repos.d/*.repo</userinput>
+        </screen>
       </section>
     </section>
   </section>
@@ -2851,7 +2800,8 @@ tokeep=5
 	to reading. The
 	<citerefentry><refentrytitle>debconf.conf</refentrytitle>
 	<manvolnum>5</manvolnum></citerefentry> manual page describes all
-	the possibilities in detail.</para>
+        the possibilities in detail (you need the <emphasis
+        role="pkg">debconf-doc</emphasis> package).</para>
       </sidebar>
       <section>
         <title>Using a Preseed File</title>
@@ -2911,8 +2861,7 @@ tokeep=5
 	    packages;</para>
           </listitem>
           <listitem>
-	    <para>the second field is an identifier for the
-	    question;</para>
+	    <para>the second field is an identifier for the question;</para>
           </listitem>
           <listitem>
 	    <para>third, the type of question;</para>
@@ -2944,9 +2893,9 @@ tokeep=5
 	  documentation on the use of a preseed file in an appendix. It
 	  also includes a detailed and commented sample file, which can
 	  serve as a base for local customizations. <ulink type="block"
-	  url="http://www.debian.org/releases/wheezy/amd64/apb.html"/>
+	  url="https://www.debian.org/releases/jessie/amd64/apb.html"/>
 	  <ulink type="block"
-	  url="http://www.debian.org/releases/wheezy/example-preseed.txt"/></para>
+	  url="https://www.debian.org/releases/jessie/example-preseed.txt"/></para>
         </sidebar>
       </section>
       <section>
@@ -2966,7 +2915,7 @@ tokeep=5
 	  <filename>/tftpboot/pxelinux.cfg/default</filename> configuration
 	  file. Setting up network boot is a prerequisite; see the
 	  Installation Guide for details. <ulink type="block"
-	  url="http://www.debian.org/releases/wheezy/amd64/ch04s05.html"/></para>
+	  url="https://www.debian.org/releases/jessie/amd64/ch04s05.html"/></para>
         </section>
         <section>
           <title>Preparing a Bootable USB Key</title>
@@ -2990,7 +2939,7 @@ tokeep=5
             <title>syslinux.cfg file and preseeding parameters</title>
 
             <programlisting>default vmlinuz
-append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --
+append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --
 </programlisting>
           </example>
         </section>
@@ -3024,7 +2973,7 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
 	  as its bootloader, and its configuration file must be adapted
 	  from what debian-cd generated, in order to insert the required
 	  boot parameters (the specific file is
-	  <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename>).
+	  <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>).
 	  Then the “normal” process can be resumed, and we can go on to
 	  generating the ISO image with <command>make image CD=1</command>
 	  (or <command>make images</command> if several CD-ROMs are
@@ -3188,7 +3137,7 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
 	profiles, the remaining step is to invoke <command>build-simple-cdd
 	--conf simple-cdd.conf</command>. After a few minutes, we get the
 	required image in
-	<filename>images/debian-7.0-amd64-CD-1.iso</filename>.</para>
+	<filename>images/debian-8.0-amd64-CD-1.iso</filename>.</para>
       </section>
     </section>
   </section>
@@ -3222,12 +3171,14 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
       other). Zabbix, on the other hand, integrates both parts of
       monitoring; it also has a web interface for configuring the most
       common aspects. It has grown by leaps and bounds during the last few
-      years, and can now be considered a viable contender;
-      unfortunately, Zabbix isn't present in Debian
-      <emphasis role="distribution">Wheezy</emphasis> due to
-      timing issues in the release process, but packages will be
-      provided as backports or in unofficial repositories.  <ulink
-      type="block" url="http://www.zabbix.org/"/></para>
+      years, and can now be considered a viable contender. On the monitoring
+      server, you would install <emphasis role="pkg">zabbix-server-pgsql</emphasis>
+      (or <emphasis role="pkg">zabbix-server-mysql</emphasis>), possibly
+      together with <emphasis role="pkg">zabbix-frontend-php</emphasis>
+      to have a web interface. On the hosts to monitor you would install
+      <emphasis role="pkg">zabbix-agent</emphasis> feeding data back to the
+      server.
+      <ulink type="block" url="http://www.zabbix.com/"/></para>
     </sidebar>
 
     <sidebar>
@@ -3238,8 +3189,8 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
       model for Nagios (which is controlled by a company), a number of
       developers forked Nagios and use Icinga as their new name. Icinga is
       still compatible — so far — with Nagios configurations and
-      plugins, but it also adds extra features. <ulink type="block"
-      url="http://www.icinga.org/"/></para>
+      plugins, but it also adds extra features.
+      <ulink type="block" url="http://www.icinga.org/"/></para>
     </sidebar>
     <section id="sect.munin">
       <title>Setting Up Munin</title>
@@ -3266,10 +3217,10 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
 	determined based on the available software and the current
 	configuration of the host. However, this autoconfiguration depends
 	on a feature that each plugin must provide, and it is usually a
-	good idea to review and tweak the results by hand. It would be
-	interesting to have comprehensive documentation for each plugin,
-	but unfortunately there's no such official documentation. However,
-	all plugins are scripts and most are rather simple and
+        good idea to review and tweak the results by hand. Browsing
+        the <ulink url="http://gallery.munin-monitoring.org">Plugin Gallery</ulink>
+        can be interesting even though not all plugins have comprehensive
+        documentation. However, all plugins are scripts and most are rather simple and
 	well-commented. Browsing <filename>/etc/munin/plugins/</filename>
 	is therefore a good way of getting an idea of what each plugin is
 	about and determining which should be removed. Similarly, enabling
@@ -3291,17 +3242,15 @@ append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap
 	default configuration is <literal>allow ^127\.0\.0\.1$</literal>,
 	and only allows access to the local host. An administrator will
 	usually add a similar line containing the IP address of the grapher
-	host, then restart the daemon with <command>invoke-rc.d munin-node
+	host, then restart the daemon with <command>service munin-node
 	restart</command>.</para>
 
         <sidebar>
           <title><emphasis>GOING FURTHER</emphasis> Creating local plugins</title>
 
-	  <para>Despite the lack of official documentation for standard
-	  plugins, Munin does include detailed documentation on how plugins
+	  <para>Munin does include detailed documentation on how plugins
 	  should behave, and how to develop new plugins. <ulink
-	  type="block"
-	  url="http://munin-monitoring.org/wiki/Documentation"/></para>
+	  type="block" url="http://munin-monitoring.org/wiki/plugins"/></para>
 
 	  <para>A plugin is best tested when run in the same conditions as
 	  it would be when triggered by munin-node; this can be simulated
@@ -3328,9 +3277,9 @@ load.info 5 minute load average
 </screen>
 
 	  <para>The various available fields are described by the
-	  “configuration protocol” specification available on the Munin
-	  website. <ulink type="block"
-	  url="http://munin-monitoring.org/wiki/protocol-config"/></para>
+            “Plugin reference” available as part of the “Munin guide”.
+          <ulink type="block"
+            url="http://munin.readthedocs.org/en/latest/reference/plugin.html"/></para>
 
 	  <para>When invoked without a parameter, the plugin simply returns
 	  the last measured values; for instance, executing <command>sudo
@@ -3426,11 +3375,11 @@ load.info 5 minute load average
 	also need to set up write permissions for the directory used by
 	Nagios, with commands such as the following:</para>
 
-        <screen><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>
+        <screen><computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>
 <computeroutput>[...]
 # </computeroutput><userinput>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw
 </userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3
-</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 start</userinput>
+</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>
 <computeroutput>[...]</computeroutput>
 </screen>
       </section>
