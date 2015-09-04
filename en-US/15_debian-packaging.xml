@@ -43,9 +43,9 @@
     role="distribution">Stable</emphasis> distribution; this operation
     is called “backporting”. As usual, care should be taken, before
     undertaking such a task, to check whether it has been done
-    already — a quick look on the Package Tracking System's page for
+    already — a quick look on the Debian Package Tracker for
     that package will reveal that information.
-    <ulink type="block" url="http://packages.qa.debian.org/"/>
+    <ulink type="block" url="https://tracker.debian.org/"/>
     <indexterm><primary>backport</primary></indexterm>
     </para>
     <section>
@@ -59,7 +59,7 @@
       files (i.e. <command>apt-get update</command>). These conditions
       should already be met if you followed the instructions from the
       chapter dealing with APT configuration (see <xref
-      linkend="sect.apt-sources.list"/>). Note however, that you'll be
+      linkend="sect.apt-sources.list"/>). Note however, that you will be
       downloading the source packages from the Debian version mentioned in
       the <literal>deb-src</literal> line. If you need another version, you
       may need to download it manually from a Debian mirror or from the web
@@ -70,33 +70,34 @@
       sometimes <filename>*.diff.gz</filename> or
       <filename>*.debian.tar.<replaceable>comp</replaceable></filename> —
       <replaceable>comp</replaceable> taking one value among
-      <literal>gz</literal>, <literal>bz2</literal>,
-      <literal>lzma</literal> or <literal>xz</literal> depending on the
+      <literal>gz</literal>, <literal>bz2</literal>
+      or <literal>xz</literal> depending on the
       compression tool in use), then run the <command>dpkg-source -x
       <replaceable>file.dsc</replaceable></command> command. If the
       <filename>*.dsc</filename> file is directly accessible at a given
-      URL, there's an even simpler way to fetch it all, with the
+      URL, there is an even simpler way to fetch it all, with the
       <command>dget <replaceable>URL</replaceable></command> command. This
       command (which can be found in the <emphasis
       role="pkg">devscripts</emphasis> package) fetches the
       <filename>*.dsc</filename> file at the given address, then analyzes
       its contents, and automatically fetches the file or files referenced
-      within. With the <literal>-x</literal> option, the source package is
-      even unpacked locally after download.</para>
+      within. Once everything has been downloaded, it extracts the source
+      package (unless the <literal>-d</literal> or
+      <literal>--download-only</literal> option is used).</para>
     </section>
     <section>
       <title>Making Changes</title>
 
       <para>The source of the package is now available in a directory named
       after the source package and its version (for instance,
-      <emphasis>samba-3.6.16</emphasis>); this is where we'll work on our
+      <emphasis>samba-4.1.17+dfsg</emphasis>); this is where we'll work on our
       local changes.</para>
 
       <para>The first thing to do is to change the package version number,
       so that the rebuilt packages can be distinguished from the original
       packages provided by Debian. Assuming the current version is
-      <literal>3.6.16-2</literal>, we can create version
-      <literal>3.6.16-2falcot1</literal>, which clearly indicates the
+      <literal>2:4.1.17+dfsg-2</literal>, we can create version
+      <literal>2:4.1.17+dfsg-2falcot1</literal>, which clearly indicates the
       origin of the package. This makes the package version number higher
       than the one provided by Debian, so that the package will easily
       install as an update to the original package. Such a change is best
@@ -105,7 +106,7 @@
       role="pkg">devscripts</emphasis> package, with an command such as
       <command>dch --local falcot</command>. This invokes a
       text editor (<command>sensible-editor</command> — this should be
-      your favorite editor if it's mentioned in the
+      your favorite editor if it is mentioned in the
       <varname>VISUAL</varname> or <varname>EDITOR</varname> environment
       variables, and the default editor otherwise) to allow documenting the
       differences brought by this rebuild. This editor shows us that
@@ -121,7 +122,11 @@
       easy to spot. If these commands are not explicitly called, they
       are probably a side effect of another explicit command, in which
       case please refer to their documentation to learn more about how
-      to change the default behavior.</para>
+      to change the default behavior. With packages using
+      <command>dh</command>, you might need to add an override
+      for the <command>dh_auto_configure</command> or
+      <command>dh_auto_build</command> commands (see their respective
+      manual pages for explanations on how to achieve this).</para>
 
       <para>Depending on the local changes to the packages, an update may
       also be required in the <filename>debian/control</filename> file,
@@ -155,9 +160,8 @@
 
       <sidebar>
         <title><emphasis>TIP</emphasis> Installing <literal>Build-Depends</literal></title>
-
-	<para><indexterm><primary><literal>Build-Depends</literal>, control
-	field</primary></indexterm> <command>apt-get</command> allows
+        <indexterm><primary><literal>Build-Depends</literal>, control field</primary></indexterm> 
+	<para><command>apt-get</command> allows
 	installing all packages mentioned in the
 	<literal>Build-Depends</literal> fields of a source package
 	available in a distribution mentioned in a
@@ -275,7 +279,7 @@
       This allows satisfying dependencies on a package when the
       corresponding software was installed outside the scope of the
       packaging system. Such a method works, but it should still be avoided
-      whenever possible, since there's no guarantee that the manually
+      whenever possible, since there is no guarantee that the manually
       installed software behaves exactly like the corresponding package
       would and other packages depending on it would not work
       properly.</para>
@@ -304,12 +308,12 @@
         <programlisting>
 Section: perl
 Priority: optional
-Standards-Version: 3.8.4
+Standards-Version: 3.9.6
 
 Package: libxml-libxml-perl
-Version: 1.57-1
+Version: 2.0116-1
 Maintainer: Raphael Hertzog &lt;hertzog@debian.org&gt;
-Depends: libxml2 (&gt;= 2.6.6)
+Depends: libxml2 (&gt;= 2.7.4)
 Architecture: all
 Description: Fake package - module manually installed in site_perl
  This is a fake package to let the packaging system
@@ -334,7 +338,7 @@ Description: Fake package - module manually installed in site_perl
       of machines. The administrator in charge of this task first reads the
       “New Maintainer's Guide”, then starts working on their first
       package. <ulink type="block"
-      url="http://www.debian.org/doc/maint-guide/"/></para>
+        url="https://www.debian.org/doc/manuals/maint-guide/"/></para>
 
       <para>The first step is creating a
       <filename>falcot-data-1.0</filename> directory to contain the target
@@ -351,16 +355,15 @@ Description: Fake package - module manually installed in site_perl
 <computeroutput>$ </computeroutput><userinput>cd falcot-data-1.0</userinput>
 <computeroutput>$ </computeroutput><userinput>dh_make --native</userinput>
 <computeroutput>
-Type of package: single binary, indep binary, multiple binary, library, kernel module, kernel patch or cdbs?
- [s/i/m/l/k/n/b] </computeroutput><userinput>i</userinput>
+Type of package: single binary, indep binary, multiple binary, library, kernel module, kernel patch?
+ [s/i/m/l/k/n] </computeroutput><userinput>i</userinput>
 <computeroutput>
 Maintainer name : Raphael Hertzog
 Email-Address   : hertzog@debian.org
-Date            : Mon, 11 Apr 2011 15:11:36 +0200
+Date            : Fri, 04 Sep 2015 12:09:39 -0400
 Package Name    : falcot-data
 Version         : 1.0
-License         : blank
-Usind dpatch    : no
+License         : gpl3
 Type of Package : Independent
 Hit &lt;enter&gt; to confirm:
 Currently there is no top level Makefile. This may require additional tuning.
@@ -369,27 +372,27 @@ check that the falcot-data Makefiles install into $DESTDIR and not in / .
 $</computeroutput>
 </screen>
 
-      <para>The selected type of package (<emphasis>single
+      <para>The selected type of package (<emphasis>indep
       binary</emphasis>) indicates that this source package will generate a
-      single binary package depending on the architecture
-      (<literal>Architecture: any</literal>). <emphasis>indep
+      single binary package that can be shared across all architectures
+      (<literal>Architecture: all</literal>). <emphasis>single
       binary</emphasis> acts as a counterpart, and leads to a single binary
-      package that is not dependent on the target architecture
-      (<literal>Architecture: all</literal>). In this case, the latter
+      package that is dependent on the target architecture
+      (<literal>Architecture: any</literal>). In this case, the former
       choice is more relevant since the package only contains documents and
       no binary programs, so it can be used similarly on computers of all
       architectures.</para>
+
+      <indexterm><primary>package types</primary></indexterm>
+      <indexterm><primary>package</primary><secondary>types</secondary></indexterm>
 
       <para>The <emphasis>multiple binary</emphasis> type corresponds to a
       source package leading to several binary packages. A particular case,
       <emphasis>library</emphasis>, is useful for shared libraries, since
       they need to follow strict packaging rules. In a similar fashion,
-      <emphasis>kernel module</emphasis> should be restricted to packages
-      containing kernel modules. Finally, <emphasis>cdbs</emphasis> is a
-      specific package build system; it is rather flexible, but it requires
-      some amount of learning. <indexterm><primary>package
-      types</primary></indexterm>
-      <indexterm><primary>package</primary><secondary>types</secondary></indexterm></para>
+      <emphasis>kernel module</emphasis> or <emphasis>kernel patch</emphasis>
+      should be restricted to packages containing kernel modules.
+      </para>
 
       <sidebar>
         <title><emphasis>TIP</emphasis> Maintainer's name and email address</title>
@@ -399,10 +402,9 @@ $</computeroutput>
 	<varname>DEBFULLNAME</varname> and <varname>DEBEMAIL</varname> or
 	<varname>EMAIL</varname> environment variables. Defining them once
 	and for all will avoid you having to type them multiple times. If
-	your usual shell is <command>bash</command>, it's a simple matter
+	your usual shell is <command>bash</command>, it is a simple matter
 	of adding the following two lines in your
-	<filename>~/.bashrc</filename> and
-	<filename>~/.bash_profile</filename> files (you will obviously
+	<filename>~/.bashrc</filename> file (you will obviously
 	replace the values with more relevant ones!):</para>
 
         <programlisting>
@@ -450,8 +452,8 @@ Source: falcot-data
 Section: misc
 Priority: optional
 Maintainer: Raphael Hertzog &lt;hertzog@debian.org&gt;
-Build-Depends: debhelper (&gt;= 7.0.50~)
-Standards-Version: 3.8.4
+Build-Depends: debhelper (&gt;= 9)
+Standards-Version: 3.9.5
 
 Package: falcot-data
 Architecture: all
@@ -478,7 +480,7 @@ falcot-data (1.0) internal; urgency=low
     - internal company structure;
     - contacts for each department.
 
- -- Raphael Hertzog &lt;hertzog@debian.org&gt;  Mon, 11 Apr 2011 20:46:33 +0200
+ -- Raphael Hertzog &lt;hertzog@debian.org&gt;  Fri, 04 Sep 2015 12:09:39 -0400
 </programlisting>
       </example>
 
@@ -486,16 +488,13 @@ falcot-data (1.0) internal; urgency=low
         <title>The <filename>copyright</filename> file</title>
 
         <programlisting>
-This work was packaged for Debian by Raphael Hertzog &lt;hertzog@debian.org&gt;
-on Mon, 11 Apr 2011 20:46:33 +0200
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: falcot-data
 
-Copyright:
-
-    Copyright (C) 2004-2011 Falcot Corp
-
-License:
-
-    All rights reserved.
+Files: *
+Copyright: 2004-2015 Falcot Corp
+License: 
+ All rights reserved.
 </programlisting>
       </example>
 
@@ -557,55 +556,32 @@ data/* usr/share/falcot-data/
 
       <para>At this point, the package can be created. We will however add
       a lick of paint. Since the administrators want the documents to be
-      easily accessed from the Help menus of graphical desktop environments,
-      we create an entry in the Debian menu system. This is simply done by
-      renaming the <filename>debian/menu.ex</filename> without its
-      extension and editing it as follows:</para>
+      easily accessed from the menus of graphical desktop environments,
+      we add a <filename>falcot-data.desktop</filename> file and
+      get it installed in <filename>/usr/share/applications</filename>
+      by adding a second line to <filename>debian/falcot-data.install</filename>.
+      </para>
 
       <example>
-        <title>The <filename>menu</filename> file</title>
+        <title>The <filename>falcot-data.desktop</filename> file</title>
 
         <programlisting>
-?package(falcot-data):needs=X11|wm section=Help\
-  title="Internal Falcot Corp Documentation" \
-  command="/usr/bin/x-www-browser /usr/share/falcot-data/index.html"
-?package(falcot-data):needs=text section=Help\
-  title="Internal Falcot Corp Documentation" \
-  command="/usr/bin/www-browser /usr/share/falcot-data/index.html"
+[Desktop Entry]
+Name=Internal Falcot Corp Documentation
+Comment=Starts a browser to read the documentation
+Exec=x-www-browser /usr/share/falcot-data/index.html
+Terminal=false
+Type=Application
+Categories=Documentation;
 </programlisting>
       </example>
 
-      <para>The <literal>needs</literal> field, when set to
-      <literal>X11|wm</literal> indicates that this entry only makes sense
-      in a graphical interface. It will therefore only be integrated into
-      the menus of the graphical (X11) applications and window managers
-      (hence the <literal>wm</literal>). The <literal>section</literal>
-      field states where in the menu the entry should be displayed. In our
-      case, the entry will be in the Help menu. The
-      <literal>title</literal> field contains the text that will be
-      displayed in the menu. Finally, the <literal>command</literal> field
-      describes the command to run when the user selects the menu
-      entry.</para>
-
-      <para>The second entry matches the first one, with slight adaptations
-      adapted to the Linux console text mode.</para>
-
-      <sidebar>
-        <title><emphasis>DEBIAN POLICY</emphasis> Menu organization</title>
-
-	<para>The Debian menus are organized in a formal structure,
-	documented in the following text: <ulink type="block"
-	url="http://www.debian.org/doc/packaging-manuals/menu-policy/"/></para>
-
-	<para>The <literal>section</literal> in a <filename>menu</filename>
-	file should be picked from the list mentioned in this
-	document.</para>
-      </sidebar>
-
-      <para>Simply creating the <filename>debian/menu</filename> file is
-      enough to enable the menu in the package, since the
-      <command>dh_installmenu</command> command is automatically invoked by
-      <command>dh</command> during the package build process.</para>
+      <para>The updated <filename>debian/falcot-data.install</filename> looks
+      like this:</para>
+      <programlisting>
+data/* usr/share/falcot-data/
+falcot-data.desktop usr/share/applications/
+</programlisting>
 
       <para>Our source package is now ready. All that's left to do is to
       generate the binary package, with the same method we used previously
@@ -627,7 +603,7 @@ data/* usr/share/falcot-data/
     in a package archive that can be directly used by APT. For obvious
     maintenance reasons, they wish to separate internal packages from
     locally-rebuilt packages. The goal is for the matching entries in a
-    <filename>/etc/apt/sources.list</filename> file to be as
+    <filename>/etc/apt/sources.list.d/falcot.list</filename> file to be as
     follows:</para>
 
     <programlisting>
@@ -763,8 +739,7 @@ release_label = Internal Packages
       <title><emphasis>EXTRA</emphasis> Generating a signed archive</title>
 
       <para>The APT suite checks a chain of cryptographic signatures on the
-      packages it handles before installing them (and has done so since
-      <emphasis role="distribution">Etch</emphasis>), in order to ensure
+      packages it handles before installing them, in order to ensure
       their authenticity (see <xref
       linkend="sect.package-authentication"/>). Private APT archives can
       then be a problem, since the machines using them will keep displaying
@@ -801,11 +776,10 @@ release_label = Internal Packages
 	There is no requirement to know them by heart, but rather to know
 	they exist and to refer to them whenever a choice presents a
 	non-trivial alternative. Every Debian maintainer has made mistakes
-	by not knowing about a rule, but this is not a huge problem as soon
-	as the error is fixed when a user reports it as a bug report, which
-	tends to happen fairly soon thanks to advanced users. <ulink
-	type="block"
-	url="http://www.debian.org/doc/debian-policy/"/></para>
+	by not knowing about a rule, but this is not a huge problem as long 
+	as the error gets fixed when a user reports it as a bug report (which
+        tends to happen fairly soon thanks to advanced users).
+        <ulink type="block" url="https://www.debian.org/doc/debian-policy/"/></para>
       </section>
       <section>
         <title>Procedures</title>
@@ -822,7 +796,7 @@ release_label = Internal Packages
 	best possible advantages of the available resources. This document
 	also enumerates a number of duties a developer is expected to
 	fulfill. <ulink type="block"
-	url="http://www.debian.org/doc/developers-reference/"/></para>
+          url="https://www.debian.org/doc/manuals/developers-reference/"/></para>
       </section>
       <section>
         <title>Tools</title>
@@ -837,8 +811,8 @@ release_label = Internal Packages
 
 	  <para>This tool is one of the most important: it's the Debian
 	  package checker. It is based on a large array of tests created
-	  from the Debian policy, and detects quickly and automatically a
-	  great many errors that can be fixed before packages are
+	  from the Debian policy, and detects quickly and automatically
+	  many errors that can then be fixed before packages are
 	  released.</para>
 
 	  <para>This tool is only a helper, and it sometimes gets it wrong
@@ -931,15 +905,13 @@ release_label = Internal Packages
           <title><emphasis role="pkg">debhelper</emphasis> and <emphasis role="pkg">dh-make</emphasis></title>
           <indexterm><primary><emphasis>debhelper</emphasis></primary></indexterm>
           <indexterm><primary><emphasis>dh-make</emphasis></primary></indexterm>
-          <indexterm><primary>Hess, Joey</primary></indexterm>
 
 	  <para>Debhelper is a set of scripts easing the creation of
 	  policy-compliant packages; these scripts are invoked from
 	  <filename>debian/rules</filename>. Debhelper has been widely
 	  adopted within Debian, as evidenced by the fact that it is used
 	  by the majority of official Debian packages. All the commands it
-	  contains have a <command>dh_</command> prefix. Debhelper is
-	  mainly developed by Joey Hess.</para>
+          contains have a <command>dh_</command> prefix.</para>
 
 	  <para>The <command>dh_make</command> script (in the
 	  <emphasis>dh-make</emphasis> package) creates files required for
@@ -947,22 +919,6 @@ release_label = Internal Packages
 	  the sources for a piece of software. As can be guessed from the
 	  name of the program, the generated files use Debhelper by
 	  default.</para>
-
-          <sidebar>
-            <title><emphasis>ALTERNATIVE</emphasis> CDBS</title>
-
-	    <para><emphasis role="pkg">cdbs</emphasis> is another approach
-	    to Debian packaging, based exclusively on an inheritance system
-	    across <filename>Makefile</filename> files.</para>
-
-	    <para>That tool has its advocates, since it avoids duplicating
-	    the same list of <command>dh_*</command> commands in the
-	    <filename>debian/rules</filename> file. However, Debhelper
-	    version 7 introduced the <command>dh</command> command, which
-	    itself automates the appropriate sequence of calls to all the
-	    individual commands in the correct order, and CDBS has lost
-	    most of its appeal since then.</para>
-          </sidebar>
         </section>
         <section>
           <title><command>dupload</command> and <command>dput</command></title>
@@ -983,23 +939,24 @@ release_label = Internal Packages
     <section>
       <title>Acceptance Process</title>
 
-      <para>Becoming a Debian developer is not a simple administrative
+      <para>Becoming a “Debian developer” is not a simple administrative
       matter. The process comprises several steps, and is as much an
       initiation as it is a selection process. In any case, it is
       formalized and well-documented, so anyone can track their progression
-      on the website dedicated to the new member process. <ulink
-      type="block" url="http://nm.debian.org/"/></para>
+      on the website dedicated to the new member process.
+      <ulink type="block" url="https://nm.debian.org/"/></para>
 
       <sidebar>
         <title><emphasis>EXTRA</emphasis> Lightweight process for “Debian Maintainers”</title>
 
-	<para>A “Debian Maintainer” status has recently been
-	introduced. The associated process is quicker, and the privileges
-	granted by this status are only enough to maintain one's own
-	packages. A Debian developer only needs to perform a check on an
-	initial upload, and issue a statement to the effect that they trust
-	the prospective maintainer with the ability to maintain the package
-	on their own.</para>
+        <para>“Debian Maintainer” is another status that gives less
+          privileges than “Debian developer” but whose associated process
+          is quicker. With this status, the contributors can maintain
+          their own packages only. A Debian developer only needs to perform
+          a check on an initial upload, and issue a statement to the
+          effect that they trust the prospective maintainer with the
+          ability to maintain the package on their own.
+        </para>
         <indexterm><primary>Debian Maintainer</primary></indexterm>
       </sidebar>
       <section>
@@ -1032,20 +989,20 @@ release_label = Internal Packages
 	publicly touted, they can try to convince a Debian developer to
 	advocate them by showing their work in a private way.</para>
 
+        <indexterm><primary>key pair</primary></indexterm>
 	<para>At the same time, the candidate must generate a
-	public/private RSA key pair <indexterm><primary>key
-	pair</primary></indexterm> with GnuPG, which should be signed
+	public/private RSA key pair with GnuPG, which should be signed
 	by at least two official Debian developers. The signature
 	authenticates the name on the key. Effectively, during a key
 	signing party, each participant must show an official
 	identification (usually an ID card or passport) together with
-	their key identifiers. This step makes the link between the
-	human and the keys official. This signature thus requires
+	their key identifiers. This step confirms the link between the
+	human and the keys. This signature thus requires
 	meeting in real life.  If you have not yet met any Debian
 	developers in a public free software conference, you can
 	explicitly seek developers living nearby using the list on the
 	following webpage as a starting point.  <ulink type="block"
-	url="http://wiki.debian.org/Keysigning"/></para>
+	url="https://wiki.debian.org/Keysigning"/></para>
 
 	<para>Once the registration on <literal>nm.debian.org</literal> has
 	been validated by the advocate, an <emphasis>Application
@@ -1057,11 +1014,7 @@ release_label = Internal Packages
 	have a key signed by two Debian developers, this step is easy;
 	otherwise, the application manager will try and guide you in your
 	search for Debian developers close by to organize a meet-up and a
-	key signing. At the very beginning of the process, when the number
-	of developers was small, there was an exception to this procedure
-	which allowed this step to be completed with a digital scan of
-	official identification documents; this is no longer the
-	case.</para>
+	key signing.</para>
       </section>
       <section>
         <title>Accepting the Principles</title>
@@ -1092,11 +1045,11 @@ release_label = Internal Packages
 	which candidates who eventually join the project are integrated as
 	another piece of an infinitely extensible jigsaw puzzle.</para>
 
+        <indexterm><primary><emphasis>Philosophy &amp; Procedures</emphasis></primary></indexterm>
 	<para>This step is usually known as the <emphasis>Philosophy &amp;
 	Procedures</emphasis> (P&amp;P for short) in the lingo of the
 	developers involved in the new member process.
-	<indexterm><primary><emphasis>Philosophy &amp;
-	Procedures</emphasis></primary></indexterm></para>
+	</para>
       </section>
       <section>
         <title>Checking Skills</title>
@@ -1123,7 +1076,6 @@ release_label = Internal Packages
         <sidebar>
           <title><emphasis>COMMUNITY</emphasis> Sponsoring</title>
           <indexterm><primary>sponsoring</primary></indexterm>
-          <indexterm><primary>sponsoring</primary></indexterm>
 
 	  <para>Debian developers can “sponsor” packages prepared by
 	  someone else, meaning that they publish them in the official
@@ -1143,10 +1095,10 @@ release_label = Internal Packages
 	discriminate, but to ensure at least a modicum of knowledge common
 	to new contributors.</para>
 
+        <indexterm><primary><emphasis>Tasks &amp; Skills</emphasis></primary></indexterm>
 	<para>This step is known as the <emphasis>Tasks &amp;
 	Skills</emphasis> step (T&amp;S for short) in the examiners'
-	jargon.  <indexterm><primary><emphasis>Tasks &amp;
-	Skills</emphasis></primary></indexterm></para>
+	jargon.</para>
       </section>
       <section>
         <title>Final Approval</title>
@@ -1162,9 +1114,8 @@ release_label = Internal Packages
 	is free to try again at a later time.</para>
 
 	<para>The DAM's decision is authoritative and (almost) without
-	appeal, which explains why the people in that seat (currently,
-	Jörg Jaspert, Christoph Berg and Enrico Zini) have often been
-	criticized in the past.</para>
+        appeal, which explains why the people in that seat have often been
+        criticized in the past.</para>
       </section>
     </section>
   </section>
