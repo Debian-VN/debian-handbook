@@ -38,7 +38,6 @@
       <indexterm><primary><command>man</command></primary></indexterm>
       <indexterm><primary><command>apropos</command></primary></indexterm>
       <indexterm><primary>manual pages</primary></indexterm>
-      <indexterm><primary>manual pages</primary></indexterm>
 
       <sidebar>
         <title><emphasis>CULTURE</emphasis> <acronym>RTFM</acronym></title>
@@ -186,8 +185,11 @@
 <computeroutput>$ </computeroutput><userinput>apropos "copy file"</userinput>
 <computeroutput>cp (1)               - copy files and directories
 cpio (1)             - copy files to and from archives
+gvfs-copy (1)        - Copy files
+gvfs-move (1)        - Copy files
 hcopy (1)            - copy files from or to an HFS volume
 install (1)          - copy files and set attributes
+ntfscp (8)           - copy file to an NTFS volume.
 </computeroutput>
 </screen>
       </example>
@@ -238,21 +240,20 @@ install (1)          - copy files and set attributes
       <para>The GNU project has written manuals for most of its programs in
       the <emphasis>info</emphasis> format; this is why many manual pages
       refer to the corresponding <emphasis>info</emphasis> documentation.
-      This format offers some advantages, but the program to view these
-      documents is also slightly more complex.</para>
+      This format offers some advantages, but the default program to view these
+      documents (it is called <command>info</command>) is also slightly more
+      complex. You would be well advised to use <command>pinfo</command>
+      instead (from the <emphasis role="pkg">pinfo</emphasis> package).</para>
+      <indexterm><primary><command>pinfo</command></primary></indexterm>
 
-      <para>It is of course called <command>info</command>, and it takes
-      the name of the “node” to be consulted as argument. The
-      <emphasis>info</emphasis> documentation has a hierarchical structure,
-      and if you invoke <command>info</command> without parameters, it will
-      display a list of the nodes available at the first level. Usually,
-      nodes bear the name of the corresponding commands.</para>
+      <para>The <emphasis>info</emphasis> documentation has a hierarchical
+      structure, and if you invoke <command>pinfo</command> without
+      parameters, it will display a list of the nodes available at the
+      first level. Usually, nodes bear the name of the corresponding
+      commands.</para>
 
-      <para>The navigation controls in the documentation are not
-      particularly intuitive. The best method to familiarize yourself with
-      the program is probably to invoke it, then enter
-      <userinput>h</userinput> (for “help”), and then follow the
-      instructions to learn through practice. Alternatively, you could also
+      <para>With <command>pinfo</command> navigating between these nodes
+      is easy to achieve with the arrow keys. Alternatively, you could also
       use a graphical browser, which is a lot more user-friendly. Again,
       <command>konqueror</command> and <command>yelp</command> work; the
       <command>info2www</command> also provides a web interface. <ulink
@@ -262,7 +263,7 @@ install (1)          - copy files and set attributes
       <para>Note that the <emphasis>info</emphasis> system does not allow
       translation, unlike the <command>man</command> page system.
       <emphasis>info</emphasis> documents are thus always in English.
-      However, when you ask the <command>info</command> program to display
+      However, when you ask the <command>pinfo</command> program to display
       a non-existing <emphasis>info</emphasis> page, it will fall back on
       the <emphasis>man</emphasis> page by the same name (if it exists),
       which might be translated.</para>
@@ -345,20 +346,20 @@ install (1)          - copy files and set attributes
       The Debian maintainer generally indicates in this file where they got
       the program's source code, and this is likely to be the website that
       you need to find. If at this stage your search is still unfruitful,
-      consult a free software directory, such as Freecode.com (formerly Freshmeat.net),
+      consult a free software directory, such as FSF's Free Software Directory,
       or search directly with a search engine, such as Google or
-      Yahoo. <ulink type="block" url="http://freecode.com/"/></para>
+      DuckDuckGoYahoo. <ulink type="block" url="https://directory.fsf.org/wiki/Main_Page"/></para>
       <indexterm><primary><filename>copyright</filename></primary></indexterm>
-      <indexterm><primary><foreignphrase>Freecode</foreignphrase></primary></indexterm>
-      <indexterm><primary><emphasis>wiki.debian.org</emphasis></primary></indexterm>
+      <indexterm><primary>Free Software Directory</primary></indexterm>
 
       <para>You might also want to check the Debian wiki, a
       collaborative website where anybody, even simple visitors, can
       make suggestions directly from their browsers. It is used
       equally by developers who design and specify their projects, and
       by users who share their knowledge by writing documents
-      collaboratively. <ulink type="block"
-      url="http://wiki.debian.org/"/></para>
+      collaboratively.
+      <ulink type="block" url="http://wiki.debian.org/"/></para>
+      <indexterm><primary><emphasis>wiki.debian.org</emphasis></primary></indexterm>
     </section>
     <section>
       <title>Tutorials (<emphasis>HOWTO</emphasis>)</title>
@@ -373,8 +374,8 @@ install (1)          - copy files and set attributes
       implementation of a given technology.</para>
 
       <para>Many such tutorials are managed by the Linux Documentation
-      Project (LDP), whose website hosts all of these documents:<ulink
-      type="block" url="http://www.tldp.org/"/> </para>
+      Project (LDP), whose website hosts all of these documents:
+      <ulink type="block" url="http://www.tldp.org/"/></para>
       <indexterm><primary>LDP</primary></indexterm>
       <indexterm><primary>Linux Documentation Project</primary></indexterm>
 
@@ -398,7 +399,7 @@ install (1)          - copy files and set attributes
     more difficult cases.</para>
 
     <sidebar>
-      <title><emphasis>DISCOVERY</emphasis> Documentation in French</title>
+      <title><emphasis>DISCOVERY</emphasis> Documentation in other languages</title>
 
       <para>Often, documentation translated into a non-English language is
       available in a separate package with the name of the corresponding
@@ -504,11 +505,18 @@ install (1)          - copy files and set attributes
 	<filename>/etc/rsyslog.conf</filename> configuration file
 	(documented in the manual page of the same name).</para>
 
-	<para>Certain C functions, which are specialized in sending logs,
+        <para>Certain C functions, which are specialized in sending logs,
 	simplify the use of the <command>rsyslogd</command> daemon. However
 	some daemons manage their own log files (this is the case, for
 	example, of <command>samba</command>, that implements Windows
 	shares on Linux).</para>
+
+        <para>Note that when systemd is in use, the logs are actually
+        collected by systemd before being forwarded to
+        <command>rsyslogd</command>. They are thus also available via
+        systemd's journal and can be consulted with
+        <command>journalctl</command> (see <xref linkend="sect.systemd" />
+        for details).</para>
       </sidebar>
 
       <sidebar>
@@ -537,8 +545,7 @@ install (1)          - copy files and set attributes
       firewalls, for e-mail servers, for DNS servers, and even for
       print servers.  Some of these utilities operate in a modular
       manner and allow analysis of several types of log files.  This
-      is the case of <command>lire</command> or also
-      <command>modlogan</command>.  Other tools, such as
+      is the case of <command>lire</command>. Other tools, such as
       <command>logcheck</command> (a software discussed in <xref
       linkend="security"/>), scan these files in search of alerts to
       be dealt with.</para>
@@ -547,7 +554,6 @@ install (1)          - copy files and set attributes
       <indexterm><primary><command>webalizer</command></primary></indexterm>
       <indexterm><primary><command>logcheck</command></primary></indexterm>
       <indexterm><primary><command>lire</command></primary></indexterm>
-      <indexterm><primary><command>modlogan</command></primary></indexterm>
     </section>
     <section>
       <title>Asking for Help on a Mailing List</title>
@@ -559,9 +565,8 @@ install (1)          - copy files and set attributes
       community, it has rules that need to be followed. Before asking any
       question, you should check that your problem isn't already covered by
       recent discussions on the list or by any official documentation.
-      <ulink type="block" url="http://wiki.debian.org/DebianMailingLists"/>
-      <ulink type="block"
-      url="http://lists.debian.org/debian-user/"/></para>
+      <ulink type="block" url="https://wiki.debian.org/DebianMailingLists"/>
+      <ulink type="block" url="https://lists.debian.org/debian-user/"/></para>
       <indexterm><primary><email>debian-user</email></primary></indexterm>
       <indexterm><primary>mailing lists</primary></indexterm>
 
@@ -585,6 +590,10 @@ install (1)          - copy files and set attributes
 	avoided. <ulink type="block"
 	url="http://tools.ietf.org/html/rfc1855"/>
 	<indexterm><primary>Netiquette</primary></indexterm></para>
+
+        <para>Furthermore, for any communication channel managed by the
+        Debian project, you are bound by the Debian Code of Conduct:
+        <ulink type="block" url="https://www.debian.org/code_of_conduct"/></para>
       </sidebar>
 
       <para>Once those two conditions are met, you can think of
@@ -620,7 +629,7 @@ install (1)          - copy files and set attributes
       its corresponding package using the command, <command>dpkg -S
       <replaceable>file_in_question</replaceable></command>. Check the Bug
       Tracking System
-      (<literal>http://bugs.debian.org/<replaceable>package</replaceable></literal>)
+      (<literal>https://bugs.debian.org/<replaceable>package</replaceable></literal>)
       to ensure that the bug has not already been reported. You can then
       send your own bug report, using the <command>reportbug</command>
       command, including as much information as possible, especially a
