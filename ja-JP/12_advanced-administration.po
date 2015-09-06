@@ -1718,9 +1718,9 @@ msgid "VMWare is a proprietary virtual machine; being one of the oldest out ther
 msgstr "VMWare はプロプライエタリの仮想マシンです。そして VMWare はこの分野で最も古く、最も広く使われているソフトウェアの 1 つです。VMWare は QEMU とよく似た原理で動いています。VMWare には、たとえば実行中の仮想マシンのスナップショットなどの高度な機能が含まれています。<ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "VirtualBox is a virtual machine that is mostly free software (some extra components are available under a proprietary license). Unfortunately it is in Debian's “contrib” section because it includes some precompiled files that cannot be rebuilt without a proprietary compiler. While younger than VMWare and restricted to the i386 and amd64 architectures, it still includes some snapshotting and other interesting features. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
-msgstr "VirtualBox は仮想マシンで、ほぼフリーソフトウェアです (追加的な構成要素はプロプライエタリライセンスの下で利用できます)。VirtualBox は VMWare よりも若く、i386 と amd64 アーキテクチャに制限されていますが、スナップショットやその他の興味深い機能を備えています。VirtualBox は <emphasis role=\"distribution\">Lenny</emphasis> 以降 Debian の一部になっています。<ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
+msgstr "VirtualBox は仮想マシンで、ほぼフリーソフトウェアです (一部の追加的な構成要素はプロプライエタリライセンスの下で利用できます)。残念なことに VirtualBox は Debian の「contrib」セクションにあります。なぜなら VirtualBox にはいくつかのコンパイル済みファイルが含まれ、このファイルはプロプライエタリコンパイラがなければ再ビルドできないからです。VirtualBox は VMWare よりも若く、i386 と amd64 アーキテクチャに制限されており、スナップショットやその他の興味深い機能を備えています。<ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 
 #. Tag: para
 #, no-c-format
@@ -2498,9 +2498,9 @@ msgid "KVM, which stands for <emphasis>Kernel-based Virtual Machine</emphasis>, 
 msgstr "KVM は <emphasis>Kernel-based Virtual Machine</emphasis> を意味しており、仮想化システムの使うほとんどの基礎構造を提供する、最初で最高のカーネルモジュールですが、これ自身は仮想化システムではありません。仮想化の実際の制御を行うには QEMU に基づくアプリケーションを使います。この節で <command>qemu-*</command> コマンドがあっても心配しないでください。なぜならこのコマンドは KVM に関連するものだからです。"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Unlike other virtualization systems, KVM was merged into the Linux kernel right from the start. Its developers chose to take advantage of the processor instruction sets dedicated to virtualization (Intel-VT and AMD-V), which keeps KVM lightweight, elegant and not resource-hungry. The counterpart, of course, is that KVM doesn't work on any computer but only on those with appropriate processors. For x86-based computers, you can verify that you have such a processor by looking for “vmx” or “svm” in the CPU flags listed in <filename>/proc/cpuinfo</filename>."
-msgstr "他の仮想化システムと異なり、KVM は最初から Linux カーネルにマージされていました。KVM の開発者はプロセッサが備える仮想化専用命令セット (Intel-VT と AMD-V) を有効活用することを選びました。仮想化専用命令セットのおかげで、KVM は軽量で簡潔でリソースを大量に消費しないものになっています。もちろん、欠点は KVM は主に i386 と amd64 プロセッサおよびこれらの命令セットを持つ程度に最近のプロセッサで動くという点です。<filename>/proc/cpuinfo</filename> にリストされている CPU フラグに「vmx」または「svm」が含まれていることを確認して、プロセッサが適合するものか否かを確認します。"
+msgstr "他の仮想化システムと異なり、KVM は最初から Linux カーネルにマージされていました。KVM の開発者はプロセッサが備える仮想化専用命令セット (Intel-VT と AMD-V) を有効活用することを選びました。仮想化専用命令セットを活用することで、KVM は軽量で簡潔でリソースを大量に消費しないものになっています。KVM の欠点は、KVM はすべてのコンピュータで動くわけではなく、適切なプロセッサを備えたコンピュータでなければ動かない、という点です。x86 ベースのコンピュータでは、<filename>/proc/cpuinfo</filename> 内の CPU フラグを確認して、ここに「vmx」または「svm」が含まれている場合、そのプロセッサは KVM を動かすことができることを意味します。"
 
 #. Tag: para
 #, no-c-format
@@ -2598,14 +2598,14 @@ msgstr ""
 "root@mirwiz:~# </computeroutput>"
 
 #. Tag: title
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "<emphasis>TIP</emphasis> Add your user to the libvirt group"
-msgstr "<emphasis>NOTE</emphasis> domU 内のストレージ"
+msgstr "<emphasis>TIP</emphasis> libvirt グループに対するユーザの追加"
 
 #. Tag: para
 #, no-c-format
 msgid "All samples in this section assume that you are running commands as root. Effectively, if you want to control a local libvirt daemon, you need either to be root or to be a member of the <literal>libvirt</literal> group (which is not the case by default). Thus if you want to avoid using root rights too often, you can add yoursel to the <literal>libvirt</literal> group and run the various commands under your user identity."
-msgstr ""
+msgstr "この節で挙げたすべての例では、root がコマンドを実行しています。実際、あるユーザがローカルの libvirt デーモンを操作するには、root になるか <literal>libvirt</literal> グループのメンバーになって (デフォルト状態では <literal>libvirt</literal> グループはユーザの初期参加グループに設定されていません) コマンドを実行する必要があります。このユーザに root 権を頻繁に使わせることを避けたい場合、そのユーザを <literal>libvirt</literal> グループに追加して、本人の権限でさまざまなコマンドを実行するように設定することが可能です。"
 
 #. Tag: para
 #, no-c-format
@@ -2831,7 +2831,7 @@ msgstr "仮想マシンが Debian (または Debian 派生物) を実行する�
 #. Tag: para
 #, no-c-format
 msgid "The procedure requires using <command>rpm</command> to extract an initial set of files, including notably <command>yum</command> configuration files. And then calling <command>yum</command> to extract the remaining set of packages. But since we call <command>yum</command> from outside the chroot, we need to make some temporary changes. In the sample below, the target chroot is <filename>/srv/centos</filename>."
-msgstr ""
+msgstr "RPM に基づくシステムをインストールする際には、特に <command>yum</command> 設定ファイルを含むファイルの初期セットを展開するために <command>rpm</command> を使う必要があります。そして、パッケージの残りのセットを展開するために <command>yum</command> を呼び出す必要があります。しかし、chroot の外から <command>yum</command> を呼び出しているため、一時的な修正が必要です。以下に載せた例では、対象の chroot 先は <filename>/srv/centos</filename> です。"
 
 #. Tag: screen
 #, no-c-format
@@ -2852,6 +2852,21 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
 "        "
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>rootdir=\"/srv/centos\"</userinput>\n"
+"<computeroutput># </computeroutput><userinput>mkdir -p \"$rootdir\" /etc/rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>echo \"%_dbpath /var/lib/rpm\" &gt; /etc/rpm/macros.dbpath</userinput>\n"
+"<computeroutput># </computeroutput><userinput>wget http://mirror.centos.org/centos/7/os/x86_64/Packages/centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>rpm --nodeps --root \"$rootdir\" -i centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput>rpm: RPM should not be used directly install RPM packages, use Alien instead!\n"
+"rpm: However assuming you know what you are doing...\n"
+"warning: centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY\n"
+"</computeroutput>\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file:///etc/,gpgkey=file://${rootdir}/etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"<computeroutput># </computeroutput><userinput>yum --assumeyes --installroot $rootdir groupinstall core</userinput>\n"
+"[...]\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"        "
 
 #. Tag: title
 #, no-c-format
@@ -3029,9 +3044,9 @@ msgid "<primary><command>debconf</command></primary>"
 msgstr "<primary><command>debconf</command></primary>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail (you need the <emphasis role=\"pkg\">debconf-doc</emphasis> package)."
-msgstr "Preseed を使うことで、インストール時に尋ねられる Debconf 質問に対する回答を事前に提供することが可能です。しかし、これらの回答は静的なもので、時間経過に従い変化しません。既にインストールされたマシンは更新が必要かもしれませんし、新しい回答が必要かもしれません。このため <filename>/etc/debconf.conf</filename> 設定ファイルから、Debconf が外部のデータソース (LDAP ディレクトリサーバ、NFS や Samba 経由でアクセスされるリモートファイル) を使うようにセットアップすることが可能です。お互いに補完し合う複数の外部データソースを同時に定義することが可能です。ローカルデータベースは使えます (読み書きアクセスできます) が、リモートデータベースは読み込みのみに制限されていることが多いです。<citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> マニュアルページではすべての可能性が詳細に説明されています。"
+msgstr "Preseed を使うことで、インストール時に尋ねられる Debconf 質問に対する回答を事前に提供することが可能です。しかし、これらの回答は静的なもので、時間経過に従い変化しません。既にインストールされたマシンは更新が必要かもしれませんし、新しい回答が必要かもしれません。このため <filename>/etc/debconf.conf</filename> 設定ファイルから、Debconf が外部のデータソース (LDAP ディレクトリサーバ、NFS や Samba 経由でアクセスされるリモートファイル) を使うようにセットアップすることが可能です。お互いに補完し合う複数の外部データソースを同時に定義することが可能です。ローカルデータベースは使えます (読み書きアクセスできます) が、リモートデータベースは読み込みのみに制限されていることが多いです。<citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> マニュアルページではすべての可能性が詳細に説明されています (このマニュアルは <emphasis role=\"pkg\">debconf-doc</emphasis> パッケージに含まれています)。"
 
 #. Tag: title
 #, no-c-format
@@ -3104,9 +3119,9 @@ msgid "<emphasis>DOCUMENTATION</emphasis> Installation guide appendix"
 msgstr "<emphasis>DOCUMENTATION</emphasis> インストールガイドの付録"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
-msgstr "オンライン上で利用できるインストールガイドの付録には、preseed ファイルの使い方に関する詳細な文書が含まれます。また、コメントの形で詳細を説明された見本ファイルが含まれます。これは自分用カスタマイズのひな形として使えるように用意されています。<ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/apb.html\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/example-preseed.txt\" />"
+msgstr "オンライン上で利用できるインストールガイドの付録には、preseed ファイルの使い方に関する詳細な文書が含まれます。また、コメントの形で詳細を説明された見本ファイルが含まれます。これは自分用カスタマイズのひな形として使えるように用意されています。<ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
 
 #. Tag: title
 #, no-c-format
@@ -3124,9 +3139,9 @@ msgid "Booting From the Network"
 msgstr "ネットワークからの起動"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "When a computer is booted from the network, the server sending the initialization elements also defines the boot parameters. Thus, the change needs to be made in the PXE configuration for the boot server; more specifically, in its <filename>/tftpboot/pxelinux.cfg/default</filename> configuration file. Setting up network boot is a prerequisite; see the Installation Guide for details. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
-msgstr "コンピュータをネットワークから起動する場合、初期化要素を送信するサーバが起動パラメータを定義します。このため、変更は起動サーバの PXE 設定の中で行う必要があります。より具体的に言えば <filename>/tftpboot/pxelinux.cfg/default</filename> 設定ファイルの中で設定します。そして、事前にネットワーク起動をセットアップすることが必要です。詳しくはインストールガイドをご覧ください。<ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/ch04s05.html\" />"
+msgstr "コンピュータをネットワークから起動する場合、初期化要素を送信するサーバが起動パラメータを定義します。このため、変更は起動サーバの PXE 設定の中で行う必要があります。より具体的に言えば <filename>/tftpboot/pxelinux.cfg/default</filename> 設定ファイルの中で設定します。そして、事前にネットワーク起動をセットアップすることが必要です。詳しくはインストールガイドをご覧ください。<ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
 
 #. Tag: title
 #, no-c-format
@@ -3154,13 +3169,13 @@ msgid "syslinux.cfg file and preseeding parameters"
 msgstr "syslinux.cfg ファイルと preseeding パラメータ"
 
 #. Tag: programlisting
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "default vmlinuz\n"
 "append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 msgstr ""
 "default vmlinuz\n"
-"append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --"
+"append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 
 #. Tag: title
 #, no-c-format
@@ -3178,9 +3193,9 @@ msgid "A USB key is a read-write media, so it was easy for us to add a file ther
 msgstr "USB メモリは読み書きメディアなので、ファイルを追加したりいくつかのパラメータを変更することが簡単に可能です。CD-ROM の場合、この操作はさらに複雑になります。なぜなら、完全な ISO イメージを再生成する必要があるからです。<emphasis role=\"pkg\">debian-cd</emphasis> がこの作業を担当しますが、<emphasis role=\"pkg\">debian-cd</emphasis> ツールは少し使いにくいです。すなわち、<emphasis role=\"pkg\">debian-cd</emphasis> ツールを使うには、ローカルミラーと <filename>/usr/share/debian-cd/CONF.sh</filename> によって提供されるすべてのオプションについて理解する必要があります。そしてさらに、<command>make</command> を複数回実行する必要があります。このため、<filename>/usr/share/debian-cd/README</filename> を一読することを強く推奨します。"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/wheezy/CD1/</filename>, $TDIR being one of the parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
-msgstr "そうは言っても、debian-cd の挙動は大きく変わるものではありません。具体的に言えば CD-ROM の内容を展開した「image」ディレクトリが生成され、その後 <command>genisoimage</command>、<command>mkisofs</command>、<command>xorriso</command> などのツールを使って ISO ファイルに変換します。image ディレクトリは debian-cd の <command>make image-trees</command> 段階の後に仕上げられます。この時点で、preseed ファイルを適切なディレクトリ (通常 <filename>$TDIR/wheezy/CD1/</filename> です、$TDIR は <filename>CONF.sh</filename> 設定ファイルによって定義されるパラメータの 1 つです) に挿入します。CD-ROM は <command>isolinux</command> をブートローダとして使います。必要な起動パラメータを挿入するためには、<command>isolinux</command> の設定ファイル (ファイルは <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename> にあります) を debian-cd が生成した内容に適合させなければいけません。この後、「通常の」プロセスを再開し、<command>make image CD=1</command> (または <command>make images</command> 複数の CD-ROM を生成する場合) を実行して ISO イメージを生成します。"
+msgstr "そうは言っても、debian-cd の挙動は大きく変わるものではありません。具体的に言えば CD-ROM の内容を展開した「image」ディレクトリが生成され、その後 <command>genisoimage</command>、<command>mkisofs</command>、<command>xorriso</command> などのツールを使って ISO ファイルに変換します。image ディレクトリは debian-cd の <command>make image-trees</command> 段階の後に仕上げられます。この時点で、preseed ファイルを適切なディレクトリ (通常 <filename>$TDIR/wheezy/CD1/</filename> です、$TDIR は <filename>CONF.sh</filename> 設定ファイルによって定義されるパラメータの 1 つです) に挿入します。CD-ROM は <command>isolinux</command> をブートローダとして使います。必要な起動パラメータを挿入するためには、<command>isolinux</command> の設定ファイル (ファイルは <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename> にあります) を debian-cd が生成した内容に適合させなければいけません。この後、「通常の」プロセスを再開し、<command>make image CD=1</command> (または <command>make images</command> 複数の CD-ROM を生成する場合) を実行して ISO イメージを生成します。"
 
 #. Tag: title
 #, no-c-format
@@ -3333,9 +3348,9 @@ msgid "Generating an ISO Image"
 msgstr "ISO イメージの生成"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Once we have written a configuration file and defined our profiles, the remaining step is to invoke <command>build-simple-cdd --conf simple-cdd.conf</command>. After a few minutes, we get the required image in <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
-msgstr "設定ファイルの記述と自分のプロファイルの定義が完了したら、<command>build-simple-cdd --conf simple-cdd.conf</command> を実行します。数分後、必要なイメージが <filename>images/debian-7.0-amd64-CD-1.iso</filename> に完成します。"
+msgstr "設定ファイルの記述と自分のプロファイルの定義が完了したら、<command>build-simple-cdd --conf simple-cdd.conf</command> を実行します。数分後、要求されたイメージが <filename>images/debian-8.0-amd64-CD-1.iso</filename> に完成します。"
 
 #. Tag: para
 #, no-c-format
@@ -3358,9 +3373,9 @@ msgid "<primary>Zabbix</primary>"
 msgstr "<primary>Zabbix</primary>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Although Munin and Nagios are in very common use, they are not the only players in the monitoring field, and each of them only handles half of the task (graphing on one side, alerting on the other). Zabbix, on the other hand, integrates both parts of monitoring; it also has a web interface for configuring the most common aspects. It has grown by leaps and bounds during the last few years, and can now be considered a viable contender. On the monitoring server, you would install <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (or <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>), possibly together with <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> to have a web interface. On the hosts to monitor you would install <emphasis role=\"pkg\">zabbix-agent</emphasis> feeding data back to the server. <ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
-msgstr "Munin と Nagios はとてもよく使われていますが、監視分野における唯一の選択肢というわけではありませんし、両者が担当している範囲は監視タスクの半分 (片方がグラフ化、もう一方が警告) に留まっています。これに対して、Zabbix は監視タスクの両方を統合しています。さらに Zabbix には、最もよく使われる側面を設定するためのウェブインターフェースがあります。Zabbix は最近の数年間で急速に成長し続けており、今や Munin と Nagios の対抗馬と考えられています。しかし残念なことに、Zabbix はリリース作業のタイミングの問題で Debian <emphasis role=\"distribution\">Wheezy</emphasis> では提供されていません。しかし、パッケージはバックポートや非公式リポジトリで提供されています。<ulink type=\"block\" url=\"http://www.zabbix.org/\" />"
+msgstr "Munin と Nagios はとてもよく使われていますが、監視分野における唯一の選択肢というわけではありませんし、両者が担当している範囲は監視タスクの半分 (片方がグラフ化、もう一方が警告) に留まっています。これに対して、Zabbix は監視タスクの両方を統合しています。さらに Zabbix は最もよく使われる側面を設定するためのウェブインターフェースを備えています。Zabbix は最近の数年間で急速に成長し続けており、今や Munin と Nagios の対抗馬と考えられています。監視サーバには <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (または <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>) をインストールし、ウェブインターフェースを使うには <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> もインストールします。監視対象ホストには <emphasis role=\"pkg\">zabbix-agent</emphasis> をインストールして、監視サーバからのデータ要求に応答します。<ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
 
 #. Tag: title
 #, no-c-format
@@ -3403,14 +3418,14 @@ msgid "The first step is to install the <emphasis role=\"pkg\">munin-node</empha
 msgstr "最初の段階は <emphasis role=\"pkg\">munin-node</emphasis> パッケージをインストールすることです。このパッケージによってインストールされるデーモンはポート 4949 番をリッスンし、すべての動作しているプラグインによって収集されたデータを送り返します。それぞれのプラグインは収集されたデータの説明および最新の計測値を返す簡単なプログラムです。プラグインは <filename>/usr/share/munin/plugins/</filename> に保存されますが、実際に使われるのは <filename>/etc/munin/plugins/</filename> 内からシンボリックリンクを張られたプラグインだけです。"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. Browsing the <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> can be interesting even though not all plugins have comprehensive documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
-msgstr "パッケージのインストールが完了したら、有効なプラグイン群が利用できるソフトウェアと現在のホストの設定に基づいて決定されます。しかしながら、自動設定は各プラグインの提供する機能に依存します。通常、手作業で結果を確認して微調整することを推奨します。各プラグインに関する包括的な文書があればよいのですが、残念なことに、そのような文書は公式には存在しません。しかしながら、すべてのプラグインはスクリプトでほとんどは単純かつ詳細に説明されています。このため、各プラグインの機能を理解し、無効化するべきプラグインを決定するには、<filename>/etc/munin/plugins/</filename> を閲覧することが良い方法です。同様に、<filename>/usr/share/munin/plugins/</filename> の中にある興味深いプラグインを有効化するには、<command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command> を使ってシンボリックリンクを作成するだけです。プラグイン名がアンダースコア「_」で終わる場合、そのプラグインはパラメータが必要という点に注意してください。シンボリックリンクの名前を使って、このパラメータを指定します。従って、たとえば「if_」プラグインは必ず <filename>if_eth0</filename> シンボリックリンクを使って有効化しなければいけません。こうすることで、eth0 インターフェースのネットワークトラフィックを監視します。"
+msgstr "パッケージのインストールが完了したら、有効なプラグイン群が利用できるソフトウェアと現在のホストの設定に基づいて決定されます。しかしながら、自動設定は各プラグインの提供する機能に依存します。通常、手作業で結果を確認して微調整することを推奨します。すべてのプラグインに対して包括的な文書が用意されているわけではありませんが、<ulink url=\"http://gallery.munin-monitoring.org\">プラグインギャラリー</ulink>を閲覧すると面白いかもしれません。さらに、すべてのプラグインはスクリプトでほとんどは単純かつ詳細に説明されています。このため、各プラグインの機能を理解し、無効化するべきプラグインを決定するには、<filename>/etc/munin/plugins/</filename> を閲覧することが良い方法です。同様に、<filename>/usr/share/munin/plugins/</filename> の中にある興味深いプラグインを有効化するには、<command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command> を使ってシンボリックリンクを作成するだけです。プラグイン名がアンダースコア「_」で終わる場合、そのプラグインはパラメータが必要という点に注意してください。シンボリックリンクの名前を使って、このパラメータを指定します。従って、たとえば「if_」プラグインは必ず <filename>if_eth0</filename> シンボリックリンクを使って有効化しなければいけません。こうすることで、eth0 インターフェースのネットワークトラフィックを監視します。"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>service munin-node restart</command>."
-msgstr "すべてのプラグインを正常に設定したら、収集されたデータへのアクセス制御に関するデーモン設定を更新します。これを行うには、<filename>/etc/munin/munin-node.conf</filename> ファイルの中で <literal>allow</literal> 指示文を使います。デフォルト設定は <literal>allow ^127\\.0\\.0\\.1$</literal> で、ローカルホストへのアクセスのみを許可します。通常、管理者はグラフ化を担当しているホストの IP アドレスを含めた同様の行を追加します。その後、<command>invoke-rc.d munin-node restart</command> を使ってデーモンを再起動します。"
+msgstr "すべてのプラグインを正常に設定したら、収集されたデータへのアクセス制御に関するデーモン設定を更新します。これを行うには、<filename>/etc/munin/munin-node.conf</filename> ファイルの中で <literal>allow</literal> 指示文を使います。デフォルト設定は <literal>allow ^127\\.0\\.0\\.1$</literal> で、ローカルホストへのアクセスのみを許可します。通常、管理者はグラフ化を担当しているホストの IP アドレスを含めた同様の行を追加します。その後、<command>service munin-node restart</command> を使ってデーモンを再起動します。"
 
 #. Tag: title
 #, no-c-format
@@ -3418,9 +3433,9 @@ msgid "<emphasis>GOING FURTHER</emphasis> Creating local plugins"
 msgstr "<emphasis>GOING FURTHER</emphasis> ローカルプラグインの作成"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
-msgstr "標準的なプラグインに関する公式文書が存在しないにも関わらず、Munin には、プラグインの動作方法と新規プラグインの開発方法に関する詳細な文書が用意されています。<ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
+msgstr "Munin にはプラグインの動作様式と新規プラグインの開発方法に関する詳細な文書が用意されています。<ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
 
 #. Tag: para
 #, no-c-format
@@ -3458,9 +3473,9 @@ msgstr ""
 "</computeroutput>"
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "The various available fields are described by the “Plugin reference” available as part of the “Munin guide”. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
-msgstr "いくつかの利用できるフィールドは Munin のウェブサイト上から利用できる「設定プロトコル」の仕様に説明されています。<ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
+msgstr "利用できるさまざまなフィールドは「Munin ガイド」の一部として提供されている「プラグインリファレンス」で説明されています。<ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
 
 #. Tag: para
 #, no-c-format
@@ -3544,7 +3559,7 @@ msgid "As documented in <filename>/usr/share/doc/nagios3/README.Debian</filename
 msgstr "<filename>/usr/share/doc/nagios3/README.Debian</filename> で説明されている通り、いくつかの機能を有効化するには <filename>/etc/nagios3/nagios.cfg</filename> を編集し、<literal>check_external_commands</literal> パラメータを「1」に設定します。また、以下のようにして、Nagios が使うディレクトリに書き込みパーミッションを設定する必要があります。"
 
 #. Tag: screen
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
 "<computeroutput>[...]\n"
@@ -3553,11 +3568,11 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 msgstr ""
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>\n"
+"<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
 "<computeroutput>[...]\n"
 "# </computeroutput><userinput>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw\n"
 "</userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3\n"
-"</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 start</userinput>\n"
+"</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 
 #. Tag: title
@@ -3852,114 +3867,11 @@ msgstr "多くの Nagios プラグインでは、あるホストに固有のい�
 #~ msgid "The procedure requires setting up a <filename>yum.conf</filename> file containing the necessary parameters, including the path to the source RPM repositories, the path to the plugin configuration, and the destination folder. For this example, we will assume that the environment will be stored in <filename>/var/tmp/yum-bootstrap</filename>. The file <filename>/var/tmp/yum-bootstrap/yum.conf</filename> file should look like this:"
 #~ msgstr "この手順の中で、必要なパラメータを含む <filename>yum.conf</filename> ファイルを設定する必要があります。<filename>yum.conf</filename> ファイルには、ソース RPM リポジトリへのパス、プラグイン設定のパス、宛先フォルダが含まれます。以下の例では、環境を <filename>/var/tmp/yum-bootstrap</filename> に保存することを仮定しています。<filename>/var/tmp/yum-bootstrap/yum.conf</filename> ファイルは以下の様になります。"
 
-#~ msgid ""
-#~ "[main]\n"
-#~ "reposdir=/var/tmp/yum-bootstrap/repos.d\n"
-#~ "pluginconfpath=/var/tmp/yum-bootstrap/pluginconf.d\n"
-#~ "cachedir=/var/cache/yum\n"
-#~ "installroot=/path/to/destination/domU/install\n"
-#~ "exclude=$exclude\n"
-#~ "keepcache=1\n"
-#~ "#debuglevel=4  \n"
-#~ "#errorlevel=4\n"
-#~ "pkgpolicy=newest\n"
-#~ "distroverpkg=centos-release\n"
-#~ "tolerant=1\n"
-#~ "exactarch=1\n"
-#~ "obsoletes=1\n"
-#~ "gpgcheck=1\n"
-#~ "plugins=1\n"
-#~ "metadata_expire=1800"
-#~ msgstr ""
-#~ "[main]\n"
-#~ "reposdir=/var/tmp/yum-bootstrap/repos.d\n"
-#~ "pluginconfpath=/var/tmp/yum-bootstrap/pluginconf.d\n"
-#~ "cachedir=/var/cache/yum\n"
-#~ "installroot=/path/to/destination/domU/install\n"
-#~ "exclude=$exclude\n"
-#~ "keepcache=1\n"
-#~ "#debuglevel=4  \n"
-#~ "#errorlevel=4\n"
-#~ "pkgpolicy=newest\n"
-#~ "distroverpkg=centos-release\n"
-#~ "tolerant=1\n"
-#~ "exactarch=1\n"
-#~ "obsoletes=1\n"
-#~ "gpgcheck=1\n"
-#~ "plugins=1\n"
-#~ "metadata_expire=1800"
-
 #~ msgid "The <filename>/var/tmp/yum-bootstrap/repos.d</filename> directory should contain the descriptions of the RPM source repositories in <filename>*.repo</filename> files, just as in <filename>/etc/yum.repos.d</filename> in an already installed RPM-based system. Here is an example for a CentOS 6 installation:"
 #~ msgstr "<filename>/var/tmp/yum-bootstrap/repos.d</filename> ディレクトリには、RPM ソースリポジトリを示した <filename>*.repo</filename> ファイルを含めるべきです。このファイルはインストール済みの RPM に基づくシステムの <filename>/etc/yum.repos.d</filename> にあるものとよく似ています。以下は CentOS 6 のインストールに使うファイルの例です。"
 
-#~ msgid ""
-#~ "[base]\n"
-#~ "name=CentOS-6 - Base\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "   \n"
-#~ "[updates]\n"
-#~ "name=CentOS-6 - Updates\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "\n"
-#~ "[extras]\n"
-#~ "name=CentOS-6 - Extras\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "\n"
-#~ "[centosplus]\n"
-#~ "name=CentOS-6 - Plus\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6"
-#~ msgstr ""
-#~ "[base]\n"
-#~ "name=CentOS-6 - Base\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "   \n"
-#~ "[updates]\n"
-#~ "name=CentOS-6 - Updates\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "\n"
-#~ "[extras]\n"
-#~ "name=CentOS-6 - Extras\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6\n"
-#~ "\n"
-#~ "[centosplus]\n"
-#~ "name=CentOS-6 - Plus\n"
-#~ "#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/\n"
-#~ "mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus\n"
-#~ "gpgcheck=1\n"
-#~ "gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-6"
-
 #~ msgid "Finally, <filename>pluginconf.d/installonlyn.conf</filename> file should contain the following:"
 #~ msgstr "最後に、<filename>pluginconf.d/installonlyn.conf</filename> ファイルは以下の内容を含みます。"
-
-#~ msgid ""
-#~ "[main]\n"
-#~ "enabled=1\n"
-#~ "tokeep=5"
-#~ msgstr ""
-#~ "[main]\n"
-#~ "enabled=1\n"
-#~ "tokeep=5"
 
 #~ msgid "Once all this is setup, make sure the <command>rpm</command> databases are correctly initialized, with a command such as <command>rpm --rebuilddb</command>. An installation of CentOS 6 is then a matter of the following:"
 #~ msgstr "これらの設定が済んだら、<command>rpm --rebuilddb</command> などのコマンドを使って、<command>rpm</command> データベースが正しく初期化されることを確認してください。CentOS 6 をインストールするには以下のコマンドを使うだけです。"
