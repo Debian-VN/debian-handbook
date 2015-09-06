@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-08-29 09:00+0900\n"
-"PO-Revision-Date: 2015-08-29 09:00+0900\n"
+"POT-Creation-Date: 2015-09-06 09:00+0900\n"
+"PO-Revision-Date: 2015-09-06 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -243,14 +243,17 @@ msgid "Finding <command>cp</command> with <command>apropos</command>"
 msgstr "<command>apropos</command> を使って <command>cp</command> を探す"
 
 #. Tag: screen
-#, no-c-format
+#, fuzzy, no-c-format
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>apropos \"copy file\"</userinput>\n"
 "<computeroutput>cp (1)               - copy files and directories\n"
 "cpio (1)             - copy files to and from archives\n"
+"gvfs-copy (1)        - Copy files\n"
+"gvfs-move (1)        - Copy files\n"
 "hcopy (1)            - copy files from or to an HFS volume\n"
 "install (1)          - copy files and set attributes\n"
+"ntfscp (8)           - copy file to an NTFS volume.\n"
 "</computeroutput>"
 msgstr ""
 "\n"
@@ -312,18 +315,23 @@ msgid "<primary>GNU</primary><secondary>Info</secondary>"
 msgstr "<primary>GNU</primary><secondary>Info</secondary>"
 
 #. Tag: para
-#, no-c-format
-msgid "The GNU project has written manuals for most of its programs in the <emphasis>info</emphasis> format; this is why many manual pages refer to the corresponding <emphasis>info</emphasis> documentation. This format offers some advantages, but the program to view these documents is also slightly more complex."
+#, fuzzy, no-c-format
+msgid "The GNU project has written manuals for most of its programs in the <emphasis>info</emphasis> format; this is why many manual pages refer to the corresponding <emphasis>info</emphasis> documentation. This format offers some advantages, but the default program to view these documents (it is called <command>info</command>) is also slightly more complex. You would be well advised to use <command>pinfo</command> instead (from the <emphasis role=\"pkg\">pinfo</emphasis> package)."
 msgstr "これまでずっと GNU プロジェクトはほとんどのプログラムのマニュアルを <emphasis>info</emphasis> フォーマットで書き続けてきました。そのため、多くのマニュアルページでは対応する <emphasis>info</emphasis> 文書を参照することが求められています。<emphasis>info</emphasis> フォーマットにはいくつかの利点がありますが、<emphasis>info</emphasis> 文書を表示するためのプログラムは若干複雑です。"
 
+#. Tag: indexterm
+#, fuzzy, no-c-format
+msgid "<primary><command>pinfo</command></primary>"
+msgstr "<primary><command>info2www</command></primary>"
+
 #. Tag: para
-#, no-c-format
-msgid "It is of course called <command>info</command>, and it takes the name of the “node” to be consulted as argument. The <emphasis>info</emphasis> documentation has a hierarchical structure, and if you invoke <command>info</command> without parameters, it will display a list of the nodes available at the first level. Usually, nodes bear the name of the corresponding commands."
+#, fuzzy, no-c-format
+msgid "The <emphasis>info</emphasis> documentation has a hierarchical structure, and if you invoke <command>pinfo</command> without parameters, it will display a list of the nodes available at the first level. Usually, nodes bear the name of the corresponding commands."
 msgstr "<emphasis>info</emphasis> 文書を表示するためのプログラムはもちろん <command>info</command> と呼ばれ、引数として調べたい「ノード」の名前を受け取ります。<emphasis>info</emphasis> 文書は階層的な構造をしており、<command>info</command> をパラメータなしで実行したら、最初の階層から利用できるノードのリストを表示します。通常、ノードには対応するコマンドの名前が付けられています。"
 
 #. Tag: para
-#, no-c-format
-msgid "The navigation controls in the documentation are not particularly intuitive. The best method to familiarize yourself with the program is probably to invoke it, then enter <userinput>h</userinput> (for “help”), and then follow the instructions to learn through practice. Alternatively, you could also use a graphical browser, which is a lot more user-friendly. Again, <command>konqueror</command> and <command>yelp</command> work; the <command>info2www</command> also provides a web interface. <ulink type=\"block\" url=\"http://localhost/cgi-bin/info2www\" />"
+#, fuzzy, no-c-format
+msgid "With <command>pinfo</command> navigating between these nodes is easy to achieve with the arrow keys. Alternatively, you could also use a graphical browser, which is a lot more user-friendly. Again, <command>konqueror</command> and <command>yelp</command> work; the <command>info2www</command> also provides a web interface. <ulink type=\"block\" url=\"http://localhost/cgi-bin/info2www\" />"
 msgstr "文書内の移動操作は全く直感的ではありません。<command>info</command> に習熟する最良の方法は <command>info</command> を実行し、<userinput>h</userinput> (「help」の頭文字) を入力して、指示に従って練習しながら身に付けることかもしれません。もう 1 つの方法として、グラフィカルブラウザを使うこともできます。これはずっとユーザフレンドリーな方法です。また、<command>konqueror</command> と <command>yelp</command> も使えます。さらに <command>info2www</command> はウェブインターフェースを提供します。<ulink type=\"block\" url=\"http://localhost/cgi-bin/info2www\" />"
 
 #. Tag: indexterm
@@ -332,8 +340,8 @@ msgid "<primary><command>info2www</command></primary>"
 msgstr "<primary><command>info2www</command></primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "Note that the <emphasis>info</emphasis> system does not allow translation, unlike the <command>man</command> page system. <emphasis>info</emphasis> documents are thus always in English. However, when you ask the <command>info</command> program to display a non-existing <emphasis>info</emphasis> page, it will fall back on the <emphasis>man</emphasis> page by the same name (if it exists), which might be translated."
+#, fuzzy, no-c-format
+msgid "Note that the <emphasis>info</emphasis> system does not allow translation, unlike the <command>man</command> page system. <emphasis>info</emphasis> documents are thus always in English. However, when you ask the <command>pinfo</command> program to display a non-existing <emphasis>info</emphasis> page, it will fall back on the <emphasis>man</emphasis> page by the same name (if it exists), which might be translated."
 msgstr "<emphasis>info</emphasis> システムは <command>man</command> ページシステムと異なり翻訳に向いていない (適さない) システムであるという点に注意してください。そんなわけで、<emphasis>info</emphasis> 文書は常に英語で書かれています。しかしながら、<command>info</command> プログラムに存在しない <emphasis>info</emphasis> ページを表示するよう要求した場合、プログラムは同名の <emphasis>man</emphasis> ページを (存在すれば) 表示します。これは翻訳されているかもしれません。"
 
 #. Tag: title
@@ -392,8 +400,8 @@ msgid "In other cases, you will get very general errors, such as “Permission d
 msgstr "一般的なエラーが返されることもあります。たとえば「Permission denied」などの場合です。例に挙げたエラーの場合、関連する要素 (ファイル、ユーザ ID、グループなど) のパーミッションを確認するのが最も良い方法です。"
 
 #. Tag: para
-#, no-c-format
-msgid "If you do not know the address for the software's website, there are various means of getting it. First, check if there is a <literal>Homepage</literal> field in the package's meta-information (<command>apt-cache show <replaceable>package</replaceable></command>). Alternately, the package description may contain a link to the program's official website. If no URL is indicated, look at <filename>/usr/share/doc/<replaceable>package</replaceable>/copyright</filename>. The Debian maintainer generally indicates in this file where they got the program's source code, and this is likely to be the website that you need to find. If at this stage your search is still unfruitful, consult a free software directory, such as Freecode.com (formerly Freshmeat.net), or search directly with a search engine, such as Google or Yahoo. <ulink type=\"block\" url=\"http://freecode.com/\" />"
+#, fuzzy, no-c-format
+msgid "If you do not know the address for the software's website, there are various means of getting it. First, check if there is a <literal>Homepage</literal> field in the package's meta-information (<command>apt-cache show <replaceable>package</replaceable></command>). Alternately, the package description may contain a link to the program's official website. If no URL is indicated, look at <filename>/usr/share/doc/<replaceable>package</replaceable>/copyright</filename>. The Debian maintainer generally indicates in this file where they got the program's source code, and this is likely to be the website that you need to find. If at this stage your search is still unfruitful, consult a free software directory, such as FSF's Free Software Directory, or search directly with a search engine, such as Google or DuckDuckGoYahoo. <ulink type=\"block\" url=\"https://directory.fsf.org/wiki/Main_Page\" />"
 msgstr "ソフトウェアのウェブサイトがわからない場合、さまざまな手段でそれを知ることができます。最初に、パッケージのメタ情報を表示して (<command>apt-cache show <replaceable>package</replaceable></command>) <literal>Homepage</literal> フィールドがあるか確認してください。別の方法として、パッケージ説明にプログラムの公式サイトへのリンクが載っているかもしれません。URL が見つからなければ、<filename>/usr/share/doc/<replaceable>package</replaceable>/copyright</filename> を確認してください。Debian メンテナは通常このファイルの中に、プログラムのソースコードを手に入れた場所を示しており、これこそが探しているウェブサイトのものである可能性が高いです。それでもなおウェブサイトがわからない場合、たとえば Freecode.com (以前の Freshmeat.net) などのフリーソフトウェアディレクトリを確認するか、Google や Yahoo などの検索エンジンで直接検索してください。<ulink type=\"block\" url=\"http://freecode.com/\" />"
 
 #. Tag: indexterm
@@ -402,19 +410,19 @@ msgid "<primary><filename>copyright</filename></primary>"
 msgstr "<primary><filename>copyright</filename></primary>"
 
 #. Tag: indexterm
-#, no-c-format
-msgid "<primary><foreignphrase>Freecode</foreignphrase></primary>"
-msgstr "<primary><foreignphrase>Freecode</foreignphrase></primary>"
-
-#. Tag: indexterm
-#, no-c-format
-msgid "<primary><emphasis>wiki.debian.org</emphasis></primary>"
-msgstr "<primary><emphasis>wiki.debian.org</emphasis></primary>"
+#, fuzzy, no-c-format
+msgid "<primary>Free Software Directory</primary>"
+msgstr "<primary>バグを報告</primary>"
 
 #. Tag: para
 #, no-c-format
 msgid "You might also want to check the Debian wiki, a collaborative website where anybody, even simple visitors, can make suggestions directly from their browsers. It is used equally by developers who design and specify their projects, and by users who share their knowledge by writing documents collaboratively. <ulink type=\"block\" url=\"http://wiki.debian.org/\" />"
 msgstr "Debian wiki を確認するほうが良いかもしれません。これは共同ウェブサイトで、誰でも、単なる訪問者でさえも、ブラウザから直接提案を出すことが可能です。Debian wiki はプロジェクトを設計したり方向性を決定する管理者、協力し合って文書を書くことで知識を共有したいユーザから使われます。<ulink type=\"block\" url=\"http://wiki.debian.org/\" />"
+
+#. Tag: indexterm
+#, no-c-format
+msgid "<primary><emphasis>wiki.debian.org</emphasis></primary>"
+msgstr "<primary><emphasis>wiki.debian.org</emphasis></primary>"
 
 #. Tag: title
 #, no-c-format
@@ -432,8 +440,8 @@ msgid "A howto is a document that describes, in concrete terms and step by step,
 msgstr "HOWTO は具体的かつ段階的に所定の目標を達成する「手順」を記述する文書です。目標のカバーする領域は比較的多岐にわたりますが、事実上技術的な目標であることが多いです。たとえば、IP マスカレードの構成、ソフトウェア RAID の設定、Samba サーバのインストールなどです。HOWTO はあるテクノロジーを導入する際に起こりうるすべての潜在的な問題に対処できるように書かれます。"
 
 #. Tag: para
-#, no-c-format
-msgid "Many such tutorials are managed by the Linux Documentation Project (LDP), whose website hosts all of these documents:<ulink type=\"block\" url=\"http://www.tldp.org/\" />"
+#, fuzzy, no-c-format
+msgid "Many such tutorials are managed by the Linux Documentation Project (LDP), whose website hosts all of these documents: <ulink type=\"block\" url=\"http://www.tldp.org/\" />"
 msgstr "Linux Documentation Project (LDP) がそのようなチュートリアルを管理しており、LDP のウェブサイトにそのような文書がすべてホストされています。<ulink type=\"block\" url=\"http://www.tldp.org/\" />"
 
 #. Tag: indexterm
@@ -467,8 +475,8 @@ msgid "The purpose of this section is to present some general tips on certain op
 msgstr "この節の目的は、管理者が頻繁に実行する特定の操作に関する、いくつかの一般的なヒントを示すことです。もちろんこれらの手順は包括的にすべての考え得る場合をカバーするものではありませんが、より困難な状況に直面した際の出発点として機能します。"
 
 #. Tag: title
-#, no-c-format
-msgid "<emphasis>DISCOVERY</emphasis> Documentation in French"
+#, fuzzy, no-c-format
+msgid "<emphasis>DISCOVERY</emphasis> Documentation in other languages"
 msgstr "<emphasis>DISCOVERY</emphasis> フランス語の文書"
 
 #. Tag: para
@@ -571,6 +579,11 @@ msgstr "<command>rsyslogd</command> は特別です。なぜなら、このデ�
 msgid "Certain C functions, which are specialized in sending logs, simplify the use of the <command>rsyslogd</command> daemon. However some daemons manage their own log files (this is the case, for example, of <command>samba</command>, that implements Windows shares on Linux)."
 msgstr "C 言語にはログ送信専用の関数があるので、これを使うと <command>rsyslogd</command> デーモンを簡単に使えるようになります。しかしながら、いくつかのデーモンは自分でログファイルを管理します (たとえば、<command>samba</command>、Linux 上で動く Windows 共有の実装、がその場合に当てはまります)。"
 
+#. Tag: para
+#, no-c-format
+msgid "Note that when systemd is in use, the logs are actually collected by systemd before being forwarded to <command>rsyslogd</command>. They are thus also available via systemd's journal and can be consulted with <command>journalctl</command> (see <xref linkend=\"sect.systemd\" /> for details)."
+msgstr ""
+
 #. Tag: title
 #, no-c-format
 msgid "<emphasis>BACK TO BASICS</emphasis> Daemon"
@@ -587,8 +600,8 @@ msgid "A daemon is a program that is not explicitly invoked by the user and that
 msgstr "デーモンはユーザが明示的に呼び出すプログラムではなく、バックグラウンドで実行され、特定の状態が満足されたら作業を行うプログラムです。多くのサーバプログラムはデーモンです。専門用語の名前の最後に付けられた「d」という文字は通常それがデーモンであることを意味しています (これには <command>sshd</command>、<command>smtpd</command>、<command>httpd</command> などがあります)。"
 
 #. Tag: para
-#, no-c-format
-msgid "As a preventive operation, the administrator should regularly read the most relevant server logs. They can thus diagnose problems before they are even reported by disgruntled users. Indeed users may sometimes wait for a problem to occur repeatedly over several days before reporting it. In many cases, there are specific tools to analyze the contents of the larger log files. In particular, such utilities exist for web servers (such as <command>analog</command>, <command>awstats</command>, <command>webalizer</command> for Apache), for FTP servers, for proxy/cache servers, for firewalls, for e-mail servers, for DNS servers, and even for print servers. Some of these utilities operate in a modular manner and allow analysis of several types of log files. This is the case of <command>lire</command> or also <command>modlogan</command>. Other tools, such as <command>logcheck</command> (a software discussed in <xref linkend=\"security\" />), scan these files in search of alerts to be dealt with."
+#, fuzzy, no-c-format
+msgid "As a preventive operation, the administrator should regularly read the most relevant server logs. They can thus diagnose problems before they are even reported by disgruntled users. Indeed users may sometimes wait for a problem to occur repeatedly over several days before reporting it. In many cases, there are specific tools to analyze the contents of the larger log files. In particular, such utilities exist for web servers (such as <command>analog</command>, <command>awstats</command>, <command>webalizer</command> for Apache), for FTP servers, for proxy/cache servers, for firewalls, for e-mail servers, for DNS servers, and even for print servers. Some of these utilities operate in a modular manner and allow analysis of several types of log files. This is the case of <command>lire</command>. Other tools, such as <command>logcheck</command> (a software discussed in <xref linkend=\"security\" />), scan these files in search of alerts to be dealt with."
 msgstr "予防手段として、管理者は日常的に最重要なサーバのログを読むべきです。そうすれば、不満を抱くユーザが報告する前に問題を調査できます。実際のところ、ユーザは報告の前に、問題が数日間にわたって繰り返して起こるまで待つかもしれません。多くの場合、長いログファイルの内容を分析する特定のツールが有ります。特に、ウェブサーバ (Apache 向けの <command>analog</command>、<command>awstats</command>、<command>webalizer</command>)、FTP サーバ、プロキシ/キャッシュサーバ、ファイアウォール、電子メールサーバ、DNS サーバ、プリンタサーバについてはそのログを解析するユーティリティが存在します。いくつかのユーティリティはモジュール式で機能し、複数のログファイルを解析できます。<command>lire</command> や <command>modlogan</command> がこれに相当します。他のツール、たとえば <command>logcheck</command> (<xref linkend=\"security\" />で紹介するソフトウェア) など、はログファイルから対処が必要な警告を検索します。"
 
 #. Tag: indexterm
@@ -616,19 +629,14 @@ msgstr "<primary><command>logcheck</command></primary>"
 msgid "<primary><command>lire</command></primary>"
 msgstr "<primary><command>lire</command></primary>"
 
-#. Tag: indexterm
-#, no-c-format
-msgid "<primary><command>modlogan</command></primary>"
-msgstr "<primary><command>modlogan</command></primary>"
-
 #. Tag: title
 #, no-c-format
 msgid "Asking for Help on a Mailing List"
 msgstr "メーリングリストで助けを求める"
 
 #. Tag: para
-#, no-c-format
-msgid "If your various searches haven't helped you to get to the root of a problem, it is possible to get help from other, perhaps more experienced people. This is indeed the purpose of the <email>debian-user@lists.debian.org</email> mailing list. As with any community, it has rules that need to be followed. Before asking any question, you should check that your problem isn't already covered by recent discussions on the list or by any official documentation. <ulink type=\"block\" url=\"http://wiki.debian.org/DebianMailingLists\" /> <ulink type=\"block\" url=\"http://lists.debian.org/debian-user/\" />"
+#, fuzzy, no-c-format
+msgid "If your various searches haven't helped you to get to the root of a problem, it is possible to get help from other, perhaps more experienced people. This is indeed the purpose of the <email>debian-user@lists.debian.org</email> mailing list. As with any community, it has rules that need to be followed. Before asking any question, you should check that your problem isn't already covered by recent discussions on the list or by any official documentation. <ulink type=\"block\" url=\"https://wiki.debian.org/DebianMailingLists\" /> <ulink type=\"block\" url=\"https://lists.debian.org/debian-user/\" />"
 msgstr "いろいろと検索しても問題の原因が分からなかった場合、他の人、より経験豊富な人、から助けを受けることも可能です。<email>debian-user@lists.debian.org</email> メーリングリストはこのために用意されています。他のコミュニティと同様、このメーリングリストにも従う必要のあるルールがあります。質問の前に、メーリングリストに最近投稿された議論および公式文書の中で、自分の問題がまだ報告されていない点を確認するべきです。<ulink type=\"block\" url=\"http://wiki.debian.org/DebianMailingLists\" /> <ulink type=\"block\" url=\"http://lists.debian.org/debian-user/\" />"
 
 #. Tag: indexterm
@@ -663,6 +671,11 @@ msgstr "一般的に言って、電子メーリングリスト上でのやり取
 
 #. Tag: para
 #, no-c-format
+msgid "Furthermore, for any communication channel managed by the Debian project, you are bound by the Debian Code of Conduct: <ulink type=\"block\" url=\"https://www.debian.org/code_of_conduct\" />"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
 msgid "Once those two conditions are met, you can think of describing your problem to the mailing list. Include as much relevant information as possible: various tests conducted, documentation consulted, how you attempted to diagnose the problem, the packages concerned or those that may be involved, etc. Check the Debian Bug Tracking System (BTS, described in sidebar <xref linkend=\"sidebar.bts\" />) for similar problems, and mention the results of that search, providing links to bugs found. BTS starts on: <ulink type=\"block\" url=\"http://www.debian.org/Bugs/index.html\" />"
 msgstr "以下の 2 条件を満足した時点で、問題をメーリングリストに投稿してみてください。投稿の際には、関連する情報をできる限り含めるようにしてください。ここで関連する情報とは、実施したさまざまなテスト、参照した文書、その問題を診断する際に使った方法、関連するか関連する可能性のあるパッケージ、などを指します。Debian バグ追跡システム (BTS、傍注<xref linkend=\"sidebar.bts\" />参照) で同様の問題がないか確認し、検索の結果を挙げ、見つかったバグへのリンクを提供してください。以下から BTS を使い始めることが可能です。<ulink type=\"block\" url=\"http://www.debian.org/Bugs/index.html\" />"
 
@@ -687,11 +700,17 @@ msgid "<primary>bug report</primary>"
 msgstr "<primary>バグ報告</primary>"
 
 #. Tag: para
-#, no-c-format
-msgid "If all of your efforts to resolve a problem fail, it is possible that a resolution is not your responsibility, and that the problem is due to a bug in the program. In this case, the proper procedure is to report the bug to Debian or directly to the upstream developers. To do this, isolate the problem as much as possible and create a minimal test situation in which it can be reproduced. If you know which program is the apparent cause of the problem, you can find its corresponding package using the command, <command>dpkg -S <replaceable>file_in_question</replaceable></command>. Check the Bug Tracking System (<literal>http://bugs.debian.org/<replaceable>package</replaceable></literal>) to ensure that the bug has not already been reported. You can then send your own bug report, using the <command>reportbug</command> command, including as much information as possible, especially a complete description of those minimal test cases that will allow anyone to recreate the bug."
+#, fuzzy, no-c-format
+msgid "If all of your efforts to resolve a problem fail, it is possible that a resolution is not your responsibility, and that the problem is due to a bug in the program. In this case, the proper procedure is to report the bug to Debian or directly to the upstream developers. To do this, isolate the problem as much as possible and create a minimal test situation in which it can be reproduced. If you know which program is the apparent cause of the problem, you can find its corresponding package using the command, <command>dpkg -S <replaceable>file_in_question</replaceable></command>. Check the Bug Tracking System (<literal>https://bugs.debian.org/<replaceable>package</replaceable></literal>) to ensure that the bug has not already been reported. You can then send your own bug report, using the <command>reportbug</command> command, including as much information as possible, especially a complete description of those minimal test cases that will allow anyone to recreate the bug."
 msgstr "問題を解決するために行ったすべての努力が失敗に終わった場合、問題の原因はあなたの責任のおよぶところになく、プログラムのバグかもしれません。この場合、適切な手続きは Debian にバグを報告するか、上流開発者に直接報告するかです。これを行うには、可能な限り問題を分割し、問題を再現できる最小のテスト環境を作ってください。問題の原因が明らかにプログラムにあるとわかっている場合、<command>dpkg -S <replaceable>file_in_question</replaceable></command> コマンドで関連するパッケージを見つけることが可能です。バグ追跡システム (<literal>http://bugs.debian.org/<replaceable>package</replaceable></literal>) を使って、そのバグがまだ報告されていないことを確かめてください。その後、<command>reportbug</command> コマンドでバグ報告を送信してください。その際には、可能な限り多くの情報を含め、特に誰もがバグを再現できる最小テストケースの完全な説明を含めてください。"
 
 #. Tag: para
 #, no-c-format
 msgid "The elements of this chapter are a means of effectively resolving issues that the following chapters may bring about. Use them as often as necessary!"
 msgstr "この章では、効率的な問題解決の手段を解説しました。以降の章ではこの手段を使うことになるでしょう。必要に応じて何度でも使ってください!"
+
+#~ msgid "<primary><foreignphrase>Freecode</foreignphrase></primary>"
+#~ msgstr "<primary><foreignphrase>Freecode</foreignphrase></primary>"
+
+#~ msgid "<primary><command>modlogan</command></primary>"
+#~ msgstr "<primary><command>modlogan</command></primary>"
