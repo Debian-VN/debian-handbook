@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-09-09 18:47+0200\n"
-"PO-Revision-Date: 2015-09-04 12:40+0200\n"
+"PO-Revision-Date: 2015-09-09 21:40+0200\n"
 "Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/12_advanced-administration/es/>\n"
 "Language: es-ES\n"
@@ -1018,10 +1018,9 @@ msgstr ""
 msgid "<emphasis>NOTE</emphasis> Autodetecting LVM volumes"
 msgstr "<emphasis>NOTA</emphasis> Autodetección de volúmenes LVM"
 
-#, fuzzy
 #| msgid "When the computer boots, the <filename>/etc/init.d/lvm</filename> script scans the available devices; those that have been initialized as physical volumes for LVM are registered into the LVM subsystem, those that belong to volume groups are assembled, and the relevant logical volumes are started and made available. There is therefore no need to edit configuration files when creating or modifying LVM volumes."
 msgid "When the computer boots, the <filename>lvm2-activation</filename> systemd service unit executes <command>vgchange -aay</command> to “activate” the volume groups: it scans the available devices; those that have been initialized as physical volumes for LVM are registered into the LVM subsystem, those that belong to volume groups are assembled, and the relevant logical volumes are started and made available. There is therefore no need to edit configuration files when creating or modifying LVM volumes."
-msgstr "Cuando inicia el equipo, el <filename>lvm2-activation</filename> systemd service unit ejecuta <command>vgchange -aay</command> para \"activar\" grupos de volúmenes: escanea los dispositivos disponibles; registra con el subsistema LVM a aquellos que fueron inicializados como volúmenes físicos para LVM, agrupa aquellos que pertenecen a grupos de volúmenes e inicializa y hace disponibles los volúmenes lógicos relevantes. Por lo tanto, no es necesario editar archivos de configuración cuando crea o modifica volúmenes LVM."
+msgstr "Cuando inicia el equipo, el <filename>lvm2-activation</filename> systemd service unit ejecuta <command>vgchange -aay</command> para \"activar\" grupos de volúmenes: escanea los dispositivos disponibles; registra en el subsistema LVM a aquellos que fueron inicializados como volúmenes físicos para LVM, agrupa aquellos que pertenecen a grupos de volúmenes e inicializa y hace disponibles los volúmenes lógicos relevantes. Por lo tanto, no es necesario editar archivos de configuración cuando crea o modifica volúmenes LVM."
 
 msgid "Note, however, that the layout of the LVM elements (physical and logical volumes, and volume groups) is backed up in <filename>/etc/lvm/backup</filename>, which can be useful in case of a problem (or just to sneak a peek under the hood)."
 msgstr "Sepa, sin embargo, que se respalda la distribución de los elementos de LVM (volúmenes físicos y loǵicos y grupos de volúmenes) en <filename>/etc/lvm/backup</filename>, lo cual puede ser útil en caso de algún problema (o tan sólo para espiar tras bambalinas)."
@@ -1344,10 +1343,9 @@ msgstr "Bochs es otra máquina virtual libre, pero sólo emula la arquitectura x
 msgid "VMWare is a proprietary virtual machine; being one of the oldest out there, it is also one of the most widely-known. It works on principles similar to QEMU. VMWare proposes advanced features such as snapshotting a running virtual machine. <ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 msgstr "VMWare es una máquina virtual privativa; como es una de las más antiguas es también una de las más conocidas. Funciona sobre cimientos similares a los de QEMU. VMWare propone funcionalidad avanzada como instantáneas («snapshot») de una máquina virtual en ejecución. <ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 
-#, fuzzy
 #| msgid "VirtualBox is a virtual machine that is mostly free software (although some extra components are available under a proprietary license). It's younger than VMWare and restricted to the i386 and amd64 architectures, but it still includes some snapshotting and other interesting features. VirtualBox has been part of Debian since <emphasis role=\"distribution\">Lenny</emphasis>. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 msgid "VirtualBox is a virtual machine that is mostly free software (some extra components are available under a proprietary license). Unfortunately it is in Debian's “contrib” section because it includes some precompiled files that cannot be rebuilt without a proprietary compiler. While younger than VMWare and restricted to the i386 and amd64 architectures, it still includes some snapshotting and other interesting features. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
-msgstr "VirtualBox es una máquina virtual que es software libre en su mayor parte (aunque algunos componentes adicionales están disponibles bajo una licencia privativa). Es más joven que VMWare y limitada a las arquitecturas i386 y amd64, pero incluye cierta compatibilidad con instantáneas y otras funcionalidades interesantes. VirtualBox es parte de Debian desde <emphasis role=\"distribution\">Lenny</emphasis>. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
+msgstr "VirtualBox es una máquina virtual que es software libre en su mayor parte (algunos componentes adicionales están disponibles bajo una licencia privativa). Por desgracia está en la sección \"contrib\" de Debian porque incluye algunos ficheros precompilados que no se pueden recrear sin un compilador propietario. Es más joven que VMWare y limitada a las arquitecturas i386 y amd64, pero incluye cierta compatibilidad con instantáneas y otras funcionalidades interesantes. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 
 msgid "Xen <indexterm><primary>Xen</primary></indexterm> is a “paravirtualization” solution. It introduces a thin abstraction layer, called a “hypervisor”, between the hardware and the upper systems; this acts as a referee that controls access to hardware from the virtual machines. However, it only handles a few of the instructions, the rest is directly executed by the hardware on behalf of the systems. The main advantage is that performances are not degraded, and systems run close to native speed; the drawback is that the kernels of the operating systems one wishes to use on a Xen hypervisor need to be adapted to run on Xen."
 msgstr "Xen <indexterm><primary>Xen</primary></indexterm> es una solución de «paravirtualización». Introduce una fina capa de abstracción, llamada «hypervisor», entre el hardware y los sistemas superiores; ésta actúa como árbitro controlando el acceso al hardware desde las máquinas virtuales. Sin embargo, sólo gestiona unas pocas instrucciones, las demás se ejecutan directamente en el hardware en nombre de los sistemas. La principal ventaja es que no se degrada el rendimiento y los sistemas ejecutan a velocidades cercanas a la nativa; la desventaja es que el núcleo de los sistemas operativos que uno desee utilizar en un hypervisor Xen necesita ser adaptado para ejecutar sobre Xen."
@@ -1910,10 +1908,9 @@ msgstr "<primary>KVM</primary>"
 msgid "KVM, which stands for <emphasis>Kernel-based Virtual Machine</emphasis>, is first and foremost a kernel module providing most of the infrastructure that can be used by a virtualizer, but it is not a virtualizer by itself. Actual control for the virtualization is handled by a QEMU-based application. Don't worry if this section mentions <command>qemu-*</command> commands: it is still about KVM."
 msgstr "KVM, acrónimo de <emphasis>máquina virtual basada en el núcleo</emphasis> («Kernel-based Virtual Machine»), es primero que nada un módulo del núcleo que provee la mayor parte de la infraestructura que puede usar un virtualizador, pero no es un virtualizador en sí mismo. El control real de la virtualización es gestionado por una aplicación basada en QEMU. No se preocupe si esta sección menciona programas <command>qemu-*</command>, continúa hablando sobre KVM."
 
-#, fuzzy
 #| msgid "Unlike other virtualization systems, KVM was merged into the Linux kernel right from the start. Its developers chose to take advantage of the processor instruction sets dedicated to virtualization (Intel-VT and AMD-V), which keeps KVM lightweight, elegant and not resource-hungry. The counterpart, of course, is that KVM mainly works on i386 and amd64 processors, and only those recent enough to have these instruction sets. You can ensure that you have such a processor if you have “vmx” or “svm” in the CPU flags listed in <filename>/proc/cpuinfo</filename>."
 msgid "Unlike other virtualization systems, KVM was merged into the Linux kernel right from the start. Its developers chose to take advantage of the processor instruction sets dedicated to virtualization (Intel-VT and AMD-V), which keeps KVM lightweight, elegant and not resource-hungry. The counterpart, of course, is that KVM doesn't work on any computer but only on those with appropriate processors. For x86-based computers, you can verify that you have such a processor by looking for “vmx” or “svm” in the CPU flags listed in <filename>/proc/cpuinfo</filename>."
-msgstr "A diferencia de otros sistemas de virtualización, se integró KVM al núcleo Linux desde el comienzo. Sus desarrolladores eligieron aprovechar el conjunto de instrucciones de procesador dedicados a la virtualización (Intel-VT y AMD-V), lo que mantiene a KVM liviano, elegante y no muy hambriento de recursos. La contraparte, obviamente, es que KVM funciona principalmente en procesadores i386 y amd64, y sólo en aquellos suficientemente recientes para tener estos conjuntos de instrucciones. Puede verificar si tiene uno de estos procesadores si encuentra a «vmx» o «svm» entre las opciones de CPU («flags») enumeradas en <filename>/proc/cpuinfo</filename>."
+msgstr "A diferencia de otros sistemas de virtualización, se integró KVM al núcleo Linux desde el comienzo. Sus desarrolladores eligieron aprovechar el conjunto de instrucciones de procesador dedicados a la virtualización (Intel-VT y AMD-V), lo que mantiene a KVM liviano, elegante y no muy hambriento de recursos. La contraparte, obviamente, es que KVM no funciona en ordenadores con procesadores distintos a estos. Para los ordenadores basados en i386 y amd64, puede verificar si tiene uno de estos procesadores si encuentra a «vmx» o «svm» entre las opciones de CPU («flags») enumeradas en <filename>/proc/cpuinfo</filename>."
 
 msgid "With Red Hat actively supporting its development, KVM has more or less become the reference for Linux virtualization."
 msgstr "Con Red Hat respaldando activamente su desarrollo, KVM parece haberse convertido en la referencia de virtualización en Linux."
@@ -1976,13 +1973,12 @@ msgstr ""
 "\n"
 "root@mirwiz:~# </computeroutput>"
 
-#, fuzzy
 #| msgid "<emphasis>NOTE</emphasis> Storage in the domU"
 msgid "<emphasis>TIP</emphasis> Add your user to the libvirt group"
-msgstr "<emphasis>NOTA</emphasis> Almacenamiento en el domU"
+msgstr "<emphasis>CONSEJO</emphasis> Añada su usuario al grupo libvirt"
 
 msgid "All samples in this section assume that you are running commands as root. Effectively, if you want to control a local libvirt daemon, you need either to be root or to be a member of the <literal>libvirt</literal> group (which is not the case by default). Thus if you want to avoid using root rights too often, you can add yoursel to the <literal>libvirt</literal> group and run the various commands under your user identity."
-msgstr ""
+msgstr "En todos los ejemplos de esta sección se da por hecho que Ud. está ejecutando los comandos como root. Efectivamente, si quiere controlar el demonio local libvirt, necesitará ser root o ser un miembro del grupo <literal>libvirt</literal> (lo cual no viene por defecto). POr tanto, si quiere evitar usar permisos de root muy a menudo, puede añadirse al grupo <literal>libvirt</literal> y ejecutar los distintos comandos bajo su identidad."
 
 msgid "Let us now start the installation process for the virtual machine, and have a closer look at <command>virt-install</command>'s most important options. This command registers the virtual machine and its parameters in libvirtd, then starts it so that its installation can proceed."
 msgstr "Ahora iniciaremos el proceso de instalación para la máquina virtual y veremos en más detalle las opciones más importantes de <command>virt-install</command>. Este programa registra en libvirtd la máquina virtual y sus parámetros y luego la inicia para continuar el proceso de instalación."
@@ -2140,8 +2136,9 @@ msgid "If the virtual machine is meant to run a Debian (or one of its derivative
 msgstr "Si pretende que la máquina virtual ejecute Debian (o uno de sus derivados), puede inicializar el sistema con <command>debootstrap</command> como se describió anteriormente. Pero desea instalar un sistema basado en RMP en la máquina virtual (como Fedora, CentOS o Scientific Linux), necesita realizar la configuración con la aplicación <command>yum</command> (disponible en el paquete del mismo nombre)."
 
 msgid "The procedure requires using <command>rpm</command> to extract an initial set of files, including notably <command>yum</command> configuration files. And then calling <command>yum</command> to extract the remaining set of packages. But since we call <command>yum</command> from outside the chroot, we need to make some temporary changes. In the sample below, the target chroot is <filename>/srv/centos</filename>."
-msgstr ""
+msgstr "El procedimiento require usar <command>rpm</command> para extraer un conjunto inicial de archivos, incluyendo probablemente bastantes archivos de configuración de <command>yum</command>. Y luego ejecutar el comando <command>yum</command> para descomprimir el conjunto de paquetes restantes. Pero desde que podemos llamar a <command>yum</command> desde fuera de una jaula chroot, necesitaremos algunos cambios provisionales. En los ejemplos siguientes, el destino de chroot es <filename>/src/centos</filename>."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>rootdir=\"/srv/centos\"</userinput>\n"
@@ -2159,6 +2156,21 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
 "        "
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>rootdir=\"/srv/centos\"</userinput>\n"
+"<computeroutput># </computeroutput><userinput>mkdir -p \"$rootdir\" /etc/rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>echo \"%_dbpath /var/lib/rpm\" &gt; /etc/rpm/macros.dbpath</userinput>\n"
+"<computeroutput># </computeroutput><userinput>wget http://mirror.centos.org/centos/7/os/x86_64/Packages/centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>rpm --nodeps --root \"$rootdir\" -i centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput>rpm: RPM should not be used directly install RPM packages, use Alien instead!\n"
+"rpm: However assuming you know what you are doing...\n"
+"warning: centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY\n"
+"</computeroutput>\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file:///etc/,gpgkey=file://${rootdir}/etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"<computeroutput># </computeroutput><userinput>yum --assumeyes --installroot $rootdir groupinstall core</userinput>\n"
+"[...]\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"        "
 
 msgid "Automated Installation"
 msgstr "Instalación automatizada"
@@ -2265,10 +2277,9 @@ msgstr "<emphasis>YENDO MÁS ALLÁ</emphasis> Debconf con una base de datos cent
 msgid "<primary><command>debconf</command></primary>"
 msgstr "<primary><command>debconf</command></primary>"
 
-#, fuzzy
 #| msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail."
 msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail (you need the <emphasis role=\"pkg\">debconf-doc</emphasis> package)."
-msgstr "El presembrado permite proveer un conjunto de respuestas a preguntas Debconf en el momento de instalación, pero estas respuestas son estáticas y no evolucionan con el tiempo. Debido a que máquinas ya instaladas puede necesitar ser actualizadas, y podrían requerir nuevas respuestas, puede definir el archivo de configuración <filename>/etc/debconf.conf</filename> para que Debconf utilice fuentes de datos externas (como un servidor de directorio LDAP o un archivo remoto al que accede con NFS o Samba). Puede definir varias fuentes de datos externas simultáneamente y que éstas se complementen. Todavía utilizará la base de datos local (para acceso de lectura y escritura), pero generalmente se restringen para lectura a las bases de datos remotas. La página de manual <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> describe en detalle todas las posibilidades."
+msgstr "El presembrado permite proveer un conjunto de respuestas a preguntas Debconf en el momento de instalación, pero estas respuestas son estáticas y no evolucionan con el tiempo. Debido a que máquinas ya instaladas puede necesitar ser actualizadas, y podrían requerir nuevas respuestas, puede definir el archivo de configuración <filename>/etc/debconf.conf</filename> para que Debconf utilice fuentes de datos externas (como un servidor de directorio LDAP o un archivo remoto al que accede con NFS o Samba). Puede definir varias fuentes de datos externas simultáneamente y que éstas se complementen. Todavía utilizará la base de datos local (para acceso de lectura y escritura), pero generalmente se restringen para lectura a las bases de datos remotas. La página de manual <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> describe en detalle todas las posibilidades (necesitará el paquete <emphasis role=\"pkg\">debconf-doc</emphasis>)."
 
 msgid "Using a Preseed File"
 msgstr "Utilización de un archivo de presembrado"
@@ -2312,10 +2323,9 @@ msgstr "La forma más simple de escribir un archivo de presembrado es instalar u
 msgid "<emphasis>DOCUMENTATION</emphasis> Installation guide appendix"
 msgstr "<emphasis>DOCUMENTACIÓN</emphasis> Apéndice de la guía de instalación"
 
-#, fuzzy
 #| msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/apb.html\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/example-preseed.txt\" />"
 msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
-msgstr "La guía de instalación, disponible en internet, incluye documentación detallada sobre el uso de un archivo de presembrado en un apéndice. También incluye un archivo de ejemplo detallado y comentado, que puede servir como base para personalizaciones locales. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/apb.html\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/example-preseed.txt\" />"
+msgstr "La guía de instalación, disponible en internet, incluye documentación detallada sobre el uso de un archivo de presembrado en un apéndice. También incluye un archivo de ejemplo detallado y comentado, que puede servir como base para personalizaciones locales. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
 
 msgid "Creating a Customized Boot Media"
 msgstr "Creación de un medio de arranque personalizado"
@@ -2326,10 +2336,9 @@ msgstr "Saber dónde almacenar el archivo de presembrado está bien, pero la ubi
 msgid "Booting From the Network"
 msgstr "Arranque desde la red"
 
-#, fuzzy
 #| msgid "When a computer is booted from the network, the server sending the initialization elements also defines the boot parameters. Thus, the change needs to be made in the PXE configuration for the boot server; more specifically, in its <filename>/tftpboot/pxelinux.cfg/default</filename> configuration file. Setting up network boot is a prerequisite; see the Installation Guide for details. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/ch04s05.html\" />"
 msgid "When a computer is booted from the network, the server sending the initialization elements also defines the boot parameters. Thus, the change needs to be made in the PXE configuration for the boot server; more specifically, in its <filename>/tftpboot/pxelinux.cfg/default</filename> configuration file. Setting up network boot is a prerequisite; see the Installation Guide for details. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
-msgstr "Cuando un equipo arranca desde la red, el servidor que envía los elementos de inicialización también define los parámetros de arranque. Por lo tanto, debe modificar la configuración de PXE en el servidor de arranque; más específicamente, en su archivo de configuración <filename>/tftpboot/pxelinux.cfg/default</filename>. Definir el arranque por red es un prerequisito; revise la guía de instalación para más detalles. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/ch04s05.html\" />"
+msgstr "Cuando un equipo arranca desde la red, el servidor que envía los elementos de inicialización también define los parámetros de arranque. Por lo tanto, debe modificar la configuración de PXE en el servidor de arranque; más específicamente, en su archivo de configuración <filename>/tftpboot/pxelinux.cfg/default</filename>. Definir el arranque por red es un prerequisito; revise la guía de instalación para más detalles. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
 
 msgid "Preparing a Bootable USB Key"
 msgstr "Preparación de una llave USB de arranque"
@@ -2346,7 +2355,6 @@ msgstr "edite <filename>/media/usbdisk/syslinux.cfg</filename> y agrege los par�
 msgid "syslinux.cfg file and preseeding parameters"
 msgstr "Archivo syslinux.cfg y parámetros de presembrado"
 
-#, fuzzy
 #| msgid ""
 #| "default vmlinuz\n"
 #| "append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --"
@@ -2355,7 +2363,7 @@ msgid ""
 "append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 msgstr ""
 "default vmlinuz\n"
-"append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --"
+"append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 
 msgid "Creating a CD-ROM Image"
 msgstr "Creación de una imagen de CD-ROM"
@@ -2366,10 +2374,9 @@ msgstr "<primary>debian-cd</primary>"
 msgid "A USB key is a read-write media, so it was easy for us to add a file there and change a few parameters. In the CD-ROM case, the operation is more complex, since we need to regenerate a full ISO image. This task is handled by <emphasis role=\"pkg\">debian-cd</emphasis>, but this tool is rather awkward to use: it needs a local mirror, and it requires an understanding of all the options provided by <filename>/usr/share/debian-cd/CONF.sh</filename>; even then, <command>make</command> must be invoked several times. <filename>/usr/share/debian-cd/README</filename> is therefore a very recommended read."
 msgstr "Una llave USB es un medio de lectura y escritura, por lo que es sencillo agregar un archivo allí y cambiar unos pocos parámetros. En el caso de un CD-ROM, la operación es más compleja ya que necesitamos generar una imagen ISO completa. <emphasis role=\"pkg\">debian-cd</emphasis> se encarga de esto, pero es bastante extraño utilizar esta herramienta: necesita un repositorio local y requiere entender todas las opciones que provee <filename>/usr/share/debian-cd/CONF.sh</filename>; aún entonces, debe ejecutar <command>make</command> varias veces. Se recomienda leer <filename>/usr/share/debian-cd/README</filename>."
 
-#, fuzzy
 #| msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/wheezy/CD1/</filename>, $TDIR being one of the parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
 msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/wheezy/CD1/</filename>, $TDIR being one of the parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
-msgstr "Habiendo dicho esto, debian-cd siempre funciona de forma similar: genera un directorio «image» con el contenido exacto del CD-ROM y luego lo convierte en un archivo ISO con una herramienta como <command>genisoimage</command>, <command>mkisofs</command> o <command>xorriso</command>. El directorio de imagen es completado luego del paso <command>make image-trees</command> de debian-cd. En este punto, agregaremos el archivo de presembrado en el directorio apropiado (usualmente <filename>$TDIR/wheezy/CD1/</filename>, donde $TDIR es uno de los parámetros definidos por el archivo de configuración <filename>CONF.sh</filename>). El CD-ROM utiliza <command>isolinux</command> como gestor de arranque, y debemos adaptar el archivo de configuración que generó debian-cd para poder agregar los parámetros de arranque necesarios (el archivo específico es <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename>). Luego puede continuar el proceso «normal» y generar la imagen ISO con <command>make image CD=1</command> (o <command>make images</command> si está generando varios CD-ROMs)."
+msgstr "Habiendo dicho esto, debian-cd siempre funciona de forma similar: genera un directorio «image» con el contenido exacto del CD-ROM y luego lo convierte en un archivo ISO con una herramienta como <command>genisoimage</command>, <command>mkisofs</command> o <command>xorriso</command>. El directorio de imagen es completado luego del paso <command>make image-trees</command> de debian-cd. En este punto, agregaremos el archivo de presembrado en el directorio apropiado (usualmente <filename>$TDIR/wheezy/CD1/</filename>, donde $TDIR es uno de los parámetros definidos por el archivo de configuración <filename>CONF.sh</filename>). El CD-ROM utiliza <command>isolinux</command> como gestor de arranque, y debemos adaptar el archivo de configuración que generó debian-cd para poder agregar los parámetros de arranque necesarios (el archivo específico es <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>). Luego puede continuar el proceso «normal» y generar la imagen ISO con <command>make image CD=1</command> (o <command>make images</command> si está generando varios CD-ROMs)."
 
 msgid "Simple-CDD: The All-In-One Solution"
 msgstr "Simple-CDD: la solución todo-en-uno"
@@ -2461,10 +2468,9 @@ msgstr "luego debian-cd genera la imagen ISO final."
 msgid "Generating an ISO Image"
 msgstr "Generación de una imagen ISO"
 
-#, fuzzy
 #| msgid "Once we have written a configuration file and defined our profiles, the remaining step is to invoke <command>build-simple-cdd --conf simple-cdd.conf</command>. After a few minutes, we get the required image in <filename>images/debian-7.0-amd64-CD-1.iso</filename>."
 msgid "Once we have written a configuration file and defined our profiles, the remaining step is to invoke <command>build-simple-cdd --conf simple-cdd.conf</command>. After a few minutes, we get the required image in <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
-msgstr "Una vez que escribimos un archivo de configuración y definimos nuestros perfiles, el paso restante es ejecutar <command>build-simple-cdd --conf simple-cdd.conf</command>. Luego de unos minutos tendremos la imagen necesaria en <filename>images/debian-7.0-amd64-CD-1.iso</filename>."
+msgstr "Una vez que escribimos un archivo de configuración y definimos nuestros perfiles, el paso restante es ejecutar <command>build-simple-cdd --conf simple-cdd.conf</command>. Luego de unos minutos tendremos la imagen necesaria en <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
 
 msgid "Monitoring is a generic term, and the various involved activities have several goals: on the one hand, following usage of the resources provided by a machine allows anticipating saturation and the subsequent required upgrades; on the other hand, alerting the administrator as soon as a service is unavailable or not working properly means that the problems that do happen can be fixed sooner."
 msgstr "La monitorización es un término genérico, y las muchas actividades involucradas tiene varias objetivos: por un lado, seguir el uso de recursos provistos por una máquina permite anticipar saturación y la actualización necesaria que le seguirá; por el otro, alertar a los administradores tan pronto como un servicio no esté disponible o no fucione correctamente significa que se podrán solucionar más rápidamente aquellos problemas que sucedan."
@@ -2512,18 +2518,16 @@ msgstr "El primer paso es instalar el paquete <emphasis role=\"pkg\">munin-node<
 msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. Browsing the <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> can be interesting even though not all plugins have comprehensive documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
 msgstr "Cuando instala el paquete, se determina un conjunto de plugins activos basados en el software disponible y la configuración actual del equipo. Sin embargo, esta configuración automática depende de una funcionalidad que debe proveer cada plugin, y generalmente es buena idea revisar y alterar el resultado a mano. Sería interesante tener una documentación completa de cada plugin, pero desafortunadamente no existe tal documentación oficial. Sin embargo, todos los plugins son scripts y la mayoría son bastante simples y están bien comentados. Revisar <filename>/etc/munin/plugins/</filename> es, por lo tanto, una buena forma de tener una idea de lo que hace cada plugin y determinar si debe eliminarlo. Similarmente, activar un plugin interesante que se encuentre en <filename>/usr/share/munin/plugins/</filename> es simplemente cuestión de crear un enlace simbólico con <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Sepa que cuando el nombre de un plugin finaliza con un guión bajo «_», el plugin necesita un parámetro. Debe almacenar este parámetro en el nombre del enlace simbólico; por ejemplo, el plugin «if_» debe activarse con un enlace simbólico llamado <filename>if_eth0</filename> para monitorizar el tráfico de red en la interfaz eth0."
 
-#, fuzzy
 #| msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>invoke-rc.d munin-node restart</command>."
 msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>service munin-node restart</command>."
-msgstr "Una vez que configuró correctamente los plugins, debe actualizar el demonio de configuración para describir el control de acceso de los datos recolectados. Esto involucra directivas <literal>allow</literal> en el archivo <filename>/etc/munin/munin-node.conf</filename>. La configuración predeterminada es <literal>allow^127\\.0\\.0\\.1$</literal>, lo que sólo permite el acceso al equipo local. Un administrador usualmente agregará una línea similar que contenga la dirección IP del equipo graficador y luego reiniciará el demonio con <command>invoke-rc.d munin-node restart</command>."
+msgstr "Una vez que configuró correctamente los plugins, debe actualizar el demonio de configuración para describir el control de acceso de los datos recolectados. Esto involucra directivas <literal>allow</literal> en el archivo <filename>/etc/munin/munin-node.conf</filename>. La configuración predeterminada es <literal>allow^127\\.0\\.0\\.1$</literal>, lo que sólo permite el acceso al equipo local. Un administrador usualmente agregará una línea similar que contenga la dirección IP del equipo graficador y luego reiniciará el demonio con <command>service munin-node restart</command>."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Creating local plugins"
 msgstr "<emphasis>YENDO MÁS ALLÁ</emphasis> Creación de plugins locales"
 
-#, fuzzy
 #| msgid "Despite the lack of official documentation for standard plugins, Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
 msgid "Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
-msgstr "A pesar de la falta de documentación oficial para los plugins estándar, Munin sí incluye documentación detallada sobre cómo se deben comportar los plugins y cómo desarrollar plugins nuevos. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
+msgstr "Munin incluye documentación detallada sobre cómo se deben comportar los plugins y cómo desarrollar plugins nuevos. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
 
 msgid "A plugin is best tested when run in the same conditions as it would be when triggered by munin-node; this can be simulated by running <command>munin-run <replaceable>plugin</replaceable></command> as root. A potential second parameter given to this command (such as <literal>config</literal>) is passed to the plugin as a parameter."
 msgstr "La mejor forma de probar un plugin es ejecutarlo en las mismas condiciones que lo haría munin-node; puede simularlo ejecutando <command>munin-run <replaceable>plugin</replaceable></command> como root. Puede proveer un posible segundo parámetro a este programa (como <literal>config</literal>) que será provisto como parámetro al plugin."
@@ -2554,10 +2558,9 @@ msgstr ""
 "load.info 5 minute load average\n"
 "</computeroutput>"
 
-#, fuzzy
 #| msgid "The various available fields are described by the “configuration protocol” specification available on the Munin website. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
 msgid "The various available fields are described by the “Plugin reference” available as part of the “Munin guide”. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
-msgstr "La especificación del «protocolo de configuración», disponible en el sitio web de Munin, describe los varios campos disponibles. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
+msgstr "La especificación de la guía de referencia de plugins, disponible como parte de la guía de Munin, describe los varios campos disponibles. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
 
 msgid "When invoked without a parameter, the plugin simply returns the last measured values; for instance, executing <command>sudo munin-run load</command> could return <literal>load.value 0.12</literal>."
 msgstr "Cuando lo ejecuta sin parámetros, un plugin simplemente devuelve el último valor medido; por ejemplo, ejecutar <command>sudo munin-run load</command> podría devolver <literal>load.value 0.12</literal>."
@@ -2610,7 +2613,6 @@ msgstr "Apuntar un navegador a <literal>http://<replaceable>servidor</replaceabl
 msgid "As documented in <filename>/usr/share/doc/nagios3/README.Debian</filename>, enabling some features involves editing <filename>/etc/nagios3/nagios.cfg</filename> and setting its <literal>check_external_commands</literal> parameter to “1”. We also need to set up write permissions for the directory used by Nagios, with commands such as the following:"
 msgstr "Como está documentado en <filename>/usr/share/doc/nagios3/README.Debian</filename>, para activar algunas funcionalidades  deberemos editar el archivo <filename>/etc/nagios3/nagios.cfg</filename> y definir su parámetro <literal>check_external_command</literal> como «1». También necesitaremos configurar permisos de escritura al directorio que utiliza Nagios, ejecutando algo similar a:"
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>\n"
 #| "<computeroutput>[...]\n"
@@ -2626,11 +2628,11 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 msgstr ""
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>\n"
+"<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
 "<computeroutput>[...]\n"
 "# </computeroutput><userinput>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw\n"
 "</userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3\n"
-"</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 start</userinput>\n"
+"</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 
 msgid "Configuring"
