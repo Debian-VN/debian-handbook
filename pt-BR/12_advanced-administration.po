@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-09-09 18:47+0200\n"
-"PO-Revision-Date: 2015-08-31 21:47+0200\n"
+"PO-Revision-Date: 2015-09-14 21:23+0200\n"
 "Last-Translator: Herbert Parentes Fortes Neto <hpfn@ig.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/debian-handbook/12_advanced-administration/pt_BR/>\n"
 "Language: pt-BR\n"
@@ -613,7 +613,7 @@ msgstr ""
 "[...]\n"
 "    Number   Major   Minor   RaidDevice State\n"
 "       0       8       50        0      active sync   /dev/sdd2\n"
-"       2       8       80        1      active sync   /dev/sdf</computeroutput>\n"
+"       2       8       80        1      active sync   /dev/sdf</computeroutput>"
 
 msgid "From then on, the drive can be physically removed when the server is next switched off, or even hot-removed when the hardware configuration allows hot-swap. Such configurations include some SCSI controllers, most SATA disks, and external drives operating on USB or Firewire."
 msgstr "A partir de então, a unidade pode ser fisicamente removida quando o servidor está para ser desligado, ou até mesmo removida com o sistema ligado (hot-removed) quando a configuração de hardware permite tal operação (hot-swap). Tais configurações incluem alguns controladores SCSI, a maioria dos discos SATA e unidades externas que operam com USB ou Firewire."
@@ -681,7 +681,7 @@ msgstr ""
 "ARRAY /dev/md1 metadata=1.2 name=mirwiz:1 UUID=6ec558ca:0c2c04a0:19bca283:95f67464\n"
 "\n"
 "# This configuration was auto-generated on Thu, 17 Jan 2013 16:21:01 +0100\n"
-"# by mkconf 3.2.5-3\n"
+"# by mkconf 3.2.5-3"
 
 msgid "One of the most useful details is the <literal>DEVICE</literal> option, which lists the devices where the system will automatically look for components of RAID volumes at start-up time. In our example, we replaced the default value, <literal>partitions containers</literal>, with an explicit list of device files, since we chose to use entire disks and not only partitions, for some volumes."
 msgstr "Um dos detalhes mais úteis é a opção <literal>DEVICE</literal>, que lista os dispositivos aonde o sistema irá automaticamente procurar por componentes dos volumes RAID no momento da inicialização. No nosso exemplo, nós substituímos o valor padrão, <literal>partitions containers</literal>, por uma explícita lista de arquivos de dispositivos, já que nós escolhemos usar discos inteiros e não apenas partições, para alguns volumes."
@@ -698,8 +698,8 @@ msgid ""
 "ARRAY /dev/md1 metadata=1.2 name=mirwiz:1 UUID=6ec558ca:0c2c04a0:19bca283:95f67464</computeroutput>"
 msgstr ""
 "<computeroutput># </computeroutput><userinput>mdadm --misc --detail --brief /dev/md?</userinput>\n"
-"<computeroutput>ARRAY /dev/md0 metadata=1.2 name=squeeze:0 UUID=6194b63f:69a40eb5:a79b7ad3:c91f20ee\n"
-"ARRAY /dev/md1 metadata=1.2 name=squeeze:1 UUID=20a8419b:41612750:b9171cfe:00d9a432</computeroutput>\n"
+"<computeroutput>ARRAY /dev/md0 metadata=1.2 name=mirwiz:0 UUID=bb085b35:28e821bd:20d697c9:650152bb\n"
+"ARRAY /dev/md1 metadata=1.2 name=mirwiz:1 UUID=6ec558ca:0c2c04a0:19bca283:95f67464</computeroutput>"
 
 msgid "The contents of these last two lines doesn't depend on the list of disks included in the volume. It is therefore not necessary to regenerate these lines when replacing a failed disk with a new one. On the other hand, care must be taken to update the file when creating or deleting a RAID array."
 msgstr "O conteúdo dessas duas últimas linhas não depende da lista de discos incluídos no volume. Logo, não é necessário regenerar essas linhas quando se for substituir um disco falho por um novo. Por outro lado, tem que se tomar o cuidado de atualizar o arquivo ao se criar ou remover uma array RAID."
@@ -870,12 +870,13 @@ msgid ""
 "</computeroutput>"
 msgstr ""
 "<computeroutput># </computeroutput><userinput>vgdisplay</userinput>\n"
-"<computeroutput># </computeroutput><userinput>vgcreate vg_critical /dev/sdb2 /dev/sdf1</userinput>\n"
+"<computeroutput>  No volume groups found\n"
+"# </computeroutput><userinput>vgcreate vg_critical /dev/sdb2 /dev/sdf1</userinput>\n"
 "<computeroutput>  Volume group \"vg_critical\" successfully created\n"
 "# </computeroutput><userinput>vgdisplay</userinput>\n"
 "<computeroutput>  --- Volume group ---\n"
 "  VG Name               vg_critical\n"
-"  System ID\n"
+"  System ID             \n"
 "  Format                lvm2\n"
 "  Metadata Areas        2\n"
 "  Metadata Sequence No  1\n"
@@ -887,19 +888,20 @@ msgstr ""
 "  Max PV                0\n"
 "  Cur PV                2\n"
 "  Act PV                2\n"
-"  VG Size               8.14 GB\n"
-"  PE Size               4.00 MB\n"
-"  Total PE              2084\n"
-"  Alloc PE / Size       0 / 0\n"
-"  Free  PE / Size       2084 / 8.14 GB\n"
-"  VG UUID               6eG6BW-MmJE-KB0J-dsB2-52iL-N6eD-1paeo8\n"
+"  VG Size               8.09 GiB\n"
+"  PE Size               4.00 MiB\n"
+"  Total PE              2071\n"
+"  Alloc PE / Size       0 / 0   \n"
+"  Free  PE / Size       2071 / 8.09 GiB\n"
+"  VG UUID               bpq7zO-PzPD-R7HW-V8eN-c10c-S32h-f6rKqp\n"
 "\n"
 "# </computeroutput><userinput>vgcreate vg_normal /dev/sdc3 /dev/sdd /dev/sdf2</userinput>\n"
 "<computeroutput>  Volume group \"vg_normal\" successfully created\n"
 "# </computeroutput><userinput>vgdisplay -C</userinput>\n"
-"<computeroutput>  VG          #PV #LV #SN Attr   VSize  VFree\n"
-"  vg_critical   2   0   0 wz--n-  8.14g  8.14g\n"
-"  vg_normal     3   0   0 wz--n- 12.30g 12.30g</computeroutput>\n"
+"<computeroutput>  VG          #PV #LV #SN Attr   VSize  VFree \n"
+"  vg_critical   2   0   0 wz--n-  8.09g  8.09g\n"
+"  vg_normal     3   0   0 wz--n- 12.30g 12.30g\n"
+"</computeroutput>"
 
 msgid "Here again, commands are rather straightforward (and <command>vgdisplay</command> proposes two output formats). Note that it is quite possible to use two partitions of the same physical disk into two different VGs. Note also that we used a <filename>vg_</filename> prefix to name our VGs, but it is nothing more than a convention."
 msgstr "Aqui novamente, os comandos são bem simples (e <command>vgdisplay</command> propõem dois formatos de saída). Note que é perfeitamente possível usar duas partições de um mesmo disco físico em dois VGs diferentes. Note também que nós usamos um prefixo <filename>vg_</filename> para nomear nossos VGs, mas isso não é nada mais que uma convenção."
@@ -1171,7 +1173,7 @@ msgstr ""
 "/dev/mapper/vg_critical-lv_base 1008M  854M  104M  90% /srv/base\n"
 "# </computeroutput><userinput>vgdisplay -C vg_critical</userinput>\n"
 "<computeroutput>  VG          #PV #LV #SN Attr   VSize VFree \n"
-"  vg_critical   2   2   0 wz--n- 8.09g 92.00m</computeroutput>\n"
+"  vg_critical   2   2   0 wz--n- 8.09g 92.00m</computeroutput>"
 
 msgid "No matter, since LVM allows adding physical volumes to existing volume groups. For instance, maybe we've noticed that the <filename>sdb1</filename> partition, which was so far used outside of LVM, only contained archives that could be moved to <filename>lv_backups</filename>. We can now recycle it and integrate it to the volume group, and thereby reclaim some available space. This is the purpose of the <command>vgextend</command> command. Of course, the partition must be prepared as a physical volume beforehand. Once the VG has been extended, we can use similar commands as previously to grow the logical volume then the filesystem:"
 msgstr "Não importa, já que o LVM permite a adição de volumes físico em grupos de volumes existentes. Por exemplo, talvez nós percebamos que a partição <filename>sdb1</filename>, que era até agora usada fora do LVM, apenas contém arquivos que poderiam ser movidos para <filename>lv_backups</filename>. Nós podemos agora reciclá-la e integrá-la ao grupo de volume, e assim recuperar algum espaço disponível. Esse é o propósito do comando <command>vgextend</command>. Claro que, a partição tem que ser preparada antes como um volume físico. Uma vez que o VG tenha sido estendido, nós podemos usar comandos similares aos anteriores para cultivar o volume lógico e então o sistema de arquivos:"
@@ -1340,10 +1342,9 @@ msgstr "Bochs é outra máquina virtual livre, mas somente emula as arquiteturas
 msgid "VMWare is a proprietary virtual machine; being one of the oldest out there, it is also one of the most widely-known. It works on principles similar to QEMU. VMWare proposes advanced features such as snapshotting a running virtual machine. <ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 msgstr "VMWare é uma máquina virtual proprietária; sendo uma das mais antigas que se tem por ai, também é uma das mais amplamente conhecidas. Ela funciona com princípios similares aos do QEMU. A VMWare propõe recursos avançados tais como \"snapshotting\" de uma máquina virtual em execução. <ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 
-#, fuzzy
 #| msgid "VirtualBox is a virtual machine that is mostly free software (although some extra components are available under a proprietary license). It's younger than VMWare and restricted to the i386 and amd64 architectures, but it still includes some snapshotting and other interesting features. VirtualBox has been part of Debian since <emphasis role=\"distribution\">Lenny</emphasis>. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 msgid "VirtualBox is a virtual machine that is mostly free software (some extra components are available under a proprietary license). Unfortunately it is in Debian's “contrib” section because it includes some precompiled files that cannot be rebuilt without a proprietary compiler. While younger than VMWare and restricted to the i386 and amd64 architectures, it still includes some snapshotting and other interesting features. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
-msgstr "VirtualBox é uma máquina virtual que é quase toda software livre (alguns componentes extra estão disponíveis sob licença proprietária). Ela é mais jovem que a VMWare e restrita as arquiteturas i386 e amd64, mas ele ainda inclui alguns \"snapshotting\" e outras características interessantes. VirtualBox tem sido parte do Debian desde o <emphasis role=\"distribution\">Lenny</emphasis>. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
+msgstr "VirtualBox é uma máquina virtual que é quase toda software livre (alguns componentes extra estão disponíveis sob licença proprietária). Infelizmente ele está na seção Debian “contrib” devido ao fato que ele inclui alguns arquivos précompilados que não podem ser reconstruidos sem um compilador proprietário.  Embora ele seja mais jovem que a VMWare e restrita as arquiteturas i386 e amd64, ele ainda inclui alguns \"snapshotting\" e outras características interessantes. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 
 msgid "Xen <indexterm><primary>Xen</primary></indexterm> is a “paravirtualization” solution. It introduces a thin abstraction layer, called a “hypervisor”, between the hardware and the upper systems; this acts as a referee that controls access to hardware from the virtual machines. However, it only handles a few of the instructions, the rest is directly executed by the hardware on behalf of the systems. The main advantage is that performances are not degraded, and systems run close to native speed; the drawback is that the kernels of the operating systems one wishes to use on a Xen hypervisor need to be adapted to run on Xen."
 msgstr "Xen <indexterm><primary>Xen</primary></indexterm> é uma solução de “paravirtualização”. Ele introduz uma fina camada de abstração, chamada de “hypervisor”, entre o hardware e os sistemas superiores; Ele age como um árbitro que controla o acesso ao hardware feito pelas máquinas virtuais. Entretanto, ele apenas lida com algumas das instruções, o resto é executado diretamente pelo hardware em nome dos sistemas. A principal vantagem é que o desempenho não se degradada, e os sistemas rodam perto da velocidade nativa; a desvantagem é que os núcleos dos sistemas operacionais que alguém deseja usar em um \"hypervisor\" Xen precisam ser adaptados para rodar o Xen."
@@ -1400,7 +1401,7 @@ msgid ""
 msgstr ""
 "<computeroutput># </computeroutput><userinput>mv /etc/grub.d/20_linux_xen /etc/grub.d/09_linux_xen\n"
 "</userinput><computeroutput># </computeroutput><userinput>update-grub\n"
-"</userinput>\n"
+"</userinput>"
 
 msgid "Once these prerequisites are installed, the next step is to test the behavior of the dom0 by itself; this involves a reboot to the hypervisor and the Xen kernel. The system should boot in its standard fashion, with a few extra messages on the console during the early initialization steps."
 msgstr "Uma vez que esses pré-requisitos estejam instalados, o próximo passo é testar o comportamento do próprio dom0; isso envolve uma reinicialização do \"hypervisor\" e do núcleo Xen. O sistema deverá inicializar da maneira usual, com algumas mensagens extras no console, durante os passo iniciais da inicialização."
@@ -1433,7 +1434,7 @@ msgid "<emphasis>NOTE</emphasis> Storage in the domU"
 msgstr "<emphasis>NOTA</emphasis> Armazenamento em domU"
 
 msgid "Entire hard disks can also be exported to the domU, as well as partitions, RAID arrays or pre-existing LVM logical volumes. These operations are not automated by <command>xen-create-image</command>, however, so editing the Xen image's configuration file is in order after its initial creation with <command>xen-create-image</command>."
-msgstr "Discos rígidos inteiros também podem ser exportados, assim como as partições, arrays RAID ou volumes lógicos pré existentes. No entanto, essas operações não são automatizadas pelo <command>xen-create-image</command>, então edita-se o arquivo de configuração da imagem do Xen após sua criação inicial com o <command>xen-create-mage</command>."
+msgstr "Discos rígidos inteiros também podem ser exportados para o domU, assim como as partições, arrays RAID ou volumes lógicos LVM pré existentes. No entanto, essas operações não são automatizadas pelo <command>xen-create-image</command>, então edita-se o arquivo de configuração da imagem do Xen após sua criação inicial com o <command>xen-create-mage</command>."
 
 msgid "Once these choices are made, we can create the image for our future Xen domU:"
 msgstr "Assim que essas escolhas são feitas, podemos criar uma imagem para o nosso futuro Xen domU:"
@@ -1563,7 +1564,7 @@ msgid "<primary><command>xe</command></primary>"
 msgstr "<primary><command>xe</command></primary>"
 
 msgid "In Debian 7 and older releases, <command>xm</command> was the reference command line tool to use to manage Xen virtual machines. It has now been replaced by <command>xl</command> which is mostly backwards compatible. But those are not the only available tools: <command>virsh</command> of libvirt and <command>xe</command> of XenServer's XAPI (commercial offering of Xen) are alternative tools."
-msgstr ""
+msgstr "No Debian 7 e lançamentos anteriores, o <command>xm</command> era a referência de ferramenta de linha de comando a ser usada para gerenciar máquinas virtuais Xen. Ele agora foi substituido pelo <command>xl</command> que é quase completamente compatível com os anteriores. Mas essas não são as únicas ferramentas disponíveis: <command>virsh</command> da libvirt e <command>xe</command> da XAPI do XenServer (oferta comercial do Xen) são ferramentas alternativas."
 
 msgid "<emphasis>CAUTION</emphasis> Only one domU per image!"
 msgstr "<emphasis>ATENÇÃO</emphasis> Somente utilize um domU por imagem!"
@@ -1628,10 +1629,9 @@ msgstr "O Xen tem muito mais recursos do que nós podemos descrever nesses pouco
 msgid "<primary>LXC</primary>"
 msgstr "<primary>LXC</primary>"
 
-#, fuzzy
 #| msgid "Even though it is used to build “virtual machines”, LXC <indexterm><primary>LXC</primary></indexterm> is not, strictly speaking, a virtualization system, but a system to isolate groups of processes from each other even though they all run on the same host. It takes advantage of a set of recent evolutions in the Linux kernel, collectively known as <emphasis>control groups</emphasis>, by which different sets of processes called “groups” have different views of certain aspects of the overall system. Most notable among these aspects are the process identifiers, the network configuration, and the mount points. Such a group of isolated processes will not have any access to the other processes in the system, and its accesses to the filesystem can be restricted to a specific subset. It can also have its own network interface and routing table, and it may be configured to only see a subset of the available devices present on the system."
 msgid "Even though it is used to build “virtual machines”, LXC is not, strictly speaking, a virtualization system, but a system to isolate groups of processes from each other even though they all run on the same host. It takes advantage of a set of recent evolutions in the Linux kernel, collectively known as <emphasis>control groups</emphasis>, by which different sets of processes called “groups” have different views of certain aspects of the overall system. Most notable among these aspects are the process identifiers, the network configuration, and the mount points. Such a group of isolated processes will not have any access to the other processes in the system, and its accesses to the filesystem can be restricted to a specific subset. It can also have its own network interface and routing table, and it may be configured to only see a subset of the available devices present on the system."
-msgstr "Mesmo que seja usado para construir “máquinas virtuais”, o LXC <indexterm><primary>LXC</primary></indexterm> não é, estritamente falando, um sistema de virtualização, mas um sistema que isola grupos  de processos uns dos outros mesmo que eles todos rodem no mesmo host. Ele tira proveito de um conjunto de evoluções recentes do núcleo Linux, coletivamente conhecidas como <emphasis>control groups</emphasis>, de maneira que diferentes conjuntos de processos chamados de  “groups” tem diferentes visões de certos aspectos do sistema global. Os mais notáveis dentre esses aspectos são os identificadores de processo, a configuração de rede, e os pontos de montagem. Tais grupos de processos isolados não terão qualquer acesso a outros processos do sistema, e esses acessos ao sistema de arquivos podem ser restritos a um subconjunto específico. eles também podem ter sua própria interface de rede e tabela de roteamento, e também podem ser configurados para ver apenas um subconjunto de dispositivos disponíveis presentes no sistema."
+msgstr "Mesmo que seja usado para construir “máquinas virtuais”, o LXC não é, estritamente falando, um sistema de virtualização, mas um sistema que isola grupos de processos uns dos outros mesmo que eles todos rodem no mesmo host. Ele tira proveito de um conjunto de evoluções recentes do núcleo (\"kernel\") Linux, coletivamente conhecidas como <emphasis>control groups</emphasis>, de maneira que diferentes conjuntos de processos chamados de  “groups” tem diferentes visões de certos aspectos do sistema global. Os mais notáveis dentre esses aspectos são os identificadores de processo, a configuração de rede, e os pontos de montagem. Tais grupos de processos isolados não terão qualquer acesso a outros processos do sistema, e esses acessos ao sistema de arquivos podem ser restritos a um subconjunto específico. Eles também podem ter sua própria interface de rede e tabela de roteamento, e também podem ser configurados para ver apenas um subconjunto de dispositivos disponíveis presentes no sistema."
 
 msgid "These features can be combined to isolate a whole process family starting from the <command>init</command> process, and the resulting set looks very much like a virtual machine. The official name for such a setup is a “container” (hence the LXC moniker: <emphasis>LinuX Containers</emphasis>), but a rather important difference with “real” virtual machines such as provided by Xen or KVM is that there's no second kernel; the container uses the very same kernel as the host system. This has both pros and cons: advantages include excellent performance due to the total lack of overhead, and the fact that the kernel has a global vision of all the processes running on the system, so the scheduling can be more efficient than it would be if two independent kernels were to schedule different task sets. Chief among the inconveniences is the impossibility to run a different kernel in a container (whether a different Linux version or a different operating system altogether)."
 msgstr "Esses recursos podem ser combinados para isolar toda uma família de processos iniciando a partir do processo <command>init</command>, e o conjunto resultante se parece muito com uma máquina virtual. O nome oficial para tal configuração é um “container” (daí o apelido LXC: <emphasis>LinuX Containers</emphasis>), mas uma diferença bastante importanto com as máquinas virtuais “reais”, tais como as providas pelo Xen ou KVM é que não há um segundo núcleo; o container usa o mesmo núcleo que o sistema hospedeiro. Isso tem tanto prós quanto contras: as vantagens incluem excelente desempenho devido à total falta de sobrecarga, e o fato que o núcleo tem uma visão global de todos processos rodando no sistema, então o agendamento pode ser mais eficiente do que seria se dois núcleos independentes fossem agendar diferentes conjuntos de tarefas. Líder entre os inconvenientes está a impossibilidade de rodar um núcleo diferente em um container (seja uma versão diferente do Linux ou um sistema operacional diferente por completo)."
@@ -1642,10 +1642,9 @@ msgstr "<emphasis>NOTA</emphasis> limites de isolamento do LXC"
 msgid "LXC containers do not provide the level of isolation achieved by heavier emulators or virtualizers. In particular:"
 msgstr "Contêineres LXC não provêm o mesmo nível de isolamento conseguido por emuladores ou virtualizadores. Em particular:"
 
-#, fuzzy
 #| msgid "the <emphasis role=\"distribution\">Wheezy</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
 msgid "the <emphasis role=\"distribution\">Jessie</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
-msgstr "o núcleo padrão do <emphasis role=\"distribution\">Wheezy</emphasis> não permite a limitação de quantidade de memória disponível para um container; o recurso existe, e é parte interna do núcleo, mas é desabilitado por padrão porque ele tem um (pequeno) custo no desempenho geral do sistema; contudo, para habilitá-lo é uma simples questão de configurar a opção de linha de comando do núcleo <command>cgroup_enable=memory</command> no momento da inicialização;"
+msgstr "o núcleo (\"kernel\") padrão do <emphasis role=\"distribution\">Jessie</emphasis> não permite a limitação de quantidade de memória disponível para um container; o recurso existe, e é parte interna do núcleo (\"kernel\"), mas é desabilitado por padrão porque ele tem um (pequeno) custo no desempenho geral do sistema; contudo, para habilitá-lo é uma simples questão de configurar a opção de linha de comando do núcleo <command>cgroup_enable=memory</command> no momento da inicialização;"
 
 msgid "since the kernel is shared among the host system and the containers, processes constrained to containers can still access the kernel messages, which can lead to information leaks if messages are emitted by a container;"
 msgstr "já que o núcleo é compartilhado entre o sistema hospedeiro e os contêineres, processos restritos ao contêineres ainda podem acessar mensagens do núcleo, o qual pode levar ao vazamento de informação se as mensagem forem emitidas pelo contêiner;"
@@ -1665,10 +1664,9 @@ msgstr "Etapas Preliminares"
 msgid "The <emphasis role=\"pkg\">lxc</emphasis> package contains the tools required to run LXC, and must therefore be installed."
 msgstr "O pacote <emphasis role=\"pkg\">lxc</emphasis> contém as ferramentas necessárias para executar o LXC, e devem portanto serem instaladas."
 
-#, fuzzy
 #| msgid "LXC also requires the <emphasis>control groups</emphasis> configuration system, which is a virtual filesystem to be mounted on <filename>/sys/fs/cgroup</filename>. The <filename>/etc/fstab</filename> should therefore include the following entry:"
 msgid "LXC also requires the <emphasis>control groups</emphasis> configuration system, which is a virtual filesystem to be mounted on <filename>/sys/fs/cgroup</filename>. Since Debian 8 switched to systemd, which also relies on control groups, this is now done automatically at boot time without further configuration."
-msgstr "O LXC também necessita do sistema de configuração <emphasis>control groups</emphasis>, o qual é um sistema de arquivos virtual que é montado no <filename>/sys/fs/cgroup</filename>. O <filename>/etc/fstab</filename> deve portanto incluir a seguinte entrada:"
+msgstr "O LXC também necessita do sistema de configuração <emphasis>control groups</emphasis>, o qual é um sistema de arquivos virtual que é montado no <filename>/sys/fs/cgroup</filename>. Como o Debian 8 optou pelo systemd, que também faz uso do \"control groups\", isso agora é feito automaticamente no momento da inicialização, sem configurações adicionais."
 
 msgid "Network Configuration"
 msgstr "Configuração de Rede"
@@ -1744,7 +1742,7 @@ msgstr ""
 "iface br0 inet static\n"
 "  bridge-ports tap0\n"
 "  address 10.0.0.1\n"
-"  netmask 255.255.255.0\n"
+"  netmask 255.255.255.0"
 
 msgid "The network can then be set up either statically in the containers, or dynamically with DHCP server running on the host. Such a DHCP server will need to be configured to answer queries on the <literal>br0</literal> interface."
 msgstr ""
@@ -1792,10 +1790,9 @@ msgstr "Note que o sistema de arquivo é inicialmente criado em <filename>/var/c
 msgid "Note that the debian template creation script accepts an <option>--arch</option> option to specify the architecture of the system to be installed and a <option>--release</option> option if you want to install something else than the current stable release of Debian. You can also set the <literal>MIRROR</literal> environment variable to point to a local Debian mirror."
 msgstr "Note que o modelo  de script de criação do debian aceita uma opção <option>--arch</option> para especificar a arquitetura do sistema a ser instalado e uma opção <option>--release</option> caso você queira instalar alguma coisa a mais que a atual versão estável do Debian. Você pode também definir a variável de ambiente <literal>MIRROR</literal> para apontar para um espelho Debian local."
 
-#, fuzzy
 #| msgid "The newly-created filesystem now contains a minimal Debian system, and by default the container shares the network device with the host system. Since this is not really wanted, we will edit the container's configuration file (<filename>/var/lib/lxc/testlxc/config</filename>) and add a few <literal>lxc.network.*</literal> entries:"
 msgid "The newly-created filesystem now contains a minimal Debian system, and by default the container has no network interface (besides the loopback one). Since this is not really wanted, we will edit the container's configuration file (<filename>/var/lib/lxc/testlxc/config</filename>) and add a few <literal>lxc.network.*</literal> entries:"
-msgstr "O sistema de arquivos recém criado agora contém um sistema Debian mínimo, e por padrão o container compartilha o dispositivo de rede com o sistema hospedeiro. Como isso não é realmente o que queremos, nós iremos editar o arquivo de configuração do container (<filename>/var/lib/lxc/testlxc/config</filename>) e adicionar algumas entradas <literal>lxc.network.*</literal>:"
+msgstr "O sistema de arquivos recém criado agora contém um sistema Debian mínimo, e por padrão o container não tem interface de rede (apenas a loopback). Como isso não é realmente o que queremos, nós iremos editar o arquivo de configuração do container (<filename>/var/lib/lxc/testlxc/config</filename>) e adicionar algumas entradas <literal>lxc.network.*</literal>:"
 
 msgid ""
 "lxc.network.type = veth\n"
@@ -1806,7 +1803,7 @@ msgstr ""
 "lxc.network.type = veth\n"
 "lxc.network.flags = up\n"
 "lxc.network.link = br0\n"
-"lxc.network.hwaddr = 4a:49:43:49:79:20\n"
+"lxc.network.hwaddr = 4a:49:43:49:79:20"
 
 msgid "These entries mean, respectively, that a virtual interface will be created in the container; that it will automatically be brought up when said container is started; that it will automatically be connected to the <literal>br0</literal> bridge on the host; and that its MAC address will be as specified. Should this last entry be missing or disabled, a random MAC address will be generated."
 msgstr "Essas entradas significam, respectivamente, que uma interface virtual será criada no container; que ela irá, automaticamente, ser levantada quando o dito container for iniciado; que ela será, automaticamente, ser conectada a brigde <literal>br0</literal> no hospedeiro; e que seu endereço MAC será o como especificado. Caso essa última entrada estaja faltando ou desabilitada, um endereço MAC aleatório será gerado."
@@ -1815,7 +1812,7 @@ msgid "Another useful entry in that file is the setting of the hostname:"
 msgstr "Outra entrada útil nesse arquivo é a configuração de uma nome para o hospedeiro:"
 
 msgid "lxc.utsname = testlxc"
-msgstr "lxc.utsname = testlxc\n"
+msgstr "lxc.utsname = testlxc"
 
 msgid "Starting the Container"
 msgstr "Inicializando o Contêiner"
@@ -1893,7 +1890,7 @@ msgid "Note that we ran the container as a background process, thanks to the <op
 msgstr "Note que nós executamos o container como um processo em segundo plano, graças a opção <option>--daemon</option> do <command>lxc-start</command>. Nós podemos interromper o container com um comando como <command>lxc-stop --name=testlxc</command>."
 
 msgid "The <emphasis role=\"pkg\">lxc</emphasis> package contains an initialization script that can automatically start one or several containers when the host boots (it relies on <command>lxc-autostart</command> which starts containers whose <literal>lxc.start.auto</literal> option is set to 1). Finer-grained control of the startup order is possible with <literal>lxc.start.order</literal> and <literal>lxc.group</literal>: by default, the initialization script first starts containers which are part of the <literal>onboot</literal> group and then the containers which are not part of any group. In both cases, the order within a group is defined by the <literal>lxc.start.order</literal> option."
-msgstr ""
+msgstr "O pacote <emphasis role=\"pkg\">lxc</emphasis> contém um script de inicialização que pode iniciar automaticamente um ou vários containers quando a máquina é inicializada (ele faz uso do <command>lxc-autostart</command> que inicia os containers que tem a opção <literal>lxc.start.auto</literal> definida como 1). O controle bem afinado da ordem de início é possível com <literal>lxc.start.order</literal> e <literal>lxc.group</literal>: por padrão, o script de inicialização primeiro inicia os containers que são parte do grupo <literal>onboot</literal> e então os containers que não fazem parte de nenhum grupo. Em ambos os casos, a ordem dentro de um grupo é definida pela opção <literal>lxc.start.order</literal>."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Mass virtualization"
 msgstr "<emphasis>APROFUNDAMENTO</emphasis> Virtualização em massa"
@@ -1916,10 +1913,9 @@ msgstr "<primary>KVM</primary>"
 msgid "KVM, which stands for <emphasis>Kernel-based Virtual Machine</emphasis>, is first and foremost a kernel module providing most of the infrastructure that can be used by a virtualizer, but it is not a virtualizer by itself. Actual control for the virtualization is handled by a QEMU-based application. Don't worry if this section mentions <command>qemu-*</command> commands: it is still about KVM."
 msgstr "KVM, que significa <emphasis>Kernel-based Virtual Machine</emphasis>, é primeiro, e antes de tudo, um módulo do núcleo que fornece a maior parte da infraestrutura que pode ser usada por um virtualizador, mas não é por si só um virtualizador. O  real control para a virtualização é tratado por um aplicativo com base no  QEMU. Não se preocupe se essa seção menciona os comandos <command>qemu-*</command>: ela continua sendo sobre KVM."
 
-#, fuzzy
 #| msgid "Unlike other virtualization systems, KVM was merged into the Linux kernel right from the start. Its developers chose to take advantage of the processor instruction sets dedicated to virtualization (Intel-VT and AMD-V), which keeps KVM lightweight, elegant and not resource-hungry. The counterpart, of course, is that KVM mainly works on i386 and amd64 processors, and only those recent enough to have these instruction sets. You can ensure that you have such a processor if you have “vmx” or “svm” in the CPU flags listed in <filename>/proc/cpuinfo</filename>."
 msgid "Unlike other virtualization systems, KVM was merged into the Linux kernel right from the start. Its developers chose to take advantage of the processor instruction sets dedicated to virtualization (Intel-VT and AMD-V), which keeps KVM lightweight, elegant and not resource-hungry. The counterpart, of course, is that KVM doesn't work on any computer but only on those with appropriate processors. For x86-based computers, you can verify that you have such a processor by looking for “vmx” or “svm” in the CPU flags listed in <filename>/proc/cpuinfo</filename>."
-msgstr "Ao contrário de outros sistemas de virtualização, o KVM foi incorporado ao núcleo Linux desde o seu início. Seus desenvolvedores escolheram tirar vantagem do conjunto de instruções do processador dedicado a virtualização (Intel-VT e AMD-V), o que mantém o KVM leve, elegante e sem fome por recursos. A contraparte, claro, é que o KVM funciona principalmente em processadores i386 e amd64, e apenas os suficientemente recentes terão esse conjunto de instruções. Você pode garantir que você tem tal processador se você tem “vmx” ou “svm” nas flags da CPU listadas em <filename>/proc/cpuinfo</filename>."
+msgstr "Ao contrário de outros sistemas de virtualização, o KVM foi incorporado ao núcleo Linux desde o seu início. Seus desenvolvedores escolheram tirar vantagem do conjunto de instruções do processador dedicado a virtualização (Intel-VT e AMD-V), o que mantém o KVM leve, elegante e sem fome por recursos. A contraparte, claro, é que o KVM não funciona em qualquer computador, mas apenas naqueles com os processadores apropriados. Para computadores baseados em x86, você pode verificar que você tem tal processador procurando por “vmx” ou “svm” nas flags da CPU listadas em <filename>/proc/cpuinfo</filename>."
 
 msgid "With Red Hat actively supporting its development, KVM has more or less become the reference for Linux virtualization."
 msgstr "Com a Red Hat ativamente suportando seu desenvolvimento, o KVM se tornou mais ou menos a referência na virtualização do Linux."
@@ -1982,13 +1978,12 @@ msgstr ""
 "\n"
 "root@mirwiz:~# </computeroutput>"
 
-#, fuzzy
 #| msgid "<emphasis>NOTE</emphasis> Storage in the domU"
 msgid "<emphasis>TIP</emphasis> Add your user to the libvirt group"
-msgstr "<emphasis>NOTA</emphasis> Armazenamento em domU"
+msgstr "<emphasis>DICA</emphasis> Adicione seu usuário ao grupo libvirt"
 
 msgid "All samples in this section assume that you are running commands as root. Effectively, if you want to control a local libvirt daemon, you need either to be root or to be a member of the <literal>libvirt</literal> group (which is not the case by default). Thus if you want to avoid using root rights too often, you can add yoursel to the <literal>libvirt</literal> group and run the various commands under your user identity."
-msgstr ""
+msgstr "Todos os exemplos nesta seção assumem que você está executando comandos como root. Efetivamente, se você quer controlar um serviço (\"daemon\") libvirt local, você precisa ou ser root ou ser membro do grupo <literal>libvirt</literal> (o que por padrão não é o caso). Assim, se você quer evitar o uso de direitos de root com frequência, você pode adicionar a si próprio ao grupo <literal>libvirt</literal> e rodar os vários comandos sob sua identidade de usuário."
 
 msgid "Let us now start the installation process for the virtual machine, and have a closer look at <command>virt-install</command>'s most important options. This command registers the virtual machine and its parameters in libvirtd, then starts it so that its installation can proceed."
 msgstr "Vamos agora iniciar o processo de instalação da máquina virtual, e ter um olhar mais atento nas mais importantes opções do <command>virt-install</command>. Esse comando registra a máquina virtual e seus parâmetros no libvirtd, e então,  a inicia, para que a sua instalação possa prosseguir."
@@ -2065,7 +2060,7 @@ msgid ""
 msgstr ""
 "<computeroutput>$ </computeroutput><userinput>virt-viewer --connect qemu+ssh://root@<replaceable>server</replaceable>/system testkvm\n"
 "</userinput><computeroutput>root@server's password: \n"
-"root@server's password: </computeroutput>\n"
+"root@server's password: </computeroutput>"
 
 msgid "When the installation process ends, the virtual machine is restarted, now ready for use."
 msgstr "Quando o processo de instalação terminar, a máquina virtual é reiniciada, e agora pronta para o uso."
@@ -2090,7 +2085,7 @@ msgstr ""
 " Id Name                 State\n"
 "----------------------------------\n"
 "  - testkvm              shut off\n"
-"</userinput>\n"
+"</userinput>"
 
 msgid "Let's start our test virtual machine:"
 msgstr "Vamos iniciar nossa máquina virtual de teste:"
@@ -2100,7 +2095,7 @@ msgid ""
 "</userinput><computeroutput>Domain testkvm started</computeroutput>"
 msgstr ""
 "<computeroutput># </computeroutput><userinput>virsh -c qemu:///system start testkvm\n"
-"</userinput><computeroutput>Domain testkvm started</computeroutput>\n"
+"</userinput><computeroutput>Domain testkvm started</computeroutput>"
 
 msgid "We can now get the connection instructions for the graphical console (the returned VNC display can be given as parameter to <command>vncviewer</command>):"
 msgstr "Nós podemos agora pegar as instruções de conexão para o console gráfico (o visor VNC retornado pode ser dado como parâmetro para o <command>vncviewer</command>):"
@@ -2110,7 +2105,7 @@ msgid ""
 "</userinput><computeroutput>:0</computeroutput>"
 msgstr ""
 "<computeroutput># </computeroutput><userinput>virsh -c qemu:///system vncdisplay testkvm\n"
-"</userinput><computeroutput>:0</computeroutput>\n"
+"</userinput><computeroutput>:0</computeroutput>"
 
 msgid "Other available <command>virsh</command> subcommands include:"
 msgstr "Outros subcomandos disponíveis para o <command>virsh</command> incluem:"
@@ -2146,7 +2141,7 @@ msgid "If the virtual machine is meant to run a Debian (or one of its derivative
 msgstr "Se a máquina virtual está destinada a rodar um Debian (ou um dos seus derivados), o sistema pode ser inicializado com o <command>debootstrap</command>, como descrito acima. Mas se a máquina virtual for para ser instalada em um sistema baseado em RPM (como o Fedora, CentOS ou Scientific Linux), a configuração terá de ser feita usando o utilitário <command>yum</command> (disponível pelo pacote de mesmo nome)."
 
 msgid "The procedure requires using <command>rpm</command> to extract an initial set of files, including notably <command>yum</command> configuration files. And then calling <command>yum</command> to extract the remaining set of packages. But since we call <command>yum</command> from outside the chroot, we need to make some temporary changes. In the sample below, the target chroot is <filename>/srv/centos</filename>."
-msgstr ""
+msgstr "O procedimento necessita do uso do <command>rpm</command> para extrair um conjunto inicial de arquivos, incluindo, notávelmente, os arquivos configuração do <command>yum</command>. E então chamar o <command>yum</command> para extrair o conjunto de pacotes remanecentes. Mas como nós chamamos o <command>yum</command> a partir do lado de fora do chroot, nós precisamos fazer algumas mudanças temporárias. No exemplo abaixo, o chroot alvo é <filename>/srv/centos</filename>."
 
 msgid ""
 "\n"
@@ -2165,6 +2160,21 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
 "        "
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>rootdir=\"/srv/centos\"</userinput>\n"
+"<computeroutput># </computeroutput><userinput>mkdir -p \"$rootdir\" /etc/rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>echo \"%_dbpath /var/lib/rpm\" &gt; /etc/rpm/macros.dbpath</userinput>\n"
+"<computeroutput># </computeroutput><userinput>wget http://mirror.centos.org/centos/7/os/x86_64/Packages/centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput># </computeroutput><userinput>rpm --nodeps --root \"$rootdir\" -i centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm</userinput>\n"
+"<computeroutput>rpm: RPM should not be used directly install RPM packages, use Alien instead!\n"
+"rpm: However assuming you know what you are doing...\n"
+"warning: centos-release-7-1.1503.el7.centos.2.8.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY\n"
+"</computeroutput>\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file:///etc/,gpgkey=file://${rootdir}/etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"<computeroutput># </computeroutput><userinput>yum --assumeyes --installroot $rootdir groupinstall core</userinput>\n"
+"[...]\n"
+"<computeroutput># </computeroutput><userinput>sed -i -e \"s,gpgkey=file://${rootdir}/etc/,gpgkey=file:///etc/,g\" $rootdir/etc/yum.repos.d/*.repo</userinput>\n"
+"        "
 
 msgid "Automated Installation"
 msgstr "Instalação Automatizada"
@@ -2271,10 +2281,9 @@ msgstr "<emphasis>INDO ALÉM</emphasis> Debconf com um banco de dados centraliza
 msgid "<primary><command>debconf</command></primary>"
 msgstr "<primary><command>debconf</command></primary>"
 
-#, fuzzy
 #| msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail."
 msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail (you need the <emphasis role=\"pkg\">debconf-doc</emphasis> package)."
-msgstr "O Preseeding permite fornecer um conjunto de respostas as perguntas do Debconf no momento da instalação, mas essas respostas são estáticas e não evoluem com o passar do tempo. Como máquinas já instaladas talvez precisem de atualização, e novas respostas talvez venham a ser necessárias, o arquivo de configuração <filename>/etc/debconf.conf</filename> pode ser configurado para que o Debconf use fontes de dados externas (como um servidor de diretório LDAP, ou um arquivo remoto acessado via NFS ou Samba). Várias fontes de dados externas podem sr definidas ao mesmo tempo, e elas se complementam. O banco de dados local ainda é usado used (para acesso leitura-escrita), mas os bancos de dados remotos são, geralmente, restritos a leitura. A página de manual <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> descreve todas as possibilidades em detalhes."
+msgstr "O Preseeding permite fornecer um conjunto de respostas as perguntas do Debconf no momento da instalação, mas essas respostas são estáticas e não evoluem com o passar do tempo. Como máquinas já instaladas talvez precisem de atualização, e novas respostas talvez venham a ser necessárias, o arquivo de configuração <filename>/etc/debconf.conf</filename> pode ser configurado para que o Debconf use fontes de dados externas (como um servidor de diretório LDAP, ou um arquivo remoto acessado via NFS ou Samba). Várias fontes de dados externas podem sr definidas ao mesmo tempo, e elas se complementam. O banco de dados local ainda é usado used (para acesso leitura-escrita), mas os bancos de dados remotos são, geralmente, restritos a leitura. A página de manual <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> descreve todas as possibilidades em detalhes. (você precisa do pacote <emphasis role=\"pkg\">debconf-doc</emphasis>)."
 
 msgid "Using a Preseed File"
 msgstr "Usando um Arquivo Preseed"
@@ -2318,10 +2327,9 @@ msgstr "A maneira mais simples de escrever um arquivo preseed é instalar o sist
 msgid "<emphasis>DOCUMENTATION</emphasis> Installation guide appendix"
 msgstr "<emphasis>DOCUMENTAÇÃO</emphasis> Apêndice do guia de instalação"
 
-#, fuzzy
 #| msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/apb.html\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/example-preseed.txt\" />"
 msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
-msgstr "O guia de instalação, disponível online, inclui documentação detalhada sobre o uso de um arquivo preseed em um apêndice. Ele também inclui um arquivo de amostra detalhado e comentado, que pode servir como base para customizações locais. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/apb.html\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/example-preseed.txt\" />"
+msgstr "O guia de instalação, disponível online, inclui documentação detalhada sobre o uso de um arquivo preseed em um apêndice. Ele também inclui um arquivo de amostra detalhado e comentado, que pode servir como base para customizações locais. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
 
 msgid "Creating a Customized Boot Media"
 msgstr "Criando uma Mídia de Inicialização Customizada"
@@ -2332,10 +2340,9 @@ msgstr "Saber aonde armazenar um arquivo preseed é muito bom, mas a localizaç�
 msgid "Booting From the Network"
 msgstr "Inicializando a Partir da Rede"
 
-#, fuzzy
 #| msgid "When a computer is booted from the network, the server sending the initialization elements also defines the boot parameters. Thus, the change needs to be made in the PXE configuration for the boot server; more specifically, in its <filename>/tftpboot/pxelinux.cfg/default</filename> configuration file. Setting up network boot is a prerequisite; see the Installation Guide for details. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/ch04s05.html\" />"
 msgid "When a computer is booted from the network, the server sending the initialization elements also defines the boot parameters. Thus, the change needs to be made in the PXE configuration for the boot server; more specifically, in its <filename>/tftpboot/pxelinux.cfg/default</filename> configuration file. Setting up network boot is a prerequisite; see the Installation Guide for details. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
-msgstr "Quando um computador é inicializado a partir da rede, o servidor que envia os elementos de inicialização também define os parâmetros de inicialização. Assim, a alteração precisa ser feita na configuração PXE do servidor de inicialização; mais especificamente, no seu arquivo de configuração <filename>/tftpboot/pxelinux.cfg/default</filename>. Configurar a inicialização pela rede é um pré requisito; veja o Guia de Instalação para detalhes. <ulink type=\"block\" url=\"http://www.debian.org/releases/wheezy/amd64/ch04s05.html\" />"
+msgstr "Quando um computador é inicializado a partir da rede, o servidor que envia os elementos de inicialização também define os parâmetros de inicialização. Assim, a alteração precisa ser feita na configuração PXE do servidor de inicialização; mais especificamente, no seu arquivo de configuração <filename>/tftpboot/pxelinux.cfg/default</filename>. Configurar a inicialização pela rede é um pré requisito; veja o Guia de Instalação para detalhes. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/ch04s05.html\" />"
 
 msgid "Preparing a Bootable USB Key"
 msgstr "Preparando um Dispositivo USB Inicializável"
@@ -2352,7 +2359,6 @@ msgstr "editar <filename>/media/usbdisk/syslinux.cfg</filename> e adicionar os p
 msgid "syslinux.cfg file and preseeding parameters"
 msgstr "arquivo syslinux.cfg e parâmetros preseeding"
 
-#, fuzzy
 #| msgid ""
 #| "default vmlinuz\n"
 #| "append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --"
@@ -2361,7 +2367,7 @@ msgid ""
 "append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 msgstr ""
 "default vmlinuz\n"
-"append preseed/file=/hd-media/preseed.cfg locale=en_US console-keymaps-at/keymap=us languagechooser/language-name=English countrychooser/shortlist=US vga=normal initrd=initrd.gz  --\n"
+"append preseed/file=/hd-media/preseed.cfg locale=en_US.UTF-8 keymap=us language=us country=US vga=788 initrd=initrd.gz  --"
 
 msgid "Creating a CD-ROM Image"
 msgstr "Criando uma Imagem de CD-ROM"
@@ -2372,10 +2378,9 @@ msgstr "<primary>debian-cd</primary>"
 msgid "A USB key is a read-write media, so it was easy for us to add a file there and change a few parameters. In the CD-ROM case, the operation is more complex, since we need to regenerate a full ISO image. This task is handled by <emphasis role=\"pkg\">debian-cd</emphasis>, but this tool is rather awkward to use: it needs a local mirror, and it requires an understanding of all the options provided by <filename>/usr/share/debian-cd/CONF.sh</filename>; even then, <command>make</command> must be invoked several times. <filename>/usr/share/debian-cd/README</filename> is therefore a very recommended read."
 msgstr "Um dispositivo USB é uma mídia de leitura-escrita, então foi fácil para nós adicionar um arquivo lá e alterar alguns parâmetros. No caso do CD-ROM, a operação é mais complexa, já que nós precisamos refazer uma imagem ISO completa. Essa tarefa é feita pelo <emphasis role=\"pkg\">debian-cd</emphasis>, mas essa ferramenta é um pouco mais complicada de usar: ela precisa de um espelho local, e requer o entendimento de todas as opções fornecidas pelo <filename>/usr/share/debian-cd/CONF.sh</filename>; mesmo assim, o <command>make</command> tem que ser invocado várias vezes. <filename>/usr/share/debian-cd/README</filename> é, portanto, uma leitura muito recomendada."
 
-#, fuzzy
 #| msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/wheezy/CD1/</filename>, $TDIR being one of the parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
 msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/wheezy/CD1/</filename>, $TDIR being one of the parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
-msgstr "Dito isso, o debian-cd sempre opera de maneira similar: um diretório “imagem” com o conteúdo exato do CD-ROM é gerado, e então convertido em um arquivo ISO com uma ferramental tal como a <command>genisoimage</command>, <command>mkisofs</command> ou <command>xorriso</command>. O diretório da imagem é finalizado após o passo <command>make image-trees</command> do debian-cd. Nesse ponto, nós inserimos o arquivo preseed dentro do diretório apropriado (usualmente <filename>$TDIR/wheezy/CD1/</filename>, $TDIR sendo um dos parâmetros definidos pelo arquivo de configuração <filename>CONF.sh</filename>). O CD-ROM usa <command>isolinux</command> como seu carregador de inicialização, e seu arquivo de configuração tem que ser adaptado a partir do que o debian-cd gerou, a fim de inserir os parâmetros de inicialização necessários (o arquivo específico é <filename>$TDIR/wheezy/boot1/isolinux/isolinux.cfg</filename>). Então o processo “normal” pode ser retomado e nós podemos continuar a gerar a imagem ISO com  <command>make image CD=1</command> (ou <command>make images</command> se for para gerar vários CD-ROMs)."
+msgstr "Dito isso, o debian-cd sempre opera de maneira similar: um diretório “imagem” com o conteúdo exato do CD-ROM é gerado, e então convertido em um arquivo ISO com uma ferramental tal como a <command>genisoimage</command>, <command>mkisofs</command> ou <command>xorriso</command>. O diretório da imagem é finalizado após o passo <command>make image-trees</command> do debian-cd. Nesse ponto, nós inserimos o arquivo preseed dentro do diretório apropriado (usualmente <filename>$TDIR/wheezy/CD1/</filename>, $TDIR sendo um dos parâmetros definidos pelo arquivo de configuração <filename>CONF.sh</filename>). O CD-ROM usa <command>isolinux</command> como seu carregador de inicialização, e seu arquivo de configuração tem que ser adaptado a partir do que o debian-cd gerou, a fim de inserir os parâmetros de inicialização necessários (o arquivo específico é <filename>$TDIR/jessie/boot1/isolinux/isolinux.cfg</filename>). Então o processo “normal” pode ser retomado e nós podemos continuar a gerar a imagem ISO com  <command>make image CD=1</command> (ou <command>make images</command> se for para gerar vários CD-ROMs)."
 
 msgid "Simple-CDD: The All-In-One Solution"
 msgstr "Simple-CDD: A Solução Tudo-Em-Um"
@@ -2467,10 +2472,9 @@ msgstr "o debian-cd então gera a imagem ISO final."
 msgid "Generating an ISO Image"
 msgstr "Gerando uma imagem ISO"
 
-#, fuzzy
 #| msgid "Once we have written a configuration file and defined our profiles, the remaining step is to invoke <command>build-simple-cdd --conf simple-cdd.conf</command>. After a few minutes, we get the required image in <filename>images/debian-7.0-amd64-CD-1.iso</filename>."
 msgid "Once we have written a configuration file and defined our profiles, the remaining step is to invoke <command>build-simple-cdd --conf simple-cdd.conf</command>. After a few minutes, we get the required image in <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
-msgstr "Uma vez que nós tenhamos escrito um arquivo de configuração e definido nossos perfis, a etapa restante é invocar <command>build-simple-cdd --conf simple-cdd.conf</command>. Após alguns minutos, nós teremos a imagem requerida em <filename>images/debian-7.0-amd64-CD-1.iso</filename>."
+msgstr "Uma vez que nós tenhamos escrito um arquivo de configuração e definido nossos perfis, a etapa restante é invocar <command>build-simple-cdd --conf simple-cdd.conf</command>. Após alguns minutos, nós teremos a imagem requerida em <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
 
 msgid "Monitoring is a generic term, and the various involved activities have several goals: on the one hand, following usage of the resources provided by a machine allows anticipating saturation and the subsequent required upgrades; on the other hand, alerting the administrator as soon as a service is unavailable or not working properly means that the problems that do happen can be fixed sooner."
 msgstr "O monitoramento é um termo genérico e as várias atividades envolvidas tem vários objetivos: por um lado, seguir o uso dos recursos fornecidos pela máquina permite antecipar a saturação e os subsequentes necessidades de upgrades; por outro lado, alertar o administrador assim que um serviço fica indisponível ou não está funcionando de maneira apropriada significa que os problemas que estão acontecendo podem ser consertados mais rapidamente."
@@ -2484,10 +2488,9 @@ msgstr "<emphasis>ALTERNATIVA</emphasis> Zabbix, uma ferramenta de monitoramento
 msgid "<primary>Zabbix</primary>"
 msgstr "<primary>Zabbix</primary>"
 
-#, fuzzy
 #| msgid "Although Munin and Nagios are in very common use, they are not the only players in the monitoring field, and each of them only handles half of the task (graphing on one side, alerting on the other). Zabbix, on the other hand, integrates both parts of monitoring; it also has a web interface for configuring the most common aspects. It has grown by leaps and bounds during the last few years, and can now be considered a viable contender; unfortunately, Zabbix isn't present in Debian <emphasis role=\"distribution\">Wheezy</emphasis> due to timing issues in the release process, but packages will be provided as backports or in unofficial repositories. <ulink type=\"block\" url=\"http://www.zabbix.org/\" />"
 msgid "Although Munin and Nagios are in very common use, they are not the only players in the monitoring field, and each of them only handles half of the task (graphing on one side, alerting on the other). Zabbix, on the other hand, integrates both parts of monitoring; it also has a web interface for configuring the most common aspects. It has grown by leaps and bounds during the last few years, and can now be considered a viable contender. On the monitoring server, you would install <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (or <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>), possibly together with <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> to have a web interface. On the hosts to monitor you would install <emphasis role=\"pkg\">zabbix-agent</emphasis> feeding data back to the server. <ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
-msgstr "Embora o Munin e o Nagios sejam os mais populares, eles não são as únicas opções no campo de monitoramento, e cada um deles apenas lidam com metade da tarefa (gráficos de por um lado, alertas pelo outro). O Zabbix, por outro lado, integra ambas as partes de monitoramento; ele também têm uma interface web para configurar a maioria dos aspectos comuns. Ele cresceu aos tracos e barrancos durante os últimos anos, e pode agora ser considerado um concorrente viável; infelizmente, o Zabbix não está presente no Debian <emphasis role=\"distribution\">Wheezy</emphasis> devido a questões de falta sincronia no processo de lançamento, porém pacotes serão fornecidos como \"backports\" ou através de repositórios não oficiais. <ulink type=\"block\" url=\"http://www.zabbix.org/\" />"
+msgstr "Embora o Munin e o Nagios sejam os mais populares, eles não são as únicas opções no campo de monitoramento, e cada um deles apenas lidam com metade da tarefa (gráficos de por um lado, alertas pelo outro). O Zabbix, por outro lado, integra ambas as partes de monitoramento; ele também têm uma interface web para configurar a maioria dos aspectos comuns. Ele cresceu aos tracos e barrancos durante os últimos anos, e pode agora ser considerado um concorrente viável. No servidor de monitoramento, você instalaria o <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (ou <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>), possivelmente junto com o <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> para ter uma interface web. Nas máquinas a serem monitoradas você instalaria <emphasis role=\"pkg\">zabbix-agent</emphasis>, para alimentar o servidor com os dados. <ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Icinga, a Nagios fork"
 msgstr "<emphasis>ALTERNATIVA</emphasis> Icinga, um \"fork\" do Nagios"
@@ -2513,23 +2516,20 @@ msgstr "Configurando As Máquinas A Serem Monitoradas"
 msgid "The first step is to install the <emphasis role=\"pkg\">munin-node</emphasis> package. The daemon installed by this package listens on port 4949 and sends back the data collected by all the active plugins. Each plugin is a simple program returning a description of the collected data as well as the latest measured value. Plugins are stored in <filename>/usr/share/munin/plugins/</filename>, but only those with a symbolic link in <filename>/etc/munin/plugins/</filename> are really used."
 msgstr "O primeiro passo é instalar o pacote <emphasis role=\"pkg\">munin-node</emphasis>. O serviço (\"daemon\") instalado por esse pacote escuta na porta 4949 e envia de volta os dados coletados por todas as extensões ativas. Cada extensão é um programa simples que retorna um descrição dos dados coletados, assim como o último valor medido. As extensões são armazenadas em <filename>/usr/share/munin/plugins/</filename>, mas apenas aquelas com uma ligação simbólica em <filename>/etc/munin/plugins/</filename> são realmente usadas."
 
-#, fuzzy
 #| msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. It would be interesting to have comprehensive documentation for each plugin, but unfortunately there's no such official documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
 msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. Browsing the <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> can be interesting even though not all plugins have comprehensive documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
-msgstr "Quando o pacote é instalado, um conjunto de extensões ativas é determinado com base nos softwares disponíveis e na configuração corrente da máquina (\"host\"). Contudo, essa auto configuração depende da funcionalidade que cada extensão deve fornecer, e geralmente é uma boa ideia rever e ajustar os resultados manualmente. Seria interessante ter uma documentação completa para cada extensão, mas infelizmente não existe tal documentação oficial. Entretanto, todas as extensões são scripts e a maioria é bem simples e bem comentado. Navegar por <filename>/etc/munin/plugins/</filename> é portanto uma boa maneira de se ter uma ideia sobre para que cada extensão serve e determinar quais devem ser removidas. Similarmente, habilitar uma extensão interessante encontrada em <filename>/usr/share/munin/plugins/</filename> é uma simples questão de configurar uma ligação simbólica com <command>ln -sf /usr/share/munin/plugins/<replaceable>extensão</replaceable> /etc/munin/plugins/</command>. Note que quando o nome de uma extensão termina com um \"underscore\" - “_”, a extensão precisa de um parâmetro. Esse parâmetro tem que ser armazenados no nome da ligação simbólica; por exemplo, a extensão “if_”  tem que ser habilitada como uma ligação simbólica <filename>if_eth0</filename> para monitorar o tráfego de rede na interface eth0."
+msgstr "Quando o pacote é instalado, um conjunto de extensões ativas é determinado com base nos softwares disponíveis e na configuração corrente da máquina (\"host\"). Contudo, essa auto configuração depende da funcionalidade que cada extensão deve fornecer, e geralmente é uma boa ideia rever e ajustar os resultados manualmente.  Navegar por <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> pode ser interessante mesmo que nem todas as extensões tenham uma documentação compreensível. Entretanto, todas as extensões são scripts e a maioria é bem simples e bem comentado. Navegar por <filename>/etc/munin/plugins/</filename> é portanto uma boa maneira de se ter uma ideia sobre para que cada extensão serve e determinar quais devem ser removidas. Similarmente, habilitar uma extensão interessante encontrada em <filename>/usr/share/munin/plugins/</filename> é uma simples questão de configurar uma ligação simbólica com <command>ln -sf /usr/share/munin/plugins/<replaceable>extensão</replaceable> /etc/munin/plugins/</command>. Note que quando o nome de uma extensão termina com um \"underscore\" - “_”, a extensão precisa de um parâmetro. Esse parâmetro tem que ser armazenados no nome da ligação simbólica; por exemplo, a extensão “if_”  tem que ser habilitada como uma ligação simbólica <filename>if_eth0</filename> para monitorar o tráfego de rede na interface eth0."
 
-#, fuzzy
 #| msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>invoke-rc.d munin-node restart</command>."
 msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>service munin-node restart</command>."
-msgstr "Uma vez que todas as extensões estejam configuradas corretamente, a configuração do serviço (\"daemon\") tem que ser atualizada para descrever o controle de acesso aos dados coletados. Isso envolve a diretiva <literal>allow</literal> no arquivo <filename>/etc/munin/munin-node.conf</filename>. A configuração padão é <literal>allow ^127\\.0\\.0\\.1$</literal>, e apenas permite acesso a máquina (\"host\") local. O administrador geralmente irá adicionar uma linha similar contendo o endereço IP da máquina que gera o gráfico (\"grapher host\"), e então reiniciar o serviço (\"daemon\") com <command>invoke-rc.d munin-node restart</command>."
+msgstr "Uma vez que todas as extensões estejam configuradas corretamente, a configuração do serviço (\"daemon\") tem que ser atualizada para descrever o controle de acesso aos dados coletados. Isso envolve a diretiva <literal>allow</literal> no arquivo <filename>/etc/munin/munin-node.conf</filename>. A configuração padão é <literal>allow ^127\\.0\\.0\\.1$</literal>, e apenas permite acesso a máquina (\"host\") local. O administrador geralmente irá adicionar uma linha similar contendo o endereço IP da máquina que gera o gráfico (\"grapher host\"), e então reiniciar o serviço (\"daemon\") com  <command>service munin-node restart</command>."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Creating local plugins"
 msgstr "<emphasis>APROFUNDANDO</emphasis> Criando extensões locais"
 
-#, fuzzy
 #| msgid "Despite the lack of official documentation for standard plugins, Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
 msgid "Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
-msgstr "Apesar da falta de documentação oficial para as extensões padrões, o Munin inclui documentação detalhada sobre como as extensões devem se comportar e como desenvolver novas extensões. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/Documentation\" />"
+msgstr "O Munin inclui documentação detalhada sobre como as extensões devem se comportar e como desenvolver novas extensões. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
 
 msgid "A plugin is best tested when run in the same conditions as it would be when triggered by munin-node; this can be simulated by running <command>munin-run <replaceable>plugin</replaceable></command> as root. A potential second parameter given to this command (such as <literal>config</literal>) is passed to the plugin as a parameter."
 msgstr "Uma extensão é melhor testada quando executada nas mesmas condições encontradas quando iniciada pelo munin-node; isso pode ser simulado rodando <command>munin-run <replaceable>extensão</replaceable></command> como root. Um segundo parâmetro potecial dado a esse comando (tal como <literal>config</literal>) é passado para a extensão como um parâmetro."
@@ -2560,10 +2560,9 @@ msgstr ""
 "load.info 5 minute load average\n"
 "</computeroutput>"
 
-#, fuzzy
 #| msgid "The various available fields are described by the “configuration protocol” specification available on the Munin website. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
 msgid "The various available fields are described by the “Plugin reference” available as part of the “Munin guide”. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
-msgstr "Os vários campos disponíveis são descritos pela especificação “configuration protocol” disponível no site web do Munin. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/protocol-config\" />"
+msgstr "Os vários campos disponíveis são descritos pela  Referência das Extensões (“Plugin reference”) disponível como parte do Guia Munin (“Munin guide”). <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
 
 msgid "When invoked without a parameter, the plugin simply returns the last measured values; for instance, executing <command>sudo munin-run load</command> could return <literal>load.value 0.12</literal>."
 msgstr "Quando invocada sem um parâmetro, a extensão apenas retorna os últimos valores medidos; por exemplo, executando <command>sudo munin-run load</command> poderia retornar <literal>load.value 0.12</literal>."
@@ -2616,7 +2615,6 @@ msgstr "Apontar o navegador para <literal>http://<replaceable>servidor</replacea
 msgid "As documented in <filename>/usr/share/doc/nagios3/README.Debian</filename>, enabling some features involves editing <filename>/etc/nagios3/nagios.cfg</filename> and setting its <literal>check_external_commands</literal> parameter to “1”. We also need to set up write permissions for the directory used by Nagios, with commands such as the following:"
 msgstr "Como ducomentado em <filename>/usr/share/doc/nagios3/README.Debian</filename>, habilitar alguns recursos envolve a editar o <filename>/etc/nagios3/nagios.cfg</filename> e configurar o parâmetro <literal>check_external_commands</literal> para “1”. Nós tambéms precisamos configurar permissões de escrita para o diretório usado pelo Nagios, através de comandos como os seguintes:"
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>\n"
 #| "<computeroutput>[...]\n"
@@ -2632,11 +2630,11 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 msgstr ""
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 stop</userinput>\n"
+"<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
 "<computeroutput>[...]\n"
 "# </computeroutput><userinput>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw\n"
 "</userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3\n"
-"</userinput><computeroutput># </computeroutput><userinput>/etc/init.d/nagios3 start</userinput>\n"
+"</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 
 msgid "Configuring"
@@ -2655,34 +2653,34 @@ msgid "a <emphasis>hostgroup</emphasis> is a set of hosts that should be grouped
 msgstr "um <emphasis>hostgroup</emphasis> é um conjunto de máquinas que devem ser agrupadas para exibição, ou para fatorar alguns elementos comuns de configuração;"
 
 msgid "a <emphasis>service</emphasis> is a testable element related to a host or a host group. It will most often be a check for a network service, but it can also involve checking that some parameters are within an acceptable range (for instance, free disk space or processor load);"
-msgstr ""
+msgstr "Um <emphasis>service</emphasis> é um elemento testável relacionado a uma máquina ou um grupo de máquinas. Ele irá, muito fequentemente, ser uma checagem para um serviço de rede, mas ele também envolve a checagem de que algums parâmetros estão dentro de um intervalo aceitável (por exemplo, espaço livre em disco ou carga do processador);"
 
 msgid "a <emphasis>servicegroup</emphasis> is a set of services that should be grouped together for display;"
-msgstr ""
+msgstr "um <emphasis>servicegroup</emphasis> é um conjunto de serviços que devem ser agrupados para exibição;"
 
 msgid "a <emphasis>contact</emphasis> is a person who can receive alerts;"
-msgstr ""
+msgstr "um <emphasis>contact</emphasis> é uma pessoa que pode receber alertas;"
 
 msgid "a <emphasis>contactgroup</emphasis> is a set of such contacts;"
-msgstr ""
+msgstr "um <emphasis>contactgroup</emphasis> é um grupo de tais pessoas;"
 
 msgid "a <emphasis>timeperiod</emphasis> is a range of time during which some services have to be checked;"
-msgstr ""
+msgstr "um <emphasis>timeperiod</emphasis> é um intervalo de tempo durante o qual alguns serviços tem que ser checados;"
 
 msgid "a <emphasis>command</emphasis> is the command line invoked to check a given service."
-msgstr ""
+msgstr "um <emphasis>command</emphasis> é a linha de comando invocada para checar um dado serviço."
 
 msgid "According to its type, each object has a number of properties that can be customized. A full list would be too long to include, but the most important properties are the relations between the objects."
-msgstr ""
+msgstr "De acordo com seu tipo, cada objeto tem um número de propriedades que podem ser customizadas. Um lista completa seria muito longa para ser incluída, mas as propriedades mais importantes são as relações entre os objetos."
 
 msgid "A <emphasis>service</emphasis> uses a <emphasis>command</emphasis> to check the state of a feature on a <emphasis>host</emphasis> (or a <emphasis>hostgroup</emphasis>) within a <emphasis>timeperiod</emphasis>. In case of a problem, Nagios sends an alert to all members of the <emphasis>contactgroup</emphasis> linked to the service. Each member is sent the alert according to the channel described in the matching <emphasis>contact</emphasis> object."
-msgstr ""
+msgstr "Um <emphasis>service</emphasis> usa um <emphasis>command</emphasis> para checar o estado de uma funcionalidade em um <emphasis>host</emphasis> (ou um <emphasis>hostgroup</emphasis>) dentro de um <emphasis>timeperiod</emphasis>. Em caso de um problema, o Nagios envia um alerta para todos os membros de <emphasis>contactgroup</emphasis> ligados ao serviço. É enviado um alerta a cada membro de acordo com o canal descrito no objeto <emphasis>contact</emphasis> correspondente."
 
 msgid "An inheritance system allows easy sharing of a set of properties across many objects without duplicating information. Moreover, the initial configuration includes a number of standard objects; in many cases, defining now hosts, services and contacts is a simple matter of deriving from the provided generic objects. The files in <filename>/etc/nagios3/conf.d/</filename> are a good source of information on how they work."
-msgstr ""
+msgstr "Um sistema de herança permite o fácil compartilhamento de um conjunto de propriedades por entre muitos objetos sem a duplicação de informação. Além disso, a configuração inicial inclui um número de objetos padrão; em muitos casos, a definição de máquinas, serviços e contatos é uma simples questão de derivação a partir dos objetos genéricos fornecidos. Os arquivos em <filename>/etc/nagios3/conf.d/</filename> são uma boa fonte de informação sobre como eles funcionam."
 
 msgid "The Falcot Corp administrators use the following configuration:"
-msgstr ""
+msgstr "Os administradores da Falcot Corp usam a seguinte configuração:"
 
 msgid "<filename>/etc/nagios3/conf.d/falcot.cfg</filename> file"
 msgstr "arquivo <filename>/etc/nagios3/conf.d/falcot.cfg</filename>"
@@ -2865,19 +2863,19 @@ msgstr ""
 "}"
 
 msgid "This configuration file describes two monitored hosts. The first one is the web server, and the checks are made on the HTTP (80) and secure-HTTP (443) ports. Nagios also checks that an SMTP server runs on port 25. The second host is the FTP server, and the check includes making sure that a reply comes within 20 seconds. Beyond this delay, a <emphasis>warning</emphasis> is emitted; beyond 30 seconds, the alert is deemed critical. The Nagios web interface also shows that the SSH service is monitored: this comes from the hosts belonging to the <literal>ssh-servers</literal> hostgroup. The matching standard service is defined in <filename>/etc/nagios3/conf.d/services_nagios2.cfg</filename>."
-msgstr ""
+msgstr "Ess arquivo de configuração descreve duas máquinas monitoradas. A primeira é um servidor web, e a checagem é feita nas portas HTTP (80) e HTTP-seguro (443). O Nagios também checa se um servidor SMTP está rodando na porta 25. A segunda máquina é um servidor FTP, e a checagem inclui garantir que uma resposta venha em 20 segundos. Além desse intervalo, um <emphasis>warning</emphasis> é emitido; além de 30 segundos, o alerta é considerado crítico. A interface web do Nagios também mostra que um serviço SSH é monitorado: isso vem de máquinas pertencentes ao grupo de máquinas <literal>ssh-servers</literal>. O serviço padrão correspondente é definido em <filename>/etc/nagios3/conf.d/services_nagios2.cfg</filename>."
 
 msgid "Note the use of inheritance: an object is made to inherit from another object with the “use <replaceable>parent-name</replaceable>”. The parent object must be identifiable, which requires giving it a “name <replaceable>identifier</replaceable>” property. If the parent object is not meant to be a real object, but only to serve as a parent, giving it a “register 0” property tells Nagios not to consider it, and therefore to ignore the lack of some parameters that would otherwise be required."
-msgstr ""
+msgstr "Note o uso da herança: um objeto é feito para herdar de outro objeto através de “use <replaceable>parent-name</replaceable>”. O obejto pai tem que ser identificável, o que requer dar a ele uma prorpiedade “name <replaceable>identifier</replaceable>”. Se o objeto pai não se destina a ser um objeto real, mas apenas servir como um pai, dar-lhe uma propriedade “register 0” informa ao Nagios para não considerá-lo, e assim ignorar a falta de alguns parâmetros que de outra forma seriam necessários."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> List of object properties"
-msgstr ""
+msgstr "<emphasis>DOCUMENTAÇÃO</emphasis> Lista de propriedades do objeto"
 
 msgid "A more in-depth understanding of the various ways in which Nagios can be configured can be obtained from the documentation provided by the <emphasis role=\"pkg\">nagios3-doc</emphasis> package. This documentation is directly accessible from the web interface, with the “Documentation” link in the top left corner. It includes a list of all object types, with all the properties they can have. It also explains how to create new plugins."
-msgstr ""
+msgstr "Uma compreensão mais profunda das várias maneiras pelas quais o Nagios pode ser configurado pode ser obtida a partir da documentação fornecida pelo pacote <emphasis role=\"pkg\">nagios3-doc</emphasis>. Essa documentação é diretamente acessível pela interface web, com o link “Documentation” no topo do canto esquerdo. ela inclui uma lista de todos dos tipos de objetos, com todas as propriedades que eles podem ter. ela também explica como criar novas extensões."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Remote tests with NRPE"
-msgstr ""
+msgstr "<emphasis>INDO ALÉM</emphasis> Testes remotos com NRPE"
 
 msgid "Many Nagios plugins allow checking some parameters local to a host; if many machines need these checks while a central installation gathers them, the NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>) plugin needs to be deployed. The <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> package needs to be installed on the Nagios server, and <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> on the hosts where local tests need to run. The latter gets its configuration from <filename>/etc/nagios/nrpe.cfg</filename>. This file should list the tests that can be started remotely, and the IP addresses of the machines allowed to trigger them. On the Nagios side, enabling these remote tests is a simple matter of adding matching services using the new <emphasis>check_nrpe</emphasis> command."
 msgstr "Muitas extensões Nagios permitem conferir alguns parâmetros locais de uma máquina (\"host\"); se muitas máquinas precisam dessas conferências enquanto uma instalação central as reune, a extensão NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>) precisa ser implantada. O pacote <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> precisa ser instalado no servidor Nagios, e o <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> nas máquinas (\"hosts\") aonde os testes locais precisam ser rodados. Esse último pega sua configuração de <filename>/etc/nagios/nrpe.cfg</filename>. Esse arquivo deve listar os testes que podem ser iniciados remotamente, e os endereços IP  das máquinas que tem permissão para iniciá-los. Pelo lado do Nagios, habilitar esses testes remotos é uma simples questão de adicionar os serviços correspondentes usando o novo comando <emphasis>check_nrpe</emphasis>."
