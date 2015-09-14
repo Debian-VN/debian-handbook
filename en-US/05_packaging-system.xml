@@ -57,8 +57,9 @@
     suffice).  If your system suffered some even more outrageous
     fortune, and even these don't work (maybe the deepest system
     libraries are missing?), you should try the static version of
-    <command>busybox</command>, which is even more self-contained, and
-    provides subcommands such as <command>busybox ar</command>,
+    <command>busybox</command> (provided in the <emphasis
+    role="pkg">busybox-static</emphasis> package), which is even more
+    self-contained, and provides subcommands such as <command>busybox ar</command>,
     <command>busybox tar</command> and <command>busybox
     gunzip</command>.</para>
 
@@ -76,8 +77,9 @@
       execution of higher-level modifications to the system: installing or
       removing a package (while keeping dependencies satisfied), updating
       the system, listing the available packages, etc.</para>
-
-      <para><indexterm><primary><command>ar</command></primary></indexterm>
+    
+      <indexterm><primary><command>ar</command></primary></indexterm>
+      <para>
       As for the <command>ar</command> program, it allows handling files of
       the same name: <command>ar t
       <replaceable>archive</replaceable></command> displays the list of
@@ -184,8 +186,7 @@ $ </computeroutput><userinput>cat debian-binary</userinput>
 	executable files, documentation, etc., are all stored. Some
 	packages may use other compression formats, in which case the file
 	will be named differently (<filename>data.tar.bz2</filename> for
-	bzip2, <filename>data.tar.xz</filename> for XZ,
-	<filename>data.tar.lzma</filename> for LZMA).</para>
+	bzip2, <filename>data.tar.xz</filename> for XZ).</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -204,6 +205,7 @@ $ </computeroutput><userinput>cat debian-binary</userinput>
     by the package management tools but are not part of the packaged
     software; they are, within the package, what is called its
     “meta-information” (information about other information).</para>
+
     <section id="sect.control">
       <title>Description: the <filename>control</filename> File</title>
       <indexterm><primary>package meta-information</primary></indexterm>
@@ -335,7 +337,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	“meta-packages”. These are empty packages that only describe
 	dependencies. They facilitate the installation of a consistent
 	group of programs preselected by the meta-package maintainer; as
-	such, <command>apt-get install
+	such, <command>apt install
 	<replaceable>meta-package</replaceable></command> will
 	automatically install all of these programs using the
 	meta-package's dependencies. The <emphasis
@@ -399,7 +401,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	  program can then appear in the list of suggestions related to
 	  the software. Although it has existed for several years, this
 	  last field is still largely ignored by programs such as
-	  <command>apt-get</command> or <command>synaptic</command>. Its
+	  <command>apt</command> or <command>synaptic</command>. Its
 	  purpose is for a suggestion made by the
 	  <literal>Enhances</literal> field to appear to the user in
 	  addition to the traditional suggestions — found in the
@@ -423,7 +425,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	the new package specifies that it will “replace” the installed
 	package, in which case <command>dpkg</command> will choose to
 	replace the old package with the new one.
-	<command>apt-get</command> always follows your instructions: if you
+	<command>apt</command> always follows your instructions: if you
 	choose to install a new package, it will automatically offer to
 	uninstall the package that poses a problem.</para>
       </section>
@@ -442,7 +444,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	to the incompatible versions.</para>
 
 	<para><command>dpkg</command> will refuse to install a package that
-	breaks an already installed package, and <command>apt-get</command>
+	breaks an already installed package, and <command>apt</command>
 	will try to resolve the problem by updating the package that would
 	be broken to a newer version (which is assumed to be fixed and,
 	thus, compatible again).</para>
@@ -499,8 +501,8 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	  dependencies that it requires a <emphasis
 	  role="pkg">mail-transport-agent</emphasis> instead of
 	  specifying a large yet incomplete list of possible solutions
-	  (e.g.  <command>postfix | sendmail | exim4 |
-	  …</command>). Furthermore, it is useless to install two mail
+          (e.g. <command>postfix | sendmail | exim4 | …</command>).
+          Furthermore, it is useless to install two mail
 	  servers on the same machine, which is why each of these
 	  packages declares a conflict with the <emphasis
 	  role="pkg">mail-transport-agent</emphasis> virtual
@@ -596,7 +598,11 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 
           <para>This limitation has been lifted in <emphasis
           role="pkg">dpkg</emphasis> 1.17.11, and is no longer
-          relevant in Jessie.</para>
+          relevant in Jessie. Packages can assign a version
+          to the virtual packages they provide with a
+          dependency such as <literal>Provides: libdigest-md5-perl (=
+          1.8)</literal>.
+          </para>
         </section>
       </section>
 
@@ -613,7 +619,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	<command>dpkg</command> fails, stating that it can not
 	overwrite the files of another package (technically, it is
 	possible to force it to do so with the
-	<literal>--force-overwrite</literal> option, but that's not
+	<literal>--force-overwrite</literal> option, but that is not
 	considered standard operation). This allows identification of
 	potential problems and requires the maintainer to study the
 	matter prior to choosing whether to add such a field.</para>
@@ -720,9 +726,9 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	Similar diagrams have also been developed by the Debian Women
 	project; they are a bit simpler to understand, but less complete.
 	<ulink type="block"
-	url="http://people.debian.org/~srivasta/MaintainerScripts.html"/>
+	url="https://people.debian.org/~srivasta/MaintainerScripts.html"/>
 	<ulink type="block"
-	url="http://wiki.debian.org/MaintainerScripts"/></para>
+	url="https://wiki.debian.org/MaintainerScripts"/></para>
       </sidebar>
       <section>
         <title>Installation and Upgrade</title>
@@ -890,9 +896,9 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
       <filename>control.tar.gz</filename> archive of a Debian package may
       contain other interesting files. The first,
       <filename>md5sums</filename>, contains the MD5 checksums for all of
-      the package's files. Its main advantage is that it allows a tool
-      such as <command>debsums</command> (which we will study in <xref
-      linkend="sect.debsums"/>) to check if these files have been
+      the package's files. Its main advantage is that it allows
+      <command>dpkg --verify</command> (which we will study in <xref
+      linkend="sect.dpkg-verify"/>) to check if these files have been
       modified since their installation. Note that when this file doesn't
       exist, <command>dpkg</command> will generate it dynamically at
       installation time (and store it in the dpkg database just like other
@@ -952,7 +958,7 @@ SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</comput
 	command line interfaces are very similar).</para>
 
         <screen>
-<computeroutput># </computeroutput><userinput>apt-get -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" dist-upgrade</userinput>
+<computeroutput># </computeroutput><userinput>apt -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" full-upgrade</userinput>
 </screen>
 
 	<para>These options can be stored directly in <command>apt</command>'s
@@ -1126,10 +1132,8 @@ edtjiTJqOaFUA0x1zB/XGv5tHr1MjP8naT+kfVoVHTOox51CDbeu5D3DZY4imcY=
 	archives can be included. This is useful with software that is distributed in
 	several upstream components but for which a single source package
 	is desired. These archives can also be compressed with
-	<command>bzip2</command> or <command>xz</command> rather than <command>gzip</command>
-	(<command>lzma</command> is also supported by
-	<command>dpkg-source</command> but not accepted into the official
-	archive), which saves disk space and network resources. Finally,
+        <command>bzip2</command> or <command>xz</command> rather than
+        <command>gzip</command>, which saves disk space and network resources. Finally,
 	the monolithic patch, <filename>.diff.gz</filename> is replaced by
 	a <filename>.debian.tar.gz</filename> archive containing the
 	compiling instructions and a set of upstream patches contributed by
@@ -1210,14 +1214,14 @@ edtjiTJqOaFUA0x1zB/XGv5tHr1MjP8naT+kfVoVHTOox51CDbeu5D3DZY4imcY=
     universe: it knows what is installed on the system, and whatever it is
     given on the command line, but knows nothing of the other available
     packages. As such, it will fail if a dependency is not met. Tools such
-    as <command>apt-get</command>, on the contrary, will create a list of
+    as <command>apt</command>, on the contrary, will create a list of
     dependencies to install everything as automatically as possible.</para>
 
     <sidebar>
-      <title><emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt-get</command>?</title>
+      <title><emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt</command>?</title>
 
       <para><command>dpkg</command> should be seen as a system tool
-      (backend), and <command>apt-get</command> as a tool closer to the
+      (backend), and <command>apt</command> as a tool closer to the
       user, which overcomes the limitations of the former. These tools work
       together, each one with its particularities, suited to specific
       tasks.</para>
@@ -1323,19 +1327,19 @@ dpkg: error processing /var/cache/apt/archives/libgdm_3.8.3-2_amd64.deb (--unpac
 	role="pkg">rdesktop</emphasis> while ignoring its dependency on a
 	newer version of the <emphasis role="pkg">libc6</emphasis>:</para>
 
-        <programlisting># apt-get dist-upgrade
+        <programlisting># apt full-upgrade
 [...]
-You can run "apt-get -f install" to correct these problems.
-The following packages contain unmet dependencies:
-  rdesktop: Depends on: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed
-E: missing dependencies. Try to use the option -f.
+You might want to run 'apt-get -f install' to correct these.
+The following packages have unmet dependencies:
+  rdesktop: Depends: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed
+E: Unmet dependencies. Try using -f.
   </programlisting>
 
 	<para>A courageous administrator who is certain of the correctness
 	of their analysis may choose to ignore a dependency or conflict and
 	use the corresponding <literal>--force-*</literal> option. In this
 	case, if they want to be able to continue to use
-	<command>apt-get</command> or <command>aptitude</command>, they
+	<command>apt</command> or <command>aptitude</command>, they
 	must edit <filename>/var/lib/dpkg/status</filename> to
 	delete/modify the dependency, or conflict, that they chose to
 	override.</para>
@@ -1644,7 +1648,7 @@ $ </computeroutput><userinput>dpkg --compare-versions 2.6.0pre3-1 lt 2.6.0-1</us
 	users to define “foreign architectures” that can be installed
 	on the current system. This is simply done with
 	<command>dpkg --add-architecture</command> like in the example
-	below. There's a corresponding <command>dpkg --remove-architecture</command>
+	below. There is a corresponding <command>dpkg --remove-architecture</command>
 	to drop support of a foreign architecture, but it can only be used
 	when no packages of this architecture remain.</para>
 
@@ -1681,7 +1685,7 @@ Setting up gcc-4.9-base:armhf (4.9.1-19) ...
 	  to support foreign architectures and will start downloading the
 	  corresponding <filename>Packages</filename> files durings its
 	  update process.</para>
-	  <para>Foreign packages can then be installed with <command>apt-get
+	  <para>Foreign packages can then be installed with <command>apt
 	  install
 	  <replaceable>package</replaceable>:<replaceable>architecture</replaceable></command>.</para>
 	</sidebar>
@@ -1693,15 +1697,6 @@ Setting up gcc-4.9-base:armhf (4.9.1-19) ...
 	  on 64 bit systems (amd64), in particular since several popular
 	  proprietary applications (like Skype) are only provided in 32 bit
 	  versions.</para>
-
-	  <para>Before multi-arch, when you wanted to uses a 32 bit appliction
-	  on a 64 bit system, you had to install <emphasis
-	  role="pkg">ia32-libs</emphasis> to have 32 bit versions of the
-	  most popular libraries. That package was a huge hack that
-	  repackaged 32 bit libraries in an “amd64” package.
-	  </para>
-	  <indexterm><primary><emphasis role="pkg">ia32-libs</emphasis></primary></indexterm>
-
 	</sidebar>
       </section>
       <section>
@@ -1716,8 +1711,7 @@ Setting up gcc-4.9-base:armhf (4.9.1-19) ...
 	that those packages can only satisfy dependencies of packages of the
 	same architecture). Since multi-arch made its debut in Debian
 	<emphasis role="distribution">Wheezy</emphasis>,
-	not all libraries have been converted yet (but all libraries which
-	were embedded in <emphasis role="pkg">ia32-libs</emphasis> do!).
+	not all libraries have been converted yet.
 	</para>
 
 	<screen>

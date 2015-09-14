@@ -1003,7 +1003,7 @@ smtpd_milters = inet:[127.0.0.1]:10002
 </programlisting>
 
       <para>If the antivirus causes problems, this line can be commented
-      out, and <command>/etc/init.d/postfix reload</command> should be run
+      out, and <command>service postfix reload</command> should be run
       so that this change is taken into account.</para>
 
       <sidebar>
@@ -1707,7 +1707,7 @@ $ <userinput>cat /etc/logrotate.d/apache2</userinput>
   create 644 root adm
   sharedscripts
   postrotate
-    /etc/init.d/apache2 reload > /dev/null
+    service apache2 reload > /dev/null
   endscript
   prerotate
     if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
@@ -2018,7 +2018,7 @@ options lockd nlm_udpport=2045 nlm_tcpport=2045
 	with the following command:</para>
 
         <screen>
-<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>
+<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>
 </screen>
       </sidebar>
     </section>
@@ -2532,7 +2532,7 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
       <varname>$redirect</varname> variables should point to existing
       images representing the rejection of a query.</para>
 
-      <para>The filter is enabled with the <command>/etc/init.d/squid
+      <para>The filter is enabled with the <command>service squid
       reload</command> command. However, since the <emphasis
       role="pkg">squidguard</emphasis> package does no filtering by
       default, it is the administrator's task to define the policy. This

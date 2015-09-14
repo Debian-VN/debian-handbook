@@ -7,6 +7,7 @@
       </imageobject>
     </mediaobject>
     <keywordset>
+      <keyword>apt</keyword>
       <keyword>apt-get</keyword>
       <keyword>apt-cache</keyword>
       <keyword>aptitude</keyword>
@@ -48,8 +49,8 @@
   then import the list of packages published by each of these
   sources. This operation is achieved by downloading
   <filename>Packages.xz</filename> or a variant using a different
-  compression method (such as <filename>Packages.gz</filename>,
-  <filename>.bz2</filename> or <filename>.lzma</filename>) files (in
+  compression method (such as <filename>Packages.gz</filename> or
+  <filename>.bz2</filename>) files (in
   case of a source of binary packages) and
   <filename>Sources.xz</filename> or a variant (in case of a source of
   source packages) and by analyzing their contents. When an old copy
@@ -111,7 +112,7 @@
       the system's file hierarchy, with <literal>http://</literal> to
       indicate a source accessible from a web server, or with
       <literal>ftp://</literal> for a source available on an FTP server. The
-      URL can also start with <literal>cdrom://</literal> for CD-ROM/DVD-ROM/Blu-ray 
+      URL can also start with <literal>cdrom:</literal> for CD-ROM/DVD-ROM/Blu-ray 
       disc based installations, although this is less frequent, since
       network-based installation methods are more and more common.</para>
 
@@ -188,7 +189,7 @@
       to be inserted in the drive and will browse its contents looking for
       <filename>Packages</filename> files. It will use these files to update
       its database of available packages (this operation is usually done by the
-      <command>apt-get update</command> command). From then on, APT can
+      <command>apt update</command> command). From then on, APT can
       require the disc to be inserted if it needs one of its packages.</para>
 
     </section>
@@ -230,21 +231,6 @@ deb-src http://ftp.debian.org/debian jessie-backports main contrib non-free
       distribution changed outside of our control when the next stable release
       comes out.</para>
 
-      <sidebar>
-	<title><emphasis>QUICK LOOK</emphasis> <command>apt-spy</command></title>
-	<indexterm><primary><command>apt-spy</command></primary></indexterm>
-
-	<para>This software tests the download speed from several Debian
-	mirrors and generates a <filename>sources.list</filename> file which
-	points to the fastest mirror.</para>
-
-	<para>The mirror selected during installation is generally suitable
-	since its selection is based on the country. However, if the download
-	is a little slow, or after a move, you can try running the
-	application available in the <emphasis role="pkg">apt-spy</emphasis>
-	package.</para>
-      </sidebar>
-     
       <para>Most packages will come from the “base repository” which
       contains all packages but is seldom updated (about once every 2
       months for a “point release”). The other repositories are
@@ -487,8 +473,7 @@ deb-src http://security.debian.org/ testing/updates main contrib non-free
     </section>
 
     <section>
-      <title>Non-Official Resources: <literal>apt-get.org</literal> and <literal>mentors.debian.net</literal></title>
-      <indexterm><primary><literal>apt-get.org</literal></primary></indexterm>
+      <title>Non-Official Resources: <literal>mentors.debian.net</literal></title>
       <indexterm><primary><literal>mentors.debian.net</literal></primary></indexterm>
 
       <para>There are numerous non-official sources of Debian packages set
@@ -499,7 +484,7 @@ deb-src http://security.debian.org/ testing/updates main contrib non-free
 
       <para>The <literal>mentors.debian.net</literal> site is also
       interesting (although it only provides source packages), since it
-      gathers source packages created by candidates to the status of
+      gathers packages created by candidates to the status of
       official Debian developer or by volunteers who wish to create Debian
       packages without going through that process of integration. These
       packages are made available without any guarantee regarding their
@@ -603,32 +588,36 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 
   </section>
   <section id="sect.apt-get">
-    <title><command>aptitude</command> and <command>apt-get</command> Commands</title>
+    <title><command>aptitude</command>, <command>apt-get</command>, and <command>apt</command> Commands</title>
+    <indexterm><primary><command>apt</command></primary></indexterm>
     <indexterm><primary><command>apt-get</command></primary></indexterm>
     <indexterm><primary><command>aptitude</command></primary></indexterm>
 
     <para>APT is a vast project, whose original plans included a graphical
     interface. It is based on a library which contains the core
     application, and <command>apt-get</command> is the first front end —
-    command-line based — which was developed within the project.</para>
+    command-line based — which was developed within the project.
+    <command>apt</command> is a second command-line based front end
+    provided by APT which overcomes some design mistakes of
+    <command>apt-get</command>.</para>
 
     <para>Numerous other graphical interfaces then appeared as external
     projects: <command>synaptic</command>, <command>aptitude</command>
     (which includes both a text mode interface and a graphical one — even
     if not complete yet), <command>wajig</command>, etc. The most
-    recommended interface, <command>apt-get</command>, is the one used
-    during the installation of Debian, and the one that we will use
-    in the examples given in this section. Note however that
-    <command>aptitude</command>'s command-line syntax is very similar.
-    When there are major differences between <command>apt-get</command> and
-    <command>aptitude</command>, these differences will be detailed.</para>
+    recommended interface, <command>apt</command>, is the one that we will use
+    in the examples given in this section. Note however that <command>apt-get</command> and
+    <command>aptitude</command> have a very similar command line syntax.
+    When there are major differences between <command>apt</command>,
+    <command>apt-get</command> and <command>aptitude</command>, these
+    differences will be detailed.</para>
     <section>
       <title>Initialization</title>
 
       <!-- MAY CHANGE: size of Packages/Sources/Translation files
 	   Packages: 7Mb Translation: 3Mb -->
       <para>For any work with APT, the list of available packages needs to
-      be updated; this can be done simply through <command>apt-get
+      be updated; this can be done simply through <command>apt
       update</command>. Depending on the speed of your connection, the
       operation can take a while since it involves downloading a certain
       number of <filename>Packages</filename>/<filename>Sources</filename>/<filename>Translation-<replaceable>language-code</replaceable></filename> files, which have gradually become
@@ -636,6 +625,7 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <literal>main</literal> section). Of course, installing from a CD-ROM
       set does not require any downloading — in this case, the operation
       is very fast.</para>
+      <indexterm><primary><command>apt update</command></primary></indexterm>
       <indexterm><primary><command>apt-get update</command></primary></indexterm>
       <indexterm><primary><command>aptitude update</command></primary></indexterm>
     </section>
@@ -647,14 +637,17 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <indexterm><primary>removal of a package</primary></indexterm>
 
       <para>With APT, packages can be added or removed from the system,
-      respectively with <command>apt-get install
-      <replaceable>package</replaceable></command> and <command>apt-get
+      respectively with <command>apt install
+      <replaceable>package</replaceable></command> and <command>apt
       remove <replaceable>package</replaceable></command>. In both cases,
       APT will automatically install the necessary dependencies or delete
       the packages which depend on the package that is being removed. The
-      <command>apt-get purge <replaceable>package</replaceable></command>
+      <command>apt purge <replaceable>package</replaceable></command>
       command involves a complete uninstallation — the configuration files
       are also deleted.</para>
+      <indexterm><primary><command>apt install</command></primary></indexterm>
+      <indexterm><primary><command>apt remove</command></primary></indexterm>
+      <indexterm><primary><command>apt purge</command></primary></indexterm>
       <indexterm><primary><command>apt-get install</command></primary></indexterm>
       <indexterm><primary><command>apt-get remove</command></primary></indexterm>
       <indexterm><primary><command>apt-get purge</command></primary></indexterm>
@@ -702,12 +695,12 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <sidebar>
         <title><emphasis>TIP</emphasis> Removing and installing at the same time</title>
 
-	<para>It is possible to ask <command>apt-get</command> (or
+        <para>It is possible to ask <command>apt</command> (or <command>apt-get</command>, or
 	<command>aptitude</command>) to install certain packages and remove
 	others on the same command line by adding a suffix. With an
-	<command>apt-get install</command> command, add
+	<command>apt install</command> command, add
 	“<literal>-</literal>” to the names of the packages you wish to
-	remove. With an <command>apt-get remove</command> command, add
+	remove. With an <command>apt remove</command> command, add
 	“<literal>+</literal>” to the names of the packages you wish to
 	install.</para>
 
@@ -715,9 +708,9 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	<replaceable>package1</replaceable> and to remove
 	<replaceable>package2</replaceable>.</para>
 
-        <screen># <userinput>apt-get install <replaceable>package1</replaceable> <replaceable>package2-</replaceable></userinput>
+        <screen># <userinput>apt install <replaceable>package1</replaceable> <replaceable>package2-</replaceable></userinput>
 [...]
-# <userinput>apt-get remove <replaceable>package1+</replaceable> <replaceable>package2</replaceable></userinput>
+# <userinput>apt remove <replaceable>package1+</replaceable> <replaceable>package2</replaceable></userinput>
 [...]
 </screen>
 
@@ -729,7 +722,7 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       </sidebar>
 
       <sidebar>
-        <title><emphasis>TIP</emphasis> <command>apt-get --reinstall</command> and <command>aptitude reinstall</command></title>
+        <title><emphasis>TIP</emphasis> <command>apt --reinstall</command> and <command>aptitude reinstall</command></title>
         <indexterm><primary>reinstallation</primary></indexterm>
 
 	<para>The system can sometimes be damaged after the removal or
@@ -738,11 +731,11 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	the packaging system finds that the latter is already installed and
 	politely refuses to reinstall it; to avoid this, use the
 	<literal>--reinstall</literal> option of the
-	<command>apt-get</command> command. The following command
+        <command>apt</command> and <command>apt-get</command> commands. The following command
 	reinstalls <emphasis role="pkg">postfix</emphasis> even if it is
 	already present:</para>
 
-        <screen><computeroutput># </computeroutput><userinput>apt-get --reinstall install postfix</userinput>
+        <screen><computeroutput># </computeroutput><userinput>apt --reinstall install postfix</userinput>
 </screen>
 
 	<para>The <command>aptitude</command> command line is slightly
@@ -752,7 +745,7 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	<para>The problem does not arise with <command>dpkg</command>, but
 	the administrator rarely uses it directly.</para>
 
-	<para>Be careful! Using <command>apt-get --reinstall</command> to
+	<para>Be careful! Using <command>apt --reinstall</command> to
 	restore packages modified during an attack will certainly not recover
 	the system as it was. <xref
 	linkend="sect.dealing-with-compromised-machine"/> details the
@@ -762,12 +755,12 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <para>If the file <filename>sources.list</filename> mentions several
       distributions, it is possible to give the version of the package to
       install. A specific version number can be requested with
-      <command>apt-get install
+      <command>apt install
       <replaceable>package</replaceable>=<replaceable>version</replaceable></command>,
       but indicating its distribution of origin (<emphasis
       role="distribution">Stable</emphasis>, <emphasis
       role="distribution">Testing</emphasis> or <emphasis
-      role="distribution">Unstable</emphasis>) — with <command>apt-get
+      role="distribution">Unstable</emphasis>) — with <command>apt
       install
       <replaceable>package</replaceable>/<replaceable>distribution</replaceable></command>
       — is usually preferred. With this command, it is possible to go
@@ -781,7 +774,7 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <example>
         <title>Installation of the <emphasis role="distribution">unstable</emphasis> version of <emphasis role="pkg">spamassassin</emphasis></title>
 
-        <screen><computeroutput># </computeroutput><userinput>apt-get install spamassassin/unstable</userinput>
+        <screen><computeroutput># </computeroutput><userinput>apt install spamassassin/unstable</userinput>
 </screen>
       </example>
 
@@ -801,7 +794,8 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	useless (the configuration parameter
 	<literal>APT::Clean-Installed</literal> can prevent the
 	removal of <filename>.deb</filename> files that are currently
-	installed).</para>
+        installed). Note that <command>apt</command> does not support
+        those commands.</para>
       </sidebar>
     </section>
 
@@ -809,23 +803,25 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       <title>System Upgrade</title>
       <indexterm><primary>upgrade</primary><secondary>system upgrade</secondary></indexterm>
 
+      <indexterm><primary><command>apt upgrade</command></primary></indexterm>
       <indexterm><primary><command>apt-get upgrade</command></primary></indexterm>
       <indexterm><primary><command>aptitude safe-upgrade</command></primary></indexterm>
       <para>Regular upgrades are recommended, because they include the
-      latest security updates. To upgrade, use <command>apt-get
-      upgrade</command> or <command>aptitude safe-upgrade</command> (of
-      course after <command>apt-get update</command>). This command looks
+      latest security updates. To upgrade, use <command>apt upgrade</command>,
+      <command>apt-get upgrade</command> or <command>aptitude safe-upgrade</command> (of
+      course after <command>apt update</command>). This command looks
       for installed packages which can be upgraded without removing any
       packages. In other words, the goal is to ensure the least intrusive
       upgrade possible. <command>apt-get</command> is slightly more
-      demanding than <command>aptitude</command> because it will refuse to
-      install packages which were not installed beforehand.</para>
+      demanding than <command>aptitude</command> or <command>apt</command>
+      because it will refuse to install packages which were not installed
+      beforehand.</para>
 
       <sidebar id="sidebar.apt-pdiff">
         <title><emphasis>TIP</emphasis> Incremental upgrade</title>
 
 	<!-- MAY CHANGE: size of Packages file -->
-	<para>As we explained earlier, the aim of the <command>apt-get
+	<para>As we explained earlier, the aim of the <command>apt
 	update</command> command is to download for each package source the
 	corresponding <filename>Packages</filename> (or
 	<filename>Sources</filename>) file. However, even after a
@@ -844,7 +840,7 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	are generated at each update of the archives and a history of one
 	week is kept. Each of these “diff” files only takes a few dozen
 	kilobytes for <emphasis role="distribution">Unstable</emphasis>, so
-	that the amount of data downloaded by a weekly <command>aptitude
+	that the amount of data downloaded by a weekly <command>apt
 	update</command> is often divided by 10. For distributions like
 	<emphasis role="distribution">Stable</emphasis> and <emphasis
 	role="distribution">Testing</emphasis>, which change less, the gain
@@ -864,49 +860,54 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
 	<literal>false</literal>.</para>
       </sidebar>
 
-      <para><command>apt-get</command> will generally select the most
+      <para><command>apt</command> will generally select the most
       recent version number (except for packages from <emphasis
       role="distribution">Experimental</emphasis> and
       <emphasis role="distribution">stable-backports</emphasis>, which are
       ignored by default whatever their version number). If you specified
       <emphasis role="distribution">Testing</emphasis> or <emphasis
       role="distribution">Unstable</emphasis> in your
-      <filename>sources.list</filename>, <command>apt-get
+      <filename>sources.list</filename>, <command>apt
       upgrade</command> will switch most of your <emphasis
       role="distribution">Stable</emphasis> system to <emphasis
       role="distribution">Testing</emphasis> or <emphasis
       role="distribution">Unstable</emphasis>, which might not be what you
       intended.</para>
 
-      <para>To tell <command>apt-get</command> to use a specific
+      <para>To tell <command>apt</command> to use a specific
       distribution when searching for upgraded packages, you need to use
       the <literal>-t</literal> or <literal>--target-release</literal>
       option, followed by the name of the
-      distribution you want (for example: <command>apt-get -t stable
+      distribution you want (for example: <command>apt -t stable
       upgrade</command>). To avoid specifying this option every time
-      you use <command>apt-get</command>, you can add
+      you use <command>apt</command>, you can add
       <literal>APT::Default-Release "stable";</literal> in the file
       <filename>/etc/apt/apt.conf.d/local</filename>.</para>
 
+      <indexterm><primary><command>apt full-upgrade</command></primary></indexterm>
+      <indexterm><primary><command>apt dist-upgrade</command></primary></indexterm>
       <indexterm><primary><command>apt-get dist-upgrade</command></primary></indexterm>
       <indexterm><primary><command>aptitude dist-upgrade</command></primary></indexterm>
       <indexterm><primary><command>aptitude full-upgrade</command></primary></indexterm>
 
       <para>For more important upgrades, such as the change from one major
-      Debian version to the next, you need to use <command>apt-get
-      dist-upgrade</command> (“distribution upgrade”).
-      With this instruction, <command>apt-get</command> will complete the
-      upgrade even if it has to remove some obsolete packages or install
-      new dependencies. This is also the command used by users who work
-      daily with the Debian <emphasis
-      role="distribution">Unstable</emphasis> release and follow its
+      Debian version to the next, you need to use <command>apt
+      full-upgrade</command>. With this instruction,
+      <command>apt</command> will complete the upgrade even if it has to
+      remove some obsolete packages or install new dependencies. This is
+      also the command used by users who work daily with the Debian
+      <emphasis role="distribution">Unstable</emphasis> release and follow its
       evolution day by day. It is so simple that it hardly needs
       explanation: APT's reputation is based on this great
       functionality.</para>
 
-      <para><command>aptitude full-upgrade</command> is
-      <command>aptitude</command>'s corresponding command although
-      <command>dist-upgrade</command> is also recognized (but deprecated).
+      <para>Unlike <command>apt</command> and <command>aptitude</command>,
+      <command>apt-get</command> doesn't know the
+      <command>full-upgrade</command> command. Instead,
+      you should use <command>apt-get dist-upgrade</command>
+      (”distribution upgrade”), the historical and well-known
+      command that <command>apt</command> and <command>aptitude</command>
+      also accept for the convenience of users who got used to it.
       </para>
     </section>
 
@@ -1063,8 +1064,8 @@ deb http://apt.falcot.com:9999/debian jessie main contrib non-free
       role="distribution">Unstable</emphasis> or <emphasis
       role="distribution">Experimental</emphasis> for the standard
       distributions provided by Debian) together with its version (for
-      example 5.0 for Debian <emphasis
-      role="distribution">Lenny</emphasis>). Let's have a look at its
+      example 8 for Debian <emphasis
+      role="distribution">Jessie</emphasis>). Let's have a look at its
       syntax through some realistic case studies of this mechanism.</para>
 
       <sidebar>
@@ -1156,7 +1157,7 @@ Pin-Priority: 500
     <section id="sect.apt-mix-distros">
       <title>Working with Several Distributions</title>
 
-      <para><command>apt-get</command> being such a marvelous tool, it is
+      <para><command>apt</command> being such a marvelous tool, it is
       tempting to pick packages coming from other distributions. For
       example, after having installed a <emphasis
       role="distribution">Stable</emphasis> system, you might want to try
@@ -1166,7 +1167,7 @@ Pin-Priority: 500
       from the system's initial state.</para>
 
       <para>Even if you will occasionally encounter problems while mixing
-      packages from different distributions, <command>apt-get</command>
+      packages from different distributions, <command>apt</command>
       manages such coexistence very well and limits risks very effectively.
       The best way to proceed is to list all distributions used in
       <filename>/etc/apt/sources.list</filename> (some people always put
@@ -1181,7 +1182,7 @@ Pin-Priority: 500
       but that <emphasis role="distribution">Testing</emphasis> and
       <emphasis role="distribution">Unstable</emphasis> are also listed in
       your <filename>sources.list</filename> file. In this case, you can
-      use <command>apt-get install
+      use <command>apt install
       <replaceable>package</replaceable>/testing</command> to install a
       package from <emphasis role="distribution">Testing</emphasis>. If the
       installation fails due to some unsatisfiable dependencies, let it
@@ -1191,10 +1192,10 @@ Pin-Priority: 500
       role="distribution">Unstable</emphasis>.</para>
 
       <para>In this situation, upgrades (<command>upgrade</command>
-      and <command>dist-upgrade</command>) are done within <emphasis
+      and <command>full-upgrade</command>) are done within <emphasis
       role="distribution">Stable</emphasis> except for packages already
       upgraded to another distribution: those will follow updates
-      available in the other distributions. We'll explain this behavior
+      available in the other distributions. We will explain this behavior
       with the help of the default priorities set by APT below. Do not
       hesitate to use <command>apt-cache policy</command> (see sidebar) to
       verify the given priorities.</para>
@@ -1255,19 +1256,20 @@ Pin-Priority: 490
       <title>Tracking Automatically Installed Packages</title>
 
       <para>One of the essential functionalities of
-      <command>apt-get</command> (which was initially specific to
-      <command>aptitude</command>) is the tracking of packages installed
+      <command>apt</command> is the tracking of packages installed
       only through dependencies. These packages are called “automatic”,
       and often include libraries for instance.</para>
       
       <para>With this information, when packages are removed, the package
       managers can compute a list of automatic packages that are
-      no longer needed (because there's no “manually installed” packages
+      no longer needed (because there is no “manually installed” packages
       depending on them). <command>apt-get autoremove</command> will get
-      rid of those packages. <command>aptitude</command> does not have
-      this command because it removes them automatically as soon as they
-      are identified. Both programs include a clear message listing
-      the affected packages.</para>
+      rid of those packages. <command>aptitude</command> and <command>apt</command> do not have
+      this command: the former because it removes them automatically as
+      soon as they are identified, and the latter probably because the
+      user should not have to manually run such a command.
+      In all cases, the tools display a clear message listing the affected
+      packages.</para>
 
       <indexterm><primary><command>apt-mark auto</command></primary></indexterm>
       <indexterm><primary><command>apt-mark manual</command></primary></indexterm>
@@ -1290,8 +1292,9 @@ Pin-Priority: 490
       <para>People might want to know why an automatically installed
       package is present on the system. To get this information from the
       command line, you can use <command>aptitude why
-      <replaceable>package</replaceable></command> (<command>apt-get</command>
-      has no similar feature):</para>
+        <replaceable>package</replaceable></command>
+      (<command>apt</command> and <command>apt-get</command> have no
+      similar feature):</para>
 
       <screen>$ <userinput>aptitude why python-debian</userinput>
 i   aptitude         Recommends apt-xapian-index         
@@ -1303,8 +1306,9 @@ i A apt-xapian-index Depends    python-debian (&gt;= 0.1.15)
 
 	<indexterm><primary><command>deborphan</command></primary></indexterm>
 	<indexterm><primary><command>debfoster</command></primary></indexterm>
-	<para>In days where <command>apt-get</command> and <command>aptitude</command>
-	were not able to track automatic packages, there were two utilities
+        <para>In days where <command>apt</command>,
+        <command>apt-get</command> and <command>aptitude</command> were
+        not able to track automatic packages, there were two utilities
 	producing lists of unnecessary packages:
 	<command>deborphan</command> and
 	<command>debfoster</command>.</para>
@@ -1343,7 +1347,7 @@ i A apt-xapian-index Depends    python-debian (&gt;= 0.1.15)
     information stored in APT's internal database. This information is a
     sort of cache since it is gathered from the different sources listed in
     the <filename>sources.list</filename> file. This happens during the
-    <command>apt-get update</command> operation.</para>
+    <command>apt update</command> operation.</para>
 
     <sidebar id="sidebar.cache">
       <title><emphasis>VOCABULARY</emphasis> Cache</title>
@@ -1366,6 +1370,8 @@ i A apt-xapian-index Depends    python-debian (&gt;= 0.1.15)
       need to reinstall them after a removal.</para>
     </sidebar>
 
+    <indexterm><primary><command>apt show</command></primary></indexterm>
+    <indexterm><primary><command>apt search</command></primary></indexterm>
     <indexterm><primary><command>apt-cache show</command></primary></indexterm>
     <indexterm><primary><command>apt-cache search</command></primary></indexterm>
     <indexterm><primary><command>aptitude show</command></primary></indexterm>
@@ -1376,7 +1382,8 @@ i A apt-xapian-index Depends    python-debian (&gt;= 0.1.15)
     headers of the package's available versions with <command>apt-cache
     show <replaceable>package</replaceable></command>. This command
     provides the package's description, its dependencies, the name of its
-    maintainer, etc. Note that <command>aptitude search</command> and
+    maintainer, etc. Note that <command>apt search</command>, <command>apt
+    show</command>, <command>aptitude search</command>,
     <command>aptitude show</command> work in the same way.
     </para>
 
@@ -1698,7 +1705,7 @@ More tags: suite::debian works-with::software:package role::program interface::c
     signature. The signed file is the <filename>Release</filename> file,
     provided by the Debian mirrors. It contains a list of the
     <filename>Packages</filename> files (including their compressed forms,
-    <filename>Packages.gz</filename> and <filename>Packages.bz2</filename>,
+    <filename>Packages.gz</filename> and <filename>Packages.xz</filename>,
     and the incremental versions), along with their MD5, SHA1 and SHA256
     hashes, which ensures that the files haven't been tampered with. These
     <filename>Packages</filename> files contain a list of the Debian
@@ -1780,7 +1787,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       that it can't ensure the authenticity of the packages coming from
       that repository). The first step is of course to get the public key.
       More often than not, the key will be provided as a small text file,
-      which we'll call <filename>key.asc</filename> in the following
+      which we will call <filename>key.asc</filename> in the following
       examples.</para>
 
       <para>To add the key to the trusted keyring, the administrator can
@@ -1869,12 +1876,12 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       the change isn't even required, since <emphasis
       role="distribution">Stable</emphasis> always refers to the latest
       released version of Debian. In both cases, the database of available
-      packages must be refreshed (with the <command>apt-get
+      packages must be refreshed (with the <command>apt
       update</command> command or the refresh button in
       <command>synaptic</command>).</para>
 
       <para>Once these new package sources are registered, you should
-      first do a minimal upgrade with <command>apt-get upgrade</command>.
+      first do a minimal upgrade with <command>apt upgrade</command>.
       By doing the upgrade in two steps, we ease the job of the
       package management tools and often ensure that we have the latest
       versions of those, which might have accumulated bugfixes and
@@ -1882,7 +1889,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       </para>
 
       <para>Once this first upgrade is done, it is time to handle the
-      upgrade itself, either with <command>apt-get dist-upgrade</command>,
+      upgrade itself, either with <command>apt full-upgrade</command>,
       <command>aptitude</command>, or
       <command>synaptic</command>. You should carefully check the suggested
       actions before applying them: you might want to add suggested
@@ -1920,7 +1927,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       update can also introduce regressions which are only found after the
       stable release. In both cases, the first thing to do is to have a
       look at the bug tracking system at
-      <literal>http://bugs.debian.org/<replaceable>package</replaceable></literal>,
+      <literal>https://bugs.debian.org/<replaceable>package</replaceable></literal>,
       and check whether the problem has already been reported. If it
       hasn't, you should report it yourself with
       <command>reportbug</command>. If it is already known, the bug report
@@ -1951,7 +1958,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       (see <xref linkend="sect.proposed-updates"/>). The corresponding
       entry can then be temporarily added to the
       <filename>sources.list</filename> file, and updated packages can be
-      installed with <command>apt-get</command> or
+      installed with <command>apt</command> or
       <command>aptitude</command>.</para>
 
       <para>Sometimes the fixed package isn't available in this section yet
@@ -1959,7 +1966,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
       You can verify if that's the case on their web page. Packages listed
       there aren't available yet, but at least you know that the
       publication process is ongoing. <ulink type="block"
-      url="http://release.debian.org/proposed-updates/stable.html"/></para>
+      url="https://release.debian.org/proposed-updates/stable.html"/></para>
     </section>
   </section>
   <section id="sect.regular-upgrades">
@@ -2223,7 +2230,7 @@ yes '' | apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--f
     almost entirely been solved.</para>
 
     <para>The most trivial search possible is looking up an exact package
-    name. If <command>apt-cache show
+    name. If <command>apt show
     <replaceable>package</replaceable></command> returns a result, then the
     package exists. Unfortunately, this requires knowing or even guessing
     the package name, which isn't always possible.</para>
