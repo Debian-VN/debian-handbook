@@ -91,7 +91,7 @@
 	limited to 256 characters because they opted to use a single byte
 	for each character. Since 256 characters was not enough to cover
 	all European languages, multiple encodings were needed, and
-	that's how we ended up with <emphasis>ISO-8859-1</emphasis>
+	that is how we ended up with <emphasis>ISO-8859-1</emphasis>
 	(also known as “Latin 1”) up to <emphasis>ISO-8859-15</emphasis>
 	(also known as “Latin 9”), among others.</para>
 
@@ -105,7 +105,7 @@
 	by a specific escape sequence of a few bits, which implicitly
 	defines the length of the character. This allows encoding all
 	Unicode characters on a sequence of one or more bytes. Its use
-	has been popularized by the fact that it's the default encoding
+	has been popularized by the fact that it is the default encoding
 	in XML documents.</para>
         <indexterm><primary>ASCII</primary></indexterm>
         <indexterm><primary>UTF-8</primary></indexterm>
@@ -140,7 +140,7 @@
       prefer either “<literal>en_CA.UTF-8</literal>” or, for French,
       “<literal>fr_CA.UTF-8</literal>”. The
       <filename>/etc/default/locale</filename> file will then be modified
-      to store this choice. From there, it's picked up by all user sessions
+      to store this choice. From there, it is picked up by all user sessions
       since PAM will inject its content in the <varname>LANG</varname>
       environment variable.</para>
       <indexterm><primary>environment</primary></indexterm>
@@ -165,7 +165,7 @@
 	<para>The <filename>/etc/default/locale</filename> file works in a
 	similar manner, but contains only the <varname>LANG</varname>
 	environment variable. Thanks to this split, some PAM users can inherit
-	a complete environment without localization. Indeed, it's generally
+	a complete environment without localization. Indeed, it is generally
 	discouraged to run server programs with localization enabled;
 	on the other hand, localization and regional settings are recommended
 	for programs that open user sessions.</para>
@@ -181,7 +181,7 @@
 
       <para>Even if the keyboard layout is managed differently
       in console and graphical mode, Debian offers a single
-      configuration interface that works for both: it's based on debconf
+      configuration interface that works for both: it is based on debconf
       and is implemented in the <emphasis
       role="pkg">keyboard-configuration</emphasis> package. Thus the
       <command>dpkg-reconfigure keyboard-configuration</command> command
@@ -425,9 +425,11 @@ $ </computeroutput><userinput>ls travail/</userinput>
       <title><emphasis>ALTERNATIVE</emphasis> NetworkManager</title>
       <indexterm><primary><emphasis role="pkg">network-manager</emphasis></primary></indexterm>
 
+      <!-- MAYCHANGE: the URL below are specific to version 0.9 in jessie,
+           stretch already has a newer version -->
       <para>If Network Manager is particularly recommended in roaming setups
       (see <xref linkend="sect.roaming-network-config" />),
-      it's also perfectly usable as the default network management
+      it is also perfectly usable as the default network management
       tool. You can create “System connections” that are used as soon
       as the computer boots either manually with a
       <filename>.ini</filename>-like file in
@@ -586,7 +588,8 @@ iface eth0 inet static
 	  <command>systemd</command>.  Adding an automatically
 	  restarting task for the ADSL connection is a simple matter
 	  of creating a “unit file” such as
-	  <filename>/etc/systemd/system/adsl-connection.service</filename>, with contents such as the following:
+          <filename>/etc/systemd/system/adsl-connection.service</filename>,
+          with contents such as the following:
 </para>
 
 <programlisting>[Unit]
@@ -611,7 +614,7 @@ WantedBy=multi-user.target</programlisting>
           <para>On systems not using <command>systemd</command>
           (including <emphasis role="distribution">Wheezy</emphasis>
           and earlier versions of Debian), the standard SystemV init
-          works differently.  On such systems, all that's needed is to
+          works differently.  On such systems, all that is needed is to
           add a line such as the following at the end of the
           <filename>/etc/inittab</filename> file; then, any time the
           connection is disconnected, <command>init</command> will
@@ -621,7 +624,7 @@ WantedBy=multi-user.target</programlisting>
 adsl:2345:respawn:/usr/sbin/pppd call dsl-provider
 </programlisting>
 
-	  <para>Most ADSL connections disconnect on a daily basis, but this
+	  <para>For ADSL connections that auto-disconnect on a daily basis, this
 	  method reduces the duration of the interruption.</para>
         </sidebar>
       </section>
@@ -1312,7 +1315,7 @@ nameserver 8.8.8.8
       <para>In simple terms, a login shell is invoked when you login to
       the console either locally or remotely via
       <command>ssh</command>, or when you run an explicit <command>bash
-      --login</command> command. Regardless of whether it's a login shell
+      --login</command> command. Regardless of whether it is a login shell
       or not, a shell can be interactive (in an
       <command>xterm</command>-type terminal for instance); or
       non-interactive (when executing a script).</para>
@@ -1345,6 +1348,8 @@ nameserver 8.8.8.8
       name or argument when the user hits the <keycap>Tab</keycap> key.
       This lets users work more efficiently and be less error-prone.</para>
 
+      <!-- MAYCHANGE: use apt as sample command that has auto-completion
+           hopefully #747094 will be fixed for stretch ! -->
       <para>This function is very powerful and flexible. It is possible to
       configure its behavior according to each command. Thus, the first
       argument following <command>apt-get</command> will be proposed
@@ -1577,8 +1582,7 @@ nameserver 8.8.8.8
       <indexterm><primary>partition</primary><secondary>primary</secondary></indexterm>
       <indexterm><primary>partition</primary><secondary>extended</secondary></indexterm>
       <indexterm><primary>partition</primary><secondary>secondary</secondary></indexterm>
-      <indexterm><primary>partition table</primary><secondary>MS-DOS
-      format</secondary></indexterm>
+      <indexterm><primary>partition table</primary><secondary>MS-DOS format</secondary></indexterm>
       <para>The PC architecture (or “i386”, including its younger
       cousin “amd64”) has long been limited to using the “MS-DOS”
       partition table format, which only allows four “primary”
@@ -1592,17 +1596,16 @@ nameserver 8.8.8.8
 
       <para>Another restriction of the MS-DOS partition table format is
       that it only allows disks up to 2 TiB in size, which is becoming
-      less and less of a theoretical problem.</para>
+      a real problem with recent disks.</para>
 
-      <indexterm><primary>GPT</primary><secondary>partition table
-      format</secondary></indexterm> <indexterm><primary>partition
-      table</primary><secondary>GPT format</secondary></indexterm>
+      <indexterm><primary>GPT</primary><secondary>partition table format</secondary></indexterm>
+      <indexterm><primary>partition table</primary><secondary>GPT format</secondary></indexterm>
       <para>A new partition table format called GPT loosens these
       constraints on the number of partitions (it allows up to 128
       partitions when using standard settings) and on the size of the
       disks (up to 8 ZiB, which is more than 8 billion terabytes).  If
       you intend to create many physical partitions on the same disk,
-      you should therefore ensure you're creating the partition table
+      you should therefore ensure that you are creating the partition table
       in the GPT format when partitioning your disk.</para>
 
       <para>It is not always easy to remember what disk is connected to
@@ -1654,6 +1657,8 @@ mirexpress:/dev/disk/by-id# </computeroutput>
       first partition is an old Windows installation and the second
       contains Debian GNU/Linux.</para>
     </section>
+    <!-- TODO: get rid of this section on Lilo, needs to rewrite the start
+         of the grub section -->
     <section id="sect.config-lilo">
       <title>Configuring LILO</title>
       <indexterm><primary>LILO</primary></indexterm>
@@ -1760,8 +1765,9 @@ other=/dev/sda1
       consideration the installed Linux kernels;
       <filename>20_linux_xen</filename> takes into account Xen virtual systems,
       and <filename>30_os-prober</filename> lists other operating systems
-      (Windows, Mac OSX, Hurd).</para>
+      (Windows, OS X, Hurd).</para>
     </section>
+    <!-- TODO: Get rid of the yaboot section -->
     <section id="sect.config-yaboot">
       <title>For Macintosh Computers (PowerPC): Configuring Yaboot</title>
       <indexterm><primary><command>yaboot</command></primary></indexterm>
@@ -1998,6 +2004,7 @@ macosx=/dev/sda5
       <section id="sect.ntp-on-servers">
         <title>For Servers</title>
 
+        <!-- TODO: sidebar on tlsdate as alternative -->
 	<para>Servers are only rarely rebooted, and it is very important
 	for their system time to be correct. To permanently maintain
 	correct time, you would install a local NTP server, a service
@@ -2204,6 +2211,21 @@ macosx=/dev/sda5
 	      mounting on boot.</para>
             </listitem>
             <listitem>
+              <para>
+                <literal>nofail</literal> allows the boot to proceed
+                even when the device is not present. Make sure to put this
+                option for external drives that might be unplugged
+                when you boot, because <command>systemd</command> really
+                ensures that all mount points that must be automatically
+                mounted are actually mounted before letting the boot
+                process continue to its end. Note that you can combine
+                this with <literal>x-systemd.device-timeout=5s</literal>
+                to tell <command>systemd</command> to not wait more than
+                5 seconds for the device to appear (see
+                <citerefentry><refentrytitle>systemd.mount</refentrytitle><manvolnum>5</manvolnum></citerefentry>).
+	      </para>
+            </listitem>
+            <listitem>
 	      <para><literal>user</literal> authorizes all users to mount
 	      this filesystem (an operation which would otherwise be
 	      restricted to the root user).</para>
@@ -2268,6 +2290,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       <sidebar>
         <title><emphasis>GOING FURTHER</emphasis> Auto-mounting</title>
 
+        <!-- TODO: document that systemd can handle auto-mounting -->
 	<para>The <emphasis>am-utils</emphasis> package provides the
 	<command>amd</command> auto-mounting utility, able to mount
 	removable media on demand when a user attempts to access their
@@ -2294,6 +2317,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       <indexterm><primary><command>updatedb</command></primary></indexterm>
       <indexterm><primary><command>mlocate</command></primary></indexterm>
 
+      <!-- MAYCHANGE: mlocate demoted to optional in stretch -->
       <para>The <command>locate</command> command can find the location of
       a file when you only know part of the name. It sends a result almost
       instantaneously, since it consults a database that stores the
@@ -2378,6 +2402,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       <emphasis role="pkg">fakeroot</emphasis> package will enable creation of the
       Debian package without using administrator's rights.</para>
 
+      <!-- TODO -->
       <sidebar>
         <title><emphasis>CULTURE</emphasis> The good old days of <emphasis role="pkg">kernel-package</emphasis></title>
         <indexterm><primary><emphasis role="pkg">kernel-package</emphasis></primary></indexterm>
@@ -2451,7 +2476,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
 	information on the used kernel.</para>
       </sidebar>
     </section>
-    <section id="sect.config-noyau">
+    <section id="sect.config-kernel">
       <title>Configuring the Kernel</title>
       <indexterm><primary>kernel</primary><secondary>configuration</secondary></indexterm>
       <indexterm><primary>configuration</primary><secondary>of the kernel</secondary></indexterm>
@@ -2509,7 +2534,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       depends on <emphasis role="pkg">libglade2-dev</emphasis> and
       <emphasis role="pkg">libgtk2.0-dev</emphasis>.</para>
 
-      <para>When using one of those configuration interfaces, it's always
+      <para>When using one of those configuration interfaces, it is always
       a good idea to start from a reasonable default configuration. The
       kernel provides such configurations in
       <filename>arch/<replaceable>arch</replaceable>/configs/*_defconfig</filename>
@@ -2553,8 +2578,9 @@ arrakis:/shared /shared         nfs     defaults        0       0
       that contains the kernel image and the associated modules,
       <emphasis role="pkg">linux-headers-<replaceable>version</replaceable></emphasis>
       which contains the header files required to build external modules,
-<!---      <emphasis role="pkg">linux-firmware-image-<replaceable>version</replaceable></emphasis>
-      which contains the firmware files needed by some drivers, -->
+      <emphasis role="pkg">linux-firmware-image-<replaceable>version</replaceable></emphasis>
+      which contains the firmware files needed by some drivers (this package
+      might be missing when you build from the kernel sources provided by Debian),
       <emphasis role="pkg">linux-image-<replaceable>version</replaceable>-dbg</emphasis>
       which contains the debugging symbols for the kernel image and its modules,
       and <emphasis role="pkg">linux-libc-dev</emphasis> which contains headers
@@ -2620,7 +2646,7 @@ arrakis:/shared /shared         nfs     defaults        0       0
       also install <emphasis role="pkg">linux-headers-amd64</emphasis>.</para>
 
       <screen>
-<computeroutput>$ </computeroutput><userinput>sudo apt-get install xtables-addons-common-dkms</userinput>
+<computeroutput>$ </computeroutput><userinput>sudo apt install xtables-addons-common-dkms</userinput>
 <computeroutput>
 [...]
 Setting up xtables-addons-dkms (2.6-1) ...
@@ -2691,8 +2717,7 @@ description:    Xtables: per-IP accounting for large prefixes
       <screen>
 <computeroutput>$ </computeroutput><userinput>cd ~/kernel/linux-source-3.16</userinput>
 <computeroutput>$ </computeroutput><userinput>make clean</userinput>
-<computeroutput>$ </computeroutput><userinput>zcat /usr/src/kernel-patches/diffs/grsecurity2/grsecurity-3.0-3.17.1-201410250027.patch.gz | patch -p1</userinput><!--
-<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-grsec</userinput> -->
+<computeroutput>$ </computeroutput><userinput>zcat /usr/src/kernel-patches/diffs/grsecurity2/grsecurity-3.0-3.17.1-201410250027.patch.gz | patch -p1</userinput>
 </screen>
 
       <para>Note that a given patch may not necessarily work with every
@@ -2736,7 +2761,7 @@ description:    Xtables: per-IP accounting for large prefixes
       (hence the name, which stands for “init ramdisk”) by the
       bootloader, and used by the Linux kernel solely for loading the
       modules needed to access the devices containing the complete Debian
-      system (for example, the driver for IDE disks). Finally, the
+      system (for example, the driver for SATA disks). Finally, the
       post-installation scripts update the symbolic links
       <filename>/vmlinuz</filename>, <filename>/vmlinuz.old</filename>,
       <filename>/initrd.img</filename> and
@@ -2755,7 +2780,7 @@ description:    Xtables: per-IP accounting for large prefixes
     <section id="sect.kernel-installation-with-dpkg">
       <title>Installing with <command>dpkg</command></title>
 
-      <para>Using <command>apt-get</command> is so convenient that it makes
+      <para>Using <command>apt</command> is so convenient that it makes
       it easy to forget about the lower-level tools, but the easiest way of
       installing a compiled kernel is to use a command such as
       <command>dpkg -i <replaceable>package</replaceable>.deb</command>,

@@ -69,7 +69,7 @@
       </mediaobject>
     </figure>
 
-<section id="sect.systemd"><title>The systemd init system</title>
+    <section id="sect.systemd"><title>The systemd init system</title>
 
     <para>The “real init” is currently provided by <emphasis
     role="pkg">systemd</emphasis> and this section documents this init
@@ -85,7 +85,7 @@
       role="distribution">Jessie</emphasis>.  Previous releases
       relied, by default, on the “System V init” (in the <emphasis
       role="pkg">sysv-rc</emphasis> package), a much more traditional
-      system.  We describe the SysV init later on.</para>
+      system.  We describe the System V init later on.</para>
     </sidebar>
 
     <sidebar>
@@ -96,7 +96,7 @@
       implemented by the <emphasis role="pkg">systemd</emphasis>
       package), as well as the previous default, <emphasis
       role="pkg">sysvinit</emphasis>, which is derived and inherited
-      from <emphasis>System_V</emphasis> Unix systems; there are
+      from <emphasis>System V</emphasis> Unix systems; there are
       others.</para>
 
       <para><emphasis role="pkg">file-rc</emphasis> is a boot system
@@ -118,9 +118,8 @@
       <emphasis role="pkg">sysv-rc</emphasis> package.</para>
 
       <para>There are also other systems and other operating modes, such as
-      <command>runit</command>, <command>minit</command>, or
-      <command>initng</command>, but they are relatively specialized and
-      not widespread.</para>
+      <command>runit</command> or <command>minit</command>, but they are
+      relatively specialized and not widespread.</para>
     </sidebar>
 
     <sidebar>
@@ -180,7 +179,7 @@
       available on the Internet (see for yourself by searching for
       “generic BIOS passwords” in a search engine). All of these
       protections will thus impede unauthorized access to the machine
-      without being able to completely prevent it. There's no reliable way
+      without being able to completely prevent it. There is no reliable way
       to protect a computer if the attacker can physically access it; they
       could dismount the hard drives to connect them to a computer under
       their own control anyway, or even steal the entire machine, or erase
@@ -199,16 +198,16 @@ widely-used “*.ini files“ syntax, with
 <literal>[<replaceable>section</replaceable>]</literal> headers.  Unit
 files are stored under <filename>/lib/systemd/system/</filename> and
 <filename>/etc/systemd/system/</filename>; they come in several
-flavours, but we'll focus on “services” and “targets” here.
+flavours, but we will focus on “services” and “targets” here.
 </para>
 
 <para>A systemd “service file” describes a process managed by systemd.
 It contains roughly the same information as old-style init-scripts,
-but expressed in a declaratory way (and much more concise) way.
+but expressed in a declaratory (and much more concise) way.
 Systemd handles the bulk of the repetitive tasks (starting and
 stopping the process, checking its status, logging, dropping
 privileges, and so on), and the service file only needs to fill in the
-specifics of the process.  For instance, here's the service file for SSH:</para>
+specifics of the process.  For instance, here is the service file for SSH:</para>
 
 <programlisting>[Unit]
 Description=OpenBSD Secure Shell server
@@ -227,7 +226,7 @@ WantedBy=multi-user.target
 Alias=sshd.service
 </programlisting>
 
-<para>As you can see, there's very little code in there, only
+<para>As you can see, there is very little code in there, only
 declarations.  Systemd takes care of displaying progress reports,
 keeping track of the processes, and even restarting them when
 needed.</para>
@@ -310,7 +309,7 @@ messages as they are emitted (much in the manner of <command>tail -f
 <replaceable>file</replaceable></command>).</para>
 
 <para>If a service doesn't seem to be working as expected, the first
-step to debug the problem are to check that the service is actually
+step to debug the problem is to check that the service is actually
 running with <command>systemctl status</command>; if it is not, and
 the messages given by the first command are not enough to diagnose the
 problem, check the logs gathered by journald about that service.  For
@@ -377,8 +376,8 @@ service, then verify that it is indeed running.</para>
 
 <sidebar><title><emphasis>GOING FURTHER</emphasis> Other types of unit files</title>
 
-<para>We've only described the most basic of systemd's capabilities in
-this section.  It offers many other interesting features; we'll only
+<para>We have only described the most basic of systemd's capabilities in
+this section.  It offers many other interesting features; we will only
 list a few here:</para>
 
 <itemizedlist>
@@ -388,19 +387,22 @@ describe a network or Unix socket managed by systemd; this means that
 the socket will be created by systemd, and the actual service may be
 started on demand when an actual connection attempt comes.  This
 roughly replicates the feature set of
-<command>inetd</command>.</para></listitem>
+<command>inetd</command>. See
+<citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry>.
+</para></listitem>
 
 <listitem><para>timers: a “timer” unit file describes events that
-occur with a fixed frequency; when a service is linked to such a
+occur with a fixed frequency or on specific times; when a service is linked to such a
 timer, the corresponding task will be executed whenever the timer
-fires.  In a similar fashion, a “time” unit file describes events that
-occur on specific times.  This allows replicating part of the
-<command>cron</command> features.</para></listitem>
+fires. This allows replicating part of the
+<command>cron</command> features. See
+<citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry>.
+</para></listitem>
 
 <listitem><para>network: a “network“ unit file describes a network
 interface, which allows configuring such interfaces as well as
 expressing that a service depends on one particular interface being
-up.</para></listitem>
+up. </para></listitem>
 
 </itemizedlist>
 </sidebar>
@@ -584,7 +586,7 @@ up.</para></listitem>
       <para>The maintainer scripts for Debian packages will sometimes
       restart certain services to ensure their availability or get them to
       take certain options into account. The command that controls a
-      service — <command>/etc/init.d/<replaceable>service</replaceable>
+      service — <command>service <replaceable>service</replaceable>
       <replaceable>operation</replaceable></command> — doesn't take
       runlevel into consideration, assumes (wrongly) that the service is
       currently being used, and may thus initiate incorrect operations
@@ -740,7 +742,7 @@ up.</para></listitem>
       role="pkg">openssh-client</emphasis> package, and the server is in
       the <emphasis role="pkg">openssh-server</emphasis> package. The
       <emphasis role="pkg">ssh</emphasis> meta-package depends on both
-      parts and facilitates installation of both (<command>apt-get install
+      parts and facilitates installation of both (<command>apt install
       ssh</command>).</para>
 
       <section id="sect.ssh-key-based-auth">
@@ -840,9 +842,9 @@ up.</para></listitem>
 	  introduces to upstream software must be justified, documented,
 	  submitted to the upstream project when possible, and widely
 	  publicized. It is from this perspective that the new source
-	  package format (“3.0 (quilt)”) and the Debian patch tracker
-	  were developed.
-	  <ulink type="block" url="http://patch-tracker.debian.org"/></para>
+          package format (“3.0 (quilt)”) and the Debian sources webservice
+          were developed.
+	  <ulink type="block" url="http://sources.debian.net"/></para>
         </sidebar>
       </section>
       <section id="sect.ssh-x11">
@@ -992,7 +994,7 @@ up.</para></listitem>
       <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There
       are other VNC clients that use the command line, such as
       <command>xvnc4viewer</command> in the Debian package of the same
-      name. Once connected, the administrator can see what's going on, work
+      name. Once connected, the administrator can see what is going on, work
       on the machine remotely, and show the user how to proceed.</para>
 
       <sidebar>
@@ -1126,7 +1128,7 @@ up.</para></listitem>
     <para>In the case of a file, these rights are easily understood: read
     access allows reading the content (including copying), write access
     allows changing it, and execute access allows you to run it (which will
-    only work if it's a program).</para>
+    only work if it is a program).</para>
 
     <sidebar>
       <title><emphasis>SECURITY</emphasis> <literal>setuid</literal> and <literal>setgid</literal> executables</title>
@@ -1259,7 +1261,7 @@ up.</para></listitem>
       recursively in sub-directories.</para>
 
       <para>The distinction between directories and files sometimes causes
-      problems with recursive operations. That's why the “X” letter has
+      problems with recursive operations. That is why the “X” letter has
       been introduced in the symbolic representation of rights. It
       represents a right to execute which applies only to directories (and
       not to files lacking this right). Thus, <command>chmod -R a+X
@@ -1543,7 +1545,7 @@ up.</para></listitem>
       the list in decreasing order:</para>
       <itemizedlist>
         <listitem>
-	  <para><literal>emerg</literal>: “Help!” There's an emergency,
+	  <para><literal>emerg</literal>: “Help!” There is an emergency,
 	  the system is probably unusable.</para>
         </listitem>
         <listitem>
@@ -1814,9 +1816,9 @@ ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i
       <filename>/etc/xinetd.d/</filename> directory), which can make an
       administrator's life easier.</para>
 
-      <para>It's even possible to emulate <command>inetd</command>'s
+      <para>Last but not least, it is even possible to emulate <command>inetd</command>'s
       behaviour with <command>systemd</command>'s socket-activation
-      mechanism (see above).</para>
+      mechanism (see <xref linkend="sect.systemd" />).</para>
     </sidebar>
   </section>
   <section id="sect.task-scheduling-cron-atd">
@@ -2041,8 +2043,8 @@ ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i
       <title><emphasis>ALTERNATIVE</emphasis> Emulating <command>cron</command> with <command>systemd</command></title>
 
       <para>It is possible possible to emulate part of
-      <command>crond</command>'s behaviour with
-      <command>systemd</command>'s timer mechanism (see above).</para>
+      <command>cron</command>'s behaviour with
+      <command>systemd</command>'s timer mechanism (see <xref linkend="sect.systemd" />).</para>
     </sidebar>
 
     </section>
@@ -2570,8 +2572,8 @@ exclude:
 
 	<para>Many computers have multiple network cards (sometimes
 	two wired interfaces and a wifi interface), and with
-	<emphasis>hotplug</emphasis> support on most bus types, kernel
-	versions later than 2.6 no longer guarantee fixed naming of
+	<emphasis>hotplug</emphasis> support on most bus types, the Linux kernel
+	does not guarantee fixed naming of
 	network interfaces. But a user who wants to configure their
 	network in <filename>/etc/network/interfaces</filename> needs
 	a fixed name!</para>
@@ -2585,6 +2587,8 @@ exclude:
 	name on subsequent boots. These rules are stored in
 	<filename>/etc/udev/rules.d/70-persistent-net.rules</filename>.</para>
 
+        <!-- XXX: Stretch switched to a new naming system that does
+             not use 70-persistent-net.rules -->
 	<para>This mechanism has some side effects that you should know
 	about. Let's consider the case of a computer that has only one PCI
 	network card. The network interface is named
@@ -2845,8 +2849,8 @@ KERNEL=="sd?[0-9]", SUBSYSTEM=="block", ATTRS{serial}=="M004021000001", SYMLINK+
 
 	<para>Like many daemons, <command>udevd</command> stores logs in
 	<filename>/var/log/daemon.log</filename>. But it is not very
-	verbose by default, and it's usually not enough to understand
-	what's happening. The <command>udevadm control
+	verbose by default, and it is usually not enough to understand
+	what is happening. The <command>udevadm control
 	--log-priority=info</command> command increases the verbosity level
 	and solves this problem. <command>udevadm control
 	--log-priority=err</command> returns to the default verbosity
@@ -2877,19 +2881,6 @@ KERNEL=="sd?[0-9]", SUBSYSTEM=="block", ATTRS{serial}=="M004021000001", SYMLINK+
     <indexterm><primary>Advanced Configuration and Power Interface</primary></indexterm>
     <indexterm><primary><command>acpid</command></primary></indexterm>
     
-    <sidebar>
-      <title><emphasis>CULTURE</emphasis> Advanced Power Management (APM)</title>
-      <indexterm><primary>APM</primary></indexterm>
-      <indexterm><primary>Advanced Power Management</primary></indexterm>
-
-      <para>APM (Advanced Power Management) is the ancestor of ACPI in
-      the power management world. While Debian still provides <command>apmd</command>
-      (the counterpart to <command>acpid</command> for the APM standard), the
-      official Debian kernel no longer supports APM so you'll have to run
-      a custom kernel if you really need it for some old computer.
-      </para>
-    </sidebar>
-
     <sidebar>
       <title><emphasis>BEWARE</emphasis> Graphics card and standby</title>
 
