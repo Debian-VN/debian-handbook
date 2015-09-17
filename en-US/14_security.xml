@@ -1216,7 +1216,7 @@ iface eth0 inet static
         enforcing and complaining with calls to <command>aa-enforce</command>
         and <command>aa-complain</command> giving as parameter either
         the path of the executable or the patch to the policy file.
-        Additionnaly a profile can be entirely disabled with
+        Additionaly a profile can be entirely disabled with
         <command>aa-disable</command> or put in audit mode (to log
         accepted system calls too) with <command>aa-audit</command>.
       </para>
@@ -1263,7 +1263,7 @@ iface eth0 inet static
         In the following example, we will thus try to create a
         profile for <command>/sbin/dhclient</command>. For this
         we will use <command>aa-genprof dhclient</command>. It
-        will invite you to use the application in another windown
+        will invite you to use the application in another window
         and when done to come back to <command>aa-genprof</command>
         to scan for AppArmor events in the system logs and
         convert those logs into access rules. For each logged event,
@@ -1507,11 +1507,49 @@ Finished generating profile for /sbin/dhclient.</computeroutput>
         If you want the generated profile to be complete, you should use the
         program in all the ways that it is legitimately used. In the case
         of dhclient, it means running it via Network Manager, running it via
-        ifupdwon, running it manually, etc. In the end, you might get
+        ifupdown, running it manually, etc. In the end, you might get
+        a <filename>/etc/apparmor.d/sbin.dhclient</filename> close to this:
       </para>
+      <programlisting>
+# Last Modified: Tue Sep  8 21:40:02 2015
+#include &lt;tunables/global&gt;
+
+/sbin/dhclient {
+  #include &lt;abstractions/base&gt;
+  #include &lt;abstractions/nameservice&gt;
+
+  capability net_bind_service,
+  capability net_raw,
+
+  /bin/dash r,
+  /etc/dhcp/* r,
+  /etc/dhcp/dhclient-enter-hooks.d/* r,
+  /etc/dhcp/dhclient-exit-hooks.d/* r,
+  /etc/resolv.conf.* w,
+  /etc/samba/dhcp.conf.* w,
+  /proc/*/net/dev r,
+  /proc/filesystems r,
+  /run/dhclient*.pid w,
+  /sbin/dhclient mr,
+  /sbin/dhclient-script rCx,
+  /usr/lib/NetworkManager/nm-dhcp-helper Px,
+  /var/lib/NetworkManager/* r,
+  /var/lib/NetworkManager/*.lease rw,
+  /var/lib/dhcp/*.leases rw,
+
+  profile /sbin/dhclient-script flags=(complain) {
+    #include &lt;abstractions/base&gt;
+    #include &lt;abstractions/bash&gt;
+
+    /bin/dash rix,
+    /etc/dhcp/dhclient-enter-hooks.d/* r,
+    /etc/dhcp/dhclient-exit-hooks.d/* r,
+    /sbin/dhclient-script r,
+
+  }
+}
+      </programlisting>
     </section>
-
-
   </section>
 
   <section id="sect.selinux">
