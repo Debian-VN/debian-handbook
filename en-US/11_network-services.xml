@@ -18,7 +18,7 @@
   <title>Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP</title>
   <highlights>
     <para>Network services are the programs that users interact with
-    directly in their daily work. They're the tip of the information system
+    directly in their daily work. They are the tip of the information system
     iceberg, and this chapter focuses on them; the hidden parts they rely
     on are the infrastructure we already described.</para>
   </highlights>
@@ -214,6 +214,7 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 myhostname = mail.falcot.com
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
@@ -233,12 +234,16 @@ inet_protocols = all
 
 	<para>The <emphasis>snake oil</emphasis> certificates, like the
 	<emphasis>snake oil</emphasis> “medicine” sold by unscrupulous
-	quacks in old times, have absolutely no value, since they are
-	generated similarly on all Debian systems, with the same
-	“private” part. They should only be used for testing purposes,
-	and normal service must use real certificates; these can be
-	generated with the procedure described in <xref
-	linkend="sect.easy-rsa"/>.</para>
+        quacks in old times, have absolutely no value: you cannot rely on
+        them to authenticate the server since they are automatically
+        generated self-signed certificates. However they are useful to
+        improve the privacy of the exchanges.
+        </para>
+        <para>
+        In general they should only be used for testing purposes, and
+        normal service must use real certificates; these can be generated
+        with the procedure described in <xref linkend="sect.easy-rsa"/>.
+        </para>
       </sidebar>
     </section>
     <section>
@@ -481,14 +486,14 @@ smtpd_client_restrictions = permit_mynetworks,
         </sidebar>
 
 	<para>The third directive allows the administrator to set up a
-	black list and a white list of email servers, stored in the
+	blacklist and a whitelist of email servers, stored in the
 	<filename>/etc/postfix/access_clientip</filename> file. Servers in
-	the white list are considered as trusted, and the emails coming
+	the whitelist are considered as trusted, and the emails coming
 	from there therefore do not go through the following filtering
 	rules.</para>
 
 	<para>The last two rules reject any message coming from a server
-	listed in one of the indicated black lists. RBL is an acronym for
+	listed in one of the indicated blacklists. RBL is an acronym for
 	<emphasis>Remote Black List</emphasis>; there are several such
 	lists, but they all list badly configured servers that spammers use
 	to relay their emails, as well as unexpected mail relays such as
@@ -499,13 +504,13 @@ smtpd_client_restrictions = permit_mynetworks,
         <sidebar>
           <title><emphasis>TIP</emphasis> White list and RBLs</title>
 
-	  <para>Black lists sometimes include a legitimate server that has
+	  <para>Blacklists sometimes include a legitimate server that has
 	  been suffering an incident. In these situations, all emails
 	  coming from one of these servers would be rejected unless the
 	  server is listed in a whitelist defined by
 	  <filename>/etc/postfix/access_clientip</filename>.</para>
 
-	  <para>Prudence therefore recommends including in the white list
+	  <para>Prudence therefore recommends including in the whitelist
 	  all the trusted servers from which many emails are usually
 	  received.</para>
         </sidebar>
@@ -522,7 +527,7 @@ smtpd_client_restrictions = permit_mynetworks,
 
         <example>
           <title>Restrictions on the name announced in <literal>EHLO</literal></title>
-
+          
           <programlisting>
 smtpd_helo_restrictions = permit_mynetworks,
     reject_invalid_hostname,
@@ -557,7 +562,7 @@ smtpd_helo_restrictions = permit_mynetworks,
 	hosts outside the local network. This allows blacklisting all hosts
 	that announce themselves as part of the
 	<literal>falcot.com</literal>, for instance by adding a
-	<literal>falcot.com REJECT You're not in our network!</literal>
+	<literal>falcot.com REJECT You are not in our network!</literal>
 	line to the <filename>/etc/postfix/access_helo</filename>
 	file.</para>
       </section>
@@ -842,7 +847,7 @@ smtpd_recipient_restrictions = permit_mynetworks,
 	<para>To mitigate these drawbacks, Postgrey manages a whitelist of
 	such sites, and messages emanating from them are immediately
 	accepted without going through greylisting. This list can easily be
-	adapted to local needs, since it's stored in the
+	adapted to local needs, since it is stored in the
 	<filename>/etc/postgrey/whitelist_clients</filename> file.</para>
       </sidebar>
 
@@ -852,23 +857,26 @@ smtpd_recipient_restrictions = permit_mynetworks,
 	<para>The drawbacks of greylisting can be mitigated by only using
 	greylisting on the subset of clients that are already considered as
 	probable sources of spam (because they are listed in a DNS
-	black-list). This is not possible with <emphasis role="pkg">postgrey</emphasis>
+	blacklist). This is not possible with <emphasis role="pkg">postgrey</emphasis>
 	but <emphasis role="pkg">milter-greylist</emphasis> can be used
 	in such a way.</para>
 
-	<para>In that scenario, since DNS black-lists never triggers a
+	<para>In that scenario, since DNS blacklists never triggers a
 	definitive rejection, it becomes reasonable to use aggressive
-	black-lists, including those listing all dynamic IP addresses
+	blacklists, including those listing all dynamic IP addresses
 	from ISP clients (such as <literal>pbl.spamhaus.org</literal>
 	or <literal>dul.dnsbl.sorbs.net</literal>).</para>
 
 	<para>Since milter-greylist uses Sendmail's milter interface, the
 	postfix side of its configuration is limited to
-	“<literal>smtpd_milters = unix:/var/milter-greylist/milter-greylist.sock</literal>”.
+        “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”.
 	The
 	<citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>
 	manual page documents <filename>/etc/milter-greylist/greylist.conf</filename>
-	and the numerous ways to configure milter-greylist.</para>
+        and the numerous ways to configure milter-greylist. You will
+        also have to edit <filename>/etc/default/milter-greylist</filename>
+        to actually enable the service.
+        </para>
       </sidebar>
     </section>
     <section>
@@ -883,7 +891,7 @@ smtpd_recipient_restrictions = permit_mynetworks,
       need low latency in their emails (such as the technical support
       service). Similarly, the commercial service sometimes has problems
       receiving emails from some Asian providers who may be listed in
-      black-lists; this service asked for a non-filtered address so as to
+      blacklists; this service asked for a non-filtered address so as to
       be able to correspond.</para>
 
       <para>Postfix provides such a customization of filters with a
@@ -1014,7 +1022,7 @@ smtpd_milters = inet:[127.0.0.1]:10002
 	attachment containing the <filename>eicar.com</filename> (or
 	<filename>eicar.com.zip</filename>) file, which can be downloaded
 	online: <ulink type="block"
-	url="http://www.eicar.org/anti_virus_test_file.htm"/></para>
+          url="http://www.eicar.org/86-0-Intended-use.html"/></para>
 
 	<para>This file is not a true virus, but a test file that all
 	antivirus software on the market diagnose as a virus to allow
@@ -1109,7 +1117,7 @@ relay_host = [mail.falcot.com]
 
 	<para>The <filename>/etc/postfix/sasl_passwd</filename> file needs
 	to contain the username and password to use for authenticating on
-	the <literal>mail.falcot.com</literal> server. Here's an
+	the <literal>mail.falcot.com</literal> server. Here is an
 	example:</para>
 
         <programlisting>
@@ -1151,31 +1159,36 @@ relay_host = [mail.falcot.com]
     <section>
       <title>Installing Apache</title>
 
-      <para>By default, installing the <emphasis
-      role="pkg">apache2</emphasis> package causes the <emphasis
-      role="pkg">apache2-mpm-worker</emphasis> version of Apache to be
-      installed too. The <emphasis role="pkg">apache2</emphasis> package is
-      an empty shell, and it only serves to ensure that one of the Apache
-      versions is actually installed.</para>
+      <para>
+        Installing the <emphasis role="pkg">apache2</emphasis> package
+        is all that is needed. It contains all the modules, including
+        the <emphasis>Multi-Processing Modules</emphasis> (MPM) that
+        affect how Apache handles parallel processing of many requests
+        (those used to be provided in separate <emphasis
+          role="pkg">apache2-mpm-*</emphasis> packages). It will also pull
+        <emphasis role="pkg">apache2-utils</emphasis> containing the
+        command line utilities that we will discover later.
+      </para>
 
-      <para>The differences between the variants of Apache 2 are
-      concentrated in the policy used to handle parallel processing of many
-      requests; this policy is implemented by an MPM (short for
-      <emphasis>Multi-Processing Module</emphasis>). Among the available
-      MPMs, <emphasis>worker</emphasis> uses
-      <emphasis>threads</emphasis> (lightweight processes), whereas
-      <emphasis>prefork</emphasis> uses a pool of
-      processes created in advance (the traditional way, and the only one
-      available in Apache 1.3). <emphasis>event</emphasis> also uses threads, but they
-      are terminated earlier, when the incoming connection is only kept
-      open by the HTTP <emphasis>keep-alive</emphasis> feature.</para>
+      <para>
+        The MPM in use affects significantly the way Apache will handle
+        concurrent requests. With the <emphasis>worker</emphasis> MPM, it
+        uses <emphasis>threads</emphasis> (lightweight processes), whereas
+        with the <emphasis>prefork</emphasis> MPM it uses a pool of
+        processes created in advance. With the <emphasis>event</emphasis> MPM
+        it also uses threads, but the inactive connections (notably those
+        kept open by the HTTP <emphasis>keep-alive</emphasis> feature) are
+        handed back to a dedicated management thread.
+      </para>
 
-      <para>The Falcot administrators also install <emphasis
-      role="pkg">libapache2-mod-php5</emphasis> so as to include the
-      PHP support in Apache. This causes the
-      <emphasis>worker</emphasis> MPM to be disabled, and
-      <emphasis>prefork</emphasis> to be used instead, since PHP
-      only works under that particular MPM.</para>
+      <para>
+        The Falcot administrators also install <emphasis
+        role="pkg">libapache2-mod-php5</emphasis> so as to include the
+        PHP support in Apache. This causes the
+        default <emphasis>event</emphasis> MPM to be disabled, and
+        <emphasis>prefork</emphasis> to be used instead, since PHP
+        only works under that particular MPM.
+      </para>
 
       <sidebar>
         <title><emphasis>SECURITY</emphasis> Execution under the <literal>www-data</literal> user</title>
@@ -1230,7 +1243,7 @@ relay_host = [mail.falcot.com]
       80 (as configured in <filename>/etc/apache2/ports.conf</filename>),
       and serves pages from the <filename>/var/www/</filename> directory
       (as configured in
-      <filename>/etc/apache2/sites-enabled/000-default</filename>).</para>
+      <filename>/etc/apache2/sites-enabled/000-default.conf</filename>).</para>
 
       <sidebar>
         <title><emphasis>GOING FURTHER</emphasis> Adding support for SSL</title>
@@ -1285,7 +1298,7 @@ relay_host = [mail.falcot.com]
 
       <para>The default configuration for Apache 2 enables name-based
       virtual hosts.  In addition, a default virtual host is defined
-      in the <literal>/etc/apache2/sites-enabled/000-default</literal>
+      in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal>
       file; this virtual host will be used if no host matching the
       request sent by the client is found.</para>
 
@@ -1337,7 +1350,7 @@ relay_host = [mail.falcot.com]
       virtual host with <command>a2ensite www.falcot.org</command>.</para>
 
       <example>
-        <title>The <filename>/etc/apache2/sites-available/www.falcot.org</filename> file</title>
+        <title>The <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename> file</title>
 
         <programlisting>
 &lt;VirtualHost *:80&gt;
@@ -1354,15 +1367,16 @@ DocumentRoot /srv/www/www.falcot.org
       virtual hosts). It therefore makes good sense to customize the format
       of this log file to have it include the name of the virtual host.
       This can be done by creating a
-      <filename>/etc/apache2/conf.d/customlog</filename> file that defines
+      <filename>/etc/apache2/conf-available/customlog.conf</filename> file that defines
       a new format for all log files (with the <literal>LogFormat</literal>
-      directive). The <literal>CustomLog</literal> line must also be
+      directive) and by enabling it with <command>a2enconf customlog</command>.
+      The <literal>CustomLog</literal> line must also be
       removed (or commented out) from the
-      <filename>/etc/apache2/sites-available/default</filename>
+      <filename>/etc/apache2/sites-available/000-default.conf</filename>
       file.</para>
 
       <example>
-        <title>The <filename>/etc/apache2/conf.d/customlog</filename> file</title>
+        <title>The <filename>/etc/apache2/conf.d/customlog.conf</filename> file</title>
 
         <programlisting role="scale">
 # New log format including (virtual) host name
@@ -1600,8 +1614,8 @@ Allow from 192.168.0.0/16
 Deny from all
 </programlisting>
         </example>
-</sidebar>
-</section>
+        </sidebar>
+      </section>
     </section>
     <section>
       <title>Log Analyzers</title>
@@ -1698,16 +1712,18 @@ Alias /awstats-icon/ /usr/share/awstats/icon/
         <screen>
 $ <userinput>cat /etc/logrotate.d/apache2</userinput>
 /var/log/apache2/*.log {
-  weekly
+  daily
   missingok
-  rotate 52
+  rotate 14
   compress
   delaycompress
   notifempty
   create 644 root adm
   sharedscripts
   postrotate
-    service apache2 reload > /dev/null
+    if /etc/init.d/apache2 status > /dev/null ; then \
+      /etc/init.d/apache2 reload > /dev/null; \
+    fi;
   endscript
   prerotate
     if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
@@ -1768,14 +1784,15 @@ $ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \
     user. This account is always used for anonymous FTP connections, and
     its home directory (<filename>/srv/ftp/</filename>) is the root of the
     tree made available to users connecting to this service. The default
-    configuration (in <filename>/etc/vsftpd.conf</filename>) is very
-    restrictive: it only allows read-only anonymous access (since the
-    <literal>write_enable</literal> and
-    <literal>anon_upload_enable</literal> options are disabled), and local
-    users cannot connect with their usual username and password and access
-    their own files (<literal>local_enable</literal> option). However, this
-    default configuration is well-suited to the needs at Falcot
-    Corp.</para>
+    configuration (in <filename>/etc/vsftpd.conf</filename>) requires some
+    changes to cater to the simple need of making big files available
+    for public downloads: anonymous access needs to be enabled
+    (<literal>anonymous_enable=YES</literal>) and read-only access of
+    local users needs to be disabled (<literal>local_enable=NO</literal>).
+    The latter is particularly important since the FTP protocol doesn't
+    use any form of encryption and the user password could be intercepted
+    over the wire.
+    </para>
   </section>
   <section id="sect.nfs-file-server">
     <title>NFS File Server</title>
@@ -1799,6 +1816,15 @@ $ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \
     root user can access all the files on the share (even those belonging
     to other users) since the server trusts the username it receives from
     the client (this is a historical limitation of the protocol).</para>
+
+    <!-- TODO: this sections needs a major rewrite to take into account
+       NFSv4 and use it by default:
+       * only one port is used 2049 and so the specific step to assigne fixed port can be avoided
+       * NFSv4 can be combined with Kerberos to ensure authentication/integrity and privacy
+       Some pointers:
+       https://help.ubuntu.com/community/NFSv4Howto
+       http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration
+    -->
 
     <sidebar>
       <title><emphasis>DOCUMENTATION</emphasis> NFS HOWTO</title>
@@ -1937,6 +1963,19 @@ options lockd nlm_udpport=2045 nlm_tcpport=2045
 </programlisting>
       </example>
 
+      <!-- XXX: Le module actuel ne semble plus avoir ces options:
+$ sudo modinfo lockd
+filename:       /lib/modules/3.16.0-4-amd64/kernel/fs/lockd/lockd.ko
+license:        GPL
+description:    NFS file locking service version 0.5.
+author:         Olaf Kirch <okir@monad.swb.de>
+depends:        sunrpc
+intree:         Y
+vermagic:       3.16.0-4-amd64 SMP mod_unload modversions 
+parm:           nsm_use_hostnames:bool
+parm:           nlm_max_connections:uint
+      -->
+
       <para>Once these parameters are set, it becomes easier to control
       access to the NFS service from the firewall in a fine-grained way by
       filtering access to ports 111 and 2045 through 2049 (both UDP and
@@ -1983,7 +2022,7 @@ options lockd nlm_udpport=2045 nlm_tcpport=2045
       current disk operation is complete (<literal>sync</literal> option);
       this can be disabled with the <literal>async</literal> option.
       Asynchronous writes increase performance a bit, but they decrease
-      reliability since there's a data loss risk in case of the server
+      reliability since there is a data loss risk in case of the server
       crashing between the acknowledgment of the write and the actual
       write on disk. Since the default value changed recently (as compared
       to the historical value of NFS), an explicit setting is
@@ -2088,6 +2127,10 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
       <indexterm><primary><command>smbd</command></primary></indexterm>
       <indexterm><primary><command>nmbd</command></primary></indexterm>
 
+      <!-- TODO: Samba 4 changed quite a few things and this section needs
+           to be further reworked/reviewed.
+      -->
+
       <sidebar>
         <title><emphasis>DOCUMENTATION</emphasis> Going further</title>
 
@@ -2123,19 +2166,13 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
       <section>
         <title>Configuring with <command>debconf</command></title>
 
-	<para>The package sets up a minimal configuration based on the
-	answers to a few Debconf questions asked during the initial
-	installation; this configuration step can be replayed later with
-	<command>dpkg-reconfigure samba-common samba</command>.</para>
+	<para>The package sets up a minimal configuration during the initial
+        installation but you should really run <command>dpkg-reconfigure
+        samba-common</command> to adapt it:</para>
 
 	<para>The first piece of required information is the name of the
 	workgroup where the Samba server will belong (the answer is
-	<literal>FALCOTNET</literal> in our case). Another question asks
-	whether passwords should be encrypted. The answer is that they
-	should, because it's a requirement for the most recent Windows
-	clients; besides, this increases security. The counterpart is that
-	this required managing Samba passwords separately from the Unix
-	passwords.</para>
+	<literal>FALCOTNET</literal> in our case).</para>
 
 	<para>The package also proposes identifying the WINS server from
 	the information provided by the DHCP daemon. The Falcot Corp
@@ -2162,9 +2199,6 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
 # Change this to the workgroup/NT-domain name your Samba server will part of
    workgroup = FALCOTNET
 
-# server string is the equivalent of the NT Description field
-   server string = %h server (Samba %v)
-
 # Windows Internet Name Serving Support Section:
 # WINS Support - Tells the NMBD component of Samba to enable its WINS Server
    wins support = yes <co id="smb.conf.wins"/>
@@ -2173,37 +2207,22 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
 
 ####### Authentication #######
 
+# Server role. Defines in which mode Samba will operate. Possible
+# values are "standalone server", "member server", "classic primary
+# domain controller", "classic backup domain controller", "active
+# directory domain controller". 
+#
+# Most people will want "standalone sever" or "member server".
+# Running as "active directory domain controller" will require first
+# running "samba-tool domain provision" to wipe databases and create a
+# new domain.
+   server role = standalone server
+
 # "security = user" is always a good idea. This will require a Unix account
-# in this server for every user accessing the server. See
-# /usr/share/doc/samba-doc/htmldocs/Samba3-HOWTO/ServerType.html 
-# in the samba-doc package for details.
+# in this server for every user accessing the server.
    security = user <co id="smb.conf.security"/>
 
-# You may wish to use password encryption.  See the section on
-# 'encrypt passwords' in the smb.conf(5) manpage before enabling.
-   encrypt passwords = true
-
-# If you are using encrypted passwords, Samba will need to know what
-# password database type you are using.
-   passdb backend = tdbsam
-
 [...]
-
-########## Printing ##########
-
-# If you want to automatically load your printer list rather
-# than setting them up individually then you'll need this
-   load printers = yes <co id="smb.conf.loadprinters"/>
-
-# lpr(ng) printing. You may wish to override the location of the
-# printcap file
-;   printing = bsd
-;   printcap name = /etc/printcap
-
-# CUPS printing.  See also the cupsaddsmb(8) manpage in the
-# cups-client package.
-   printing = cups <co id="smb.conf.printing"/>
-   printcap name = cups
 </programlisting>
           <calloutlist>
             <callout arearefs="smb.conf.wins">
@@ -2215,16 +2234,6 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
 	      since it is central to the Samba configuration, filling it
 	      explicitly is recommended. Each user must authenticate before
 	      accessing any share.</para>
-            </callout>
-            <callout arearefs="smb.conf.loadprinters">
-	      <para>Tells Samba to automatically share all local printers
-	      that exist in the CUPS configuration. Restricting access to
-	      these printers is still possible, by adding appropriate
-	      sections.</para>
-            </callout>
-            <callout arearefs="smb.conf.printing">
-	      <para>Specifies the printing system in use; in our case,
-	      CUPS.</para>
             </callout>
           </calloutlist>
         </section>
@@ -2250,6 +2259,11 @@ arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0
         </section>
         <section>
           <title>Switching to Domain Controller</title>
+          <!-- XXX: I believe samba 4 changed more things related to
+               domain controllers, I see at least:
+               server role = classic primary domain controller
+               in the smb.conf.
+          -->
 
 	  <para>This section documents how the Falcot administrators went
 	  even further, by turning the Samba server into a domain
@@ -2515,11 +2529,11 @@ http_access deny all
       this action is delegated to <command>squidGuard</command>. The former
       must then be configured to interact with the latter. This involves
       adding the following directive to the
-      <filename>/etc/squid/squid.conf</filename> file:</para>
+      <filename>/etc/squid3/squid.conf</filename> file:</para>
       <indexterm><primary><command>squidGuard</command></primary></indexterm>
 
       <programlisting>
-redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf 
+url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf 
 </programlisting>
 
       <para>The <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> CGI
@@ -2532,12 +2546,12 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
       <varname>$redirect</varname> variables should point to existing
       images representing the rejection of a query.</para>
 
-      <para>The filter is enabled with the <command>service squid
+      <para>The filter is enabled with the <command>service squid3
       reload</command> command. However, since the <emphasis
       role="pkg">squidguard</emphasis> package does no filtering by
       default, it is the administrator's task to define the policy. This
       can be done by creating the
-      <filename>/etc/squid/squidGuard.conf</filename> file (using
+      <filename>/etc/squid3/squidGuard.conf</filename> file (using
       <filename>/etc/squidguard/squidGuard.conf.default</filename> as
       template if required).</para>
 
@@ -2556,7 +2570,7 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
 
 	<para>The <emphasis role="pkg">dansguardian</emphasis> package is
 	an alternative to <emphasis>squidguard</emphasis>. This software
-	does not simply handle a black-list of forbidden URLs, but it can
+	does not simply handle a blacklist of forbidden URLs, but it can
 	take advantage of the PICS system (<emphasis>Platform for Internet
 	Content Selection</emphasis>) to decide whether a page is
 	acceptable by dynamic analysis of its contents.</para>
@@ -2570,7 +2584,7 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
     <indexterm><primary>directory, LDAP</primary></indexterm>
 
     <para>OpenLDAP is an implementation of the LDAP protocol; in other
-    words, it's a special-purpose database designed for storing
+    words, it is a special-purpose database designed for storing
     directories. In the most common use case, using an LDAP server allows
     centralizing management of user accounts and the related permissions.
     Moreover, an LDAP database is easily replicated, which allows setting
@@ -2592,11 +2606,13 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
       servers.</para>
       <indexterm><primary><emphasis>slapd</emphasis></primary></indexterm>
 
-      <para>Installing <emphasis role="pkg">slapd</emphasis> usually
-      asks very few questions, unless you have configured debconf to
-      display questions with lower priorities. Nevertheless, it is
-      debconf-enabled, and thus a simple <command>dpkg-reconfigure
-      slapd</command> can reconfigure the LDAP database:</para>
+      <para>
+        Installing <emphasis role="pkg">slapd</emphasis> usually
+        asks very few questions and the resulting database is unlikely
+        to suit your needs. Fortunately a simple <command>dpkg-reconfigure
+        slapd</command> will let you reconfigure the LDAP database with
+        more details:
+      </para>
       <itemizedlist>
         <listitem>
 	  <para>Omit OpenLDAP server configuration? No, of course, we want
@@ -2613,7 +2629,7 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
 	  <para>An administrative passwords needs to be typed in.</para>
         </listitem>
         <listitem>
-	  <para>Database backend to use: “HDB”.</para>
+	  <para>Database backend to use: “MDB”.</para>
         </listitem>
         <listitem>
 	  <para>Do you want the database to be removed when <emphasis
@@ -2628,8 +2644,8 @@ redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
 	  slapd</command> right after the initial installation.</para>
         </listitem>
         <listitem>
-	  <para>Allow LDAPv2 protocol? No, there's no point in that. All
-	  the tools we're going to use understand the LDAPv3
+	  <para>Allow LDAPv2 protocol? No, there is no point in that. All
+	  the tools we are going to use understand the LDAPv3
 	  protocol.</para>
         </listitem>
       </itemizedlist>
@@ -2687,7 +2703,7 @@ result: 0 Success
     <section>
       <title>Filling in the Directory</title>
 
-      <para>Since an empty database is not particularly useful, we're going
+      <para>Since an empty database is not particularly useful, we are going
       to inject into it all the existing directories; this includes the
       users, groups, services and hosts databases.</para>
 
@@ -2765,7 +2781,7 @@ result: 0 Success
 
 	<para>The <command>jxplorer</command> command (in the package of the
 	same name) is a graphical tool allowing to browse and edit an LDAP
-	database. It's an interesting tool that provides an administrator
+	database. It is an interesting tool that provides an administrator
 	with a good overview of the hierarchical structure of the LDAP
 	data.</para>
         <indexterm><primary><command>jxplorer</command></primary></indexterm>
