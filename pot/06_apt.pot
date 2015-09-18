@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
-"PO-Revision-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-18 21:01+0200\n"
+"PO-Revision-Date: 2015-09-18 21:01+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: None\n"
 "Language: en-US \n"
@@ -10,6 +10,9 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Publican v4.3.2\n"
+
+msgid "apt"
+msgstr ""
 
 msgid "apt-get"
 msgstr ""
@@ -44,7 +47,7 @@ msgstr ""
 msgid "The word <emphasis>source</emphasis> can be ambiguous. A source package — a package containing the source code of a program — should not be confused with a package source — a repository (website, FTP server, CD-ROM, local directory, etc.) which contains packages."
 msgstr ""
 
-msgid "APT needs to be given a “list of package sources”: the file <filename>/etc/apt/sources.list</filename> will list the different repositories (or “sources”) that publish Debian packages. APT will then import the list of packages published by each of these sources. This operation is achieved by downloading <filename>Packages.xz</filename> or a variant using a different compression method (such as <filename>Packages.gz</filename>, <filename>.bz2</filename> or <filename>.lzma</filename>) files (in case of a source of binary packages) and <filename>Sources.xz</filename> or a variant (in case of a source of source packages) and by analyzing their contents. When an old copy of these files is already present, APT can update it by only downloading the differences (see sidebar <xref linkend=\"sidebar.apt-pdiff\" />)."
+msgid "APT needs to be given a “list of package sources”: the file <filename>/etc/apt/sources.list</filename> will list the different repositories (or “sources”) that publish Debian packages. APT will then import the list of packages published by each of these sources. This operation is achieved by downloading <filename>Packages.xz</filename> or a variant using a different compression method (such as <filename>Packages.gz</filename> or <filename>.bz2</filename>) files (in case of a source of binary packages) and <filename>Sources.xz</filename> or a variant (in case of a source of source packages) and by analyzing their contents. When an old copy of these files is already present, APT can update it by only downloading the differences (see sidebar <xref linkend=\"sidebar.apt-pdiff\" />)."
 msgstr ""
 
 msgid "<primary><filename>Packages.xz</filename></primary>"
@@ -101,7 +104,7 @@ msgstr ""
 msgid "“<literal>deb-src</literal>” for source packages."
 msgstr ""
 
-msgid "The second field gives the base URL of the source (combined with the filenames present in the <filename>Packages.gz</filename> files, it must give a full and valid URL): this can consist in a Debian mirror or in any other package archive set up by a third party. The URL can start with <literal>file://</literal> to indicate a local source installed in the system's file hierarchy, with <literal>http://</literal> to indicate a source accessible from a web server, or with <literal>ftp://</literal> for a source available on an FTP server. The URL can also start with <literal>cdrom://</literal> for CD-ROM/DVD-ROM/Blu-ray disc based installations, although this is less frequent, since network-based installation methods are more and more common."
+msgid "The second field gives the base URL of the source (combined with the filenames present in the <filename>Packages.gz</filename> files, it must give a full and valid URL): this can consist in a Debian mirror or in any other package archive set up by a third party. The URL can start with <literal>file://</literal> to indicate a local source installed in the system's file hierarchy, with <literal>http://</literal> to indicate a source accessible from a web server, or with <literal>ftp://</literal> for a source available on an FTP server. The URL can also start with <literal>cdrom:</literal> for CD-ROM/DVD-ROM/Blu-ray disc based installations, although this is less frequent, since network-based installation methods are more and more common."
 msgstr ""
 
 msgid "The syntax of the last field depends on the structure of the repository. In the simplest cases, you can simply indicate a subdirectory (with a required trailing slash) of the desired source (this is often a simple “<filename>./</filename>” which refers to the absence of a subdirectory — the packages are then directly at the specified URL). But in the most common case, the repositories will be structured like a Debian mirror, with multiple distributions each having multiple components. In those cases, name the chosen distribution (by its “codename” — see the list in sidebar <xref linkend=\"sidebar.bruce-perens\" /> — or by the corresponding “suites” — <literal>stable</literal>, <literal>testing</literal>, <literal>unstable</literal>), then the components (or sections) to enable (chosen between <literal>main</literal>, <literal>contrib</literal>, and <literal>non-free</literal> in a typical Debian mirror)."
@@ -149,7 +152,7 @@ msgstr ""
 msgid "<primary><command>apt-cdrom</command></primary>"
 msgstr ""
 
-msgid "The <literal>cdrom</literal> entries describe the CD/DVD-ROMs you have. Contrary to other entries, a CD-ROM is not always available since it has to be inserted into the drive and since only one disc can be read at a time. For those reasons, these sources are managed in a slightly different way, and need to be added with the <command>apt-cdrom</command> program, usually executed with the <literal>add</literal> parameter. The latter will then request the disc to be inserted in the drive and will browse its contents looking for <filename>Packages</filename> files. It will use these files to update its database of available packages (this operation is usually done by the <command>apt-get update</command> command). From then on, APT can require the disc to be inserted if it needs one of its packages."
+msgid "The <literal>cdrom</literal> entries describe the CD/DVD-ROMs you have. Contrary to other entries, a CD-ROM is not always available since it has to be inserted into the drive and since only one disc can be read at a time. For those reasons, these sources are managed in a slightly different way, and need to be added with the <command>apt-cdrom</command> program, usually executed with the <literal>add</literal> parameter. The latter will then request the disc to be inserted in the drive and will browse its contents looking for <filename>Packages</filename> files. It will use these files to update its database of available packages (this operation is usually done by the <command>apt update</command> command). From then on, APT can require the disc to be inserted if it needs one of its packages."
 msgstr ""
 
 msgid "Repositories for <emphasis role=\"distribution\">Stable</emphasis> Users"
@@ -182,18 +185,6 @@ msgid ""
 msgstr ""
 
 msgid "This file lists all sources of packages associated with the <emphasis role=\"distribution\">Jessie</emphasis> version of Debian (the current <emphasis role=\"distribution\">Stable</emphasis> as of this writing). We opted to name “jessie” explicitly instead of using the corresponding “stable“ alias (<literal>stable</literal>, <literal>stable-updates</literal>, <literal>stable-backports</literal>) because we don't want to have the underlying distribution changed outside of our control when the next stable release comes out."
-msgstr ""
-
-msgid "<emphasis>QUICK LOOK</emphasis> <command>apt-spy</command>"
-msgstr ""
-
-msgid "<primary><command>apt-spy</command></primary>"
-msgstr ""
-
-msgid "This software tests the download speed from several Debian mirrors and generates a <filename>sources.list</filename> file which points to the fastest mirror."
-msgstr ""
-
-msgid "The mirror selected during installation is generally suitable since its selection is based on the country. However, if the download is a little slow, or after a move, you can try running the application available in the <emphasis role=\"pkg\">apt-spy</emphasis> package."
 msgstr ""
 
 msgid "Most packages will come from the “base repository” which contains all packages but is seldom updated (about once every 2 months for a “point release”). The other repositories are partial (they do not contain all packages) and can host updates (packages with newer version) that APT might install. The following sections will explain the purpose and the rules governing each of those repositories."
@@ -358,10 +349,7 @@ msgstr ""
 msgid "deb http://ftp.debian.org/debian experimental main contrib non-free"
 msgstr ""
 
-msgid "Non-Official Resources: <literal>apt-get.org</literal> and <literal>mentors.debian.net</literal>"
-msgstr ""
-
-msgid "<primary><literal>apt-get.org</literal></primary>"
+msgid "Non-Official Resources: <literal>mentors.debian.net</literal>"
 msgstr ""
 
 msgid "<primary><literal>mentors.debian.net</literal></primary>"
@@ -370,7 +358,7 @@ msgstr ""
 msgid "There are numerous non-official sources of Debian packages set up by advanced users who have recompiled some software (Ubuntu made this popular with their Personal Package Archive service), by programmers who make their creation available to all, and even by Debian developers who offer pre-versions of their package online."
 msgstr ""
 
-msgid "The <literal>mentors.debian.net</literal> site is also interesting (although it only provides source packages), since it gathers source packages created by candidates to the status of official Debian developer or by volunteers who wish to create Debian packages without going through that process of integration. These packages are made available without any guarantee regarding their quality; make sure that you check their origin and integrity and then test them before you consider using them in production."
+msgid "The <literal>mentors.debian.net</literal> site is also interesting (although it only provides source packages), since it gathers packages created by candidates to the status of official Debian developer or by volunteers who wish to create Debian packages without going through that process of integration. These packages are made available without any guarantee regarding their quality; make sure that you check their origin and integrity and then test them before you consider using them in production."
 msgstr ""
 
 msgid "<emphasis>COMMUNITY</emphasis> The <literal>debian.net</literal> sites"
@@ -444,7 +432,10 @@ msgid ""
 "      "
 msgstr ""
 
-msgid "<command>aptitude</command> and <command>apt-get</command> Commands"
+msgid "<command>aptitude</command>, <command>apt-get</command>, and <command>apt</command> Commands"
+msgstr ""
+
+msgid "<primary><command>apt</command></primary>"
 msgstr ""
 
 msgid "<primary><command>apt-get</command></primary>"
@@ -453,16 +444,19 @@ msgstr ""
 msgid "<primary><command>aptitude</command></primary>"
 msgstr ""
 
-msgid "APT is a vast project, whose original plans included a graphical interface. It is based on a library which contains the core application, and <command>apt-get</command> is the first front end — command-line based — which was developed within the project."
+msgid "APT is a vast project, whose original plans included a graphical interface. It is based on a library which contains the core application, and <command>apt-get</command> is the first front end — command-line based — which was developed within the project. <command>apt</command> is a second command-line based front end provided by APT which overcomes some design mistakes of <command>apt-get</command>."
 msgstr ""
 
-msgid "Numerous other graphical interfaces then appeared as external projects: <command>synaptic</command>, <command>aptitude</command> (which includes both a text mode interface and a graphical one — even if not complete yet), <command>wajig</command>, etc. The most recommended interface, <command>apt-get</command>, is the one used during the installation of Debian, and the one that we will use in the examples given in this section. Note however that <command>aptitude</command>'s command-line syntax is very similar. When there are major differences between <command>apt-get</command> and <command>aptitude</command>, these differences will be detailed."
+msgid "Numerous other graphical interfaces then appeared as external projects: <command>synaptic</command>, <command>aptitude</command> (which includes both a text mode interface and a graphical one — even if not complete yet), <command>wajig</command>, etc. The most recommended interface, <command>apt</command>, is the one that we will use in the examples given in this section. Note however that <command>apt-get</command> and <command>aptitude</command> have a very similar command line syntax. When there are major differences between <command>apt</command>, <command>apt-get</command> and <command>aptitude</command>, these differences will be detailed."
 msgstr ""
 
 msgid "Initialization"
 msgstr ""
 
-msgid "For any work with APT, the list of available packages needs to be updated; this can be done simply through <command>apt-get update</command>. Depending on the speed of your connection, the operation can take a while since it involves downloading a certain number of <filename>Packages</filename>/<filename>Sources</filename>/<filename>Translation-<replaceable>language-code</replaceable></filename> files, which have gradually become bigger and bigger as Debian has developed (at least 10 MB of data for the <literal>main</literal> section). Of course, installing from a CD-ROM set does not require any downloading — in this case, the operation is very fast."
+msgid "For any work with APT, the list of available packages needs to be updated; this can be done simply through <command>apt update</command>. Depending on the speed of your connection, the operation can take a while since it involves downloading a certain number of <filename>Packages</filename>/<filename>Sources</filename>/<filename>Translation-<replaceable>language-code</replaceable></filename> files, which have gradually become bigger and bigger as Debian has developed (at least 10 MB of data for the <literal>main</literal> section). Of course, installing from a CD-ROM set does not require any downloading — in this case, the operation is very fast."
+msgstr ""
+
+msgid "<primary><command>apt update</command></primary>"
 msgstr ""
 
 msgid "<primary><command>apt-get update</command></primary>"
@@ -486,7 +480,16 @@ msgstr ""
 msgid "<primary>removal of a package</primary>"
 msgstr ""
 
-msgid "With APT, packages can be added or removed from the system, respectively with <command>apt-get install <replaceable>package</replaceable></command> and <command>apt-get remove <replaceable>package</replaceable></command>. In both cases, APT will automatically install the necessary dependencies or delete the packages which depend on the package that is being removed. The <command>apt-get purge <replaceable>package</replaceable></command> command involves a complete uninstallation — the configuration files are also deleted."
+msgid "With APT, packages can be added or removed from the system, respectively with <command>apt install <replaceable>package</replaceable></command> and <command>apt remove <replaceable>package</replaceable></command>. In both cases, APT will automatically install the necessary dependencies or delete the packages which depend on the package that is being removed. The <command>apt purge <replaceable>package</replaceable></command> command involves a complete uninstallation — the configuration files are also deleted."
+msgstr ""
+
+msgid "<primary><command>apt install</command></primary>"
+msgstr ""
+
+msgid "<primary><command>apt remove</command></primary>"
+msgstr ""
+
+msgid "<primary><command>apt purge</command></primary>"
 msgstr ""
 
 msgid "<primary><command>apt-get install</command></primary>"
@@ -540,32 +543,32 @@ msgstr ""
 msgid "<emphasis>TIP</emphasis> Removing and installing at the same time"
 msgstr ""
 
-msgid "It is possible to ask <command>apt-get</command> (or <command>aptitude</command>) to install certain packages and remove others on the same command line by adding a suffix. With an <command>apt-get install</command> command, add “<literal>-</literal>” to the names of the packages you wish to remove. With an <command>apt-get remove</command> command, add “<literal>+</literal>” to the names of the packages you wish to install."
+msgid "It is possible to ask <command>apt</command> (or <command>apt-get</command>, or <command>aptitude</command>) to install certain packages and remove others on the same command line by adding a suffix. With an <command>apt install</command> command, add “<literal>-</literal>” to the names of the packages you wish to remove. With an <command>apt remove</command> command, add “<literal>+</literal>” to the names of the packages you wish to install."
 msgstr ""
 
 msgid "The next example shows two different ways to install <replaceable>package1</replaceable> and to remove <replaceable>package2</replaceable>."
 msgstr ""
 
 msgid ""
-"# <userinput>apt-get install <replaceable>package1</replaceable> <replaceable>package2-</replaceable></userinput>\n"
+"# <userinput>apt install <replaceable>package1</replaceable> <replaceable>package2-</replaceable></userinput>\n"
 "[...]\n"
-"# <userinput>apt-get remove <replaceable>package1+</replaceable> <replaceable>package2</replaceable></userinput>\n"
+"# <userinput>apt remove <replaceable>package1+</replaceable> <replaceable>package2</replaceable></userinput>\n"
 "[...]"
 msgstr ""
 
 msgid "This can also be used to exclude packages which would otherwise be installed, for example due to a <literal>Recommends</literal>. In general, the dependency solver will use that information as a hint to look for alternative solutions."
 msgstr ""
 
-msgid "<emphasis>TIP</emphasis> <command>apt-get --reinstall</command> and <command>aptitude reinstall</command>"
+msgid "<emphasis>TIP</emphasis> <command>apt --reinstall</command> and <command>aptitude reinstall</command>"
 msgstr ""
 
 msgid "<primary>reinstallation</primary>"
 msgstr ""
 
-msgid "The system can sometimes be damaged after the removal or modification of files in a package. The easiest way to retrieve these files is to reinstall the affected package. Unfortunately, the packaging system finds that the latter is already installed and politely refuses to reinstall it; to avoid this, use the <literal>--reinstall</literal> option of the <command>apt-get</command> command. The following command reinstalls <emphasis role=\"pkg\">postfix</emphasis> even if it is already present:"
+msgid "The system can sometimes be damaged after the removal or modification of files in a package. The easiest way to retrieve these files is to reinstall the affected package. Unfortunately, the packaging system finds that the latter is already installed and politely refuses to reinstall it; to avoid this, use the <literal>--reinstall</literal> option of the <command>apt</command> and <command>apt-get</command> commands. The following command reinstalls <emphasis role=\"pkg\">postfix</emphasis> even if it is already present:"
 msgstr ""
 
-msgid "<computeroutput># </computeroutput><userinput>apt-get --reinstall install postfix</userinput>"
+msgid "<computeroutput># </computeroutput><userinput>apt --reinstall install postfix</userinput>"
 msgstr ""
 
 msgid "The <command>aptitude</command> command line is slightly different, but achieves the same result with <command>aptitude reinstall postfix</command>."
@@ -574,22 +577,22 @@ msgstr ""
 msgid "The problem does not arise with <command>dpkg</command>, but the administrator rarely uses it directly."
 msgstr ""
 
-msgid "Be careful! Using <command>apt-get --reinstall</command> to restore packages modified during an attack will certainly not recover the system as it was. <xref linkend=\"sect.dealing-with-compromised-machine\" /> details the necessary steps to take with a compromised system."
+msgid "Be careful! Using <command>apt --reinstall</command> to restore packages modified during an attack will certainly not recover the system as it was. <xref linkend=\"sect.dealing-with-compromised-machine\" /> details the necessary steps to take with a compromised system."
 msgstr ""
 
-msgid "If the file <filename>sources.list</filename> mentions several distributions, it is possible to give the version of the package to install. A specific version number can be requested with <command>apt-get install <replaceable>package</replaceable>=<replaceable>version</replaceable></command>, but indicating its distribution of origin (<emphasis role=\"distribution\">Stable</emphasis>, <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>) — with <command>apt-get install <replaceable>package</replaceable>/<replaceable>distribution</replaceable></command> — is usually preferred. With this command, it is possible to go back to an older version of a package (if for instance you know that it works well), provided that it is still available in one of the sources referenced by the <filename>sources.list</filename> file. Otherwise the <literal>snapshot.debian.org</literal> archive can come to the rescue (see sidebar <xref linkend=\"sidebar.snapshot.debian.org\" />)."
+msgid "If the file <filename>sources.list</filename> mentions several distributions, it is possible to give the version of the package to install. A specific version number can be requested with <command>apt install <replaceable>package</replaceable>=<replaceable>version</replaceable></command>, but indicating its distribution of origin (<emphasis role=\"distribution\">Stable</emphasis>, <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>) — with <command>apt install <replaceable>package</replaceable>/<replaceable>distribution</replaceable></command> — is usually preferred. With this command, it is possible to go back to an older version of a package (if for instance you know that it works well), provided that it is still available in one of the sources referenced by the <filename>sources.list</filename> file. Otherwise the <literal>snapshot.debian.org</literal> archive can come to the rescue (see sidebar <xref linkend=\"sidebar.snapshot.debian.org\" />)."
 msgstr ""
 
 msgid "Installation of the <emphasis role=\"distribution\">unstable</emphasis> version of <emphasis role=\"pkg\">spamassassin</emphasis>"
 msgstr ""
 
-msgid "<computeroutput># </computeroutput><userinput>apt-get install spamassassin/unstable</userinput>"
+msgid "<computeroutput># </computeroutput><userinput>apt install spamassassin/unstable</userinput>"
 msgstr ""
 
 msgid "<emphasis>GOING FURTHER</emphasis> The cache of <filename>.deb</filename> files"
 msgstr ""
 
-msgid "APT keeps a copy of each downloaded <filename>.deb</filename> file in the directory <filename>/var/cache/apt/archives/</filename>. In case of frequent updates, this directory can quickly take a lot of disk space with several versions of each package; you should regularly sort through them. Two commands can be used: <command>apt-get clean</command> entirely empties the directory; <command>apt-get autoclean</command> only removes packages which can no longer be downloaded (because they have disappeared from the Debian mirror) and are therefore clearly useless (the configuration parameter <literal>APT::Clean-Installed</literal> can prevent the removal of <filename>.deb</filename> files that are currently installed)."
+msgid "APT keeps a copy of each downloaded <filename>.deb</filename> file in the directory <filename>/var/cache/apt/archives/</filename>. In case of frequent updates, this directory can quickly take a lot of disk space with several versions of each package; you should regularly sort through them. Two commands can be used: <command>apt-get clean</command> entirely empties the directory; <command>apt-get autoclean</command> only removes packages which can no longer be downloaded (because they have disappeared from the Debian mirror) and are therefore clearly useless (the configuration parameter <literal>APT::Clean-Installed</literal> can prevent the removal of <filename>.deb</filename> files that are currently installed). Note that <command>apt</command> does not support those commands."
 msgstr ""
 
 msgid "System Upgrade"
@@ -598,31 +601,40 @@ msgstr ""
 msgid "<primary>upgrade</primary><secondary>system upgrade</secondary>"
 msgstr ""
 
+msgid "<primary><command>apt upgrade</command></primary>"
+msgstr ""
+
 msgid "<primary><command>apt-get upgrade</command></primary>"
 msgstr ""
 
 msgid "<primary><command>aptitude safe-upgrade</command></primary>"
 msgstr ""
 
-msgid "Regular upgrades are recommended, because they include the latest security updates. To upgrade, use <command>apt-get upgrade</command> or <command>aptitude safe-upgrade</command> (of course after <command>apt-get update</command>). This command looks for installed packages which can be upgraded without removing any packages. In other words, the goal is to ensure the least intrusive upgrade possible. <command>apt-get</command> is slightly more demanding than <command>aptitude</command> because it will refuse to install packages which were not installed beforehand."
+msgid "Regular upgrades are recommended, because they include the latest security updates. To upgrade, use <command>apt upgrade</command>, <command>apt-get upgrade</command> or <command>aptitude safe-upgrade</command> (of course after <command>apt update</command>). This command looks for installed packages which can be upgraded without removing any packages. In other words, the goal is to ensure the least intrusive upgrade possible. <command>apt-get</command> is slightly more demanding than <command>aptitude</command> or <command>apt</command> because it will refuse to install packages which were not installed beforehand."
 msgstr ""
 
 msgid "<emphasis>TIP</emphasis> Incremental upgrade"
 msgstr ""
 
-msgid "As we explained earlier, the aim of the <command>apt-get update</command> command is to download for each package source the corresponding <filename>Packages</filename> (or <filename>Sources</filename>) file. However, even after a <command>bzip2</command> compression, these files can remain rather large (the <filename>Packages.xz</filename> for the <foreignphrase>main</foreignphrase> section of <emphasis role=\"distribution\">Jessie</emphasis> takes more than 6 MB). If you wish to upgrade regularly, these downloads can take up a lot of time."
+msgid "As we explained earlier, the aim of the <command>apt update</command> command is to download for each package source the corresponding <filename>Packages</filename> (or <filename>Sources</filename>) file. However, even after a <command>bzip2</command> compression, these files can remain rather large (the <filename>Packages.xz</filename> for the <foreignphrase>main</foreignphrase> section of <emphasis role=\"distribution\">Jessie</emphasis> takes more than 6 MB). If you wish to upgrade regularly, these downloads can take up a lot of time."
 msgstr ""
 
-msgid "To speed up the process APT can download “diff” files containing the changes since the previous update, as opposed to the entire file. To achieve this, official Debian mirrors distribute different files which list the differences between one version of the <filename>Packages</filename> file and the following version. They are generated at each update of the archives and a history of one week is kept. Each of these “diff” files only takes a few dozen kilobytes for <emphasis role=\"distribution\">Unstable</emphasis>, so that the amount of data downloaded by a weekly <command>aptitude update</command> is often divided by 10. For distributions like <emphasis role=\"distribution\">Stable</emphasis> and <emphasis role=\"distribution\">Testing</emphasis>, which change less, the gain is even more noticeable."
+msgid "To speed up the process APT can download “diff” files containing the changes since the previous update, as opposed to the entire file. To achieve this, official Debian mirrors distribute different files which list the differences between one version of the <filename>Packages</filename> file and the following version. They are generated at each update of the archives and a history of one week is kept. Each of these “diff” files only takes a few dozen kilobytes for <emphasis role=\"distribution\">Unstable</emphasis>, so that the amount of data downloaded by a weekly <command>apt update</command> is often divided by 10. For distributions like <emphasis role=\"distribution\">Stable</emphasis> and <emphasis role=\"distribution\">Testing</emphasis>, which change less, the gain is even more noticeable."
 msgstr ""
 
 msgid "However, it can sometimes be of interest to force the download of the entire <filename>Packages</filename> file, especially when the last upgrade is very old and when the mechanism of incremental differences would not contribute much. This can also be interesting when network access is very fast but when the processor of the machine to upgrade is rather slow, since the time saved on the download is more than lost when the computer calculates the new versions of these files (starting with the older versions and applying the downloaded differences). To do that, you can use the configuration parameter <literal>Acquire::Pdiffs</literal> and set it to <literal>false</literal>."
 msgstr ""
 
-msgid "<command>apt-get</command> will generally select the most recent version number (except for packages from <emphasis role=\"distribution\">Experimental</emphasis> and <emphasis role=\"distribution\">stable-backports</emphasis>, which are ignored by default whatever their version number). If you specified <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis> in your <filename>sources.list</filename>, <command>apt-get upgrade</command> will switch most of your <emphasis role=\"distribution\">Stable</emphasis> system to <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>, which might not be what you intended."
+msgid "<command>apt</command> will generally select the most recent version number (except for packages from <emphasis role=\"distribution\">Experimental</emphasis> and <emphasis role=\"distribution\">stable-backports</emphasis>, which are ignored by default whatever their version number). If you specified <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis> in your <filename>sources.list</filename>, <command>apt upgrade</command> will switch most of your <emphasis role=\"distribution\">Stable</emphasis> system to <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>, which might not be what you intended."
 msgstr ""
 
-msgid "To tell <command>apt-get</command> to use a specific distribution when searching for upgraded packages, you need to use the <literal>-t</literal> or <literal>--target-release</literal> option, followed by the name of the distribution you want (for example: <command>apt-get -t stable upgrade</command>). To avoid specifying this option every time you use <command>apt-get</command>, you can add <literal>APT::Default-Release \"stable\";</literal> in the file <filename>/etc/apt/apt.conf.d/local</filename>."
+msgid "To tell <command>apt</command> to use a specific distribution when searching for upgraded packages, you need to use the <literal>-t</literal> or <literal>--target-release</literal> option, followed by the name of the distribution you want (for example: <command>apt -t stable upgrade</command>). To avoid specifying this option every time you use <command>apt</command>, you can add <literal>APT::Default-Release \"stable\";</literal> in the file <filename>/etc/apt/apt.conf.d/local</filename>."
+msgstr ""
+
+msgid "<primary><command>apt full-upgrade</command></primary>"
+msgstr ""
+
+msgid "<primary><command>apt dist-upgrade</command></primary>"
 msgstr ""
 
 msgid "<primary><command>apt-get dist-upgrade</command></primary>"
@@ -634,10 +646,10 @@ msgstr ""
 msgid "<primary><command>aptitude full-upgrade</command></primary>"
 msgstr ""
 
-msgid "For more important upgrades, such as the change from one major Debian version to the next, you need to use <command>apt-get dist-upgrade</command> (“distribution upgrade”). With this instruction, <command>apt-get</command> will complete the upgrade even if it has to remove some obsolete packages or install new dependencies. This is also the command used by users who work daily with the Debian <emphasis role=\"distribution\">Unstable</emphasis> release and follow its evolution day by day. It is so simple that it hardly needs explanation: APT's reputation is based on this great functionality."
+msgid "For more important upgrades, such as the change from one major Debian version to the next, you need to use <command>apt full-upgrade</command>. With this instruction, <command>apt</command> will complete the upgrade even if it has to remove some obsolete packages or install new dependencies. This is also the command used by users who work daily with the Debian <emphasis role=\"distribution\">Unstable</emphasis> release and follow its evolution day by day. It is so simple that it hardly needs explanation: APT's reputation is based on this great functionality."
 msgstr ""
 
-msgid "<command>aptitude full-upgrade</command> is <command>aptitude</command>'s corresponding command although <command>dist-upgrade</command> is also recognized (but deprecated)."
+msgid "Unlike <command>apt</command> and <command>aptitude</command>, <command>apt-get</command> doesn't know the <command>full-upgrade</command> command. Instead, you should use <command>apt-get dist-upgrade</command> (”distribution upgrade”), the historical and well-known command that <command>apt</command> and <command>aptitude</command> also accept for the convenience of users who got used to it."
 msgstr ""
 
 msgid "Configuration Options"
@@ -715,7 +727,7 @@ msgstr ""
 msgid "In more concrete terms, a package whose priority is less than 0 will never be installed. A package with a priority ranging between 0 and 100 will only be installed if no other version of the package is already installed. With a priority between 100 and 500, the package will only be installed if there is no other newer version installed or available in another distribution. A package of priority between 501 and 990 will only be installed if there is no newer version installed or available in the target distribution. With a priority between 990 and 1000, the package will be installed except if the installed version is newer. A priority greater than 1000 will always lead to the installation of the package even if it forces APT to downgrade to an older version."
 msgstr ""
 
-msgid "When APT checks <filename>/etc/apt/preferences</filename>, it first takes into account the most specific entries (often those specifying the concerned package), then the more generic ones (including for example all the packages of a distribution). If several generic entries exist, the first match is used. The available selection criteria include the package's name and the source providing it. Every package source is identified by the information contained in a <filename>Release</filename> file that APT downloads together with the <filename>Packages</filename> files. It specifies the origin (usually “Debian” for the packages of official mirrors, but it can also be a person's or an organization's name for third-party repositories). It also gives the name of the distribution (usually <emphasis role=\"distribution\">Stable</emphasis>, <emphasis role=\"distribution\">Testing</emphasis>, <emphasis role=\"distribution\">Unstable</emphasis> or <emphasis role=\"distribution\">Experimental</emphasis> for the standard distributions provided by Debian) together with its version (for example 5.0 for Debian <emphasis role=\"distribution\">Lenny</emphasis>). Let's have a look at its syntax through some realistic case studies of this mechanism."
+msgid "When APT checks <filename>/etc/apt/preferences</filename>, it first takes into account the most specific entries (often those specifying the concerned package), then the more generic ones (including for example all the packages of a distribution). If several generic entries exist, the first match is used. The available selection criteria include the package's name and the source providing it. Every package source is identified by the information contained in a <filename>Release</filename> file that APT downloads together with the <filename>Packages</filename> files. It specifies the origin (usually “Debian” for the packages of official mirrors, but it can also be a person's or an organization's name for third-party repositories). It also gives the name of the distribution (usually <emphasis role=\"distribution\">Stable</emphasis>, <emphasis role=\"distribution\">Testing</emphasis>, <emphasis role=\"distribution\">Unstable</emphasis> or <emphasis role=\"distribution\">Experimental</emphasis> for the standard distributions provided by Debian) together with its version (for example 8 for Debian <emphasis role=\"distribution\">Jessie</emphasis>). Let's have a look at its syntax through some realistic case studies of this mechanism."
 msgstr ""
 
 msgid "<emphasis>SPECIFIC CASE</emphasis> Priority of <emphasis role=\"distribution\">experimental</emphasis>"
@@ -784,16 +796,16 @@ msgstr ""
 msgid "Working with Several Distributions"
 msgstr ""
 
-msgid "<command>apt-get</command> being such a marvelous tool, it is tempting to pick packages coming from other distributions. For example, after having installed a <emphasis role=\"distribution\">Stable</emphasis> system, you might want to try out a software package available in <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis> without diverging too much from the system's initial state."
+msgid "<command>apt</command> being such a marvelous tool, it is tempting to pick packages coming from other distributions. For example, after having installed a <emphasis role=\"distribution\">Stable</emphasis> system, you might want to try out a software package available in <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis> without diverging too much from the system's initial state."
 msgstr ""
 
-msgid "Even if you will occasionally encounter problems while mixing packages from different distributions, <command>apt-get</command> manages such coexistence very well and limits risks very effectively. The best way to proceed is to list all distributions used in <filename>/etc/apt/sources.list</filename> (some people always put the three distributions, but remember that <emphasis role=\"distribution\">Unstable</emphasis> is reserved for experienced users) and to define your reference distribution with the <literal>APT::Default-Release</literal> parameter (see <xref linkend=\"sect.apt-upgrade\" />)."
+msgid "Even if you will occasionally encounter problems while mixing packages from different distributions, <command>apt</command> manages such coexistence very well and limits risks very effectively. The best way to proceed is to list all distributions used in <filename>/etc/apt/sources.list</filename> (some people always put the three distributions, but remember that <emphasis role=\"distribution\">Unstable</emphasis> is reserved for experienced users) and to define your reference distribution with the <literal>APT::Default-Release</literal> parameter (see <xref linkend=\"sect.apt-upgrade\" />)."
 msgstr ""
 
-msgid "Let's suppose that <emphasis role=\"distribution\">Stable</emphasis> is your reference distribution but that <emphasis role=\"distribution\">Testing</emphasis> and <emphasis role=\"distribution\">Unstable</emphasis> are also listed in your <filename>sources.list</filename> file. In this case, you can use <command>apt-get install <replaceable>package</replaceable>/testing</command> to install a package from <emphasis role=\"distribution\">Testing</emphasis>. If the installation fails due to some unsatisfiable dependencies, let it solve those dependencies within <emphasis role=\"distribution\">Testing</emphasis> by adding the <literal>-t testing</literal> parameter. The same obviously applies to <emphasis role=\"distribution\">Unstable</emphasis>."
+msgid "Let's suppose that <emphasis role=\"distribution\">Stable</emphasis> is your reference distribution but that <emphasis role=\"distribution\">Testing</emphasis> and <emphasis role=\"distribution\">Unstable</emphasis> are also listed in your <filename>sources.list</filename> file. In this case, you can use <command>apt install <replaceable>package</replaceable>/testing</command> to install a package from <emphasis role=\"distribution\">Testing</emphasis>. If the installation fails due to some unsatisfiable dependencies, let it solve those dependencies within <emphasis role=\"distribution\">Testing</emphasis> by adding the <literal>-t testing</literal> parameter. The same obviously applies to <emphasis role=\"distribution\">Unstable</emphasis>."
 msgstr ""
 
-msgid "In this situation, upgrades (<command>upgrade</command> and <command>dist-upgrade</command>) are done within <emphasis role=\"distribution\">Stable</emphasis> except for packages already upgraded to another distribution: those will follow updates available in the other distributions. We'll explain this behavior with the help of the default priorities set by APT below. Do not hesitate to use <command>apt-cache policy</command> (see sidebar) to verify the given priorities."
+msgid "In this situation, upgrades (<command>upgrade</command> and <command>full-upgrade</command>) are done within <emphasis role=\"distribution\">Stable</emphasis> except for packages already upgraded to another distribution: those will follow updates available in the other distributions. We will explain this behavior with the help of the default priorities set by APT below. Do not hesitate to use <command>apt-cache policy</command> (see sidebar) to verify the given priorities."
 msgstr ""
 
 msgid "Everything centers around the fact that APT only considers packages of higher or equal version than the installed one (assuming that <filename>/etc/apt/preferences</filename> has not been used to force priorities higher than 1000 for some packages)."
@@ -820,10 +832,10 @@ msgstr ""
 msgid "Tracking Automatically Installed Packages"
 msgstr ""
 
-msgid "One of the essential functionalities of <command>apt-get</command> (which was initially specific to <command>aptitude</command>) is the tracking of packages installed only through dependencies. These packages are called “automatic”, and often include libraries for instance."
+msgid "One of the essential functionalities of <command>apt</command> is the tracking of packages installed only through dependencies. These packages are called “automatic”, and often include libraries for instance."
 msgstr ""
 
-msgid "With this information, when packages are removed, the package managers can compute a list of automatic packages that are no longer needed (because there's no “manually installed” packages depending on them). <command>apt-get autoremove</command> will get rid of those packages. <command>aptitude</command> does not have this command because it removes them automatically as soon as they are identified. Both programs include a clear message listing the affected packages."
+msgid "With this information, when packages are removed, the package managers can compute a list of automatic packages that are no longer needed (because there is no “manually installed” packages depending on them). <command>apt-get autoremove</command> will get rid of those packages. <command>aptitude</command> and <command>apt</command> do not have this command: the former because it removes them automatically as soon as they are identified, and the latter probably because the user should not have to manually run such a command. In all cases, the tools display a clear message listing the affected packages."
 msgstr ""
 
 msgid "<primary><command>apt-mark auto</command></primary>"
@@ -844,7 +856,7 @@ msgstr ""
 msgid "<primary><command>aptitude why</command></primary>"
 msgstr ""
 
-msgid "People might want to know why an automatically installed package is present on the system. To get this information from the command line, you can use <command>aptitude why <replaceable>package</replaceable></command> (<command>apt-get</command> has no similar feature):"
+msgid "People might want to know why an automatically installed package is present on the system. To get this information from the command line, you can use <command>aptitude why <replaceable>package</replaceable></command> (<command>apt</command> and <command>apt-get</command> have no similar feature):"
 msgstr ""
 
 msgid ""
@@ -863,7 +875,7 @@ msgstr ""
 msgid "<primary><command>debfoster</command></primary>"
 msgstr ""
 
-msgid "In days where <command>apt-get</command> and <command>aptitude</command> were not able to track automatic packages, there were two utilities producing lists of unnecessary packages: <command>deborphan</command> and <command>debfoster</command>."
+msgid "In days where <command>apt</command>, <command>apt-get</command> and <command>aptitude</command> were not able to track automatic packages, there were two utilities producing lists of unnecessary packages: <command>deborphan</command> and <command>debfoster</command>."
 msgstr ""
 
 msgid "<command>deborphan</command> is the most rudimentary of both. It simply scans the <literal>libs</literal> and <literal>oldlibs</literal> sections (in the absence of supplementary instructions) looking for the packages that are currently installed and that no other package depends on. The resulting list can then serve as a basis to remove unneeded packages."
@@ -890,7 +902,7 @@ msgstr ""
 msgid "<primary>package</primary><secondary>search</secondary>"
 msgstr ""
 
-msgid "The <command>apt-cache</command> command can display much of the information stored in APT's internal database. This information is a sort of cache since it is gathered from the different sources listed in the <filename>sources.list</filename> file. This happens during the <command>apt-get update</command> operation."
+msgid "The <command>apt-cache</command> command can display much of the information stored in APT's internal database. This information is a sort of cache since it is gathered from the different sources listed in the <filename>sources.list</filename> file. This happens during the <command>apt update</command> operation."
 msgstr ""
 
 msgid "<emphasis>VOCABULARY</emphasis> Cache"
@@ -900,6 +912,12 @@ msgid "A cache is a temporary storage system used to speed up frequent data acce
 msgstr ""
 
 msgid "In the case of APT, the reference <filename>Packages</filename> files are those located on Debian mirrors. That said, it would be very ineffective to go through the network for every search that we might want to do in the database of available packages. That is why APT stores a copy of those files (in <filename>/var/lib/apt/lists/</filename>) and searches are done within those local files. Similarly, <filename>/var/cache/apt/archives/</filename> contains a cache of already downloaded packages to avoid downloading them again if you need to reinstall them after a removal."
+msgstr ""
+
+msgid "<primary><command>apt show</command></primary>"
+msgstr ""
+
+msgid "<primary><command>apt search</command></primary>"
 msgstr ""
 
 msgid "<primary><command>apt-cache show</command></primary>"
@@ -914,7 +932,7 @@ msgstr ""
 msgid "<primary><command>aptitude search</command></primary>"
 msgstr ""
 
-msgid "The <command>apt-cache</command> command can do keyword-based package searches with <command>apt-cache search <replaceable>keyword</replaceable></command>. It can also display the headers of the package's available versions with <command>apt-cache show <replaceable>package</replaceable></command>. This command provides the package's description, its dependencies, the name of its maintainer, etc. Note that <command>aptitude search</command> and <command>aptitude show</command> work in the same way."
+msgid "The <command>apt-cache</command> command can do keyword-based package searches with <command>apt-cache search <replaceable>keyword</replaceable></command>. It can also display the headers of the package's available versions with <command>apt-cache show <replaceable>package</replaceable></command>. This command provides the package's description, its dependencies, the name of its maintainer, etc. Note that <command>apt search</command>, <command>apt show</command>, <command>aptitude search</command>, <command>aptitude show</command> work in the same way."
 msgstr ""
 
 msgid "<emphasis>ALTERNATIVE</emphasis> <command>axi-cache</command>"
@@ -1076,7 +1094,7 @@ msgstr ""
 msgid "Security is very important for Falcot Corp administrators. Accordingly, they need to ensure that they only install packages which are guaranteed to come from Debian with no tampering on the way. A computer cracker could try to add malicious code to an otherwise legitimate package. Such a package, if installed, could do anything the cracker designed it to do, including for instance disclosing passwords or confidential information. To circumvent this risk, Debian provides a tamper-proof seal to guarantee — at install time — that a package really comes from its official maintainer and hasn't been modified by a third party."
 msgstr ""
 
-msgid "The seal works with a chain of cryptographical hashes and a signature. The signed file is the <filename>Release</filename> file, provided by the Debian mirrors. It contains a list of the <filename>Packages</filename> files (including their compressed forms, <filename>Packages.gz</filename> and <filename>Packages.bz2</filename>, and the incremental versions), along with their MD5, SHA1 and SHA256 hashes, which ensures that the files haven't been tampered with. These <filename>Packages</filename> files contain a list of the Debian packages available on the mirror, along with their hashes, which ensures in turn that the contents of the packages themselves haven't been altered either."
+msgid "The seal works with a chain of cryptographical hashes and a signature. The signed file is the <filename>Release</filename> file, provided by the Debian mirrors. It contains a list of the <filename>Packages</filename> files (including their compressed forms, <filename>Packages.gz</filename> and <filename>Packages.xz</filename>, and the incremental versions), along with their MD5, SHA1 and SHA256 hashes, which ensures that the files haven't been tampered with. These <filename>Packages</filename> files contain a list of the Debian packages available on the mirror, along with their hashes, which ensures in turn that the contents of the packages themselves haven't been altered either."
 msgstr ""
 
 msgid "<primary><command>apt-key</command></primary>"
@@ -1148,7 +1166,7 @@ msgstr ""
 msgid "<primary>key</primary><secondary>APT's authentication keys</secondary>"
 msgstr ""
 
-msgid "When a third-party package source is added to the <filename>sources.list</filename> file, APT needs to be told to trust the corresponding GPG authentication key (otherwise it will keep complaining that it can't ensure the authenticity of the packages coming from that repository). The first step is of course to get the public key. More often than not, the key will be provided as a small text file, which we'll call <filename>key.asc</filename> in the following examples."
+msgid "When a third-party package source is added to the <filename>sources.list</filename> file, APT needs to be told to trust the corresponding GPG authentication key (otherwise it will keep complaining that it can't ensure the authenticity of the packages coming from that repository). The first step is of course to get the public key. More often than not, the key will be provided as a small text file, which we will call <filename>key.asc</filename> in the following examples."
 msgstr ""
 
 msgid "To add the key to the trusted keyring, the administrator can run <command>apt-key add &lt; key.asc</command>. Another way is to use the <command>synaptic</command> graphical interface: its “Authentication” tab in the <menuchoice><guimenu>Settings</guimenu> <guisubmenu>Repositories</guisubmenu></menuchoice> menu gives the possibility of importing a key from the <filename>key.asc</filename> file."
@@ -1193,13 +1211,13 @@ msgstr ""
 msgid "# <userinput>deborphan | xargs aptitude --schedule-only remove</userinput>"
 msgstr ""
 
-msgid "Now for the upgrading itself. First, you need to change the <filename>/etc/apt/sources.list</filename> file to tell APT to get its packages from <emphasis role=\"distribution\">Jessie</emphasis> instead of <emphasis role=\"distribution\">Wheezy</emphasis>. If the file only contains references to <emphasis role=\"distribution\">Stable</emphasis> rather than explicit codenames, the change isn't even required, since <emphasis role=\"distribution\">Stable</emphasis> always refers to the latest released version of Debian. In both cases, the database of available packages must be refreshed (with the <command>apt-get update</command> command or the refresh button in <command>synaptic</command>)."
+msgid "Now for the upgrading itself. First, you need to change the <filename>/etc/apt/sources.list</filename> file to tell APT to get its packages from <emphasis role=\"distribution\">Jessie</emphasis> instead of <emphasis role=\"distribution\">Wheezy</emphasis>. If the file only contains references to <emphasis role=\"distribution\">Stable</emphasis> rather than explicit codenames, the change isn't even required, since <emphasis role=\"distribution\">Stable</emphasis> always refers to the latest released version of Debian. In both cases, the database of available packages must be refreshed (with the <command>apt update</command> command or the refresh button in <command>synaptic</command>)."
 msgstr ""
 
-msgid "Once these new package sources are registered, you should first do a minimal upgrade with <command>apt-get upgrade</command>. By doing the upgrade in two steps, we ease the job of the package management tools and often ensure that we have the latest versions of those, which might have accumulated bugfixes and improvements required to complete the full distribution upgrade."
+msgid "Once these new package sources are registered, you should first do a minimal upgrade with <command>apt upgrade</command>. By doing the upgrade in two steps, we ease the job of the package management tools and often ensure that we have the latest versions of those, which might have accumulated bugfixes and improvements required to complete the full distribution upgrade."
 msgstr ""
 
-msgid "Once this first upgrade is done, it is time to handle the upgrade itself, either with <command>apt-get dist-upgrade</command>, <command>aptitude</command>, or <command>synaptic</command>. You should carefully check the suggested actions before applying them: you might want to add suggested packages or deselect packages which are only recommended and known not to be useful. In any case, the front-end should come up with a scenario ending in a coherent and up-to-date <emphasis role=\"distribution\">Jessie</emphasis> system. Then, all you need is to do is wait while the required packages are downloaded, answer the Debconf questions and possibly those about locally modified configuration files, and sit back while APT does its magic."
+msgid "Once this first upgrade is done, it is time to handle the upgrade itself, either with <command>apt full-upgrade</command>, <command>aptitude</command>, or <command>synaptic</command>. You should carefully check the suggested actions before applying them: you might want to add suggested packages or deselect packages which are only recommended and known not to be useful. In any case, the front-end should come up with a scenario ending in a coherent and up-to-date <emphasis role=\"distribution\">Jessie</emphasis> system. Then, all you need is to do is wait while the required packages are downloaded, answer the Debconf questions and possibly those about locally modified configuration files, and sit back while APT does its magic."
 msgstr ""
 
 msgid "Handling Problems after an Upgrade"
@@ -1211,7 +1229,7 @@ msgstr ""
 msgid "To anticipate some of these problems, you can install the <emphasis role=\"pkg\">apt-listchanges</emphasis> package, which displays information about possible problems at the beginning of a package upgrade. This information is compiled by the package maintainers and put in <filename>/usr/share/doc/<replaceable>package</replaceable>/NEWS.Debian</filename> files for the benefit of users. Reading these files (possibly through <emphasis role=\"pkg\">apt-listchanges</emphasis>) should help you avoid bad surprises."
 msgstr ""
 
-msgid "You might sometimes find that the new version of a software doesn't work at all. This generally happens if the application isn't particularly popular and hasn't been tested enough; a last-minute update can also introduce regressions which are only found after the stable release. In both cases, the first thing to do is to have a look at the bug tracking system at <literal>http://bugs.debian.org/<replaceable>package</replaceable></literal>, and check whether the problem has already been reported. If it hasn't, you should report it yourself with <command>reportbug</command>. If it is already known, the bug report and the associated messages are usually an excellent source of information related to the bug:"
+msgid "You might sometimes find that the new version of a software doesn't work at all. This generally happens if the application isn't particularly popular and hasn't been tested enough; a last-minute update can also introduce regressions which are only found after the stable release. In both cases, the first thing to do is to have a look at the bug tracking system at <literal>https://bugs.debian.org/<replaceable>package</replaceable></literal>, and check whether the problem has already been reported. If it hasn't, you should report it yourself with <command>reportbug</command>. If it is already known, the bug report and the associated messages are usually an excellent source of information related to the bug:"
 msgstr ""
 
 msgid "sometimes a patch already exists, and it is available on the bug report; you can then recompile a fixed version of the broken package locally (see <xref linkend=\"sect.rebuilding-package\" />);"
@@ -1223,10 +1241,10 @@ msgstr ""
 msgid "in yet other cases, a fixed package may have already been prepared and made public by the maintainer."
 msgstr ""
 
-msgid "Depending on the severity of the bug, a new version of the package may be prepared specifically for a new revision of the stable release. When this happens, the fixed package is made available in the <literal>proposed-updates</literal> section of the Debian mirrors (see <xref linkend=\"sect.proposed-updates\" />). The corresponding entry can then be temporarily added to the <filename>sources.list</filename> file, and updated packages can be installed with <command>apt-get</command> or <command>aptitude</command>."
+msgid "Depending on the severity of the bug, a new version of the package may be prepared specifically for a new revision of the stable release. When this happens, the fixed package is made available in the <literal>proposed-updates</literal> section of the Debian mirrors (see <xref linkend=\"sect.proposed-updates\" />). The corresponding entry can then be temporarily added to the <filename>sources.list</filename> file, and updated packages can be installed with <command>apt</command> or <command>aptitude</command>."
 msgstr ""
 
-msgid "Sometimes the fixed package isn't available in this section yet because it is pending a validation by the Stable Release Managers. You can verify if that's the case on their web page. Packages listed there aren't available yet, but at least you know that the publication process is ongoing. <ulink type=\"block\" url=\"http://release.debian.org/proposed-updates/stable.html\" />"
+msgid "Sometimes the fixed package isn't available in this section yet because it is pending a validation by the Stable Release Managers. You can verify if that's the case on their web page. Packages listed there aren't available yet, but at least you know that the publication process is ongoing. <ulink type=\"block\" url=\"https://release.debian.org/proposed-updates/stable.html\" />"
 msgstr ""
 
 msgid "Keeping a System Up to Date"
@@ -1362,7 +1380,7 @@ msgstr ""
 msgid "With the large and ever-growing amount of software in Debian, there emerges a paradox: Debian usually has a tool for most tasks, but that tool can be very difficult to find amongst the myriad other packages. The lack of appropriate ways to search for (and to find) the right tool has long been a problem. Fortunately, this problem has almost entirely been solved."
 msgstr ""
 
-msgid "The most trivial search possible is looking up an exact package name. If <command>apt-cache show <replaceable>package</replaceable></command> returns a result, then the package exists. Unfortunately, this requires knowing or even guessing the package name, which isn't always possible."
+msgid "The most trivial search possible is looking up an exact package name. If <command>apt show <replaceable>package</replaceable></command> returns a result, then the package exists. Unfortunately, this requires knowing or even guessing the package name, which isn't always possible."
 msgstr ""
 
 msgid "<emphasis>TIP</emphasis> Package naming conventions"
