@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-18 21:01+0200\n"
 "PO-Revision-Date: 2015-09-09 18:47+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: None\n"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "These configuration files stored directly in a user's home directory, often collectively referred to as <emphasis>dotfiles</emphasis>, have long proliferated to the point that these directories can be quite cluttered with them. Fortunately, an effort led collectively under the FreeDesktop.org umbrella has resulted in the “XDG Base Directory Specification”, a convention that aims at cleaning up these files and directory. This specification states that configuration files should be stored under <filename>~/.config</filename>, cache files under <filename>~/.cache</filename>, and application data files under <filename>~/.local</filename> (or subdirectories thereof). This convention is slowly gaining traction, and several applications (especially graphical ones) have started following it."
 msgstr ""
 
-msgid "Graphical desktops usually display the contents of the <filename>~/Desktop/</filename> directory (or whatever the appropriate translation is for systems not configured in English) on the desktop (ie, what's visible on screen once all applications are closed or iconized)."
+msgid "Graphical desktops usually display the contents of the <filename>~/Desktop/</filename> directory (or whatever the appropriate translation is for systems not configured in English) on the desktop (ie, what is visible on screen once all applications are closed or iconized)."
 msgstr ""
 
 msgid "Finally, the email system sometimes stores incoming emails into a <filename>~/Mail/</filename> directory."
@@ -341,7 +341,7 @@ msgstr ""
 msgid "The Kernel"
 msgstr ""
 
-msgid "Both the BIOS/UEFI and the bootloader only run for a few seconds each; now we're getting to the first piece of software that runs for a longer time, the operating system kernel. This kernel assumes the role of a conductor in an orchestra, and ensures coordination between hardware and software. This role involves several tasks including: driving hardware, managing processes, users and permissions, the filesystem, and so on. The kernel provides a common base to all other programs on the system."
+msgid "Both the BIOS/UEFI and the bootloader only run for a few seconds each; now we are getting to the first piece of software that runs for a longer time, the operating system kernel. This kernel assumes the role of a conductor in an orchestra, and ensures coordination between hardware and software. This role involves several tasks including: driving hardware, managing processes, users and permissions, the filesystem, and so on. The kernel provides a common base to all other programs on the system."
 msgstr ""
 
 msgid "The User Space"
@@ -406,7 +406,7 @@ msgstr ""
 msgid "The starting point of this hierarchical tree is called the root, <filename>/</filename>. This directory can contain named subdirectories. For instance, the <literal>home</literal> subdirectory of <filename>/</filename> is called <filename>/home/</filename>. This subdirectory can, in turn, contain other subdirectories, and so on. Each directory can also contain files, where the actual data will be stored. Thus, the <filename>/home/rmas/Desktop/hello.txt</filename> name refers to a file named <literal>hello.txt</literal> stored in the <literal>Desktop</literal> subdirectory of the <literal>rmas</literal> subdirectory of the <literal>home</literal> directory present in the root. The kernel translates between this naming system and the actual, physical storage on a disk."
 msgstr ""
 
-msgid "Unlike other systems, there's only one such hierarchy, and it can integrate data from several disks. One of these disks is used as the root, and the others are “mounted” on directories in the hierarchy (the Unix command is called <command>mount</command>); these other disks are then available under these “mount points”. This allows storing users' home directories (traditionally stored within <filename>/home/</filename>) on a second hard disk, which will contain the <literal>rhertzog</literal> and <literal>rmas</literal> directories. Once the disk is mounted on <filename>/home/</filename>, these directories become accessible at their usual locations, and paths such as <filename>/home/rmas/Desktop/hello.txt</filename> keep working."
+msgid "Unlike other systems, there is only one such hierarchy, and it can integrate data from several disks. One of these disks is used as the root, and the others are “mounted” on directories in the hierarchy (the Unix command is called <command>mount</command>); these other disks are then available under these “mount points”. This allows storing users' home directories (traditionally stored within <filename>/home/</filename>) on a second hard disk, which will contain the <literal>rhertzog</literal> and <literal>rmas</literal> directories. Once the disk is mounted on <filename>/home/</filename>, these directories become accessible at their usual locations, and paths such as <filename>/home/rmas/Desktop/hello.txt</filename> keep working."
 msgstr ""
 
 msgid "<primary><command>mkfs</command></primary>"
@@ -430,7 +430,7 @@ msgstr ""
 msgid "A process is a running instance of a program. This requires memory to store both the program itself and its operating data. The kernel is in charge of creating and tracking them. When a program runs, the kernel first sets aside some memory, then loads the executable code from the filesystem into it, and then starts the code running. It keeps information about this process, the most visible of which is an identification number known as <emphasis>pid</emphasis> (<emphasis>process identifier</emphasis>)."
 msgstr ""
 
-msgid "Unix-like kernels (including Linux), like most other modern operating systems, are capable of “multi-tasking”. In other words, they allow running many processes “at the same time”. There's actually only one running process at any one time, but the kernel cuts time into small slices and runs each process in turn. Since these time slices are very short (in the millisecond range), they create the illusion of processes running in parallel, although they're actually only active during some time intervals and idle the rest of the time. The kernel's job is to adjust its scheduling mechanisms to keep that illusion, while maximizing the global system performance. If the time slices are too long, the application may not appear as responsive as desired. Too short, and the system loses time switching tasks too frequently. These decisions can be tweaked with process priorities. High-priority processes will run for longer and with more frequent time slices than low-priority processes."
+msgid "Unix-like kernels (including Linux), like most other modern operating systems, are capable of “multi-tasking”. In other words, they allow running many processes “at the same time”. There is actually only one running process at any one time, but the kernel cuts time into small slices and runs each process in turn. Since these time slices are very short (in the millisecond range), they create the illusion of processes running in parallel, although they are actually only active during some time intervals and idle the rest of the time. The kernel's job is to adjust its scheduling mechanisms to keep that illusion, while maximizing the global system performance. If the time slices are too long, the application may not appear as responsive as desired. Too short, and the system loses time switching tasks too frequently. These decisions can be tweaked with process priorities. High-priority processes will run for longer and with more frequent time slices than low-priority processes."
 msgstr ""
 
 msgid "<emphasis>NOTE</emphasis> Multi-processor systems (and variants)"
@@ -445,7 +445,7 @@ msgstr ""
 msgid "Rights Management"
 msgstr ""
 
-msgid "Unix-like systems are also multi-user. They provide a rights management system that supports separate users and groups; it also allows control over actions based on permissions. The kernel manages data for each process, allowing it to control permissions. Most of the time, a process is identified by the user who started the process. That process is only permitted to take those actions available to its owner. For instance, trying to open a file requires the kernel to check the process identity against access permissions (for more details on this particular example, see <xref linkend=\"sect.rights-management\" />)."
+msgid "Unix-like systems are also multi-user. They provide a rights management system that supports separate users and groups; it also allows control over actions based on permissions. The kernel manages data for each process, allowing it to control permissions. Most of the time, a process is identified by the user who started it. That process is only permitted to take those actions available to its owner. For instance, trying to open a file requires the kernel to check the process identity against access permissions (for more details on this particular example, see <xref linkend=\"sect.rights-management\" />)."
 msgstr ""
 
 msgid "<primary>user space</primary>"
@@ -487,7 +487,7 @@ msgstr ""
 msgid "<emphasis>VOCABULARY</emphasis> Daemon, demon, a derogatory term?"
 msgstr ""
 
-msgid "Although <emphasis>daemon</emphasis> term shares its Greek etymology with <emphasis>demon</emphasis>, the former does not imply diabolical evil, instead, it should be understood as a kind of helper spirit. This distinction is subtle enough in English; it's even worse in other languages where the same word is used for both meanings."
+msgid "Although <emphasis>daemon</emphasis> term shares its Greek etymology with <emphasis>demon</emphasis>, the former does not imply diabolical evil, instead, it should be understood as a kind of helper spirit. This distinction is subtle enough in English; it is even worse in other languages where the same word is used for both meanings."
 msgstr ""
 
 msgid "Several such daemons are described in detail in <xref linkend=\"unix-services\" />."
@@ -573,4 +573,3 @@ msgstr ""
 
 msgid "Moreover, these libraries are often referred to as “shared libraries”, since the kernel is able to only load them into memory once, even if several processes use the same library at the same time. This allows saving memory, when compared with the opposite (hypothetical) situation where the code for a library would be loaded as many times as there are processes using it."
 msgstr ""
-

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-18 21:01+0200\n"
 "PO-Revision-Date: 2015-06-16 18:06+0200\n"
 "Last-Translator: Lorenzo Massagrande <colombo3000@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/05_packaging-system/it/>\n"
@@ -51,7 +51,7 @@ msgid "The Debian package format is designed so that its content may be extracte
 msgstr "Il formato dei pacchetti Debian è progettato in modo che il suo contenuto possa essere estratto su qualsiasi sistema Unix che abbia i classici comandi <command>ar</command>, <command>tar</command> e <command>gzip</command> (qualche volta <command>xy</command> o <command>bzip2</command>. Questa proprietà apparentemente banale è importante per la portabilità e il disaster recovery."
 
 #, fuzzy
-msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice). If your system suffered some even more outrageous fortune, and even these don't work (maybe the deepest system libraries are missing?), you should try the static version of <command>busybox</command>, which is even more self-contained, and provides subcommands such as <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
+msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice). If your system suffered some even more outrageous fortune, and even these don't work (maybe the deepest system libraries are missing?), you should try the static version of <command>busybox</command> (provided in the <emphasis role=\"pkg\">busybox-static</emphasis> package), which is even more self-contained, and provides subcommands such as <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
 msgstr "Per esempio, si immagini di aver eliminato per errore il programma <command>dpkg</command> e perciò di non potere più installare pacchetti Debian. Dal momento che <command>dpkg</command> è esso stesso un pacchetto Debian, sembrerebbe che il sistema sia spacciato… Fortunatamente, si conosce il formato di un pacchetto e perciò si può scaricare il file <filename>.deb</filename> del pacchetto <emphasis role=\"pkg\">dpkg</emphasis> e installarlo manualmente (si veda la barra laterale «STRUMENTI»). Se per sfortuna uno o più dei programmi <command>ar</command>, <command>tar</command> o <command>gzip</command> è scomparso, sarà necessario solamente copiare il programma mancante da un altro sistema (dal momento che ognuno di essi opera in maniera completamente autonoma, senza dipendenze, una semplice copia è sufficiente)."
 
 msgid "<emphasis>TOOLS</emphasis> <command>dpkg</command>, <command>APT</command> and <command>ar</command>"
@@ -69,7 +69,9 @@ msgstr "<command>dpkg</command> è il programma che gestisce i file <filename>.d
 msgid "<command>APT</command> is a group of programs that allows the execution of higher-level modifications to the system: installing or removing a package (while keeping dependencies satisfied), updating the system, listing the available packages, etc."
 msgstr "<command>APT</command> è un gruppo di programmi che permette l'esecuzione di modifiche di più alto livello al sistema: installazione o rimozione di un pacchetto (mantenendo soddisfatte le dipendenze), aggiornamento del sistema, elenco dei pacchetti disponibili, ecc."
 
-msgid "<indexterm><primary><command>ar</command></primary></indexterm> As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
+#, fuzzy
+#| msgid "<indexterm><primary><command>ar</command></primary></indexterm> As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
+msgid "As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
 msgstr "<indexterm><primary><command>ar</command></primary></indexterm>Per quanto riguarda il programma <command>ar</command>, esso permette la gestione dei file con lo stesso nome: <command>ar t <replaceable>archive</replaceable></command> visualizza l'elenco dei file contenuti in tale archivio, <command>ar x <replaceable>archive</replaceable></command> estrae i file dall'archivio nella directory di lavoro corrente, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> elimina un file dall'archivio, ecc. La sua pagina di manuale (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documenta le sue numerose operazioni. <command>ar</command> è uno strumento molto rudimentale che un amministratore Unix userebbe solo in rare occasioni, ma gli amministratori abitualmente usano <command>tar</command>, un programma di archiviazione e gestione file più evoluto. Questo è il motivo per cui è facile da ripristinare <command>dpkg</command> in caso di una sua eliminazione accidentale. Dovrai solo scaricare il pacchetto Debian ed estrarre il contenuto dall'archivio <filename>data.tar.gz</filename> nella radice del sistema (root) (<filename>/</filename>):"
 
 #, fuzzy
@@ -144,7 +146,7 @@ msgid ""
 "data.tar.gz\n"
 "$ </computeroutput><userinput>ar x dpkg_1.17.23_amd64.deb</userinput>\n"
 "<computeroutput>$ </computeroutput><userinput>ls</userinput>\n"
-"<computeroutput>control.tar.gz  data.tar.gz  debian-binary  dpkg_1.16.10_i386.deb\n"
+"<computeroutput>control.tar.gz  data.tar.gz  debian-binary  dpkg_1.17.23_amd64.deb\n"
 "$ </computeroutput><userinput>tar tzf data.tar.gz | head -n 15</userinput>\n"
 "<computeroutput>./\n"
 "./var/\n"
@@ -219,7 +221,9 @@ msgstr "<filename>debian-binary</filename>. Questo è un file di testo che indic
 msgid "<filename>control.tar.gz</filename>. This archive file contains all of the available meta-information, like the name and version of the package. Some of this meta-information allows package management tools to determine if it is possible to install or uninstall it, for example according to the list of packages already on the machine."
 msgstr "<filename>control.tar.gz</filename>. Questo file archivio contiene tutte le meta-informazioni disponibili. In esso, gli strumenti di gestione dei pacchetti trovano, tra le altre cose, il nome e la versione del pacchetto. Alcune di queste meta-informazioni permettono loro di determinare se è possibile installarlo o disinstallarlo, per esempio secondo l'elenco dei pacchetti già sulla macchina."
 
-msgid "<filename>data.tar.gz</filename>. This archive contains all of the files to be extracted from the package; this is where the executable files, documentation, etc., are all stored. Some packages may use other compression formats, in which case the file will be named differently (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ, <filename>data.tar.lzma</filename> for LZMA)."
+#, fuzzy
+#| msgid "<filename>data.tar.gz</filename>. This archive contains all of the files to be extracted from the package; this is where the executable files, documentation, etc., are all stored. Some packages may use other compression formats, in which case the file will be named differently (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ, <filename>data.tar.lzma</filename> for LZMA)."
+msgid "<filename>data.tar.gz</filename>. This archive contains all of the files to be extracted from the package; this is where the executable files, documentation, etc., are all stored. Some packages may use other compression formats, in which case the file will be named differently (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ)."
 msgstr "<filename>data.tar.gz</filename>. Questo archivio contiene tutti i file che devono essere estratti dal pacchetto; qui è dove sono memorizzati i file eseguibili, la documentazione, ecc. Alcuni pacchetti possono usare altri formati di compressione, nel qual caso il file avrà un altro nome (<filename>data.tar.bz2</filename> per bzip2, <filename>data.tar.xz</filename> per XZ, <filename>data.tar.lzma</filename> per LZMA)."
 
 msgid "Package Meta-Information"
@@ -347,7 +351,7 @@ msgid "<primary>meta-package</primary>"
 msgstr "<primary>meta-pacchetto</primary>"
 
 #, fuzzy
-msgid "The dependencies system is a good mechanism for guaranteeing the operation of a program, but it has another use with “meta-packages”. These are empty packages that only describe dependencies. They facilitate the installation of a consistent group of programs preselected by the meta-package maintainer; as such, <command>apt-get install <replaceable>meta-package</replaceable></command> will automatically install all of these programs using the meta-package's dependencies. The <emphasis role=\"pkg\">gnome</emphasis>, <emphasis role=\"pkg\">kde-full</emphasis> and <emphasis role=\"pkg\">linux-image-amd64</emphasis> packages are examples of meta-packages."
+msgid "The dependencies system is a good mechanism for guaranteeing the operation of a program, but it has another use with “meta-packages”. These are empty packages that only describe dependencies. They facilitate the installation of a consistent group of programs preselected by the meta-package maintainer; as such, <command>apt install <replaceable>meta-package</replaceable></command> will automatically install all of these programs using the meta-package's dependencies. The <emphasis role=\"pkg\">gnome</emphasis>, <emphasis role=\"pkg\">kde-full</emphasis> and <emphasis role=\"pkg\">linux-image-amd64</emphasis> packages are examples of meta-packages."
 msgstr "Il sistema delle dipendenze è un buon meccanismo per garantire il funzionamento di un programma, ma ha un altro uso con i «meta-pacchetti». Questi sono pacchetti vuoti che descrivono solamente delle dipendenze. Essi facilitano l'installazione di gruppi coerenti di programmi prescelti dal manutentore del meta-pacchetto; in tal modo, <command>apt-get install <replaceable>meta-pacchetto</replaceable></command> installerà automaticamente tutti questi programmi usando le dipendenze del meta-pacchetto. Esempi di meta-pacchetti sono <emphasis role=\"pkg\">gnome</emphasis>, <emphasis role=\"pkg\">kde</emphasis> e <emphasis role=\"pkg\">linux-image-2.6-686</emphasis>."
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> <literal>Pre-Depends</literal>, a more demanding <literal>Depends</literal>"
@@ -385,7 +389,7 @@ msgid "<primary><literal>Enhances</literal>, header field</primary>"
 msgstr "<primary><literal>Enhances</literal>, campo dell'intestazione</primary>"
 
 #, fuzzy
-msgid "The <literal>Enhances</literal> field also describes a suggestion, but in a different context. It is indeed located in the suggested package, and not in the package that benefits from the suggestion. Its interest lies in that it is possible to add a suggestion without having to modify the package that is concerned. Thus, all add-ons, plug-ins, and other extensions of a program can then appear in the list of suggestions related to the software. Although it has existed for several years, this last field is still largely ignored by programs such as <command>apt-get</command> or <command>synaptic</command>. Its purpose is for a suggestion made by the <literal>Enhances</literal> field to appear to the user in addition to the traditional suggestions — found in the <literal>Suggests</literal> field."
+msgid "The <literal>Enhances</literal> field also describes a suggestion, but in a different context. It is indeed located in the suggested package, and not in the package that benefits from the suggestion. Its interest lies in that it is possible to add a suggestion without having to modify the package that is concerned. Thus, all add-ons, plug-ins, and other extensions of a program can then appear in the list of suggestions related to the software. Although it has existed for several years, this last field is still largely ignored by programs such as <command>apt</command> or <command>synaptic</command>. Its purpose is for a suggestion made by the <literal>Enhances</literal> field to appear to the user in addition to the traditional suggestions — found in the <literal>Suggests</literal> field."
 msgstr "Anche il campo <literal>Enhances</literal> descrive un consiglio, ma in un contesto differente. Infatti si trova nel pacchetto consigliato, non nel pacchetto che beneficia del consiglio. È interessante perché è possibile aggiungere un consiglio senza dover modificare il pacchetto interessato. Perciò tutte le aggiunte, plug-in e altre estensioni a un programma possono prendere posto nell'elenco di consigli relativi a quel software. Sebbene esista da diversi anni, quest'ultimo campo è ancora largamente ignorato da programmi come <command>apt-get</command> o <command>synaptic</command>. Il suo scopo è far apparire all'utente un consiglio fatto dal campo <literal>Enhances</literal> in aggiunta ai tradizionali consigli trovati nel campo <literal>Suggests</literal>."
 
 msgid "Conflicts: the <literal>Conflicts</literal> field"
@@ -404,7 +408,9 @@ msgstr "<primary>pacchetto</primary><secondary>conflitto</secondary>"
 msgid "The <literal>Conflicts</literal> field indicates when a package cannot be installed simultaneously with another. The most common reasons for this are that both packages include a file of the same name, or provide the same service on the same TCP port, or would hinder each other's operation."
 msgstr "Il campo <literal>Conflicts</literal> indica quando un pacchetto non può essere installato insieme a un altro. La ragione più comune è che entrambi i pacchetti contengono un file con lo stesso nome o forniscono il solito servizio sulla stessa porta TCP o si ostacolerebbero a vicenda nel funzionamento."
 
-msgid "<command>dpkg</command> will refuse to install a package if it triggers a conflict with an already installed package, except if the new package specifies that it will “replace” the installed package, in which case <command>dpkg</command> will choose to replace the old package with the new one. <command>apt-get</command> always follows your instructions: if you choose to install a new package, it will automatically offer to uninstall the package that poses a problem."
+#, fuzzy
+#| msgid "<command>dpkg</command> will refuse to install a package if it triggers a conflict with an already installed package, except if the new package specifies that it will “replace” the installed package, in which case <command>dpkg</command> will choose to replace the old package with the new one. <command>apt-get</command> always follows your instructions: if you choose to install a new package, it will automatically offer to uninstall the package that poses a problem."
+msgid "<command>dpkg</command> will refuse to install a package if it triggers a conflict with an already installed package, except if the new package specifies that it will “replace” the installed package, in which case <command>dpkg</command> will choose to replace the old package with the new one. <command>apt</command> always follows your instructions: if you choose to install a new package, it will automatically offer to uninstall the package that poses a problem."
 msgstr "<command>dpkg</command> si rifiuterà di installare un pacchetto che provoca un conflitto con un pacchetto già installato, a meno che il nuovo pacchetto non specifichi che «sostituisce» il pacchetto installato, nel qual caso <command>dpkg</command> sceglierà di sostituire il vecchio pacchetto con quello nuovo. <command>apt-get</command> segue sempre le istruzioni: se si sceglie di installare un nuovo pacchetto, offrirà automaticamente di disinstallare il pacchetto che crea un problema."
 
 msgid "Incompatibilities: the <literal>Breaks</literal> Field"
@@ -422,7 +428,9 @@ msgstr "<primary>pacchetto</primary><secondary>incompatibilità</secondary>"
 msgid "The <literal>Breaks</literal> field has an effect similar to that of the <literal>Conflicts</literal> field, but with a special meaning. It signals that the installation of a package will “break” another package (or particular versions of it). In general, this incompatibility between two packages is transitory, and the <literal>Breaks</literal> relationship specifically refers to the incompatible versions."
 msgstr "Il campo <literal>Breaks</literal> ha un effetto simile a <literal>Conflicts</literal>, ma con un significato speciale. Segnala che l'installazione di un pacchetto «renderà difettoso» un altro pacchetto (o delle sue versioni particolari). In generale, questa incompatibilità tra due pacchetti è transitoria e la relazione <literal>Breaks</literal> fa specifico riferimento alle versioni incompatibili."
 
-msgid "<command>dpkg</command> will refuse to install a package that breaks an already installed package, and <command>apt-get</command> will try to resolve the problem by updating the package that would be broken to a newer version (which is assumed to be fixed and, thus, compatible again)."
+#, fuzzy
+#| msgid "<command>dpkg</command> will refuse to install a package that breaks an already installed package, and <command>apt-get</command> will try to resolve the problem by updating the package that would be broken to a newer version (which is assumed to be fixed and, thus, compatible again)."
+msgid "<command>dpkg</command> will refuse to install a package that breaks an already installed package, and <command>apt</command> will try to resolve the problem by updating the package that would be broken to a newer version (which is assumed to be fixed and, thus, compatible again)."
 msgstr "<command>dpkg</command> si rifiuterà di installare un pacchetto che rende difettoso un pacchetto già installato e <command>apt-get</command> cercherà di risolvere il problema aggiornando il pacchetto che sarebbe reso difettoso a una nuova versione (che si suppone corretta e, perciò, di nuovo compatibile)."
 
 msgid "This type of situation may occur in the case of updates without backwards compatibility: this is the case if the new version no longer functions with the older version, and causes a malfunction in another program without making special provisions. The <literal>Breaks</literal> field prevents the user from running into these problems."
@@ -507,7 +515,7 @@ msgstr "Limitazioni attuali"
 msgid "Virtual packages used to suffer from some limitations, the most significant of which was the absence of a version number. To return to the previous example, a dependency such as <literal>Depends: libdigest-md5-perl (&gt;= 1.6)</literal>, despite the presence of Perl 5.10, would never be considered as satisfied by the packaging system — while in fact it most likely is satisfied. Unaware of this, the package system chose the least risky option, assuming that the versions do not match."
 msgstr "I pacchetti virtuali soffrono di alcune limitazioni problematiche, la più significativa delle quali è l'assenza di un numero di versione. Per tornare all'esempio precedente, una dipendenza come <literal>Depends: libdigest-md5-perl (&gt;= 1.6)</literal>, nonostante la presenza di Perl 5.10, non sarà mai considerata soddisfatta dal sistema dei pacchetti, mentre in realtà molto probabilmente è soddisfatta. Inconsapevole di ciò, il sistema dei pacchetti sceglie l'opzione meno rischiosa supponendo che le versioni non coincidano."
 
-msgid "This limitation has been lifted in <emphasis role=\"pkg\">dpkg</emphasis> 1.17.11, and is no longer relevant in Jessie."
+msgid "This limitation has been lifted in <emphasis role=\"pkg\">dpkg</emphasis> 1.17.11, and is no longer relevant in Jessie. Packages can assign a version to the virtual packages they provide with a dependency such as <literal>Provides: libdigest-md5-perl (= 1.8)</literal>."
 msgstr ""
 
 msgid "Replacing Files: The <literal>Replaces</literal> Field"
@@ -524,7 +532,7 @@ msgstr "<primary>pacchetto</primary><secondary>sostituzione</secondary>"
 
 #, fuzzy
 #| msgid "The <literal>Replaces</literal> field indicates that the package contains files that are also present in another package, but that the package is legitimately entitled to replace them. Without this specification, <command>dpkg</command> fails, stating that it can not overwrite the files of another package (in fact, it is possible to force it to do so with the <literal>--force-overwrite</literal> option). This allows identification of potential problems and requires the maintainer to study the matter prior to choosing whether to add such a field."
-msgid "The <literal>Replaces</literal> field indicates that the package contains files that are also present in another package, but that the package is legitimately entitled to replace them. Without this specification, <command>dpkg</command> fails, stating that it can not overwrite the files of another package (technically, it is possible to force it to do so with the <literal>--force-overwrite</literal> option, but that's not considered standard operation). This allows identification of potential problems and requires the maintainer to study the matter prior to choosing whether to add such a field."
+msgid "The <literal>Replaces</literal> field indicates that the package contains files that are also present in another package, but that the package is legitimately entitled to replace them. Without this specification, <command>dpkg</command> fails, stating that it can not overwrite the files of another package (technically, it is possible to force it to do so with the <literal>--force-overwrite</literal> option, but that is not considered standard operation). This allows identification of potential problems and requires the maintainer to study the matter prior to choosing whether to add such a field."
 msgstr "Il campo <literal>Replaces</literal> indica che il pacchetto contiene file che sono presenti anche in un altro pacchetto, ma che il pacchetto è legittimamente titolato a sostituirli. Senza questa specificazione, <command>dpkg</command> fallisce dichiarando che non può sovrascrivere i file di un altro pacchetto (in realtà è possibile obbligarlo a farlo con l'opzione <literal>--force-overwrite</literal>). Ciò permette di identificare problemi potenziali e obbliga il manutentore a studiare la situazione prima di scegliere se aggiungere tale campo."
 
 msgid "The use of this field is justified when package names change or when a package is included in another. This also happens when the maintainer decides to distribute files differently among various binary packages produced from the same source package: a replaced file no longer belongs to the old package, but only to the new one."
@@ -590,7 +598,9 @@ msgstr "Le sequenze descritte in questa sezione chiamano gli script di configura
 msgid "<emphasis>TIP</emphasis> State diagrams"
 msgstr "<emphasis>SUGGERIMENTO</emphasis> Diagrammi di stato"
 
-msgid "Manoj Srivastava made these diagrams explaining how the configuration scripts are called by <command>dpkg</command>. Similar diagrams have also been developed by the Debian Women project; they are a bit simpler to understand, but less complete. <ulink type=\"block\" url=\"http://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"http://wiki.debian.org/MaintainerScripts\" />"
+#, fuzzy
+#| msgid "Manoj Srivastava made these diagrams explaining how the configuration scripts are called by <command>dpkg</command>. Similar diagrams have also been developed by the Debian Women project; they are a bit simpler to understand, but less complete. <ulink type=\"block\" url=\"http://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"http://wiki.debian.org/MaintainerScripts\" />"
+msgid "Manoj Srivastava made these diagrams explaining how the configuration scripts are called by <command>dpkg</command>. Similar diagrams have also been developed by the Debian Women project; they are a bit simpler to understand, but less complete. <ulink type=\"block\" url=\"https://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"https://wiki.debian.org/MaintainerScripts\" />"
 msgstr "Manoj Srivastava ha creato questi diagrammi che spiegano come gli script di configurazione vengono chiamati da <command>dpkg</command>. Diagrammi simili sono stati sviluppati anche dal progetto Debian Women; sono un po' più semplici da comprendere, ma meno completi <ulink type=\"block\" url=\"http://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"http://wiki.debian.org/MaintainerScripts\" />"
 
 msgid "Installation and Upgrade"
@@ -704,7 +714,7 @@ msgid "<primary>configuration</primary><secondary>files</secondary>"
 msgstr "<primary>configurazione</primary><secondary>file</secondary>"
 
 #, fuzzy
-msgid "In addition to the maintainer scripts and control data already mentioned in the previous sections, the <filename>control.tar.gz</filename> archive of a Debian package may contain other interesting files. The first, <filename>md5sums</filename>, contains the MD5 checksums for all of the package's files. Its main advantage is that it allows a tool such as <command>debsums</command> (which we will study in <xref linkend=\"sect.debsums\" />) to check if these files have been modified since their installation. Note that when this file doesn't exist, <command>dpkg</command> will generate it dynamically at installation time (and store it in the dpkg database just like other control files)."
+msgid "In addition to the maintainer scripts and control data already mentioned in the previous sections, the <filename>control.tar.gz</filename> archive of a Debian package may contain other interesting files. The first, <filename>md5sums</filename>, contains the MD5 checksums for all of the package's files. Its main advantage is that it allows <command>dpkg --verify</command> (which we will study in <xref linkend=\"sect.dpkg-verify\" />) to check if these files have been modified since their installation. Note that when this file doesn't exist, <command>dpkg</command> will generate it dynamically at installation time (and store it in the dpkg database just like other control files)."
 msgstr "Oltre ai file di configurazione menzionati nelle sezioni precedenti, il file <filename>control.tar.gz</filename> contenuto in un pacchetto Debian ne contiene altri. Il primo, <filename>md5sums</filename>, contiene l'elenco delle impronte digitali per tutti i file del pacchetto. Il suo vantaggio principale è che permette a uno strumento come <command>debsums</command> (che sarà studiato nella <xref linkend=\"section.debsums\" />) di controllare se questi file sono stati modificati dopo la loro installazione."
 
 #, fuzzy
@@ -727,7 +737,7 @@ msgstr "Queste opzioni si applicano a <command>dpkg</command>, ma la maggior par
 #, fuzzy
 msgid ""
 "\n"
-"<computeroutput># </computeroutput><userinput>apt-get -o DPkg::options::=\"--force-confdef\" -o DPkg::options::=\"--force-confold\" dist-upgrade</userinput>"
+"<computeroutput># </computeroutput><userinput>apt -o DPkg::options::=\"--force-confdef\" -o DPkg::options::=\"--force-confold\" full-upgrade</userinput>"
 msgstr ""
 "\n"
 "<computeroutput># </computeroutput><userinput>apt-get -o DPkg::Options::=\"--force-confdef\" -o DPkg::options::=\"--force-confold\" dist-upgrade</userinput>\n"
@@ -944,7 +954,7 @@ msgid "Originally there was only one source package format. This is the <literal
 msgstr "Inizialmente c'era un solo formato per i pacchetti sorgenti. È il formato <literal>1.0</literal> che associa un archivio <filename>.orig.tar.gz</filename> a una patch <filename>.diff.gz</filename> di «debianizzazione» (c'è anche una variante che consiste di un singolo archivio <filename>.tar.gz</filename> che è usato automaticamente se non c'è alcun <filename>.orig.tar.gz</filename> disponibile)."
 
 #, fuzzy
-msgid "Since Debian <emphasis role=\"distribution\">Squeeze</emphasis>, Debian developers have the option to use new formats that correct many problems of the historical format. Format <literal>3.0 (quilt)</literal> can combine multiple upstream archives in the same source package: in addition to the usual <filename>.orig.tar.gz</filename>, supplementary <filename>.orig-<replaceable>component</replaceable>.tar.gz</filename> archives can be included. This is useful with software that is distributed in several upstream components but for which a single source package is desired. These archives can also be compressed with <command>bzip2</command> or <command>xz</command> rather than <command>gzip</command> (<command>lzma</command> is also supported by <command>dpkg-source</command> but not accepted into the official archive), which saves disk space and network resources. Finally, the monolithic patch, <filename>.diff.gz</filename> is replaced by a <filename>.debian.tar.gz</filename> archive containing the compiling instructions and a set of upstream patches contributed by the package maintainer. These last are recorded in a format compatible with <command>quilt</command> — a tool that facilitates the management of a series of patches."
+msgid "Since Debian <emphasis role=\"distribution\">Squeeze</emphasis>, Debian developers have the option to use new formats that correct many problems of the historical format. Format <literal>3.0 (quilt)</literal> can combine multiple upstream archives in the same source package: in addition to the usual <filename>.orig.tar.gz</filename>, supplementary <filename>.orig-<replaceable>component</replaceable>.tar.gz</filename> archives can be included. This is useful with software that is distributed in several upstream components but for which a single source package is desired. These archives can also be compressed with <command>bzip2</command> or <command>xz</command> rather than <command>gzip</command>, which saves disk space and network resources. Finally, the monolithic patch, <filename>.diff.gz</filename> is replaced by a <filename>.debian.tar.gz</filename> archive containing the compiling instructions and a set of upstream patches contributed by the package maintainer. These last are recorded in a format compatible with <command>quilt</command> — a tool that facilitates the management of a series of patches."
 msgstr "A partire da Debian <emphasis role=\"distribution\">Squeeze</emphasis>, gli sviluppatori Debian hanno l'opzione di usare dei nuovi formati che correggono molti problemi del formato storico. Il formato <literal>3.0 (quilt)</literal> può unire più archivi a monte in uno stesso pacchetto sorgente: in aggiunta al solito <filename>.orig.tar.gz</filename>, archivi supplementari <filename>.orig-<replaceable>componente</replaceable>.tar.gz</filename>. Ciò è utile con software che è distribuito in diversi componenti a monte ma per il quale si desidera un singolo pacchetto sorgente. Questi archivi possono anche essere compressi con <command>bzip2</command> piuttosto che con <command>gzip</command> (<command>lzma</command> e <command>xz</command> sono supportati da <command>dpkg-source</command> ma non accettati nell'archivio ufficiale), il che risparmia spazio su disco e risorse di rete. Infine, la patch monolitica, <filename>.diff.gz</filename>, è sostituito da un archivio <filename>.debian.tar.gz</filename> che contiene le istruzioni di compilazione e un insieme di patch contribuiti dal manutentore del pacchetto. Questi ultimi sono registrati in un formato compatibile con <command>quilt</command>, uno strumento che facilita la gestione di una serie di patch."
 
 #, fuzzy
@@ -1003,14 +1013,16 @@ msgid "Manipulating Packages with <command>dpkg</command>"
 msgstr "Manipolazione dei pacchetti con <command>dpkg</command>"
 
 #, fuzzy
-msgid "<command>dpkg</command> is the base command for handling Debian packages on the system. If you have <filename>.deb</filename> packages, it is <command>dpkg</command> that allows installation or analysis of their contents. But this program only has a partial view of the Debian universe: it knows what is installed on the system, and whatever it is given on the command line, but knows nothing of the other available packages. As such, it will fail if a dependency is not met. Tools such as <command>apt-get</command>, on the contrary, will create a list of dependencies to install everything as automatically as possible."
+msgid "<command>dpkg</command> is the base command for handling Debian packages on the system. If you have <filename>.deb</filename> packages, it is <command>dpkg</command> that allows installation or analysis of their contents. But this program only has a partial view of the Debian universe: it knows what is installed on the system, and whatever it is given on the command line, but knows nothing of the other available packages. As such, it will fail if a dependency is not met. Tools such as <command>apt</command>, on the contrary, will create a list of dependencies to install everything as automatically as possible."
 msgstr "<command>dpkg</command> è il comando di base per gestire i pacchetti Debian sul sistema. Se si hanno dei pacchetti <filename>.deb</filename>, è <command>dpkg</command> che permette l'installazione o l'analisi del loro contenuto. Ma questo programma ha solo una visione parziale dell'universo Debian: conosce cosa è installato sul sistema e ciò che è dato sulla riga di comando, ma non conosce nulla degli altri pacchetti disponibili. Perciò, fallirà se una dipendenza non è soddisfatta. Strumenti come <command>apt-get</command>, al contrario, creano un elenco di dipendenze da installare il più automaticamente possibile."
 
-msgid "<emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt-get</command>?"
+#, fuzzy
+#| msgid "<emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt-get</command>?"
+msgid "<emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt</command>?"
 msgstr "<emphasis>NOTA</emphasis> <command>dpkg</command> o <command>apt-get</command>?"
 
 #, fuzzy
-msgid "<command>dpkg</command> should be seen as a system tool (backend), and <command>apt-get</command> as a tool closer to the user, which overcomes the limitations of the former. These tools work together, each one with its particularities, suited to specific tasks."
+msgid "<command>dpkg</command> should be seen as a system tool (backend), and <command>apt</command> as a tool closer to the user, which overcomes the limitations of the former. These tools work together, each one with its particularities, suited to specific tasks."
 msgstr "<command>dpkg</command> dovrebbe esere visto come uno strumento di sistema (backend) e <command>apt-get</command> come uno strumento più vicino all'utente, che supera le precedenti limitazioni. Questi strumenti lavorano insieme, ognuno con le proprie peculiarità, adatte a compiti specifici."
 
 msgid "Installing Packages"
@@ -1121,13 +1133,22 @@ msgstr "<primary>dipendenza non soddisfatta</primary>"
 msgid "If you are not careful, the use of an option <literal>--force-*</literal> can lead to a system where the APT family of commands will refuse to function. In effect, some of these options allow installation of a package when a dependency is not met, or when there is a conflict. The result is an inconsistent system from the point of view of dependencies, and the APT commands will refuse to execute any action except those that will bring the system back to a consistent state (this often consists of installing the missing dependency or removing a problematic package). This often results in a message like this one, obtained after installing a new version of <emphasis role=\"pkg\">rdesktop</emphasis> while ignoring its dependency on a newer version of the <emphasis role=\"pkg\">libc6</emphasis>:"
 msgstr "Se non si presta attenzione, l'uso di un'opzione <literal>--force-*</literal> può condurre a un sistema in cui la famiglia di comandi APT si rifiuterà di funzionare. Infatti, alcune di queste opzioni permettono l'installazione di un pacchetto quando una dipendenza non è soddisfatta o quando c'è un conflitto. Il risultato è un sistema non coerente dal punto di vista delle dipendenze e i comandi APT si rifiuteranno di eseguire qualsiasi azione a meno che l'azione non permetta di tornare a uno stato coerente (questo spesso consiste nell'installazione della dipendenza mancante o nella rimozione di un pacchetto problematico). Questo spesso risulta in un messaggio come il seguente, ottenuto dopo l'installazione di una nuova versione di <emphasis role=\"pkg\">rdesktop</emphasis> ignorando la sua dipendenza da una nuova versione di <emphasis role=\"pkg\">libc6</emphasis>:"
 
+#, fuzzy
+#| msgid ""
+#| "# apt-get dist-upgrade\n"
+#| "[...]\n"
+#| "You can run \"apt-get -f install\" to correct these problems.\n"
+#| "The following packages contain unmet dependencies:\n"
+#| "  rdesktop: Depends on: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed\n"
+#| "E: missing dependencies. Try to use the option -f.\n"
+#| "  "
 msgid ""
-"# apt-get dist-upgrade\n"
+"# apt full-upgrade\n"
 "[...]\n"
-"You can run \"apt-get -f install\" to correct these problems.\n"
-"The following packages contain unmet dependencies:\n"
-"  rdesktop: Depends on: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed\n"
-"E: missing dependencies. Try to use the option -f.\n"
+"You might want to run 'apt-get -f install' to correct these.\n"
+"The following packages have unmet dependencies:\n"
+"  rdesktop: Depends: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed\n"
+"E: Unmet dependencies. Try using -f.\n"
 "  "
 msgstr ""
 "# apt-get dist-upgrade\n"
@@ -1138,7 +1159,9 @@ msgstr ""
 "E: missing dependencies. Try to use the option -f.\n"
 "  "
 
-msgid "A courageous administrator who is certain of the correctness of their analysis may choose to ignore a dependency or conflict and use the corresponding <literal>--force-*</literal> option. In this case, if they want to be able to continue to use <command>apt-get</command> or <command>aptitude</command>, they must edit <filename>/var/lib/dpkg/status</filename> to delete/modify the dependency, or conflict, that they chose to override."
+#, fuzzy
+#| msgid "A courageous administrator who is certain of the correctness of their analysis may choose to ignore a dependency or conflict and use the corresponding <literal>--force-*</literal> option. In this case, if they want to be able to continue to use <command>apt-get</command> or <command>aptitude</command>, they must edit <filename>/var/lib/dpkg/status</filename> to delete/modify the dependency, or conflict, that they chose to override."
+msgid "A courageous administrator who is certain of the correctness of their analysis may choose to ignore a dependency or conflict and use the corresponding <literal>--force-*</literal> option. In this case, if they want to be able to continue to use <command>apt</command> or <command>aptitude</command>, they must edit <filename>/var/lib/dpkg/status</filename> to delete/modify the dependency, or conflict, that they chose to override."
 msgstr "Un amministratore coraggioso che sia certo della correttezza della propria analisi può scegliere di ignorare una dipendenza o un conflitto e usare la corrispondente opzione <literal>--force-*</literal>. In questo caso, se si vuole continuare a usare <command>apt-get</command> o <command>aptitude</command>, bisogna modificare <filename>/var/lib/dpkg/status</filename> per eliminare o modificare la dipendenza, o il conflitto, che si è scelto di scavalcare."
 
 #, fuzzy
@@ -1543,7 +1566,7 @@ msgstr ""
 msgid "Enabling Multi-Arch"
 msgstr ""
 
-msgid "<command>dpkg</command>'s multi-arch support allows users to define “foreign architectures” that can be installed on the current system. This is simply done with <command>dpkg --add-architecture</command> like in the example below. There's a corresponding <command>dpkg --remove-architecture</command> to drop support of a foreign architecture, but it can only be used when no packages of this architecture remain."
+msgid "<command>dpkg</command>'s multi-arch support allows users to define “foreign architectures” that can be installed on the current system. This is simply done with <command>dpkg --add-architecture</command> like in the example below. There is a corresponding <command>dpkg --remove-architecture</command> to drop support of a foreign architecture, but it can only be used when no packages of this architecture remain."
 msgstr ""
 
 msgid ""
@@ -1581,7 +1604,7 @@ msgstr "<emphasis>SUGGERIMENTO</emphasis> Diagrammi di stato"
 msgid "APT will automatically detect when dpkg has been configured to support foreign architectures and will start downloading the corresponding <filename>Packages</filename> files durings its update process."
 msgstr ""
 
-msgid "Foreign packages can then be installed with <command>apt-get install <replaceable>package</replaceable>:<replaceable>architecture</replaceable></command>."
+msgid "Foreign packages can then be installed with <command>apt install <replaceable>package</replaceable>:<replaceable>architecture</replaceable></command>."
 msgstr ""
 
 msgid "<emphasis>IN PRACTICE</emphasis> Using proprietary i386 binaries on amd64"
@@ -1590,17 +1613,10 @@ msgstr ""
 msgid "There are multiple use cases for multi-arch, but the most popular one is the possibility to execute 32 bit binaries (i386) on 64 bit systems (amd64), in particular since several popular proprietary applications (like Skype) are only provided in 32 bit versions."
 msgstr ""
 
-msgid "Before multi-arch, when you wanted to uses a 32 bit appliction on a 64 bit system, you had to install <emphasis role=\"pkg\">ia32-libs</emphasis> to have 32 bit versions of the most popular libraries. That package was a huge hack that repackaged 32 bit libraries in an “amd64” package."
-msgstr ""
-
-#, fuzzy
-msgid "<primary><emphasis role=\"pkg\">ia32-libs</emphasis></primary>"
-msgstr "<primary><command>alien</command></primary>"
-
 msgid "Multi-Arch Related Changes"
 msgstr ""
 
-msgid "To make multi-arch actually useful and usable, libraries had to be repackaged and moved to an architecture-specific directory so that multiple copies (targeting different architectures) can be installed alongside. Such updated packages contain the “<literal>Multi-Arch: same</literal>” header field to tell the packaging system that the various architectures of the package can be safely co-installed (and that those packages can only satisfy dependencies of packages of the same architecture). Since multi-arch made its debut in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, not all libraries have been converted yet (but all libraries which were embedded in <emphasis role=\"pkg\">ia32-libs</emphasis> do!)."
+msgid "To make multi-arch actually useful and usable, libraries had to be repackaged and moved to an architecture-specific directory so that multiple copies (targeting different architectures) can be installed alongside. Such updated packages contain the “<literal>Multi-Arch: same</literal>” header field to tell the packaging system that the various architectures of the package can be safely co-installed (and that those packages can only satisfy dependencies of packages of the same architecture). Since multi-arch made its debut in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, not all libraries have been converted yet."
 msgstr ""
 
 msgid ""
@@ -1676,6 +1692,10 @@ msgstr "Guardando la pagina di manuale per il comando <command>alien</command>, 
 
 msgid "The stability of the software deployed using the <command>dpkg</command> tool contributes to Debian's fame. The APT suite of tools, described in the following chapter, preserves this advantage, while relieving the administrator from managing the status of packages, a necessary but difficult task."
 msgstr "La stabilità del software installato usando lo strumento <command>dpkg</command> contribuisce alla fama di Debian. La suite di strumenti APT, descritta nel capitolo seguente, mantiene questo vantaggio, sollevando l'amministratore dal gestire lo stato dei pacchetti, un compito necessario, ma difficile."
+
+#, fuzzy
+#~ msgid "<primary><emphasis role=\"pkg\">ia32-libs</emphasis></primary>"
+#~ msgstr "<primary><command>alien</command></primary>"
 
 #~ msgid "<emphasis>GOING FURTHER</emphasis> Virtual package versions"
 #~ msgstr "<emphasis>APPROFONDIMENTI</emphasis> Versioni dei pacchetti virtuali"

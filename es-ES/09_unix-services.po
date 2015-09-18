@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-18 21:01+0200\n"
 "PO-Revision-Date: 2014-10-12 05:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/es/>\n"
@@ -95,7 +95,7 @@ msgstr "Actualmente <emphasis role=\"pkg\">sysv-rc</emphasis> («System V») pro
 msgid "<emphasis>CULTURE</emphasis> Before <command>systemd</command>"
 msgstr "<emphasis>ALTERNATIVA</emphasis> Otros programas <command>inetd</command>"
 
-msgid "<command>systemd</command> is a relatively recent “init system”, and although it was already available, to a certain extent, in <emphasis role=\"distribution\">Wheezy</emphasis>, it has only become the default in Debian <emphasis role=\"distribution\">Jessie</emphasis>. Previous releases relied, by default, on the “System V init” (in the <emphasis role=\"pkg\">sysv-rc</emphasis> package), a much more traditional system. We describe the SysV init later on."
+msgid "<command>systemd</command> is a relatively recent “init system”, and although it was already available, to a certain extent, in <emphasis role=\"distribution\">Wheezy</emphasis>, it has only become the default in Debian <emphasis role=\"distribution\">Jessie</emphasis>. Previous releases relied, by default, on the “System V init” (in the <emphasis role=\"pkg\">sysv-rc</emphasis> package), a much more traditional system. We describe the System V init later on."
 msgstr ""
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
@@ -103,7 +103,7 @@ msgstr "<emphasis>ALTERNATIVA</emphasis> Otros sistemas de inicio"
 
 #, fuzzy
 #| msgid "This book describes the boot system used by default in Debian (as implemented by the <emphasis role=\"pkg\">sysvinit</emphasis> package), which is derived and inherited from <emphasis>System V</emphasis> Unix systems, but there are others. <emphasis role=\"distribution\">Jessie</emphasis> will likely come with another init system by default since the current one is no longer suited to the dynamic nature of computing."
-msgid "This book describes the boot system used by default in Debian <emphasis role=\"distribution\">Jessie</emphasis> (as implemented by the <emphasis role=\"pkg\">systemd</emphasis> package), as well as the previous default, <emphasis role=\"pkg\">sysvinit</emphasis>, which is derived and inherited from <emphasis>System_V</emphasis> Unix systems; there are others."
+msgid "This book describes the boot system used by default in Debian <emphasis role=\"distribution\">Jessie</emphasis> (as implemented by the <emphasis role=\"pkg\">systemd</emphasis> package), as well as the previous default, <emphasis role=\"pkg\">sysvinit</emphasis>, which is derived and inherited from <emphasis>System V</emphasis> Unix systems; there are others."
 msgstr "Este libro describe el sistema de inicio utilizado de forma predeterminada en Debian (como es implementado por el paquete <emphasis role=\"pkg\">sysvinit</emphasis>), la cual deriva y hereda de «<emphasis>System V</emphasis>» de sistemas Unix, pero existen otros. <emphasis role=\"distribution\">Jessie</emphasis> probablemente incluya otro sistema de inicio predeterminado porque el actual ya no es adecuado para la naturaleza dinámica de la informática."
 
 msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
@@ -114,7 +114,9 @@ msgstr "<emphasis role=\"pkg\">file-rc</emphasis> es un sistema de inicio con un
 msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Jessie</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
 msgstr "El sistema <command>upstart</command> todavía no fue probado perfectamente en Debian. Está basado en eventos: los scripts de inicio no se ejecutan en un orden secuencial sino en respuesta a eventos como la finalización de otro script del que depende. Este sistema, creado en Ubuntu, está presente en Debian <emphasis role=\"distribution\">Wheezy</emphasis> pero no es el predeterminado; sólo viene como reemplazo para <emphasis role=\"pkg\">sysvinit</emphasis> y una de las tareas ejecutadas por <command>upstart</command> es ejecutar los scripts escritos para sistemas tradicionales, especialmente aquellos del paquete <emphasis role=\"pkg\">sysv-rc</emphasis>."
 
-msgid "There are also other systems and other operating modes, such as <command>runit</command>, <command>minit</command>, or <command>initng</command>, but they are relatively specialized and not widespread."
+#, fuzzy
+#| msgid "There are also other systems and other operating modes, such as <command>runit</command>, <command>minit</command>, or <command>initng</command>, but they are relatively specialized and not widespread."
+msgid "There are also other systems and other operating modes, such as <command>runit</command> or <command>minit</command>, but they are relatively specialized and not widespread."
 msgstr "También existen otros sistemas y otros modos de operación, como <command>runit</command>, <command>minit</command> o <command>initng</command> pero son relativamente especializados y poco difundidos."
 
 msgid "<emphasis>SPECIFIC CASE</emphasis> Booting from the network"
@@ -152,13 +154,15 @@ msgstr "Cualquier persona con acceso al equipo puede presionar el botón <keycap
 msgid "To prevent this, you can protect the bootloader itself with a password. You might also think about protecting access to the BIOS (a password protection mechanism is almost always available), without which a malicious intruder could still boot the machine on a removable media containing its own Linux system, which they could then use to access data on the computer's hard drives."
 msgstr "Para prevenirlo puede proteger el gestor de arranque con una contraseña. También podría pensar en proteger el acceso al BIOS (casi siempre tiene disponible un mecanismo de protección por contraseña) sin el cual un intruso malicioso podría iniciar la máquina desde un medio removible que contiene su propio sistema Linux, el cual podría utilizar para tener acceso a los datos del disco duro del equipo."
 
-msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There's no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
+#, fuzzy
+#| msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There's no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
+msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There is no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
 msgstr "Finalmente, tenga en cuenta que la mayoría de los BIOS tiene disponible una contraseña genérica. Inicialmente destinado a resolver los problemas de quienes han olvidado su contraseña, éstas ahora son públicas y están disponibles en Internet (revíselo por su cuenta buscando «contraseñas genéricas de BIOS» en algún motor de búsqueda). Todas estas protecciones impedirán el acceso no autorizado a la máquina sin poder evitarlo por completo. No existe una forma segura de proteger un equipo si el atacante puede acceder a él físicamente; podría quitar el disco duro para conectarlo a un equipo bajo su control de cualquier manera, o aún robar la máquina completa o borrar la memoria del BIOS para eliminar la contraseña…"
 
-msgid "Systemd executes several processes, in charge of setting up the system: keyboard, drivers, filesystems, network, services. It does this while keeping a global view of the system as a whole, and the requirements of the components. Each component is described by a “unit file” (sometimes more); the general syntax is derived from the widely-used “*.ini files“ syntax, with <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> pairs grouped between <literal>[<replaceable>section</replaceable>]</literal> headers. Unit files are stored under <filename>/lib/systemd/system/</filename> and <filename>/etc/systemd/system/</filename>; they come in several flavours, but we'll focus on “services” and “targets” here."
+msgid "Systemd executes several processes, in charge of setting up the system: keyboard, drivers, filesystems, network, services. It does this while keeping a global view of the system as a whole, and the requirements of the components. Each component is described by a “unit file” (sometimes more); the general syntax is derived from the widely-used “*.ini files“ syntax, with <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> pairs grouped between <literal>[<replaceable>section</replaceable>]</literal> headers. Unit files are stored under <filename>/lib/systemd/system/</filename> and <filename>/etc/systemd/system/</filename>; they come in several flavours, but we will focus on “services” and “targets” here."
 msgstr ""
 
-msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory way (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here's the service file for SSH:"
+msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here is the service file for SSH:"
 msgstr ""
 
 msgid ""
@@ -179,7 +183,7 @@ msgid ""
 "Alias=sshd.service"
 msgstr ""
 
-msgid "As you can see, there's very little code in there, only declarations. Systemd takes care of displaying progress reports, keeping track of the processes, and even restarting them when needed."
+msgid "As you can see, there is very little code in there, only declarations. Systemd takes care of displaying progress reports, keeping track of the processes, and even restarting them when needed."
 msgstr ""
 
 msgid "A systemd “target file” describes a state of the system, where a set of services are known to be operational. It can be thought of as an equivalent of the old-style runlevel. One of the targets is <literal>local-fs.target</literal>; when it is reached, the rest of the system can assume that all local filesystems are mounted and accessible. Other targets include <literal>network-online.target</literal> and <literal>sound.target</literal>. The dependencies of a target can be listed either within the target file (in the <literal>Requires=</literal> line), or using a symbolic link to a service file in the <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal> directory. For instance, <filename>/etc/systemd/system/printer.target.wants/</filename> contains a link to <filename>/lib/systemd/system/cups.service</filename>; systemd will therefore ensure CUPS is running in order to reach <literal>printer.target</literal>."
@@ -216,7 +220,7 @@ msgstr ""
 msgid "Another useful command-line flag is <command>-f</command>, which instructs <command>journalctl</command> to keep displaying new messages as they are emitted (much in the manner of <command>tail -f <replaceable>file</replaceable></command>)."
 msgstr ""
 
-msgid "If a service doesn't seem to be working as expected, the first step to debug the problem are to check that the service is actually running with <command>systemctl status</command>; if it is not, and the messages given by the first command are not enough to diagnose the problem, check the logs gathered by journald about that service. For instance, assume the SSH server doesn't work:"
+msgid "If a service doesn't seem to be working as expected, the first step to debug the problem is to check that the service is actually running with <command>systemctl status</command>; if it is not, and the messages given by the first command are not enough to diagnose the problem, check the logs gathered by journald about that service. For instance, assume the SSH server doesn't work:"
 msgstr ""
 
 msgid ""
@@ -281,13 +285,13 @@ msgstr ""
 msgid "<emphasis>GOING FURTHER</emphasis> Other types of unit files"
 msgstr "<emphasis>YENDO MÁS ALLÁ</emphasis> Definición de cuotas con un script"
 
-msgid "We've only described the most basic of systemd's capabilities in this section. It offers many other interesting features; we'll only list a few here:"
+msgid "We have only described the most basic of systemd's capabilities in this section. It offers many other interesting features; we will only list a few here:"
 msgstr ""
 
-msgid "socket activation: a “socket” unit file can be used to describe a network or Unix socket managed by systemd; this means that the socket will be created by systemd, and the actual service may be started on demand when an actual connection attempt comes. This roughly replicates the feature set of <command>inetd</command>."
+msgid "socket activation: a “socket” unit file can be used to describe a network or Unix socket managed by systemd; this means that the socket will be created by systemd, and the actual service may be started on demand when an actual connection attempt comes. This roughly replicates the feature set of <command>inetd</command>. See <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
 msgstr ""
 
-msgid "timers: a “timer” unit file describes events that occur with a fixed frequency; when a service is linked to such a timer, the corresponding task will be executed whenever the timer fires. In a similar fashion, a “time” unit file describes events that occur on specific times. This allows replicating part of the <command>cron</command> features."
+msgid "timers: a “timer” unit file describes events that occur with a fixed frequency or on specific times; when a service is linked to such a timer, the corresponding task will be executed whenever the timer fires. This allows replicating part of the <command>cron</command> features. See <citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
 msgstr ""
 
 msgid "network: a “network“ unit file describes a network interface, which allows configuring such interfaces as well as expressing that a service depends on one particular interface being up."
@@ -403,7 +407,9 @@ msgstr "<primary>servicio</primary><secondary>reinicialización</secondary>"
 msgid "<primary>restarting services</primary>"
 msgstr "<primary>reinicialización de servicios</primary>"
 
-msgid "The maintainer scripts for Debian packages will sometimes restart certain services to ensure their availability or get them to take certain options into account. The command that controls a service — <command>/etc/init.d/<replaceable>service</replaceable> <replaceable>operation</replaceable></command> — doesn't take runlevel into consideration, assumes (wrongly) that the service is currently being used, and may thus initiate incorrect operations (starting a service that was deliberately stopped, or stopping a service that is already stopped, etc.). Debian therefore introduced the <command>invoke-rc.d</command> program: this program must be used by maintainer scripts to run services initialization scripts and it will only execute the necessary commands. Note that, contrary to common usage, the <filename>.d</filename> suffix is used here in a program name, and not in a directory."
+#, fuzzy
+#| msgid "The maintainer scripts for Debian packages will sometimes restart certain services to ensure their availability or get them to take certain options into account. The command that controls a service — <command>/etc/init.d/<replaceable>service</replaceable> <replaceable>operation</replaceable></command> — doesn't take runlevel into consideration, assumes (wrongly) that the service is currently being used, and may thus initiate incorrect operations (starting a service that was deliberately stopped, or stopping a service that is already stopped, etc.). Debian therefore introduced the <command>invoke-rc.d</command> program: this program must be used by maintainer scripts to run services initialization scripts and it will only execute the necessary commands. Note that, contrary to common usage, the <filename>.d</filename> suffix is used here in a program name, and not in a directory."
+msgid "The maintainer scripts for Debian packages will sometimes restart certain services to ensure their availability or get them to take certain options into account. The command that controls a service — <command>service <replaceable>service</replaceable> <replaceable>operation</replaceable></command> — doesn't take runlevel into consideration, assumes (wrongly) that the service is currently being used, and may thus initiate incorrect operations (starting a service that was deliberately stopped, or stopping a service that is already stopped, etc.). Debian therefore introduced the <command>invoke-rc.d</command> program: this program must be used by maintainer scripts to run services initialization scripts and it will only execute the necessary commands. Note that, contrary to common usage, the <filename>.d</filename> suffix is used here in a program name, and not in a directory."
 msgstr "Los scripts de mantenimiento para paquetes Debian a veces reinician algunos servicios para asegurar su disponibilidad o conseguir que tengan en cuenta algunas opciones. El script que controla un servicio — <command>/etc/init.d/<replaceable>servicio</replaceable> <replaceable>operación</replaceable></command> — no tiene en cuenta el nivel de ejecución, asume (incorrectamente) que el servicio está siendo utilizado actualmente y, por lo tanto, puede iniciar operaciones incorrectas (iniciar un servicio que fue detenido deliberadamente o detener un servicio que no está ejecutando, etc.). Por lo tanto, Debian introdujo el programa <command>invoke-rc.d</command>: los scripts de mantenimiento deben utilizar este programa para ejecutar scripts de inicialización de servicios que sólo ejecutarán las órdenes necesarias. Sepa que, contrario al uso común, aquí se utiliza el sufijo <filename>.d</filename> en el nombre de un programa y no en un directorio."
 
 msgid "Finally, <command>init</command> starts control programs for various virtual consoles (<command>getty</command>). It displays a prompt, waiting for a username, then executes <command>login <replaceable>user</replaceable></command> to initiate a session."
@@ -514,7 +520,9 @@ msgstr "Una bifurcación («fork»), en el campo de software, significa que comi
 msgid "The option to fork a project is a direct result of the very nature of free software; a fork is a healthy event when it enables the continuation of a project as free software (for example in case of license changes). A fork arising from technical or personal disagreements is often a waste of human resources; another resolution would be preferable. Mergers of two projects that previously went through a prior fork are not unheard of."
 msgstr "La opción de bifurcar un proyecto es un resultado directo de la naturaleza misma del software libre; es un evento saludable cuando permite la continuación de un proyecto como software libre (por ejemplo, en el caso de cambios de licencia). Una bifurcación generada por desacuerdos técnicos o personales usualmente es un desperdicio de recursos; se prefiere otra solución. También ocurren fusiones de dos proyectos que anteriormente habían bifurcado."
 
-msgid "OpenSSH is split into two packages: the client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt-get install ssh</command>)."
+#, fuzzy
+#| msgid "OpenSSH is split into two packages: the client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt-get install ssh</command>)."
+msgid "OpenSSH is split into two packages: the client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt install ssh</command>)."
 msgstr "OpenSSH está dividido en dos paquetes: la parte del cliente se encuentra en el paquete <emphasis role=\"pkg\">openssh-client</emphasis> y el servidor en el paquete <emphasis role=\"pkg\">openssh-server</emphasis>. El metapaquete <emphasis role=\"pkg\">ssh</emphasis> depende de ambas partes y facilita la instalación conjunta (<command>apt-get install ssh</command>)."
 
 msgid "Key-Based Authentication"
@@ -546,7 +554,9 @@ msgstr "Específicamente, cuando utilizaba OpenSSL para generar una llave, siemp
 msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both within the OpenSSL project and with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. On Debian's side, the maintainer wanted to validate the modifications with the OpenSSL developers, but simply explained the modifications without providing the corresponding patch to review and failed to mention his role within Debian. Finally, the maintenance choices were sub-optimal: the changes made to the original code were not clearly documented; all the modifications were effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
 msgstr "Un análisis más detallado de este problema resaltó que era el resultado de múltiples problemas (pequeños), tanto en el proyecto OpenSSL así como también con el encargado del paquete Debian. Una biblioteca tan utilizada como OpenSSL no debería — sin modificaciones — generar advertencias cuando es probada con <command>valgrind</command>. Lo que es más, el código (especialmente las partes tan sensibles como el RNG) deberían tener mejores comentarios para evitar estos errores. El encargado Debian por su parte, deseando validar sus modificaciones con los desarrolladores de OpenSSL, simplemente explicó sus modificaciones sin proveer el parche correspondiente para revisar. Tampoco se identificó a sí mismo claramente como el encargado del paquete Debian correspondiente. Finalmente, en sus elecciones como encargado, no documentó los cambios al código original claramente; todas las modificaciones fueron almacenadas en un repositorio Subversion, pero terminaron agrupadas en sólo un parche durante la creación del paquete fuente."
 
-msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian patch tracker were developed. <ulink type=\"block\" url=\"http://patch-tracker.debian.org\" />"
+#, fuzzy
+#| msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian patch tracker were developed. <ulink type=\"block\" url=\"http://patch-tracker.debian.org\" />"
+msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian sources webservice were developed. <ulink type=\"block\" url=\"http://sources.debian.net\" />"
 msgstr "Bajo tales condiciones es difícil encontrar las medidas correctivas para evitar que ocurran incidentes similar. La lección a aprender aquí es que cada divergencia que Debian introduce al software de origen debe estar justificada, documentada, enviada al proyecto de origen cuando sea posible y publicitada ampliamente. Es desde esta perspectiva que se desarrollaron el nuevo formato de paquete fuente («3.0 (quilt)») y el sistema de seguimiento de parches Debian. <ulink type=\"block\" url=\"http://patch-tracker.debian.org\" />"
 
 msgid "Using Remote X11 Applications"
@@ -644,7 +654,9 @@ msgstr "<primary><emphasis role=\"pkg\">krdc</emphasis></primary>"
 msgid "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
 
-msgid "When the graphical session is made available by VNC, the administrator must connect to it with a VNC client. GNOME has <command>vinagre</command> and <command>remmina</command> for that, while KDE includes <command>krdc</command> (in the menu at <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There are other VNC clients that use the command line, such as <command>xvnc4viewer</command> in the Debian package of the same name. Once connected, the administrator can see what's going on, work on the machine remotely, and show the user how to proceed."
+#, fuzzy
+#| msgid "When the graphical session is made available by VNC, the administrator must connect to it with a VNC client. GNOME has <command>vinagre</command> and <command>remmina</command> for that, while KDE includes <command>krdc</command> (in the menu at <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There are other VNC clients that use the command line, such as <command>xvnc4viewer</command> in the Debian package of the same name. Once connected, the administrator can see what's going on, work on the machine remotely, and show the user how to proceed."
+msgid "When the graphical session is made available by VNC, the administrator must connect to it with a VNC client. GNOME has <command>vinagre</command> and <command>remmina</command> for that, while KDE includes <command>krdc</command> (in the menu at <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There are other VNC clients that use the command line, such as <command>xvnc4viewer</command> in the Debian package of the same name. Once connected, the administrator can see what is going on, work on the machine remotely, and show the user how to proceed."
 msgstr "Cuando la sesión gráfica está disponible a través de VNC, el administrador debe conectarse a ella con un cliente VNC. Para ello GNOME posee <command>vinagre</command> y <command>remmina</command>, mientras que KDE posee <command>krdc</command> (en el menú <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Cliente de Escritorio Remoto</guimenuitem></menuchoice>). Existen otros clientes VNC para utilizar en una terminal como <command>xvnc4viewer</command> en el paquete Debian del mismo nombre. Una vez conectado, el administrador puede ver lo que sucede, trabajar en el equipo remotamente y mostrarle al usuario cómo proceder."
 
 msgid "<emphasis>SECURITY</emphasis> VNC over SSH"
@@ -764,7 +776,9 @@ msgstr "<primary>modificación, permiso</primary>"
 msgid "<primary>execution, right</primary>"
 msgstr "<primary>ejecución, permiso</primary>"
 
-msgid "In the case of a file, these rights are easily understood: read access allows reading the content (including copying), write access allows changing it, and execute access allows you to run it (which will only work if it's a program)."
+#, fuzzy
+#| msgid "In the case of a file, these rights are easily understood: read access allows reading the content (including copying), write access allows changing it, and execute access allows you to run it (which will only work if it's a program)."
+msgid "In the case of a file, these rights are easily understood: read access allows reading the content (including copying), write access allows changing it, and execute access allows you to run it (which will only work if it is a program)."
 msgstr "En el caso de un archivo, estos permisos se entienden fácilmente: la lectura permite acceder al contenido (inclusive copiarlo), la escritura permite cambiarlo y la ejecución permite ejecutarlo (que sólo funcionará si es un programa)."
 
 msgid "<emphasis>SECURITY</emphasis> <literal>setuid</literal> and <literal>setgid</literal> executables"
@@ -850,7 +864,9 @@ msgstr "<emphasis>SUGERENCIA</emphasis> Operación recursiva"
 msgid "Sometimes we have to change rights for an entire file tree. All the commands above have a <literal>-R</literal> option to operate recursively in sub-directories."
 msgstr "A veces debemos cambiar los permisos a un árbol de archivos completo. Todos los programas mencionados aceptan la opción <literal>-R</literal> para trabajar recursivamente en subdirectorios."
 
-msgid "The distinction between directories and files sometimes causes problems with recursive operations. That's why the “X” letter has been introduced in the symbolic representation of rights. It represents a right to execute which applies only to directories (and not to files lacking this right). Thus, <command>chmod -R a+X <replaceable>directory</replaceable></command> will only add execute rights for all categories of users (<literal>a</literal>) for all of the sub-directories and files for which at least one category of user (even if their sole owner) already has execute rights."
+#, fuzzy
+#| msgid "The distinction between directories and files sometimes causes problems with recursive operations. That's why the “X” letter has been introduced in the symbolic representation of rights. It represents a right to execute which applies only to directories (and not to files lacking this right). Thus, <command>chmod -R a+X <replaceable>directory</replaceable></command> will only add execute rights for all categories of users (<literal>a</literal>) for all of the sub-directories and files for which at least one category of user (even if their sole owner) already has execute rights."
+msgid "The distinction between directories and files sometimes causes problems with recursive operations. That is why the “X” letter has been introduced in the symbolic representation of rights. It represents a right to execute which applies only to directories (and not to files lacking this right). Thus, <command>chmod -R a+X <replaceable>directory</replaceable></command> will only add execute rights for all categories of users (<literal>a</literal>) for all of the sub-directories and files for which at least one category of user (even if their sole owner) already has execute rights."
 msgstr "La distinción entre archivos y directorios a veces causa problemas con operaciones recursivas. Es por eso que se introdujo la letra «X» en la representación simbólica de permisos. Representa el permiso de ejecución sólo para directorios (y no para archivos que no tengan este permiso). Por lo tanto, <command>chmod -R a+X <replaceable>directorio</replaceable></command> sólo agregará permisos de ejecución para todas las categorías de usuarios (<literal>a</literal>) en todos los subdirectorios y aquellos archivos en los que al menos una de las categorías de usuario (aún si sólo es el usuario dueño) ya posea permisos de ejecución."
 
 msgid "<emphasis>TIP</emphasis> Changing the user and group"
@@ -1061,7 +1077,9 @@ msgstr "<literal>local0</literal> a <literal>local7</literal>: reservados para u
 msgid "Each message is also associated with a priority level. Here is the list in decreasing order:"
 msgstr "Cada mensaje tiene asociado también un nivel de prioridad. Aquí está la lista en orden decreciente:"
 
-msgid "<literal>emerg</literal>: “Help!” There's an emergency, the system is probably unusable."
+#, fuzzy
+#| msgid "<literal>emerg</literal>: “Help!” There's an emergency, the system is probably unusable."
+msgid "<literal>emerg</literal>: “Help!” There is an emergency, the system is probably unusable."
 msgstr "<literal>emerg</literal>: «¡Ayuda!» Hay una emergencia y el sistema probablemente está inutilizado."
 
 msgid "<literal>alert</literal>: hurry up, any delay can be dangerous, action must be taken immediately;"
@@ -1240,7 +1258,7 @@ msgstr "Si bien Debian instala <emphasis role=\"pkg\">openbsd-inetd</emphasis> d
 msgid "This last incarnation of a super-server offers very interesting possibilities. Most notably, its configuration can be split into several files (stored, of course, in the <filename>/etc/xinetd.d/</filename> directory), which can make an administrator's life easier."
 msgstr "Esta última encarnación de superservidor ofrece posibilidades muy interesantes. Notablemente, se puede dividir su configuración en varios archivos (almacenados, por supuesto, en el directorio <filename>/etc/xinetd.d/</filename>), lo que puede hacer más sencilla la vida del administrador."
 
-msgid "It's even possible to emulate <command>inetd</command>'s behaviour with <command>systemd</command>'s socket-activation mechanism (see above)."
+msgid "Last but not least, it is even possible to emulate <command>inetd</command>'s behaviour with <command>systemd</command>'s socket-activation mechanism (see <xref linkend=\"sect.systemd\" />)."
 msgstr ""
 
 msgid "Scheduling Tasks with <command>cron</command> and <command>atd</command>"
@@ -1411,7 +1429,7 @@ msgstr "Para ejecutar un programa sólo una vez, justo después de iniciar el eq
 msgid "<emphasis>ALTERNATIVE</emphasis> Emulating <command>cron</command> with <command>systemd</command>"
 msgstr "<emphasis>SEGURIDAD</emphasis> Restricción de <command>cron</command> o <command>atd</command>"
 
-msgid "It is possible possible to emulate part of <command>crond</command>'s behaviour with <command>systemd</command>'s timer mechanism (see above)."
+msgid "It is possible possible to emulate part of <command>cron</command>'s behaviour with <command>systemd</command>'s timer mechanism (see <xref linkend=\"sect.systemd\" />)."
 msgstr ""
 
 msgid "Using the <command>at</command> Command"
@@ -1804,7 +1822,7 @@ msgstr "<emphasis>EN LA PRÁCTICA</emphasis> Administración de tarjetas de red"
 
 #, fuzzy
 #| msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the 2.6 kernel no longer guarantees fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
-msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, kernel versions later than 2.6 no longer guarantee fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
+msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the Linux kernel does not guarantee fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
 msgstr "Muchos equipos poseen múltiples tarjetas de red (a veces dos interfaces cableadas y una interfaz inalámbrica) y, con la mayoría de los canales compatibles con <emphasis>hotplug</emphasis>, el núcleo 2.6 ya no garantiza un nombre fijo para cada interfaz de red. ¡Pero un usuario que desea configurar su red en <filename>/etc/network/interfaces</filename> necesita un nombre fijo!"
 
 msgid "It would be difficult to ask every user to create their own <emphasis>udev</emphasis> rules to address this problem. This is why <emphasis>udev</emphasis> was configured in a rather peculiar manner; on first boot (and, more generally, each time that a new network card appears) it uses the name of the network interface and its MAC address to create new rules that will reassign the same name on subsequent boots. These rules are stored in <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
@@ -2029,7 +2047,9 @@ msgstr "Una vez que haya guardado estas reglas en un archivo, llamado por ejempl
 msgid "<emphasis>GOING FURTHER</emphasis> Debugging <emphasis>udev</emphasis>'s configuration"
 msgstr "<emphasis>YENDO MÁS ALLÁ</emphasis> Depuración de la configuración de <emphasis>udev</emphasis>"
 
-msgid "Like many daemons, <command>udevd</command> stores logs in <filename>/var/log/daemon.log</filename>. But it is not very verbose by default, and it's usually not enough to understand what's happening. The <command>udevadm control --log-priority=info</command> command increases the verbosity level and solves this problem. <command>udevadm control --log-priority=err</command> returns to the default verbosity level."
+#, fuzzy
+#| msgid "Like many daemons, <command>udevd</command> stores logs in <filename>/var/log/daemon.log</filename>. But it is not very verbose by default, and it's usually not enough to understand what's happening. The <command>udevadm control --log-priority=info</command> command increases the verbosity level and solves this problem. <command>udevadm control --log-priority=err</command> returns to the default verbosity level."
+msgid "Like many daemons, <command>udevd</command> stores logs in <filename>/var/log/daemon.log</filename>. But it is not very verbose by default, and it is usually not enough to understand what is happening. The <command>udevadm control --log-priority=info</command> command increases the verbosity level and solves this problem. <command>udevadm control --log-priority=err</command> returns to the default verbosity level."
 msgstr "Al igual que muchos demonios, <command>udevd</command> almacena registros en <filename>/var/log/daemon.log</filename>. Pero no es muy descriptivo de forma predeterminada y generalmente no son suficientes para entender lo que está sucediendo. Ejecutar <command>udevadm control --log-priority=info</command> aumenta el nivel de información y soluciona este problema. <command>udevadm control --log-priority=err</command> vuelve al valor predeterminado."
 
 msgid "Power Management: Advanced Configuration and Power Interface (ACPI)"
@@ -2056,18 +2076,6 @@ msgstr "<primary>Advanced Configuration and Power Interface</primary>"
 msgid "<primary><command>acpid</command></primary>"
 msgstr "<primary><command>acpid</command></primary>"
 
-msgid "<emphasis>CULTURE</emphasis> Advanced Power Management (APM)"
-msgstr "<emphasis>CULTURA</emphasis> Gestión avanzada de energía (APM: «Advanced Power Management»)"
-
-msgid "<primary>APM</primary>"
-msgstr "<primary>APM</primary>"
-
-msgid "<primary>Advanced Power Management</primary>"
-msgstr "<primary>Advanced Power Management</primary>"
-
-msgid "APM (Advanced Power Management) is the ancestor of ACPI in the power management world. While Debian still provides <command>apmd</command> (the counterpart to <command>acpid</command> for the APM standard), the official Debian kernel no longer supports APM so you'll have to run a custom kernel if you really need it for some old computer."
-msgstr "APM (gestión avanzada de energía: «Advanced Power Management») es el ancestro de ACP en el mundo de gestión de energía. Si bien Debian todavía provee <command>apmd</command> (la contraparte de <command>acpid</command> para el estándar APM), el núcleo Debian oficial ya no es compatible con APM por lo que deberá ejecutar un núcleo personalizado si realmente lo necesita en algún equipo antiguo."
-
 msgid "<emphasis>BEWARE</emphasis> Graphics card and standby"
 msgstr "<emphasis>CUIDADO</emphasis> Tarjetas gráficas y suspensión"
 
@@ -2076,6 +2084,18 @@ msgstr "El controlador de la tarjeta de video frecuentemente es el problema cuan
 
 msgid "After this overview of basic services common to many Unix systems, we will focus on the environment of the administered machines: the network. Many services are required for the network to work properly. They will be discussed in the next chapter."
 msgstr "Luego de esta revisión de los servicios básicos comunes a muchos sistemas Unix, nos enfocaremos en el entorno de las máquinas administradas: la red. Se necesitan muchos servicios para que la red funcione correctamente. Hablaremos de ellos en el próximo capítulo."
+
+#~ msgid "<emphasis>CULTURE</emphasis> Advanced Power Management (APM)"
+#~ msgstr "<emphasis>CULTURA</emphasis> Gestión avanzada de energía (APM: «Advanced Power Management»)"
+
+#~ msgid "<primary>APM</primary>"
+#~ msgstr "<primary>APM</primary>"
+
+#~ msgid "<primary>Advanced Power Management</primary>"
+#~ msgstr "<primary>Advanced Power Management</primary>"
+
+#~ msgid "APM (Advanced Power Management) is the ancestor of ACPI in the power management world. While Debian still provides <command>apmd</command> (the counterpart to <command>acpid</command> for the APM standard), the official Debian kernel no longer supports APM so you'll have to run a custom kernel if you really need it for some old computer."
+#~ msgstr "APM (gestión avanzada de energía: «Advanced Power Management») es el ancestro de ACP en el mundo de gestión de energía. Si bien Debian todavía provee <command>apmd</command> (la contraparte de <command>acpid</command> para el estándar APM), el núcleo Debian oficial ya no es compatible con APM por lo que deberá ejecutar un núcleo personalizado si realmente lo necesita en algún equipo antiguo."
 
 #~ msgid "Another new option that is gaining a lot of traction is <command>systemd</command>. Its approach is opposite to the previous systems; instead of preemptively launching all services, and having to deal with the question of scheduling, <command>systemd</command> chooses to start services on demand, somewhat along the principle of <command>inetd</command>. But this means that the boot system must be able to know how services are made available (it could be through a socket, a filesystem, or others), and thus requires small modifications of those services. It also provides backwards compatibility to System V init scripts."
 #~ msgstr "Otra nueva alternativa que está ganando mucha fuerza es <command>systemd</command>. Su enfoque es opuesto a los sistemas anteriores; en lugar de ejecutar todos los servicios preventivamente y tener que lidiar con el orden de los mismos, <command>systemd</command> inicia los servicios a pedido, de alguna forma similar a <command>inetd</command>. Pero esto significa que el sistema de inicio necesita poder saber cómo se provee cada servicio (puede ser a través de un zócalo, un sistema de archivo u otros) y, por lo tanto, necesita pequeñas modificaciones en estos servicios. También es compatible con los scripts de inicio de System V."

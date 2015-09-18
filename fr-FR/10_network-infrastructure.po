@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-18 21:01+0200\n"
 "PO-Revision-Date: 2015-03-20 08:54+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: None\n"
@@ -214,7 +214,9 @@ msgstr "<primary>SSL</primary>"
 msgid "<primary>TLS</primary>"
 msgstr "<primary>TLS</primary>"
 
-msgid "The SSL protocol (<emphasis>Secure Socket Layer</emphasis>) was invented by Netscape to secure connections to web servers. It was later standardized by IETF under the acronym TLS (<emphasis>Transport Layer Security</emphasis>); TLS is very similar to SSLv3 with only a few fixes and improvements."
+#, fuzzy
+#| msgid "The SSL protocol (<emphasis>Secure Socket Layer</emphasis>) was invented by Netscape to secure connections to web servers. It was later standardized by IETF under the acronym TLS (<emphasis>Transport Layer Security</emphasis>); TLS is very similar to SSLv3 with only a few fixes and improvements."
+msgid "The SSL protocol (<emphasis>Secure Socket Layer</emphasis>) was invented by Netscape to secure connections to web servers. It was later standardized by IETF under the acronym TLS (<emphasis>Transport Layer Security</emphasis>). Since then TLS continued to evolve and nowadays SSL is deprecated due to multiple design flaws that have been discovered."
 msgstr "SSL (<foreignphrase>Secure Socket Layer</foreignphrase>) est un protocole inventé par Netscape pour sécuriser les connexions aux serveurs Web. Plus tard il a été standardisé par l'IETF sous le nom de TLS (<foreignphrase>Transport Layer Security</foreignphrase>). TLS n'est rien d'autre que SSLv3 avec quelques corrections et améliorations."
 
 msgid "Public Key Infrastructure: <emphasis>easy-rsa</emphasis>"
@@ -607,8 +609,7 @@ msgstr "Il ne reste plus qu'à créer les certificats pour les clients du VPN, u
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>./build-key JoeSmith\n"
-"</userinput><computeroutput>./build-key JoeSmith\n"
-"Generating a 2048 bit RSA private key\n"
+"</userinput><computeroutput>Generating a 2048 bit RSA private key\n"
 "................................+++\n"
 "..............................................+++\n"
 "writing new private key to 'JoeSmith.key'\n"
@@ -673,7 +674,9 @@ msgstr "Configuration du client OpenVPN"
 msgid "Setting up an OpenVPN client also requires creating a configuration file in <filename>/etc/openvpn/</filename>. A standard configuration can be obtained by using <filename>/usr/share/doc/openvpn/examples/sample-config-files/client.conf</filename> as a starting point. The <literal>remote vpn.falcot.com 1194</literal> directive describes the address and port of the OpenVPN server; the <literal>ca</literal>, <literal>cert</literal> and <literal>key</literal> also need to be adapted to describe the locations of the key files."
 msgstr "Pour mettre en place un client OpenVPN, il faut également déposer un fichier de configuration dans <filename>/etc/openvpn/</filename>. On pourra s'inspirer de <filename>/usr/share/doc/openvpn/examples/sample-config-files/client.conf</filename> pour une configuration standard. La directive <literal>remote vpn.falcot.com 1194</literal> indique l'adresse et le port du serveur OpenVPN. Les directives <literal>ca</literal>, <literal>cert</literal> et <literal>key</literal> doivent aussi être modifiées pour indiquer l'emplacement des différentes clés."
 
-msgid "If the VPN should not be started automatically on boot, set the <literal>AUTOSTART</literal> directive to <literal>none</literal> in the <filename>/etc/default/openvpn</filename> file. Starting or stopping a given VPN connection is always possible with the commands <command>/etc/init.d/openpvn start <replaceable>name</replaceable></command> and <command>/etc/init.d/openpvn stop <replaceable>name</replaceable></command> (where the connection <replaceable>name</replaceable> matches the one defined in <filename>/etc/openvpn/<replaceable>name</replaceable>.conf</filename>)."
+#, fuzzy
+#| msgid "If the VPN should not be started automatically on boot, set the <literal>AUTOSTART</literal> directive to <literal>none</literal> in the <filename>/etc/default/openvpn</filename> file. Starting or stopping a given VPN connection is always possible with the commands <command>/etc/init.d/openpvn start <replaceable>name</replaceable></command> and <command>/etc/init.d/openpvn stop <replaceable>name</replaceable></command> (where the connection <replaceable>name</replaceable> matches the one defined in <filename>/etc/openvpn/<replaceable>name</replaceable>.conf</filename>)."
+msgid "If the VPN should not be started automatically on boot, set the <literal>AUTOSTART</literal> directive to <literal>none</literal> in the <filename>/etc/default/openvpn</filename> file. Starting or stopping a given VPN connection is always possible with the commands <command>service openvpn@<replaceable>name</replaceable> start</command> and <command>service openvpn@<replaceable>name</replaceable> stop</command> (where the connection <replaceable>name</replaceable> matches the one defined in <filename>/etc/openvpn/<replaceable>name</replaceable>.conf</filename>)."
 msgstr "Si l'on ne veut pas que la connexion au VPN soit automatiquement mise en place au démarrage, on peut positionner <literal>AUTOSTART</literal> à <literal>none</literal> dans <filename>/etc/default/openvpn</filename>. On peut toujours démarrer/stopper une connexion VPN spécifique avec <command>/etc/init.d/openpvn start <replaceable>nom</replaceable></command> et <command>/etc/init.d/openpvn stop <replaceable>nom</replaceable></command> (la connexion <replaceable>nom</replaceable> correspond à celle définie dans <filename>/etc/openvpn/<replaceable>nom</replaceable>.conf</filename>)."
 
 msgid "The <emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis> package contains an extension to Network Manager (see <xref linkend=\"sect.roaming-network-config\" />) that allows managing OpenVPN virtual private networks. This allows every user to configure OpenVPN connections graphically and to control them from the network management icon. <indexterm><primary><emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis></primary></indexterm>"
@@ -1303,7 +1306,9 @@ msgstr "<primary><command>babeld</command></primary>"
 msgid "Daemons are enabled by editing the <filename>/etc/quagga/daemons</filename> file and creating the appropriate configuration file in <filename>/etc/quagga/</filename>; this configuration file must be named after the daemon, with a <filename>.conf</filename> extension, and belong to the <literal>quagga</literal> user and the <literal>quaggavty</literal> group, in order for the <filename>/etc/init.d/quagga</filename> script to invoke the daemon."
 msgstr "On active un démon en modifiant le fichier <filename>/etc/quagga/daemons</filename> et en créant dans le répertoire <filename>/etc/quagga/</filename> son fichier de configuration, qui doit porter son nom suivi de <filename>.conf</filename> et appartenir à l'utilisateur <literal>quagga</literal> et au groupe <literal>quaggavty</literal> — dans le cas contraire, le script <filename>/etc/init.d/quagga</filename> n'invoquera pas ce démon."
 
-msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.quagga.net/docs/docs-info.php\" /> In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
+#, fuzzy
+#| msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.quagga.net/docs/docs-info.php\" /> In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
+msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" /> In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
 msgstr "La configuration de chacun de ces démons impose de connaître le fonctionnement du protocole de routage concerné. Il n'est pas possible de tous les détailler ici, mais sachez que le manuel au format <command>info</command> du paquet <emphasis role=\"pkg\">quagga-doc</emphasis> n'est pas avare d'explications. Par ailleurs, la syntaxe est très similaire à l'interface de configuration d'un routeur traditionnel et un administrateur réseau s'adaptera rapidement à <command>quagga</command>. Par souci d'ergonomie, il est aussi possible de consulter ce manuel au format HTML à l'adresse suivante : <ulink type=\"block\" url=\"http://www.quagga.net/docs/docs-info.php\" />"
 
 msgid "<emphasis>IN PRACTICE</emphasis> OSPF, BGP or RIP?"
@@ -1357,7 +1362,9 @@ msgstr ""
 msgid "IPv6 subnets usually have a netmask of 64 bits. This means that 2<superscript>64</superscript> distinct addresses exist within the subnet. This allows Stateless Address Autoconfiguration (<acronym>SLAAC</acronym>) to pick an address based on the network interface's MAC address. By default, if <acronym>SLAAC</acronym> is activated in your network and IPv6 on your computer, the kernel will automatically find IPv6 routers and configure the network interfaces."
 msgstr "Les sous-réseaux IPv6 ont généralement un masque de 64 bits, ce qui autorise 2<superscript>64</superscript> adresses dans le sous-réseau.  Cela permet l'autoconfiguration d'adresses sans état (<foreignphrase>Stateless Address Autoconfiguration</foreignphrase> ou <acronym>SLAAC</acronym>), qui choisit une adresse IPv6 à partir de l'adresse MAC de l'interface.  Par défaut, si <acronym>SLAAC</acronym> est actif sur le réseau et IPv6 actif sur un ordinateur, le noyau va automatiquement trouver les routeurs IPv6 et configurer les interfaces."
 
-msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions, which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
+#, fuzzy
+#| msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions, which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
+msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions (which Debian enables by default if IPv6 connectivity is detected during initial installation), which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
 msgstr "Ce comportement a des implications en termes de fuites d'information.  Lorsqu'on change fréquemment de réseau, par exemple avec un ordinateur portable, on ne souhaite pas forcément que l'adresse <acronym>MAC</acronym> fasse partie de l'adresse IPv6 publique, puisque cela permet d'identifier aisément le même ordinateur sur des réseaux différents.  Ce problème se résout grâce à une extension d'IPv6, qui remplace cette adresse <acronym>MAC</acronym> par un composant aléatoire, qui renouvelle ce composant de manière régulière et qui utilise l'adresse résultante pour les connexions sortantes.  Les connexions entrantes peuvent continuer d'utiliser les adresses générées par <acronym>SLAAC</acronym>.  L'exemple qui suit, à insérer dans <filename>/etc/network/interfaces</filename>, active cette extension :"
 
 msgid "IPv6 privacy extensions"
@@ -1436,7 +1443,9 @@ msgstr "Il faut ensuite créer son fichier de configuration <filename>/etc/radvd
 msgid "<primary><command>radvd</command></primary>"
 msgstr "<primary><command>radvd</command></primary>"
 
-msgid "Then run <command>/etc/init.d/gogoc restart</command> and <command>/etc/init.d/radvd start</command>, and the IPv6 network should work."
+#, fuzzy
+#| msgid "Then run <command>/etc/init.d/gogoc restart</command> and <command>/etc/init.d/radvd start</command>, and the IPv6 network should work."
+msgid "Then run <command>service gogoc restart</command> and <command>service radvd start</command>, and the IPv6 network should work."
 msgstr "Après les commandes <command>/etc/init.d/gogoc restart</command> et <command>/etc/init.d/radvd start</command>, le réseau IPv6 sera enfin fonctionnel."
 
 msgid "Domain Name Servers (DNS)"
@@ -1508,7 +1517,9 @@ msgstr "<emphasis>CULTURE</emphasis> DNSSEC"
 msgid "<primary>DNSSEC</primary>"
 msgstr "<primary>DNSSEC</primary>"
 
-msgid "The DNSSEC norm is quite complex; this partly explains why it's not in widespread usage yet (even if it perfectly coexists with DNS servers unaware of DNSSEC). To understand all the ins and outs, you should check the following article. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
+#, fuzzy
+#| msgid "The DNSSEC norm is quite complex; this partly explains why it's not in widespread usage yet (even if it perfectly coexists with DNS servers unaware of DNSSEC). To understand all the ins and outs, you should check the following article. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
+msgid "The DNSSEC norm is quite complex; this partly explains why it is not in widespread usage yet (even if it perfectly coexists with DNS servers unaware of DNSSEC). To understand all the ins and outs, you should check the following article. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
 msgstr "La norme DNSSEC est assez complexe ; pour en comprendre tous les tenants et aboutissants, nous vous suggérons de consulter les informations disponibles sur le site du NIC France (organisme gérant l'attribution des domaines en <literal>.fr</literal>), et particulièrement les supports de cours. Il faut savoir que cette norme, encore relativement expérimentale, n'est pas systématiquement employée (même si elle coexiste parfaitement avec des serveurs DNS qui ne la connaissent pas). <ulink type=\"block\" url=\"https://www.afnic.fr/fr/produits-et-services/services/dnssec-1.html\" />"
 
 msgid "Configuring"
@@ -2189,17 +2200,17 @@ msgstr "<primary><command>tshark</command></primary>"
 msgid "When one cannot run a graphical interface, or does not wish to do so for whatever reason, a text-only version of <command>wireshark</command> also exists under the name <command>tshark</command> (in a separate <emphasis role=\"pkg\">tshark</emphasis> package). Most of the capture and decoding features are still available, but the lack of a graphical interface necessarily limits the interactions with the program (filtering packets after they've been captured, tracking of a given TCP connection, and so on). It can still be used as a first approach. If further manipulations are intended and require the graphical interface, the packets can be saved to a file and this file can be loaded into a graphical <command>wireshark</command> running on another machine."
 msgstr "Lorsque l'on ne souhaite pas lancer d'interface graphique, ou que c'est impossible pour une raison ou une autre, on peut utiliser une version en texte seul de <command>wireshark</command> appelée <command>tshark</command> (dans un paquet <emphasis role=\"pkg\">tshark</emphasis> séparé). La plupart des fonctionnalités de capture et de décodage des paquets restent présentes, mais le manque d'interface graphique limite forcément les interactions avec le programme (filtrage des paquets après la capture, suivi d'une connexion TCP, etc.). On l'emploiera donc pour une première approche. Si l'on s'aperçoit que l'interface est importante pour les manipulations que l'on a en tête, on pourra toutefois sauvegarder les paquets capturés dans un fichier et importer ce fichier dans un <command>wireshark</command> graphique sur une autre machine."
 
-msgid "<emphasis>CULTURE</emphasis> <command>ethereal</command> and <command>wireshark</command>"
-msgstr "<emphasis>CULTURE</emphasis> <command>ethereal</command> et <command>wireshark</command>"
+#~ msgid "<emphasis>CULTURE</emphasis> <command>ethereal</command> and <command>wireshark</command>"
+#~ msgstr "<emphasis>CULTURE</emphasis> <command>ethereal</command> et <command>wireshark</command>"
 
-msgid "<primary><command>ethereal</command></primary>"
-msgstr "<primary><command>ethereal</command></primary>"
+#~ msgid "<primary><command>ethereal</command></primary>"
+#~ msgstr "<primary><command>ethereal</command></primary>"
 
-msgid "<primary><command>tethereal</command></primary>"
-msgstr "<primary><command>tethereal</command></primary>"
+#~ msgid "<primary><command>tethereal</command></primary>"
+#~ msgstr "<primary><command>tethereal</command></primary>"
 
-msgid "<command>wireshark</command> seems to be relatively young; however, it is only the new name for a software application previously known as <command>ethereal</command>. When its main developer left the company where he was employed, he was not able to arrange for the transfer of the registered trademark. As an alternative he went for a name change; only the name and the icons for the software actually changed."
-msgstr "<command>wireshark</command>, bien qu'apparu relativement récemment, est en réalité simplement le nouveau nom du logiciel <command>ethereal</command>. Lorsque le développeur principal a quitté la société qui l'employait, il n'a pas réussi à se faire transférer la marque déposée et il a donc opté pour un changement de nom, mais seuls le nom et l'icône du logiciel ont changé."
+#~ msgid "<command>wireshark</command> seems to be relatively young; however, it is only the new name for a software application previously known as <command>ethereal</command>. When its main developer left the company where he was employed, he was not able to arrange for the transfer of the registered trademark. As an alternative he went for a name change; only the name and the icons for the software actually changed."
+#~ msgstr "<command>wireshark</command>, bien qu'apparu relativement récemment, est en réalité simplement le nouveau nom du logiciel <command>ethereal</command>. Lorsque le développeur principal a quitté la société qui l'employait, il n'a pas réussi à se faire transférer la marque déposée et il a donc opté pour un changement de nom, mais seuls le nom et l'icône du logiciel ont changé."
 
 #~ msgid "<primary><command>openswan</command></primary>"
 #~ msgstr "<primary><command>openswan</command></primary>"
