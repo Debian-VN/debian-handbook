@@ -1979,16 +1979,6 @@ testxen login: </computeroutput>
 	by heavier emulators or virtualizers. In particular:</para>
         <itemizedlist>
           <listitem>
-	    <para>the <emphasis role="distribution">Jessie</emphasis>
-	    standard kernel does not allow limiting the amount of
-	    memory available to a container; the feature exists, and
-	    is built in the kernel, but it is disabled by default
-	    because it has a (slight) cost on overall system
-	    performance; however, enabling it is a simple matter of
-	    setting the <command>cgroup_enable=memory</command> kernel
-	    command-line option at boot time;</para>
-          </listitem>
-          <listitem>
 	    <para>since the kernel is shared among the host system and the
 	    containers, processes constrained to containers can still
 	    access the kernel messages, which can lead to information leaks
@@ -2010,9 +2000,9 @@ testxen login: </computeroutput>
         </itemizedlist>
       </sidebar>
 
-      <para>Since we're dealing with isolation and not plain
+      <para>Since we are dealing with isolation and not plain
       virtualization, setting up LXC containers is more complex than just
-      running debian-installer on a virtual machine. We'll describe a few
+      running debian-installer on a virtual machine. We will describe a few
       prerequisites, then go on to the network configuration; we will then
       be able to actually create the system to be run in the
       container.</para>
