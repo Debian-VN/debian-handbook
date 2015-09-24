@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Debian Administrator's Handbook\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-09-24 17:56+0200\n"
 "PO-Revision-Date: 2014-03-15 15:01+0100\n"
 "Last-Translator: Raphaël Hertzog <hertzog@debian.org>\n"
 "Language-Team: none\n"
@@ -2140,11 +2140,6 @@ msgstr "<emphasis>NOTE</emphasis> Limites de l'isolation par LXC"
 msgid "LXC containers do not provide the level of isolation achieved by heavier emulators or virtualizers. In particular:"
 msgstr "Contrairement au fonctionnement « habituel » des émulateurs ou des virtualiseurs plus lourds, les conteneurs LXC ne fournissent pas nécessairement une isolation totale. En particulier :"
 
-#, fuzzy
-#| msgid "the <emphasis role=\"distribution\">Wheezy</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
-msgid "the <emphasis role=\"distribution\">Jessie</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
-msgstr "Bien que le noyau de <emphasis role=\"distribution\">Wheezy</emphasis> dispose de la fonctionnalité permettant de limiter la mémoire accessible à un conteneur, cette dernière n'est pas activée par défaut car elle réduit légèrement les performances globales du système. Toutefois, elle peut facilement être activée on définissant l'option <command>cgroup_enable=memory</command> sur la ligne de commande du noyau."
-
 msgid "since the kernel is shared among the host system and the containers, processes constrained to containers can still access the kernel messages, which can lead to information leaks if messages are emitted by a container;"
 msgstr "Comme le noyau est partagé entre le système hôte et les conteneurs, il est possible d'accéder depuis les conteneurs aux messages du noyau, ce qui peut donner lieu à des fuites d'informations si des messages sont émis par un conteneur."
 
@@ -2154,7 +2149,9 @@ msgstr "Pour la même raison, si l'un des conteneurs est compromis et si une fai
 msgid "on the filesystem, the kernel checks permissions according to the numerical identifiers for users and groups; these identifiers may designate different users and groups depending on the container, which should be kept in mind if writable parts of the filesystem are shared among containers."
 msgstr "La gestion des permissions sur les fichiers est faite par le noyau sur la base des identifiants numériques d'utilisateurs et de groupes ; ces identifiants ne correspondent pas nécessairement aux mêmes utilisateurs sur des conteneurs différents, il faudra donc garder cela à l'esprit si des systèmes de fichiers sont partagés entre plusieurs conteneurs et accessibles en écriture."
 
-msgid "Since we're dealing with isolation and not plain virtualization, setting up LXC containers is more complex than just running debian-installer on a virtual machine. We'll describe a few prerequisites, then go on to the network configuration; we will then be able to actually create the system to be run in the container."
+#, fuzzy
+#| msgid "Since we're dealing with isolation and not plain virtualization, setting up LXC containers is more complex than just running debian-installer on a virtual machine. We'll describe a few prerequisites, then go on to the network configuration; we will then be able to actually create the system to be run in the container."
+msgid "Since we are dealing with isolation and not plain virtualization, setting up LXC containers is more complex than just running debian-installer on a virtual machine. We will describe a few prerequisites, then go on to the network configuration; we will then be able to actually create the system to be run in the container."
 msgstr "Comme il s'agit d'isolation et non de virtualisation complète, la mise en place de conteneurs LXC est un peu plus complexe que la simple utilisation de debian-installer sur une machine virtuelle. Après quelques préliminaires, il s'agira de mettre en place une configuration réseau, puis de créer le système qui sera amené à fonctionner dans le conteneur."
 
 msgid "Preliminary Steps"
@@ -3457,6 +3454,11 @@ msgstr "<emphasis>POUR ALLER PLUS LOIN</emphasis> Tests distants avec NRPE"
 
 msgid "Many Nagios plugins allow checking some parameters local to a host; if many machines need these checks while a central installation gathers them, the NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>) plugin needs to be deployed. The <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> package needs to be installed on the Nagios server, and <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> on the hosts where local tests need to run. The latter gets its configuration from <filename>/etc/nagios/nrpe.cfg</filename>. This file should list the tests that can be started remotely, and the IP addresses of the machines allowed to trigger them. On the Nagios side, enabling these remote tests is a simple matter of adding matching services using the new <emphasis>check_nrpe</emphasis> command."
 msgstr "De nombreux greffons de Nagios permettent de vérifier l'état de certains paramètres locaux d'une machine. Si l'on souhaite effectuer ces vérifications sur de nombreuses machines tout en centralisant les résultats sur une seule installation, il faut employer le greffon NRPE (<foreignphrase>Nagios Remote Plugin Executor</foreignphrase>). On installe <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> sur le serveur Nagios et <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> sur les machines sur lesquelles on veut exécuter certains tests locaux. Ce dernier se configure par le biais du fichier <filename>/etc/nagios/nrpe.cfg</filename>. On y indique les tests que l'on peut démarrer à distance ainsi que les adresses IP des machines qui sont autorisées à les déclencher. Du côté de Nagios, il suffit d'ajouter les services correspondants en faisant appel à la nouvelle commande <emphasis>check_nrpe</emphasis>."
+
+#, fuzzy
+#~| msgid "the <emphasis role=\"distribution\">Wheezy</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
+#~ msgid "the <emphasis role=\"distribution\">Jessie</emphasis> standard kernel does not allow limiting the amount of memory available to a container; the feature exists, and is built in the kernel, but it is disabled by default because it has a (slight) cost on overall system performance; however, enabling it is a simple matter of setting the <command>cgroup_enable=memory</command> kernel command-line option at boot time;"
+#~ msgstr "Bien que le noyau de <emphasis role=\"distribution\">Wheezy</emphasis> dispose de la fonctionnalité permettant de limiter la mémoire accessible à un conteneur, cette dernière n'est pas activée par défaut car elle réduit légèrement les performances globales du système. Toutefois, elle peut facilement être activée on définissant l'option <command>cgroup_enable=memory</command> sur la ligne de commande du noyau."
 
 #~ msgid "The procedure requires setting up a <filename>yum.conf</filename> file containing the necessary parameters, including the path to the source RPM repositories, the path to the plugin configuration, and the destination folder. For this example, we will assume that the environment will be stored in <filename>/var/tmp/yum-bootstrap</filename>. The file <filename>/var/tmp/yum-bootstrap/yum.conf</filename> file should look like this:"
 #~ msgstr "La procédure nécessite de mettre en place un fichier <filename>yum.conf</filename> avec les paramètres requis, notamment le chemin vers les dépôts RPM, le chemin de la configuration des greffons et le répertoire cible. Pour cet exemple, nous supposerons que l'environnement sera stocké dans <filename>/var/tmp/yum-bootstrap/</filename>. Le fichier <filename>/var/tmp/yum-bootstrap/yum.conf</filename> devrait ressembler à ceci :"
