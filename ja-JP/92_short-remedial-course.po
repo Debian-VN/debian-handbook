@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-25 09:00+0900\n"
-"PO-Revision-Date: 2015-09-25 09:00+0900\n"
+"POT-Creation-Date: 2015-09-26 09:00+0900\n"
+"PO-Revision-Date: 2015-09-26 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -217,7 +217,9 @@ msgstr "<primary>ファイルシステム階層</primary>"
 msgid "The Root Directory"
 msgstr "ルートディレクトリ"
 
-msgid "A Debian system is organized along the <emphasis>File Hierarchy Standard</emphasis> (FHS). This standard defines the purpose of each directory. For instance, the top-level directories are described as follows:"
+#, fuzzy
+#| msgid "A Debian system is organized along the <emphasis>File Hierarchy Standard</emphasis> (FHS). This standard defines the purpose of each directory. For instance, the top-level directories are described as follows:"
+msgid "A Debian system is organized along the <emphasis>Filesystem Hierarchy Standard</emphasis> (FHS). This standard defines the purpose of each directory. For instance, the top-level directories are described as follows:"
 msgstr "Debian システムは<emphasis>ファイルシステム階層標準</emphasis> (FHS) に沿って構成されています。ファイルシステム階層標準ではそれぞれのディレクトリの目的が定義されています。たとえば、最上位ディレクトリに含まれるディレクトリの目的は以下の通り定義されています。"
 
 msgid "<filename>/bin/</filename>: basic programs;"
@@ -268,7 +270,9 @@ msgstr "<filename>/usr/</filename>。これはアプリケーションを格納�
 msgid "<filename>/var/</filename>: variable data handled by daemons. This includes log files, queues, spools, caches and so on."
 msgstr "<filename>/var/</filename>。これはデーモンの取り扱う可変データを格納するディレクトリです。これには、ログファイル、キュー、スプール、キャッシュなどが含まれます。"
 
-msgid "<filename>/proc/</filename> and <filename>/sys/</filename> are specific to the Linux kernel (and not part of the FHS). They are used by the kernel for exporting data to user-space (see <xref linkend=\"sect.userspace-presentation\" /> and <xref linkend=\"sect.user-space\" /> for explanations about this concept)."
+#, fuzzy
+#| msgid "<filename>/proc/</filename> and <filename>/sys/</filename> are specific to the Linux kernel (and not part of the FHS). They are used by the kernel for exporting data to user-space (see <xref linkend=\"sect.userspace-presentation\" /> and <xref linkend=\"sect.user-space\" /> for explanations about this concept)."
+msgid "<filename>/proc/</filename> and <filename>/sys/</filename> are specific to the Linux kernel (and not part of the FHS). They are used by the kernel for exporting data to user space (see <xref linkend=\"sect.userspace-presentation\" /> and <xref linkend=\"sect.user-space\" /> for explanations about this concept)."
 msgstr "<filename>/proc/</filename> と <filename>/sys/</filename> は Linux カーネルに特有のディレクトリです (FHS で定義されていません)。カーネルはユーザ空間にデータを書き出すためにこれらのディレクトリを使います (この概念に関する説明は<xref linkend=\"sect.userspace-presentation\" />と<xref linkend=\"sect.user-space\" />を参照してください)。"
 
 msgid "The User's Home Directory"
@@ -400,7 +404,9 @@ msgstr "BIOS/UEFI とブートローダはそれぞれ数秒間だけ実行さ�
 msgid "The User Space"
 msgstr "ユーザ空間"
 
-msgid "Although everything that happens outside of the kernel can be lumped together under “user-space”, we can still separate it into software layers. However, their interactions are more complex than before, and the classifications may not be as simple. An application commonly uses libraries, which in turn involve the kernel, but the communications can also involve other programs, or even many libraries calling each other."
+#, fuzzy
+#| msgid "Although everything that happens outside of the kernel can be lumped together under “user-space”, we can still separate it into software layers. However, their interactions are more complex than before, and the classifications may not be as simple. An application commonly uses libraries, which in turn involve the kernel, but the communications can also involve other programs, or even many libraries calling each other."
+msgid "Although everything that happens outside of the kernel can be lumped together under “user space”, we can still separate it into software layers. However, their interactions are more complex than before, and the classifications may not be as simple. An application commonly uses libraries, which in turn involve the kernel, but the communications can also involve other programs, or even many libraries calling each other."
 msgstr "カーネルの以外のすべては「ユーザ空間」の意味でひとくくりにされますが、「ユーザ空間」をさらにいくつかのソフトウェア層に分割することが可能です。しかしながら、ソフトウェア層同士の相互作用は以前に比べてさらに複雑化しており、ソフトウェア層の分類分けは単純ではありません。アプリケーションは一般にライブラリを使います。ライブラリはカーネルと通信しますが、通信には他のプログラムまたはさらに多くのライブラリが必要です。"
 
 msgid "Some Tasks Handled by the Kernel"
@@ -524,7 +530,9 @@ msgstr "<primary>ユーザ空間</primary>"
 msgid "<primary>kernel space</primary>"
 msgstr "<primary>カーネル空間</primary>"
 
-msgid "“User-space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
+#, fuzzy
+#| msgid "“User-space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
+msgid "“User space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
 msgstr "「ユーザ空間」とは通常 (カーネルに対して) プロセスの実行環境を意味します。「ユーザ空間」プロセスとは実際にユーザによって開始されたプロセスという意味ではありません。なぜなら、標準的なシステムでは通常、ユーザがセッションを開始する前から実行されている複数の「デーモン」(またはバックグラウンド) プロセスが存在するからです。デーモンプロセスもまたユーザ空間プロセスと考えられます。"
 
 msgid "<primary><command>init</command></primary>"
