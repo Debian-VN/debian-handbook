@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-18 21:01+0200\n"
+"POT-Creation-Date: 2015-09-26 11:51+0200\n"
 "PO-Revision-Date: 2013-12-23 14:29+0100\n"
 "Last-Translator: Raphaël Hertzog <hertzog@debian.org>\n"
 "Language-Team: None\n"
@@ -116,7 +116,9 @@ msgstr "<emphasis>CAS PARTICULIER</emphasis> Pare-feu local"
 msgid "A firewall can be restricted to one particular machine (as opposed to a complete network), in which case its role is to filter or limit access to some services, or possibly to prevent outgoing connections by rogue software that a user could, willingly or not, have installed."
 msgstr "Un pare-feu peut limiter son action à une seule machine (et non pas un réseau local complet) ; son rôle principal est alors de refuser ou limiter l'accès à certains services, voire de se prémunir contre l'établissement de connexions sortantes par des logiciels indésirables que l'utilisateur pourrait avoir installés (volontairement ou pas)."
 
-msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user-space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
+#, fuzzy
+#| msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user-space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
+msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
 msgstr "Le noyau Linux intègre le pare-feu netfilter ; les outils <command>iptables</command> et <command>ip6tables</command> permettent de le configurer. La différence entre ces deux outils se limite à ce que le premier agit sur le réseau IPv4 alors que le second intervient sur le réseau IPv6. Les deux piles réseau étant amenées à cohabiter pendant de nombreuses années, il faudra faire usage des deux outils en parallèle."
 
 msgid "<primary><command>iptables</command></primary>"
@@ -580,7 +582,7 @@ msgid ""
 "??5?????? c /etc/salt/roster</computeroutput>"
 msgstr ""
 
-msgid "In the sample above, dpkg reports a change to SSH's service file that the administrator made to the packaged file instead of using an appropriate <filename>/etc/systemd/system/ssh.service</filename> override. It also lists multiple configuration files (identified by the \"c\" letter on the second field) that had been legitimately modified."
+msgid "In the sample above, dpkg reports a change to SSH's service file that the administrator made to the packaged file instead of using an appropriate <filename>/etc/systemd/system/ssh.service</filename> override (which would be stored below <filename>/etc</filename> like any configuration change should be). It also lists multiple configuration files (identified by the \"c\" letter on the second field) that had been legitimately modified."
 msgstr ""
 
 msgid "Auditing Packages: <command>debsums</command> and its Limits"
@@ -691,7 +693,9 @@ msgstr "<primary>dénis de service</primary>"
 msgid "A “denial of service” attack has only one goal: to make a service unavailable. Whether such an attack involves overloading the server with queries or exploiting a bug, the end result is the same: the service is no longer operational. Regular users are unhappy, and the entity hosting the targeted network service suffers a loss in reputation (and possibly in revenue, for instance if the service was an e-commerce site)."
 msgstr "Une attaque de type « déni de service » a pour seul objectif de rendre un service réseau inexploitable. Que cela soit en surchargeant le serveur de requêtes ou en exploitant un bogue de celui-ci, le résultat est toujours le même : le service en question n'est plus fonctionnel, les utilisateurs habituels sont mécontents et l'hébergeur du service réseau visé s'est fait une mauvaise publicité (en plus d'avoir éventuellement perdu des ventes, s'il s'agit par exemple d'un site de commerce en ligne)."
 
-msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DoS</acronym> and <acronym>DDoS</acronym> (depending on whether the denial of service attack is distributed or not)."
+#, fuzzy
+#| msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DoS</acronym> and <acronym>DDoS</acronym> (depending on whether the denial of service attack is distributed or not)."
+msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DDoS</acronym> and <acronym>DoS</acronym> (depending on whether the denial of service attack is distributed or not)."
 msgstr "Une telle attaque est parfois « distribuée », il s'agit alors de surcharger la machine avec un grand nombre de requêtes en provenance de nombreuses sources, afin que le serveur ne puisse plus répondre aux requêtes légitimes. En anglais, on parle de <foreignphrase>(distributed) denial of service</foreignphrase> (abrégé en <acronym>DoS</acronym> ou <acronym>DDoS</acronym>)."
 
 #, fuzzy
@@ -715,10 +719,10 @@ msgstr "<emphasis>ATTENTION</emphasis> Rayon d'action"
 msgid "The effectiveness of <command>suricata</command> is limited by the traffic seen on the monitored network interface. It will obviously not be able to detect anything if it cannot observe the real traffic. When plugged into a network switch, it will therefore only monitor attacks targeting the machine it runs on, which is probably not the intention. The machine hosting <command>suricata</command> should therefore be plugged into the “mirror” port of the switch, which is usually dedicated to chaining switches and therefore gets all the traffic."
 msgstr "<command>snort</command> est limité par le trafic qu'il voit transiter sur son interface réseau : il ne pourra évidemment rien détecter s'il n'observe rien. Branché sur un commutateur (<foreignphrase>switch</foreignphrase>), il ne surveillera que les attaques ciblant la machine l'hébergeant, ce qui n'a qu'un intérêt assez limité. Pensez donc à relier la machine employant <command>snort</command> au port « miroir », qui permet habituellement de chaîner les commutateurs et sur lequel tout le trafic est dupliqué."
 
-msgid "Configuring suricata involves reviewing and editing <filename>/etc/suricata/suricata-debian.yaml</filename>, which is very long because because each parameter is abundantly commented. A minimal configuration requires describing the range of addresses that the local network covers (<literal>HOME_NET</literal> parameter). In practice, this means the set of all potential attack targets. But getting the most of it requires reading it in full and adapting it to the local situation."
+msgid "Configuring suricata involves reviewing and editing <filename>/etc/suricata/suricata-debian.yaml</filename>, which is very long because each parameter is abundantly commented. A minimal configuration requires describing the range of addresses that the local network covers (<literal>HOME_NET</literal> parameter). In practice, this means the set of all potential attack targets. But getting the most of it requires reading it in full and adapting it to the local situation."
 msgstr ""
 
-msgid "On top of this, you should also edit <filename>/etc/default/suricata</filename> to define the network interface to monitor and to enable the init script (by setting <literal>RUN=yes</literal>). You might also want to set <literal>LISTENMODE=pcap</literal> because the default <literal>LISTENMODE=nfqueue</literal> requires further configuration to work properly (the netfilter firewall must be configured to pass packets to some userspace queue handled by suricata via the <literal>NFQUEUE</literal> target)."
+msgid "On top of this, you should also edit <filename>/etc/default/suricata</filename> to define the network interface to monitor and to enable the init script (by setting <literal>RUN=yes</literal>). You might also want to set <literal>LISTENMODE=pcap</literal> because the default <literal>LISTENMODE=nfqueue</literal> requires further configuration to work properly (the netfilter firewall must be configured to pass packets to some user-space queue handled by suricata via the <literal>NFQUEUE</literal> target)."
 msgstr ""
 
 msgid "To detect bad behaviour, <command>suricata</command> needs a set of monitoring rules: you can find such rules in the <emphasis role=\"pkg\">snort-rules-default</emphasis> package. <command>snort</command> is the historical reference in the IDS ecosystem and <command>suricata</command> is able to reuse rules written for it. Unfortunately that package is missing from <emphasis role=\"distribution\">Debian Jessie</emphasis> and should be retrieved from another Debian release like <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>."
@@ -822,7 +826,7 @@ msgstr "<emphasis>NOTE</emphasis> Politiques extrêmes"
 msgid "The <emphasis role=\"pkg\">apparmor-profiles</emphasis> package contains profiles managed by the upstream AppArmor community. To get even more profiles you can install <emphasis role=\"pkg\">apparmor-profiles-extra</emphasis> which contains profiles developed by Ubuntu and Debian."
 msgstr ""
 
-msgid "The state of each profile can be switched between enforcing and complaining with calls to <command>aa-enforce</command> and <command>aa-complain</command> giving as parameter either the path of the executable or the patch to the policy file. Additionaly a profile can be entirely disabled with <command>aa-disable</command> or put in audit mode (to log accepted system calls too) with <command>aa-audit</command>."
+msgid "The state of each profile can be switched between enforcing and complaining with calls to <command>aa-enforce</command> and <command>aa-complain</command> giving as parameter either the path of the executable or the path to the policy file. Additionaly a profile can be entirely disabled with <command>aa-disable</command> or put in audit mode (to log accepted system calls too) with <command>aa-audit</command>."
 msgstr ""
 
 #, fuzzy
@@ -891,7 +895,7 @@ msgstr ""
 
 msgid ""
 "\n"
-"<computeroutput>#</computeroutput><userinput>aa-genprof dhclient</userinput>\n"
+"<computeroutput># </computeroutput><userinput>aa-genprof dhclient</userinput>\n"
 "<computeroutput>Writing updated profile for /sbin/dhclient.\n"
 "Setting /sbin/dhclient to complain mode.\n"
 "\n"
@@ -1219,7 +1223,7 @@ msgstr "La commande <command>aptitude install selinux-basics selinux-policy-defa
 msgid "<emphasis>CAUTION</emphasis> Reference policy not in jessie"
 msgstr "<emphasis>ATTENTION</emphasis> Rayon d'action"
 
-msgid "Unfortunately the maintainers of the <emphasis role=\"pkg\">refpolicy</emphasis> source package did not handle release critical bugs on their package and the package got removed from jessie. This means that the <emphasis role=\"pkg\">selinux-policy-*</emphasis> packages are currently not installable in jessie and needs to be fetched from another place. Hopefully they will come back in one of the point releases or in jessie-backports. In the mean time, you can grab them from unstable."
+msgid "Unfortunately the maintainers of the <emphasis role=\"pkg\">refpolicy</emphasis> source package did not handle release critical bugs on their package and the package got removed from jessie. This means that the <emphasis role=\"pkg\">selinux-policy-*</emphasis> packages are currently not installable in jessie and needs to be fetched from another place. Hopefully they will come back in one of the point releases or in jessie-backports. In the meantime, you can grab them from unstable."
 msgstr ""
 
 msgid "This sad situation at least proves that SELinux is not very popular in the set of users/developers who are running the development versions of Debian. Thus, if you opt to use SELinux, you should expect the default policy to not work perfectly and you will have to invest quite some time to make it suitable to your specific needs."
