@@ -2075,9 +2075,10 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
 
     <indexterm><primary><emphasis role="pkg">gnome-packagekit</emphasis></primary></indexterm>
     <para>These tools work very well for servers, but desktop users
-    generally prefer a more interactive system. That is why the “Graphical
+    generally prefer a more interactive system. That is why the “Debian
     desktop environment” task installs <emphasis
-    role="pkg">gnome-packagekit</emphasis>. It provides an icon in the
+      role="pkg">gnome-packagekit</emphasis> (at least when you select GNOME
+    as desktop environment). It provides an icon in the
     notification area of desktop environments when updates are available;
     clicking on this icon then runs <command>gpk-update-viewer</command>,
     a simplified interface to perform updates. You can browse through
@@ -2180,7 +2181,7 @@ uid                  Wheezy Stable Release Key &lt;debian-release@lists.debian.o
         <title>Non-interactive upgrade script</title>
 
         <programlisting>export DEBIAN_FRONTEND=noninteractive
-yes '' | apt-get -y -o DPkg::options="--force-confdef" -o DPkg::options="--force-confold" dist-upgrade
+yes '' | apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" dist-upgrade
 </programlisting>
       </example>
 
