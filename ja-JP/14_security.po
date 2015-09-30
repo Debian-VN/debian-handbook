@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-27 09:00+0900\n"
-"PO-Revision-Date: 2015-09-27 09:00+0900\n"
+"POT-Creation-Date: 2015-09-30 09:00+0900\n"
+"PO-Revision-Date: 2015-09-30 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -379,7 +379,9 @@ msgstr "監督、防止、検知、監査"
 msgid "<primary>monitoring</primary>"
 msgstr "<primary>監視</primary>"
 
-msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes the section dedicated to generic system monitoring in <xref linkend=\"advanced-administration\" />."
+#, fuzzy
+#| msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes the section dedicated to generic system monitoring in <xref linkend=\"advanced-administration\" />."
+msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes <xref linkend=\"sect.monitoring\" />."
 msgstr "監視はいくつかの理由によってセキュリティポリシーの不可欠な要素になっています。中でも、セキュリティの目標には、通常データの機密性を保証するだけでなく、サービスの可用性を保証することも含まれています。そのため、すべてが思った通り稼働しているかを確認したり、さまざまな逸脱した挙動や提供しているサービス品質の変化をタイミング良く検知したり、することが不可欠です。監視活動のおかげで、危機的状況に陥る前に、不正侵入の試行を検知し迅速に対応することが可能です。この節では、Debian システムのさまざまな側面を監視するために使えるいくつかのツールを概説します。この節は<xref linkend=\"advanced-administration\" />内の一般的なシステム監視について書かれた節を補完するものです。"
 
 msgid "Monitoring Logs with <command>logcheck</command>"
@@ -609,7 +611,9 @@ msgstr "<emphasis>ALTERNATIVE</emphasis> Tripwire と Samhain"
 msgid "Tripwire is very similar to AIDE; even the configuration file syntax is almost the same. The main addition provided by <emphasis role=\"pkg\">tripwire</emphasis> is a mechanism to sign the configuration file, so that an attacker cannot make it point at a different version of the reference database."
 msgstr "Tripwire は AIDE とよく似ています。さらに、設定ファイルの構文もほとんど同じです。AIDE と <emphasis role=\"pkg\">tripwire</emphasis> の主な違いは <emphasis role=\"pkg\">tripwire</emphasis> には設定ファイルを署名するメカニズムが備えられている点です。設定ファイルを署名することで、参照データベースの示す先を異なるバージョンに差し替えることが不可能になります。"
 
-msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the QUICK LOOK sidebar). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
+#, fuzzy
+#| msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the QUICK LOOK sidebar). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
+msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the sidebar <xref linkend=\"sidebar.the-checksecurity-and-chkrootkit-rkhunter-packages\" />). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
 msgstr "Samhain も類似の機能を提供しますが、rootkit の検知に役立ついくつかの機能を備えています (傍注 QUICK LOOK を参照してください)。Samhain はネットワークを使って広範囲に配備され、中央サーバ上に履歴を (署名と一緒に) 記録することが可能です。"
 
 msgid "<emphasis>QUICK LOOK</emphasis> The <emphasis role=\"pkg\">checksecurity</emphasis> and <emphasis role=\"pkg\">chkrootkit</emphasis>/<emphasis role=\"pkg\">rkhunter</emphasis> packages"
@@ -2101,7 +2105,9 @@ msgstr "サーバをオフラインにする"
 msgid "In any but the most exotic cases, the cracking comes from the network, and the attacker needs a working network to reach their targets (access confidential data, share illegal files, hide their identity by using the machine as a relay, and so on). Unplugging the computer from the network will prevent the attacker from reaching these targets, if they haven't managed to do so yet."
 msgstr "クラッキングが最も派手に行われる場合を除けば、クラッキングはネットワーク経由で行われ、攻撃者は目標 (機密データへのアクセス、不正ファイルの共有、踏み台としてマシンを使うことによる本人識別情報の隠匿、など) を達成するためにネットワークを必要とします。攻撃者がまだクラッキング行為を完了していない場合、ネットワークからコンピュータを切り離すことで、攻撃者は目標を達成できなくなります。"
 
-msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see following sections), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
+#, fuzzy
+#| msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see following sections), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
+msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see <xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />, <xref linkend=\"sect.forensic-analysis\" /> and <xref linkend=\"sect.reconstituting-the-attack-scenario\" />), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
 msgstr "サーバが物理的にアクセスできる場合のみ、これは可能です。サーバが物凄く遠くにあるホスティングプロバイダのデータセンターでホストされていたり、サーバにその他の理由でアクセスできない場合、いくつかの重要な情報の収集 (以下の節を参照) を開始して、可能な限り多くの (通常 <command>sshd</command> を除くすべての) サービスをシャットダウンすることで可能な限りサーバを隔離する、ことは通常良いアイディアです。これはまだ都合が悪い状態です。なぜなら、攻撃者は管理者がしているのと同様に SSH アクセスできるからです。このため、マシンを「きれいに」することは難しいです。"
 
 msgid "Keeping Everything that Could Be Used as Evidence"

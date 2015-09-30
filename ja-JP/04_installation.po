@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-27 09:00+0900\n"
-"PO-Revision-Date: 2015-09-27 09:00+0900\n"
+"POT-Creation-Date: 2015-09-30 09:00+0900\n"
+"PO-Revision-Date: 2015-09-30 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -205,7 +205,9 @@ msgstr "<emphasis>IN PRACTICE</emphasis> 既存の Windows システムと共存
 msgid "<primary>dual boot</primary>"
 msgstr "<primary>デュアルブート</primary>"
 
-msgid "If the computer is already running Windows, it is not necessary to delete the system in order to install Debian. You can have both systems at once, each installed on a separate disk or partition, and choose which to start when booting the computer. This configuration is often called “dual boot”, and the Debian installation system can set it up. This is done during the hard drive partitioning stage of installation and while setting up the bootloader (see the sidebars in those sections)."
+#, fuzzy
+#| msgid "If the computer is already running Windows, it is not necessary to delete the system in order to install Debian. You can have both systems at once, each installed on a separate disk or partition, and choose which to start when booting the computer. This configuration is often called “dual boot”, and the Debian installation system can set it up. This is done during the hard drive partitioning stage of installation and while setting up the bootloader (see the sidebars in those sections)."
+msgid "If the computer is already running Windows, it is not necessary to delete the system in order to install Debian. You can have both systems at once, each installed on a separate disk or partition, and choose which to start when booting the computer. This configuration is often called “dual boot”, and the Debian installation system can set it up. This is done during the hard drive partitioning stage of installation and while setting up the bootloader (see the sidebars <xref linkend=\"sidebar.shrinking-partition\" /> and <xref linkend=\"sidebar.bootloader-dual-boot\" />)."
 msgstr "コンピュータで既に Windows が動いている場合、Debian をインストールするのに Windows システムを削除する必要はありません。両者を別のディスクまたはパーティションにインストールすれば、両方のシステムを同時に備えることが可能で、コンピュータの起動時に起動するシステムを選択することが可能です。この構成は「デュアルブート」と呼ばれており、Debian のインストールシステムは「デュアルブート」構成を設定できます。設定は、インストール中のハードドライブのパーティショニング段階およびブートローダの設定段階 (これを解説している節の傍注参照) で行います。"
 
 msgid "If you already have a working Windows system, you can even avoid using a CD-ROM; Debian offers a Windows program that will download a light Debian installer and set it up on the hard disk. You then only need to reboot the computer and choose between normal Windows boot or booting the installation program. You can also find it on a dedicated website with a rather explicit name… <ulink type=\"block\" url=\"http://ftp.debian.org/debian/tools/win32-loader/stable/\" /> <ulink type=\"block\" url=\"http://www.goodbye-microsoft.com/\" />"
@@ -475,7 +477,9 @@ msgstr "最初の画面では、利用できるディスクおよびパーティ
 msgid "You can erase all partitions on a disk by selecting it."
 msgstr "操作を選択すれば、ディスク上のすべてのパーティションを削除することも可能です。"
 
-msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See the previous section for more details on guided partitioning."
+#, fuzzy
+#| msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See the previous section for more details on guided partitioning."
+msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See <xref linkend=\"sect.install-autopartman-mode\" /> for more details on guided partitioning."
 msgstr "ディスクの空き領域を選択すれば、新しいパーティションを作成できます。ガイド付きパーティショニングを空き領域に適用することも可能です。この方法は、ディスクには別のオペレーティングシステムを含んでいるけれども、標準的なやり方で Linux のパーティショニングを実行したいという場合に興味深い解決策です。ガイド付きパーティショニングに関する詳しい情報は前の節をご覧ください。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Mount point"
@@ -634,7 +638,9 @@ msgstr "暗号化されたパーティションを使う場合、暗号化鍵は
 msgid "The Debian installer will warn the user if they try to make an encrypted partition while the swap partition isn't encrypted."
 msgstr "Debian インストーラはスワップパーティションが暗号化されていないにも関わらず暗号化されたパーティションを作ろうとしたらユーザに警告します。"
 
-msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar)."
+#, fuzzy
+#| msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar)."
+msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar <xref linkend=\"sidebar.encrypted-swap-partition\" />)."
 msgstr "暗号化されたパーティションを作成するには、最初にあるパーティションを暗号化用に割り当てなければいけません。割り当てを行うには、パーティションを選択し「暗号化用の物理パーティション」として使うように設定してください。物理ボリュームを含むディスクのパーティショニングの後、「暗号化ボリュームを設定」を選んでください。ソフトウェアは (真のデータの位置をより分かりにくくするために) 物理ボリュームをでたらめなデータで初期化することを提案し、「暗号化パスフレーズ」の入力を要求します。暗号化されたパーティションの内容にアクセスする場合、パスフレーズはコンピュータの起動時に毎回入力しなければいけません。この段階が完了しパーティショニングツールメニューまで戻ったら、新しいパーティションを「暗号化ボリューム」で利用できるはずです、これは他のパーティションと同様に設定できます。多くの場合、複数のパーティション (LVM 論理ボリューム) をスワップパーティションも含めて (傍注参照) 同じ暗号化鍵で保護するために暗号化されたパーティションは LVM の物理ボリュームとして利用されます。"
 
 msgid "Installing the Base System"
