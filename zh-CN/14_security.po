@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-18 21:01+0200\n"
+"POT-Creation-Date: 2015-10-01 18:01+0200\n"
 "PO-Revision-Date: 2014-01-09 17:17+0200\n"
 "Last-Translator: Emfox Zhou <emfox@debian.org>\n"
 "Language-Team: Chinese (China) <http://debian.weblate.org/projects/debian-handbook/14_security/zh-CN/>\n"
@@ -120,7 +120,9 @@ msgstr "<emphasis>特例</emphasis> 局部防火墙"
 msgid "A firewall can be restricted to one particular machine (as opposed to a complete network), in which case its role is to filter or limit access to some services, or possibly to prevent outgoing connections by rogue software that a user could, willingly or not, have installed."
 msgstr "防火墙可以应用在个别机器上（相对于整个网络而言），在这些情况中其角色是过滤或限制对一些服务的访问，或阻止用户有意或无意安装的流氓软件对外部的连接。"
 
-msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user-space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
+#, fuzzy
+#| msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user-space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
+msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
 msgstr "Linux 内核嵌入了 <emphasis>netfilter</emphasis> 防火墙。可以使用用户空间的 <command>iptables</command> 和 <command>ip6tables</command> 命令控制。这两个命令直接的区别在于前者作用在 IPv4 网络，而后者作用在 IPv6。由于两种网络协议可能在多年内共存，这就需要同时使用两个工具。"
 
 msgid "<primary><command>iptables</command></primary>"
@@ -138,7 +140,9 @@ msgstr "<emphasis>netfilter</emphasis> 使用四个截然不同的表存储规�
 msgid "<literal>filter</literal> concerns filtering rules (accepting, refusing or ignoring a packet);"
 msgstr "<literal>filter</literal> 关注过滤规则（接受，拒绝或者忽略数据包）；"
 
-msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages; note that this table only exists for IPv4;"
+#, fuzzy
+#| msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages; note that this table only exists for IPv4;"
+msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages;"
 msgstr "<literal>nat</literal> 关注转化源地址或者目的地址和数据包端口；注意该表只在 IPv4 中存在；"
 
 msgid "<literal>mangle</literal> concerns other changes to the IP packets (including the ToS — <emphasis>Type of Service</emphasis> — field and options);"
@@ -396,7 +400,7 @@ msgid "<primary>monitoring</primary>"
 msgstr "<primary>监视</primary>"
 
 #, fuzzy
-msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes the section dedicated to generic system monitoring in <xref linkend=\"advanced-administration\" />."
+msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes <xref linkend=\"sect.monitoring\" />."
 msgstr "监视是安全策略不可或缺的一部分，有几个原因。其中，保护的目的通常不限于确保数据机密性，也包括服务的有效性。因此就有必要检测一切正常，并及时侦测异常行为或者所呈现的服务质量的改变。监视活动可以发现入侵尝试并在他们导致严重后果之前迅速反应。本节回顾一些可以用于监视 Debian 系统的工具。因此，它补充了在 <xref linkend=\"advanced-administration\" /> 中一般系统监视部分。"
 
 msgid "Monitoring Logs with <command>logcheck</command>"
@@ -587,7 +591,7 @@ msgid ""
 "??5?????? c /etc/salt/roster</computeroutput>"
 msgstr ""
 
-msgid "In the sample above, dpkg reports a change to SSH's service file that the administrator made to the packaged file instead of using an appropriate <filename>/etc/systemd/system/ssh.service</filename> override. It also lists multiple configuration files (identified by the \"c\" letter on the second field) that had been legitimately modified."
+msgid "In the sample above, dpkg reports a change to SSH's service file that the administrator made to the packaged file instead of using an appropriate <filename>/etc/systemd/system/ssh.service</filename> override (which would be stored below <filename>/etc</filename> like any configuration change should be). It also lists multiple configuration files (identified by the \"c\" letter on the second field) that had been legitimately modified."
 msgstr ""
 
 msgid "Auditing Packages: <command>debsums</command> and its Limits"
@@ -653,7 +657,9 @@ msgstr "<emphasis>选择</emphasis> Tripwire 和 Samhain"
 msgid "Tripwire is very similar to AIDE; even the configuration file syntax is almost the same. The main addition provided by <emphasis role=\"pkg\">tripwire</emphasis> is a mechanism to sign the configuration file, so that an attacker cannot make it point at a different version of the reference database."
 msgstr "Tripwire 和 AIDE 非常相似；甚至是配置文件的语法都几乎相同。<emphasis role=\"pkg\">tripwire</emphasis> 所提供的额外特性是签名配置文件机制，这样攻击者就不能将其指向不同版本的参考数据库。"
 
-msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the QUICK LOOK sidebar). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
+#, fuzzy
+#| msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the QUICK LOOK sidebar). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
+msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the sidebar <xref linkend=\"sidebar.the-checksecurity-and-chkrootkit-rkhunter-packages\" />). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
 msgstr "Samhain 也提供了类似特性，还有一些能探测恶意软件的功能（参考侧边栏）。它也能在网络上全局部署，并（使用签名）记录中心服务器上的痕迹。"
 
 msgid "<emphasis>QUICK LOOK</emphasis> The <emphasis role=\"pkg\">checksecurity</emphasis> and <emphasis role=\"pkg\">chkrootkit</emphasis>/<emphasis role=\"pkg\">rkhunter</emphasis> packages"
@@ -698,7 +704,9 @@ msgstr "<primary>拒绝服务</primary>"
 msgid "A “denial of service” attack has only one goal: to make a service unavailable. Whether such an attack involves overloading the server with queries or exploiting a bug, the end result is the same: the service is no longer operational. Regular users are unhappy, and the entity hosting the targeted network service suffers a loss in reputation (and possibly in revenue, for instance if the service was an e-commerce site)."
 msgstr "“拒绝服务”攻击只有一个目的：让服务不可用。不管是通过查询使服务器过载还是利用缺陷，最终目的都是一样的：服务不再运行。正常用户就会不悦，提供网络服务的实体声誉遭受损失（可能是营收，譬如，使用服务的是一个电子商务网站）。"
 
-msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DoS</acronym> and <acronym>DDoS</acronym> (depending on whether the denial of service attack is distributed or not)."
+#, fuzzy
+#| msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DoS</acronym> and <acronym>DDoS</acronym> (depending on whether the denial of service attack is distributed or not)."
+msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DDoS</acronym> and <acronym>DoS</acronym> (depending on whether the denial of service attack is distributed or not)."
 msgstr "这种攻击有时候是“分布式的”；通常是通过来自许多不同源头的巨量查询使服务器过载，从而不能对合法查询做出应答。此类攻击有众所周知的缩写： <acronym>DoS</acronym> 和 <acronym>DDoS</acronym>（取决于拒绝服务攻击是否是分布式的）。"
 
 #, fuzzy
@@ -722,10 +730,10 @@ msgstr "<emphasis>注意</emphasis> 行动范围"
 msgid "The effectiveness of <command>suricata</command> is limited by the traffic seen on the monitored network interface. It will obviously not be able to detect anything if it cannot observe the real traffic. When plugged into a network switch, it will therefore only monitor attacks targeting the machine it runs on, which is probably not the intention. The machine hosting <command>suricata</command> should therefore be plugged into the “mirror” port of the switch, which is usually dedicated to chaining switches and therefore gets all the traffic."
 msgstr "<command>snort</command> 的有效性受到所监视网络界面能看到通信量的限制。如果他不能观察到实时的通信量，显然它就不能侦测到任何东西。当插入到网络交换器，它就只能监控以它正在运行的机器为目标的攻击，这很可能不是预期。因此，运行 <command>snort</command> 的机器应当插入交换机的“镜像”端口，该端口通常用于链接交换机并可以得到所有的通信数据。"
 
-msgid "Configuring suricata involves reviewing and editing <filename>/etc/suricata/suricata-debian.yaml</filename>, which is very long because because each parameter is abundantly commented. A minimal configuration requires describing the range of addresses that the local network covers (<literal>HOME_NET</literal> parameter). In practice, this means the set of all potential attack targets. But getting the most of it requires reading it in full and adapting it to the local situation."
+msgid "Configuring suricata involves reviewing and editing <filename>/etc/suricata/suricata-debian.yaml</filename>, which is very long because each parameter is abundantly commented. A minimal configuration requires describing the range of addresses that the local network covers (<literal>HOME_NET</literal> parameter). In practice, this means the set of all potential attack targets. But getting the most of it requires reading it in full and adapting it to the local situation."
 msgstr ""
 
-msgid "On top of this, you should also edit <filename>/etc/default/suricata</filename> to define the network interface to monitor and to enable the init script (by setting <literal>RUN=yes</literal>). You might also want to set <literal>LISTENMODE=pcap</literal> because the default <literal>LISTENMODE=nfqueue</literal> requires further configuration to work properly (the netfilter firewall must be configured to pass packets to some userspace queue handled by suricata via the <literal>NFQUEUE</literal> target)."
+msgid "On top of this, you should also edit <filename>/etc/default/suricata</filename> to define the network interface to monitor and to enable the init script (by setting <literal>RUN=yes</literal>). You might also want to set <literal>LISTENMODE=pcap</literal> because the default <literal>LISTENMODE=nfqueue</literal> requires further configuration to work properly (the netfilter firewall must be configured to pass packets to some user-space queue handled by suricata via the <literal>NFQUEUE</literal> target)."
 msgstr ""
 
 msgid "To detect bad behaviour, <command>suricata</command> needs a set of monitoring rules: you can find such rules in the <emphasis role=\"pkg\">snort-rules-default</emphasis> package. <command>snort</command> is the historical reference in the IDS ecosystem and <command>suricata</command> is able to reuse rules written for it. Unfortunately that package is missing from <emphasis role=\"distribution\">Debian Jessie</emphasis> and should be retrieved from another Debian release like <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis>."
@@ -828,7 +836,7 @@ msgstr "<emphasis>注意</emphasis> 极端策略"
 msgid "The <emphasis role=\"pkg\">apparmor-profiles</emphasis> package contains profiles managed by the upstream AppArmor community. To get even more profiles you can install <emphasis role=\"pkg\">apparmor-profiles-extra</emphasis> which contains profiles developed by Ubuntu and Debian."
 msgstr ""
 
-msgid "The state of each profile can be switched between enforcing and complaining with calls to <command>aa-enforce</command> and <command>aa-complain</command> giving as parameter either the path of the executable or the patch to the policy file. Additionaly a profile can be entirely disabled with <command>aa-disable</command> or put in audit mode (to log accepted system calls too) with <command>aa-audit</command>."
+msgid "The state of each profile can be switched between enforcing and complaining with calls to <command>aa-enforce</command> and <command>aa-complain</command> giving as parameter either the path of the executable or the path to the policy file. Additionaly a profile can be entirely disabled with <command>aa-disable</command> or put in audit mode (to log accepted system calls too) with <command>aa-audit</command>."
 msgstr ""
 
 #, fuzzy
@@ -896,7 +904,7 @@ msgstr ""
 
 msgid ""
 "\n"
-"<computeroutput>#</computeroutput><userinput>aa-genprof dhclient</userinput>\n"
+"<computeroutput># </computeroutput><userinput>aa-genprof dhclient</userinput>\n"
 "<computeroutput>Writing updated profile for /sbin/dhclient.\n"
 "Setting /sbin/dhclient to complain mode.\n"
 "\n"
@@ -1224,7 +1232,7 @@ msgstr "<command>aptitude install selinux-basics selinux-policy-default</command
 msgid "<emphasis>CAUTION</emphasis> Reference policy not in jessie"
 msgstr "<emphasis>注意</emphasis> 行动范围"
 
-msgid "Unfortunately the maintainers of the <emphasis role=\"pkg\">refpolicy</emphasis> source package did not handle release critical bugs on their package and the package got removed from jessie. This means that the <emphasis role=\"pkg\">selinux-policy-*</emphasis> packages are currently not installable in jessie and needs to be fetched from another place. Hopefully they will come back in one of the point releases or in jessie-backports. In the mean time, you can grab them from unstable."
+msgid "Unfortunately the maintainers of the <emphasis role=\"pkg\">refpolicy</emphasis> source package did not handle release critical bugs on their package and the package got removed from jessie. This means that the <emphasis role=\"pkg\">selinux-policy-*</emphasis> packages are currently not installable in jessie and need to be fetched from another place. Hopefully they will come back in one of the point releases or in jessie-backports. In the meantime, you can grab them from unstable."
 msgstr ""
 
 msgid "This sad situation at least proves that SELinux is not very popular in the set of users/developers who are running the development versions of Debian. Thus, if you opt to use SELinux, you should expect the default policy to not work perfectly and you will have to invest quite some time to make it suitable to your specific needs."
@@ -2042,7 +2050,9 @@ msgstr "把服务器下线"
 msgid "In any but the most exotic cases, the cracking comes from the network, and the attacker needs a working network to reach their targets (access confidential data, share illegal files, hide their identity by using the machine as a relay, and so on). Unplugging the computer from the network will prevent the attacker from reaching these targets, if they haven't managed to do so yet."
 msgstr "除了非常特殊的情况，破解一般源于网络，攻击者需要连接网络达到目的地（读取机密数据，共享非法文件，使用中继隐藏身份，等等）。将计算机从网络上拔出会阻止攻击者达到这些目标，即使是他们还没能成功攻陷电脑。"
 
-msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see following sections), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
+#, fuzzy
+#| msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see following sections), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
+msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see <xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />, <xref linkend=\"sect.forensic-analysis\" /> and <xref linkend=\"sect.reconstituting-the-attack-scenario\" />), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
 msgstr "这些只有在服务器可以物理访问时才有可能。如果服务器是位于半个国家之外的托管供应商数据中心，或者因为其他原因不能接近服务器，最好是先收集一些重要信息（参考随后章节），然后通过关闭尽可能多的服务，隔离尽可能多的服务器（通常，是除了 <command>sshd</command> 之外的所有服务）。这种情况仍然比较尴尬，因为你不能确定攻击者是否像管理员一样具有 SSH 访问权限；从而使清理机器更困难。"
 
 msgid "Keeping Everything that Could Be Used as Evidence"

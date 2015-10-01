@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-18 21:01+0200\n"
+"POT-Creation-Date: 2015-10-01 18:01+0200\n"
 "PO-Revision-Date: 2012-07-13 18:41-0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Dansk <dansk@dansk-gruppen.dk>\n"
@@ -512,7 +512,7 @@ msgstr ""
 msgid "<primary>PPTP</primary>"
 msgstr ""
 
-msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"network-infrastructure\" /> in the section about virtual private networks detailing PPTP."
+msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"sect.pptp\" />."
 msgstr ""
 
 msgid "Modems Supporting DHCP"
@@ -882,7 +882,7 @@ msgstr ""
 msgid "group name;"
 msgstr ""
 
-msgid "password (optional): This is only used to join a group when one is not a usual member (with the <command>newgrp</command> or <command>sg</command> commands, see sidebar);"
+msgid "password (optional): This is only used to join a group when one is not a usual member (with the <command>newgrp</command> or <command>sg</command> commands, see sidebar <xref linkend=\"sidebar.working-with-several-groups\" />);"
 msgstr ""
 
 msgid "<literal>gid</literal>: unique group identification number;"
@@ -990,7 +990,7 @@ msgstr ""
 msgid "<primary>add a user to a group</primary>"
 msgstr ""
 
-msgid "In some cases, it will be useful to add a user to a group (other than their default “main” group) in order to grant them additional permissions. For example, a user who is included in the <emphasis>audio</emphasis> group can access audio devices (see sidebar “Device access permissions”). This can be achieved with a command such as <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
+msgid "In some cases, it will be useful to add a user to a group (other than their default “main” group) in order to grant them additional permissions. For example, a user who is included in the <emphasis>audio</emphasis> group can access audio devices (see sidebar <xref linkend=\"sidebar.special-files\" />). This can be achieved with a command such as <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
 msgstr ""
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Device access permissions"
@@ -1868,7 +1868,7 @@ msgid ""
 "<computeroutput>$ </computeroutput><userinput>cp /boot/config-3.16.0-4-amd64 ~/kernel/linux-source-3.16/.config</userinput>"
 msgstr ""
 
-msgid "Unless you need to change the configuration, you can stop here and skip to the next section. If you need to change it, on the other hand, or if you decide to reconfigure everything from scratch, you must take the time to configure your kernel. There are various dedicated interfaces in the kernel source directory that can be used by calling the <command>make <replaceable>target</replaceable></command> command, where <replaceable>target</replaceable> is one of the values described below."
+msgid "Unless you need to change the configuration, you can stop here and skip to <xref linkend=\"sect.kernel-build\" />. If you need to change it, on the other hand, or if you decide to reconfigure everything from scratch, you must take the time to configure your kernel. There are various dedicated interfaces in the kernel source directory that can be used by calling the <command>make <replaceable>target</replaceable></command> command, where <replaceable>target</replaceable> is one of the values described below."
 msgstr ""
 
 msgid "<command>make menuconfig</command> compiles and executes a text-mode interface (this is where the <emphasis role=\"pkg\">libncurses5-dev</emphasis> package is required) which allows navigating the options available in a hierarchical structure. Pressing the <keycap>Space</keycap> key changes the value of the selected option, and <keycap>Enter</keycap> validates the button selected at the bottom of the screen; <guibutton>Select</guibutton> returns to the selected sub-menu; <guibutton>Exit</guibutton> closes the current screen and moves back up in the hierarchy; <guibutton>Help</guibutton> will display more detailed information on the role of the selected option. The arrow keys allow moving within the list of options and buttons. To exit the configuration program, choose <guibutton>Exit</guibutton> from the main menu. The program then offers to save the changes you've made; accept if you are satisfied with your choices."
@@ -1898,7 +1898,7 @@ msgstr ""
 msgid "If you have already compiled once in the directory and wish to rebuild everything from scratch (for example because you substantially changed the kernel configuration), you will have to run <command>make clean</command> to remove the compiled files. <command>make distclean</command> removes even more generated files, including your <filename>.config</filename> file too, so make sure to backup it first."
 msgstr ""
 
-msgid "Once the kernel configuration is ready, a simple <command>make deb-pkg</command> will generate up to 5 Debian packages: <emphasis role=\"pkg\">linux-image-<replaceable>version</replaceable></emphasis> that contains the kernel image and the associated modules, <emphasis role=\"pkg\">linux-headers-<replaceable>version</replaceable></emphasis> which contains the header files required to build external modules, <emphasis role=\"pkg\">linux-firmware-image-<replaceable>version</replaceable></emphasis> which contains the firmware files needed by some drivers (this package might be missing when you build from the kernel sources provided by Debian), <emphasis role=\"pkg\">linux-image-<replaceable>version</replaceable>-dbg</emphasis> which contains the debugging symbols for the kernel image and its modules, and <emphasis role=\"pkg\">linux-libc-dev</emphasis> which contains headers relevant to some user space libraries like GNU glibc."
+msgid "Once the kernel configuration is ready, a simple <command>make deb-pkg</command> will generate up to 5 Debian packages: <emphasis role=\"pkg\">linux-image-<replaceable>version</replaceable></emphasis> that contains the kernel image and the associated modules, <emphasis role=\"pkg\">linux-headers-<replaceable>version</replaceable></emphasis> which contains the header files required to build external modules, <emphasis role=\"pkg\">linux-firmware-image-<replaceable>version</replaceable></emphasis> which contains the firmware files needed by some drivers (this package might be missing when you build from the kernel sources provided by Debian), <emphasis role=\"pkg\">linux-image-<replaceable>version</replaceable>-dbg</emphasis> which contains the debugging symbols for the kernel image and its modules, and <emphasis role=\"pkg\">linux-libc-dev</emphasis> which contains headers relevant to some user-space libraries like GNU glibc."
 msgstr ""
 
 msgid "The <replaceable>version</replaceable> is defined by the concatenation of the upstream version (as defined by the variables <literal>VERSION</literal>, <literal>PATCHLEVEL</literal>, <literal>SUBLEVEL</literal> and <literal>EXTRAVERSION</literal> in the <filename>Makefile</filename>), of the <literal>LOCALVERSION</literal> configuration parameter, and of the <literal>LOCALVERSION</literal> environment variable. The package version reuses the same version string with an appended revision that is regularly incremented (and stored in <filename>.version</filename>), except if you override it with the <literal>KDEB_PKGVERSION</literal> environment variable."
@@ -2021,7 +2021,7 @@ msgstr ""
 msgid "<primary><filename>vmlinuz</filename></primary>"
 msgstr ""
 
-msgid "A Debian kernel package installs the kernel image (<filename>vmlinuz-<replaceable>version</replaceable></filename>), its configuration (<filename>config-<replaceable>version</replaceable></filename>) and its symbols table (<filename>System.map-<replaceable>version</replaceable></filename>) in <filename>/boot/</filename>. The symbols table helps developers understand the meaning of a kernel error message; without it, kernel “oopses” (an “oops” is the kernel equivalent of a segmentation fault for user space programs, in other words messages generated following an invalid pointer dereference) only contain numeric memory addresses, which is useless information without the table mapping these addresses to symbols and function names. The modules are installed in the <filename>/lib/modules/<replaceable>version</replaceable>/</filename> directory."
+msgid "A Debian kernel package installs the kernel image (<filename>vmlinuz-<replaceable>version</replaceable></filename>), its configuration (<filename>config-<replaceable>version</replaceable></filename>) and its symbols table (<filename>System.map-<replaceable>version</replaceable></filename>) in <filename>/boot/</filename>. The symbols table helps developers understand the meaning of a kernel error message; without it, kernel “oopses” (an “oops” is the kernel equivalent of a segmentation fault for user-space programs, in other words messages generated following an invalid pointer dereference) only contain numeric memory addresses, which is useless information without the table mapping these addresses to symbols and function names. The modules are installed in the <filename>/lib/modules/<replaceable>version</replaceable>/</filename> directory."
 msgstr ""
 
 msgid "The package's configuration scripts automatically generate an initrd image, which is a mini-system designed to be loaded in memory (hence the name, which stands for “init ramdisk”) by the bootloader, and used by the Linux kernel solely for loading the modules needed to access the devices containing the complete Debian system (for example, the driver for SATA disks). Finally, the post-installation scripts update the symbolic links <filename>/vmlinuz</filename>, <filename>/vmlinuz.old</filename>, <filename>/initrd.img</filename> and <filename>/initrd.img.old</filename> so that they point to the latest two kernels installed, respectively, as well as the corresponding initrd images."

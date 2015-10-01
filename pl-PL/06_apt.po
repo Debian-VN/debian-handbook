@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-18 21:01+0200\n"
+"POT-Creation-Date: 2015-10-01 18:00+0200\n"
 "PO-Revision-Date: 2015-04-19 19:25+0100\n"
 "Last-Translator: Mateusz Kacprzak <mateusz.kacprzak@yandex.ru>\n"
 "Language-Team: Polish <http://debian.weblate.org/projects/debian-handbook/06_apt/pl/>\n"
@@ -557,7 +557,7 @@ msgstr ""
 # mateunho
 #, fuzzy
 #| msgid "The <literal>mentors.debian.net</literal> site is also interesting, since it gathers source packages created by candidates to the status of official Debian developer or by volunteers who wish to create Debian packages without going through that process of integration. These packages are made available without any guarantee regarding their quality; make sure that you check their origin and integrity and then test them before you consider using them in production."
-msgid "The <literal>mentors.debian.net</literal> site is also interesting (although it only provides source packages), since it gathers packages created by candidates to the status of official Debian developer or by volunteers who wish to create Debian packages without going through that process of integration. These packages are made available without any guarantee regarding their quality; make sure that you check their origin and integrity and then test them before you consider using them in production."
+msgid "The <literal>mentors.debian.net</literal> site is interesting (although it only provides source packages), since it gathers packages created by candidates to the status of official Debian developer or by volunteers who wish to create Debian packages without going through that process of integration. These packages are made available without any guarantee regarding their quality; make sure that you check their origin and integrity and then test them before you consider using them in production."
 msgstr "Strona <literal>mentors.debian.net</literal> jest również interesująca, ponieważ zbiera pakiety źródłowe stworzone przez kandydatów do statusu oficjalnego dewelopera Debiana lub przez wolontariuszy, którzy chcą tworzyć pakiety dla Debiana bez przechodzenia przez ten proces integracji. Te pakiety są udostępniane bez żadnej gwarancji odnośnie ich jakości; należy sprawdzać ich pochodzenie i spójność, a także przetestować przed rozważaniem wprowadzenia ich do użytku."
 
 # mateunho
@@ -1049,7 +1049,9 @@ msgid "<primary><filename>/etc/apt/apt.conf.d/</filename></primary>"
 msgstr "<primary><filename>/etc/apt/apt.conf.d/</filename></primary>"
 
 # mateunho
-msgid "Besides the configuration elements already mentioned, it is possible to configure certain aspects of APT by adding directives in a file of the <filename>/etc/apt/apt.conf.d/</filename> directory. Remember for instance that it is possible for APT to tell <command>dpkg</command> to ignore file conflict errors by specifying <literal>DPkg::Options { \"--force-overwrite\"; }</literal>."
+#, fuzzy
+#| msgid "Besides the configuration elements already mentioned, it is possible to configure certain aspects of APT by adding directives in a file of the <filename>/etc/apt/apt.conf.d/</filename> directory. Remember for instance that it is possible for APT to tell <command>dpkg</command> to ignore file conflict errors by specifying <literal>DPkg::Options { \"--force-overwrite\"; }</literal>."
+msgid "Besides the configuration elements already mentioned, it is possible to configure certain aspects of APT by adding directives in a file of the <filename>/etc/apt/apt.conf.d/</filename> directory. Remember for instance that it is possible for APT to tell <command>dpkg</command> to ignore file conflict errors by specifying <literal>DPkg::options { \"--force-overwrite\"; }</literal>."
 msgstr "Poza wymienionymi wcześniej elementami konfiguracyjnymi, możliwa jest konfiguracja pewnych aspektów działania APTa poprzez dodanie instrukcji w pliku katalogu <filename>/etc/apt/apt.conf.d/</filename>. Przypomnijmy na przykład, że APT może poinstruować <command>dpkg</command>, aby ignorował błędy kolizji plików przez dodanie instrukcji <literal>DPkg::Options { \"--force-overwrite\"; }</literal>."
 
 # mateunho
@@ -1263,7 +1265,7 @@ msgstr "Załóżmy, że <emphasis role=\"distribution\">Stabilny</emphasis> jest
 # mateunho
 #, fuzzy
 #| msgid "In this situation, upgrades (<command>upgrade</command> and <command>dist-upgrade</command>) are done within <emphasis role=\"distribution\">Stable</emphasis> except for packages already upgraded to another distribution: those will follow updates available in the other distributions. We'll explain this behavior with the help of the default priorities set by APT below. Do not hesitate to use <command>apt-cache policy</command> (see sidebar) to verify the given priorities."
-msgid "In this situation, upgrades (<command>upgrade</command> and <command>full-upgrade</command>) are done within <emphasis role=\"distribution\">Stable</emphasis> except for packages already upgraded to another distribution: those will follow updates available in the other distributions. We will explain this behavior with the help of the default priorities set by APT below. Do not hesitate to use <command>apt-cache policy</command> (see sidebar) to verify the given priorities."
+msgid "In this situation, upgrades (<command>upgrade</command> and <command>full-upgrade</command>) are done within <emphasis role=\"distribution\">Stable</emphasis> except for packages already upgraded to another distribution: those will follow updates available in the other distributions. We will explain this behavior with the help of the default priorities set by APT below. Do not hesitate to use <command>apt-cache policy</command> (see sidebar <xref linkend=\"sidebar.apt-cache-policy\" />) to verify the given priorities."
 msgstr "W tym przypadku uaktualnienia (<command>upgrade</command> i <command>dist-upgrade</command>) są wykonywane w zakresie <emphasis role=\"distribution\">Stabilnego</emphasis> z wyjątkiem pakietów, które już zostały uaktualnione do innej dystrybucji: będą one używać aktualizacji z danej dystrybucji. Opisane zachowanie zostanie wyjaśnione poniżej, z użyciem domyślnych priorytetów ustawianych przez APTa. Nie wahaj się używać <command>apt-cache policy</command> (spójrz na fiszkę), aby zweryfikować wartości priorytetów."
 
 # mateunho
@@ -2006,7 +2008,9 @@ msgid "<primary><emphasis role=\"pkg\">gnome-packagekit</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">gnome-packagekit</emphasis></primary>"
 
 # mateunho
-msgid "These tools work very well for servers, but desktop users generally prefer a more interactive system. That is why the “Graphical desktop environment” task installs <emphasis role=\"pkg\">gnome-packagekit</emphasis>. It provides an icon in the notification area of desktop environments when updates are available; clicking on this icon then runs <command>gpk-update-viewer</command>, a simplified interface to perform updates. You can browse through available updates, read the short description of the relevant packages and the corresponding <filename>changelog</filename> entries, and select whether to apply the update or not on a case-by-case basis."
+#, fuzzy
+#| msgid "These tools work very well for servers, but desktop users generally prefer a more interactive system. That is why the “Graphical desktop environment” task installs <emphasis role=\"pkg\">gnome-packagekit</emphasis>. It provides an icon in the notification area of desktop environments when updates are available; clicking on this icon then runs <command>gpk-update-viewer</command>, a simplified interface to perform updates. You can browse through available updates, read the short description of the relevant packages and the corresponding <filename>changelog</filename> entries, and select whether to apply the update or not on a case-by-case basis."
+msgid "These tools work very well for servers, but desktop users generally prefer a more interactive system. That is why the “Debian desktop environment” task installs <emphasis role=\"pkg\">gnome-packagekit</emphasis> (at least when you select GNOME as desktop environment). It provides an icon in the notification area of desktop environments when updates are available; clicking on this icon then runs <command>gpk-update-viewer</command>, a simplified interface to perform updates. You can browse through available updates, read the short description of the relevant packages and the corresponding <filename>changelog</filename> entries, and select whether to apply the update or not on a case-by-case basis."
 msgstr "Wspomniane narzędzia sprawdzają się bardzo dobrze w przypadku serwerów, ale użytkownicy domowi częściej wybierają bardziej interaktywny system. Z tego powodu zadanie \"Graphical desktop environment\" instaluje <emphasis role=\"pkg\">gnome-packagekit</emphasis>. Pokazuje on ikonę, w obszarze powiadomień środowisk graficznych, kiedy są dostępne aktualizacje; kliknięcie tej ikony uruchamia <command>gpk-update-viewer</command>, uproszczony interfejs do wykonywania aktualizacji. Można przeglądać dostępne aktualizacje, czytać krótkie opisy powiązanych pakietów i odpowiadające wpisy <filename>changelog</filename>, a następnie po kolei zaznaczać, czy zastosować aktualizację, czy nie."
 
 # mateunho
@@ -2091,9 +2095,13 @@ msgid "Non-interactive upgrade script"
 msgstr "Skrypt uaktualniający bez interakcji"
 
 # mateunho
+#, fuzzy
+#| msgid ""
+#| "export DEBIAN_FRONTEND=noninteractive\n"
+#| "yes '' | apt-get -y -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" dist-upgrade"
 msgid ""
 "export DEBIAN_FRONTEND=noninteractive\n"
-"yes '' | apt-get -y -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" dist-upgrade"
+"yes '' | apt-get -y -o DPkg::options::=\"--force-confdef\" -o DPkg::options::=\"--force-confold\" dist-upgrade"
 msgstr ""
 "export DEBIAN_FRONTEND=noninteractive\n"
 "yes '' | apt-get -y -o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\" dist-upgrade\n"

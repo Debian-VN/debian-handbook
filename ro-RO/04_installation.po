@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-09 18:47+0200\n"
+"POT-Creation-Date: 2015-10-01 18:00+0200\n"
 "PO-Revision-Date: 2012-05-09T20:00:15\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: None\n"
@@ -202,7 +202,7 @@ msgstr ""
 msgid "<primary>dual boot</primary>"
 msgstr ""
 
-msgid "If the computer is already running Windows, it is not necessary to delete the system in order to install Debian. You can have both systems at once, each installed on a separate disk or partition, and choose which to start when booting the computer. This configuration is often called “dual boot”, and the Debian installation system can set it up. This is done during the hard drive partitioning stage of installation and while setting up the bootloader (see the sidebars in those sections)."
+msgid "If the computer is already running Windows, it is not necessary to delete the system in order to install Debian. You can have both systems at once, each installed on a separate disk or partition, and choose which to start when booting the computer. This configuration is often called “dual boot”, and the Debian installation system can set it up. This is done during the hard drive partitioning stage of installation and while setting up the bootloader (see the sidebars <xref linkend=\"sidebar.shrinking-partition\" /> and <xref linkend=\"sidebar.bootloader-dual-boot\" />)."
 msgstr ""
 
 msgid "If you already have a working Windows system, you can even avoid using a CD-ROM; Debian offers a Windows program that will download a light Debian installer and set it up on the hard disk. You then only need to reboot the computer and choose between normal Windows boot or booting the installation program. You can also find it on a dedicated website with a rather explicit name… <ulink type=\"block\" url=\"http://ftp.debian.org/debian/tools/win32-loader/stable/\" /> <ulink type=\"block\" url=\"http://www.goodbye-microsoft.com/\" />"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Each menu entry hides a specific boot command line, which can be configured as needed by pressing the <keycap>TAB</keycap> key before validating the entry and booting. The “Help” menu entry displays the old command line interface, where the <keycap>F1</keycap> to <keycap>F10</keycap> keys display different help screens detailing the various options available at the prompt. You will rarely need to use this option except in very specific cases."
 msgstr ""
 
-msgid "The “expert” mode (accessible in the “Advanced Options” menu) details all possible options in the process of installation, and allows navigation between the various steps without them happening automatically in sequence. Be careful, this very verbose mode can be confusing due to the multitude of configuration choices that it offers."
+msgid "The “expert” mode (accessible in the “Advanced options” menu) details all possible options in the process of installation, and allows navigation between the various steps without them happening automatically in sequence. Be careful, this very verbose mode can be confusing due to the multitude of configuration choices that it offers."
 msgstr ""
 
 msgid "Boot screen"
@@ -472,7 +472,7 @@ msgstr ""
 msgid "You can erase all partitions on a disk by selecting it."
 msgstr ""
 
-msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See the previous section for more details on guided partitioning."
+msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See <xref linkend=\"sect.install-autopartman-mode\" /> for more details on guided partitioning."
 msgstr ""
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Mount point"
@@ -529,7 +529,7 @@ msgstr ""
 msgid "use it as a RAID device (see later in this chapter);"
 msgstr ""
 
-msgid "or the choice not to use it, and therefore leave it unchanged."
+msgid "you can also choose not to use it, and therefore leave it unchanged."
 msgstr ""
 
 msgid "Configuring Multidisk Devices (Software RAID)"
@@ -550,7 +550,7 @@ msgstr ""
 msgid "We will only describe level 1 RAID, which is the simplest to implement. The first step involves creating two partitions of identical size located on two different hard drives, and to label them “physical volume for RAID”."
 msgstr ""
 
-msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that needs to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
+msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that need to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
 msgstr ""
 
 msgid "Back to the main menu, a new virtual “RAID” disk appears. This disk is presented with a single partition which can not be deleted, but whose use we can choose (just like for any other partition)."
@@ -631,7 +631,7 @@ msgstr ""
 msgid "The Debian installer will warn the user if they try to make an encrypted partition while the swap partition isn't encrypted."
 msgstr ""
 
-msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar)."
+msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar <xref linkend=\"sidebar.encrypted-swap-partition\" />)."
 msgstr ""
 
 msgid "Installing the Base System"
@@ -760,7 +760,7 @@ msgstr ""
 msgid "After the First Boot"
 msgstr ""
 
-msgid "If you activated the task “Graphical desktop environment” without any explicit desktop choice (or with the “GNOME” choice), the computer will display the <command>gdm3</command> login manager."
+msgid "If you activated the task “Debian desktop environment” without any explicit desktop choice (or with the “GNOME” choice), the computer will display the <command>gdm3</command> login manager."
 msgstr ""
 
 msgid "First boot"
@@ -772,7 +772,7 @@ msgstr ""
 msgid "Installing Additional Software"
 msgstr ""
 
-msgid "The installed packages correspond to the profiles selected during installation, but not necessarily to the use that will actually be made of the machine. As such, you might want to use a package management tool to refine the selection of installed packages. The two most frequently used tools (which are installed if the “Graphical desktop environment” profile was chosen) are <command>apt</command> (accessible from the command line) and <command>synaptic</command> (“Synaptic Package Manager” in the menus)."
+msgid "The installed packages correspond to the profiles selected during installation, but not necessarily to the use that will actually be made of the machine. As such, you might want to use a package management tool to refine the selection of installed packages. The two most frequently used tools (which are installed if the “Debian desktop environment” profile was chosen) are <command>apt</command> (accessible from the command line) and <command>synaptic</command> (“Synaptic Package Manager” in the menus)."
 msgstr ""
 
 msgid "To facilitate the installation of coherent groups of programs, Debian creates “tasks” that are dedicated to specific uses (mail server, file server, etc.). You already had the opportunity to select them during installation, and you can access them again thanks to package management tools such as <command>aptitude</command> (the tasks are listed in a distinct section) and <command>synaptic</command> (through the menu <menuchoice> <guimenu>Edit</guimenu> <guimenuitem>Mark Packages by Task…</guimenuitem> </menuchoice>)."
