@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-09-30 09:00+0900\n"
-"PO-Revision-Date: 2015-09-30 09:00+0900\n"
+"POT-Creation-Date: 2015-10-01 09:00+0900\n"
+"PO-Revision-Date: 2015-10-01 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -532,7 +532,9 @@ msgstr "パーティションを「LVM 用物理ボリューム」にします (
 msgid "use it as a RAID device (see later in this chapter);"
 msgstr "RAID デバイスとして利用します (この章の後半を参照してください)。"
 
-msgid "or the choice not to use it, and therefore leave it unchanged."
+#, fuzzy
+#| msgid "or the choice not to use it, and therefore leave it unchanged."
+msgid "you can also choose not to use it, and therefore leave it unchanged."
 msgstr "パーティションを使わないことにして、そのままにしておきます。"
 
 msgid "Configuring Multidisk Devices (Software RAID)"
@@ -553,7 +555,9 @@ msgstr "一部の RAID レベルでは、データに影響を与えるハード
 msgid "We will only describe level 1 RAID, which is the simplest to implement. The first step involves creating two partitions of identical size located on two different hard drives, and to label them “physical volume for RAID”."
 msgstr "実行が最も単純なレベル 1 RAID だけを説明します。最初に、全く同じサイズのパーティションを 2 つ別々のドライブに作成し、「RAID の物理ボリューム」とラベル付けします。"
 
-msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that needs to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
+#, fuzzy
+#| msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that needs to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
+msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that need to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
 msgstr "2 つのパーティションを 1 つの仮想ディスクにまとめるためにはパーティショニングツールで「ソフトウェア RAID を設定」を選び、設定画面で「MD デバイスを作成」を選んでください。新しいデバイスに関する一連の質問に答える必要があります。最初の質問では、使用する RAID レベルを尋ねられます。今回の場合「RAID1」です。2 番目の質問では、アクティブデバイスの数を尋ねられます — 今回の場合 2 台です。これは MD デバイスに含めるパーティションの数です。3 番目の質問では、予備デバイスの数を尋ねられます — 今回の場合 0 台です。従ってディスク障害が起きた際に機能を代替させるためのディスクを追加する計画はありません。最後の質問では、RAID デバイス用のパーティションを尋ねられます — これは先に用意した 2 つのパーティションです (「raid」と明示されているパーティション以外は選ばないでください)。"
 
 msgid "Back to the main menu, a new virtual “RAID” disk appears. This disk is presented with a single partition which can not be deleted, but whose use we can choose (just like for any other partition)."
