@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2015-09-05 06:18+0200\n"
-"Last-Translator: Fred Maranhão <fred.maranhao@gmail.com>\n"
+"PO-Revision-Date: 2015-10-18 17:16+0200\n"
+"Last-Translator: Herbert Parentes Fortes Neto <hpfn@ig.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/debian-handbook/14_security/pt_BR/>\n"
 "Language: pt-BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 msgid "Firewall"
 msgstr "Firewall"
@@ -120,7 +120,6 @@ msgstr "<emphasis>CASO ESPECIFICO</emphasis> Firewall Local"
 msgid "A firewall can be restricted to one particular machine (as opposed to a complete network), in which case its role is to filter or limit access to some services, or possibly to prevent outgoing connections by rogue software that a user could, willingly or not, have installed."
 msgstr "Um firewall pode ser restrito a uma determinada máquina (em oposição a uma rede completa), caso em que seu papel é o de filtrar ou restringir o acesso a alguns serviços, ou possivelmente para evitar que as conexões de saída por softwares maliciosos que um usuário poderia, por vontade própria ou não, ter instalado."
 
-#, fuzzy
 #| msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user-space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
 msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
 msgstr "O kernel do Linux incorpora o firewall <emphasis>netfilter</emphasis>. Ele pode ser controlado a partir do espaço do usuário com os comandos <command>iptables</command> e <command>ip6tables</command>. A diferença entre estes dois comandos é que o primeiro atua sobre rede IPv4, enquanto que o último sobre o IPv6. Uma vez que ambas pilhas de protocolo de rede provavelmente estarão circulando por muitos anos, ambas as ferramentas serão utilizadas em paralelo."
@@ -140,10 +139,9 @@ msgstr "<emphasis>netfilter</emphasis> utiliza quatro tabelas distintas que arma
 msgid "<literal>filter</literal> concerns filtering rules (accepting, refusing or ignoring a packet);"
 msgstr "<literal>filtro</literal> preocupa com as regras de filtragem (aceitando, recusando ou ignorando um pacote);"
 
-#, fuzzy
 #| msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages; note that this table only exists for IPv4;"
 msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages;"
-msgstr "<literal>nat</literal> diz respeito a tradução de origem ou destino, endereços e portas de pacotes, observe que esta tabela existe apenas para IPv4;"
+msgstr "<literal>nat</literal> diz respeito a tradução de endereços e portas de origem ou destino de pacotes;"
 
 msgid "<literal>mangle</literal> concerns other changes to the IP packets (including the ToS — <emphasis>Type of Service</emphasis> — field and options);"
 msgstr "<literal>mangle</literal> diz respeito a outras alterações nos pacotes IP (incluindo os TOS - <emphasis>Tipo de Serviço</emphasis> - campo e opções);"
@@ -193,7 +191,6 @@ msgstr "Cada cadeia é uma lista de regras, cada regra é um conjunto de condiç
 msgid "<emphasis>BACK TO BASICS</emphasis> ICMP"
 msgstr "<emphasis>DE VOLTA AO BASICO</emphasis> ICMP"
 
-#, fuzzy
 #| msgid "ICMP (<emphasis>Internet Control Message </emphasis>Protocol) is the protocol used to transmit complementary information on communications. It allows testing network connectivity with the <command>ping</command> command (which sends an ICMP <emphasis>echo request</emphasis> message, which the recipient is meant to answer with an ICMP <emphasis>echo reply</emphasis> message). It signals a firewall rejecting a packet, indicates an overflow in a receive buffer, proposes a better route for the next packets in the connection, and so on. This protocol is defined by several RFC documents; the initial RFC777 and RFC792 were soon completed and extended. <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc777.html\" /><ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc792.html\" />"
 msgid "ICMP (<emphasis>Internet Control Message </emphasis>Protocol) is the protocol used to transmit complementary information on communications. It allows testing network connectivity with the <command>ping</command> command (which sends an ICMP <emphasis>echo request</emphasis> message, which the recipient is meant to answer with an ICMP <emphasis>echo reply</emphasis> message). It signals a firewall rejecting a packet, indicates an overflow in a receive buffer, proposes a better route for the next packets in the connection, and so on. This protocol is defined by several RFC documents; the initial RFC777 and RFC792 were soon completed and extended. <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc777.html\" /> <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc792.html\" />"
 msgstr "ICMP (<emphasis>Internet Control Message</emphasis> Protocol) é o protocolo usado para transmitir informações complementares sobre as comunicações. Permite testar a conectividade de rede com o comando <command>ping</command> (que envia uma mensagem ICMP <emphasis>echo request</emphasis> (solicitação de eco), que o beneficiário se destina a responder com uma mensagem ICMP <emphasis>echo reply</emphasis>) (resposta echo). É sinal de um firewall rejeitando um pacote, indica um estouro de memoria no buffer de recebimento, propõe uma melhor rota para os pacotes seguintes na conexão, e assim por diante. Este protocolo é definido por vários documentos RFC, o inicial RFC777 e RFC792 logo foram concluídos e ampliados. <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc777.html\" /> <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc792.html\" />"
@@ -240,25 +237,21 @@ msgstr "<replaceable>chain_name</replaceable>: Vá para a cadeia e avalie as sua
 msgid "<literal>RETURN</literal>: interrupt processing of the current chain, and return to the calling chain; in case the current chain is a standard one, there's no calling chain, so the default action (defined with the <literal>-P</literal> option to <command>iptables</command>) is executed instead;"
 msgstr "<literal>RETURN</literal>: interrompe o processamento da cadeia atual, e volta para a cadeia de chamada; no caso a cadeia atual é padrão, não há nenhuma cadeia de chamada, de modo que a ação padrão (definida com a opção <literal>- P</literal> para o <command>iptables</command>) é executada em vez disto;"
 
-#, fuzzy
 #| msgid "<literal>DNAT</literal> (only in the <literal>nat</literal> table, therefore only in IPv4 on <emphasis role=\"distribution\">Wheezy</emphasis>): apply <emphasis>Destination NAT</emphasis> (extra options describe the exact changes to apply);"
 msgid "<literal>SNAT</literal> (only in the <literal>nat</literal> table): apply <emphasis>Source NAT</emphasis> (extra options describe the exact changes to apply);"
-msgstr "<literal>DNAT</literal> (apenas na tabela <literal>nat</literal>, portanto, somente em IPv4 no <emphasis role=\"distribution\">Whezzy</emphasis>: aplica <emphasis>NAT de Destino</emphasis> (opções extra descrevem as alterações exatas para aplicar);"
+msgstr "<literal>SNAT</literal> (apenas na tabela <literal>nat</literal>): aplica <emphasis>Source (fonte - origem) NAT</emphasis> (opções extra descrevem as alterações exatas para aplicar);"
 
-#, fuzzy
 #| msgid "<literal>DNAT</literal> (only in the <literal>nat</literal> table, therefore only in IPv4 on <emphasis role=\"distribution\">Wheezy</emphasis>): apply <emphasis>Destination NAT</emphasis> (extra options describe the exact changes to apply);"
 msgid "<literal>DNAT</literal> (only in the <literal>nat</literal> table): apply <emphasis>Destination NAT</emphasis> (extra options describe the exact changes to apply);"
-msgstr "<literal>DNAT</literal> (apenas na tabela <literal>nat</literal>, portanto, somente em IPv4 no <emphasis role=\"distribution\">Whezzy</emphasis>: aplica <emphasis>NAT de Destino</emphasis> (opções extra descrevem as alterações exatas para aplicar);"
+msgstr "<literal>DNAT</literal> (apenas na tabela <literal>nat</literal>): aplica <emphasis>Destination (destino) NAT</emphasis> (opções extra descrevem as alterações exatas para aplicar);"
 
-#, fuzzy
 #| msgid "<literal>MASQUERADE</literal> (only in the <literal>nat</literal> table, therefore only in IPv4 on <emphasis role=\"distribution\">Wheezy</emphasis>): apply <emphasis>masquerading</emphasis> (a special case of <emphasis>Source NAT</emphasis>);"
 msgid "<literal>MASQUERADE</literal> (only in the <literal>nat</literal> table): apply <emphasis>masquerading</emphasis> (a special case of <emphasis>Source NAT</emphasis>);"
-msgstr "<literal>MASQUERADE</literal> (apenas na tabela <literal>nat</literal>, portanto, somente em IPv4 no <emphasis role=\"distribution\">Whezzy</emphasis>): aplica <emphasis>masquerading</emphasis> (um caso especial de <emphasis>NAT de origem</emphasis>);"
+msgstr "<literal>MASQUERADE</literal> (apenas na tabela <literal>nat</literal>): aplica <emphasis>masquerading</emphasis> (um caso especial de <emphasis>Source (origem) NAT</emphasis>);"
 
-#, fuzzy
 #| msgid "<literal>REDIRECT</literal> (only in the <literal>nat</literal> table, therefore only in IPv4 on <emphasis role=\"distribution\">Wheezy</emphasis>): redirect a packet to a given port of the firewall itself; this can be used to set up a transparent web proxy that works with no configuration on the client side, since the client thinks it connects to the recipient whereas the communications actually go through the proxy."
 msgid "<literal>REDIRECT</literal> (only in the <literal>nat</literal> table): redirect a packet to a given port of the firewall itself; this can be used to set up a transparent web proxy that works with no configuration on the client side, since the client thinks it connects to the recipient whereas the communications actually go through the proxy."
-msgstr "<literal>REDIRECT</literal> (apenas na  tabela <literal>nat</literal>, portanto, somente em IPv4 no <emphasis role=\"distribution\">Whezzy</emphasis>): redireciona um pacote para uma determinada porta do firewall, isto pode ser usado para configurar um proxy web transparente que funciona sem nenhuma configuração no lado do cliente, uma vez que o cliente pensa que ele se conecta ao destinatário e as comunicações realmente passam pelo proxy."
+msgstr "<literal>REDIRECT</literal> (apenas na  tabela <literal>nat</literal>): redireciona um pacote para uma determinada porta do firewall, isto pode ser usado para configurar um proxy web transparente que funciona sem nenhuma configuração no lado do cliente, uma vez que o cliente pensa que ele se conecta ao destinatário e as comunicações realmente passam pelo proxy."
 
 msgid "Other actions, particularly those concerning the <literal>mangle</literal> table, are outside the scope of this text. The <citerefentry><refentrytitle>iptables</refentrytitle> <manvolnum>8</manvolnum></citerefentry> and <citerefentry><refentrytitle>ip6tables</refentrytitle> <manvolnum>8</manvolnum></citerefentry> have a comprehensive list."
 msgstr "Outras ações, particularmente as relativas à tabela <literal>mangle</literal>, estão fora do escopo deste texto. O <citerefentry><refentrytitle>iptables</refentrytitle> <manvolnum>8</manvolnum></citerefentry> e <citerefentry> <refentrytitle>ip6tables</refentrytitle> <manvolnum>8</manvolnum></citerefentry> tem um lista completa."
@@ -311,10 +304,9 @@ msgstr "<literal>--log-tcp-sequence</literal>, <literal>--log-tcp-options</liter
 msgid "The <literal>DNAT</literal> action provides the <literal>--to-destination <replaceable>address</replaceable>:<replaceable>port</replaceable></literal> option to indicate the new destination IP address and/or port. Similarly, <literal>SNAT</literal> provides <literal>--to-source <replaceable>address</replaceable>:<replaceable>port</replaceable></literal> to indicate the new source IP address and/or port."
 msgstr "A acao <literal>DNAT</literal> fornece a <literal>--to-destination <replaceable>endereço</replaceable>: opção <replaceable>porta</replaceable></literal> para indicar o novo endereço IP de destino e/ou porta. Da mesma forma, <literal>SNAT</literal> fornece <literal>--to-source <replaceable>endereço</replaceable>:<replaceable>porta</replaceable></literal> para indicar o novo endereço IP de origem e/ou porta."
 
-#, fuzzy
 #| msgid "The <literal>REDIRECT</literal> action (only available if NAT is available — on <emphasis role=\"distribution\">Wheezy</emphasis>, this means IPv4 only) provides the <literal>--to-ports <replaceable>port(s)</replaceable></literal> option to indicate the port, or port range, where the packets should be redirected."
 msgid "The <literal>REDIRECT</literal> action (only available if NAT is available) provides the <literal>--to-ports <replaceable>port(s)</replaceable></literal> option to indicate the port, or port range, where the packets should be redirected."
-msgstr "A ação <literal>REDIRECT</literal> (disponível apenas se o NAT está disponível - no <emphasis role=\"distribution\">Wheezy</emphasis>, que significa IPv4 somente) fornece a opção <literal>--to-ports <replaceable>porta(s)</replaceable></literal> para indicar a porta, ou intervalo de portas, onde os pacotes devem ser redirecionados."
+msgstr "A ação <literal>REDIRECT</literal> (disponível apenas se o NAT está disponível) fornece a opção <literal>--to-ports <replaceable>porta(s)</replaceable></literal> para indicar a porta, ou intervalo de portas, para onde os pacotes devem ser redirecionados."
 
 msgid "Creating Rules"
 msgstr "Criando Regras"
@@ -322,7 +314,6 @@ msgstr "Criando Regras"
 msgid "Each rule creation requires one invocation of <command>iptables</command>/<command>ip6tables</command>. Typing these commands manually can be tedious, so the calls are usually stored in a script so that the same configuration is set up automatically every time the machine boots. This script can be written by hand, but it can also be interesting to prepare it with a high-level tool such as <command>fwbuilder</command>."
 msgstr "Cada criação de regra exige uma invocação de <command>iptables</command>/<command>ip6tables</command>. Digitando estes comandos manualmente pode ser tedioso, por isso as chamadas são normalmente armazenados em um script para que a mesma configuração seja criada automaticamente a cada vez que a máquina inicia. Este script pode ser escrito à mão, mas também pode ser interessante prepará lo com uma ferramenta de alto nível, tais como <command>fwbuilder</command>."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>aptitude install fwbuilder</userinput>"
@@ -331,7 +322,7 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>apt install fwbuilder</userinput>"
 msgstr ""
 "\n"
-"<computeroutput># </computeroutput><userinput>aptitude install fwbuilder</userinput>\n"
+"<computeroutput># </computeroutput><userinput>apt install fwbuilder</userinput>"
 
 msgid "The principle is simple. In the first step, one needs to describe all the elements that will be involved in the actual rules:"
 msgstr "O princípio é simples. Na primeira etapa, é preciso descrever todos os elementos que estarão envolvidos nas atuais regras:"
@@ -387,7 +378,7 @@ msgstr ""
 "    network 192.168.0.0\n"
 "    netmask 255.255.255.0\n"
 "    broadcast 192.168.0.255\n"
-"    up /usr/local/etc/arrakis.fw\n"
+"    up /usr/local/etc/arrakis.fw"
 
 msgid "This obviously assumes that you are using <emphasis role=\"pkg\">ifupdown</emphasis> to configure the network interfaces. If you are using something else (like <emphasis>NetworkManager</emphasis> or <emphasis>systemd-networkd</emphasis>), then refer to their respective documentation to find out ways to execute a script after the interface has been brought up."
 msgstr ""
@@ -398,10 +389,9 @@ msgstr "Supervisão: Prevenção, Detecção, Desencorajamento"
 msgid "<primary>monitoring</primary>"
 msgstr "<primary>Monitoramento</primary>"
 
-#, fuzzy
 #| msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes the section dedicated to generic system monitoring in <xref linkend=\"advanced-administration\" />."
 msgid "Monitoring is an integral part of any security policy for several reasons. Among them, that the goal of security is usually not restricted to guaranteeing data confidentiality, but it also includes ensuring availability of the services. It is therefore imperative to check that everything works as expected, and to detect in a timely manner any deviant behavior or change in quality of the service(s) rendered. Monitoring activity can help detecting intrusion attempts and enable a swift reaction before they cause grave consequences. This section reviews some tools that can be used to monitor several aspects of a Debian system. As such, it completes <xref linkend=\"sect.monitoring\" />."
-msgstr "O monitoramento é uma parte integrante de qualquer política de segurança por várias razões. Entre elas, que o objetivo da segurança não é normalmente restrito a garantir a confidencialidade dos dados, mas também inclui a disponibilidade assegurada dos serviços. Portanto, é imperativo verificar se tudo funciona como esperado, e para detectar em tempo hábil qualquer desvio no comportamento ou mudança na qualidade do(s) serviço(s) processado(s). Atividade de monitoramento pode ajudar a detectar tentativas de intrusão e permitir uma reação rápida antes que causem consequências graves. Esta seção analisa algumas ferramentas que podem ser usadas para monitorar vários aspectos de um sistema Debian. Como tal, completa a seção dedicada ao monitoramento genérico do sistema em <xref linkend=\"advanced-administration\"/>."
+msgstr "O monitoramento é uma parte integrante de qualquer política de segurança por várias razões. Entre elas, que o objetivo da segurança não é normalmente restrito a garantir a confidencialidade dos dados, mas também inclui a disponibilidade assegurada dos serviços. Portanto, é imperativo verificar se tudo funciona como esperado, e para detectar em tempo hábil qualquer desvio no comportamento ou mudança na qualidade do(s) serviço(s) processado(s). Atividade de monitoramento pode ajudar a detectar tentativas de intrusão e permitir uma reação rápida antes que causem consequências graves. Esta seção analisa algumas ferramentas que podem ser usadas para monitorar vários aspectos de um sistema Debian. Como tal, completa <xref linkend=\"sect.monitoring\" />."
 
 msgid "Monitoring Logs with <command>logcheck</command>"
 msgstr "Monitoramento de Logs com <command>logcheck</command>"
@@ -418,10 +408,9 @@ msgstr "<primary>monitorando</primary><secondary>arquivos log</secondary>"
 msgid "The <command>logcheck</command> program monitors log files every hour by default. It sends unusual log messages in emails to the administrator for further analysis."
 msgstr "O programa <command>logcheck</command> monitora arquivos de log a cada hora por padrão. Ele envia mensagens de log incomuns em e-mails para o administrador, para posterior análise."
 
-#, fuzzy
 #| msgid "The list of monitored files is stored in <filename>/etc/logcheck/logcheck.logfiles</filename>; the default values work fine if the <filename>/etc/syslog.conf</filename> file has not been completely overhauled."
 msgid "The list of monitored files is stored in <filename>/etc/logcheck/logcheck.logfiles</filename>; the default values work fine if the <filename>/etc/rsyslog.conf</filename> file has not been completely overhauled."
-msgstr "A lista de arquivos monitorados é armazenada em <filename>/etc/logcheck/logcheck.logfiles</filename>, os valores padrão funcionam bem se o arquivo <filename>/etc/syslog.conf</filename> não foi completamente refeito."
+msgstr "A lista de arquivos monitorados é armazenada em <filename>/etc/logcheck/logcheck.logfiles</filename>, os valores padrão funcionam bem se o arquivo <filename>/etc/rsyslog.conf</filename> não foi completamente refeito."
 
 msgid "<command>logcheck</command> can work in one of three more or less detailed modes: <emphasis>paranoid</emphasis>, <emphasis>server</emphasis> and <emphasis>workstation</emphasis>. The first one is <emphasis>very</emphasis> verbose, and should probably be restricted to specific servers such as firewalls. The second (and default) mode is recommended for most servers. The last one is designed for workstations, and is even terser (it filters out more messages)."
 msgstr "<command>logcheck</command> pode trabalhar em um dos três modos mais ou menos detalhados: <emphasis>paranoid</emphasis>, <emphasis>server</emphasis> e <emphasis>workstation</emphasis>. O primeiro é <emphasis>muito</emphasis> verboso, e provavelmente deve ser restrito a servidores específicos, tais como firewalls. O segundo modo (e padrão) é recomendado para a maioria dos servidores. O último é projetado para estações de trabalho, e é ainda suscinto (que filtra mais mensagens)."
@@ -480,10 +469,9 @@ msgstr "Quando o sistema parece estar sobrecarregado, <command>top</command> é 
 msgid "<command>top</command> is a very flexible tool and its manual page gives details on how to customize its display and adapt it to one's personal needs and habits."
 msgstr "<command>top</command> é uma ferramenta muito flexível e sua página de manual dá detalhes sobre como personalizar a sua exibição e adaptá la às nossas necessidades pessoais e hábitos."
 
-#, fuzzy
 #| msgid "The <command>gnome-system-monitor</command> and <command>qps</command> graphical tools are similar to <command>top</command> and they provide roughly the same features."
 msgid "The <command>gnome-system-monitor</command> graphical tool is similar to <command>top</command> and it provides roughly the same features."
-msgstr "As ferramentas gráficas <command>gnome-system-monitor</command> e <command>qps</command> são semelhantes ao <command>top</command> e proporcionam mais ou menos as mesmas características."
+msgstr "As ferramentas gráficas <command>gnome-system-monitor</command> é semelhante ao <command>top</command> e proporciona mais ou menos os mesmos recursos."
 
 msgid "<primary><command>gnome-system-monitor</command></primary>"
 msgstr "<primary><command>gnome-system-monitor</command></primary>"
@@ -527,23 +515,20 @@ msgstr "Detectando Modificações"
 msgid "Once the system is installed and configured, and barring security upgrades, there's usually no reason for most of the files and directories to evolve, data excepted. It is therefore interesting to make sure that files actually do not change: any unexpected change would therefore be worth investigating. This section presents a few tools able to monitor files and to warn the administrator when an unexpected change occurs (or simply to list such changes)."
 msgstr "Uma vez que o sistema esteja instalado e configurado, e impedindo atualizações de segurança, geralmente não há razão para a maioria dos arquivos e diretórios para evoluirem, exceeto os dados. É interessante, portanto, certificar se que os arquivos realmente não alteram: qualquer mudança seria, portanto, inesperada, valendo a pena investigar. Esta seção apresenta algumas ferramentas capazes de monitorar os arquivos e para avisar o administrador quando ocorrer uma mudança inesperada (ou simplesmente para listar tais mudanças)."
 
-#, fuzzy
 #| msgid "Monitoring Logs with <command>logcheck</command>"
 msgid "Auditing Packages with <command>dpkg --verify</command>"
-msgstr "Monitoramento de Logs com <command>logcheck</command>"
+msgstr "Auditando Pacotes com o <command>dpkg --verify</command>"
 
-#, fuzzy
 #| msgid "<primary>logs</primary><secondary>monitoring</secondary>"
 msgid "<primary><command>dpkg</command></primary><secondary><command>dpkg --verify</command></secondary>"
-msgstr "<primary>logs</primary><secondary>monitorando</secondary>"
+msgstr "<primary><command>dpkg</command></primary><secondary><command>dpkg --verify</command></secondary>"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Protecting against upstream changes"
 msgstr "<emphasis>INDO ALEM</emphasis> Protegendo se contra mudanças mais significativas"
 
-#, fuzzy
 #| msgid "<command>debsums</command> is useful in detecting changes to files coming from a Debian package, but it will be useless if the package itself is compromised, for instance if the Debian mirror is compromised. Protecting against this class of attacks involves using APT's digital signature verification system (see <xref linkend=\"sect.package-authentication\" />), and taking care to only install packages from a certified origin."
 msgid "<command>dpkg --verify</command> is useful in detecting changes to files coming from a Debian package, but it will be useless if the package itself is compromised, for instance if the Debian mirror is compromised. Protecting against this class of attacks involves using APT's digital signature verification system (see <xref linkend=\"sect.package-authentication\" />), and taking care to only install packages from a certified origin."
-msgstr "<command>debsums</command> é útil na detecção de alterações em arquivos provenientes de um pacote Debian, mas será inútil se o pacote em si está comprometidO, por exemplo, se o espelho Debian está comprometida. Protegendo-se contra este tipo de ataques envolve a utilização de sistema APT de verificação de assinatura digital (veja <xref linkend=\"sect.package-authentication\" />), e tomando cuidado para só instalar pacotes a partir de uma origem certificada."
+msgstr "<command>dpkg --verify</command> é útil na detecção de alterações em arquivos provenientes de um pacote Debian, mas será inútil se o pacote em si está comprometidO, por exemplo, se o espelho Debian está comprometida. Protegendo-se contra este tipo de ataques envolve a utilização de sistema APT de verificação de assinatura digital (veja <xref linkend=\"sect.package-authentication\" />), e tomando cuidado para só instalar pacotes a partir de uma origem certificada."
 
 msgid "<command>dpkg --verify</command> (or <command>dpkg -V</command>) is an interesting tool since it allows finding what installed files have been modified (potentially by an attacker), but this should be taken with a grain of salt. To do its job it relies on checksums stored in dpkg's own database which is stored on the hard disk (they can be found in <filename>/var/lib/dpkg/info/<replaceable>package</replaceable>.md5sums</filename>); a thorough attacker will therefore update these files so they contain the new checksums for the subverted files."
 msgstr ""
@@ -563,20 +548,17 @@ msgstr "<primary>regra de filtragem</primary>"
 msgid "<primary>control sum</primary>"
 msgstr "<primary>Monitoramento</primary>"
 
-#, fuzzy
 #| msgid "<primary>IDS</primary>"
 msgid "<primary>MD5</primary>"
-msgstr "<primary>IDS</primary>"
+msgstr "<primary>MD5</primary>"
 
-#, fuzzy
 #| msgid "<primary>IDS</primary>"
 msgid "<primary>SHA1</primary>"
-msgstr "<primary>IDS</primary>"
+msgstr "<primary>SHA1</primary>"
 
-#, fuzzy
 #| msgid "<command>debsums</command> is an interesting tool since it allows finding what installed files have been modified (potentially by an attacker), but this should be taken with a grain of salt. First, because not all Debian packages provide the fingerprints required by this program (they can be found in <filename>/var/lib/dpkg/info/<replaceable>package</replaceable>.md5sums</filename> when they exist). <indexterm><primary>fingerprint</primary></indexterm> <indexterm><primary>control sum</primary></indexterm> <indexterm><primary>MD5</primary></indexterm> <indexterm><primary>SHA1</primary></indexterm> As a reminder: a fingerprint is a value, often a number (even though in hexadecimal notation), that contains a kind of signature for the contents of a file. This signature is calculated with an algorithm (MD5 or SHA1 being well-known examples) that more or less guarantee that even the tiniest change in the file contents implies a change in the fingerprint; this is known as the “avalanche effect”. This allows a simple numerical fingerprint to serve as a litmus test to check whether the contents of a file have been altered. These algorithms are not reversible; in other words, for most of them, knowing a fingerprint doesn't allow finding the corresponding contents. Recent mathematical advances seem to weaken the absoluteness of these principles, but their use is not called into question so far, since creating different contents yielding the same fingerprint still seems to be quite a difficult task."
 msgid "As a reminder: a fingerprint is a value, often a number (even though in hexadecimal notation), that contains a kind of signature for the contents of a file. This signature is calculated with an algorithm (MD5 or SHA1 being well-known examples) that more or less guarantee that even the tiniest change in the file contents implies a change in the fingerprint; this is known as the “avalanche effect”. This allows a simple numerical fingerprint to serve as a litmus test to check whether the contents of a file have been altered. These algorithms are not reversible; in other words, for most of them, knowing a fingerprint doesn't allow finding the corresponding contents. Recent mathematical advances seem to weaken the absoluteness of these principles, but their use is not called into question so far, since creating different contents yielding the same fingerprint still seems to be quite a difficult task."
-msgstr "<command>debsums</command> é uma ferramenta interessante, pois permite encontrar o que instalou arquivos que foram modificados (potencialmente por um atacante), mas isso deve ser tomado com certa reserva. Primeiro, porque nem todos os pacotes do Debian contém as impressões digitais exigidas por este programa (que pode ser encontrado em <filename>/var/lib/dpkg/info/<replaceable>pacote</replaceable>. Md5sums </filename> quando existir). <indexterm><primary>fingerprint</primary></indexterm> <indexterm><primary>control sum</primary></indexterm><indexterm><primary>MD5</primary></indexterm><indexterm><primary>SHA1</primary></indexterm> Como um lembrete: a impressão digital é um valor, muitas vezes um número (mesmo que em notação hexadecimal), que contém uma espécie de assinatura para o conteúdo de um arquivo. Esta assinatura é calculada com um algoritmo (MD5 ou SHA1 sendo exemplos bem conhecidos) que garanta mais ou menos que, mesmo a mais ínfima mudança no conteúdo do arquivo implica uma mudança na impressão digital, o que é conhecido como o \"efeito avalanche\". Isto permite uma impressão digital numérica simples para servir como um teste para verificar se o conteúdo de um arquivo foram alterado. Estes algoritmos não são reversíveis, em outras palavras, para a maioria deles, sabendo a impressão digital não permite encontrar o conteúdo correspondente. Os recentes avanços matemáticos parecem enfraquecer o poder absoluto destes princípios, mas seu uso não é posto em causa, até agora, produzir a mesma impressão digital apartir de conteúdos diferentes ainda parece ser uma tarefa bastante difícil."
+msgstr "Como um lembrete: a impressão digital é um valor, muitas vezes um número (mesmo que em notação hexadecimal), que contém uma espécie de assinatura para o conteúdo de um arquivo. Esta assinatura é calculada com um algoritmo (MD5 ou SHA1 sendo exemplos bem conhecidos) que garanta mais ou menos que, mesmo a mais ínfima mudança no conteúdo do arquivo implica uma mudança na impressão digital, o que é conhecido como o \"efeito avalanche\". Isto permite uma impressão digital numérica simples para servir como um teste para verificar se o conteúdo de um arquivo foram alterado. Estes algoritmos não são reversíveis, em outras palavras, para a maioria deles, sabendo a impressão digital não permite encontrar o conteúdo correspondente. Os recentes avanços matemáticos parecem enfraquecer o poder absoluto destes princípios, mas seu uso não é posto em causa, até agora, produzir a mesma impressão digital apartir de conteúdos diferentes ainda parece ser uma tarefa bastante difícil."
 
 msgid "Running <command>dpkg -V</command> will verify all installed packages and will print out a line for each file with a failing test. The output format is the same as the one of <command>rpm -V</command> where each character denotes a test on some specific meta-data. Unfortunately <command>dpkg</command> does not store the meta-data needed for most tests and will thus output question marks for them. Currently only the checksum test can yield a \"5\" on the third character (when it fails)."
 msgstr ""
@@ -607,7 +589,6 @@ msgstr ""
 msgid "Since the data on the disk cannot be trusted, <command>debsums</command> offers to do its checks based on <filename>.deb</filename> files instead of relying on dpkg's database. To download trusted <filename>.deb</filename> files of all the packages installed, we can rely on APT's authenticated downloads. This operation can be slow and tedious, and should therefore not be considered a proactive technique to be used on a regular basis."
 msgstr "O outro problema pode ser evitado de forma semelhante: o cheque deve simplesmente basear-se num puro arquivo <filename>.deb</filename>. Uma vez que esta implica em ter todos os arquivos <filename>.deb</filename> para todos os pacotes instalados, e ter certeza de sua integridade, a maneira mais simples é baixa los de um espelho Debian. Esta operação pode ser lenta e tediosa, e não deve, portanto, ser considerada uma técnica dinamica a ser utilizada numa base regular."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>apt-get --reinstall -d install `grep-status -e 'Status: install ok installed' -n -s Package`</userinput>\n"
@@ -621,10 +602,9 @@ msgid ""
 "# </computeroutput><userinput>debsums -p /var/cache/apt/archives --generate=all</userinput>"
 msgstr ""
 "\n"
-"<computeroutput># </computeroutput><userinput>apt-get --reinstall -d install `grep-status -e 'Status: install ok installed' -n -s Pacote`</userinput>\n"
+"<computeroutput># </computeroutput><userinput>apt-get --reinstall -d install `grep-status -e 'Status: install ok installed' -n -s Package`</userinput>\n"
 "<computeroutput>[ ... ]\n"
-"# </computeroutput><userinput>debsums -p /var/cache/apt/archives --generate=all</userinput>\n"
-"      "
+"# </computeroutput><userinput>debsums -p /var/cache/apt/archives --generate=all</userinput>"
 
 msgid "Note that this example uses the <command>grep-status</command> command from the <emphasis role=\"pkg\">dctrl-tools</emphasis> package, which is not installed by default."
 msgstr "Note que este exemplo usa o comando <command>grep status</command> a partir do pacote <emphasis role=\"pkg\">dctrl-tools</emphasis>, que não é instalado por padrão."
@@ -656,10 +636,9 @@ msgstr "<emphasis>ALTERNATIVO</emphasis> Tripwire and Samhain"
 msgid "Tripwire is very similar to AIDE; even the configuration file syntax is almost the same. The main addition provided by <emphasis role=\"pkg\">tripwire</emphasis> is a mechanism to sign the configuration file, so that an attacker cannot make it point at a different version of the reference database."
 msgstr "Tripwire é muito semelhante ao AIDE; mesmo a sintaxe arquivo de configuração é quase a mesma. A adição principal fornecida pelo <emphasis role=\"pkg\">tripwire</emphasis> é um mecanismo para assinar o arquivo de configuração, de modo que um atacante não pode torná lo ponto em uma versão diferente do banco de dados de referência."
 
-#, fuzzy
 #| msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the QUICK LOOK sidebar). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
 msgid "Samhain also offers similar features, as well as some functions to help detecting rootkits (see the sidebar <xref linkend=\"sidebar.the-checksecurity-and-chkrootkit-rkhunter-packages\" />). It can also be deployed globally on a network, and record its traces on a central server (with a signature)."
-msgstr "Samhain também oferece características semelhantes, bem como algumas funções ajudar a detectar rootkits (veja o quadro QUICK LOOK). Também pode ser implementado globalmente em uma rede, e gravar os seus vestigios em um servidor central (com uma assinatura)."
+msgstr "Samhain também oferece características semelhantes, bem como algumas funções ajudar a detectar rootkits (veja a barra lateral  <xref linkend=\"sidebar.the-checksecurity-and-chkrootkit-rkhunter-packages\" />). Também pode ser implementado globalmente em uma rede, e gravar os seus vestigios em um servidor central (com uma assinatura)."
 
 msgid "<emphasis>QUICK LOOK</emphasis> The <emphasis role=\"pkg\">checksecurity</emphasis> and <emphasis role=\"pkg\">chkrootkit</emphasis>/<emphasis role=\"pkg\">rkhunter</emphasis> packages"
 msgstr "<emphasis>BLOQUEIO RAPIDO</emphasis> os pacotes <emphasis role=\"pkg\">checksecurity</emphasis> e <emphasis role=\"pkg\">chkrootkit</emphasis>/<emphasis role=\"pkg\">rkhunter</emphasis>"
@@ -703,10 +682,9 @@ msgstr "<primary>negacao de servico</primary>"
 msgid "A “denial of service” attack has only one goal: to make a service unavailable. Whether such an attack involves overloading the server with queries or exploiting a bug, the end result is the same: the service is no longer operational. Regular users are unhappy, and the entity hosting the targeted network service suffers a loss in reputation (and possibly in revenue, for instance if the service was an e-commerce site)."
 msgstr "O ataque \"negação de serviço\" tem apenas um objetivo: tornar um serviço indisponível. Se tal ataque envolve a sobrecarrega do servidor com consultas ou explorar uma falha, o resultado final é o mesmo: o serviço não é mais operacional. Os usuários regulares estão infelizes, e a entidade que hospeda o serviço de rede alvo sofre uma perda de reputação (e, eventualmente, em receita, por exemplo, se o serviço era um site de comércio eletrônico)."
 
-#, fuzzy
 #| msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DoS</acronym> and <acronym>DDoS</acronym> (depending on whether the denial of service attack is distributed or not)."
 msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DDoS</acronym> and <acronym>DoS</acronym> (depending on whether the denial of service attack is distributed or not)."
-msgstr "Tal ataque é por vezes \"distribuído\", o que geralmente envolve sobrecarregar o servidor com um grande número de consultas provenientes de muitas fontes diferentes para que o servidor se torna incapaz de responder às perguntas legítimas. Estes tipos de ataques ganharam siglas bem conhecidas: <acronym>DoS</acronym> e <acronym>DDoS</acronym> (dependendo se o ataque de negação de serviço distribuído ou não)."
+msgstr "Tal ataque é por vezes \"distribuído\", o que geralmente envolve sobrecarregar o servidor com um grande número de consultas provenientes de muitas fontes diferentes para que o servidor se torna incapaz de responder às perguntas legítimas. Estes tipos de ataques ganharam siglas bem conhecidas: <acronym>DDoS</acronym> e <acronym>DoS</acronym> (dependendo se o ataque de negação de serviço distribuído ou não)."
 
 #, fuzzy
 #| msgid "<command>snort</command> (in the Debian package of the same name) is a NIDS — a <emphasis>Network Intrusion Detection System</emphasis>. Its function is to listen to the network and try to detect infiltration attempts and/or hostile acts (including denial of service attacks). All these events are logged, and a daily email is sent to the administrator with a summary of the past 24 hours."
@@ -716,18 +694,16 @@ msgstr "<command>snort</command> (no pacote Debian com o mesmo nome) é um NIDS 
 msgid "<primary><command>snort</command></primary>"
 msgstr "<primary><command>snort</command></primary>"
 
-#, fuzzy
 #| msgid "<primary><command>snort</command></primary>"
 msgid "<primary><command>suricata</command></primary>"
-msgstr "<primary><command>snort</command></primary>"
+msgstr "<primary><command>suricata</command></primary>"
 
 msgid "<emphasis>CAUTION</emphasis> Range of action"
 msgstr "<emphasis>ATENCAO</emphasis> Raio de ação"
 
-#, fuzzy
 #| msgid "The effectiveness of <command>snort</command> is limited by the traffic seen on the monitored network interface. It will obviously not be able to detect anything if it cannot observe the real traffic. When plugged into a network switch, it will therefore only monitor attacks targeting the machine it runs on, which is probably not the intention. The machine hosting <command>snort</command> should therefore be plugged into the “mirror” port of the switch, which is usually dedicated to chaining switches and therefore gets all the traffic."
 msgid "The effectiveness of <command>suricata</command> is limited by the traffic seen on the monitored network interface. It will obviously not be able to detect anything if it cannot observe the real traffic. When plugged into a network switch, it will therefore only monitor attacks targeting the machine it runs on, which is probably not the intention. The machine hosting <command>suricata</command> should therefore be plugged into the “mirror” port of the switch, which is usually dedicated to chaining switches and therefore gets all the traffic."
-msgstr "A eficácia do <command>snort</command> é limitada pelo tráfego visto na interface de rede monitorada. Obviamente, não será capaz de detectar qualquer coisa se não pode observar o tráfego real. Quando conectado a um switch de rede, ele irá, portanto, apenas monitorar ataques contra a máquina que ele roda, provavelmente não é a intenção. A máquina de hospedagem <command>snort</command> deve estar ligada ao \"espelho\" da porta do switch, que normalmente é dedicada aos interruptores de encadeamento e, portanto, recebe todo o tráfego."
+msgstr "A eficácia do <command>suricata</command> é limitada pelo tráfego visto na interface de rede monitorada. Obviamente, não será capaz de detectar qualquer coisa se não pode observar o tráfego real. Quando conectado a um switch de rede, ele irá, portanto, apenas monitorar ataques contra a máquina em que ele roda, o que provavelmente não é a intenção. A máquina que hospeda o <command>suricata</command> deve estar ligada a porta \"espelho\" do switch, que normalmente é dedicada aos interruptores (switches) encadeados e, portanto, recebe todo o tráfego."
 
 msgid "Configuring suricata involves reviewing and editing <filename>/etc/suricata/suricata-debian.yaml</filename>, which is very long because each parameter is abundantly commented. A minimal configuration requires describing the range of addresses that the local network covers (<literal>HOME_NET</literal> parameter). In practice, this means the set of all potential attack targets. But getting the most of it requires reading it in full and adapting it to the local situation."
 msgstr ""
@@ -747,23 +723,20 @@ msgstr "<emphasis>INDO MAIS</emphasis> Integração com o <command>prelude</comm
 msgid "Prelude brings centralized monitoring of security information. Its modular architecture includes a server (the <emphasis>manager</emphasis> in <emphasis role=\"pkg\">prelude-manager</emphasis>) which gathers alerts generated by <emphasis>sensors</emphasis> of various types."
 msgstr "Prelude traz monitoramento centralizado de informações de segurança. Sua arquitetura modular inclui um servidor (o gerente <emphasis>manager</emphasis> em <emphasis role=\"pkg\">prelude-manager</emphasis>) que reúne os alertas gerados por <emphasis>sensores</emphasis> de vários tipos."
 
-#, fuzzy
 #| msgid "Snort can be configured as such a sensor. Other possibilities include <emphasis>prelude-lml</emphasis> (<emphasis>Log Monitor Lackey</emphasis>) which monitors log files (in a manner similar to <command>logcheck</command>, described in <xref linkend=\"sect.logcheck\" />)."
 msgid "Suricata can be configured as such a sensor. Other possibilities include <emphasis>prelude-lml</emphasis> (<emphasis>Log Monitor Lackey</emphasis>) which monitors log files (in a manner similar to <command>logcheck</command>, described in <xref linkend=\"sect.logcheck\" />)."
-msgstr "O Snort pode ser configurado como um doestes sensores. Outras possibilidades incluem <emphasis>prelude-lml</emphasis> (<emphasis>Log Monitor Lackey</emphasis>), que monitora os arquivos de registro (de forma semelhante ao <command>logcheck</command>, descrito em <xref linkend = \"sect.logcheck\" />)."
+msgstr "O Suricata pode ser configurado como um destes sensores. Outras possibilidades incluem <emphasis>prelude-lml</emphasis> (<emphasis>Log Monitor Lackey</emphasis>), que monitora os arquivos de registro (de forma semelhante ao <command>logcheck</command>, descrito em <xref linkend = \"sect.logcheck\" />)."
 
 msgid "<primary><command>prelude</command></primary>"
 msgstr "<primary><command>prelude</command></primary>"
 
-#, fuzzy
 #| msgid "Introduction to SELinux"
 msgid "Introduction to AppArmor"
-msgstr "Introducao ao SELinux"
+msgstr "Introducao ao AppArmor"
 
-#, fuzzy
 #| msgid "<primary>monitoring</primary>"
 msgid "<primary>AppArmor</primary>"
-msgstr "<primary>Monitoramento</primary>"
+msgstr "<primary>AppArmor</primary>"
 
 msgid "Principles"
 msgstr "Principios"
@@ -773,15 +746,13 @@ msgstr "Principios"
 msgid "AppArmor is a <emphasis>Mandatory Access Control</emphasis> (MAC) system built on Linux's LSM (<emphasis>Linux Security Modules</emphasis>) interface. In practice, the kernel queries AppArmor before each system call to know whether the process is authorized to do the given operation. Through this mechanism, AppArmor confines programs to a limited set of resources."
 msgstr "SELinux (<emphasis>Security Enhanced Linux</emphasis>) é um sistema de <emphasis>controle de acesso obrigatório</emphasis> construído sobre a interface LSM (<emphasis>Linux Security Modules</emphasis>) do Linux. Na prática, o kernel consulta o SELinux antes de cada chamada do sistema para saber se o processo está autorizado a fazer a operação dada."
 
-#, fuzzy
 #| msgid "<primary><emphasis>netfilter</emphasis></primary>"
 msgid "<primary><emphasis>Mandatory Access Control</emphasis></primary>"
-msgstr "<primary><emphasis>netfilter</emphasis></primary>"
+msgstr "<primary><emphasis>Controle de Acesso Mandatório</emphasis></primary>"
 
-#, fuzzy
 #| msgid "<primary><emphasis>mod-security</emphasis></primary>"
 msgid "<primary><emphasis>Linux Security Modules</emphasis></primary>"
-msgstr "<primary><emphasis>mod-security</emphasis></primary>"
+msgstr "<primary><emphasis>Môdulos de Segurança Linux</emphasis></primary>"
 
 msgid "AppArmor applies a set of rules (known as “profile”) on each program. The profile applied by the kernel depends on the installation path of the program being executed. Contrary to SELinux (discussed in <xref linkend=\"sect.selinux\" />), the rules applied do not depend on the user. All users face the same set of rules when they are executing the same program (but traditional user permissions still apply and might result in different behaviour!)."
 msgstr ""
@@ -828,10 +799,9 @@ msgid ""
 "0 processes are unconfined but have a profile defined.</computeroutput>"
 msgstr ""
 
-#, fuzzy
 #| msgid "<emphasis>NOTE</emphasis> Extreme policies"
 msgid "<emphasis>NOTE</emphasis> More AppArmor profiles"
-msgstr "<emphasis>NOTA</emphasis> Políticas extremas"
+msgstr "<emphasis>NOTA</emphasis> Mais perfis AppArmor"
 
 msgid "The <emphasis role=\"pkg\">apparmor-profiles</emphasis> package contains profiles managed by the upstream AppArmor community. To get even more profiles you can install <emphasis role=\"pkg\">apparmor-profiles-extra</emphasis> which contains profiles developed by Ubuntu and Debian."
 msgstr ""
@@ -839,7 +809,6 @@ msgstr ""
 msgid "The state of each profile can be switched between enforcing and complaining with calls to <command>aa-enforce</command> and <command>aa-complain</command> giving as parameter either the path of the executable or the path to the policy file. Additionaly a profile can be entirely disabled with <command>aa-disable</command> or put in audit mode (to log accepted system calls too) with <command>aa-audit</command>."
 msgstr ""
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/aide.pp</userinput>\n"
 #| "<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
@@ -860,22 +829,16 @@ msgid ""
 "<computeroutput>Setting /etc/apparmor.d/usr.bin.lxc-start to complain mode.</computeroutput>\n"
 "      "
 msgstr ""
-"<computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/aide.pp</userinput>\n"
-"<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
-"<computeroutput>aide    1.4.0\n"
-"apache  1.10.0\n"
-"apm     1.7.0\n"
-"[...]</computeroutput>\n"
-"<computeroutput># </computeroutput><userinput>semodule -r aide</userinput>\n"
-"<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
-"<computeroutput>apache  1.10.0\n"
-"apm     1.7.0\n"
-"[...]</computeroutput>\n"
+"\n"
+"<computeroutput># </computeroutput><userinput>aa-enforce /usr/sbin/avahi-daemon</userinput>\n"
+"<computeroutput>Setting /usr/sbin/avahi-daemon to enforce mode.</computeroutput>\n"
+"<computeroutput># </computeroutput><userinput>aa-complain /etc/apparmor.d/usr.bin.lxc-start</userinput>\n"
+"<computeroutput>Setting /etc/apparmor.d/usr.bin.lxc-start to complain mode.</computeroutput>\n"
+"      "
 
-#, fuzzy
 #| msgid "Creating Rules"
 msgid "Creating a new profile"
-msgstr "Criando Regras"
+msgstr "Criando um novo perfil"
 
 msgid "Even though creating an AppArmor profile is rather easy, most programs do not have one. This section will show you how to create a new profile from scratch just by using the target program and letting AppArmor monitor the system call it makes and the resources it accesses."
 msgstr ""
@@ -1183,7 +1146,7 @@ msgid ""
 "<computeroutput>system_u:system_r:ftpd_t:s0   2094 ?    Ss  0:00 /usr/sbin/vsftpd</computeroutput>"
 msgstr ""
 "<computeroutput>$ </computeroutput><userinput>ps axZ | grep vstfpd</userinput>\n"
-"<computeroutput>system_u:system_r:ftpd_t:s0   2094 ?    Ss  0:00 /usr/sbin/vsftpd</computeroutput>\n"
+"<computeroutput>system_u:system_r:ftpd_t:s0   2094 ?    Ss  0:00 /usr/sbin/vsftpd</computeroutput>"
 
 msgid "The first field contains the identity, the role, the domain and the MCS level, separated by colons. The MCS level (<emphasis>Multi-Category Security</emphasis>) is a parameter that intervenes in the setup of a confidentiality protection policy, which regulates the access to files based on their sensitivity. This feature will not be explained in this book."
 msgstr "O primeiro campo contém a identidade, o papel, o domínio e o nível MCS, separados por vírgulas. O nível de MCS (<emphasis>Multi-Category Security</emphasis>) é um parâmetro que intervém na configuração de uma política de protecção da confidencialidade, que regula o acesso a arquivos com base em sua sensibilidade. Esta funcionalidade não será explicada neste livro."
@@ -1196,7 +1159,7 @@ msgid ""
 "<computeroutput>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023</computeroutput>"
 msgstr ""
 "<computeroutput>$ </computeroutput><userinput>id -Z</userinput>\n"
-"<computeroutput>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023</computeroutput>\n"
+"<computeroutput>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023</computeroutput>"
 
 msgid "Finally, to find the type assigned to a file, you can use <command>ls -Z</command>."
 msgstr "Finalmente, para encontrar o tipo atribuído a um arquivo, você pode usar o <command>ls -Z</command>."
@@ -1208,7 +1171,7 @@ msgid ""
 msgstr ""
 "<computeroutput>$ </computeroutput><userinput>ls -Z test /usr/bin/ssh</userinput>\n"
 "<computeroutput>unconfined_u:object_r:user_home_t:s0 test\n"
-"     system_u:object_r:ssh_exec_t:s0 /usr/bin/ssh</computeroutput>\n"
+"     system_u:object_r:ssh_exec_t:s0 /usr/bin/ssh</computeroutput>"
 
 msgid "It is worth noting that the identity and role assigned to a file bear no special importance (they are never used), but for the sake of uniformity, all objects get assigned a complete security context."
 msgstr "É interessante notar que a identidade e o papel atribuído a um arquivo não têm qualquer importância especial (eles nunca são usados), mas por uma questão de uniformidade, todos os objetos são atribuídos num contexto de segurança completo."
@@ -1219,15 +1182,13 @@ msgstr "Configurando o SELinux"
 msgid "SELinux support is built into the standard kernels provided by Debian. The core Unix tools support SELinux without any modifications. It is thus relatively easy to enable SELinux."
 msgstr "O suporte SELinux é construído nos kernels padroes fornecidos pelo Debian. As principais ferramentas de suporte Unix SELinux sem quaisquer modificações. É, assim, relativamente fácil, habilitar SELinux."
 
-#, fuzzy
 #| msgid "The <command>aptitude install selinux-basics selinux-policy-default</command> command will automatically install the packages required to configure an SELinux system."
 msgid "The <command>apt install selinux-basics selinux-policy-default</command> command will automatically install the packages required to configure an SELinux system."
-msgstr "O comando  <command>aptitude install selinux-basics selinux-policy-default</command> irá instalar automaticamente os pacotes necessários para configurar um sistema SELinux."
+msgstr "O comando  <command>apt install selinux-basics selinux-policy-default</command> irá instalar automaticamente os pacotes necessários para configurar um sistema SELinux."
 
-#, fuzzy
 #| msgid "<emphasis>CAUTION</emphasis> Range of action"
 msgid "<emphasis>CAUTION</emphasis> Reference policy not in jessie"
-msgstr "<emphasis>ATENCAO</emphasis> Raio de ação"
+msgstr "<emphasis>ATENCAO</emphasis> Política de referência que não está na jessie"
 
 msgid "Unfortunately the maintainers of the <emphasis role=\"pkg\">refpolicy</emphasis> source package did not handle release critical bugs on their package and the package got removed from jessie. This means that the <emphasis role=\"pkg\">selinux-policy-*</emphasis> packages are currently not installable in jessie and need to be fetched from another place. Hopefully they will come back in one of the point releases or in jessie-backports. In the meantime, you can grab them from unstable."
 msgstr ""
@@ -1241,10 +1202,9 @@ msgstr "O pacote <emphasis role=\"pkg\">selinux-policy-default</emphasis> conté
 msgid "Once the policy has been installed, you should label all the available files (which means assigning them a type). This operation must be manually started with <command>fixfiles relabel</command>."
 msgstr "Uma vez que a política tenha sido instalada, você deve marcar todos os arquivos disponíveis (o que significa atribuir-lhes um tipo). Esta operação deve ser iniciada manualmente com <command>fixfiles relabel</command>."
 
-#, fuzzy
 #| msgid "The SELinux system is now ready. To enable it, you should add the <literal>selinux=1</literal> parameter to the Linux kernel. The <literal>audit=1</literal> parameter enables SELinux logging which records all the denied operations. Finally, the <literal>enforcing=1</literal> parameter brings the rules into application: without it SELinux works in its default <emphasis>permissive</emphasis> mode where denied actions are logged but still executed. You should thus modify the GRUB bootloader configuration file to append the desired parameters. One easy way to do this is to modify the <literal>GRUB_CMDLINE_LINUX</literal> variable in <filename>/etc/default/grub</filename> and to run <command>update-grub</command>. SELinux will be active after a reboot."
 msgid "The SELinux system is now ready. To enable it, you should add the <literal>selinux=1 security=selinux</literal> parameter to the Linux kernel. The <literal>audit=1</literal> parameter enables SELinux logging which records all the denied operations. Finally, the <literal>enforcing=1</literal> parameter brings the rules into application: without it SELinux works in its default <emphasis>permissive</emphasis> mode where denied actions are logged but still executed. You should thus modify the GRUB bootloader configuration file to append the desired parameters. One easy way to do this is to modify the <literal>GRUB_CMDLINE_LINUX</literal> variable in <filename>/etc/default/grub</filename> and to run <command>update-grub</command>. SELinux will be active after a reboot."
-msgstr "O sistema SELinux agora está pronto. Para habilitá-lo, você deve adicionar o parâmetro <literal>selinux=1</literal> para o kernel de Linux. O parâmetro <literal>selinux=1</literal> habilita o log SELinux que registra todas operações negadas. Finalmente, o parâmetro <literal>enforcing=1</literal> traz as regras para aplicação: sem ele SELinux funciona no modo padrão <emphasis>permissive</emphasis> onde as ações negadas são registradas, mas ainda executadA. Você deve, portanto, modificar o arquivo de configuração do GRUB para anexar os parâmetros desejados. Uma maneira fácil de fazer isso é modificar A variável   <literal>GRUB_CMDLINE_LINUX</literal> em <filename>/etc/default/grub</filename> e executar <command>update-grub</command>. SELinux estará ativo após uma reinicialização."
+msgstr "O sistema SELinux agora está pronto. Para habilitá-lo, você deve adicionar o parâmetro <literal>selinux=1  security=selinux</literal> para o kernel Linux. O parâmetro <literal>audit=1</literal> habilita o log SELinux que registra todas operações negadas. Finalmente, o parâmetro <literal>enforcing=1</literal> traz as regras para aplicação: sem ele SELinux funciona no modo padrão <emphasis>permissive</emphasis> onde as ações negadas são registradas, mas ainda executadas. Você deve, portanto, modificar o arquivo de configuração do GRUB para anexar os parâmetros desejados. Uma maneira fácil de fazer isso é modificar a variável   <literal>GRUB_CMDLINE_LINUX</literal> em <filename>/etc/default/grub</filename> e executar <command>update-grub</command>. SELinux estará ativo após uma reinicialização."
 
 msgid "It is worth noting that the <command>selinux-activate</command> script automates those operations and forces a labeling on next boot (which avoids new non-labeled files created while SELinux was not yet active and while the labeling was going on)."
 msgstr "É interessante notar que o script <command>selinux-activate</command> automatiza as operações e força uma rotulagem na próxima inicialização (o que evita criacao de novos arquivos não-rotulados enquanto o SELinux ainda não estiver ativo, e enquanto a rotulagem estiver acontecendo)."
@@ -1276,17 +1236,14 @@ msgstr "Você também deve ter olhado para a página wiki dedicada ao Debian, be
 msgid "Managing SELinux Modules"
 msgstr "Gerenciando Modulos SELinux"
 
-#, fuzzy
 #| msgid "Available SELinux modules are stored in the <filename>/usr/share/selinux/default/</filename> directory. To enable one of these modules in the current configuration, you should use <command>semodule -i <replaceable>module.pp</replaceable></command>. The <emphasis>pp</emphasis> extension stands for <emphasis>policy package</emphasis>."
 msgid "Available SELinux modules are stored in the <filename>/usr/share/selinux/default/</filename> directory. To enable one of these modules in the current configuration, you should use <command>semodule -i <replaceable>module.pp.bz2</replaceable></command>. The <emphasis>pp.bz2</emphasis> extension stands for <emphasis>policy package</emphasis> (compressed with bzip2)."
-msgstr "Módulos SELinux disponíveis são armazenados no diretorio <filename>/usr/share/selinux/default/</filename>. Para habilitar um desses módulos na configuração atual, você deve usar <command>semodule-i <replaceable>module.pp</replaceable></command>. A extensão <emphasis>pp</emphasis> representa <emphasis>pacote política</emphasis>."
+msgstr "Módulos SELinux disponíveis são armazenados no diretorio <filename>/usr/share/selinux/default/</filename>. Para habilitar um desses módulos na configuração atual, você deve usar <command>semodule-i <replaceable>module.pp.bz2</replaceable></command>. A extensão <emphasis>pp.bz2</emphasis> significa <emphasis>pacote política</emphasis> (compactada com bzip2)."
 
-#, fuzzy
 #| msgid "Removing a module from the current configuration is done with <command>semodule -r <replaceable>module</replaceable></command>. Finally, the <command>semodule -l</command> command lists the modules which are currently enabled. It also outputs their version numbers."
 msgid "Removing a module from the current configuration is done with <command>semodule -r <replaceable>module</replaceable></command>. Finally, the <command>semodule -l</command> command lists the modules which are currently installed. It also outputs their version numbers. Modules can be selectively enabled with <command>semodule -e</command> and disabled with <command>semodule -d</command>."
-msgstr "A removecao de um módulo a partir da configuração atual é feita com <command>semodule -r <replaceable>module</replaceable></command>. Finalmente, o comando <command>semodule -l</command> listas os modulos que estao atualmente habilitados. Também mostra seus números de versão."
+msgstr "A removecao de um módulo a partir da configuração atual é feita com <command>semodule -r <replaceable>module</replaceable></command>. Finalmente, o comando <command>semodule -l</command> listas os modulos que estao atualmente instalados. Também mostra seus números de versão. Môdulos podem ser seletivamente habilitados com <command>semodule -e</command> e desabilitados com <command>semodule -d</command>."
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/aide.pp</userinput>\n"
 #| "<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
@@ -1319,17 +1276,24 @@ msgid ""
 "acct    1.6.0   \n"
 "[...]</computeroutput>"
 msgstr ""
-"<computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/aide.pp</userinput>\n"
+"<computeroutput># </computeroutput><userinput>semodule -i /usr/share/selinux/default/abrt.pp.bz2</userinput>\n"
 "<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
-"<computeroutput>aide    1.4.0\n"
-"apache  1.10.0\n"
-"apm     1.7.0\n"
+"<computeroutput>abrt    1.5.0   Disabled\n"
+"accountsd       1.1.0   \n"
+"acct    1.6.0   \n"
 "[...]</computeroutput>\n"
-"<computeroutput># </computeroutput><userinput>semodule -r aide</userinput>\n"
+"<computeroutput># </computeroutput><userinput>semodule -e abrt</userinput>\n"
+"<computeroutput># </computeroutput><userinput>semodule -d accountsd</userinput>\n"
 "<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
-"<computeroutput>apache  1.10.0\n"
-"apm     1.7.0\n"
+"<computeroutput>abrt    1.5.0\n"
+"accountsd       1.1.0   Disabled\n"
+"acct    1.6.0   \n"
 "[...]</computeroutput>\n"
+"<computeroutput># </computeroutput><userinput>semodule -r abrt</userinput>\n"
+"<computeroutput># </computeroutput><userinput>semodule -l</userinput>\n"
+"<computeroutput>accountsd       1.1.0   Disabled\n"
+"acct    1.6.0   \n"
+"[...]</computeroutput>"
 
 msgid "<command>semodule</command> immediately loads the new configuration unless you use its <literal>-n</literal> option. It is worth noting that the program acts by default on the current configuration (which is indicated by the <literal>SELINUXTYPE</literal> variable in <filename>/etc/selinux/config</filename>), but that you can modify another one by specifying it with the <literal>-s</literal> option."
 msgstr "<command>semodule</command> imediatamente carrega a nova configuração, a menos que você use sua opção <literal>-n </literal>. É interessante notar que o programa atua por padrão na configuração atual (que é indicada pela variavel <literal>SELINUXTYPE</literal> em <filename>/etc/selinux/config</filename>), mas que você pode modificar outra, especificando-a com a opcao <literal>opção-s</literal>."
@@ -1346,7 +1310,6 @@ msgstr "Você deve definitivamente ler a página de manual <citerefentry><refent
 msgid "<command>semanage login -l</command> lists the current mapping between user identifiers and SELinux identities. Users that have no explicit entry get the identity indicated in the <literal>__default__</literal> entry. The <command>semanage login -a -s user_u <replaceable>user</replaceable></command> command will associate the <emphasis>user_u</emphasis> identity to the given user. Finally, <command>semanage login -d <replaceable>user</replaceable></command> drops the mapping entry assigned to this user."
 msgstr "<command>semanage login -l</command> lista o atual mapeamento entre identificadores de usuário e identidades SELinux. Os usuários que não têm entrada explícita obter a identidade indicado na entrada <literal>__default__</literal>. O comando <command>semanage login -a -s user_u <replaceable>user</replaceable></command> irá associar a identidade <emphasis>user_u</emphasis> ao determinado usuário. Finalmente,<command>semanage login -d <replaceable>user</replaceable></command> exclui a entrada de mapeamento atribuído a este usuário."
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>semanage login -a -s user_u rhertzog</userinput>\n"
 #| "<computeroutput># </computeroutput><userinput>semanage login -l</userinput>\n"
@@ -1373,18 +1336,17 @@ msgstr ""
 "<computeroutput># </computeroutput><userinput>semanage login -a -s user_u rhertzog</userinput>\n"
 "<computeroutput># </computeroutput><userinput>semanage login -l</userinput>\n"
 "<computeroutput>\n"
-"Login Name                SELinux User              MLS/MCS Range\n"
+"Login Name           SELinux User         MLS/MCS Range        Service\n"
 "\n"
-"__default__               unconfined_u              s0-s0:c0.c1023\n"
-"rhertzog                  user_u                    None\n"
-"root                      unconfined_u              s0-s0:c0.c1023\n"
-"system_u                  system_u                  s0-s0:c0.c1023\n"
-"# </computeroutput><userinput>semanage login -d rhertzog</userinput> \n"
+"__default__          unconfined_u         SystemLow-SystemHigh *\n"
+"rhertzog             user_u               SystemLow            *\n"
+"root                 unconfined_u         SystemLow-SystemHigh *\n"
+"system_u             system_u             SystemLow-SystemHigh *\n"
+"# </computeroutput><userinput>semanage login -d rhertzog</userinput> "
 
 msgid "<command>semanage user -l</command> lists the mapping between SELinux user identities and allowed roles. Adding a new identity requires to define both the corresponding roles and a labeling prefix which is used to assign a type to personal files (<filename>/home/<replaceable>user</replaceable>/*</filename>). The prefix must be picked among <literal>user</literal>, <literal>staff</literal>, and <literal>sysadm</literal>. The “<literal>staff</literal>” prefix results in files of type “<literal>staff_home_dir_t</literal>”. Creating a new SELinux user identity is done with <command>semanage user -a -R <replaceable>roles</replaceable> -P <replaceable>prefix</replaceable> <replaceable>identity</replaceable></command>. Finally, you can remove an SELinux user identity with <command>semanage user -d <replaceable>identity</replaceable></command>."
 msgstr "<command>semanage user -l</command> lista o mapeamento entre as identidades de usuários do SELinux e papéis permitidos. Adicionar uma nova identidade requer definir os papéis correspondentes e um prefixo de marcação que é usado para designar um tipo de arquivo pessoal (<filename>/home/<replaceable>usuário</replaceable>/*</filename>). O prefixo deve ser escolhido entre <literal>user</literal>, o <literal>staff</literal>, e o <literal>sysadm</literal>. O prefixo \"<literal>staff</literal>\" resulta em arquivos do tipo \"<literal>staff_home_dir_t</literal>\". Criar uma nova identidade de usuário SELinux é feita com <command>semanage usuário -a -R <replaceable>papéis</replaceable> -P <replaceable>prefixo</replaceable> <replaceable>identidade</replaceable></command>. Finalmente, você pode remover uma identidade de usuário SELinux com <command>semanage usuário -d <replaceable>identidade</replaceable></command>."
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>semanage user -a -R 'staff_r user_r' -P staff test_u</userinput>\n"
 #| "<computeroutput># </computeroutput><userinput>semanage user -l</userinput>\n"
@@ -1419,17 +1381,17 @@ msgstr ""
 "<computeroutput># </computeroutput><userinput>semanage user -a -R 'staff_r user_r' -P staff test_u</userinput>\n"
 "<computeroutput># </computeroutput><userinput>semanage user -l</userinput>\n"
 "<computeroutput>\n"
-"                Labeling   MLS/       MLS/\n"
-"SELinux User    Prefix     MCS Level  MCS Range        SELinux Roles\n"
+"                Labeling   MLS/       MLS/                          \n"
+"SELinux User    Prefix     MCS Level  MCS Range             SELinux Roles\n"
 "\n"
-"root            sysadm     s0         s0-s0:c0.c1023   staff_r sysadm_r system_r\n"
-"staff_u         staff      s0         s0-s0:c0.c1023   staff_r sysadm_r\n"
-"sysadm_u        sysadm     s0         s0-s0:c0.c1023   sysadm_r\n"
-"system_u        user       s0         s0-s0:c0.c1023   system_r\n"
-"test_u          staff      s0         s0               staff_r user_r\n"
-"unconfined_u    unconfined s0         s0-s0:c0.c1023   system_r unconfined_r\n"
-"user_u          user       s0         s0               user_r\n"
-"# </computeroutput><userinput>semanage user -d test_u</userinput>\n"
+"root            sysadm     SystemLow  SystemLow-SystemHigh  staff_r sysadm_r system_r\n"
+"staff_u         staff      SystemLow  SystemLow-SystemHigh  staff_r sysadm_r\n"
+"sysadm_u        sysadm     SystemLow  SystemLow-SystemHigh  sysadm_r\n"
+"system_u        user       SystemLow  SystemLow-SystemHigh  system_r\n"
+"test_u          staff      SystemLow  SystemLow             staff_r user_r\n"
+"unconfined_u    unconfined SystemLow  SystemLow-SystemHigh  system_r unconfined_r\n"
+"user_u          user       SystemLow  SystemLow             user_r\n"
+"# </computeroutput><userinput>semanage user -d test_u</userinput>"
 
 msgid "Managing File Contexts, Ports and Booleans"
 msgstr "Gerenciamento de arquivos Contextos, Portas e booleanos"
@@ -1454,7 +1416,7 @@ msgstr ""
 "<computeroutput>httpd_enable_homedirs --&gt; off\n"
 "# </computeroutput><userinput>setsebool -P httpd_enable_homedirs on</userinput>\n"
 "<computeroutput># </computeroutput><userinput>getsebool httpd_enable_homedirs</userinput> \n"
-"<computeroutput>httpd_enable_homedirs --&gt; on</computeroutput>\n"
+"<computeroutput>httpd_enable_homedirs --&gt; on</computeroutput>"
 
 msgid "Adapting the Rules"
 msgstr "Adaptando as Regras"
@@ -1465,7 +1427,6 @@ msgstr "Uma vez que a política do SELinux é modular, pode ser interessante par
 msgid "To create new modules, the <emphasis role=\"pkg\">selinux-policy-dev</emphasis> package is required, as well as <emphasis role=\"pkg\">selinux-policy-doc</emphasis>. The latter contains the documentation of the standard rules (<filename>/usr/share/doc/selinux-policy-doc/html/</filename>) and sample files that can be used as templates to create new modules. Install those files and study them more closely:"
 msgstr "Para criar novos módulos, o pacote <emphasis role=\"pkg\">selinux-policy-dev</emphasis> é necessário, bem como  <emphasis role=\"pkg\">selinux-policy-doc</emphasis>. Este último contém a documentação das regras padrão (<filename>/usr/share/doc/selinux-policy-doc/html/</filename>) da amostra e arquivos que podem ser usados como modelos para criar novos módulos. Instale estes arquivos e os estude mais de perto:"
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/Makefile.example.gz &gt;Makefile</userinput>\n"
 #| "<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/example.fc.gz &gt;example.fc</userinput>\n"
@@ -1477,10 +1438,10 @@ msgid ""
 "<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.if ./</userinput>\n"
 "<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.te ./</userinput>"
 msgstr ""
-"<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/Makefile.example.gz &gt;Makefile</userinput>\n"
-"<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/example.fc.gz &gt;example.fc</userinput>\n"
-"<computeroutput>$ </computeroutput><userinput>zcat /usr/share/doc/selinux-policy-doc/example.if.gz &gt;example.if</userinput>\n"
-"<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.te ./</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/Makefile.example Makefile</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.fc ./</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.if ./</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.te ./</userinput>"
 
 #, fuzzy
 #| msgid "The <filename>.te</filename> file is the most important one. It defines the rules. The <filename>.fc</filename> file defines the “file contexts”, that is the types assigned to files related to this module. The data within the <filename>.fc</filename> file are used during the file labeling step. Finally, the <filename>.if</filename> file defines the interface of the module: it's a set of “public functions” that other modules can use to properly interact with the module that you're creating."
@@ -1509,7 +1470,7 @@ msgstr ""
 "# MLS sensibilidade: s0\n"
 "# MCS categorias: &lt;nenhuma&gt;\n"
 "\n"
-"/usr/sbin/myapp         --      gen_context(system_u:object_r:myapp_exec_t,s0)\n"
+"/usr/sbin/myapp         --      gen_context(system_u:object_r:myapp_exec_t,s0)"
 
 msgid "Writing a <filename>.if</filename> File"
 msgstr "Escrevendo um arquivo <filename>.if</filename>"
@@ -1624,15 +1585,14 @@ msgstr ""
 "\n"
 "        logging_search_logs($1)\n"
 "        allow $1 myapp_log_t:file r_file_perms;\n"
-"')\n"
+"')"
 
 msgid "<emphasis>DOCUMENTATION</emphasis> Explanations about the <emphasis>reference policy</emphasis>"
 msgstr "<emphasis>DOCUMENTACAO</emphasis> Explicações sobre a <emphasis>política de referência</emphasis>"
 
-#, fuzzy
 #| msgid "The <emphasis>reference policy</emphasis> evolves like any free software project: based on volunteer contributions. The project is hosted by Tresys, one of the most active companies in the SELinux field. Their wiki contains explanations on how the rules are structured and how you can create new ones. <ulink type=\"block\" url=\"http://oss.tresys.com/projects/refpolicy/wiki/GettingStarted\" />"
 msgid "The <emphasis>reference policy</emphasis> evolves like any free software project: based on volunteer contributions. The project is hosted by Tresys, one of the most active companies in the SELinux field. Their wiki contains explanations on how the rules are structured and how you can create new ones. <ulink type=\"block\" url=\"https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted\" />"
-msgstr "A <emphasis>política de referência</emphasis> evolui como qualquer projeto de software livre: baseado em contribuições voluntárias. O projeto é hospedado pelo Tresys, uma das empresas mais ativas no domínio SELinux. Sua wiki contém explicações sobre como as regras são estruturadas e como você pode criar novas. <ulink type=\"block\" url=\"http://oss.tresys.com/projects/refpolicy/wiki/GettingStarted\" />"
+msgstr "A <emphasis>política de referência</emphasis> evolui como qualquer projeto de software livre: baseado em contribuições voluntárias. O projeto é hospedado pelo Tresys, uma das empresas mais ativas no domínio SELinux. Sua wiki contém explicações sobre como as regras são estruturadas e como você pode criar novas. <ulink type=\"block\" url=\"https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted\" />"
 
 msgid "Writing a <filename>.te</filename> File"
 msgstr "Escrevendo um Arquivo <filename>.te</filename>"
@@ -1707,7 +1667,7 @@ msgstr ""
 "allow myapp_t myapp_log_t:file { read_file_perms append_file_perms }; <co id=\"example.te.allow\"></co>\n"
 "\n"
 "allow myapp_t myapp_tmp_t:file manage_file_perms;\n"
-"files_tmp_filetrans(myapp_t,myapp_tmp_t,file)\n"
+"files_tmp_filetrans(myapp_t,myapp_tmp_t,file)"
 
 msgid "The module must be identified by its name and version number. This directive is required."
 msgstr "O modulo deve ser identificado pelo seu nome e numero da versao. Esta diretiva é requerida."
@@ -1724,10 +1684,9 @@ msgstr "<literal>logging_log_file</literal> é uma interface fornecida pela pol�
 msgid "The <literal>allow</literal> directive is the base directive used to authorize an operation. The first parameter is the process domain which is allowed to execute the operation. The second one defines the object that a process of the former domain can manipulate. This parameter is of the form “<replaceable>type</replaceable>:<replaceable>class</replaceable>“ where <replaceable>type</replaceable> is its SELinux type and <replaceable>class</replaceable> describes the nature of the object (file, directory, socket, fifo, etc.). Finally, the last parameter describes the permissions (the allowed operations)."
 msgstr "O diretiva <literal>permicao</literal> é a diretiva de base utilizada para autorizar uma operação. O primeiro parâmetro é o domínio processo que tem a permissao para executar a operação. A segunda define o objeto que um processo do domínio anterior pode manipular. Este parâmetro é a forma \"<replaceable>tipo</replaceable>: <replaceable>classe</replaceable>\" onde <replaceable>tipo</replaceable> é o seu tipo SELinux e <replaceable>classe</replaceable> descreve a natureza do objeto (arquivo, diretório, socket, fifo, etc.) Finalmente, o último parâmetro descreve as permissões (as operações permitidas)."
 
-#, fuzzy
 #| msgid "Permissions are defined as the set of allowed operations and follow this template: <literal>{ <replaceable>operation1</replaceable> <replaceable>operation2</replaceable> }</literal>. However, you can also use macros representing the most useful permissions. The <filename>/usr/share/selinux/default/include/support/obj_perm_sets.spt</filename> lists them."
 msgid "Permissions are defined as the set of allowed operations and follow this template: <literal>{ <replaceable>operation1</replaceable> <replaceable>operation2</replaceable> }</literal>. However, you can also use macros representing the most useful permissions. The <filename>/usr/share/selinux/devel/include/support/obj_perm_sets.spt</filename> lists them."
-msgstr "As permissões são definidas como o conjunto de operações permitidas e segue este modelo: <literal>{ <replaceable>operacao1</replaceable><replaceable>operacao2</replaceable>}</literal>. No entanto, você também pode usar macros que representam as permissões mais úteis. O <filename>/usr/share/selinux/default/include/support/obj_perm_sets.spt</filename> os lista."
+msgstr "As permissões são definidas como o conjunto de operações permitidas e segue este modelo: <literal>{ <replaceable>operacao1</replaceable><replaceable>operacao2</replaceable>}</literal>. No entanto, você também pode usar macros que representam as permissões mais úteis. O <filename>/usr/share/selinux/devel/include/support/obj_perm_sets.spt</filename> os lista."
 
 msgid "The following web page provides a relatively exhaustive list of object classes, and permissions that can be granted. <ulink type=\"block\" url=\"http://www.selinuxproject.org/page/ObjectClassesPerms\" />"
 msgstr "A página web a seguir fornece uma lista relativamente exaustiva de classes de objetos e permissões que podem ser concedidas. <ulink type=\"block\" url=\"http://www.selinuxproject.org/page/ObjectClassesPerms\" />"
@@ -1738,10 +1697,9 @@ msgstr "Agora você só tem que encontrar o conjunto mínimo de regras necessár
 msgid "However, an empirical approach is possible. Once the relevant objects are correctly labeled, you can use the application in permissive mode: the operations that would be forbidden are logged but still succeed. By analyzing the logs, you can now identify the operations to allow. Here is an example of such a log entry:"
 msgstr "No entanto, uma abordagem empírica é possível. Uma vez que os objetos relevantes são rotuladas corretamente, você pode usar o aplicativo no modo permissivo: as operações que seriam proibidos são registrados, mas ainda tem sucesso. Ao analisar os logs, você pode agora identificar as operações de permissao. Aqui esta um exemplo de uma tal entrada de log:"
 
-#, fuzzy
 #| msgid "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file"
 msgid "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file permissive=1"
-msgstr "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file\n"
+msgstr "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file permissive=1"
 
 msgid "To better understand this message, let us study it piece by piece."
 msgstr "Para melhor entender esta mensagem, vamos estudá la peça por peça."
@@ -1788,10 +1746,9 @@ msgstr ""
 msgid "<computeroutput>dev=tmpfs</computeroutput>"
 msgstr "<computeroutput>dev=tmpfs</computeroutput>"
 
-#, fuzzy
 #| msgid "The device hosting the target object is a <literal>tmpfs</literal> (an in-memory filesystem). For a real disk, you could see the partition hosting the object (for example: “hda3”)."
 msgid "The device hosting the target object is a <literal>tmpfs</literal> (an in-memory filesystem). For a real disk, you could see the partition hosting the object (for example: “sda3”)."
-msgstr "O dispositivo que hospeda o objeto de destino é um <literal>tmpfs</literal> (um sistema de arquivos em memória). Para um disco real, você poderia ver a partição que hospeda o objeto (por exemplo: \"hda3\")."
+msgstr "O dispositivo que hospeda o objeto de destino é um <literal>tmpfs</literal> (um sistema de arquivos em memória). Para um disco real, você poderia ver a partição que hospeda o objeto (por exemplo: \"sda3\")."
 
 msgid "<computeroutput>ino=5510</computeroutput>"
 msgstr "<computeroutput>ino=5510</computeroutput>"
@@ -1833,26 +1790,23 @@ msgstr "<primary>Monitoramento</primary>"
 msgid "<primary>Enforcement, Type Enforcement</primary>"
 msgstr "<primary>Monitoramento</primary>"
 
-#, fuzzy
 #| msgid "It might seem weird that roles do not appear at all when creating new rules. SELinux uses only the domains to find out which operations are allowed. The role intervenes only indirectly by allowing the user to switch to another domain. SELinux is based on a theory known as <emphasis>Type Enforcement</emphasis> and the type is the only element that matters when granting rights. <indexterm><primary>Type Enforcement</primary></indexterm> <indexterm><primary>Enforcement, Type Enforcement</primary></indexterm>"
 msgid "It might seem weird that roles do not appear at all when creating new rules. SELinux uses only the domains to find out which operations are allowed. The role intervenes only indirectly by allowing the user to switch to another domain. SELinux is based on a theory known as <emphasis>Type Enforcement</emphasis> and the type is the only element that matters when granting rights."
-msgstr "Pode parecer estranho que os papéis não aparecem em tudo ao criar novas regras. SELinux utiliza apenas os domínios para descobrir quais operações são permitidas. A intervenção do papel apenas de forma indireta, permitindo ao usuário alternar para outro domínio. SELinux é baseado em uma teoria conhecida como <emphasis>Tipo de aplicacao</emphasis> e o tipo é o único elemento que importa na concessão de direitos. <indexterm><primary>Tipo de aplicacao</primary></indexterm><indexterm><primary>Aplicacao, Tipo de aplicacai</primary></indexterm>"
+msgstr "Pode parecer estranho que os papéis não aparecem em tudo ao criar novas regras. SELinux utiliza apenas os domínios para descobrir quais operações são permitidas. A intervenção do papel apenas de forma indireta, permitindo ao usuário alternar para outro domínio. SELinux é baseado em uma teoria conhecida como <emphasis>Tipo de aplicacao</emphasis> e o tipo é o único elemento que importa na concessão de direitos."
 
 msgid "Compiling the Files"
 msgstr "Compilando os Arquivos"
 
-#, fuzzy
 #| msgid "Once the 3 files (<filename>example.if</filename>, <filename>example.fc</filename>, and <filename>example.te</filename>) match your expectations for the new rules, just run <command>make</command> to generate a module in the <filename>example.pp</filename> file (you can immediately load it with <command>semodule -i example.pp</command>). If several modules are defined, <command>make</command> will create all the corresponding <filename>.pp</filename> files."
 msgid "Once the 3 files (<filename>example.if</filename>, <filename>example.fc</filename>, and <filename>example.te</filename>) match your expectations for the new rules, just run <command>make NAME=devel</command> to generate a module in the <filename>example.pp</filename> file (you can immediately load it with <command>semodule -i example.pp</command>). If several modules are defined, <command>make</command> will create all the corresponding <filename>.pp</filename> files."
-msgstr "Uma vez que os 3 arquivos (<filename>example.if</filename>, <filename>example.fc</filename>, e <filename>example.te</filename>) correspondem às suas expectativas para as novas regras, basta executar <command>make</command> para gerar um módulo no arquivo <filename>example.pp file></filename> (você pode o carregar imediatamente com <command>semodule -i example.pp</command>). Se vários módulos são definidos, <command>make</command> irá criar todos os arquivos correspondentes <filename>.pp</filename>."
+msgstr "Uma vez que os 3 arquivos (<filename>example.if</filename>, <filename>example.fc</filename>, e <filename>example.te</filename>) correspondem às suas expectativas para as novas regras, basta executar <command>make NAME=devel</command> para gerar um módulo no arquivo <filename>example.pp file></filename> (você pode o carregar imediatamente com <command>semodule -i example.pp</command>). Se vários módulos são definidos, <command>make</command> irá criar todos os arquivos correspondentes <filename>.pp</filename>."
 
 msgid "Other Security-Related Considerations"
 msgstr "Outras Consideracoes Relacionadas a Seguranca"
 
-#, fuzzy
 #| msgid "Security is not just a technical problem; more than anything, it's about good practices and understanding the risks. This section reviews some of the more common risks, as well as a few best practices which should, depending on the case, increase security or lessen the impact of a successful attack."
 msgid "Security is not just a technical problem; more than anything, it is about good practices and understanding the risks. This section reviews some of the more common risks, as well as a few best practices which should, depending on the case, increase security or lessen the impact of a successful attack."
-msgstr "Segurança não é apenas um problema técnico, mais do que qualquer coisa, é sobre as boas práticas e compreencao dos riscos. Esta seção examina alguns dos riscos mais comuns, bem como algumas das melhores práticas que deverao, dependendo do caso, aumentar a segurança ou diminuir o impacto de um ataque bem sucedido."
+msgstr "Segurança não é apenas um problema técnico, mais do que qualquer coisa, é sobre as boas práticas e compreenção dos riscos. Esta seção examina alguns dos riscos mais comuns, bem como algumas das melhores práticas que deverao, dependendo do caso, aumentar a segurança ou diminuir o impacto de um ataque bem sucedido."
 
 msgid "Inherent Risks of Web Applications"
 msgstr "Riscos Inerentes a Aplicações Web"
@@ -1901,10 +1855,9 @@ msgstr "<primary><emphasis>mod-security</emphasis></primary>"
 msgid "The consequences of an intrusion will have various levels of obviousness depending on the motivations of the attacker. <emphasis>Script-kiddies</emphasis> only apply recipes they find on web sites; most often, they deface a web page or delete data. In more subtle cases, they add invisible contents to web pages so as to improve referrals to their own sites in search engines."
 msgstr "As consequências de uma invasão terá vários níveis de evidência, dependendo das motivações do atacante. <emphasis>Script-kiddies</emphasis> só aplicam receitas que encontram em sites, a maioria das vezes, eles desfigurar uma página web ou excluir dados. Em casos mais sutis, eles adicionam conteúdo invisíveis para páginas web, de modo a melhorar encaminhamentos para seus próprios sites em motores de busca."
 
-#, fuzzy
 #| msgid "A more advanced attacker will go beyond that. A disaster scenario could go on in the following fashion: the attacker gains the ability to execute commands as the <literal>www-data</literal> user, but executing a command requires many manipulations. To make their life easier, they install other web applications specially designed to remotely execute many kinds of commands, such as browsing the filesystem, examining permissions, uploading or downloading files, executing commands, and even provide a network shell. Often, the vulnerability will allow running a <command>wget</command> command that will download some malware into <filename>/tmp/</filename>, then executing it. The malware is often downloaded from a foreign website that was previously compromised, in order to cover tracks and make it harder to follow the scent to the actual origin of the attack."
 msgid "A more advanced attacker will go beyond that. A disaster scenario could go on in the following fashion: the attacker gains the ability to execute commands as the <literal>www-data</literal> user, but executing a command requires many manipulations. To make their life easier, they install other web applications specially designed to remotely execute many kinds of commands, such as browsing the filesystem, examining permissions, uploading or downloading files, executing commands, and even provide a network shell. Often, the vulnerability will allow running a <command>wget</command> command that will download some malware into <filename>/tmp/</filename>, then executing it. The malware is often downloaded from a foreign website that was previously compromised, in order to cover tracks and make it harder to find out the actual origin of the attack."
-msgstr "Um atacante mais avançado vai além disso. Um cenário de desastre poderia continuar da seguinte maneira: o atacante ganha a habilidade de executar comandos como o usuário <literal>www-data</literal>, mas a execução de um comando requer muitas manipulações. Para tornar sua vida mais fácil, eles instalam outras aplicações web especialmente concebidas para executar remotamente vários tipos de comandos, como a navegação no sistema de arquivos, examinando as permissões de upload, ou download de arquivos, execução de comandos, e até mesmo fornecer um escudo de rede. Muitas vezes, a vulnerabilidade permite execução de um <command>wget</command> que vai baixar algum malware em <filename>/tmp/</filename>, então o executa. O malware geralmente é baixado de um site estrangeiro que foi previamente comprometido, a fim de cobrir faixas e tornar mais difícil rastrear a verdadeira origem do ataque."
+msgstr "Um atacante mais avançado vai além disso. Um cenário de desastre poderia continuar da seguinte maneira: o atacante ganha a habilidade de executar comandos como o usuário <literal>www-data</literal>, mas a execução de um comando requer muitas manipulações. Para tornar sua vida mais fácil, eles instalam outras aplicações web especialmente concebidas para executar remotamente vários tipos de comandos, como a navegação no sistema de arquivos, examinando as permissões de upload, ou download de arquivos, execução de comandos, e até mesmo fornecer um escudo de rede. Muitas vezes, a vulnerabilidade permite execução de um <command>wget</command> que vai baixar algum malware em <filename>/tmp/</filename>, então o executa. O malware geralmente é baixado de um site estrangeiro que foi previamente comprometido, a fim de cobrir faixas e tornar mais difícil encontrar a verdadeira origem do ataque."
 
 msgid "At this point, the attacker has enough freedom of movement that they often install an IRC <emphasis>bot</emphasis> (a robot that connects to an IRC server and can be controlled by this channel). This bot is often used to share illegal files (unauthorized copies of movies or software, and so on). A determined attacker may want to go even further. The <literal>www-data</literal> account does not allow full access to the machine, and the attacker will try to obtain administrator privileges. Now, this should not be possible, but if the web application was not up-to-date, chances are that the kernel and other programs are outdated too; this sometimes follows a decision from the administrator who, despite knowing about the vulnerability, neglected to upgrade the system since there are no local users. The attacker can then take advantage of this second vulnerability to get root access."
 msgstr "Neste ponto, o invasor tem bastante liberdade de movimento que muitas vezes instalar um IRC <emphasis>bot</emphasis> (um robô que se conecta a um servidor IRC e pode ser controlado por este canal). Este robô é frequentemente usado para compartilhamento de arquivos ilegais (cópias não autorizadas de filmes ou software, entre outros). Um determinado invasor pode querer ir ainda mais longe. A conta <literal>www-data</literal> não permite o acesso total à máquina, e o invasor vai tentar obter privilégios de administrador. Ora, isso não deve ser possível, mas se a aplicação web não está atualizada, as chances são de que os programas do kernel e outros também estejam desatualizados, o que às vezes se segue uma decisão do administrador que, apesar de saber sobre a vulnerabilidade, negligenciado para atualizar o sistema, pois não existem usuários locais. O atacante pode então aproveitar essa segunda vulnerabilidade para obter acesso root."
@@ -1945,7 +1898,6 @@ msgstr "Um ataque <emphasis>zero-day exploit</emphasis> é difícil de evitar, o
 msgid "Managing a Machine as a Whole"
 msgstr "Gerenciando uma Máquina como um Todo"
 
-#, fuzzy
 #| msgid "Most Linux distributions install by default a number of Unix services and many tools. In many cases, these services and tools are not required for the actual purposes for which the administrator set up the machine. As a general guideline in security matters, unneeded software is best uninstalled. Indeed, there's no point in securing an FTP server, if a vulnerability in a different, unused service can be used to get administrator privileges on the whole machine."
 msgid "Most Linux distributions install by default a number of Unix services and many tools. In many cases, these services and tools are not required for the actual purposes for which the administrator set up the machine. As a general guideline in security matters, unneeded software is best uninstalled. Indeed, there is no point in securing an FTP server, if a vulnerability in a different, unused service can be used to get administrator privileges on the whole machine."
 msgstr "A maioria das distribuições Linux instalam por padrão uma série de serviços Unix e muitas ferramentas. Em muitos casos, estes serviços e ferramentas não são necessários para os fins de reais para que o administrador configure a máquina. Como orientação geral em matéria de segurança, softwares desnecessários é melhor desinstalado. Na verdade, não tem sentido garantir um servidor FTP, se uma vulnerabilidade em um serviço diferente, não utilizado pode ser usado para obter privilégios de administrador na máquina inteira."
@@ -1953,10 +1905,9 @@ msgstr "A maioria das distribuições Linux instalam por padrão uma série de s
 msgid "By the same reasoning, firewalls will often be configured to only allow access to services that are meant to be publicly accessible."
 msgstr "Seguindo o mesmo raciocínio, firewalls, frequentemente sao configurados para permitir apenas acesso aos serviços que se destinam a ser acessíveis ao público."
 
-#, fuzzy
 #| msgid "Current computers are powerful enough to allow hosting several services on the same physical machine. From an economic viewpoint, such a possibility is interesting: only one computer to administrate, lower energy consumption, and so on. From the security point of view, however, such a choice can be a problem. One compromised service can bring access to the whole machine, which in turn compromises the other services hosted on the same computer. This risk can be mitigated by isolating the services. This can be attained either with virtualization (each service being hosted in a dedicated virtual machine), or with SELinux (each service daemon having an adequately designed set of permissions)."
 msgid "Current computers are powerful enough to allow hosting several services on the same physical machine. From an economic viewpoint, such a possibility is interesting: only one computer to administrate, lower energy consumption, and so on. From the security point of view, however, such a choice can be a problem. One compromised service can bring access to the whole machine, which in turn compromises the other services hosted on the same computer. This risk can be mitigated by isolating the services. This can be attained either with virtualization (each service being hosted in a dedicated virtual machine or container), or with AppArmor/SELinux (each service daemon having an adequately designed set of permissions)."
-msgstr "Computadores atuais são poderosos o suficiente para permitir a hospedagem de vários serviços na mesma máquina física. De um ponto de vista económico, uma tal possibilidade é interessante: um só computador para administrar, menor consumo de energia, e assim por diante. Do ponto de vista da segurança, no entanto, esta escolha pode ser um problema. Um serviço comprometido pode levar o acesso a toda a máquina, que por sua vez compromete os outros serviços hospedados no mesmo computador. Este risco pode ser atenuado através do isolamento dos serviços. Isto pode ser alcançado tanto com virtualização (cada serviço a ser hospedado em uma máquina virtual dedicada), ou com o SELinux (cada serviço tem um daemon com um conjunto de permissões adequadamente projetado)."
+msgstr "Computadores atuais são poderosos o suficiente para permitir a hospedagem de vários serviços na mesma máquina física. De um ponto de vista económico, uma tal possibilidade é interessante: um só computador para administrar, menor consumo de energia, e assim por diante. Do ponto de vista da segurança, no entanto, esta escolha pode ser um problema. Um serviço comprometido pode levar o acesso a toda a máquina, que por sua vez compromete os outros serviços hospedados no mesmo computador. Este risco pode ser atenuado através do isolamento dos serviços. Isto pode ser alcançado tanto com virtualização (cada serviço sendo hospedado em uma máquina virtual dedicada ou um container), ou com o AppArmor/SELinux (cada serviço daemon tendo um conjunto de permissões adequadamente projetado)."
 
 msgid "Users Are Players"
 msgstr "Os Usuários São Jogadores"
@@ -2076,7 +2027,6 @@ msgstr "Reinstalando"
 msgid "<primary>backdoor</primary>"
 msgstr "<primary>backdoor</primary>"
 
-#, fuzzy
 #| msgid "The server should not be brought back on line without a complete reinstallation. If the compromise was severe (if administrative privileges were obtained), there is almost no other way to be sure that we're rid of everything the attacker may have left behind (particularly <emphasis>backdoors</emphasis>). Of course, all the latest security updates must also be applied so as to plug the vulnerability used by the attacker. Ideally, analyzing the attack should point at this attack vector, so one can be sure of actually fixing it; otherwise, one can only hope that the vulnerability was one of those fixed by the updates."
 msgid "The server should not be brought back on line without a complete reinstallation. If the compromise was severe (if administrative privileges were obtained), there is almost no other way to be sure that we get rid of everything the attacker may have left behind (particularly <emphasis>backdoors</emphasis>). Of course, all the latest security updates must also be applied so as to plug the vulnerability used by the attacker. Ideally, analyzing the attack should point at this attack vector, so one can be sure of actually fixing it; otherwise, one can only hope that the vulnerability was one of those fixed by the updates."
 msgstr "O servidor não deve ser trazido de volta em linha sem uma reinstalação completa. Se o comprometimento foi grave (se privilégios administrativos foram obtidos), não há quase nenhuma outra maneira de ter certeza de que estamos livres de tudo o que o invasor pode ter deixado para trás (particularmente <emphasis>backdoors</emphasis>). Naturalmente, todas últimas atualizações de segurança devem também ser aplicadas de modo a conectar a vulnerabilidade utilizada pelo invasor. O ideal, analisando o ataque deve apontar para este vetor de ataque, para que se possa ter certeza de efetivamente corrigi-lo, caso contrário, só se pode esperar que a vulnerabilidade foi um daqueles fixados pelas atualizações."
@@ -2118,10 +2068,9 @@ msgstr "O pacote <emphasis role=\"pkg\">sleuthkit</emphasis> fornece algumas out
 msgid "<primary>Autopsy Forensic Browser</primary>"
 msgstr "<primary>negacao de servico</primary>"
 
-#, fuzzy
 #| msgid "<primary>packet filter</primary>"
 msgid "<primary>The Sleuth Kit</primary>"
-msgstr "<primary>Filtragem de pacotes</primary>"
+msgstr "<primary>O Kit Sleuth</primary>"
 
 msgid "Reconstituting the Attack Scenario"
 msgstr "Reconstituindo o Cenário do Ataque"
@@ -2177,7 +2126,7 @@ msgstr ""
 "(...)\n"
 "** 2004-11-29-21:10:36: DCC Upload: Transfer Completed (666615 KB, 1 hr 24 sec, 183.9 KB/sec)\n"
 "(...)\n"
-"** 2004-11-29-22:18:57: DCC Upload: Transfer Completed (713034 KB, 2 hr 28 min 7 sec, 80.2 KB/sec)\n"
+"** 2004-11-29-22:18:57: DCC Upload: Transfer Completed (713034 KB, 2 hr 28 min 7 sec, 80.2 KB/sec)"
 
 msgid "These traces show that two video files have been stored on the server by way of the 82.50.72.202 IP address."
 msgstr "Esses registros mostram que dois arquivos de vídeo foram armazenados no servidor por meio do endereço IP 82.50.72.202."
