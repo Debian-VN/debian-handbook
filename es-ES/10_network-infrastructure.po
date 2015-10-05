@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2015-09-16 23:21+0200\n"
-"Last-Translator: Ronnie Simon <ronniesimonf@gmail.com>\n"
+"PO-Revision-Date: 2015-10-05 20:27+0200\n"
+"Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/10_network-infrastructure/es/>\n"
 "Language: es-ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 msgid "Network"
 msgstr "Red"
@@ -216,10 +216,9 @@ msgstr "<primary>SSL</primary>"
 msgid "<primary>TLS</primary>"
 msgstr "<primary>TLS</primary>"
 
-#, fuzzy
 #| msgid "The SSL protocol (<emphasis>Secure Socket Layer</emphasis>) was invented by Netscape to secure connections to web servers. It was later standardized by IETF under the acronym TLS (<emphasis>Transport Layer Security</emphasis>); TLS is very similar to SSLv3 with only a few fixes and improvements."
 msgid "The SSL protocol (<emphasis>Secure Socket Layer</emphasis>) was invented by Netscape to secure connections to web servers. It was later standardized by IETF under the acronym TLS (<emphasis>Transport Layer Security</emphasis>). Since then TLS continued to evolve and nowadays SSL is deprecated due to multiple design flaws that have been discovered."
-msgstr "Netscape inventó el protocolo SSL (<emphasis>capa de zócalos seguros</emphasis>: «Secure Socket Layer») para asegurar conexiones con servidores web. Luego fue estandarizado por el IETF bajo el acrónimo TLS (<emphasis>seguridad de capa de transporte</emphasis>: «Transport Layer Security»); TLS es muy similar a SSLv3 con sólo unos pocos arreglos y mejoras."
+msgstr "Netscape inventó el protocolo SSL (<emphasis>capa de zócalos seguros</emphasis>: «Secure Socket Layer») para asegurar conexiones con servidores web. Luego fue estandarizado por el IETF bajo el acrónimo TLS (<emphasis>seguridad de capa de transporte</emphasis>: «Transport Layer Security»). Desde entonces, TLS ha seguido evolucionando y en nuestros días SSL ha quedado obsoleto debido a múltiples fallos de diseño que se han ido descubriendo."
 
 msgid "Public Key Infrastructure: <emphasis>easy-rsa</emphasis>"
 msgstr "Infraestructura de llave pública: <emphasis>easy-rsa</emphasis>"
@@ -483,7 +482,6 @@ msgstr ""
 msgid "The following step creates certificates for the VPN clients; one certificate is required for each computer or person allowed to use the VPN:"
 msgstr "El siguiente paso crea los certificados para los clientes VPN; necesita un certificado para cada equipo o persona autorizada para utilizar la VPN:"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput>$ </computeroutput><userinput>./build-key JoeSmith\n"
@@ -532,7 +530,7 @@ msgid ""
 msgstr ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>./build-key JoeSmith\n"
-"</userinput><computeroutput>./build-key JoeSmith\n"
+"</userinput><computeroutput>\n"
 "Generando una clave privada RSA de 2048 bit\n"
 "................................+++\n"
 "..............................................+++\n"
@@ -575,10 +573,9 @@ msgstr "Configuración del cliente OpenVPN"
 msgid "Setting up an OpenVPN client also requires creating a configuration file in <filename>/etc/openvpn/</filename>. A standard configuration can be obtained by using <filename>/usr/share/doc/openvpn/examples/sample-config-files/client.conf</filename> as a starting point. The <literal>remote vpn.falcot.com 1194</literal> directive describes the address and port of the OpenVPN server; the <literal>ca</literal>, <literal>cert</literal> and <literal>key</literal> also need to be adapted to describe the locations of the key files."
 msgstr "Para configurar un cliente OpenVPN también necesita crear un archivo de configuración en <filename>/etc/openvpn/</filename>. Puede conseguir una configuración estándar utilizando <filename>/usr/share/doc/openvpn/examples/sample-config-files/client.conf</filename> como punto de partida. La directiva <literal>remote vpn.falcot.com 1194</literal> describe la dirección y puerto del servidor OpenVPN; también necesita adaptar <literal>ca</literal>, <literal>cert</literal> y <literal>key</literal> para describir la ubicación de los archivos de llave."
 
-#, fuzzy
 #| msgid "If the VPN should not be started automatically on boot, set the <literal>AUTOSTART</literal> directive to <literal>none</literal> in the <filename>/etc/default/openvpn</filename> file. Starting or stopping a given VPN connection is always possible with the commands <command>/etc/init.d/openpvn start <replaceable>name</replaceable></command> and <command>/etc/init.d/openpvn stop <replaceable>name</replaceable></command> (where the connection <replaceable>name</replaceable> matches the one defined in <filename>/etc/openvpn/<replaceable>name</replaceable>.conf</filename>)."
 msgid "If the VPN should not be started automatically on boot, set the <literal>AUTOSTART</literal> directive to <literal>none</literal> in the <filename>/etc/default/openvpn</filename> file. Starting or stopping a given VPN connection is always possible with the commands <command>service openvpn@<replaceable>name</replaceable> start</command> and <command>service openvpn@<replaceable>name</replaceable> stop</command> (where the connection <replaceable>name</replaceable> matches the one defined in <filename>/etc/openvpn/<replaceable>name</replaceable>.conf</filename>)."
-msgstr "Si no se debe iniciar la VPN automáticamente durante el inicio, configure la directiva <literal>AUTOSTART</literal> como <literal>none</literal> en el archivo <filename>/etc/default/openvpn</filename>. Siempre es posible iniciar o detener una conexión VPN dada con <command>/etc/init.d/openvpn start <replaceable>nombre</replaceable></command> y <command>/etc/init.d/openvpn stop <replaceable>nombre</replaceable></command> (donde la conexión <replaceable>nombre</replaceable> coincide con aquella definida en <filename>/etc/openvpn/<replaceable>nombre</replaceable>.conf</filename>)."
+msgstr "Si no se debe iniciar la VPN automáticamente durante el inicio, configure la directiva <literal>AUTOSTART</literal> como <literal>none</literal> en el archivo <filename>/etc/default/openvpn</filename>. Siempre es posible iniciar o detener una conexión VPN dada con los comandos<command>service openvpn@<replaceable>nombre</replaceable> start</command> y <command>service openvpn@<replaceable>nombre</replaceable>stop</command> (donde la conexión <replaceable>nombre</replaceable> coincide con aquella definida en <filename>/etc/openvpn/<replaceable>nombre</replaceable>.conf</filename>)."
 
 msgid "The <emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis> package contains an extension to Network Manager (see <xref linkend=\"sect.roaming-network-config\" />) that allows managing OpenVPN virtual private networks. This allows every user to configure OpenVPN connections graphically and to control them from the network management icon. <indexterm><primary><emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis></primary></indexterm>"
 msgstr "El paquete <emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis> contiene una extensión para Network Manager (revise la <xref linkend=\"sect.roaming-network-config\" />) que permite administrar redes privadas virtuales OpenVPN. Esto permite que cada usuario configure gráficamente sus conexiones OpenVPN y las controle desde el ícono del gestor de red. <indexterm><primary><emphasis role=\"pkg\">network-manager-openvpn-gnome</emphasis></primary></indexterm>"
@@ -1203,13 +1200,12 @@ msgstr "<primary><command>babeld</command></primary>"
 msgid "Daemons are enabled by editing the <filename>/etc/quagga/daemons</filename> file and creating the appropriate configuration file in <filename>/etc/quagga/</filename>; this configuration file must be named after the daemon, with a <filename>.conf</filename> extension, and belong to the <literal>quagga</literal> user and the <literal>quaggavty</literal> group, in order for the <filename>/etc/init.d/quagga</filename> script to invoke the daemon."
 msgstr "Puede activar demonios mediante la edición el archivo <filename>/etc/quagga/daemons</filename> y creando el archivo de configuración apropiado en <filename>/etc/quagga/</filename>; debe nombrar este archivo de configuración según el demonio, con una extensión <filename>.conf</filename> y debe pertenecer al usuario <literal>quagga</literal> y al grupo <literal>quaggavty</literal> para que el script <filename>/etc/init.d/quagga</filename> ejecute el demonio."
 
-#, fuzzy
 #| msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.quagga.net/docs/docs-info.php\" /> In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
 msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
-msgstr "Para configurar cada uno de estos demonio necesita conocer el protocolo de enrutamiento en cuestión. No podemos describir en detalle aquí a estos protocolos, pero el paquete <emphasis role=\"pkg\">quagga-doc</emphasis> provee una explicación extensa en forma de archivos <command>info</command>. Puede navegar los mismos contenidos en formato HTML en el sitio web de Quagga: <ulink type=\"block\" url=\"http://www.quagga.net/docs/docs-info.php\" /> Además, la sintaxis es muy parecida a la interfaz de configuración estándar de un router y los administradores de red se adaptarán rápidamente a <command>quagga</command>."
+msgstr "Para configurar cada uno de estos demonio necesita conocer el protocolo de enrutamiento en cuestión. No podemos describir en detalle aquí a estos protocolos, pero el paquete <emphasis role=\"pkg\">quagga-doc</emphasis> provee una explicación extensa en forma de archivos <command>info</command>. Puede navegar los mismos contenidos en formato HTML en el sitio web de Quagga: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
 
 msgid "In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
-msgstr ""
+msgstr "Además, la sintaxis es muy parecida a la configuración de una interfaz estándar de un router, y los administradores de red la adaptarán rápidamente a <command>quagga</command>."
 
 msgid "<emphasis>IN PRACTICE</emphasis> OSPF, BGP or RIP?"
 msgstr "<emphasis>EN LA PRÁCTICA</emphasis> ¿OSPF, BGP o RIP?"
@@ -1262,10 +1258,9 @@ msgstr ""
 msgid "IPv6 subnets usually have a netmask of 64 bits. This means that 2<superscript>64</superscript> distinct addresses exist within the subnet. This allows Stateless Address Autoconfiguration (<acronym>SLAAC</acronym>) to pick an address based on the network interface's MAC address. By default, if <acronym>SLAAC</acronym> is activated in your network and IPv6 on your computer, the kernel will automatically find IPv6 routers and configure the network interfaces."
 msgstr "Las subredes IPv6 generalmente tienen una máscara de red de 64 bits. Esto significa que existen 2<superscript>64</superscript> direcciones diferentes dentro de la subred. Esto permite que «Stateless Address Autoconfiguration» (<acronym>SLAAC</acronym>: autoconfiguración de direcciones sin estado) selecione una dirección basada en la dirección MAC de la interfaz de red. De forma predeterminada, si <acronym>SLAAC</acronym> está activado en su red e IPv6 en su equipo, el núcleo encontrará enrutadores IPv6 automáticamente y configurará las interfaces de red."
 
-#, fuzzy
 #| msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions, which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
 msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions (which Debian enables by default if IPv6 connectivity is detected during initial installation), which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
-msgstr "Este comportamiento podría tener consecuencias en la privacidad. Si cambia de red frecuentemente, por ejemplo con un portátil, podría no desear que su dirección <acronym>MAC</acronym> sea parte de su dirección IPv6 pública. Esto facilita la identificación del mismo dispositivo en varias redes. Las extensiones de privacidad de IPv6 son una solución a este problema, las que asignarán direcciones adicionales generadas aleatoriamente a la interfaz, las cambiarán periódicamente y las preferirán para conexiones salientes. Las conexiones entrantes todavía podrán utilizar las direcciones generadas por SLAAC. El ejemplo a continuación, para utilizar en <filename>/etc/network/interfaces</filename>, activa estas extensiones de privacidad."
+msgstr "Este comportamiento podría tener consecuencias en la privacidad. Si cambia de red frecuentemente, por ejemplo con un portátil, podría no desear que su dirección <acronym>MAC</acronym> sea parte de su dirección IPv6 pública. Esto facilita la identificación del mismo dispositivo en varias redes. Las extensiones de privacidad de IPv6 (las cuales en Debian se habilitan por defecto si se detecta conectividad IPv6 durante la instalación inicial) son una solución a este problema, las que asignarán direcciones adicionales generadas aleatoriamente a la interfaz, las cambiarán periódicamente y las preferirán para conexiones salientes. Las conexiones entrantes todavía podrán utilizar las direcciones generadas por SLAAC. El ejemplo a continuación, para utilizar en <filename>/etc/network/interfaces</filename>, activa estas extensiones de privacidad."
 
 msgid "IPv6 privacy extensions"
 msgstr "Extensiones de privacidad IPv6"
@@ -1343,10 +1338,9 @@ msgstr "Debe crear el archivo de configuración <filename>/etc/radvd.conf</filen
 msgid "<primary><command>radvd</command></primary>"
 msgstr "<primary><command>radvd</command></primary>"
 
-#, fuzzy
 #| msgid "Then run <command>/etc/init.d/gogoc restart</command> and <command>/etc/init.d/radvd start</command>, and the IPv6 network should work."
 msgid "Then run <command>service gogoc restart</command> and <command>service radvd start</command>, and the IPv6 network should work."
-msgstr "Luego ejecute <command>/etc/init.d/gogoc restart</command> y <command>/etc/init.d/radvd start</command>, y la red IPv6 debería funcionar."
+msgstr "Luego ejecute <command>service gogoc restart</command> y <command>service radvd start</command>, y la red IPv6 debería funcionar."
 
 msgid "Domain Name Servers (DNS)"
 msgstr "Servidores de nombres de dominio (DNS)"
@@ -1417,10 +1411,9 @@ msgstr "<emphasis>CULTURA</emphasis> DNSSEC"
 msgid "<primary>DNSSEC</primary>"
 msgstr "<primary>DNSSEC</primary>"
 
-#, fuzzy
 #| msgid "The DNSSEC norm is quite complex; this partly explains why it's not in widespread usage yet (even if it perfectly coexists with DNS servers unaware of DNSSEC). To understand all the ins and outs, you should check the following article. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
 msgid "The DNSSEC norm is quite complex; this partly explains why it is not in widespread usage yet (even if it perfectly coexists with DNS servers unaware of DNSSEC). To understand all the ins and outs, you should check the following article. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
-msgstr "La normativa DNSSEC es bastante compleja; esto explica parcialmente porqué no es utilizada ampliamente aún (aún si puede coexistir perfectamente con servidores DNS que no conozcan de DNSSEC). Para entender los recovecos debería revisar el siguiente artículo. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
+msgstr "La normativa DNSSEC es bastante compleja; esto explica parcialmente por qué no es utilizada ampliamente aún (aún si puede coexistir perfectamente con servidores DNS que no conozcan de DNSSEC). Para entender los recovecos debería revisar el siguiente artículo. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions\" />"
 
 msgid "Configuring"
 msgstr "Configuración"
