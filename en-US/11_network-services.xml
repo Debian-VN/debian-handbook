@@ -15,12 +15,25 @@
       <keyword>OpenLDAP</keyword>
     </keywordset>
   </chapterinfo>
-  <title>Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP</title>
+  <title>Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN</title>
   <highlights>
     <para>Network services are the programs that users interact with
     directly in their daily work. They are the tip of the information system
     iceberg, and this chapter focuses on them; the hidden parts they rely
     on are the infrastructure we already described.</para>
+
+    <!-- TODO: #800968 - add a section or appendix on TLS,
+                         replace para below -->
+    <para>Many modern network services require encryption technology to
+    operate reliably and securely, especially when used on the public
+    Internet.  X.509 Certificates (which may also be referred to as
+    SSL Certificates or TLS Certificates) are frequently used for this
+    purpose.  A certificate for a specific domain can often be shared
+    between more than one of the services discussed in this chapter.
+    </para>
+    <indexterm><primary>TLS</primary></indexterm>
+    <indexterm><primary>X.509</primary></indexterm>
+    <indexterm><primary>Certificates</primary></indexterm>
   </highlights>
   <section id="sect.smtp-mail-server">
     <title>Mail Server</title>
@@ -3218,6 +3231,437 @@ TLS_CACERT      /etc/ssl/certs/ca-certificates.crt
 	  massive deployments and virtualization.</para>
         </section>
       </section>
+    </section>
+  </section>
+  <section id="sect.rtc-services">
+    <title>Real-Time Communication Services</title>
+
+    <para>Real-Time Communication (RTC) services include voice,
+    video/webcam, instant messaging (IM) and desktop sharing.
+    This chapter gives a brief introduction to three of the
+    services required to operate RTC, including a TURN server,
+    SIP server and XMPP server. Comprehensive details of how to plan, install
+    and manage these services are available in the Real-Time Communications
+    Quick Start Guide which includes examples specific to Debian.
+    <ulink type="block" url="http://rtcquickstart.org"/>
+    </para>
+    <indexterm><primary>VoIP</primary><secondary>server</secondary></indexterm>
+    <indexterm><primary>RTC</primary><secondary>server</secondary></indexterm>
+    <indexterm><primary>Instant Messaging</primary><secondary>server</secondary></indexterm>
+    <indexterm><primary>Chat</primary><secondary>server</secondary></indexterm>
+
+    <para>Both SIP and XMPP can provide the same functionality.  SIP
+    is slightly more well known for voice and video while XMPP is
+    traditionally regarded as an IM protocol. In fact, they can both
+    be used for any of these purposes.  To maximize connectivity options,
+    it is recommended to run both in parallel.</para>
+    <indexterm><primary>SIP</primary></indexterm>
+    <indexterm><primary>XMPP</primary></indexterm>
+
+    <!-- TODO: #800968 - add a section or appendix on TLS,
+                         replace para below -->
+    <para>These services rely on X.509 certificates both for authentication
+    and confidentiality purposes. See <xref linkend="sect.easy-rsa" /> for
+    details on how to create them. Alternatively the <emphasis>Real-Time
+    Communications Quick Start Guide</emphasis> also has some useful
+    explanations:
+    <ulink type="block" url="http://rtcquickstart.org/guide/multi/tls.html"/>
+    </para>
+
+    <section id="sect.rtc-dns-settings">
+      <title>DNS settings for RTC services</title>
+
+      <para>RTC services require DNS SRV and NAPTR records.  A sample
+      configuration that can be placed in the zone file for
+      <literal>falcot.com</literal>:</para>
+      <indexterm><primary>DNS</primary><secondary>SRV record</secondary></indexterm>
+      <indexterm><primary>DNS</primary><secondary>NAPTR record</secondary></indexterm>
+
+<programlisting>
+; the server where everything will run
+server1            IN     A      198.51.100.19
+server1            IN     AAAA   2001:DB8:1000:2000::19
+
+; some convenient CNAMEs
+turn-server        IN     CNAME  server1
+sip-proxy          IN     CNAME  server1
+xmpp-gw            IN     CNAME  server1
+
+; DNS SRV for STUN / TURN
+_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.
+
+; DNS SRV and NAPTR records for SIP
+_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.
+@           IN NAPTR  10 0 "s" "SIPS+D2T" "" _sips._tcp.falcot.com.
+
+; DNS SRV records for XMPP Server and Client modes:
+_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.
+_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com.
+</programlisting>
+    </section>
+
+    <section id="sect.turn-server">
+      <title>TURN Server</title>
+
+      <para>TURN is a service that helps clients behind NAT routers and
+      firewalls to discover the most efficient way to communicate with other
+      clients and to relay the media streams if no direct media path can be
+      found. It is highly recommended that the TURN server is installed
+      before any of the other RTC services are offered to end users.</para>
+      <indexterm><primary>TURN</primary><secondary>server</secondary></indexterm>
+
+      <para>TURN and the related ICE protocol are open standards.
+      To benefit from these protocols, maximizing connectivity and
+      minimizing user frustration, it is important to ensure that all
+      client software supports ICE and TURN.</para>
+      <indexterm><primary>ICE</primary></indexterm>
+
+      <para>For the ICE algorithm to work effectively, the server must
+      have two public IPv4 addresses.</para>
+      <section id="sect.turn-server-install">
+        <title>Install the TURN server</title>
+        <para>Install the <emphasis
+        role="pkg">resiprocate-turn-server</emphasis> package.</para>
+
+        <para>Edit the
+        <filename>/etc/reTurn/reTurnServer.config</filename>
+        configuration file. The most important thing to do is insert
+        the IP addresses of the server.</para>
+
+<programlisting>
+# your IP addresses go here:
+TurnAddress = 198.51.100.19
+TurnV6Address = 2001:DB8:1000:2000::19
+AltStunAddress = 198.51.100.20
+# your domain goes here, it must match the value used
+# to hash your passwords if they are already hashed
+# using the HA1 algorithm:
+AuthenticationRealm = myrealm
+
+UserDatabaseFile = /etc/reTurn/users.txt
+UserDatabaseHashedPasswords = true
+</programlisting>
+
+        <para>Restart the service.</para>
+      </section>
+      <section id="sect.turn-server-management">
+        <title>Managing the TURN users</title>
+        <para>Use the htdigest utility to manage the TURN server user list.
+        </para>
+<screen><computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>
+</screen>
+        <para>Use the HUP signal to make the server reload the
+        <filename>/etc/reTurn/users.txt</filename> file after changing it
+        or enable the automatic reload feature in
+        <filename>/etc/reTurn/reTurnServer.config</filename>.</para>
+      </section>
+    </section>
+
+    <section id="sect.sip-server">
+      <title>SIP Proxy Server</title>
+
+      <para>A SIP proxy server manages the incoming and outgoing SIP
+      connections between other organizations, SIP trunking providers,
+      SIP PBXes such as Asterisk, SIP phones, SIP-based softphones
+      and WebRTC applications.</para>
+      <indexterm><primary>SIP</primary><secondary>server</secondary></indexterm>
+      <indexterm><primary>SIP</primary><secondary>proxy</secondary></indexterm>
+      <indexterm><primary>SIP</primary><secondary>PBX</secondary></indexterm>
+      <indexterm><primary>SIP</primary><secondary>trunk</secondary></indexterm>
+
+      <para>It is strongly recommended to install and configure the SIP
+      proxy before attempting a SIP PBX setup. The SIP proxy normalizes
+      a lot of the traffic reaching the PBX and provides greater
+      connectivity and resilience.</para>
+
+      <section id="sect.sip-server-install">
+        <title>Install the SIP proxy</title>
+        <para>Install the <emphasis role="pkg">repro</emphasis> package.
+          Using the package from <emphasis
+            role="distribution">jessie-backports</emphasis> is highly
+          recommended, as it has the latest improvements for maximizing
+          connectivity and resilience.
+        </para>
+        <indexterm><primary>repro</primary></indexterm>
+
+        <para>
+          Edit the <filename>/etc/repro/repro.config</filename>
+          configuration file. The most important thing to do is insert the
+          IP addresses of the server.  The example below demonstrates how
+          to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4
+          and IPv6:
+        </para>
+
+<programlisting>
+# Transport1 will be for SIP over TLS connections
+# We use port 5061 here but if you have clients connecting from
+# locations with firewalls you could change this to listen on port 443
+Transport1Interface = 198.51.100.19:5061
+Transport1Type = TLS
+Transport1TlsDomain = falcot.com
+Transport1TlsClientVerification = Optional
+Transport1RecordRouteUri = sip:falcot.com;transport=TLS
+Transport1TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem
+Transport1TlsCertificate = /etc/ssl/public/falcot.com.pem
+
+# Transport2 is the IPv6 version of Transport1
+Transport2Interface = 2001:DB8:1000:2000::19:5061
+Transport2Type = TLS
+Transport2TlsDomain = falcot.com
+Transport2TlsClientVerification = Optional
+Transport2RecordRouteUri = sip:falcot.com;transport=TLS
+Transport2TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem
+Transport2TlsCertificate = /etc/ssl/public/falcot.com.pem
+
+# Transport3 will be for SIP over WebSocket (WebRTC) connections
+# We use port 8443 here but you could use 443 instead
+Transport3Interface = 198.51.100.19:8443
+Transport3Type = WSS
+Transport3TlsDomain = falcot.com
+# This would require the browser to send a certificate, but browsers
+# don't currently appear to be able to, so leave it as None:
+Transport3TlsClientVerification = None
+Transport3RecordRouteUri = sip:falcot.com;transport=WSS
+Transport3TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem
+Transport3TlsCertificate = /etc/ssl/public/falcot.com.pem
+
+# Transport4 is the IPv6 version of Transport3
+Transport4Interface = 2001:DB8:1000:2000::19:8443
+Transport4Type = WSS
+Transport4TlsDomain = falcot.com
+Transport4TlsClientVerification = None
+Transport4RecordRouteUri = sip:falcot.com;transport=WSS
+Transport4TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem
+Transport4TlsCertificate = /etc/ssl/public/falcot.com.pem
+
+# Transport5: this could be for TCP connections to an Asterisk server
+# in your internal network.  Don't allow port 5060 through the external
+# firewall.
+Transport5Interface = 198.51.100.19:5060
+Transport5Type = TCP
+Transport5RecordRouteUri = sip:198.51.100.19:5060;transport=TCP
+
+HttpBindAddress = 198.51.100.19, 2001:DB8:1000:2000::19
+HttpAdminUserFile = /etc/repro/users.txt
+
+RecordRouteUri = sip:falcot.com;transport=tls
+ForceRecordRouting = true
+EnumSuffixes = e164.arpa, sip5060.net, e164.org
+DisableOutbound = false
+EnableFlowTokens = true
+EnableCertificateAuthenticator = True
+</programlisting>
+
+        <para>
+          Use the <command>htdigest</command> utility to manage the
+          admin password for the web interface.  The username must be
+          <emphasis>admin</emphasis> and the realm name must match the
+          value specified in <filename>repro.config</filename>.
+        </para>
+
+<screen><computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>
+</screen>
+
+        <para>Restart the service to use the new configuration.</para>
+      </section>
+      <section id="sect.sip-server-management">
+        <title>Managing the SIP proxy</title>
+        <para>Go to the web interface at
+        <literal>http://sip-proxy.falcot.com:5080</literal> to
+        complete the configuration by adding domains, local users
+        and static routes.</para>
+
+        <para>The first step is to add the local domain.  The
+        process must be restarted after adding or removing domains
+        from the list.</para>
+
+        <para>The proxy knows how to route calls between local users
+        and full SIP address, the routing configuration is only necessary
+        for overriding default behavior, for example, to recognize phone
+        numbers, add a prefix and route them to a SIP provider.</para>
+      </section>
+    </section>
+
+    <section id="sect.xmpp-server">
+      <title>XMPP Server</title>
+
+      <para>An XMPP server manages connectivity between local XMPP users
+      and XMPP users in other domains on the public Internet.</para>
+      <indexterm><primary>XMPP</primary><secondary>server</secondary></indexterm>
+
+      <sidebar>
+        <title><emphasis>Terminology</emphasis> XMPP or Jabber?</title>
+        <indexterm><primary>Jabber</primary></indexterm>
+
+        <para>XMPP is sometimes referred to as Jabber.  In fact,
+        Jabber is a trademark and XMPP is the official name of the standard.
+        </para>
+        <indexterm><primary>Jabber</primary></indexterm>
+      </sidebar>
+
+      <para>Prosody is a popular XMPP server that operates reliably
+      on Debian servers.</para>
+      <indexterm><primary>Prosody</primary></indexterm>
+      <section id="sect.xmpp-server-install">
+        <title>Install the XMPP server</title>
+        <para>
+          Install the <emphasis role="pkg">prosody</emphasis> package.
+          Using the package from <emphasis
+            role="distribution">jessie-backports</emphasis> is highly
+          recommended, as it has the latest improvements for maximizing
+          connectivity and resilience.
+        </para>
+        <indexterm><primary>Prosody</primary></indexterm>
+
+        <para>Review the <filename>/etc/prosody/prosody.cfg.lua</filename>
+        configuration file. The most important thing to do is insert JIDs
+        of the users who are permitted to manage the server.</para>
+
+<programlisting>
+admins = { "joe@falcot.com" }
+</programlisting>
+
+        <para>An individual configuration file is also needed for
+        each domain. Copy the sample from
+        <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename>
+        and use it as a starting point. Here is
+        <literal>falcot.com.cfg.lua</literal>:</para>
+
+<programlisting>
+VirtualHost "falcot.com"
+        enabled = true
+        ssl = {
+                key = "/etc/ssl/private/falcot.com-key.pem";
+                certificate = "/etc/ssl/public/falcot.com.pem";
+                }
+</programlisting>
+
+        <para>To enable the domain, there must be a symlink from
+          <filename>/etc/prosody/conf.d/</filename>. Create it that way:</para>
+
+<screen><computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>
+</screen>
+
+        <para>Restart the service to use the new configuration.</para>
+      </section>
+      <section id="sect.xmpp-server-management">
+        <title>Managing the XMPP server</title>
+        <para>Some management operations can be performed using the
+        <literal>prosodyctl</literal> command line utility. For example, to
+        add the administrator account specified in
+        <filename>/etc/prosody/prosody.cfg.lua</filename>:</para>
+<programlisting>
+# prosodyctl adduser joe@falcot.com
+</programlisting>
+
+        <para>See the <ulink url="http://prosody.im/doc/configure">
+        Prosody online documentation</ulink> for more details about
+        how to customize the configuration.</para>
+
+      </section>
+
+    </section>
+    <section id="sect.rtc-port-443">
+      <title>Running services on port 443</title>
+      <para>Some administrators prefer to run all of their RTC services on
+      port 443. This helps users to connect from remote locations such as
+      hotels and airports where other ports may be blocked or
+      Internet traffic is routed through HTTP proxy servers.</para>
+
+      <para>To use this strategy, each service (SIP, XMPP and TURN)
+      needs a different IP address. All the services can still be on the
+      same host as Linux supports multiple IP addresses on a single host.
+      The port number, 443, must be specified in the configuration
+      files for each process and also in the DNS SRV records.</para>
+    </section>
+    <section id="sect.rtc-webrtc">
+      <title>Adding WebRTC</title>
+
+      <para>Falcot wants to let customers make phone calls directly from
+      the web site. The Falcot administrators also want to use WebRTC as
+      part of their disaster recovery plan, so staff can use web browsers
+      at home to log in to the company phone system and work normally in
+      an emergency.</para>
+      <indexterm><primary>WebRTC</primary></indexterm>
+      <indexterm><primary>SIP</primary><secondary>WebSockets</secondary></indexterm>
+
+      <sidebar>
+        <title><emphasis>IN PRACTICE</emphasis> Try WebRTC</title>
+        <indexterm><primary>WebRTC</primary><secondary>demonstration</secondary></indexterm>
+
+        <para>If you have not tried WebRTC before, there are various
+        sites that give an online demonstration and test facilities.
+        <ulink type="block" url="http://www.sip5060.net/test-calls"/></para>        
+      </sidebar>
+
+      <para>
+        WebRTC is a rapidly evolving technology and it is essential to
+        use packages from the <emphasis
+          role="distribution">jessie-backports</emphasis> or <emphasis
+          role="distribution">Testing</emphasis> distributions.
+      </para>
+
+      <para>JSCommunicator is a generic, unbranded WebRTC phone that does
+      not require any server-side scripting such as PHP. It is built
+      exclusively with HTML, CSS and JavaScript. It is the basis
+      for many other WebRTC services and modules for more advanced
+      web publishing frameworks.
+      <ulink type="block" url="http://jscommunicator.org"/>
+      </para>
+      <indexterm><primary>JSCommunicator</primary></indexterm>
+
+      <para>The package
+      <emphasis role="pkg">jscommunicator-web-phone</emphasis> is the
+      quickest way to install a WebRTC phone into a web site.
+      It requires a SIP proxy with a WebSocket transport. The instructions in
+      <xref linkend="sect.sip-server-install"/> include the necessary
+      details to enable the WebSocket transport in the
+      <emphasis role="pkg">repro</emphasis> SIP proxy.</para>
+
+      <para>After installing
+      <emphasis role="pkg">jscommunicator-web-phone</emphasis>,
+      there are various ways to use it. A simple strategy is to include
+      or copy the configuration from
+      <filename>/etc/jscommunicator-web-phone/apache.conf</filename>
+      into an Apache virtual host configuration.</para>
+
+      <para>Once the web-phone files are available in the web server,
+      customize the
+      <filename>/etc/jscommunicator-web-phone/config.js</filename> to point
+      at the TURN server and SIP proxy. For example:</para>
+
+<programlisting>
+JSCommSettings = {
+
+  // Web server environment
+  webserver: {
+    url_prefix: null            // If set, prefix used to construct sound/ URLs
+  },
+
+  // STUN/TURN media relays
+  stun_servers: [],
+  turn_servers: [
+    { server:"turn:turn-server.falcot.com?transport=udp", username:"joe", password:"j0Ep455d" }
+  ],
+
+  // WebSocket connection
+  websocket: {
+      // Notice we use the falcot.com domain certificate and port 8443
+      // This matches the Transport3 and Transport4 example in
+      // the falcot.com repro.config file
+    servers: 'wss://falcot.com:8443',
+    connection_recovery_min_interval: 2,
+    connection_recovery_max_interval: 30
+  },
+
+  ...
+</programlisting>
+
+      <para>More advanced click-to-call web sites typically use server-side
+      scripting to generate the <literal>config.js</literal> file dynamically.
+      The <ulink url="http://drucall.org">DruCall</ulink> source code
+      demonstrates how to do this with PHP.</para>
+      <indexterm><primary>DruCall</primary></indexterm>
     </section>
   </section>
 </chapter>

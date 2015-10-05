@@ -734,122 +734,6 @@
 
     </section>
     <section>
-      <title>Instant Messaging Systems</title>
-      <indexterm><primary>messaging</primary><secondary>instant</secondary></indexterm>
-
-      <para>When setting up an internal instant messaging system for a
-      company, the obvious choice is Jabber: its protocol is an open
-      standard (XMPP), and there is no shortage of features. The messages
-      can be encrypted, which can be a real bonus, and gateways can be
-      set up between a Jabber server and other instant messaging networks
-      such as ICQ, AIM, Yahoo, MSN, and so on.</para>
-      <indexterm><primary>Jabber</primary></indexterm>
-      <indexterm><primary>XMPP</primary></indexterm>
-      <indexterm><primary>ICQ</primary></indexterm>
-      <indexterm><primary>AIM</primary></indexterm>
-      <indexterm><primary><emphasis>Messenger</emphasis></primary></indexterm>
-
-      <sidebar>
-	<title><emphasis>ALTERNATIVE</emphasis> Internet Relay Chat</title>
-
-	<para>IRC can also be considered, instead of Jabber. This system
-	is more centered around the concept of channels, the name of
-	which starts with a hash sign <literal>#</literal>. Each channel
-	is usually targeted at a specific topic and any number of people
-	can join a channel to discuss it (but users can still have
-	one-to-one private conversations if needed). The IRC protocol is
-	older, and does not allow end-to-end encryption of the messages;
-	it is still possible to encrypt the communications between the
-	users and the server by tunneling the IRC protocol inside
-	SSL.</para>
-	<indexterm><primary>IRC</primary></indexterm>
-	<indexterm><primary><foreignphrase>Internet Relay Chat</foreignphrase></primary></indexterm>
-
-	<para>IRC clients are a bit more complex, and they usually
-	provide many features that are of limited use in a corporate
-	environment. For instance, channel “operators” are users
-	endowed with the ability to kick other users from a channel, or
-	even ban them permanently, when the normal discussion is
-	disrupted.</para>
-
-	<para>Since the IRC protocol is very old, many clients are
-	available to cater for many user groups; examples include XChat
-	and Smuxi (graphical clients based on GTK+), Irssi (text mode),
-	Erc (integrated to Emacs), and so on.</para>
-      </sidebar>
-
-      <sidebar>
-	<title><emphasis>QUICK LOOK</emphasis> Video conferencing with Ekiga</title>
-
-	<para>Ekiga (formerly GnomeMeeting) is the most prominent
-	application for Linux video conferencing. It is both stable and
-	functional, and is very easily used on a local network; setting
-	up the service on a global network is much more complex when the
-	firewalls involved lack explicit support for the H323 and/or SIP
-	teleconferencing protocols with all their quirks.</para>
-	<indexterm><primary>video conference</primary></indexterm>
-	<indexterm><primary>H323</primary></indexterm>
-
-	<para>If only one Ekiga client is to run behind the firewall, the
-	configuration is rather straightforward, and only involves
-	forwarding a few ports to the dedicated host: TCP port 1720
-	(listening for incoming connections), TCP port 5060 (for SIP),
-	TCP ports 30000 to 30010 (for control of open connections) and
-	UDP ports 5000 to 5100 (for audio and video data transmission and
-	registration to an H323 proxy).</para>
-	<indexterm><primary>GnomeMeeting</primary></indexterm>
-	<indexterm><primary>Ekiga</primary></indexterm>
-
-	<para>When several Ekiga clients are to run behind the firewall,
-	complexity increases notably. An H323 proxy (for instance the
-	<emphasis role="pkg">gnugk</emphasis> package) must be set up,
-	and its configuration is far from simple.</para>
-	<indexterm><primary><emphasis role="pkg">gnugk</emphasis></primary></indexterm>
-      </sidebar>
-      <section>
-	<title>Configuring the Server</title>
-
-	<para>Setting up a Jabber server is rather straightforward. After
-	installing the <emphasis role="pkg">ejabberd</emphasis> package,
-	executing <command>dpkg-reconfigure ejabberd</command> will allow
-	customizing the default domain, and create an administrator
-	account. Note that the Jabber server needs a valid DNS name to
-	point at it, so some network administration can be required
-	beforehand. The Falcot Corp administrators picked
-	<literal>jabber.falcot.com</literal> for that purpose.</para>
-
-	<para>Once this initial set up is over, the service configuration
-	can be controlled through a web interface accessible at
-	<literal>http://jabber.falcot.com:5280/admin/</literal>. The
-	requested username and password are those that were given earlier
-	during the initial configuration. Note that the username must be
-	qualified with the configured domain: the
-	<literal>admin</literal> account becomes
-	<literal>admin@jabber.falcot.com</literal>.</para>
-
-	<para>The web interface removes the need to edit a configuration
-	file, but does not always make the task easier, since many
-	options have a peculiar syntax that needs to be known.
-	<filename>/usr/share/doc/ejabberd/guide.html</filename> is
-	therefore a recommended read.</para>
-      </section>
-      <section>
-	<title>Jabber Clients</title>
-	<indexterm><primary>client</primary><secondary>Jabber</secondary></indexterm>
-	<indexterm><primary>Jabber</primary><secondary>clients</secondary></indexterm>
-
-	<para>GNOME provides Empathy (in the similarly-named package), a
-	minimalist client that integrates in the notification area of the
-	desktop (on the middle-bottom in the default GNOME
-	configuration). It also supports many instant messaging protocols
-	beyond Jabber.</para>
-	<indexterm><primary>Empathy</primary></indexterm>
-
-	<para>KDE provides Kopete (in the package of the same name).</para>
-	<indexterm><primary>Kopete</primary></indexterm>
-      </section>
-    </section>
-    <section>
       <title>Collaborative Work With FusionForge</title>
       <indexterm><primary>FusionForge</primary></indexterm>
 
@@ -1096,6 +980,145 @@
       benefit of also working with many operating systems. Linux VNC
       clients and servers are described in <xref
       linkend="sect.remote-login"/>.</para>
+    </sidebar>
+  </section>
+  <section id="sect.rtc-clients">
+    <title>Real-Time Communications software</title>
+
+    <para>Debian provides a wide range of Real-Time Communications (RTC)
+    client software. The setup of RTC servers is discussed in
+    <xref linkend="sect.rtc-services"/>. In SIP terminology,
+    a client application or device is also referred to as a user agent.</para>
+    <indexterm><primary>User agent (SIP)</primary></indexterm>
+    <indexterm><primary>SIP</primary><secondary>user agent</secondary></indexterm>
+
+    <para>Each client application varies in functionality. Some
+    applications are more convenient for intensive chat users while
+    other applications are more stable for webcam users. It may be
+    necessary to test several applications to identify those which
+    are most satisfactory. A user may finally decide that they
+    need more than one application, for example, an XMPP application
+    for messaging with customers and an IRC application for collaboration
+    with some online communities.</para>
+
+    <para>To maximize the ability of users to communicate with the wider
+    world, it is recommended to configure both SIP and XMPP clients
+    or a single client that supports both protocols.</para>
+    <indexterm><primary>SIP</primary></indexterm>
+    <indexterm><primary>XMPP</primary></indexterm>
+
+    <para>The default GNOME desktop includes the Empathy communications
+    client. Empathy can support both SIP and XMPP. It supports instant
+    messaging (IM), voice and video. The KDE desktop provides KDE Telepathy,
+    a communications client based on the same underlying Telepathy APIs
+    used by the GNOME Empathy client.</para>
+    <indexterm><primary>Empathy</primary></indexterm>
+    <indexterm><primary>Telepathy</primary></indexterm>
+
+    <para>Popular alternatives to Empathy/Telepathy include Ekiga, Jitsi,
+    Linphone, Psi and Ring (formerly known as SFLphone).</para>
+    <indexterm><primary>Ekiga</primary></indexterm>
+    <indexterm><primary>Jitsi</primary></indexterm>
+    <indexterm><primary>Linphone</primary></indexterm>
+    <indexterm><primary>Psi</primary></indexterm>
+    <indexterm><primary>Ring (soft-phone)</primary></indexterm>
+    <indexterm><primary>SFLphone</primary></indexterm>
+
+    <para>Some of these applications can also interact with mobile users
+    using apps such as Lumicall on Android.
+    <ulink type="block" url="http://lumicall.org"/>.
+    </para>
+    <indexterm><primary>Lumicall</primary></indexterm>
+
+    <para>The <emphasis>Real-Time Communications Quick Start
+    Guide</emphasis> has a chapter dedicated to client software.
+    <ulink type="block"
+    url="http://rtcquickstart.org/guide/multi/useragents.html"/>.</para>
+
+    <sidebar>
+     <title><emphasis>TIP</emphasis> Look for clients supporting
+     ICE and TURN</title>
+
+     <para>Some RTC clients have significant problems sending voice and
+     video through firewalls and NAT networks. Users may receive
+     ghost calls (their phone rings but they don't hear the other person)
+     or they may not be able to call at all.</para>
+
+     <para>The ICE and TURN protocols were developed to resolve these issues.
+     Operating a TURN server with public IP addresses in each site and
+     using client software that supports both ICE and TURN gives the
+     best user experience.</para>
+
+     <para>If the client software is only intended for instant messaging,
+     there is no requirement for ICE or TURN support.</para>
+    </sidebar>
+
+    <para>Debian Developers operate a community SIP service at
+    <ulink url="https://rtc.debian.org">rtc.debian.org</ulink>.
+    The community maintains a wiki with documentation about setting
+    up many of the client applications packaged in Debian.  The wiki articles
+    and screenshots are a useful resource for anybody setting up a similar
+    service on their own domain.
+    <ulink type="block"
+    url="https://wiki.debian.org/UnifiedCommunications/DebianDevelopers/UserGuide"/>.
+    </para>
+
+    <sidebar>
+     <title><emphasis>ALTERNATIVE</emphasis> Internet Relay Chat</title>
+
+     <para>IRC can also be considered, in addition to SIP and XMPP. IRC
+     is more oriented around the concept of channels, the name of
+     which starts with a hash sign <literal>#</literal>. Each channel
+     is usually targeted at a specific topic and any number of people
+     can join a channel to discuss it (but users can still have
+     one-to-one private conversations if needed). The IRC protocol is
+     older, and does not allow end-to-end encryption of the messages;
+     it is still possible to encrypt the communications between the
+     users and the server by tunneling the IRC protocol inside
+     SSL.</para>
+     <indexterm><primary>IRC</primary></indexterm>
+     <indexterm><primary><foreignphrase>Internet Relay Chat</foreignphrase></primary></indexterm>
+
+     <para>IRC clients are a bit more complex, and they usually
+     provide many features that are of limited use in a corporate
+     environment. For instance, channel “operators” are users
+     endowed with the ability to kick other users from a channel, or
+     even ban them permanently, when the normal discussion is
+     disrupted.</para>
+
+     <para>Since the IRC protocol is very old, many clients are
+     available to cater for many user groups; examples include XChat
+     and Smuxi (graphical clients based on GTK+), Irssi (text mode),
+     Erc (integrated to Emacs), and so on.</para>
+    </sidebar>
+
+    <sidebar>
+     <title><emphasis>QUICK LOOK</emphasis> Video conferencing with Ekiga</title>
+
+     <para>Ekiga (formerly GnomeMeeting) is a prominent
+     application for Linux video conferencing. It is both stable and
+     functional, and is very easily used on a local network; setting
+     up the service on a global network is much more complex when the
+     firewalls involved lack explicit support for the H323 and/or SIP
+     teleconferencing protocols with all their quirks.</para>
+     <indexterm><primary>video conference</primary></indexterm>
+     <indexterm><primary>H323</primary></indexterm>
+
+     <para>If only one Ekiga client is to run behind the firewall, the
+     configuration is rather straightforward, and only involves
+     forwarding a few ports to the dedicated host: TCP port 1720
+     (listening for incoming connections), TCP port 5060 (for SIP),
+     TCP ports 30000 to 30010 (for control of open connections) and
+     UDP ports 5000 to 5100 (for audio and video data transmission and
+     registration to an H323 proxy).</para>
+     <indexterm><primary>GnomeMeeting</primary></indexterm>
+     <indexterm><primary>Ekiga</primary></indexterm>
+
+     <para>When several Ekiga clients are to run behind the firewall,
+     complexity increases notably. An H323 proxy (for instance the
+     <emphasis role="pkg">gnugk</emphasis> package) must be set up,
+     and its configuration is far from simple.</para>
+     <indexterm><primary><emphasis role="pkg">gnugk</emphasis></primary></indexterm>
     </sidebar>
   </section>
 </chapter>
