@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2015-10-01 18:01+0200\n"
+"POT-Creation-Date: 2015-10-06 16:10+0200\n"
+"PO-Revision-Date: 2015-10-06 16:10+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: None\n"
 "Language: en-US \n"
@@ -29,10 +29,22 @@ msgstr ""
 msgid "OpenLDAP"
 msgstr ""
 
-msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP"
+msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 msgstr ""
 
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
+msgstr ""
+
+msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
+msgstr ""
+
+msgid "<primary>TLS</primary>"
+msgstr ""
+
+msgid "<primary>X.509</primary>"
+msgstr ""
+
+msgid "<primary>Certificates</primary>"
 msgstr ""
 
 msgid "Mail Server"
@@ -1191,9 +1203,8 @@ msgid "In order for the statistics to take all the logs into account, <emphasis>
 msgstr ""
 
 msgid ""
-"\n"
-"$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
-"/var/log/apache2/*.log {\n"
+"<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
+"</userinput><computeroutput>/var/log/apache2/*.log {\n"
 "  daily\n"
 "  missingok\n"
 "  rotate 14\n"
@@ -1213,9 +1224,10 @@ msgid ""
 "    fi; \\\n"
 "  endscript\n"
 "}\n"
-"$ <userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate</userinput>\n"
-"$ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
-"  /etc/logrotate.d/httpd-prerotate/awstats</userinput>"
+"$ </computeroutput><userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
+"  /etc/logrotate.d/httpd-prerotate/awstats\n"
+"</userinput>"
 msgstr ""
 
 msgid "Note also that the log files created by <command>logrotate</command> need to be readable by everyone, especially AWStats. In the above example, this is ensured by the <literal>create 644 root adm</literal> line (instead of the default <literal>640</literal> permissions)."
@@ -2232,15 +2244,15 @@ msgid "Now these keys have to be installed in their standard location, and we mu
 msgstr ""
 
 msgid ""
-"\n"
-"# <userinput>adduser openldap ssl-cert</userinput>\n"
-"Adding user `openldap' to group `ssl-cert' ...\n"
+"<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
+"</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
 "Adding user openldap to group ssl-cert\n"
 "Done.\n"
-"# <userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem</userinput>"
+"# </computeroutput><userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
+"</userinput>"
 msgstr ""
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
@@ -2250,8 +2262,7 @@ msgid "Configuring <command>slapd</command> for encryption"
 msgstr ""
 
 msgid ""
-"\n"
-"# <userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
+"<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
 "dn: cn=config\n"
 "changetype: modify\n"
 "add: olcTLSCertificateFile\n"
@@ -2260,12 +2271,13 @@ msgid ""
 "add: olcTLSCertificateKeyFile\n"
 "olcTLSCertificateKeyFile: /etc/ssl/private/ldap.falcot.com.key\n"
 "-\n"
-"END</userinput>\n"
-"# <userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif</userinput>\n"
-"SASL/EXTERNAL authentication started\n"
+"END\n"
+"</userinput><computeroutput># </computeroutput><userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif\n"
+"</userinput><computeroutput>SASL/EXTERNAL authentication started\n"
 "SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth\n"
 "SASL SSF: 0\n"
-"modifying entry \"cn=config\""
+"modifying entry \"cn=config\"\n"
+"</computeroutput>"
 msgstr ""
 
 msgid "<emphasis>TOOL</emphasis> <command>ldapvi</command> to edit an LDAP directory"
@@ -2280,8 +2292,8 @@ msgstr ""
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr ""
 
-msgid "\n"
-"# <userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config</userinput>"
+msgid "<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
+"</userinput>"
 msgstr ""
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
@@ -2349,14 +2361,14 @@ msgid "LDAP clients also need to be able to authenticate the server. In a X.509 
 msgstr ""
 
 msgid ""
-"\n"
-"# <userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt</userinput>\n"
-"# <userinput>update-ca-certificates</userinput>\n"
-"Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
+"<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
+"</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
+"</userinput><computeroutput>Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
 "Running hooks in /etc/ca-certificates/update.d....\n"
 "Adding debian:falcot.pem\n"
 "done.\n"
-"done."
+"done.\n"
+"</computeroutput>"
 msgstr ""
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
@@ -2385,5 +2397,393 @@ msgid ""
 msgstr ""
 
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
+msgstr ""
+
+msgid "Real-Time Communication Services"
+msgstr ""
+
+msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
+msgstr ""
+
+msgid "<primary>VoIP</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "<primary>RTC</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "<primary>Chat</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
+msgstr ""
+
+msgid "<primary>SIP</primary>"
+msgstr ""
+
+msgid "<primary>XMPP</primary>"
+msgstr ""
+
+msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
+msgstr ""
+
+msgid "DNS settings for RTC services"
+msgstr ""
+
+msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
+msgstr ""
+
+msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
+msgstr ""
+
+msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
+msgstr ""
+
+msgid ""
+"\n"
+"; the server where everything will run\n"
+"server1            IN     A      198.51.100.19\n"
+"server1            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; some convenient CNAMEs\n"
+"turn-server        IN     CNAME  server1\n"
+"sip-proxy          IN     CNAME  server1\n"
+"xmpp-gw            IN     CNAME  server1\n"
+"\n"
+"; DNS SRV for STUN / TURN\n"
+"_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"\n"
+"; DNS SRV and NAPTR records for SIP\n"
+"_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"SIPS+D2T\" \"\" _sips._tcp.falcot.com.\n"
+"\n"
+"; DNS SRV records for XMPP Server and Client modes:\n"
+"_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
+"_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
+msgstr ""
+
+msgid "TURN Server"
+msgstr ""
+
+msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
+msgstr ""
+
+msgid "<primary>TURN</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
+msgstr ""
+
+msgid "<primary>ICE</primary>"
+msgstr ""
+
+msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
+msgstr ""
+
+msgid "Install the TURN server"
+msgstr ""
+
+msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> package."
+msgstr ""
+
+msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
+msgstr ""
+
+msgid ""
+"\n"
+"# your IP addresses go here:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# your domain goes here, it must match the value used\n"
+"# to hash your passwords if they are already hashed\n"
+"# using the HA1 algorithm:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
+msgstr ""
+
+msgid "Restart the service."
+msgstr ""
+
+msgid "Managing the TURN users"
+msgstr ""
+
+msgid "Use the htdigest utility to manage the TURN server user list."
+msgstr ""
+
+msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
+msgstr ""
+
+msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
+msgstr ""
+
+msgid "SIP Proxy Server"
+msgstr ""
+
+msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
+msgstr ""
+
+msgid "<primary>SIP</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "<primary>SIP</primary><secondary>proxy</secondary>"
+msgstr ""
+
+msgid "<primary>SIP</primary><secondary>PBX</secondary>"
+msgstr ""
+
+msgid "<primary>SIP</primary><secondary>trunk</secondary>"
+msgstr ""
+
+msgid "It is strongly recommended to install and configure the SIP proxy before attempting a SIP PBX setup. The SIP proxy normalizes a lot of the traffic reaching the PBX and provides greater connectivity and resilience."
+msgstr ""
+
+msgid "Install the SIP proxy"
+msgstr ""
+
+msgid "Install the <emphasis role=\"pkg\">repro</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
+msgstr ""
+
+msgid "<primary>repro</primary>"
+msgstr ""
+
+msgid "Edit the <filename>/etc/repro/repro.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server. The example below demonstrates how to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4 and IPv6:"
+msgstr ""
+
+msgid ""
+"\n"
+"# Transport1 will be for SIP over TLS connections\n"
+"# We use port 5061 here but if you have clients connecting from\n"
+"# locations with firewalls you could change this to listen on port 443\n"
+"Transport1Interface = 198.51.100.19:5061\n"
+"Transport1Type = TLS\n"
+"Transport1TlsDomain = falcot.com\n"
+"Transport1TlsClientVerification = Optional\n"
+"Transport1RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport1TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport1TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport2 is the IPv6 version of Transport1\n"
+"Transport2Interface = 2001:DB8:1000:2000::19:5061\n"
+"Transport2Type = TLS\n"
+"Transport2TlsDomain = falcot.com\n"
+"Transport2TlsClientVerification = Optional\n"
+"Transport2RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport2TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport2TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport3 will be for SIP over WebSocket (WebRTC) connections\n"
+"# We use port 8443 here but you could use 443 instead\n"
+"Transport3Interface = 198.51.100.19:8443\n"
+"Transport3Type = WSS\n"
+"Transport3TlsDomain = falcot.com\n"
+"# This would require the browser to send a certificate, but browsers\n"
+"# don't currently appear to be able to, so leave it as None:\n"
+"Transport3TlsClientVerification = None\n"
+"Transport3RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport3TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport3TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport4 is the IPv6 version of Transport3\n"
+"Transport4Interface = 2001:DB8:1000:2000::19:8443\n"
+"Transport4Type = WSS\n"
+"Transport4TlsDomain = falcot.com\n"
+"Transport4TlsClientVerification = None\n"
+"Transport4RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport4TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport4TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport5: this could be for TCP connections to an Asterisk server\n"
+"# in your internal network.  Don't allow port 5060 through the external\n"
+"# firewall.\n"
+"Transport5Interface = 198.51.100.19:5060\n"
+"Transport5Type = TCP\n"
+"Transport5RecordRouteUri = sip:198.51.100.19:5060;transport=TCP\n"
+"\n"
+"HttpBindAddress = 198.51.100.19, 2001:DB8:1000:2000::19\n"
+"HttpAdminUserFile = /etc/repro/users.txt\n"
+"\n"
+"RecordRouteUri = sip:falcot.com;transport=tls\n"
+"ForceRecordRouting = true\n"
+"EnumSuffixes = e164.arpa, sip5060.net, e164.org\n"
+"DisableOutbound = false\n"
+"EnableFlowTokens = true\n"
+"EnableCertificateAuthenticator = True"
+msgstr ""
+
+msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
+msgstr ""
+
+msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
+msgstr ""
+
+msgid "Restart the service to use the new configuration."
+msgstr ""
+
+msgid "Managing the SIP proxy"
+msgstr ""
+
+msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</literal> to complete the configuration by adding domains, local users and static routes."
+msgstr ""
+
+msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
+msgstr ""
+
+msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
+msgstr ""
+
+msgid "XMPP Server"
+msgstr ""
+
+msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
+msgstr ""
+
+msgid "<primary>XMPP</primary><secondary>server</secondary>"
+msgstr ""
+
+msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
+msgstr ""
+
+msgid "<primary>Jabber</primary>"
+msgstr ""
+
+msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
+msgstr ""
+
+msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
+msgstr ""
+
+msgid "<primary>Prosody</primary>"
+msgstr ""
+
+msgid "Install the XMPP server"
+msgstr ""
+
+msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
+msgstr ""
+
+msgid "Review the <filename>/etc/prosody/prosody.cfg.lua</filename> configuration file. The most important thing to do is insert JIDs of the users who are permitted to manage the server."
+msgstr ""
+
+msgid "\n"
+"admins = { \"joe@falcot.com\" }"
+msgstr ""
+
+msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
+msgstr ""
+
+msgid ""
+"\n"
+"VirtualHost \"falcot.com\"\n"
+"        enabled = true\n"
+"        ssl = {\n"
+"                key = \"/etc/ssl/private/falcot.com-key.pem\";\n"
+"                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
+"                }"
+msgstr ""
+
+msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
+msgstr ""
+
+msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
+msgstr ""
+
+msgid "Managing the XMPP server"
+msgstr ""
+
+msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
+msgstr ""
+
+msgid "\n"
+"# prosodyctl adduser joe@falcot.com"
+msgstr ""
+
+msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
+msgstr ""
+
+msgid "Running services on port 443"
+msgstr ""
+
+msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
+msgstr ""
+
+msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
+msgstr ""
+
+msgid "Adding WebRTC"
+msgstr ""
+
+msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
+msgstr ""
+
+msgid "<primary>WebRTC</primary>"
+msgstr ""
+
+msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
+msgstr ""
+
+msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
+msgstr ""
+
+msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
+msgstr ""
+
+msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
+msgstr ""
+
+msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
+msgstr ""
+
+msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
+msgstr ""
+
+msgid "<primary>JSCommunicator</primary>"
+msgstr ""
+
+msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
+msgstr ""
+
+msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
+msgstr ""
+
+msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
+msgstr ""
+
+msgid ""
+"\n"
+"JSCommSettings = {\n"
+"\n"
+"  // Web server environment\n"
+"  webserver: {\n"
+"    url_prefix: null            // If set, prefix used to construct sound/ URLs\n"
+"  },\n"
+"\n"
+"  // STUN/TURN media relays\n"
+"  stun_servers: [],\n"
+"  turn_servers: [\n"
+"    { server:\"turn:turn-server.falcot.com?transport=udp\", username:\"joe\", password:\"j0Ep455d\" }\n"
+"  ],\n"
+"\n"
+"  // WebSocket connection\n"
+"  websocket: {\n"
+"      // Notice we use the falcot.com domain certificate and port 8443\n"
+"      // This matches the Transport3 and Transport4 example in\n"
+"      // the falcot.com repro.config file\n"
+"    servers: 'wss://falcot.com:8443',\n"
+"    connection_recovery_min_interval: 2,\n"
+"    connection_recovery_max_interval: 30\n"
+"  },\n"
+"\n"
+"  ..."
+msgstr ""
+
+msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
+msgstr ""
+
+msgid "<primary>DruCall</primary>"
 msgstr ""
 
