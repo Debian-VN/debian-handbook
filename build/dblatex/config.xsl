@@ -169,6 +169,9 @@ actual page. By default the page is centered as required in this mode.
       <l:template name="appendix" text=" annexe %n, « %t »"/>
     </l:context>
   </l:l10n>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../../brand/xsl/l10n-ja-JP.xml"/>
+
 </l:i18n>
 
 </xsl:stylesheet>

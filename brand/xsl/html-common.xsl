@@ -3,8 +3,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version='1.0'>
 
-<xsl:import href="./l10n-ja-JP.xsl" />
-
 <xsl:param name="ignore.image.scaling">1</xsl:param>
 
 <!-- Add support for <ulink type="block" … /> -->
@@ -74,6 +72,11 @@
     </xsl:if>
   </xsl:if>
 </xsl:template>
+
+<xsl:param name="local.l10n.xml" select="document('')"/>
+<l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="./l10n-ja-JP.xml"/>
+</l:i18n>
 
 </xsl:stylesheet>
 
