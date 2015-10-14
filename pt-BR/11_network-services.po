@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-20 08:52+0200\n"
-"PO-Revision-Date: 2015-10-19 02:00+0200\n"
-"Last-Translator: Fred Maranhão <fred.maranhao@gmail.com>\n"
+"PO-Revision-Date: 2015-11-17 11:43+0100\n"
+"Last-Translator: Herbert Parentes Fortes Neto <hpfn@ig.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/debian-handbook/11_network-services/pt_BR/>\n"
 "Language: pt-BR\n"
 "MIME-Version: 1.0\n"
@@ -34,33 +34,29 @@ msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
-#, fuzzy
 #| msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP"
 msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
-msgstr "Serviços de Rede: Postfix, Apache, NFS, Samba, Squid, LDAP"
+msgstr "Serviços de Rede: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
 msgstr "Serviços de rede são programas que os usuários interagem diretamente no seu dia-a-dia. Eles são a ponta do icebergue da informação, e este capítulo foca neles; as partes escondidas nas quais eles dependem são a infraestrutura que nós já descrevemos."
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
-msgstr ""
+msgstr "Muitos serviços de rede modernos requerem uma tecnologia de criptografia para operar de maneira confiável e segura, especialmente quando usados em internet pública. Certificados X.509 ( que também podem ser referenciados como Certificados SSL ou Certificados TLS) são usados para esse propósito com frequência. Um certificado para um domínio específico pode às vezes ser compartilhado entre mais de um dos serviços discutidos neste capítulo."
 
-#, fuzzy
 #| msgid "<primary>HTTPS</primary>"
 msgid "<primary>TLS</primary>"
-msgstr "<primary>HTTPS</primary>"
+msgstr "<primary>TLS</primary>"
 
-#, fuzzy
 #| msgid "<primary>RBL</primary>"
 msgid "<primary>X.509</primary>"
-msgstr "<primary>RBL</primary>"
+msgstr "<primary>X.509</primary>"
 
-#, fuzzy
 #| msgid "<primary>antivirus</primary>"
 msgid "<primary>Certificates</primary>"
-msgstr "<primary>antivírus</primary>"
+msgstr "<primary>Certificados</primary>"
 
 msgid "Mail Server"
 msgstr "Servidor de Correio Eletrônico"
@@ -1309,10 +1305,9 @@ msgstr "A diretiva <literal>Order</literal> informa ao servidor a ordem em que a
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives can be followed by an IP address, a network (such as <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> or even <literal>192.168.0</literal>), a hostname or a domain name, or the <literal>all</literal> keyword, designating everyone."
 msgstr "As diretivas <literal>Allow from</literal> e <literal>Deny from</literal> podem ser seguidas de um endereço IP, uma rede (como <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> ou mesmo <literal>192.168.0</literal>), um nome de máquina ou nome de domínio, ou a palavra chave <literal>all</literal>, designando todos."
 
-#, fuzzy
 #| msgid "Reject by default but allow from the local network"
 msgid "For instance, to reject connections by default but allow them from the local network, you could use this:"
-msgstr "Rejeita por padrão mas permite da rede local"
+msgstr "Por exemplo, para rejeitar conexões por padrão mas permití-las a partir da rede local, você poderia usar isso:"
 
 msgid ""
 "\n"
@@ -1414,7 +1409,6 @@ msgstr "<emphasis>ATENÇÃO</emphasis> Rotação dos arquivos de registro"
 msgid "In order for the statistics to take all the logs into account, <emphasis>AWStats</emphasis> needs to be run right before the Apache log files are rotated. Looking at the <literal>prerotate</literal> directive of <filename>/etc/logrotate.d/apache2</filename> file, this can be solved by putting a symlink to <filename>/usr/share/awstats/tools/update.sh</filename> in <filename>/etc/logrotate.d/httpd-prerotate</filename>:"
 msgstr "Para que as estatísticas levem em consideração todos os logs, o <emphasis>AWStats</emphasis> precisa ser executado antes que os arquivos de log do Apache sejam rotacionados. Olhando a diretiva <literal>prerotate</literal> do arquivo <filename>/etc/logrotate.d/apache2</filename>, isso pode ser resolvido colocando um link simbólico em <filename>/usr/share/awstats/tools/update.sh</filename> no <filename>/etc/logrotate.d/httpd-prerotate</filename>:"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
@@ -1468,9 +1462,8 @@ msgid ""
 "  /etc/logrotate.d/httpd-prerotate/awstats\n"
 "</userinput>"
 msgstr ""
-"\n"
-"$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
-"/var/log/apache2/*.log {\n"
+"<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
+"</userinput><computeroutput>/var/log/apache2/*.log {\n"
 "  daily\n"
 "  missingok\n"
 "  rotate 14\n"
@@ -1490,9 +1483,10 @@ msgstr ""
 "    fi; \\\n"
 "  endscript\n"
 "}\n"
-"$ <userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate</userinput>\n"
-"$ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
-"  /etc/logrotate.d/httpd-prerotate/awstats</userinput>"
+"$ </computeroutput><userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
+"  /etc/logrotate.d/httpd-prerotate/awstats\n"
+"</userinput>"
 
 msgid "Note also that the log files created by <command>logrotate</command> need to be readable by everyone, especially AWStats. In the above example, this is ensured by the <literal>create 644 root adm</literal> line (instead of the default <literal>640</literal> permissions)."
 msgstr "Note também que os arquivos de log criados pelo <command>logrotate</command> precisam ter permissão de leitura para todos, especialmente o AWStats. No exemplo acima, isso é garantido pela linha <literal>create 644 root adm</literal> (ao invés da permissão padrão <literal>640</literal>)."
@@ -1543,7 +1537,7 @@ msgid "<primary>server</primary><secondary>file</secondary>"
 msgstr "<primary>servidor</primary><secondary>arquivo</secondary>"
 
 msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
-msgstr ""
+msgstr "O NFS é uma ferramenta muito útil, mas historicamente, ela tem sofrido com muitas limitações, a maioria delas tendo sido atribuídas a versão 4 do protocolo. A contrapartida é que a última versão do NFS é mais difícil de configurar quando você quer usar recursos básicos de segurança tais como autenticação e criptografia já que ele faz uso do Kerberos para esses assuntos. E sem isso, o protocolo NFS tem que ficar restrito a uma rede local confiável já que os dados viajam pela rede sem criptografia (um <emphasis>sniffer</emphasis> pode interceptá-los) e os direitos de acesso são optidos com base no endereço IP do cliente (que pode ser falsificado (\"spoofed\"))."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 msgstr "<emphasis>DOCUMENTAÇÃO</emphasis> NFS HOWTO"
@@ -1557,10 +1551,9 @@ msgstr "Proteção do NFS"
 msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>segurança</secondary>"
 
-#, fuzzy
 #| msgid "Since NFS trusts the information it receives from the network, it is vital to ensure that only the machines allowed to use it can connect to the various required RPC servers. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr "Como o NFS confia nas informações que recebe da rede, é vital garantir que apenas máquinas que tem permissão de usá-lo possam se conectar nos vários servidores RPC requeridos. O firewall tem também que bloquear <emphasis>IP spoofing</emphasis> para prevenir que uma máquina de fora atue como uma de dentro, e acesso às portas apropriadas tem que ser restrito às máquinas destinadas a acessar os compartilhamentos NFS."
+msgstr "Se você não usa recursos de segurança baseados no Kerberos, é vital garantir que apenas máquinas com permissão de usar o NFS possam se conectar nos vários servidores RPC requeridos, porque o protocolo básico confia nos dados recebidos a partir da rede. O firewall tem também que bloquear <emphasis>IP spoofing</emphasis> para prevenir que uma máquina de fora atue como uma de dentro, e acesso às portas apropriadas tem que ser restrito às máquinas destinadas a acessar os compartilhamentos NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
 msgstr "<emphasis>DE VOLTA AO BÁSICO</emphasis> RPC"
@@ -1578,7 +1571,7 @@ msgid "RPC services register to a directory known as the <emphasis>portmapper</e
 msgstr "Os serviços RPC se registram em um diretório conhecido como <emphasis>portmapper</emphasis>. Um cliente querendo realizar uma consulta NFS primeiro consulta o <emphasis>portmapper</emphasis> (na porta 111, seja TCP ou UDP), e pergunta pelo servidor NFS; a resposta gralmente vem pela porta 2049 (a padrão para o NFS). Nem todos os serviços RPC necessariamente usam uma porta fixa."
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
-msgstr ""
+msgstr "Versões mais antigas do protocolo necessitavam de outros serviços RPC que usavam portas dinamicamente atribuídas. Felizmente, com a versão 4 do NFS, apenas a porta 2049 (para NFS) e 111 (para o portmapper) são necessárias, e assim, fácil de configurar no firewall."
 
 msgid "<primary><command>portmapper</command></primary>"
 msgstr "<primary><command>portmapper</command></primary>"
@@ -1606,7 +1599,7 @@ msgstr ""
 "/diretório/para/compartilhar máquina1(opção1,opção2,...) máquina2(...) ..."
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identified with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
-msgstr ""
+msgstr "Note que com o NFSv4, todos os diretórios exportados tem que ser parte de uma única hierarquia e que o diretório raiz dessa hierarquia tem que ser exportado e identificado com a opção <literal>fsid=0</literal> ou <literal>fsid=root</literal>."
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr "Cada máquina pode ser identificada tanto pelo seu nome no DNS quanto seu endereço IP. Todo um conjunto de máquinas pode também ser especificado usando tanto uma sintaxe como <literal>*.falcot.com</literal> ou um intervalo de endereços IP como <literal>192.168.0.0/255.255.255.0</literal> ou <literal>192.168.0.0/24</literal>."
@@ -1624,7 +1617,7 @@ msgid "In order to not give root access to the filesystem to any NFS client, all
 msgstr "Para que não seja dado acesso de root no sistema de arquivos a nenhum cliente NFS, todas as consultas que parecem vir do usuário root são consideradas pelo servidor como vindo do usuário <literal>nobody</literal>. Esse comportamento corresponde à opção <literal>root_squash</literal>, e é habilitado por padrão. A opção <literal>no_root_squash</literal>, que desabilita esse comportamento, é arriscada e só deveria ser usada em ambientes controlados. As opções <literal>anonuid=<replaceable>uid</replaceable></literal> e <literal>anongid=<replaceable>gid</replaceable></literal> permitem especificar outro usuário falso a ser usado ao invés de UID/GID 65534 (que corresponde ao usuário <literal>nobody</literal> e ao grupo <literal>nogroup</literal>)."
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
-msgstr ""
+msgstr "Com o NFSv4, você pode adicionar uma opção <literal>sec</literal> para indicar o nível de segurançaque você quer: <literal>sec=sys</literal> é o padrão, sem recursos especiais de segurança, <literal>sec=krb5</literal> habilita apenas a autenticação, <literal>sec=krb5i</literal> adiciona proteção de integridade, e <literal>sec=krb5p</literal> é o mais completo nível, que inclui proteção de privacidade (com criptografia de dados). Para isso funcionar você precisa do Kerberos configurado e funcionando (esse serviço não é coberto por esse livro)."
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
 msgstr "Outras opções estão disponíveis; elas estão documentadas na página de manual <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
@@ -1657,7 +1650,6 @@ msgstr "Como acontece com outros sistemas de arquivos, a integração do compart
 msgid "Manually mounting with the <command>mount</command> command"
 msgstr "Montando manualmente com o comando <command>mount</command>"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
@@ -1666,12 +1658,11 @@ msgid ""
 "          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 msgstr ""
 "\n"
-"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
+"          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 
 msgid "NFS entry in the <filename>/etc/fstab</filename> file"
 msgstr "Entrada NFS no arquivo <filename>/etc/fstab</filename>"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
@@ -1680,12 +1671,11 @@ msgid ""
 "arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 msgstr ""
 "\n"
-"arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
+"arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 
-#, fuzzy
 #| msgid "The entry described above mounts, at system startup, the <filename>/srv/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share."
 msgid "The entry described above mounts, at system startup, the <filename>/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/srv/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share. Note that on the server, the <filename>shared</filename> directory is below the NFSv4 root export (for example <filename>/export/shared</filename>), it is not a top-level directory."
-msgstr "A entrada descrita acima monta, ao levantar o sistema, o diretório NFS <filename>/srv/shared/</filename> no servidor <literal>arrakis</literal> dentro do diretório local <filename>/shared/</filename>. O acesso de leitura-escrita é requisitado (visto o parâmetro <literal>rw</literal>). A opção <literal>nosuid</literal> é uma medida de proteção que apaga qualquer bit <literal>setuid</literal> ou <literal>setgid</literal> de programas armazenados no compartilhamento. Se o compartilhamento NFS é apenas para armazenar documentos, outra opção recomendada é a <literal>noexec</literal>, a qual previne a execução de programas armazenados no compartilhamento."
+msgstr "A entrada descrita acima monta, ao levantar o sistema, o diretório NFS <filename>/shared/</filename> no servidor <literal>arrakis</literal> dentro do diretório local <filename>/srv/shared/</filename>. O acesso de leitura-escrita é requisitado (visto o parâmetro <literal>rw</literal>). A opção <literal>nosuid</literal> é uma medida de proteção que apaga qualquer bit <literal>setuid</literal> ou <literal>setgid</literal> de programas armazenados no compartilhamento. Se o compartilhamento NFS é apenas para armazenar documentos, outra opção recomendada é a <literal>noexec</literal>, a qual previne a execução de programas armazenados no compartilhamento. Note que no servidor, o diretório <filename>shared</filename> está abaixo da raiz NFSv4 exportada ( por exemplo, <filename>/export/shared</filename>), não é um diretório de nível mais alto."
 
 msgid "The <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the options in some detail."
 msgstr "A página de manual <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> descreve todas as opções com alguns detalhes."
@@ -2490,7 +2480,6 @@ msgstr "Esse comando cria um certificado no arquivo <filename>keys/ldap.falcot.c
 msgid "Now these keys have to be installed in their standard location, and we must make sure that the private file is readable by the LDAP server which runs under the <literal>openldap</literal> user identity:"
 msgstr "Agora essas chaves tem que ser instaladas em seu local padrão, e nós temos que garantir que o arquivo privado pode ser lido pelo servidor LDAP, o qual roda sob a identidade do usuário <literal>openldap</literal>:"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "# <userinput>adduser openldap ssl-cert</userinput>\n"
@@ -2512,15 +2501,15 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
 "</userinput>"
 msgstr ""
-"\n"
-"# <userinput>adduser openldap ssl-cert</userinput>\n"
-"Adding user `openldap' to group `ssl-cert' ...\n"
+"<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
+"</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
 "Adding user openldap to group ssl-cert\n"
 "Done.\n"
-"# <userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem</userinput>"
+"# </computeroutput><userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
+"</userinput>"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
 msgstr "O daemon <command>slapd</command> também precisa ser informado para usar essas chaves para criptografia. A configuração do servidor LDAP é gerenciada dinamicamente: a configuração pode ser atualizada através de operações normais do LDAP no objeto hierárquico <literal>cn=config</literal>, e o servidor atualiza o <filename>/etc/ldap/slapd.d</filename> em tempo real para fazer com que a configuração seja persistente. <command>ldapmodify</command> é, assim, a ferramenta certa para atualizar a configuração:"
@@ -2528,7 +2517,6 @@ msgstr "O daemon <command>slapd</command> também precisa ser informado para usa
 msgid "Configuring <command>slapd</command> for encryption"
 msgstr "Configurando <command>slapd</command> para criptografia"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "# <userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
@@ -2564,8 +2552,7 @@ msgid ""
 "modifying entry \"cn=config\"\n"
 "</computeroutput>"
 msgstr ""
-"\n"
-"# <userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
+"<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
 "dn: cn=config\n"
 "changetype: modify\n"
 "add: olcTLSCertificateFile\n"
@@ -2574,12 +2561,13 @@ msgstr ""
 "add: olcTLSCertificateKeyFile\n"
 "olcTLSCertificateKeyFile: /etc/ssl/private/ldap.falcot.com.key\n"
 "-\n"
-"END</userinput>\n"
-"# <userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif</userinput>\n"
-"SASL/EXTERNAL authentication started\n"
+"END\n"
+"</userinput><computeroutput># </computeroutput><userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif\n"
+"</userinput><computeroutput>SASL/EXTERNAL authentication started\n"
 "SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth\n"
 "SASL SSF: 0\n"
-"modifying entry \"cn=config\""
+"modifying entry \"cn=config\"\n"
+"</computeroutput>"
 
 msgid "<emphasis>TOOL</emphasis> <command>ldapvi</command> to edit an LDAP directory"
 msgstr "<emphasis>FERRAMENTA</emphasis> <command>ldapvi</command> para editar um diretório LDAP"
@@ -2593,7 +2581,6 @@ msgstr "Com o <command>ldapvi</command>, você pode exibir uma saída LDIF de qu
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr "Esta é, portanto, uma maneira coveniente de atualizar a configuração do servidor LDAP, simplesmente editando a hierarquia <literal>cn=config</literal>."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "# <userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config</userinput>"
@@ -2601,8 +2588,8 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
 "</userinput>"
 msgstr ""
-"\n"
-"# <userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config</userinput>"
+"<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
+"</userinput>"
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
 msgstr "O último passo para habilitar a criptografia envolve alterar a variável <varname>SLAPD_SERVICES</varname> no arquivo <filename>/etc/default/slapd</filename>. Nós vamos torná-lo seguro e desabilitar o LDAP inseguro de uma vez só."
@@ -2714,7 +2701,6 @@ msgstr "No lado do cliente, a configuração para os módulos <emphasis>libpam-l
 msgid "LDAP clients also need to be able to authenticate the server. In a X.509 public key infrastructure, public certificates are signed by the key of a certificate authority (CA). With <emphasis>easy-rsa</emphasis>, the Falcot administrators have created their own CA and they now need to configure the system to trust the signatures of Falcot's CA. This can be done by putting the CA certificate in <filename>/usr/local/share/ca-certificates</filename> and running <command>update-ca-certificates</command>."
 msgstr "Clientes LDAP também precisam ser capazes de autenticar o servidor. Em uma infraestrutura de chave pública X.509, certificados públicos são assinados pela chave da autoridade certificadora (CA, do inglês certificate authority). Com <emphasis>easy-rsa</emphasis>, os administradores da Falcot criaram seu próprio CA e agora eles precisam configurar o sistema para confiar nas assinaturas do CA da Falcot. Isso pode ser feito colocando o certificado CA em <filename>/usr/local/share/ca-certificates</filename> e executando <command>update-ca-certificates</command>."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "# <userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt</userinput>\n"
@@ -2734,14 +2720,14 @@ msgid ""
 "done.\n"
 "</computeroutput>"
 msgstr ""
-"\n"
-"# <userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt</userinput>\n"
-"# <userinput>update-ca-certificates</userinput>\n"
-"Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
+"<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
+"</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
+"</userinput><computeroutput>Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
 "Running hooks in /etc/ca-certificates/update.d....\n"
 "Adding debian:falcot.pem\n"
 "done.\n"
-"done."
+"done.\n"
+"</computeroutput>"
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
 msgstr "Por último, mas não menos importante, a URI padrão do LDAP e o DN base padrão usado por várias ferramentas de linha de comando podem ser modificados em <filename>/etc/ldap/ldap.conf</filename>. Isso irá evitar, consideravelmente, digitação."
@@ -2788,62 +2774,54 @@ msgid "This chapter sampled only a fraction of the available server software; ho
 msgstr "Esse capítulo mostrou apenas uma fração dos softwares de servidor disponíveis; contudo, a maioria dos serviços de rede comuns foram descritos. Agora é hora de um capítulo ainda mais técnico: nós iremos entrar mais detalhadamente ainda em alguns conceitos, descrevendo implementações massivas e virtualização."
 
 msgid "Real-Time Communication Services"
-msgstr ""
+msgstr "Serviços de Comunicação em Tempo Real"
 
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>VoIP</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>servidor</secondary>"
+msgstr "<primary>VoIP</primary><secondary>servidor</secondary>"
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>RTC</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>servidor</secondary>"
+msgstr "<primary>RTC</primary><secondary>servidor</secondary>"
 
-#, fuzzy
 #| msgid "<primary>email</primary><secondary>server</secondary>"
 msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
-msgstr "<primary>correio</primary><secondary>servidor de</secondary>"
+msgstr "<primary>Mensagem Instantânea</primary><secondary>servidor</secondary>"
 
-#, fuzzy
 #| msgid "<primary>MX</primary><secondary>server</secondary>"
 msgid "<primary>Chat</primary><secondary>server</secondary>"
-msgstr "<primary>MX</primary><secondary>servidor</secondary>"
+msgstr "<primary>Chat</primary><secondary>servidor</secondary>"
 
 msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>SMTP</primary>"
 msgid "<primary>SIP</primary>"
-msgstr "<primary>SMTP</primary>"
+msgstr "<primary>SIP</primary>"
 
-#, fuzzy
 #| msgid "<primary>SMTP</primary>"
 msgid "<primary>XMPP</primary>"
-msgstr "<primary>SMTP</primary>"
+msgstr "<primary>XMPP</primary>"
 
 msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
 msgstr ""
 
 msgid "DNS settings for RTC services"
-msgstr ""
+msgstr "Configurações de DNS para serviços RTC"
 
 msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
-msgstr "<primary>NFS</primary><secondary>segurança</secondary>"
+msgstr "<primary>DNS</primary><secondary>registro (\"record\") SRV</secondary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
-msgstr "<primary>NFS</primary><secondary>segurança</secondary>"
+msgstr "<primary>DNS</primary><secondary>registro (\"record\") NAPTR</secondary>"
 
 msgid ""
 "\n"
@@ -2867,27 +2845,44 @@ msgid ""
 "_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
 "_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 msgstr ""
+"\n"
+"; the server where everything will run\n"
+"server1            IN     A      198.51.100.19\n"
+"server1            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; some convenient CNAMEs\n"
+"turn-server        IN     CNAME  server1\n"
+"sip-proxy          IN     CNAME  server1\n"
+"xmpp-gw            IN     CNAME  server1\n"
+"\n"
+"; DNS SRV for STUN / TURN\n"
+"_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"\n"
+"; DNS SRV and NAPTR records for SIP\n"
+"_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"SIPS+D2T\" \"\" _sips._tcp.falcot.com.\n"
+"\n"
+"; DNS SRV records for XMPP Server and Client modes:\n"
+"_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
+"_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 
-#, fuzzy
 #| msgid "NFS Server"
 msgid "TURN Server"
-msgstr "Servidor NFS"
+msgstr "Servidor TURN"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>TURN</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>servidor</secondary>"
+msgstr "<primary>TURN</primary><secondary>servidor</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>PICS</primary>"
 msgid "<primary>ICE</primary>"
-msgstr "<primary>PICS</primary>"
+msgstr "<primary>ICE</primary>"
 
 msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
 msgstr ""
@@ -2917,50 +2912,55 @@ msgid ""
 "UserDatabaseFile = /etc/reTurn/users.txt\n"
 "UserDatabaseHashedPasswords = true"
 msgstr ""
+"\n"
+"# your IP addresses go here:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# your domain goes here, it must match the value used\n"
+"# to hash your passwords if they are already hashed\n"
+"# using the HA1 algorithm:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
 
 msgid "Restart the service."
-msgstr ""
+msgstr "Reiniciar o serviço."
 
 msgid "Managing the TURN users"
-msgstr ""
+msgstr "Gerenciando os usuário do TURN"
 
 msgid "Use the htdigest utility to manage the TURN server user list."
-msgstr ""
+msgstr "Use o utilitário htdigest para gerenciar a lista de usuários do servidor TURN."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
 msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
 msgstr ""
 
-#, fuzzy
 #| msgid "NFS Server"
 msgid "SIP Proxy Server"
-msgstr "Servidor NFS"
+msgstr "Servidor Proxy SIP"
 
 msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>SIP</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>servidor</secondary>"
+msgstr "<primary>SIP</primary><secondary>servidor</secondary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgid "<primary>SIP</primary><secondary>proxy</secondary>"
-msgstr "<primary>NFS</primary><secondary>opções</secondary>"
+msgstr "<primary>SIP</primary><secondary>proxy</secondary>"
 
-#, fuzzy
 #| msgid "<primary>server</primary><secondary>MX</secondary>"
 msgid "<primary>SIP</primary><secondary>PBX</secondary>"
-msgstr "<primary>servidor</primary><secondary>MX</secondary>"
+msgstr "<primary>SIP</primary><secondary>PBX</secondary>"
 
 #, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
@@ -2976,10 +2976,9 @@ msgstr ""
 msgid "Install the <emphasis role=\"pkg\">repro</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>key pair</primary>"
 msgid "<primary>repro</primary>"
-msgstr "<primary>par de chaves</primary>"
+msgstr "<primary>repro</primary>"
 
 msgid "Edit the <filename>/etc/repro/repro.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server. The example below demonstrates how to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4 and IPv6:"
 msgstr ""
@@ -3044,24 +3043,79 @@ msgid ""
 "EnableFlowTokens = true\n"
 "EnableCertificateAuthenticator = True"
 msgstr ""
+"\n"
+"# Transport1 will be for SIP over TLS connections\n"
+"# We use port 5061 here but if you have clients connecting from\n"
+"# locations with firewalls you could change this to listen on port 443\n"
+"Transport1Interface = 198.51.100.19:5061\n"
+"Transport1Type = TLS\n"
+"Transport1TlsDomain = falcot.com\n"
+"Transport1TlsClientVerification = Optional\n"
+"Transport1RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport1TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport1TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport2 is the IPv6 version of Transport1\n"
+"Transport2Interface = 2001:DB8:1000:2000::19:5061\n"
+"Transport2Type = TLS\n"
+"Transport2TlsDomain = falcot.com\n"
+"Transport2TlsClientVerification = Optional\n"
+"Transport2RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport2TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport2TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport3 will be for SIP over WebSocket (WebRTC) connections\n"
+"# We use port 8443 here but you could use 443 instead\n"
+"Transport3Interface = 198.51.100.19:8443\n"
+"Transport3Type = WSS\n"
+"Transport3TlsDomain = falcot.com\n"
+"# This would require the browser to send a certificate, but browsers\n"
+"# don't currently appear to be able to, so leave it as None:\n"
+"Transport3TlsClientVerification = None\n"
+"Transport3RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport3TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport3TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport4 is the IPv6 version of Transport3\n"
+"Transport4Interface = 2001:DB8:1000:2000::19:8443\n"
+"Transport4Type = WSS\n"
+"Transport4TlsDomain = falcot.com\n"
+"Transport4TlsClientVerification = None\n"
+"Transport4RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport4TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport4TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport5: this could be for TCP connections to an Asterisk server\n"
+"# in your internal network.  Don't allow port 5060 through the external\n"
+"# firewall.\n"
+"Transport5Interface = 198.51.100.19:5060\n"
+"Transport5Type = TCP\n"
+"Transport5RecordRouteUri = sip:198.51.100.19:5060;transport=TCP\n"
+"\n"
+"HttpBindAddress = 198.51.100.19, 2001:DB8:1000:2000::19\n"
+"HttpAdminUserFile = /etc/repro/users.txt\n"
+"\n"
+"RecordRouteUri = sip:falcot.com;transport=tls\n"
+"ForceRecordRouting = true\n"
+"EnumSuffixes = e164.arpa, sip5060.net, e164.org\n"
+"DisableOutbound = false\n"
+"EnableFlowTokens = true\n"
+"EnableCertificateAuthenticator = True"
 
 msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
 msgstr ""
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
 
 msgid "Restart the service to use the new configuration."
-msgstr ""
+msgstr "Reinicie o serviço para usar a nova configuração."
 
 msgid "Managing the SIP proxy"
-msgstr ""
+msgstr "Gerenciando o proxy SIP"
 
 msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</literal> to complete the configuration by adding domains, local users and static routes."
 msgstr ""
@@ -3072,28 +3126,24 @@ msgstr ""
 msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
 msgstr ""
 
-#, fuzzy
 #| msgid "Mail Server"
 msgid "XMPP Server"
-msgstr "Servidor de Correio Eletrônico"
+msgstr "Servidor XMPP"
 
 msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>MX</primary><secondary>server</secondary>"
 msgid "<primary>XMPP</primary><secondary>server</secondary>"
-msgstr "<primary>MX</primary><secondary>servidor</secondary>"
+msgstr "<primary>XMPP</primary><secondary>servidor</secondary>"
 
-#, fuzzy
 #| msgid "<emphasis>SECURITY</emphasis> No security"
 msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
-msgstr "<emphasis>SEGURANÇA</emphasis> Sem segurança"
+msgstr "<emphasis>Terminologia</emphasis> XMPP ou Jabber?"
 
-#, fuzzy
 #| msgid "<primary>Samba</primary>"
 msgid "<primary>Jabber</primary>"
-msgstr "<primary>Samba</primary>"
+msgstr "<primary>Jabber</primary>"
 
 msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
 msgstr ""
@@ -3101,10 +3151,9 @@ msgstr ""
 msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>Postfix</primary>"
 msgid "<primary>Prosody</primary>"
-msgstr "<primary>Postfix</primary>"
+msgstr "<primary>Prosody</primary>"
 
 msgid "Install the XMPP server"
 msgstr ""
@@ -3119,6 +3168,8 @@ msgid ""
 "\n"
 "admins = { \"joe@falcot.com\" }"
 msgstr ""
+"\n"
+"admins = { \"joe@falcot.com\" }"
 
 msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
 msgstr ""
@@ -3132,23 +3183,26 @@ msgid ""
 "                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
 "                }"
 msgstr ""
+"\n"
+"VirtualHost \"falcot.com\"\n"
+"        enabled = true\n"
+"        ssl = {\n"
+"                key = \"/etc/ssl/private/falcot.com-key.pem\";\n"
+"                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
+"                }"
 
 msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
 msgstr ""
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
 msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
+msgstr "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
 
-#, fuzzy
 #| msgid "Configuring the Server"
 msgid "Managing the XMPP server"
-msgstr "Configurando o Servidor"
+msgstr "Gerenciando o servidor XMPP"
 
 msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
 msgstr ""
@@ -3157,12 +3211,14 @@ msgid ""
 "\n"
 "# prosodyctl adduser joe@falcot.com"
 msgstr ""
+"\n"
+"# prosodyctl adduser joe@falcot.com"
 
 msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
 msgstr ""
 
 msgid "Running services on port 443"
-msgstr ""
+msgstr "Rodando serviços na porta 443"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
 msgstr ""
@@ -3170,33 +3226,28 @@ msgstr ""
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
 msgstr ""
 
-#, fuzzy
 #| msgid "Adding Users"
 msgid "Adding WebRTC"
-msgstr "Adicionando Usuários"
+msgstr "Adicionando WebRTC"
 
 msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>RPC</primary>"
 msgid "<primary>WebRTC</primary>"
-msgstr "<primary>RPC</primary>"
+msgstr "<primary>WebRTC</primary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>client</secondary>"
 msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
-msgstr "<primary>NFS</primary><secondary>cliente</secondary>"
+msgstr "<primary>SIP</primary><secondary>WebSockets</secondary>"
 
-#, fuzzy
 #| msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
 msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
-msgstr "<emphasis>NA PRÁTICA</emphasis> Testando o antivírus"
+msgstr "<emphasis>NA PRÁTICA</emphasis> Experimente o WebRTC"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
-msgstr "<primary>NFS</primary><secondary>opções</secondary>"
+msgstr "<primary>WebRTC</primary><secondary>desmonstração</secondary>"
 
 msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 msgstr ""
@@ -3207,10 +3258,9 @@ msgstr ""
 msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>Samba</primary>"
 msgid "<primary>JSCommunicator</primary>"
-msgstr "<primary>Samba</primary>"
+msgstr "<primary>JSCommunicator</primary>"
 
 msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
 msgstr ""
@@ -3248,14 +3298,38 @@ msgid ""
 "\n"
 "  ..."
 msgstr ""
+"\n"
+"JSCommSettings = {\n"
+"\n"
+"  // Web server environment\n"
+"  webserver: {\n"
+"    url_prefix: null            // If set, prefix used to construct sound/ URLs\n"
+"  },\n"
+"\n"
+"  // STUN/TURN media relays\n"
+"  stun_servers: [],\n"
+"  turn_servers: [\n"
+"    { server:\"turn:turn-server.falcot.com?transport=udp\", username:\"joe\", password:\"j0Ep455d\" }\n"
+"  ],\n"
+"\n"
+"  // WebSocket connection\n"
+"  websocket: {\n"
+"      // Notice we use the falcot.com domain certificate and port 8443\n"
+"      // This matches the Transport3 and Transport4 example in\n"
+"      // the falcot.com repro.config file\n"
+"    servers: 'wss://falcot.com:8443',\n"
+"    connection_recovery_min_interval: 2,\n"
+"    connection_recovery_max_interval: 30\n"
+"  },\n"
+"\n"
+"  ..."
 
 msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
 msgstr ""
 
-#, fuzzy
 #| msgid "<primary>RPC</primary>"
 msgid "<primary>DruCall</primary>"
-msgstr "<primary>RPC</primary>"
+msgstr "<primary>DruCall</primary>"
 
 #~ msgid "NFS is a very useful tool, but its shortcomings must be kept in mind especially where security matters are concerned: all data goes over the network in the clear (a <emphasis>sniffer</emphasis> can intercept it); the server enforces access restrictions based on the client's IP address (which can be spoofed); and finally, when a client machine is granted access to a misconfigured NFS share, the client's root user can access all the files on the share (even those belonging to other users) since the server trusts the username it receives from the client (this is a historical limitation of the protocol)."
 #~ msgstr "O NFS é uma ferramenta muito útil, mas suas deficiências devem ser levadas em consideração, especialmente quando questões de segurança são importantes: todos os dados trafegam pela rede em texto puro (um <emphasis>sniffer</emphasis> pode interceptá-los); o servidor reforça as restrições de acesso baseando-se no endereço IP do cliente (o qual pode ser falsificado); e finalmente, quando uma máquina cliente ganha acesso ao compartilhamento NFS mal configurado, o usuário root do cliente pode acessar todos os arquivos do compartilhamento (mesmo aqueles pertencentes a outros usuários), já que o servidor confia no nome de usuário que recebe do cliente (essa é uma limitação histórica desse protocolo)."
