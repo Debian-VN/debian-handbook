@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-01 18:01+0200\n"
+"POT-Creation-Date: 2015-10-06 16:10+0200\n"
 "PO-Revision-Date: 2015-10-15 12:36+0200\n"
 "Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/08_basic-configuration/es/>\n"
@@ -117,7 +117,6 @@ msgstr "<primary>Latin 9</primary>"
 msgid "Historically, each locale has an associated “character set” (group of known characters) and a preferred “encoding” (internal representation for characters within the computer)."
 msgstr "Históricamente, cada locale tiene asociado un «conjunto de caracteres» (grupo de caracteres conocidos) y una «codificación» preferida (representación interna de los caracteres para el equipo)."
 
-#| msgid "The most popular encodings for latin-based languages were limited to 256 characters because they opted to use a single byte for each character. Since 256 characters was not enough to cover all European languages, multiple encodings were needed, and that's how we ended up with <emphasis>ISO-8859-1</emphasis> (also known as “Latin 1”) up to <emphasis>ISO-8859-15</emphasis> (also known as “Latin 9”), among others."
 msgid "The most popular encodings for latin-based languages were limited to 256 characters because they opted to use a single byte for each character. Since 256 characters was not enough to cover all European languages, multiple encodings were needed, and that is how we ended up with <emphasis>ISO-8859-1</emphasis> (also known as “Latin 1”) up to <emphasis>ISO-8859-15</emphasis> (also known as “Latin 9”), among others."
 msgstr "Las codificaciones más populares para idiomas derivados del latín estaban limitadas a 256 caracteres porque decidieron utilizar sólo un byte por carácter. Debido a que 256 caracteres no son suficientes para cubrir todos los idiomas europeos fueron necesarias múltiples codificaciones, y así es como tenemos desde <emphasis>ISO-8859-1</emphasis> (también conocida como «Latin 1») hasta <emphasis>ISO-8859-15</emphasis> (también conocida como «Latin 9»), entre otras."
 
@@ -281,7 +280,9 @@ msgstr "Para archivos de texto simples puede utilizar <command>recode</command> 
 msgid "Configuring the Network"
 msgstr "Configuración de red"
 
-msgid "<emphasis>BACK TO BASICS</emphasis> Essential network concepts (Ethernet, IP address, subnet, broadcast)."
+#, fuzzy
+#| msgid "<emphasis>BACK TO BASICS</emphasis> Essential network concepts (Ethernet, IP address, subnet, broadcast)."
+msgid "<emphasis>BACK TO BASICS</emphasis> Essential network concepts (Ethernet, IP address, subnet, broadcast)"
 msgstr "<emphasis>VOLVER A LOS CIMIENTOS</emphasis> Conceptos de red esenciales (Ethernet, dirección IP, subred, difusión)."
 
 msgid "<primary>Ethernet</primary>"
@@ -371,7 +372,6 @@ msgstr "<emphasis>ALTERNATIVA</emphasis> NetworkManager"
 msgid "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
 
-#| msgid "If Network Manager is particularly recommended in roaming setups (see <xref linkend=\"sect.roaming-network-config\" />), it's also perfectly usable as the default network management tool. You can create “System connections” that are used as soon as the computer boots either manually with a <filename>.ini</filename>-like file in <filename>/etc/NetworkManager/system-connections/</filename> or through a graphical tool (<command>nm-connection-editor</command>). Just remember to deactivate all entries in <filename>/etc/network/interfaces</filename> if you want Network Manager to handle them. <ulink type=\"block\" url=\"https://wiki.gnome.org/Projects/NetworkManager/SystemSettings\" /> <ulink type=\"block\" url=\"http://projects.gnome.org/NetworkManager/developers/api/09/ref-settings.html\" />"
 msgid "If Network Manager is particularly recommended in roaming setups (see <xref linkend=\"sect.roaming-network-config\" />), it is also perfectly usable as the default network management tool. You can create “System connections” that are used as soon as the computer boots either manually with a <filename>.ini</filename>-like file in <filename>/etc/NetworkManager/system-connections/</filename> or through a graphical tool (<command>nm-connection-editor</command>). Just remember to deactivate all entries in <filename>/etc/network/interfaces</filename> if you want Network Manager to handle them. <ulink type=\"block\" url=\"https://wiki.gnome.org/Projects/NetworkManager/SystemSettings/jessie\" /> <ulink type=\"block\" url=\"https://developer.gnome.org/NetworkManager/0.9/ref-settings.html\" />"
 msgstr "Se recomienda particularmente Network Manager en configuraciones errantes (revise la <xref linkend=\"sect.roaming-network-config\"/>, pero también es perfectamente útil como herramienta de gestión de red predeterminada. Puede crear «conexiones de sistema» que serán utilizadas tan pronto como inicie el equipo tanto con un archivo de estilo <filename>.ini</filename> en <filename>/etc/NetworkManager/system-connections/</filename> o a través de una herramienta gráfica (<command>nm-connection-editor</command>). Sólo recuerde desactivar todos los elementos de <filename>/etc/network/interfaces</filename> si desea que los gestione Network Manager. <ulink type=\"block\" url=\"https://wiki.gnome.org/Projects/NetworkManager/SystemSettings/jessie\" /> <ulink type=\"block\" url=\"https://developer.gnome.org/NetworkManager/0.9/ref-settings.html\" />"
 
@@ -542,7 +542,6 @@ msgstr ""
 msgid "Once this unit file has been defined, it needs to be enabled with <command>systemctl enable adsl-connection</command>. Then the loop can be started manually with <command>systemctl start adsl-connection</command>; it will also be started automatically on boot."
 msgstr "Una vez que el «unit file» ha sido definido, es necesario habilitarlo con <command>systemctl enable adsl-connection</command>. El ciclo sera iniciado manualmente con <command>systemctl start adsl-connection</command>; ademas de ser iniciado automáticamente en el arranque."
 
-#| msgid "PPP connections over ADSL are, by definition, intermittent. Since they are usually not billed according to time, there are few downsides to the temptation of keeping them always open; one simple means to do so is to use the <command>init</command> process to control the connection. All that's needed is to add a line such as the following at the end of the <filename>/etc/inittab</filename> file; then, any time the connection is disconnected, <command>init</command> will reconnect it."
 msgid "On systems not using <command>systemd</command> (including <emphasis role=\"distribution\">Wheezy</emphasis> and earlier versions of Debian), the standard SystemV init works differently. On such systems, all that is needed is to add a line such as the following at the end of the <filename>/etc/inittab</filename> file; then, any time the connection is disconnected, <command>init</command> will reconnect it."
 msgstr "En sistemas que no usan <command>systemd</command> (incluyendo <emphasis role=\"distribution\">Wheezy</emphasis> y versiones anteriores de Debian), el estándar System V init funciona de forma distinta. En dichos sistemas, todo lo que necesita es añadir una linea como las siguientes al final del archivo <filename>/etc/inittab</filename>; entonces, en cualquier momento que se pierda la conexión, <command>init</command> se reconectará."
 
@@ -553,7 +552,6 @@ msgstr ""
 "\n"
 "adsl:2345:respawn:/usr/sbin/pppd call dsl-provider\n"
 
-#| msgid "Most ADSL connections disconnect on a daily basis, but this method reduces the duration of the interruption."
 msgid "For ADSL connections that auto-disconnect on a daily basis, this method reduces the duration of the interruption."
 msgstr "Para las conexiones ADSL que se desconectan diariamente, este método reduce la duración de la interrupción."
 
@@ -563,7 +561,6 @@ msgstr "Módems compatibles con PPTP"
 msgid "<primary>PPTP</primary>"
 msgstr "<primary>PPTP</primary>"
 
-#| msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"network-infrastructure\" /> in the section about virtual private networks detailing PPTP."
 msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"sect.pptp\" />."
 msgstr "El protocolo PPTP (protocolo de túnel punto a punto: «Point-to-Point Tunneling Protocol») fue creado por Microsoft. Desplegado al principio de ADSL fue reemplazado rápidamente por PPPOE. Si le fuerzan a utilizar este protocolo, revise el <xref linkend=\"sect.pptp\" />."
 
@@ -582,7 +579,6 @@ msgstr "<primary>cable cruzado</primary>"
 msgid "Computer network cards expect to receive data on specific wires in the cable, and send their data on others. When you connect a computer to a local network, you usually connect a cable (straight or crossover) between the network card and a repeater or switch. However, if you want to connect two computers directly (without an intermediary switch or repeater), you must route the signal sent by one card to the receiving side of the other card, and vice-versa. This is the purpose of a crossover cable, and the reason it is used."
 msgstr "Las tarjetas de red esperan recibir datos en hilos específicos del cable y enviar sus datos en otros. Cuando conecta un equipo a una red local generalmente conecta un cable (recto o cruzado) entre la tarjeta de red y un repetidor o conmutador. Sin embargo, si desea conectar dos equipos directamente (sin un conmutador o repetidor intermedio) debe enrutar la señal enviada por una tarjeta al lado receptor de la otra tarjeta y viceversa. Éste es el propósito de un cable cruzado y la razón por la que se lo utiliza."
 
-#| msgid "Note that this distinction is becoming less relevant over time, as modern network cards are able do detect the type of cable present and adapt accordingly, so it won't be unusual that both kinds of cable will work in a given location."
 msgid "Note that this distinction has become almost irrelevant over time, as modern network cards are able do detect the type of cable present and adapt accordingly, so it won't be unusual that both kinds of cable will work in a given location."
 msgstr "Tenga en cuenta que esta distinción se ha vuelto casi irrelevante con el tiempo ya que las tarjetas de red modernas pueden detectar el tipo de cable conectado y adaptarse de forma acorde, por lo que no seria usual que ambos tipos de cable funcionen en una ubicación dada."
 
@@ -595,7 +591,6 @@ msgstr "Configuración de red automática para usuarios itinerantes"
 msgid "<primary>network</primary><secondary>roaming configuration</secondary>"
 msgstr "<primary>red</primary><secondary>configuración errante</secondary>"
 
-#| msgid "Many Falcot engineers have a laptop computer that, for professional purposes, they also use at home. The network configuration to use differs according to location. At home, it may be a wifi network (protected by a WEP key), while the workplace uses a wired network for greater security and more bandwidth."
 msgid "Many Falcot engineers have a laptop computer that, for professional purposes, they also use at home. The network configuration to use differs according to location. At home, it may be a wifi network (protected by a WPA key), while the workplace uses a wired network for greater security and more bandwidth."
 msgstr "Muchos ingenieros de Falcot tienen un equipo portátil que, con propósitos profesionales, también utilizan en sus casas. La configuración de red a utilizar varía según la ubicación. En casa puede ser una red inalámbrica (protegida con una clave WPA) mientras que en el trabajo utiliza una red cableada para más seguridad y ancho de banda."
 
@@ -945,7 +940,6 @@ msgstr "Se enumeran los grupos en el archivo <filename>/etc/group</filename>, un
 msgid "group name;"
 msgstr "nombre del grupo;"
 
-#| msgid "password (optional): This is only used to join a group when one is not a usual member (with the <command>newgrp</command> or <command>sg</command> commands, see sidebar);"
 msgid "password (optional): This is only used to join a group when one is not a usual member (with the <command>newgrp</command> or <command>sg</command> commands, see sidebar <xref linkend=\"sidebar.working-with-several-groups\" />);"
 msgstr "contraseña (opcional): sólo es utilizada para unirse a un grupo cuando no es un miembro normal (con <command>newgrp</command> o <command>sg</command>, revise el recuadro <xref linkend=\"sidebar.woring-with-several-groups\" />);"
 
@@ -1054,7 +1048,6 @@ msgstr "<primary>grupo</primary><secondary>agregar un usuario</secondary>"
 msgid "<primary>add a user to a group</primary>"
 msgstr "<primary>agregar un usuario a un grupo</primary>"
 
-#| msgid "In some cases, it will be useful to add a user to a group (other than their default “main” group) in order to grant them additional permissions. For example, a user who is included in the <emphasis>audio</emphasis> group can access audio devices (see sidebar “Device access permissions”). This can be achieved with a command such as <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
 msgid "In some cases, it will be useful to add a user to a group (other than their default “main” group) in order to grant them additional permissions. For example, a user who is included in the <emphasis>audio</emphasis> group can access audio devices (see sidebar <xref linkend=\"sidebar.special-files\" />). This can be achieved with a command such as <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
 msgstr "En algunos casos, será útil agregar un usuario a un grupo (diferente a su grupo «principal») para proveerle permisos adicionales. Por ejemplo, un usuario que pertenece al grupo <emphasis>audio</emphasis> puede acceder dispositivos de audio (revise el recuadro <xref linkend=\"sidebar.special-files\" />). Puede conseguirlo ejecutando <command>adduser <replaceable>usuario</replaceable> <replaceable>grupo</replaceable></command>."
 
@@ -1097,7 +1090,6 @@ msgstr "Es importante saber que la combinación de <emphasis role=\"pkg\">udev</
 msgid "Shell Environment"
 msgstr "Entorno de consola"
 
-#| msgid "Command interpreters (or shells) are frequently a user's first point of contact with the computer, and they must therefore be rather friendly. Most of them use initialization scripts that allow configuration of their behavior (automatic completion, prompt text, etc.)."
 msgid "Command interpreters (or shells) can be a user's first point of contact with the computer, and they must therefore be rather friendly. Most of them use initialization scripts that allow configuration of their behavior (automatic completion, prompt text, etc.)."
 msgstr "Los intérpretes de órdenes (o consolas) pueden ser el primer punto de contacto de un usuario con el equipo y, por lo tanto, deben ser suficientemente amigables. La mayoría utiliza scripts de inicialización que permiten configurar su comportamiento (completado automático, texto del prompt, etc.)."
 
@@ -1235,7 +1227,6 @@ msgstr "<primary>Common Unix Printing System</primary>"
 msgid "CUPS (Common Unix Printing System) is a project (and a trademark) managed by Apple, Inc. <ulink type=\"block\" url=\"http://www.cups.org/\" />"
 msgstr "CUPS (sistema Unix común de impresión: «Common Unix Printing System») es un proyecto (y una marca registrada) gestionado por Apple, Inc. <ulink type=\"block\" url=\"http://www.cups.org/\" />"
 
-#| msgid "After installation of these different packages, <command>cups</command> is administered easily through a web interface accessible at the local address: <literal>http://localhost:631/</literal>. There you can add printers (including network printers), remove, and administer them. You can also administer <command>cups</command> with the <command>system-config-printer</command> graphical interface (from the Debian package of the same name), which is installed by default if the “Desktop environment” task is chosen."
 msgid "After installation of these different packages, <command>cups</command> is administered easily through a web interface accessible at the local address: <literal>http://localhost:631/</literal>. There you can add printers (including network printers), remove, and administer them. You can also administer <command>cups</command> with the graphical interface provided by the desktop environment. Finally, there is also the <command>system-config-printer</command> graphical interface (from the Debian package of the same name)."
 msgstr "Luego de instalar estos paquetes, puede administrar <command>cups</command> fácilmente a través de una interfaz web en la dirección local: <literal>http://localhost:631/</literal>. Allí podrá agregar impresoras (incluyendo impresoras de red), eliminarlas y administrarlas. También puede administrar <command>cups</command> con la interfaz gráfica <command>system-config-printer</command> (en el paquete Debian del mismo nombre), proporcionada por el entorno de escritorio. Finalmente, existe tambien la orden de intérprete gráfica <command>system-config-printer</command> (en el paquete de Debian homónimo)."
 
@@ -1287,7 +1278,6 @@ msgstr "El directorio <filename>/dev/</filename> tradicionalmente almacena los l
 msgid "Nowadays, the management of special files is entirely dynamic and matches better the nature of hot-swappable computer devices. The kernel cooperates with <emphasis>udev</emphasis> to create and delete them as needed when the corresponding devices appear and disappear. For this reason, <filename>/dev/</filename> doesn't need to be persistent and is thus a RAM-based filesystem that starts empty and contains only the relevant entries."
 msgstr "Hoy en día, la gestión de archivos especiales es completamente dinámica y más acorde a la naturaleza de los dispositivos electrónicos que pueden conectarse y desconectarse en caliente. El núcleo coopera con <emphasis>udev</emphasis> para crearlos y eliminarlos según sea necesario cuando aparecen y desaparecen los dispositivos correspondientes. Por esta razón, <filename>/dev/</filename> no necesita ser persistente y es un sistema de archivos basado en RAM que comienza vacío y sólo contiene los elementos relevantes."
 
-#| msgid "The kernel communicates lots of information about any newly added device and hands out a pair of major/minor numbers to identify it. With this <command>udevd</command> can create the special file under the name and with the permissions that it wants. It can also create aliases and do additional actions (initialization or registration tasks for example). <command>udevd</command>'s behavior is driven by a large set of (customizable) rules."
 msgid "The kernel communicates lots of information about any newly added device and hands out a pair of major/minor numbers to identify it. With this <command>udevd</command> can create the special file under the name and with the permissions that it wants. It can also create aliases and perform additional actions (such as initialization or registration tasks). <command>udevd</command>'s behavior is driven by a large set of (customizable) rules."
 msgstr "El núcleo comunica mucha información sobre los dispositivos agregados recientemente y provee un par de números mayor/menor para identificarlo. Con esta información, <command>udevd</command> puede crear un archivo especial con el nombre y los permisos que desee. También puede crear alias y llevar a cabo acciones adicionales (por ejemplo las tareas de inicialización o registro). El comportamiento de <command>udevd</command> es controlado por un gran conjunto de reglas (personalizables)."
 
@@ -1351,9 +1341,37 @@ msgstr ""
 msgid "It is not always easy to remember what disk is connected to which SATA controller, or in third position in the SCSI chain, especially since the naming of hotplugged hard drives (which includes among others most SATA disks and external disks) can change from one boot to another. Fortunately, <command>udev</command> creates, in addition to <filename>/dev/sd*</filename>, symbolic links with a fixed name, which you could then use if you wished to identify a hard drive in a non-ambiguous manner. These symbolic links are stored in <filename>/dev/disk/by-id</filename>. On a machine with two physical disks, for example, one could find the following:"
 msgstr "No siempre es sencillo recordar qué disco está conectado a qué controlador SATA o está en la tercera posición de la cadena SCSI, especialmente desde que el nombre de los discos duros removibles (que incluye, entre otros, la mayoría de los discos SATA y discos externos) puede cambiar de un inicio a otro. Afortunadamente <command>udev</command> crea, además de <filename>/dev/sd*</filename>, enlaces simbólicos con nombres fijos que puede utilizar si lo desea para identificar un disco duro de forma unívoca. Estos enlaces simbólicos son almacenados en <filename>/dev/disk/by-id</filename>. En un equipo con dos discos físicos, por ejemplo, uno podría encontrar lo siguiente:"
 
+#, fuzzy
+#| msgid ""
+#| "mirexpress:/dev/disk/by-id# <computeroutput></computeroutput><userinput>ls -l</userinput><computeroutput>\n"
+#| "total 0\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP -&gt; ../../sda\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP-part1 -&gt; ../../sda1\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP-part2 -&gt; ../../sda2\n"
+#| "[...]\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 08:58 ata-WDC_WD5001AALS-00L3B2_WD-WCAT00241697 -&gt; ../../sdb\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-WDC_WD5001AALS-00L3B2_WD-WCAT00241697-part1 -&gt; ../../sdb1\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-WDC_WD5001AALS-00L3B2_WD-WCAT00241697-part2 -&gt; ../../sdb2\n"
+#| "[...]\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 08:58 scsi-SATA_STM3500418AS_9VM3L3KP -&gt; ../../sda\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 scsi-SATA_STM3500418AS_9VM3L3KP-part1 -&gt; ../../sda1\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 scsi-SATA_STM3500418AS_9VM3L3KP-part2 -&gt; ../../sda2\n"
+#| "[...]\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 08:58 scsi-SATA_WDC_WD5001AALS-_WD-WCAT00241697 -&gt; ../../sdb\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 scsi-SATA_WDC_WD5001AALS-_WD-WCAT00241697-part1 -&gt; ../../sdb1\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 scsi-SATA_WDC_WD5001AALS-_WD-WCAT00241697-part2 -&gt; ../../sdb2\n"
+#| "[...]\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 16:48 usb-LaCie_iamaKey_3ed00e26ccc11a-0:0 -&gt; ../../sdc\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 16:48 usb-LaCie_iamaKey_3ed00e26ccc11a-0:0-part1 -&gt; ../../sdc1\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 16:48 usb-LaCie_iamaKey_3ed00e26ccc11a-0:0-part2 -&gt; ../../sdc2\n"
+#| "[...]\n"
+#| "lrwxrwxrwx 1 root root  9 23 jul. 08:58 wwn-0x5000c50015c4842f -&gt; ../../sda\n"
+#| "lrwxrwxrwx 1 root root 10 23 jul. 08:58 wwn-0x5000c50015c4842f-part1 -&gt; ../../sda1\n"
+#| "[...]\n"
+#| "mirexpress:/dev/disk/by-id# </computeroutput>"
 msgid ""
-"mirexpress:/dev/disk/by-id# <computeroutput></computeroutput><userinput>ls -l</userinput><computeroutput>\n"
-"total 0\n"
+"<computeroutput>mirexpress:/dev/disk/by-id# </computeroutput><userinput>ls -l\n"
+"</userinput><computeroutput>total 0\n"
 "lrwxrwxrwx 1 root root  9 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP -&gt; ../../sda\n"
 "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP-part1 -&gt; ../../sda1\n"
 "lrwxrwxrwx 1 root root 10 23 jul. 08:58 ata-STM3500418AS_9VM3L3KP-part2 -&gt; ../../sda2\n"
@@ -1885,7 +1903,9 @@ msgstr "respaldo: este campo casi siempre está definido como <literal>0</litera
 msgid "check order: this last field indicates whether the integrity of the filesystem should be checked on boot, and in which order this check should be executed. If it is <literal>0</literal>, no check is conducted. The root filesystem should have the value <literal>1</literal>, while other permanent filesystems get the value <literal>2</literal>."
 msgstr "orden de revisión: este último campo indica si se debe revisar la integridad del sistema de archivos durante el inicio y en qué orden debe ejecutarse esta revisión. Si es <literal>0</literal> no se realizarán revisiones. El sistema de archivos raíz debería tener el valor <literal>1</literal> mientras que otros sistemas de archivos permanentes deberían tener el valor <literal>2</literal>."
 
-msgid "Example <filename>/etc/fstab</filename> file:"
+#, fuzzy
+#| msgid "Example <filename>/etc/fstab</filename> file:"
+msgid "Example <filename>/etc/fstab</filename> file"
 msgstr "Ejemplo del archivo <filename>/etc/fstab</filename>:"
 
 msgid ""
@@ -2142,11 +2162,10 @@ msgstr "La cadena <replaceable>versión</replaceable> es la concatenación de la
 #| "../linux-libc-dev_1_amd64.deb\n"
 #| "</computeroutput>"
 msgid ""
-"\n"
-"<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-falcot KDEB_PKGVERSION=$(make kernelversion)-1</userinput>\n"
-"[...]\n"
-"<computeroutput>$ </computeroutput><userinput>ls ../*.deb</userinput>\n"
-"<computeroutput>../linux-headers-3.16.7-ckt4-falcot_3.16.7-1_amd64.deb\n"
+"<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-falcot KDEB_PKGVERSION=$(make kernelversion)-1\n"
+"</userinput><computeroutput>[...]\n"
+"$ </computeroutput><userinput>ls ../*.deb\n"
+"</userinput><computeroutput>../linux-headers-3.16.7-ckt4-falcot_3.16.7-1_amd64.deb\n"
 "../linux-image-3.16.7-ckt4-falcot_3.16.7-1_amd64.deb\n"
 "../linux-image-3.16.7-ckt4-falcot-dbg_3.16.7-1_amd64.deb\n"
 "../linux-libc-dev_3.16.7-1_amd64.deb\n"

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Debian Handbook Chapter 11\n"
-"POT-Creation-Date: 2015-10-01 18:01+0200\n"
+"POT-Creation-Date: 2015-10-19 15:00+0200\n"
 "PO-Revision-Date: 2014-10-08 17:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/11_network-services/it/>\n"
@@ -33,13 +33,36 @@ msgstr "Squid"
 msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
-msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP"
+msgid "SIP"
+msgstr ""
+
+#, fuzzy
+#| msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP"
+msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 msgstr "Servizi di rete: Postfix, Apache, NFS, Samba, Squid, LDAP"
 
 #, fuzzy
 #| msgid "Network services are the programs that users interact with directly in their daily work. They're the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
 msgstr "I servizi di rete sono i programmi con cui gli utenti interagiscono direttamente durante le loro attività quotidiane e sono la punta dell'iceberg del sistema informativo. In questo capitolo ci concentreremo su di loro: le componenti invisibili a cui si affidano sono l'infrastruttura che abbiamo descritto precedentemente."
+
+msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>HTTPS</primary>"
+msgid "<primary>TLS</primary>"
+msgstr "<primary>HTTPS</primary>"
+
+#, fuzzy
+#| msgid "<primary>RBL</primary>"
+msgid "<primary>X.509</primary>"
+msgstr "<primary>RBL</primary>"
+
+#, fuzzy
+#| msgid "<primary>alias</primary>"
+msgid "<primary>Certificates</primary>"
+msgstr "<primary>alias</primary>"
 
 msgid "Mail Server"
 msgstr "Mail Server"
@@ -1491,9 +1514,8 @@ msgid "In order for the statistics to take all the logs into account, <emphasis>
 msgstr "Perché le statistiche prendano in considerazione tutti i log <emphasis>AWStats</emphasis> necessita di essere eseguito subito prima che i file di log di Apache siano ruotati. Questo si può ottenere aggiungendo la direttiva <literal>prerotate</literal> al file <filename>/etc/logrotate.d/apache2</filename>:"
 
 msgid ""
-"\n"
-"$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
-"/var/log/apache2/*.log {\n"
+"<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
+"</userinput><computeroutput>/var/log/apache2/*.log {\n"
 "  daily\n"
 "  missingok\n"
 "  rotate 14\n"
@@ -1513,9 +1535,10 @@ msgid ""
 "    fi; \\\n"
 "  endscript\n"
 "}\n"
-"$ <userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate</userinput>\n"
-"$ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
-"  /etc/logrotate.d/httpd-prerotate/awstats</userinput>"
+"$ </computeroutput><userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
+"  /etc/logrotate.d/httpd-prerotate/awstats\n"
+"</userinput>"
 msgstr ""
 
 #, fuzzy
@@ -1569,15 +1592,14 @@ msgstr "<primary>file</primary><secondary>server</secondary>"
 msgid "<primary>server</primary><secondary>file</secondary>"
 msgstr "<primary>server</primary><secondary>file</secondary>"
 
-msgid "NFS is a very useful tool, but its shortcomings must be kept in mind especially where security matters are concerned: all data goes over the network in the clear (a <emphasis>sniffer</emphasis> can intercept it); the server enforces access restrictions based on the client's IP address (which can be spoofed); and finally, when a client machine is granted access to a misconfigured NFS share, the client's root user can access all the files on the share (even those belonging to other users) since the server trusts the username it receives from the client (this is a historical limitation of the protocol)."
-msgstr "NFS è uno strumento molto utile ma i suoi limiti devono essere tenuti a mente in maniera particolare quando sono interessati gli aspetti della sicurezza: tutti i dati attraversano la rete in chiaro (uno <emphasis>sniffer</emphasis> li può intercettare); il server impone le restrizioni d'accesso in base all'indirizzo IP del client (che può essere soggetto a spoofing); inoltre, quando ad una macchina client è garantito l'accesso ad una condivisione NFS mal configurata, l'utente root del client può ottenere accesso a tutti i file sulla condivisione (anche se questi appartengono ad altri utenti) perché il server considera affidabile il nome utente che riceve dal client (questa è una limitazione storica del protocollo)."
+msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
+msgstr ""
 
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 msgstr "<emphasis>DOCUMENTAZIONE</emphasis> NFS HOWTO"
 
-#, fuzzy
-msgid "Even though it is relatively old, the NFS HOWTO is full of interesting information, including methods for optimizing performance. It also describes a way to secure NFS transfers with an SSH tunnel; however, that technique precludes the use of <command>lockd</command>. <ulink type=\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
-msgstr "L'NFS HOWTO è pieno di informazioni interessanti, inclusi i metodi per ottimizzare le prestazioni. Descrive anche un metodo per rendere sicuri i trasferimenti NFS con l'impiego di un tunnel SSH anche se questa tecnica preclude l'utilizzo di <command>lockd</command>. <ulink type=\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
+msgid "Good documentation to deploy NFSv4 is rather scarce. Here are some pointers with content of varying quality but that should at least give some hints on what should be done. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
+msgstr ""
 
 msgid "Securing NFS"
 msgstr "Mettere in sicurezza NFS"
@@ -1585,7 +1607,9 @@ msgstr "Mettere in sicurezza NFS"
 msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
 
-msgid "Since NFS trusts the information it receives from the network, it is vital to ensure that only the machines allowed to use it can connect to the various required RPC servers. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
+#, fuzzy
+#| msgid "Since NFS trusts the information it receives from the network, it is vital to ensure that only the machines allowed to use it can connect to the various required RPC servers. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
+msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
 msgstr "Poiché NFS considera affidabili le informazioni che riceve dalla rete è vitale assicurarsi che solo le macchine autorizzate al suo utilizzo possano connettersi ai vari server RPC richiesti. Il firewall deve inoltre bloccare l'<emphasis>IP spoofing</emphasis>, per prevenire che macchine esterne possano agire come una interna, e limitare l'accesso alle porte appropriate alle solo macchine che devono accedere alle condivisioni NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
@@ -1603,106 +1627,11 @@ msgstr "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
 msgid "RPC services register to a directory known as the <emphasis>portmapper</emphasis>. A client wishing to perform an NFS query first addresses the <emphasis>portmapper</emphasis> (on port 111, either TCP or UDP), and asks for the NFS server; the reply usually mentions port 2049 (the default for NFS). Not all RPC services necessarily use a fixed port."
 msgstr "I servizi RPC si registrano in una directory conosciuta con il nome di <emphasis>portmapper</emphasis>. Un client che desidera eseguire una richiesta NFS contatta prima di tutto il <emphasis>portmapper</emphasis> (sulla porta 111, TCP o UDP) e chiede del server NFS: la risposta generalmente menziona la porta 2049 (quella predefinita per NFS). Non tutti i servizi RPC necessariamente usano una porta fissa."
 
-msgid "Other RPC services may be required for NFS to work optimally, including <command>rpc.mountd</command>, <command>rpc.statd</command> and <command>lockd</command>. However, these services use a random port (assigned by the <emphasis>portmapper</emphasis>) by default, which makes it difficult to filter traffic targeting these services. The Falcot Corp administrators found a work-around for this problem, described below."
-msgstr "Affinché NFS funzioni in modo ottimale possono essere richiesti altri servizi RPC, tra questi: <command>rpc.mountd</command>, <command>rpc.statd</command> e <command>lockd</command>. Questi servizi usano in maniera predefinita una porta casuale (assegnata dal <emphasis>portmapper</emphasis>): questo rende difficoltoso filtrare il traffico indirizzato a questi servizi. Gli amministratori della Falcot Corporation hanno trovato una soluzione a questo problema, di seguito descritta."
-
-msgid "<primary><command>rpc.mountd</command></primary>"
-msgstr "<primary><command>rpc.mountd</command></primary>"
-
-msgid "<primary><command>rpc.statd</command></primary>"
-msgstr "<primary><command>rpc.statd</command></primary>"
-
-msgid "<primary><command>lockd</command></primary>"
-msgstr "<primary><command>lockd</command></primary>"
+msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
+msgstr ""
 
 msgid "<primary><command>portmapper</command></primary>"
 msgstr "<primary><command>portmapper</command></primary>"
-
-msgid "The first two services mentioned above are implemented by user-space programs, started respectively by <filename>/etc/init.d/nfs-kernel-server</filename> and <filename>/etc/init.d/nfs-common</filename>. They provide configuration options to force ports; the relevant files to modify to always use these options are <filename>/etc/default/nfs-kernel-server</filename> and <filename>/etc/default/nfs-common</filename>."
-msgstr "I primi due servizi sopra menzionati sono implementati attraverso programmi in spazio utente avviati rispettivamente con <filename>/etc/init.d/nfs-kernel-server</filename> e <filename>/etc/init.d/nfs-common</filename>. Forniscono opzioni di configurazione per forzare le porte: i file importanti da modificare per utilizzare sempre queste opzioni sono <filename>/etc/default/nfs-kernel-server</filename> e <filename>/etc/default/nfs-common</filename>."
-
-msgid "<primary><emphasis>nfs-kernel-server</emphasis></primary>"
-msgstr "<primary><emphasis>nfs-kernel-server</emphasis></primary>"
-
-msgid "<primary><filename>/etc/default/nfs-kernel-server</filename></primary>"
-msgstr "<primary><filename>/etc/default/nfs-kernel-server</filename></primary>"
-
-msgid "<primary><filename>nfs-common</filename></primary>"
-msgstr "<primary><filename>nfs-common</filename></primary>"
-
-msgid "<primary><filename>/etc/default/nfs-common</filename></primary>"
-msgstr "<primary><filename>/etc/default/nfs-common</filename></primary>"
-
-msgid "The <filename>/etc/default/nfs-kernel-server</filename> file"
-msgstr "Il file <filename>/etc/default/nfs-kernel-server</filename>"
-
-msgid ""
-"\n"
-"# Number of servers to start up\n"
-"RPCNFSDCOUNT=8\n"
-"\n"
-"# Runtime priority of server (see nice(1))\n"
-"RPCNFSDPRIORITY=0\n"
-"\n"
-"# Options for rpc.mountd.\n"
-"# If you have a port-based firewall, you might want to set up\n"
-"# a fixed port here using the --port option. For more information, \n"
-"# see rpc.mountd(8) or http://wiki.debian.org/SecuringNFS\n"
-"# To disable NFSv4 on the server, specify '--no-nfs-version 4' here\n"
-"RPCMOUNTDOPTS=\"--manage-gids --port 2048\"\n"
-"\n"
-"# Do you want to start the svcgssd daemon? It is only required for Kerberos\n"
-"# exports. Valid alternatives are \"yes\" and \"no\"; the default is \"no\".\n"
-"NEED_SVCGSSD=\n"
-"\n"
-"# Options for rpc.svcgssd.\n"
-"RPCSVCGSSDOPTS="
-msgstr ""
-
-msgid "The <filename>/etc/default/nfs-common</filename> file"
-msgstr "Il file <filename>/etc/default/nfs-common</filename>"
-
-msgid ""
-"\n"
-"# If you do not set values for the NEED_ options, they will be attempted\n"
-"# autodetected; this should be sufficient for most people. Valid alternatives\n"
-"# for the NEED_ options are \"yes\" and \"no\".\n"
-"\n"
-"# Do you want to start the statd daemon? It is not needed for NFSv4.\n"
-"NEED_STATD=\n"
-"\n"
-"# Options for rpc.statd.\n"
-"#   Should rpc.statd listen on a specific port? This is especially useful\n"
-"#   when you have a port-based firewall. To use a fixed port, set this\n"
-"#   this variable to a statd argument like: \"--port 4000 --outgoing-port 4001\".\n"
-"#   For more information, see rpc.statd(8) or http://wiki.debian.org/SecuringNFS\n"
-"STATDOPTS=\"--port 2046 --outgoing-port 2047\"\n"
-"\n"
-"# Do you want to start the idmapd daemon? It is only needed for NFSv4.\n"
-"NEED_IDMAPD=\n"
-"\n"
-"# Do you want to start the gssd daemon? It is required for Kerberos mounts.\n"
-"NEED_GSSD="
-msgstr ""
-
-msgid "Once these changes are made and the services are restarted, <command>rpc.mountd</command> uses port 2048; <command>rpc.statd</command> listens on port 2046 and uses port 2047 for outgoing connections."
-msgstr "Applicate queste modifiche e riavviati i servizi, <command>rpc.mountd</command> utilizzerà la porta 2048 mentre <command>rpc.statd</command> si porrà in ascolto sulla porta 2046 ed utilizzerà la porta 2047 per le connessioni in uscita."
-
-msgid "The <command>lockd</command> service is handled by a kernel <emphasis>thread</emphasis> (lightweight process); this feature is built as a module on Debian kernels. The module has two options allowing to always choose the same port, <literal>nlm_udpport</literal> and <literal>nlm_tcpport</literal>. In order for these options to be systematically used, there needs to be a <filename>/etc/modprobe.d/lockd</filename> file such as the following:"
-msgstr "Il servizio <command>lockd</command> è gestito da un <emphasis>thread</emphasis> del kernel (processo leggero): questa funzionalità è compilata come modulo nei kernel Debian. Il modulo ha due opzioni che permettono di scegliere sempre la stessa porta: <literal>nlm_udpport</literal> e <literal>nlm_tcpport</literal>. Per far sì che queste opzioni siano usate sistematicamente dev'esserci un file <filename>/etc/modprobe.d/lockd</filename> simile a quello che segue:"
-
-msgid "The <filename>/etc/modprobe.d/lockd</filename> file"
-msgstr "Il file <filename>/etc/modprobe.d/lockd</filename>"
-
-msgid ""
-"\n"
-"options lockd nlm_udpport=2045 nlm_tcpport=2045"
-msgstr ""
-"\n"
-"options lockd nlm_udpport=2045 nlm_tcpport=2045\n"
-
-msgid "Once these parameters are set, it becomes easier to control access to the NFS service from the firewall in a fine-grained way by filtering access to ports 111 and 2045 through 2049 (both UDP and TCP)."
-msgstr "Impostati questi parametri, diviene semplice controllare l'accesso al servizio NFS dal firewall in maniera precisa e particolareggiata filtrando l'accesso alle porte 111 e 2045 attraverso la 2049 (sia UDP che TCP)."
 
 msgid "NFS Server"
 msgstr "Server NFS"
@@ -1726,6 +1655,9 @@ msgstr ""
 "\n"
 "/directory/da/condividere macchina1(opzione1,opzione2,...) macchina2(...) ...\n"
 
+msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identifid with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
+msgstr ""
+
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr "Ogni macchina può essere identificata sia dal suo nome DNS che dal suo IP. È anche possibile specificare un intero insieme di macchine utilizzando una sintassi come <literal>*.falcot.com</literal> o un intervallo di indirizzi IP come <literal>192.168.0.0/255.255.255.0</literal> o <literal>192.168.0.0/24</literal>."
 
@@ -1743,6 +1675,9 @@ msgstr "In via predefinita il server risponde ad una richiesta NFS unicamente qu
 #, fuzzy
 msgid "In order to not give root access to the filesystem to any NFS client, all queries appearing to come from a root user are considered by the server as coming from the <literal>nobody</literal> user. This behavior corresponds to the <literal>root_squash</literal> option, and is enabled by default. The <literal>no_root_squash</literal> option, which disables this behavior, is risky and should only be used in controlled environments. The <literal>anonuid=<replaceable>uid</replaceable></literal> and <literal>anongid=<replaceable>gid</replaceable></literal> options allow specifying another fake user to be used instead of UID/GID 65534 (which corresponds to user <literal>nobody</literal> and group <literal>nogroup</literal>)."
 msgstr "Per non fornire a qualsiasi client NFS l'accesso root al file system tutte le richieste provenienti da un utente root sono considerate dal server come provenienti dall'utente <literal>anonymous</literal>. Questo comportamento corrisponde all'opzione <literal>root_squash</literal> ed è abilitato in via predefinita. L'opzione <literal>no_root_squash</literal> che disabilita questo comportamento è rischiosa e dovrebbe essere usata solo in ambienti controllati. Le opzioni <literal>anonuid=<replaceable>uid</replaceable></literal> e <literal>anongid=<replaceable>gid</replaceable></literal> permettono di specificare un altro falso utente da utilizzare al posto di <literal>anonymous</literal>."
+
+msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
+msgstr ""
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
 msgstr "Sono disponibili altre opzioni: sono documentate nella pagina di manuale <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
@@ -1782,7 +1717,7 @@ msgstr "Montare manualmente con il comando <command>mount</command>"
 #, fuzzy
 msgid ""
 "\n"
-"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
+"          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 msgstr ""
 "\n"
 "<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.interne.falcot.com:/srv/shared /shared</userinput>"
@@ -1793,13 +1728,13 @@ msgstr "Condivisione NFS nel file <filename>/etc/fstab</filename>"
 #, fuzzy
 msgid ""
 "\n"
-"arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
+"arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 msgstr ""
 "\n"
 "arrakis.interne.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0\n"
 
 #, fuzzy
-msgid "The entry described above mounts, at system startup, the <filename>/srv/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share."
+msgid "The entry described above mounts, at system startup, the <filename>/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/srv/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share. Note that on the server, the <filename>shared</filename> directory is below the NFSv4 root export (for example <filename>/export/shared</filename>), it is not a top-level directory."
 msgstr "La riga descritta in precedenza monta, all'avvio del sistema, la directory NFS <filename>/srv/shared/</filename> dal server <literal>arrakis</literal> nella directory locale <filename>/shared/</filename>. L'accesso in lettura-scrittura è richiesto (da qui il parametro <literal>rw</literal>). L'opzione <literal>nosuid</literal> è una misura di protezione che rimuove qualsiasi bit <literal>setuid</literal> o <literal>setgit</literal> dai programmi contenuti nella condivisione. Se la condivisione NFS è pensata unicamente per conservare documenti, un'altra opzione raccomandata è <literal>noexec</literal> che previene l'esecuzione di eventuali programmi conservati nella condivisione."
 
 msgid "The <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the options in some detail."
@@ -1845,7 +1780,9 @@ msgstr "<primary><command>nmbd</command></primary>"
 msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
 msgstr "<emphasis>DOCUMENTAZIONE</emphasis> Andiamo oltre"
 
-msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as main domain controller, but it can also be a simple server on the domain and delegate authentication to the main controller (which could be a Windows server)."
+#, fuzzy
+#| msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as main domain controller, but it can also be a simple server on the domain and delegate authentication to the main controller (which could be a Windows server)."
+msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
 msgstr "Il server Samba è estremamente configurabile e versatile e può assolvere efficacemente a molti casi d'utilizzo e differenti architetture di rete. Questo libro si focalizza sull'utilizzo di Samba come controller di dominio principale, ma può anche essere impiegato come un semplice server sul dominio e delegando l'autenticazione al controller di dominio principale (che può essere un server Windows)."
 
 msgid "<primary>domain controller</primary>"
@@ -1951,95 +1888,6 @@ msgstr "Un utente esistente viene aggiunto al database di Samba con il comando <
 
 msgid "A user can be deleted with the <command>smbpasswd -x <replaceable>user</replaceable></command> command. A Samba account can also be temporarily disabled (with <command>smbpasswd -d <replaceable>user</replaceable></command>) and re-enabled later (with <command>smbpasswd -e <replaceable>user</replaceable></command>)."
 msgstr "Un utente può essere cancellato con il comando <command>smbpasswd -x <replaceable>utente</replaceable></command>. Un account Samba può anche essere disabilitato temporaneamente con <command>smbpasswd -d <replaceable>utente</replaceable></command> ed essere riabilitato in seguito con <command>smbpasswd -e <replaceable>utente</replaceable></command>."
-
-msgid "Switching to Domain Controller"
-msgstr "Passare al controller di dominio"
-
-msgid "This section documents how the Falcot administrators went even further, by turning the Samba server into a domain controller providing roaming profiles (which allow users to find their desktop no matter what machine they connect to)."
-msgstr "Questa sezione documenta come gli amministratori della Falcot sono andati oltre trasformando il server Samba in un controller di dominio che fornisce profili in roaming (cosa che consente agli utenti di trovare il proprio desktop indipendentemente dalla macchina a cui si collegano)."
-
-msgid "<primary>roaming profiles</primary>"
-msgstr "<primary>profili roaming</primary>"
-
-msgid "<primary>profiles, roaming</primary>"
-msgstr "<primary>profili, roaming</primary>"
-
-msgid "They first added a few extra directives in the <literal>[global]</literal> section of the configuration file:"
-msgstr "Inizialmente hanno aggiunto alcune direttive extra nella sezione <literal>[global]</literal> del file di configurazione:"
-
-msgid ""
-"\n"
-"domain logons = yes              <co id=\"smb.conf.domainlogons\"></co>\n"
-"preferred master = yes           \n"
-"logon path = \\\\%L\\profiles\\%U    <co id=\"smb.conf.logonpath\"></co>\n"
-"logon script = scripts/logon.bat <co id=\"smb.conf.logonscript\"></co>"
-msgstr ""
-"\n"
-"domain logons = yes              <co id=\"smb.conf.domainlogons\"></co>\n"
-"preferred master = yes           \n"
-"logon path = \\\\%L\\profiles\\%U    <co id=\"smb.conf.logonpath\"></co>\n"
-"logon script = scripts/logon.bat <co id=\"smb.conf.logonscript\"></co>\n"
-
-msgid "Enables the domain controller functionality."
-msgstr "Abilita la funzionalità controller di dominio"
-
-msgid "Specifies the location of the users' home directories. These are stored on a dedicated share, which allows enabling specific options (in particular, <literal>profile acls</literal>, a requirement for compatibility with Windows 2000, XP and Vista)."
-msgstr "Specifica la posizione delle directory home per gli utenti. Queste sono conservate in una condivisione dedicata, cosa che permette di abilitare opzioni specifiche (in particolare le <literal>acl per il profilo</literal>, un requisito per la compatibilità con Windows 2000, XP e Vista)."
-
-msgid "Specifies the <emphasis>batch</emphasis> (non-interactive) script that is to be run on the client Windows machine every time a session is opened. In this case, <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. The script needs to be in DOS format, where the lines are separated by a carriage-return character and a line-feed character; if the file was created on Linux, running <command>unix2dos</command> will convert it."
-msgstr "Specifica lo script <emphasis>batch</emphasis> (non interattivo) che sarà eseguito sulla macchina Windows client ogniqualvolta viene aperta una sessione. In questo caso <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. Lo script dev'essere in formato DOS dove le linee sono separate da un carattere di ritorno carrello e da un carattere per l'avanzamento di riga. Se il file è stato creato con Linux eseguire <command>unix2dos</command> lo convertirà."
-
-msgid "The commands used most widely in these scripts allow the automatic creation of network drives and synchronizing the system time."
-msgstr "I comandi utilizzati più comunemente in questi script permettono la creazione automatica dei dischi di rete e la sincronizzazione di data ed ora sul sistema."
-
-msgid "The <filename>logon.bat</filename> file"
-msgstr "Il file <filename>logon.bat</filename>"
-
-msgid ""
-"\n"
-"net time \\\\ARRAKIS /set /yes\n"
-"net use H: /home\n"
-"net use U: \\\\ARRAKIS\\utils"
-msgstr ""
-"\n"
-"net time \\\\ARRAKIS /set /yes\n"
-"net use H: /home\n"
-"net use U: \\\\ARRAKIS\\utils\n"
-
-msgid "Two extra shares, and their associated directories, were also created:"
-msgstr "Vengono inoltre create due condivisioni aggiuntive, e le relative directory associate:"
-
-msgid ""
-"\n"
-"[netlogon]\n"
-"comment = Network Logon Service\n"
-"path = /var/lib/samba/netlogon\n"
-"guest ok = yes\n"
-"writable = no\n"
-"share modes = no\n"
-"\n"
-"[profiles]\n"
-"comment = Profile Share\n"
-"path = /var/lib/samba/profiles\n"
-"read only = No\n"
-"profile acls = Yes"
-msgstr ""
-"\n"
-"[netlogon]\n"
-"comment = Network Logon Service\n"
-"path = /var/lib/samba/netlogon\n"
-"guest ok = yes\n"
-"writable = no\n"
-"share modes = no\n"
-"\n"
-"[profiles]\n"
-"comment = Profile Share\n"
-"path = /var/lib/samba/profiles\n"
-"read only = No\n"
-"profile acls = Yes\n"
-
-msgid "The home directories for all users must also be created (as <filename>/var/lib/samba/profiles/<replaceable>user</replaceable></filename>), and each of them must be owned by the matching user."
-msgstr "Devono anche essere create le directory home per tutti gli utenti (come <filename>/var/lib/samba/profiles/<replaceable>utente</replaceable></filename>) ed ognuna dev'essere di proprietà dell'utente corrispondente."
 
 msgid "Samba Client"
 msgstr "Client Samba"
@@ -2717,17 +2565,27 @@ msgstr "Questo comando crea un certificato nel file <filename>newcert.pem</filen
 msgid "Now these keys have to be installed in their standard location, and we must make sure that the private file is readable by the LDAP server which runs under the <literal>openldap</literal> user identity:"
 msgstr ""
 
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
+#| "<computeroutput># </computeroutput><userinput>chmod 0600 /etc/ssl/private/ldap-key.pem</userinput>\n"
+#| "<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
 msgid ""
-"\n"
-"# <userinput>adduser openldap ssl-cert</userinput>\n"
-"Adding user `openldap' to group `ssl-cert' ...\n"
+"<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
+"</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
 "Adding user openldap to group ssl-cert\n"
 "Done.\n"
-"# <userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key</userinput>\n"
-"# <userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem</userinput>"
+"# </computeroutput><userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
+"</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
+"<computeroutput># </computeroutput><userinput>chmod 0600 /etc/ssl/private/ldap-key.pem</userinput>\n"
+"<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
 msgstr ""
@@ -2736,8 +2594,7 @@ msgid "Configuring <command>slapd</command> for encryption"
 msgstr "Configurare <command>slapd</command> per la cifratura"
 
 msgid ""
-"\n"
-"# <userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
+"<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
 "dn: cn=config\n"
 "changetype: modify\n"
 "add: olcTLSCertificateFile\n"
@@ -2746,12 +2603,13 @@ msgid ""
 "add: olcTLSCertificateKeyFile\n"
 "olcTLSCertificateKeyFile: /etc/ssl/private/ldap.falcot.com.key\n"
 "-\n"
-"END</userinput>\n"
-"# <userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif</userinput>\n"
-"SASL/EXTERNAL authentication started\n"
+"END\n"
+"</userinput><computeroutput># </computeroutput><userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif\n"
+"</userinput><computeroutput>SASL/EXTERNAL authentication started\n"
 "SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth\n"
 "SASL SSF: 0\n"
-"modifying entry \"cn=config\""
+"modifying entry \"cn=config\"\n"
+"</computeroutput>"
 msgstr ""
 
 #, fuzzy
@@ -2768,10 +2626,16 @@ msgstr ""
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr ""
 
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
 msgid ""
-"\n"
-"# <userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config</userinput>"
+"<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
+"</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
 msgstr "L'ultimo passo per abilitare la cifratura richiede la modifica della variabile <varname>SLAPD_SERVICES</varname> nel file <filename>/etc/default/slapd</filename>. Inoltre, per essere prudenti, si renderà necessario disabilitare l'LDAP non sicuro."
@@ -2839,14 +2703,14 @@ msgid "LDAP clients also need to be able to authenticate the server. In a X.509 
 msgstr ""
 
 msgid ""
-"\n"
-"# <userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt</userinput>\n"
-"# <userinput>update-ca-certificates</userinput>\n"
-"Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
+"<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
+"</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
+"</userinput><computeroutput>Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
 "Running hooks in /etc/ca-certificates/update.d....\n"
 "Adding debian:falcot.pem\n"
 "done.\n"
-"done."
+"done.\n"
+"</computeroutput>"
 msgstr ""
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
@@ -2892,6 +2756,620 @@ msgstr ""
 
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
 msgstr "Questo capitolo ha unicamente dato dimostrazione di una piccola parte dei software disponibili per i sistemi server: tuttavia molti dei servizi di rete comuni sono stati descritti. Ora è tempo di passare ad un capitolo ancora più tecnico: scenderemo ancor più in profondità su alcuni concetti, descrivendo implementazioni massive e virtualizzazione."
+
+msgid "Real-Time Communication Services"
+msgstr ""
+
+msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>HTTP</primary><secondary>server</secondary>"
+msgid "<primary>VoIP</primary><secondary>server</secondary>"
+msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+
+#, fuzzy
+#| msgid "<primary>HTTP</primary><secondary>server</secondary>"
+msgid "<primary>RTC</primary><secondary>server</secondary>"
+msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+
+#, fuzzy
+msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
+msgstr "<primary>file</primary><secondary>server</secondary>"
+
+#, fuzzy
+#| msgid "<primary>MX</primary><secondary>server</secondary>"
+msgid "<primary>Chat</primary><secondary>server</secondary>"
+msgstr "<primary>MX</primary><secondary>server</secondary>"
+
+msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>SMTP</primary>"
+msgid "<primary>SIP</primary>"
+msgstr "<primary>SMTP</primary>"
+
+#, fuzzy
+#| msgid "<primary>SMTP</primary>"
+msgid "<primary>XMPP</primary>"
+msgstr "<primary>SMTP</primary>"
+
+msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
+msgstr ""
+
+msgid "DNS settings for RTC services"
+msgstr ""
+
+msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>security</secondary>"
+msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
+msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>security</secondary>"
+msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
+msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
+
+msgid ""
+"\n"
+"; the server where everything will run\n"
+"server1            IN     A      198.51.100.19\n"
+"server1            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; some convenient CNAMEs\n"
+"turn-server        IN     CNAME  server1\n"
+"sip-proxy          IN     CNAME  server1\n"
+"xmpp-gw            IN     CNAME  server1\n"
+"\n"
+"; DNS SRV for STUN / TURN\n"
+"_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"\n"
+"; DNS SRV and NAPTR records for SIP\n"
+"_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"SIPS+D2T\" \"\" _sips._tcp.falcot.com.\n"
+"\n"
+"; DNS SRV records for XMPP Server and Client modes:\n"
+"_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
+"_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
+msgstr ""
+
+#, fuzzy
+#| msgid "NFS Server"
+msgid "TURN Server"
+msgstr "Server NFS"
+
+msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>HTTP</primary><secondary>server</secondary>"
+msgid "<primary>TURN</primary><secondary>server</secondary>"
+msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+
+msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>PICS</primary>"
+msgid "<primary>ICE</primary>"
+msgstr "<primary>PICS</primary>"
+
+msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
+msgstr ""
+
+msgid "Install the TURN server"
+msgstr ""
+
+#, fuzzy
+#| msgid "Configuring the <emphasis role=\"pkg\">libnss-ldap</emphasis> package"
+msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> package."
+msgstr "Configurare il pacchetto <emphasis role=\"pkg\">libnss-ldap</emphasis>"
+
+msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
+msgstr ""
+
+msgid ""
+"\n"
+"# your IP addresses go here:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# your domain goes here, it must match the value used\n"
+"# to hash your passwords if they are already hashed\n"
+"# using the HA1 algorithm:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
+msgstr ""
+
+msgid "Restart the service."
+msgstr ""
+
+msgid "Managing the TURN users"
+msgstr ""
+
+msgid "Use the htdigest utility to manage the TURN server user list."
+msgstr ""
+
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
+msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
+msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
+
+msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
+msgstr ""
+
+#, fuzzy
+#| msgid "NFS Server"
+msgid "SIP Proxy Server"
+msgstr "Server NFS"
+
+msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>HTTP</primary><secondary>server</secondary>"
+msgid "<primary>SIP</primary><secondary>server</secondary>"
+msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>options</secondary>"
+msgid "<primary>SIP</primary><secondary>proxy</secondary>"
+msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+
+#, fuzzy
+#| msgid "<primary>server</primary><secondary>MX</secondary>"
+msgid "<primary>SIP</primary><secondary>PBX</secondary>"
+msgstr "<primary>server</primary><secondary>MX</secondary>"
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>options</secondary>"
+msgid "<primary>SIP</primary><secondary>trunk</secondary>"
+msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+
+msgid "It is strongly recommended to install and configure the SIP proxy before attempting a SIP PBX setup. The SIP proxy normalizes a lot of the traffic reaching the PBX and provides greater connectivity and resilience."
+msgstr ""
+
+msgid "Install the SIP proxy"
+msgstr ""
+
+msgid "Install the <emphasis role=\"pkg\">repro</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>key pair</primary>"
+msgid "<primary>repro</primary>"
+msgstr "<primary>coppia di chiavi</primary>"
+
+msgid "Edit the <filename>/etc/repro/repro.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server. The example below demonstrates how to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4 and IPv6:"
+msgstr ""
+
+msgid ""
+"\n"
+"# Transport1 will be for SIP over TLS connections\n"
+"# We use port 5061 here but if you have clients connecting from\n"
+"# locations with firewalls you could change this to listen on port 443\n"
+"Transport1Interface = 198.51.100.19:5061\n"
+"Transport1Type = TLS\n"
+"Transport1TlsDomain = falcot.com\n"
+"Transport1TlsClientVerification = Optional\n"
+"Transport1RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport1TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport1TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport2 is the IPv6 version of Transport1\n"
+"Transport2Interface = 2001:DB8:1000:2000::19:5061\n"
+"Transport2Type = TLS\n"
+"Transport2TlsDomain = falcot.com\n"
+"Transport2TlsClientVerification = Optional\n"
+"Transport2RecordRouteUri = sip:falcot.com;transport=TLS\n"
+"Transport2TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport2TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport3 will be for SIP over WebSocket (WebRTC) connections\n"
+"# We use port 8443 here but you could use 443 instead\n"
+"Transport3Interface = 198.51.100.19:8443\n"
+"Transport3Type = WSS\n"
+"Transport3TlsDomain = falcot.com\n"
+"# This would require the browser to send a certificate, but browsers\n"
+"# don't currently appear to be able to, so leave it as None:\n"
+"Transport3TlsClientVerification = None\n"
+"Transport3RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport3TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport3TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport4 is the IPv6 version of Transport3\n"
+"Transport4Interface = 2001:DB8:1000:2000::19:8443\n"
+"Transport4Type = WSS\n"
+"Transport4TlsDomain = falcot.com\n"
+"Transport4TlsClientVerification = None\n"
+"Transport4RecordRouteUri = sip:falcot.com;transport=WSS\n"
+"Transport4TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
+"Transport4TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
+"\n"
+"# Transport5: this could be for TCP connections to an Asterisk server\n"
+"# in your internal network.  Don't allow port 5060 through the external\n"
+"# firewall.\n"
+"Transport5Interface = 198.51.100.19:5060\n"
+"Transport5Type = TCP\n"
+"Transport5RecordRouteUri = sip:198.51.100.19:5060;transport=TCP\n"
+"\n"
+"HttpBindAddress = 198.51.100.19, 2001:DB8:1000:2000::19\n"
+"HttpAdminUserFile = /etc/repro/users.txt\n"
+"\n"
+"RecordRouteUri = sip:falcot.com;transport=tls\n"
+"ForceRecordRouting = true\n"
+"EnumSuffixes = e164.arpa, sip5060.net, e164.org\n"
+"DisableOutbound = false\n"
+"EnableFlowTokens = true\n"
+"EnableCertificateAuthenticator = True"
+msgstr ""
+
+msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
+msgstr ""
+
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
+msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
+msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
+
+msgid "Restart the service to use the new configuration."
+msgstr ""
+
+msgid "Managing the SIP proxy"
+msgstr ""
+
+msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</literal> to complete the configuration by adding domains, local users and static routes."
+msgstr ""
+
+msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
+msgstr ""
+
+msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
+msgstr ""
+
+#, fuzzy
+#| msgid "Mail Server"
+msgid "XMPP Server"
+msgstr "Mail Server"
+
+msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>MX</primary><secondary>server</secondary>"
+msgid "<primary>XMPP</primary><secondary>server</secondary>"
+msgstr "<primary>MX</primary><secondary>server</secondary>"
+
+#, fuzzy
+#| msgid "<emphasis>SECURITY</emphasis> No security"
+msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
+msgstr "<emphasis>SICUREZZA</emphasis> Nessuna sicurezza"
+
+#, fuzzy
+#| msgid "<primary>spammer</primary>"
+msgid "<primary>Jabber</primary>"
+msgstr "<primary>spammer</primary>"
+
+msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
+msgstr ""
+
+msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>Postfix</primary>"
+msgid "<primary>Prosody</primary>"
+msgstr "<primary>Postfix</primary>"
+
+msgid "Install the XMPP server"
+msgstr ""
+
+msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
+msgstr ""
+
+msgid "Review the <filename>/etc/prosody/prosody.cfg.lua</filename> configuration file. The most important thing to do is insert JIDs of the users who are permitted to manage the server."
+msgstr ""
+
+msgid ""
+"\n"
+"admins = { \"joe@falcot.com\" }"
+msgstr ""
+
+msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
+msgstr ""
+
+msgid ""
+"\n"
+"VirtualHost \"falcot.com\"\n"
+"        enabled = true\n"
+"        ssl = {\n"
+"                key = \"/etc/ssl/private/falcot.com-key.pem\";\n"
+"                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
+"                }"
+msgstr ""
+
+msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
+msgstr ""
+
+#, fuzzy
+msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
+msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.interne.falcot.com:/srv/shared /shared</userinput>"
+
+#, fuzzy
+#| msgid "Configuring the Server"
+msgid "Managing the XMPP server"
+msgstr "Configurare il server"
+
+msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
+msgstr ""
+
+msgid ""
+"\n"
+"# prosodyctl adduser joe@falcot.com"
+msgstr ""
+
+msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
+msgstr ""
+
+msgid "Running services on port 443"
+msgstr ""
+
+msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
+msgstr ""
+
+msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
+msgstr ""
+
+#, fuzzy
+#| msgid "Adding Users"
+msgid "Adding WebRTC"
+msgstr "Aggiungere utenti"
+
+msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>RPC</primary>"
+msgid "<primary>WebRTC</primary>"
+msgstr "<primary>RPC</primary>"
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>client</secondary>"
+msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
+msgstr "<primary>NFS</primary><secondary>client</secondary>"
+
+#, fuzzy
+#| msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
+msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
+msgstr "<emphasis>IN PRATICA</emphasis> Verificare l'antivirus"
+
+#, fuzzy
+#| msgid "<primary>NFS</primary><secondary>options</secondary>"
+msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
+msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+
+msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
+msgstr ""
+
+msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
+msgstr ""
+
+msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>Samba</primary>"
+msgid "<primary>JSCommunicator</primary>"
+msgstr "<primary>Samba</primary>"
+
+msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
+msgstr ""
+
+msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
+msgstr ""
+
+msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
+msgstr ""
+
+msgid ""
+"\n"
+"JSCommSettings = {\n"
+"\n"
+"  // Web server environment\n"
+"  webserver: {\n"
+"    url_prefix: null            // If set, prefix used to construct sound/ URLs\n"
+"  },\n"
+"\n"
+"  // STUN/TURN media relays\n"
+"  stun_servers: [],\n"
+"  turn_servers: [\n"
+"    { server:\"turn:turn-server.falcot.com?transport=udp\", username:\"joe\", password:\"j0Ep455d\" }\n"
+"  ],\n"
+"\n"
+"  // WebSocket connection\n"
+"  websocket: {\n"
+"      // Notice we use the falcot.com domain certificate and port 8443\n"
+"      // This matches the Transport3 and Transport4 example in\n"
+"      // the falcot.com repro.config file\n"
+"    servers: 'wss://falcot.com:8443',\n"
+"    connection_recovery_min_interval: 2,\n"
+"    connection_recovery_max_interval: 30\n"
+"  },\n"
+"\n"
+"  ..."
+msgstr ""
+
+msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
+msgstr ""
+
+#, fuzzy
+#| msgid "<primary>alias</primary>"
+msgid "<primary>DruCall</primary>"
+msgstr "<primary>alias</primary>"
+
+#~ msgid "NFS is a very useful tool, but its shortcomings must be kept in mind especially where security matters are concerned: all data goes over the network in the clear (a <emphasis>sniffer</emphasis> can intercept it); the server enforces access restrictions based on the client's IP address (which can be spoofed); and finally, when a client machine is granted access to a misconfigured NFS share, the client's root user can access all the files on the share (even those belonging to other users) since the server trusts the username it receives from the client (this is a historical limitation of the protocol)."
+#~ msgstr "NFS è uno strumento molto utile ma i suoi limiti devono essere tenuti a mente in maniera particolare quando sono interessati gli aspetti della sicurezza: tutti i dati attraversano la rete in chiaro (uno <emphasis>sniffer</emphasis> li può intercettare); il server impone le restrizioni d'accesso in base all'indirizzo IP del client (che può essere soggetto a spoofing); inoltre, quando ad una macchina client è garantito l'accesso ad una condivisione NFS mal configurata, l'utente root del client può ottenere accesso a tutti i file sulla condivisione (anche se questi appartengono ad altri utenti) perché il server considera affidabile il nome utente che riceve dal client (questa è una limitazione storica del protocollo)."
+
+#, fuzzy
+#~ msgid "Even though it is relatively old, the NFS HOWTO is full of interesting information, including methods for optimizing performance. It also describes a way to secure NFS transfers with an SSH tunnel; however, that technique precludes the use of <command>lockd</command>. <ulink type=\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
+#~ msgstr "L'NFS HOWTO è pieno di informazioni interessanti, inclusi i metodi per ottimizzare le prestazioni. Descrive anche un metodo per rendere sicuri i trasferimenti NFS con l'impiego di un tunnel SSH anche se questa tecnica preclude l'utilizzo di <command>lockd</command>. <ulink type=\"block\" url=\"http://nfs.sourceforge.net/nfs-howto/\" />"
+
+#~ msgid "Other RPC services may be required for NFS to work optimally, including <command>rpc.mountd</command>, <command>rpc.statd</command> and <command>lockd</command>. However, these services use a random port (assigned by the <emphasis>portmapper</emphasis>) by default, which makes it difficult to filter traffic targeting these services. The Falcot Corp administrators found a work-around for this problem, described below."
+#~ msgstr "Affinché NFS funzioni in modo ottimale possono essere richiesti altri servizi RPC, tra questi: <command>rpc.mountd</command>, <command>rpc.statd</command> e <command>lockd</command>. Questi servizi usano in maniera predefinita una porta casuale (assegnata dal <emphasis>portmapper</emphasis>): questo rende difficoltoso filtrare il traffico indirizzato a questi servizi. Gli amministratori della Falcot Corporation hanno trovato una soluzione a questo problema, di seguito descritta."
+
+#~ msgid "<primary><command>rpc.mountd</command></primary>"
+#~ msgstr "<primary><command>rpc.mountd</command></primary>"
+
+#~ msgid "<primary><command>rpc.statd</command></primary>"
+#~ msgstr "<primary><command>rpc.statd</command></primary>"
+
+#~ msgid "<primary><command>lockd</command></primary>"
+#~ msgstr "<primary><command>lockd</command></primary>"
+
+#~ msgid "The first two services mentioned above are implemented by user-space programs, started respectively by <filename>/etc/init.d/nfs-kernel-server</filename> and <filename>/etc/init.d/nfs-common</filename>. They provide configuration options to force ports; the relevant files to modify to always use these options are <filename>/etc/default/nfs-kernel-server</filename> and <filename>/etc/default/nfs-common</filename>."
+#~ msgstr "I primi due servizi sopra menzionati sono implementati attraverso programmi in spazio utente avviati rispettivamente con <filename>/etc/init.d/nfs-kernel-server</filename> e <filename>/etc/init.d/nfs-common</filename>. Forniscono opzioni di configurazione per forzare le porte: i file importanti da modificare per utilizzare sempre queste opzioni sono <filename>/etc/default/nfs-kernel-server</filename> e <filename>/etc/default/nfs-common</filename>."
+
+#~ msgid "<primary><emphasis>nfs-kernel-server</emphasis></primary>"
+#~ msgstr "<primary><emphasis>nfs-kernel-server</emphasis></primary>"
+
+#~ msgid "<primary><filename>/etc/default/nfs-kernel-server</filename></primary>"
+#~ msgstr "<primary><filename>/etc/default/nfs-kernel-server</filename></primary>"
+
+#~ msgid "<primary><filename>nfs-common</filename></primary>"
+#~ msgstr "<primary><filename>nfs-common</filename></primary>"
+
+#~ msgid "<primary><filename>/etc/default/nfs-common</filename></primary>"
+#~ msgstr "<primary><filename>/etc/default/nfs-common</filename></primary>"
+
+#~ msgid "The <filename>/etc/default/nfs-kernel-server</filename> file"
+#~ msgstr "Il file <filename>/etc/default/nfs-kernel-server</filename>"
+
+#~ msgid "The <filename>/etc/default/nfs-common</filename> file"
+#~ msgstr "Il file <filename>/etc/default/nfs-common</filename>"
+
+#~ msgid "Once these changes are made and the services are restarted, <command>rpc.mountd</command> uses port 2048; <command>rpc.statd</command> listens on port 2046 and uses port 2047 for outgoing connections."
+#~ msgstr "Applicate queste modifiche e riavviati i servizi, <command>rpc.mountd</command> utilizzerà la porta 2048 mentre <command>rpc.statd</command> si porrà in ascolto sulla porta 2046 ed utilizzerà la porta 2047 per le connessioni in uscita."
+
+#~ msgid "The <command>lockd</command> service is handled by a kernel <emphasis>thread</emphasis> (lightweight process); this feature is built as a module on Debian kernels. The module has two options allowing to always choose the same port, <literal>nlm_udpport</literal> and <literal>nlm_tcpport</literal>. In order for these options to be systematically used, there needs to be a <filename>/etc/modprobe.d/lockd</filename> file such as the following:"
+#~ msgstr "Il servizio <command>lockd</command> è gestito da un <emphasis>thread</emphasis> del kernel (processo leggero): questa funzionalità è compilata come modulo nei kernel Debian. Il modulo ha due opzioni che permettono di scegliere sempre la stessa porta: <literal>nlm_udpport</literal> e <literal>nlm_tcpport</literal>. Per far sì che queste opzioni siano usate sistematicamente dev'esserci un file <filename>/etc/modprobe.d/lockd</filename> simile a quello che segue:"
+
+#~ msgid "The <filename>/etc/modprobe.d/lockd</filename> file"
+#~ msgstr "Il file <filename>/etc/modprobe.d/lockd</filename>"
+
+#~ msgid ""
+#~ "\n"
+#~ "options lockd nlm_udpport=2045 nlm_tcpport=2045"
+#~ msgstr ""
+#~ "\n"
+#~ "options lockd nlm_udpport=2045 nlm_tcpport=2045\n"
+
+#~ msgid "Once these parameters are set, it becomes easier to control access to the NFS service from the firewall in a fine-grained way by filtering access to ports 111 and 2045 through 2049 (both UDP and TCP)."
+#~ msgstr "Impostati questi parametri, diviene semplice controllare l'accesso al servizio NFS dal firewall in maniera precisa e particolareggiata filtrando l'accesso alle porte 111 e 2045 attraverso la 2049 (sia UDP che TCP)."
+
+#~ msgid "Switching to Domain Controller"
+#~ msgstr "Passare al controller di dominio"
+
+#~ msgid "This section documents how the Falcot administrators went even further, by turning the Samba server into a domain controller providing roaming profiles (which allow users to find their desktop no matter what machine they connect to)."
+#~ msgstr "Questa sezione documenta come gli amministratori della Falcot sono andati oltre trasformando il server Samba in un controller di dominio che fornisce profili in roaming (cosa che consente agli utenti di trovare il proprio desktop indipendentemente dalla macchina a cui si collegano)."
+
+#~ msgid "<primary>roaming profiles</primary>"
+#~ msgstr "<primary>profili roaming</primary>"
+
+#~ msgid "<primary>profiles, roaming</primary>"
+#~ msgstr "<primary>profili, roaming</primary>"
+
+#~ msgid "They first added a few extra directives in the <literal>[global]</literal> section of the configuration file:"
+#~ msgstr "Inizialmente hanno aggiunto alcune direttive extra nella sezione <literal>[global]</literal> del file di configurazione:"
+
+#~ msgid ""
+#~ "\n"
+#~ "domain logons = yes              <co id=\"smb.conf.domainlogons\"></co>\n"
+#~ "preferred master = yes           \n"
+#~ "logon path = \\\\%L\\profiles\\%U    <co id=\"smb.conf.logonpath\"></co>\n"
+#~ "logon script = scripts/logon.bat <co id=\"smb.conf.logonscript\"></co>"
+#~ msgstr ""
+#~ "\n"
+#~ "domain logons = yes              <co id=\"smb.conf.domainlogons\"></co>\n"
+#~ "preferred master = yes           \n"
+#~ "logon path = \\\\%L\\profiles\\%U    <co id=\"smb.conf.logonpath\"></co>\n"
+#~ "logon script = scripts/logon.bat <co id=\"smb.conf.logonscript\"></co>\n"
+
+#~ msgid "Enables the domain controller functionality."
+#~ msgstr "Abilita la funzionalità controller di dominio"
+
+#~ msgid "Specifies the location of the users' home directories. These are stored on a dedicated share, which allows enabling specific options (in particular, <literal>profile acls</literal>, a requirement for compatibility with Windows 2000, XP and Vista)."
+#~ msgstr "Specifica la posizione delle directory home per gli utenti. Queste sono conservate in una condivisione dedicata, cosa che permette di abilitare opzioni specifiche (in particolare le <literal>acl per il profilo</literal>, un requisito per la compatibilità con Windows 2000, XP e Vista)."
+
+#~ msgid "Specifies the <emphasis>batch</emphasis> (non-interactive) script that is to be run on the client Windows machine every time a session is opened. In this case, <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. The script needs to be in DOS format, where the lines are separated by a carriage-return character and a line-feed character; if the file was created on Linux, running <command>unix2dos</command> will convert it."
+#~ msgstr "Specifica lo script <emphasis>batch</emphasis> (non interattivo) che sarà eseguito sulla macchina Windows client ogniqualvolta viene aperta una sessione. In questo caso <filename>/var/lib/samba/netlogon/scripts/logon.bat</filename>. Lo script dev'essere in formato DOS dove le linee sono separate da un carattere di ritorno carrello e da un carattere per l'avanzamento di riga. Se il file è stato creato con Linux eseguire <command>unix2dos</command> lo convertirà."
+
+#~ msgid "The commands used most widely in these scripts allow the automatic creation of network drives and synchronizing the system time."
+#~ msgstr "I comandi utilizzati più comunemente in questi script permettono la creazione automatica dei dischi di rete e la sincronizzazione di data ed ora sul sistema."
+
+#~ msgid "The <filename>logon.bat</filename> file"
+#~ msgstr "Il file <filename>logon.bat</filename>"
+
+#~ msgid ""
+#~ "\n"
+#~ "net time \\\\ARRAKIS /set /yes\n"
+#~ "net use H: /home\n"
+#~ "net use U: \\\\ARRAKIS\\utils"
+#~ msgstr ""
+#~ "\n"
+#~ "net time \\\\ARRAKIS /set /yes\n"
+#~ "net use H: /home\n"
+#~ "net use U: \\\\ARRAKIS\\utils\n"
+
+#~ msgid "Two extra shares, and their associated directories, were also created:"
+#~ msgstr "Vengono inoltre create due condivisioni aggiuntive, e le relative directory associate:"
+
+#~ msgid ""
+#~ "\n"
+#~ "[netlogon]\n"
+#~ "comment = Network Logon Service\n"
+#~ "path = /var/lib/samba/netlogon\n"
+#~ "guest ok = yes\n"
+#~ "writable = no\n"
+#~ "share modes = no\n"
+#~ "\n"
+#~ "[profiles]\n"
+#~ "comment = Profile Share\n"
+#~ "path = /var/lib/samba/profiles\n"
+#~ "read only = No\n"
+#~ "profile acls = Yes"
+#~ msgstr ""
+#~ "\n"
+#~ "[netlogon]\n"
+#~ "comment = Network Logon Service\n"
+#~ "path = /var/lib/samba/netlogon\n"
+#~ "guest ok = yes\n"
+#~ "writable = no\n"
+#~ "share modes = no\n"
+#~ "\n"
+#~ "[profiles]\n"
+#~ "comment = Profile Share\n"
+#~ "path = /var/lib/samba/profiles\n"
+#~ "read only = No\n"
+#~ "profile acls = Yes\n"
+
+#~ msgid "The home directories for all users must also be created (as <filename>/var/lib/samba/profiles/<replaceable>user</replaceable></filename>), and each of them must be owned by the matching user."
+#~ msgstr "Devono anche essere create le directory home per tutti gli utenti (come <filename>/var/lib/samba/profiles/<replaceable>utente</replaceable></filename>) ed ognuna dev'essere di proprietà dell'utente corrispondente."
 
 #~ msgid "By default, installing the <emphasis role=\"pkg\">apache2</emphasis> package causes the <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> version of Apache to be installed too. The <emphasis role=\"pkg\">apache2</emphasis> package is an empty shell, and it only serves to ensure that one of the Apache versions is actually installed."
 #~ msgstr "In via predefinita installare il pacchetto <emphasis role=\"pkg\">apache2</emphasis> causa l'installazione della versione <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> di Apache. Il pacchetto <emphasis role=\"pkg\">apache2</emphasis> è un guscio vuoto, serve unicamente ad assicurare che una delle versioni di Apache sia installata."
@@ -3063,12 +3541,6 @@ msgstr "Questo capitolo ha unicamente dato dimostrazione di una piccola parte de
 #, fuzzy
 #~ msgid "<primary>mail</primary><secondary>electronc</secondary>"
 #~ msgstr "<primary>posta</primary><secondary>elettronica</secondary>"
-
-#~ msgid "<primary>alias</primary>"
-#~ msgstr "<primary>alias</primary>"
-
-#~ msgid "<primary>spammer</primary>"
-#~ msgstr "<primary>spammer</primary>"
 
 #~ msgid ""
 #~ "\n"
@@ -3253,17 +3725,6 @@ msgstr "Questo capitolo ha unicamente dato dimostrazione di una piccola parte de
 
 #~ msgid "Now these keys have to be installed in their standard location:"
 #~ msgstr "Ora queste chiavi devono essere installate nella posizione standard:"
-
-#~ msgid ""
-#~ "\n"
-#~ "<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
-#~ "<computeroutput># </computeroutput><userinput>chmod 0600 /etc/ssl/private/ldap-key.pem</userinput>\n"
-#~ "<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
-#~ "<computeroutput># </computeroutput><userinput>chmod 0600 /etc/ssl/private/ldap-key.pem</userinput>\n"
-#~ "<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
 
 #~ msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption; this involves adding the following directives to the <filename>/etc/ldap/slapd.conf</filename> file:"
 #~ msgstr "Il demone <command>slapd</command> dev'essere avvertito di utilizzare queste chiavi di cifratura. Ciò richiede l'aggiunta delle seguenti direttive al file <filename>/etc/ldap/slapd.conf</filename>:"
