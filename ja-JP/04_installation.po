@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-12 09:00+0900\n"
-"PO-Revision-Date: 2015-10-12 09:00+0900\n"
+"POT-Creation-Date: 2015-10-20 09:00+0900\n"
+"PO-Revision-Date: 2015-10-20 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -161,7 +161,7 @@ msgid "This installation method works in two steps. First, while booting the com
 msgstr "ネットワークブート経由のインストール方法は 2 段階で行われます。最初に、コンピュータ起動中の BIOS (またはネットワークカード) が自動的に IP アドレスを取得するために BOOTP/DHCP 要求を出します。BOOTP または DHCP サーバがこれに応答し、ファイル名とネットワーク設定を返します。ネットワークの設定が終了した後、クライアントコンピュータは先に返されたファイル名のファイルを取得するために TFTP (Trivial File Transfer Protocol) 要求を出します。ファイルの取得が終わったら、ファイルをあたかもブートローダであるかのごとく実行します。ブートローダは Debian インストールプログラムを起動し、インストーラはハードドライブ、CD-ROM、USB メモリから起動したのと同様に実行されます。"
 
 msgid "All the details of this method are available in the installation guide (“Preparing files for TFTP Net Booting” section). <ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch05s01.html#boot-tftp\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch04s05.html\" />"
-msgstr "この方法に関するすべての詳しい情報はインストールガイド (「TFTP ネットブート用ファイルの準備」の節) に書かれています。<ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch05s01.html#boot-tftp\" /> <ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch04s05.html\" />"
+msgstr "この方法に関するすべての詳しい情報はインストールガイド (「TFTP ネットブート用ファイルの準備」の節) に書かれています。<ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch05s01.html#boot-tftp\" /><ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch04s05.html\" />"
 
 msgid "Other Installation Methods"
 msgstr "その他のインストール方法"
@@ -209,7 +209,7 @@ msgid "If the computer is already running Windows, it is not necessary to delete
 msgstr "コンピュータで既に Windows が動いている場合、Debian をインストールするのに Windows システムを削除する必要はありません。両者を別のディスクまたはパーティションにインストールすれば、両方のシステムを同時に備えることが可能で、コンピュータの起動時に起動するシステムを選択することが可能です。この構成は「デュアルブート」と呼ばれており、Debian のインストールシステムは「デュアルブート」構成を設定できます。設定は、インストール中のハードドライブのパーティショニング段階およびブートローダの設定段階で行います (補注<xref linkend=\"sidebar.shrinking-partition\" />および<xref linkend=\"sidebar.bootloader-dual-boot\" />を参照してください)。"
 
 msgid "If you already have a working Windows system, you can even avoid using a CD-ROM; Debian offers a Windows program that will download a light Debian installer and set it up on the hard disk. You then only need to reboot the computer and choose between normal Windows boot or booting the installation program. You can also find it on a dedicated website with a rather explicit name… <ulink type=\"block\" url=\"http://ftp.debian.org/debian/tools/win32-loader/stable/\" /> <ulink type=\"block\" url=\"http://www.goodbye-microsoft.com/\" />"
-msgstr "既に稼働中の Windows システムがある場合、CD-ROM を使わずともインストールできます。このため Debian は軽量の Debian インストーラをダウンロードして、ハードディスクに Debian をセットアップするための Windows プログラムを提供しています。コンピュータを再起動し、Windows を通常起動するかインストールプログラムを起動するかを選択るだけです。また、プログラムは露骨な名前の専用ウェブサイトで配布されています… <ulink type=\"block\" url=\"http://ftp.debian.org/debian/tools/win32-loader/stable/\" /> <ulink type=\"block\" url=\"http://www.goodbye-microsoft.com/\" />"
+msgstr "既に稼働中の Windows システムがある場合、CD-ROM を使わずともインストールできます。このため Debian は軽量の Debian インストーラをダウンロードして、ハードディスクに Debian をセットアップするための Windows プログラムを提供しています。コンピュータを再起動し、Windows を通常起動するかインストールプログラムを起動するかを選択るだけです。また、プログラムは露骨な名前の専用ウェブサイトで配布されています…<ulink type=\"block\" url=\"http://ftp.debian.org/debian/tools/win32-loader/stable/\" /><ulink type=\"block\" url=\"http://www.goodbye-microsoft.com/\" />"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Bootloader"
 msgstr "<emphasis>BACK TO BASICS</emphasis> ブートローダ"
@@ -635,7 +635,7 @@ msgid "The Debian installer will warn the user if they try to make an encrypted 
 msgstr "Debian インストーラはスワップパーティションが暗号化されていないにも関わらず暗号化されたパーティションを作ろうとしたらユーザに警告します。"
 
 msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar <xref linkend=\"sidebar.encrypted-swap-partition\" />)."
-msgstr "暗号化されたパーティションを作成するには、最初にあるパーティションを暗号化用に割り当てなければいけません。割り当てを行うには、パーティションを選択し「暗号化用の物理パーティション」として使うように設定してください。物理ボリュームを含むディスクのパーティショニングの後、「暗号化ボリュームを設定」を選んでください。ソフトウェアは (真のデータの位置をより分かりにくくするために) 物理ボリュームをでたらめなデータで初期化することを提案し、「暗号化パスフレーズ」の入力を要求します。暗号化されたパーティションの内容にアクセスする場合、パスフレーズはコンピュータの起動時に毎回入力しなければいけません。この段階が完了しパーティショニングツールメニューまで戻ったら、新しいパーティションを「暗号化ボリューム」で利用できるはずです、これは他のパーティションと同様に設定できます。多くの場合、複数のパーティション (LVM 論理ボリューム) をスワップパーティションも含めて同じ暗号化鍵で保護するために暗号化されたパーティションは LVM の物理ボリュームとして利用されます (補注<xref linkend=\"sidebar.encrypted-swap-partition\" />を参照してください) 。"
+msgstr "暗号化されたパーティションを作成するには、最初にあるパーティションを暗号化用に割り当てなければいけません。割り当てを行うには、パーティションを選択し「暗号化用の物理パーティション」として使うように設定してください。物理ボリュームを含むディスクのパーティショニングの後、「暗号化ボリュームを設定」を選んでください。ソフトウェアは (真のデータの位置をより分かりにくくするために) 物理ボリュームをでたらめなデータで初期化することを提案し、「暗号化パスフレーズ」の入力を要求します。暗号化されたパーティションの内容にアクセスする場合、パスフレーズはコンピュータの起動時に毎回入力しなければいけません。この段階が完了しパーティショニングツールメニューまで戻ったら、新しいパーティションを「暗号化ボリューム」で利用できるはずです、これは他のパーティションと同様に設定できます。多くの場合、複数のパーティション (LVM 論理ボリューム) をスワップパーティションも含めて同じ暗号化鍵で保護するために暗号化されたパーティションは LVM の物理ボリュームとして利用されます (補注<xref linkend=\"sidebar.encrypted-swap-partition\" />を参照してください)。"
 
 msgid "Installing the Base System"
 msgstr "ベースシステムのインストール"
@@ -713,7 +713,7 @@ msgid "Selecting Packages for Installation"
 msgstr "インストールするパッケージの選択"
 
 msgid "The following step allows you to choose the purpose of the machine in very broad terms; the ten suggested tasks correspond to lists of packages to be installed. The list of the packages that will actually be installed will be fine-tuned and completed later on, but this provides a good starting point in a simple manner."
-msgstr "以降の段階では、マシンの大雑把な用途を選択します。ここで提案されている 10 種類のタスクはインストールされるパッケージのリストに対応しています。後からインストールするパッケージを微調整したり仕上げる必要があるという点は変わりませんが、ここでタスクを選択して必要と思われるパッケージインストールしておくことは後の作業の良い足掛かりとなります。"
+msgstr "以降の段階では、マシンの大ざっぱな用途を選択します。ここで提案されている 10 種類のタスクはインストールされるパッケージのリストに対応しています。後からインストールするパッケージを微調整したり仕上げる必要があるという点は変わりませんが、ここでタスクを選択して必要と思われるパッケージインストールしておくことは後の作業の良い足掛かりとなります。"
 
 msgid "Some packages are also automatically installed according to the hardware detected (thanks to the program <command>discover-pkginstall</command> from the <emphasis role=\"pkg\">discover</emphasis> package). For instance, if a VirtualBox virtual machine is detected, the program will install the <emphasis role=\"pkg\">virtualbox-guest-dkms</emphasis> package, allowing for better integration of the virtual machine with the host system."
 msgstr "一部のパッケージは、検出されたハードウェアに基づき、自動的にインストールされます (<emphasis role=\"pkg\">discover</emphasis> パッケージの <command>discover-pkginstall</command> プログラムがこれを担当します)。たとえば、VirtualBox 仮想マシンが検出されたら、プログラムは <emphasis role=\"pkg\">virtualbox-guest-dkms</emphasis> パッケージをインストールします。このパッケージは仮想マシンをホストシステムとうまく統合するためのものです。"

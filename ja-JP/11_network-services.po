@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-19 15:00+0200\n"
-"PO-Revision-Date: 2015-10-12 09:00+0900\n"
+"POT-Creation-Date: 2015-10-20 09:00+0900\n"
+"PO-Revision-Date: 2015-10-20 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -35,7 +35,7 @@ msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 msgstr "ネットワークサービス、Postfix、Apache、NFS、Samba、Squid、LDAP、SIP、XMPP、TURN"
@@ -44,7 +44,7 @@ msgid "Network services are the programs that users interact with directly in th
 msgstr "ネットワークサービスはユーザが毎日の仕事で直接使用するプログラムです。ネットワークサービスは情報システムの氷山の一角で、この章ではネットワークサービスに注目します。そして、水面下に隠された部分は既に説明したインフラに依存しています。"
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
-msgstr "多くの現代的なネットワークサービスは信頼性と安全性を確保して運用するために暗号化技術を必要としています。特に公開インターネットでは暗号化技術が必要不可欠です。X.509 証明書 (SSL 証明書および TLS 証明書とも呼ばれる場合もあります) は暗号化という目的を果たす際に最もよく使われています。特定のドメインに対する証明書はこの章で詳細するサービス間で共有される場合が多いです。"
+msgstr "多くの現代的なネットワークサービスは信頼性と安全性を確保して運用するために暗号化技術を必要としています。特に公開インターネットでは暗号化技術が必要不可欠です。X.509 証明書 (SSL 証明書および TLS 証明書とも呼ばれる場合もあります) は暗号化という目的を果たす際に最もよく使われています。特定のドメインに対する証明書はこの章で紹介するサービス間で共有される場合が多いです。"
 
 msgid "<primary>TLS</primary>"
 msgstr "<primary>TLS</primary>"
@@ -879,7 +879,7 @@ msgid ""
 msgstr ""
 "\n"
 "<computeroutput># </computeroutput><userinput>saslpasswd2 -u `postconf -h myhostname` -f /var/spool/postfix/etc/sasldb2 -c jean</userinput>\n"
-"<computeroutput>[... type jean's password twice ...]</computeroutput>"
+"<computeroutput>[... jean のパスワードを 2 回入力 ...]</computeroutput>"
 
 msgid "Note that the SASL database was created in Postfix's directory. In order to ensure consistency, we also turn <filename>/etc/sasldb2</filename> into a symbolic link pointing at the database used by Postfix, with the <command>ln -sf /var/spool/postfix/etc/sasldb2 /etc/sasldb2</command> command."
 msgstr "SASL データベースは Postfix ディレクトリの中に作成されなければいけない点に注意してください。整合性を確保するために、<command>ln -sf /var/spool/postfix/etc/sasldb2 /etc/sasldb2</command> コマンドを使って <filename>/etc/sasldb2</filename> を Postfix の使うデータベースを指すシンボリックリンクにします。"
@@ -1507,13 +1507,13 @@ msgid "<primary>server</primary><secondary>file</secondary>"
 msgstr "<primary>サーバ</primary><secondary>ファイル</secondary>"
 
 msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
-msgstr ""
+msgstr "NFS はとても便利なツールです。しかし、歴史的に言えば NFS には数多くの制約があり、NFS プロトコルのバージョン 4 になってほとんどの制約がなくなりました。制約がなくなったことによるマイナス面として、NFS の最新版では認証や暗号化などの基本的なセキュリティ機能を有効化するよう設定するのがさらに難しくなったという点が挙げられます。なぜなら、NFS の最新版ではこれらの機能は Kerberos に依存しているからです。認証や暗号化機能を有効化しない場合、NFS プロトコルを使うのは信用できるローカルネットワークだけに留めるべきです。なぜなら、ネットワークを流れるデータは暗号化されていないですし (<emphasis>スニファ</emphasis>を使えば内容を傍受することが可能です)、アクセス権はクライアントの IP アドレスに基づいて決定されるからです (IP アドレスはなりすまし可能です)。"
 
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 msgstr "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 
 msgid "Good documentation to deploy NFSv4 is rather scarce. Here are some pointers with content of varying quality but that should at least give some hints on what should be done. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
-msgstr ""
+msgstr "NFSv4 を配備する際に参考になる文書はまだ多くありません。以下に挙げた文書の品質はさまざまですが、これらの文書では最低限やるべき内容に関するいくつかのヒントが載せられています。<ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /><ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
 
 msgid "Securing NFS"
 msgstr "安全な NFS"
@@ -1521,10 +1521,8 @@ msgstr "安全な NFS"
 msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>セキュリティ</secondary>"
 
-#, fuzzy
-#| msgid "Since NFS trusts the information it receives from the network, it is vital to ensure that only the machines allowed to use it can connect to the various required RPC servers. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr "NFS はネットワークから受け取った情報を信用するため、NFS の利用を許可されたマシンだけが種々の要求された RPC サーバに接続できるように制限することが不可欠です。ファイアウォールは外部のマシンが内部のマシンのように振る舞うことを避けるために <emphasis>IP なりすまし</emphasis>をブロックし、NFS 共有にアクセスするように意図されたマシンだけが適切なポートにアクセスするように制限しなければいけません。"
+msgstr "Kerberos に基づくセキュリティ機能を使わない場合、NFS の利用を許可されたマシンだけが種々の要求された RPC サーバに接続できるように制限することが不可欠です。なぜなら、NFS の基本的なプロトコルではネットワークから受け取った情報を信頼するからです。ファイアウォールは外部のマシンが内部のマシンのように振る舞うことを避けるために <emphasis>IP なりすまし</emphasis>をブロックし、NFS 共有にアクセスするように意図されたマシンだけが適切なポートにアクセスするように制限しなければいけません。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
 msgstr "<emphasis>BACK TO BASICS</emphasis> RPC"
@@ -1542,7 +1540,7 @@ msgid "RPC services register to a directory known as the <emphasis>portmapper</e
 msgstr "ディレクトリに登録する RPC サービスは <emphasis>portmapper</emphasis> としても知られています。NFS 問い合わせを実行することを望むクライアントは最初に <emphasis>portmapper</emphasis> (ポート 111 番、TCP または UDP) を呼び出し、NFS サーバのポート番号を要求します。そして通常ポート 2049 番 (NFS のデフォルト) が返されます。すべての RPC サービスが必ず固定されたポートで使われる必要があるわけではありません。"
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
-msgstr ""
+msgstr "NFS プロトコルの古いバージョンでは他の RPC サービスが必要で、この RPC サービスは動的に割り当てられたポートを使います。幸いなことに、NFS バージョン 4 ではポート 2049 番 (NFS 用) と 111 番 (portmapper 用) が固定されており、そのため簡単にポートにファイアウォールをかませることが可能です。"
 
 msgid "<primary><command>portmapper</command></primary>"
 msgstr "<primary><command>portmapper</command></primary>"
@@ -1570,7 +1568,7 @@ msgstr ""
 "/directory/to/share machine1(option1,option2,...) machine2(...) ..."
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identifid with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
-msgstr ""
+msgstr "NFSv4 では、すべてのエクスポートされるディレクトリは一つの基準ディレクトリの下位に属さなければいけません。また、その基準ディレクトリは必ずエクスポートされ、オプション <literal>fsid=0</literal> または <literal>fsid=root</literal> で識別されなければいけません。これらの点に注意してください。"
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr "各マシンは DNS 名か IP アドレスのどちらか一方を使って識別されます。マシン群全体を指定するには、<literal>*.falcot.com</literal> などの構文を使うか <literal>192.168.0.0/255.255.255.0</literal> や <literal>192.168.0.0/24</literal> などの IP アドレス範囲を使います。"
@@ -1588,7 +1586,7 @@ msgid "In order to not give root access to the filesystem to any NFS client, all
 msgstr "NFS クライアントがファイルシステムに root 権限でアクセスすることを許可しないために、サーバは root ユーザからのすべての問い合わせを <literal>nobody</literal> ユーザからの問い合わせとして処理します。この挙動は <literal>root_squash</literal> オプションを使った場合の挙動に対応し、このオプションはデフォルトで有効化されています。<literal>no_root_squash</literal> オプションを使うことで、この挙動は無効化されますが、このオプションは危険であり管理された環境の中でのみ使われるべきです。<literal>anonuid=<replaceable>uid</replaceable></literal> と <literal>anongid=<replaceable>gid</replaceable></literal> オプションを使うことで、UID/GID 65534 (これは <literal>nobody</literal> ユーザと <literal>nogroup</literal> グループに対応します) の代わりに使う別の偽ユーザを指定することが可能です。"
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
-msgstr ""
+msgstr "NFSv4 では <literal>sec</literal> オプションを追加してセキュリティレベルを指定することが可能です。ここで <literal>sec=sys</literal> はデフォルトで特別なセキュリティ機能を有効化しません。<literal>sec=krb5</literal> は認証機能だけを有効化します。<literal>sec=krb5i</literal> は認証と整合性保護機能を有効化します。<literal>sec=krb5p</literal> は認証、整合性保護、プライバシー保護機能 (データ暗号化機能を含みます) を有効化します。これらを使うには、Kerberos サービスを動作させる必要があります (Kerberos サービスについては本書で解説されていません)。"
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
 msgstr "他のオプションも利用できます。オプションは <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> マニュアルページで説明されています。"
@@ -1621,35 +1619,25 @@ msgstr "他のファイルシステムと同様、NFS 共有をシステムの�
 msgid "Manually mounting with the <command>mount</command> command"
 msgstr "<command>mount</command> コマンドを用いた手作業によるマウント"
 
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
 msgid ""
 "\n"
 "          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 msgstr ""
 "\n"
-"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.internal.falcot.com:/srv/shared /shared</userinput>"
+"          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 
 msgid "NFS entry in the <filename>/etc/fstab</filename> file"
 msgstr "<filename>/etc/fstab</filename> ファイルの NFS エントリ"
 
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
 msgid ""
 "\n"
 "arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 msgstr ""
 "\n"
-"arrakis.internal.falcot.com:/srv/shared /shared nfs rw,nosuid 0 0"
+"arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 
-#, fuzzy
-#| msgid "The entry described above mounts, at system startup, the <filename>/srv/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share."
 msgid "The entry described above mounts, at system startup, the <filename>/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/srv/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share. Note that on the server, the <filename>shared</filename> directory is below the NFSv4 root export (for example <filename>/export/shared</filename>), it is not a top-level directory."
-msgstr "上の例で示したエントリを使うことで、システム起動時に、<literal>arrakis</literal> サーバの <filename>/srv/shared/</filename> NFS ディレクトリがローカルの <filename>/shared/</filename> ディレクトリにマウントされます。読み書きアクセスを要求しています (このため <literal>rw</literal> パラメータを追加しています)。<literal>nosuid</literal> オプションは一種の保護手段で、共有ディレクトリに保存されているプログラムに設定された <literal>setuid</literal> または <literal>setgid</literal> ビットを無効化します。文書を保存するだけの目的で NFS 共有を使っている場合、<literal>noexec</literal> オプションを追加することを推奨します。これは共有ディレクトリに含まれるプログラムの実行を避けるものです。"
+msgstr "上の例で示したエントリを使うことで、システム起動時に、<literal>arrakis</literal> サーバの <filename>/shared/</filename> NFS ディレクトリがローカルの <filename>/srv/shared/</filename> ディレクトリにマウントされます。読み書きアクセスを要求しています (このため <literal>rw</literal> パラメータを追加しています)。<literal>nosuid</literal> オプションは一種の保護手段で、共有ディレクトリに保存されているプログラムに設定された <literal>setuid</literal> または <literal>setgid</literal> ビットを無効化します。文書を保存するだけの目的で NFS 共有を使っている場合、<literal>noexec</literal> オプションを追加することを推奨します。これは共有ディレクトリに含まれるプログラムの実行を避けるものです。NFS サーバ上では <filename>shared</filename> ディレクトリは NFSv4 ルートエクスポート (たとえば <filename>/export/shared</filename>) の下位に属すディレクトリであり、最上位ディレクトリではありません。この点に注意してください。"
 
 msgid "The <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the options in some detail."
 msgstr "<citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> マニュアルページでは、すべてのオプションをについて詳しく説明されています。"
@@ -1690,10 +1678,8 @@ msgstr "<primary><command>nmbd</command></primary>"
 msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
 msgstr "<emphasis>DOCUMENTATION</emphasis> さらなる情報"
 
-#, fuzzy
-#| msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as main domain controller, but it can also be a simple server on the domain and delegate authentication to the main controller (which could be a Windows server)."
 msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
-msgstr "Samba サーバは非常に細かく設定できますし、多目的に使えます。そして、全く異なる要求やネットワークアーキテクチャに応じて、さまざまな用途に使われます。本書では、Samba を主要なドメインコントローラとして使う用途に注目します。しかし、Samba をあるドメインの単純なサーバとして使ったり、主要なコントローラ (Windows サーバなど) への認証を代理するために使うことも可能です。"
+msgstr "Samba サーバは非常に細かく設定できますし、多目的に使えます。そして、全く異なる要求やネットワークアーキテクチャに応じて、さまざまな用途に使われます。本書では、Samba を独立型サーバとして使う用途に注目します。しかし、Samba を NT4 ドメインコントローラとして使ったり、完全な Active Directory ドメインコントローラとして使ったり、既存のドメイン (Windows サーバによってこれを管理することも可能です) の単なるメンバとして使うことも可能です。"
 
 msgid "<primary>domain controller</primary>"
 msgstr "<primary>ドメインコントローラ</primary>"
@@ -3066,7 +3052,7 @@ msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the 
 msgstr "最初に <emphasis role=\"pkg\">prosody</emphasis> パッケージをインストールします。<emphasis role=\"pkg\">prosody</emphasis> パッケージは <emphasis role=\"distribution\">jessie-backports</emphasis> のパッケージを使うことを強く推奨します。なぜなら、<emphasis role=\"distribution\">jessie-backports</emphasis> のパッケージには接続性能と復元性能を最大化する最新の改良がなされているからです。"
 
 msgid "Review the <filename>/etc/prosody/prosody.cfg.lua</filename> configuration file. The most important thing to do is insert JIDs of the users who are permitted to manage the server."
-msgstr "次に <filename>/etc/prosody/prosody.cfg.lua</filename> 設定ファイルを検査します。ここではサーバ管理を許すユーザに対する JID を書き込むことを忘れないでください。"
+msgstr "次に <filename>/etc/prosody/prosody.cfg.lua</filename> 設定ファイルを検査します。ここではサーバを管理することを許可するユーザの JID を書き込むことを忘れないでください。"
 
 msgid ""
 "\n"
@@ -3121,7 +3107,7 @@ msgid "Running services on port 443"
 msgstr "ポート 443 番でサービスを実行する"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
-msgstr "すべての RTC サービスをポート 443 番で実行したいと思う管理者がいるかもしれません。こうすることで、他のポートが塞がれていたり HTTP プロキシサーバを通じてインターネットトラフィックをルーティングしているような、ホテルや空港などのリモート場所から接続するユーザを受け入れることが可能になります。"
+msgstr "すべての RTC サービスをポート 443 番で実行したいと思う管理者がいるかもしれません。こうすることで、他のポートがふさがれていたり HTTP プロキシサーバを通じてインターネットトラフィックをルーティングしているような、ホテルや空港などのリモート場所から接続するユーザを受け入れることが可能になります。"
 
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
 msgstr "この方針を採用する場合、それぞれのサービス (SIP、XMPP、TURN) に別々の IP アドレスを設定する必要があります。しかし、すべてのサービスは同じホスト上で運用することが可能です。なぜなら Linux は一台のホスト上で複数の IP アドレスを取り扱うことが可能だからです。この場合、それぞれのプロセスに対する設定ファイルおよび DNS SRV レコードの中でポート番号、ここでは 443 番、を指定しなければいけません。"
@@ -3160,7 +3146,7 @@ msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is
 msgstr "<emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> パッケージをインストールすることは WebRTC 電話をウェブサイトにインストールする最も素早い方法です。このパッケージは WebSocket 転送をサポートする SIP プロキシを要求します。<emphasis role=\"pkg\">repro</emphasis> SIP プロキシで WebSocket 転送を有効化するために必要な詳細除法を参照するには<xref linkend=\"sect.sip-server-install\" />をご覧ください。"
 
 msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
-msgstr "<emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> をインストールしたら、これを使う方法は様々あります。最も簡単な方法は、Apache 仮想ホスト設定ファイルから <filename>/etc/jscommunicator-web-phone/apache.conf</filename> を読みこんだり、Apache 仮想ホスト設定ファイルにこれをコピーする方法です。"
+msgstr "<emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> をインストールしたら、これを使う方法はさまざまあります。最も簡単な方法は、Apache 仮想ホスト設定ファイルから <filename>/etc/jscommunicator-web-phone/apache.conf</filename> を読みこんだり、Apache 仮想ホスト設定ファイルにこれをコピーする方法です。"
 
 msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
 msgstr "この web-phone ファイルがウェブサーバから利用できるようになったら、<filename>/etc/jscommunicator-web-phone/config.js</filename> をカスタマイズして、TURN サーバと SIP プロキシを指定します。以下はその例です。"
@@ -3585,7 +3571,7 @@ msgstr "<primary>DruCall</primary>"
 #~ msgstr "<primary>SWAT</primary>"
 
 #~ msgid "<emphasis>SWAT</emphasis> then becomes available at the <literal>http://localhost:901</literal> URL. Accessing it means using the root account (and its usual password). Note that SWAT rewrites the <filename>smb.conf</filename> in its own idiom, so it makes sense to make a backup copy beforehand if you're only interested in testing this tool."
-#~ msgstr "<emphasis>SWAT</emphasis> は <literal>http://localhost:901</literal> URL から利用できるようになります。<literal>http://localhost:901</literal> にアクセスすることは、root アカウント (と root パスワード) を使うことを意味します。SWAT は <filename>smb.conf</filename> を独自の表現で書き換えることに注意してください。SWAT をテストすることだけに興味が有る場合、事前に <filename>smb.conf</filename> のバックアップコピーを取ることが賢明です。"
+#~ msgstr "<emphasis>SWAT</emphasis> は <literal>http://localhost:901</literal> という URL から利用できるようになります。<literal>http://localhost:901</literal> にアクセスすることは、root アカウント (と root パスワード) を使うことを意味します。SWAT は <filename>smb.conf</filename> を独自の表現で書き換えることに注意してください。SWAT をテストすることだけに興味が有る場合、事前に <filename>smb.conf</filename> のバックアップコピーを取ることが賢明です。"
 
 #~ msgid "SWAT is very user-friendly; its interface includes an assistant that allows defining the server's role in three questions. All global options can still be configured, as well as those for all the existing shares, and of course new shares can be added. Each option comes with a link to the relevant documentation."
 #~ msgstr "SWAT はとてもユーザフレンドリーです。そして SWAT のインターフェースには、3 つの質問を使ってサーバの役割を定義するための補助機能が含まれます。すべてのグローバルオプションおよび既存の共有に対するオプションを設定したり、もちろん新しい共有を追加することも可能です。それぞれのオプションには、対応する文書へのリンクが併記されています。"

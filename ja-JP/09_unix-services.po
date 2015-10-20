@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-12 09:00+0900\n"
-"PO-Revision-Date: 2015-10-12 09:00+0900\n"
+"POT-Creation-Date: 2015-10-20 09:00+0900\n"
+"PO-Revision-Date: 2015-10-20 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -146,7 +146,7 @@ msgid "Systemd executes several processes, in charge of setting up the system: k
 msgstr "Systemd はシステムの設定を担当している複数のプロセスを実行します。具体的に言えば、キーボード、ドライバ、ファイルシステム、ネットワーク、サービスが設定されます。Systemd はシステム全体におよぶ包括的視点と各要素の要求条件を満足させながらこれを行います。各要素は「ユニットファイル」(これだけでは済まない場合もあります) によって定義されています。さらにユニットファイルの一般的な構文は広く使われている「*.ini ファイル」の構文から派生したもので、<literal>[<replaceable>section</replaceable>]</literal> ヘッダでグループ化された <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> ペアを使います。ユニットファイルは <filename>/lib/systemd/system/</filename> と <filename>/etc/systemd/system/</filename> の下に保存されます。さらにユニットファイルはいくつかの形式がありますが、われわれは「service」型と「target」型に注目します。"
 
 msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here is the service file for SSH:"
-msgstr "systemd の「service ファイル」は systemd が管理するプロセスを記述します。「service ファイル」には大雑把に言って古いスタイルの init スクリプトと同じ情報が含まれていますが、宣言的な方法 (そしてより簡潔な方法) を使ってその情報が記述されています。systemd は繰り返しタスク (プロセスの開始と停止、状態確認、ログ記録、特権の取り消し、など) の大部分を取り扱い、service ファイルにはプロセスに特有の情報を記入する必要があります。たとえば以下は SSH 用の service ファイルです。"
+msgstr "systemd の「service ファイル」は systemd が管理するプロセスを記述します。「service ファイル」には大ざっぱに言って古いスタイルの init スクリプトと同じ情報が含まれていますが、宣言的な方法 (そしてより簡潔な方法) を使ってその情報が記述されています。systemd は繰り返しタスク (プロセスの開始と停止、状態確認、ログ記録、特権の取り消し、など) の大部分を取り扱い、service ファイルにはプロセスに特有の情報を記入する必要があります。たとえば以下は SSH 用の service ファイルです。"
 
 msgid ""
 "[Unit]\n"
@@ -346,7 +346,7 @@ msgid "We have only described the most basic of systemd's capabilities in this s
 msgstr "この節では、systemd の最も基本的な機能だけを説明しました。systemd は他にも多くの興味深い機能を備えていますが、ここでは一部だけを紹介します。"
 
 msgid "socket activation: a “socket” unit file can be used to describe a network or Unix socket managed by systemd; this means that the socket will be created by systemd, and the actual service may be started on demand when an actual connection attempt comes. This roughly replicates the feature set of <command>inetd</command>. See <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
-msgstr "ソケットの活性化。「socket」型のユニットファイルを使えば、systemd が管理するネットワークや Unix ソケットを表現することが可能です。これは systemd がソケットを作成し、実際のサービスは実際の接続要求を受信した時に要求に応じて開始されることを意味しています。この機能は大雑把に言って <command>inetd</command> の機能群を再現するものです。詳しくは <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry> を参照してください。"
+msgstr "ソケットの活性化。「socket」型のユニットファイルを使えば、systemd が管理するネットワークや Unix ソケットを表現することが可能です。これは systemd がソケットを作成し、実際のサービスは実際の接続要求を受信した時に要求に応じて開始されることを意味しています。この機能は大ざっぱに言って <command>inetd</command> の機能群を再現するものです。詳しくは <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry> を参照してください。"
 
 msgid "timers: a “timer” unit file describes events that occur with a fixed frequency or on specific times; when a service is linked to such a timer, the corresponding task will be executed whenever the timer fires. This allows replicating part of the <command>cron</command> features. See <citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
 msgstr "タイマ。「timer」型のユニットファイルを使えば、固定周期および特定時刻に発動するイベントを表現することが可能です。さらにサービスをタイマに関連付けた場合、タイマが発動するたびに対応するタスクを実行します。これを使うことで、<command>cron</command> 機能の一部を置き換えることが可能です。詳しくは <citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry> を参照してください。"

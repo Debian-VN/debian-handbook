@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-12 09:00+0900\n"
-"PO-Revision-Date: 2015-10-12 09:00+0900\n"
+"POT-Creation-Date: 2015-10-20 09:00+0900\n"
+"PO-Revision-Date: 2015-10-20 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -254,7 +254,7 @@ msgid "OpenVPN follows this rule. Since public CAs only emit certificates in exc
 msgstr "OpenVPN はこのルールに従います。なぜなら、パブリック認証局は (高額な) 料金と引き換えに証明書を発行するだけなので、OpenVPN を使えば会社内のプライベート認証局を作成することが可能です。<emphasis role=\"pkg\">easy-rsa</emphasis> パッケージは X.509 証明書基盤としての機能を果たすツールを提供し、このツールは <command>openssl</command> コマンドを使うスクリプト群として実装されています。"
 
 msgid "<emphasis>NOTE</emphasis> <emphasis>easy-rsa</emphasis> before <emphasis role=\"distribution\">Jessie</emphasis>"
-msgstr "<emphasis>NOTE</emphasis> <emphasis role=\"distribution\">Jessie</emphasis> 以前の <emphasis>easy-rsa</emphasis> "
+msgstr "<emphasis>NOTE</emphasis> <emphasis role=\"distribution\">Jessie</emphasis> 以前の <emphasis>easy-rsa</emphasis>"
 
 msgid "In versions of Debian up to <emphasis role=\"distribution\">Wheezy</emphasis>, <emphasis>easy-rsa</emphasis> was distributed as part of the <emphasis role=\"pkg\">openvpn</emphasis> package, and its scripts were to be found under <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename>. Setting up a CA involved copying that directory, instead of using the <command>make-cadir</command> command as documented here."
 msgstr "<emphasis role=\"distribution\">Wheezy</emphasis> までの Debian のバージョンでは、<emphasis>easy-rsa</emphasis> は <emphasis role=\"pkg\">openvpn</emphasis> パッケージの一部として配布されており、<emphasis>easy-rsa</emphasis> のスクリプトは <filename>/usr/share/doc/openvpn/examples/easy-rsa/2.0/</filename> 以下に含まれていました。認証局を設定するには、ここで説明されているように <command>make-cadir</command> コマンドを使うのではなく、このディレクトリをコピーする必要がありました。"
@@ -573,7 +573,7 @@ msgid "Both methods for creating a virtual private network over SSH are quite st
 msgstr "SSH を使って仮想プライベートネットワークを作成する方法は、どちらもかなり直接的なものです。しかしながら、SSH の提供する VPN は最も効率のよい方法ではありません。特に、高レベルのトラフィックをうまく取り扱うことができません。"
 
 msgid "The explanation is that when a TCP/IP stack is encapsulated within a TCP/IP connection (for SSH), the TCP protocol is used twice, once for the SSH connection and once within the tunnel. This leads to problems, especially due to the way TCP adapts to network conditions by altering timeout delays. The following site describes the problem in more detail: <ulink type=\"block\" url=\"http://sites.inka.de/sites/bigred/devel/tcp-tcp.html\" /> VPNs over SSH should therefore be restricted to one-off tunnels with no performance constraints."
-msgstr "つまり、TCP/IP スタックが TCP/IP 接続 (SSH) の中にカプセル化される場合、TCP プロトコルは 2 回使われるという点です。1 回は SSH 接続で、もう 1 回がトンネル内です。これは特に、TCP はタイムアウト遅延を変更することでネットワークの状態に接続状態を適合させる機能があることで、問題になります。以下のサイトがこの問題についてより詳しく説明しています。<ulink type=\"block\" url=\"http://sites.inka.de/sites/bigred/devel/tcp-tcp.html\" /> このため、VPN over SSH はパフォーマンスに制約のない単発のトンネルに留めるべきです。"
+msgstr "つまり、TCP/IP スタックが TCP/IP 接続 (SSH) の中にカプセル化される場合、TCP プロトコルは 2 回使われるという点です。1 回は SSH 接続で、もう 1 回がトンネル内です。これは特に、TCP はタイムアウト遅延を変更することでネットワークの状態に接続状態を適合させる機能があることで、問題になります。以下のサイトがこの問題についてより詳しく説明しています。<ulink type=\"block\" url=\"http://sites.inka.de/sites/bigred/devel/tcp-tcp.html\" />このため、VPN over SSH はパフォーマンスに制約のない単発のトンネルに留めるべきです。"
 
 msgid "IPsec"
 msgstr "IPsec"
@@ -975,7 +975,7 @@ msgid "Principle and Mechanism"
 msgstr "原理とメカニズム"
 
 msgid "<emphasis>Quality of Service</emphasis> (or <emphasis>QoS</emphasis> for short) refers to a set of techniques that guarantee or improve the quality of the service provided to applications. The most popular such technique involves classifying the network traffic into categories, and differentiating the handling of traffic according to which category it belongs to. The main application of this differentiated services concept is <emphasis>traffic shaping</emphasis>, which limits the data transmission rates for connections related to some services and/or hosts so as not to saturate the available bandwidth and starve important other services. Traffic shaping is a particularly good fit for TCP traffic, since this protocol automatically adapts to available bandwidth."
-msgstr "<emphasis>Quality of Service (サービスの品質)</emphasis> (略して <emphasis>QoS</emphasis>) はアプリケーションに提供されるサービスの品質を向上させる技術群を指します。最も人気の技術は、ネットワークトラフィックをカテゴリ分けして、トラフィックの所属するカテゴリ別にその取り扱いに違いを付けることです。サービスを差別化するという概念の主な用途が<emphasis>トラフィックシェーピング</emphasis>です。これは一部のサービスおよびホストに関連する接続のデータの転送率を制限します。これを使うことで、利用できる帯域幅が飽和することを避け、重要な他のサービスに支障が出ないようにします。トラフィックシェーピングは TCP トラフィックに対して特に有効です。なぜなら、TCP は自動的に利用できる帯域幅に適応するからです。"
+msgstr "<emphasis>Quality of Service (サービスの品質)</emphasis> (略して <emphasis>QoS</emphasis>) はアプリケーションに提供されるサービスの品質を向上させる技術群を指します。最も人気の技術は、ネットワークトラフィックをカテゴリ分けして、トラフィックの所属するカテゴリごとにその取り扱いに違いを付けることです。サービスを差別化するという概念の主な用途が<emphasis>トラフィックシェーピング</emphasis>です。これは一部のサービスおよびホストに関連する接続のデータの転送率を制限します。これを使うことで、利用できる帯域幅が飽和することを避け、重要な他のサービスに支障が出ないようにします。トラフィックシェーピングは TCP トラフィックに対して特に有効です。なぜなら、TCP は自動的に利用できる帯域幅に適応するからです。"
 
 msgid "<primary>QoS</primary>"
 msgstr "<primary>QoS</primary>"
@@ -1178,7 +1178,7 @@ msgid "The configuration of each of these daemons requires knowledge of the rout
 msgstr "デーモンを設定するには、対象のルーティングプロトコルに関する知識が必要です。ここではそれぞれのプロトコルの詳細を説明できませんが、<emphasis role=\"pkg\">quagga-doc</emphasis> パッケージに含まれる <command>info</command> ファイルで、十分な説明が行われています。また、同じ内容を Quagga のウェブサイト上で HTML として閲覧するほうが簡単かもしれません。<ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
 
 msgid "In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
-msgstr " 加えて、設定構文は標準的なルータの設定インターフェースととても似ているため、ネットワーク管理者は <command>quagga</command> に素早く順応するでしょう。"
+msgstr "加えて、設定構文は標準的なルータの設定インターフェースととても似ているため、ネットワーク管理者は <command>quagga</command> に素早く順応するでしょう。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> OSPF, BGP or RIP?"
 msgstr "<emphasis>IN PRACTICE</emphasis> OSPF、BGP、RIP?"
@@ -1344,7 +1344,7 @@ msgid "<literal>CNAME</literal>: alias (<emphasis>canonical name</emphasis>). <i
 msgstr "<literal>CNAME</literal>。このレコードは別名 (<emphasis>canonical name</emphasis>) を意味しています。<indexterm><primary>CNAME、DNS レコード</primary></indexterm>"
 
 msgid "<literal>MX</literal>: <emphasis>mail exchange</emphasis>, an email server. This information is used by other email servers to find where to send email addressed to a given address. Each MX record has a priority. The highest-priority server (with the lowest number) is tried first (see sidebar <xref linkend=\"sidebar.smtp\" />); other servers are contacted in order of decreasing priority if the first one does not reply. <indexterm><primary>MX</primary><secondary>DNS record</secondary></indexterm>"
-msgstr "<literal>MX</literal>。このレコードは<emphasis>mail exchange</emphasis>、電子メールサーバを意味しています。MX レコードは他の電子メールサーバが与えられたあるアドレス宛の電子メールの送信先を見つけるために使われます。それぞれの MX レコードには優先順位があります。最も優先順位の高いサーバ (最も低い番号のサーバ) を最初に試行します (補注<xref linkend=\"sidebar.smtp\" />を参照してください)。さらに、最初のサーバからの応答がなかった場合、他のサーバを優先度の高い順に試行します。<indexterm><primary>MX</primary><secondary>DNS レコード</secondary></indexterm>"
+msgstr "<literal>MX</literal>。このレコードは <emphasis>mail exchange</emphasis> つまり電子メールサーバを意味しています。MX レコードは他の電子メールサーバが与えられたあるアドレス宛の電子メールの送信先を見つけるために使われます。それぞれの MX レコードには優先順位があります。最も優先順位の高いサーバ (最も低い番号のサーバ) を最初に試行します (補注<xref linkend=\"sidebar.smtp\" />を参照してください)。さらに、最初のサーバからの応答がなかった場合、他のサーバを優先度の高い順に試行します。<indexterm><primary>MX</primary><secondary>DNS レコード</secondary></indexterm>"
 
 msgid "<literal>PTR</literal>: mapping of an IP address to a name. Such a record is stored in a “reverse DNS” zone named after the IP address range. For example, <literal>1.168.192.in-addr.arpa</literal> is the zone containing the reverse mapping for all addresses in the <literal>192.168.1.0/24</literal> range. <indexterm><primary>PTR, DNS record</primary></indexterm>"
 msgstr "<literal>PTR</literal>。このレコードはある IP アドレスに対する名前の対応付けを意味しています。このレコードはある IP アドレス範囲に対して対応付けられた「逆引き DNS」ゾーンに保存されます。たとえば、<literal>1.168.192.in-addr.arpa</literal> は <literal>192.168.1.0/24</literal> 範囲に含まれる全アドレスの逆引き対応が保存されているゾーンです。<indexterm><primary>PTR、DNS レコード</primary></indexterm>"
