@@ -3097,13 +3097,21 @@ TLS_CACERT      /etc/ssl/certs/ca-certificates.crt
 server1            IN     A      198.51.100.19
 server1            IN     AAAA   2001:DB8:1000:2000::19
 
-; some convenient CNAMEs
-turn-server        IN     CNAME  server1
-sip-proxy          IN     CNAME  server1
-xmpp-gw            IN     CNAME  server1
+; IPv4 only for TURN for now, some clients are buggy with IPv6
+turn-server        IN     A      198.51.100.19
 
-; DNS SRV for STUN / TURN
+; IPv4 and IPv6 addresses for SIP
+sip-proxy          IN     A      198.51.100.19
+sip-proxy          IN     AAAA   2001:DB8:1000:2000::19
+
+; IPv4 and IPv6 addresses for XMPP
+xmpp-gw            IN     A      198.51.100.19
+xmpp-gw            IN     AAAA   2001:DB8:1000:2000::19
+
+; DNS SRV and NAPTR for STUN / TURN
 _stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.
+_turn._udp  IN SRV    0 1 3467 turn-server.falcot.com.
+@           IN NAPTR  10 0 "s" "RELAY:turn.udp" "" _turn._udp.falcot.com.
 
 ; DNS SRV and NAPTR records for SIP
 _sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.
