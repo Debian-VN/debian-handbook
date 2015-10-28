@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-22 09:00+0900\n"
-"PO-Revision-Date: 2015-10-22 09:00+0900\n"
+"POT-Creation-Date: 2015-10-28 09:00+0900\n"
+"PO-Revision-Date: 2015-10-28 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -92,7 +92,7 @@ msgid "TCP and UDP both involve ports, which are “extension numbers” for est
 msgstr "TCP と UDP は両方ポート番号を使います。ポート番号とは、マシン上で動くあるアプリケーションと通信を確立するための「内線番号」と言えます。この概念を使うことで、同一のマシンに対して、複数の異なる通信を並列して保つことが可能になります。なぜなら、通信はポート番号で区別されるからです。"
 
 msgid "Some of these port numbers — standardized by the IANA (<emphasis>Internet Assigned Numbers Authority</emphasis>) — are “well-known” for being associated with network services. For instance, TCP port 25 is generally used by the email server. <ulink type=\"block\" url=\"http://www.iana.org/assignments/port-numbers\" />"
-msgstr "IANA (<emphasis>Internet Assigned Numbers Authority</emphasis>) が標準化したいくつかのポート番号は「well-known」とされ、ネットワークサービスに関連付けられています。たとえば、TCP ポート 25 番は一般に電子メールサーバが使うポート番号です。<ulink type=\"block\" url=\"http://www.iana.org/assignments/port-numbers\" />"
+msgstr "IANA (<emphasis>Internet Assigned Numbers Authority</emphasis>) が標準化したいくつかのポート番号は「well-known」とされ、ネットワークサービスに関連付けられています。たとえば、TCP ポート 25 番は一般に電子メールサーバが使うポート番号です。<ulink type=\"block\" url=\"http://www.iana.org/assignments/port-numbers\" />"
 
 msgid "When a local network uses a private address range (not routable on the Internet), the gateway needs to implement <emphasis>address masquerading</emphasis> so that the machines on the network can communicate with the outside world. The masquerading operation is a kind of proxy operating on the network level: each outgoing connection from an internal machine is replaced with a connection from the gateway itself (since the gateway does have an external, routable address), the data going through the masqueraded connection is sent to the new one, and the data coming back in reply is sent through to the masqueraded connection to the internal machine. The gateway uses a range of dedicated TCP ports for this purpose, usually with very high numbers (over 60000). Each connection coming from an internal machine then appears to the outside world as a connection coming from one of these reserved ports."
 msgstr "ローカルネットワークがプライベートアドレス (インターネットにルーティングされないアドレス) 範囲を使う場合、ゲートウェイは<emphasis>アドレスマスカレード</emphasis>を実行する必要があります。<emphasis>アドレスマスカレード</emphasis>を使うことで、ローカルネットワーク上のマシンが外部と通信することが可能になります。マスカレード動作とはネットワークレベルのプロキシ動作のようなものです。すなわち、内部のマシンからの外部宛接続はゲートウェイ自身からの接続に置き替えられます (なぜなら、ゲートウェイは外部にルーティングできるアドレスを持っているからです)。マスカレード接続を通過するデータは外部に送信され、応答として戻ってくるデータはマスカレード接続を通過して内部のマシンに送信されます。ゲートウェイはこの目的に専用の TCP ポート範囲を使います。この範囲は通常とても大きな番号 (60000 番より大きい番号) です。内部マシンからの接続はこれらの予約されたポート番号の 1 つから送信された接続として外部に送信されます。"
@@ -1362,7 +1362,7 @@ msgid "<primary>DNS record</primary>"
 msgstr "<primary>DNS レコード</primary>"
 
 msgid "The reference name server, Bind, was developed and is maintained by ISC (<emphasis>Internet Software Consortium</emphasis>). It is provided in Debian by the <emphasis role=\"pkg\">bind9</emphasis> package. Version 9 brings two major changes compared to previous versions. First, the DNS server can now run under an unprivileged user, so that a security vulnerability in the server does not grant root privileges to the attacker (as was seen repeatedly with versions 8.x)."
-msgstr "標準的なネームサーバである Bind は ISC (<emphasis>Internet Software Consortium</emphasis>) によって開発され、保守されています。Debian では、Bind を提供するパッケージは <emphasis role=\"pkg\">bind9</emphasis> です。バージョン 9 では、前のバージョンに比べて 2 種類の大きな変更が導入されました。1 番目は、DNS サーバを非特権ユーザとして実行するという変更です。これにより、サーバのセキュリティ脆弱性によって攻撃者に root 特権を渡してしまうことがなくなりました (バージョン 8.x ではこのようなことがよくありました)。"
+msgstr "標準的なネームサーバである Bind は ISC (<emphasis>Internet Software Consortium</emphasis>) によって開発され、保守されています。Debian では、Bind を提供するパッケージは <emphasis role=\"pkg\">bind9</emphasis> です。バージョン 9 では、前のバージョンに比べて 2 種類の大きな変更が導入されました。1 番目は、DNS サーバを非特権ユーザとして実行するという変更です。これにより、サーバのセキュリティ脆弱性によって攻撃者に root 特権を渡してしまうことがなくなりました (バージョン 8.x ではこのようなことがよくありました)。"
 
 msgid "Furthermore, Bind supports the DNSSEC standard for signing (and therefore authenticating) DNS records, which allows blocking any spoofing of this data during man-in-the-middle attacks."
 msgstr "2 番目は、Bind が DNS レコードの署名 (認証されている) に DNSSEC 標準をサポートするようになった変更です。これにより、中間者攻撃中に DNS レコードがなりすましされても、それを遮ることが可能になりました。"

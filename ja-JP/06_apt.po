@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-22 09:00+0900\n"
-"PO-Revision-Date: 2015-10-22 09:00+0900\n"
+"POT-Creation-Date: 2015-10-28 09:00+0900\n"
+"PO-Revision-Date: 2015-10-28 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
 "Language: ja\n"
@@ -756,7 +756,7 @@ msgid "Managing Package Priorities"
 msgstr "パッケージ優先度の管理"
 
 msgid "One of the most important aspects in the configuration of APT is the management of the priorities associated with each package source. For instance, you might want to extend one distribution with one or two newer packages from <emphasis role=\"distribution\">Testing</emphasis>, <emphasis role=\"distribution\">Unstable</emphasis> or <emphasis role=\"distribution\">Experimental</emphasis>. It is possible to assign a priority to each available package (the same package can have several priorities depending on its version or the distribution providing it). These priorities will influence APT's behavior: for each package, it will always select the version with the highest priority (except if this version is older than the installed one and if its priority is less than 1000)."
-msgstr "APT の設定で最も重要な側面の 1 つに各パッケージソースに対する優先度の管理があります。たとえば、<emphasis role=\"distribution\">テスト版</emphasis>、<emphasis role=\"distribution\">不安定版</emphasis>、<emphasis role=\"distribution\">実験版</emphasis>から入手できる新しいパッケージを 1 つか 2 つあるディストリビューションにインストールしたいと思うかもしれません。利用できるパッケージに対して優先度を割り当てることが可能です (同じパッケージに対してバージョンやそれを提供しているディストリビューションに依存する異なる優先度を設定することも可能です)。優先度の設定は APT の挙動に影響を与えます。すなわち、各パッケージについて、APT は常に最も優先度の高いバージョンをインストールします (例外は、最も優先度の高いバージョンがインストール済みのバージョンよりも古い場合か 1000 より低い優先順位を持っている場合です)。"
+msgstr "APT の設定で最も重要な側面の 1 つに各パッケージソースに対する優先度の管理があります。たとえば、<emphasis role=\"distribution\">テスト版</emphasis>、<emphasis role=\"distribution\">不安定版</emphasis>、<emphasis role=\"distribution\">実験版</emphasis>から入手できる新しいパッケージを 1 つか 2 つあるディストリビューションにインストールしたいと思うかもしれません。利用できるパッケージに対して優先度を割り当てることが可能です (同じパッケージに対してバージョンやそれを提供しているディストリビューションに依存する異なる優先度を設定することも可能です)。優先度の設定は APT の挙動に影響を与えます。すなわち、各パッケージについて、APT は常に最も優先度の高いバージョンをインストールします (例外は、最も優先度の高いバージョンがインストール済みのバージョンよりも古い場合か 1000 より低い優先順位を持っている場合です)。"
 
 msgid "<primary>APT</primary><secondary><foreignphrase>pinning</foreignphrase></secondary>"
 msgstr "<primary>APT</primary><secondary><foreignphrase>pinning</foreignphrase></secondary>"
@@ -780,7 +780,7 @@ msgid "<primary><filename>/etc/apt/preferences</filename></primary>"
 msgstr "<primary><filename>/etc/apt/preferences</filename></primary>"
 
 msgid "APT defines several default priorities. Each installed package version has a priority of 100. A non-installed version has a priority of 500 by default, but it can jump to 990 if it is part of the target release (defined with the <literal>-t</literal> command-line option or the <literal>APT::Default-Release</literal> configuration directive)."
-msgstr "APT はいくつかのデフォルト優先度を定義しています。インストール済みパッケージのバージョンは優先度 100 です。インストールされていないパッケージのバージョンはデフォルトで優先度 500 ですが、ターゲットリリース (<literal>-t</literal> コマンドラインオプションか <literal>APT::Default-Release</literal> の設定ディレクティブによって定義します) に含まれるバージョンの場合、優先度 990 になります。"
+msgstr "APT はいくつかのデフォルト優先度を定義しています。インストール済みパッケージのバージョンは優先度 100 です。インストールされていないパッケージのバージョンはデフォルトで優先度 500 ですが、ターゲットリリース (<literal>-t</literal> コマンドラインオプションか <literal>APT::Default-Release</literal> の設定ディレクティブによって定義します) に含まれるバージョンの場合、優先度 990 になります。"
 
 msgid "You can modify the priorities by adding entries in the <filename>/etc/apt/preferences</filename> file with the names of the affected packages, their version, their origin and their new priority."
 msgstr "優先度を変更するには、<filename>/etc/apt/preferences</filename> ファイルに、影響を受けるパッケージの名前、バージョン、パッケージの提供者、新しい優先度を指定するエントリを追加してください。"
@@ -833,7 +833,7 @@ msgid "<literal>a=stable</literal> defines the name of the selected distribution
 msgstr "<literal>a=stable</literal> で選択するディストリビューションの名前を定義します。<literal>o=Debian</literal> で提供者が「Debian」のパッケージに範囲を限定します。"
 
 msgid "Let's now assume that you have a server with several local programs depending on the version 5.14 of Perl and that you want to ensure that upgrades will not install another version of it. You could use this entry:"
-msgstr "さてここで、サーバには Perl バージョン 5.14 に依存するローカルプログラムがあり、アップグレードによって他のバージョンがインストールされないことを保証したいと仮定しましょう。この場合、以下のエントリを使います。"
+msgstr "さてここで、サーバには Perl バージョン 5.14 に依存するローカルプログラムがあり、アップグレードによって他のバージョンがインストールされないことを保証したいと仮定しましょう。この場合、以下のエントリを使います。"
 
 msgid ""
 "Package: perl\n"
@@ -900,10 +900,10 @@ msgid "To gain a better understanding of the mechanism of priority, do not hesit
 msgstr "優先度のメカニズムをさらに良く理解するためには、<command>apt-cache policy</command> を実行し、各パッケージソースに対して設定されているデフォルトの優先度を確認してください。また、あるパッケージの利用できるバージョンすべてに対する優先度を表示するために <command>apt-cache policy <replaceable>package</replaceable></command> を使うことも可能です。"
 
 msgid "Let's assume that you have installed version 1 of a first package from <emphasis role=\"distribution\">Stable</emphasis> and that version 2 and 3 are available respectively in <emphasis role=\"distribution\">Testing</emphasis> and <emphasis role=\"distribution\">Unstable</emphasis>. The installed version has a priority of 100 but the version available in <emphasis role=\"distribution\">Stable</emphasis> (the very same) has a priority of 990 (because it is part of the target release). Packages in <emphasis role=\"distribution\">Testing</emphasis> and <emphasis role=\"distribution\">Unstable</emphasis> have a priority of 500 (the default priority of a non-installed version). The winner is thus version 1 with a priority of 990. The package “stays in <emphasis role=\"distribution\">Stable</emphasis>”."
-msgstr "あるパッケージの、<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン 1 がインストール済みで、<emphasis role=\"distribution\">テスト版</emphasis>と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン 2 と 3 が利用できると仮定しましょう。インストール済みバージョンの優先度は 100 ですが、<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン (インストール済みと全く同じバージョン) の (ターゲットリリースから提供されるバージョンの) 優先度は 990 です。<emphasis role=\"distribution\">テスト版</emphasis>と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンの優先度 (インストールされていないバージョンに対するデフォルト優先度) は 500 です。この場合、バージョン 1 が最も高い優先度 990 を持ちます。パッケージは「<emphasis role=\"distribution\">安定版</emphasis>のまま」です。"
+msgstr "あるパッケージの、<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン 1 がインストール済みで、<emphasis role=\"distribution\">テスト版</emphasis>と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン 2 と 3 が利用できると仮定しましょう。インストール済みバージョンの優先度は 100 ですが、<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン (インストール済みと全く同じバージョン) の (ターゲットリリースから提供されるバージョンの) 優先度は 990 です。<emphasis role=\"distribution\">テスト版</emphasis>と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンの優先度 (インストールされていないバージョンに対するデフォルト優先度) は 500 です。この場合、バージョン 1 が最も高い優先度 990 を持ちます。パッケージは「<emphasis role=\"distribution\">安定版</emphasis>のまま」です。"
 
 msgid "Let's take the example of another package whose version 2 has been installed from <emphasis role=\"distribution\">Testing</emphasis>. Version 1 is available in <emphasis role=\"distribution\">Stable</emphasis> and version 3 in <emphasis role=\"distribution\">Unstable</emphasis>. Version 1 (of priority 990 — thus lower than 1000) is discarded because it is lower than the installed version. This only leaves version 2 and 3, both of priority 500. Faced with this alternative, APT selects the newest version, the one from <emphasis role=\"distribution\">Unstable</emphasis>.If you don't want a package installed from <emphasis role=\"distribution\">Testing</emphasis> to migrate to <emphasis role=\"distribution\">Unstable</emphasis>, you have to assign a priority lower than 500 (490 for example) to packages coming from <emphasis role=\"distribution\">Unstable</emphasis>. You can modify <filename>/etc/apt/preferences</filename> to this effect:"
-msgstr "<emphasis role=\"distribution\">テスト版</emphasis>から提供されるバージョン 2 がインストール済みの場合について見てみましょう。<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン 1 と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン 3 が利用できます。バージョン 1 (優先度は 1000 より低く 990) は、インストール済みバージョンよりもバージョンが低いため、無視されます。残るのはバージョン 2 か 3 ですが、両方の優先度は 500 です。優先度が同じ場合、APT は最も新しいバージョン、<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン、を選択します。<emphasis role=\"distribution\">テスト版</emphasis>から提供されたインストール済みバージョンを<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンに移行したくない場合、<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンに 500 よりも低い優先度 (たとえば 490 など) を割り当てないといけません。これを行うには、<filename>/etc/apt/preferences</filename> を以下のように修正してください。"
+msgstr "<emphasis role=\"distribution\">テスト版</emphasis>から提供されるバージョン 2 がインストール済みの場合について見てみましょう。<emphasis role=\"distribution\">安定版</emphasis>から提供されるバージョン 1 と<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン 3 が利用できます。バージョン 1 (優先度は 1000 より低く 990) は、インストール済みバージョンよりもバージョンが低いため、無視されます。残るのはバージョン 2 か 3 ですが、両方の優先度は 500 です。優先度が同じ場合、APT は最も新しいバージョン、<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョン、を選択します。<emphasis role=\"distribution\">テスト版</emphasis>から提供されたインストール済みバージョンを<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンに移行したくない場合、<emphasis role=\"distribution\">不安定版</emphasis>から提供されるバージョンに 500 よりも低い優先度 (たとえば 490 など) を割り当てないといけません。これを行うには、<filename>/etc/apt/preferences</filename> を以下のように修正してください。"
 
 msgid ""
 "Package: *\n"
