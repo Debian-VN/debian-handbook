@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-28 10:12+0100\n"
-"PO-Revision-Date: 2015-10-28 10:19+0100\n"
+"PO-Revision-Date: 2015-11-03 18:21+0100\n"
 "Last-Translator: Raphaël Hertzog <hertzog@debian.org>\n"
 "Language-Team: debian-handbook-translators@lists.alioth.debian.org\n"
 "Language: fr\n"
@@ -253,7 +253,7 @@ msgid "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certific
 msgstr "<emphasis>SÉCURITÉ</emphasis> Certificat SSL <foreignphrase>snake oil</foreignphrase>"
 
 msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value: you cannot rely on them to authenticate the server since they are automatically generated self-signed certificates. However they are useful to improve the privacy of the exchanges."
-msgstr "L'expression anglaise <foreignphrase>snake oil</foreignphrase> pourrait se traduire par « poudre aux yeux ». Ces certificats présentent un intérêt limité : on ne peut pas s'appuyer sur eux pour authentifier le serveur car il s'agit de certificats auto-signés générés automatiquement.Cependant ils sont utiles pour améliorer la confidentialité des échanges."
+msgstr "L'expression anglaise <foreignphrase>snake oil</foreignphrase> pourrait se traduire par « poudre aux yeux ». Ces certificats présentent un intérêt limité : on ne peut pas s'appuyer sur eux pour authentifier le serveur car il s'agit de certificats auto-signés générés automatiquement. Cependant ils sont utiles pour améliorer la confidentialité des échanges."
 
 msgid "In general they should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
 msgstr "Ils ne devraient être utilisés qu'à des fins de test, en production on se doit d'utiliser de vrais certificats. Ces derniers pourront être générés par exemple en suivant la procédure décrite dans la <xref linkend=\"sect.easy-rsa\" />."
@@ -728,7 +728,7 @@ msgid "Customizing Filters Based On the Recipient"
 msgstr "Personnalisation des filtres en fonction du destinataire"
 
 msgid "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> and <xref linkend=\"sect.setting-up-greylisting\" /> reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in blacklists; this service asked for a non-filtered address so as to be able to correspond."
-msgstr "Les sections <xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> et <xref linkend=\"sect.setting-up-greylisting\" /> ont passé en revue un grand nombre de restrictions possibles. Ces dernières servent essentiellement à limiter le nombre de spams reçus, mais elles présentent toutes des petits inconvénients. C'est pourquoi il est de plus en plus fréquent de devoir personnaliser le filtrage effectué en fonction du destinataire. Chez Falcot, le greylisting s'avérera intéressant pour la plupart des utilisateurs sauf quelques personnes dont le travail dépend de la faible latence du courrier électronique (le service d'assistance technique, par exemple). De même, le service commercial rencontre parfois des difficultés pour recevoir les réponses de certains fournisseurs asiatiques car ils sont répertoriés dans des listes noires. Ils ont donc demandé une adresse e-mail non filtrée pour pouvoir correspondre malgré tout."
+msgstr "La <xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> et la <xref linkend=\"sect.setting-up-greylisting\" /> ont passé en revue un grand nombre de restrictions possibles. Ces dernières servent essentiellement à limiter le nombre de spams reçus, mais elles présentent toutes des petits inconvénients. C'est pourquoi il est de plus en plus fréquent de devoir personnaliser le filtrage effectué en fonction du destinataire. Chez Falcot, le greylisting s'avérera intéressant pour la plupart des utilisateurs sauf quelques personnes dont le travail dépend de la faible latence du courrier électronique (le service d'assistance technique, par exemple). De même, le service commercial rencontre parfois des difficultés pour recevoir les réponses de certains fournisseurs asiatiques car ils sont répertoriés dans des listes noires. Ils ont donc demandé une adresse e-mail non filtrée pour pouvoir correspondre malgré tout."
 
 msgid "Postfix provides such a customization of filters with a “restriction class” concept. The classes are declared in the <literal>smtpd_restriction_classes</literal> parameter, and defined the same way as <literal>smtpd_recipient_restrictions</literal>. The <literal>check_recipient_access</literal> directive then defines a table mapping a given recipient to the appropriate set of restrictions."
 msgstr "Postfix gère cela grâce à un concept de « classes de restrictions ». On référence les classes dans la variable <literal>smtpd_restriction_classes</literal> et on les définit par simple affectation tout comme on définirait <literal>smtpd_recipient_restrictions</literal>. Ensuite la directive <literal>check_recipient_access</literal> permet d'employer une table de correspondances pour définir les restrictions à employer pour un destinataire donné."
@@ -824,7 +824,7 @@ msgid "The <emphasis role=\"pkg\">spamass-milter</emphasis> package provides a m
 msgstr "Le paquet <emphasis role=\"pkg\">spamass-milter</emphasis> contient un filtre basé sur le célèbre logiciel de détection de courriels non-sollicités <emphasis>SpamAssassin</emphasis>. Il peut être employé pour marquer les messages comme des spams probables (en ajoutant un en-tête supplémentaire) et/ou pour les rejeter si le score du message dépasse une certaine limite."
 
 msgid "Once the <emphasis role=\"pkg\">clamav-milter</emphasis> package is installed, the milter should be reconfigured to run on a TCP port rather than on the default named socket. This can be achieved with <command>dpkg-reconfigure clamav-milter</command>. When prompted for the “Communication interface with Sendmail”, answer “<literal>inet:10002@127.0.0.1</literal>”."
-msgstr "Une fois le paquet <emphasis role=\"pkg\">clamav-milter</emphasis> installé, le milter devrait être reconfiguré pour utiliser un port TCP plutôt que la socket nommée proposée par défaut. Lors de l'exécution de <command>dpkg-reconfigure clamav-milter</command>, il s'agit de répondre <literal>inet:10002@127.0.0.1</literal> à la question portant sur l'interface de communication avec SEndmail."
+msgstr "Une fois le paquet <emphasis role=\"pkg\">clamav-milter</emphasis> installé, le milter devrait être reconfiguré pour utiliser un port TCP plutôt que la socket nommée proposée par défaut. Lors de l'exécution de <command>dpkg-reconfigure clamav-milter</command>, il s'agit de répondre <literal>inet:10002@127.0.0.1</literal> à la question portant sur l'interface de communication avec Sendmail."
 
 msgid "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
 msgstr "<emphasis>NOTE</emphasis> Vrai port TCP ou socket nommée ?"
@@ -869,7 +869,7 @@ msgid "Being able to send emails requires an SMTP server to be reachable; it als
 msgstr "Pour être capable d'envoyer des courriers électroniques, il faut pouvoir accéder à un serveur SMTP et il faut que ce dernier vous y autorise. Lorsqu'on est itinérant, cela nécessite de changer régulièrement de serveur SMTP puisque le serveur SMTP de Falcot ne va pas accepter de relayer des messages de la part d'une adresse IP apparemment extérieure à l'entreprise. Il y a deux solutions : soit l'itinérant installe son propre serveur de courrier sur son ordinateur, soit il continue d'utiliser le serveur SMTP de l'entreprise mais il s'authentifie au préalable comme étant un employé de la société. La première solution n'est pas conseillée car l'ordinateur n'est pas connecté en permanence et il ne peut donc pas essayer régulièrement de réémettre en cas de problème. Nous allons donc voir comment mettre en place la seconde."
 
 msgid "SMTP authentication in Postfix relies on SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). It requires installing the <emphasis role=\"pkg\">libsasl2-modules</emphasis> and <emphasis role=\"pkg\">sasl2-bin</emphasis> packages, then registering a password in the SASL database for each user that needs authenticating on the SMTP server. This is done with the <command>saslpasswd2</command> command, which takes several parameters. The <literal>-u</literal> option defines the authentication domain, which must match the <literal>smtpd_sasl_local_domain</literal> parameter in the Postfix configuration. The <literal>-c</literal> option allows creating a user, and <literal>-f</literal> allows specifying the file to use if the SASL database needs to be stored at a different location than the default (<filename>/etc/sasldb2</filename>)."
-msgstr "L'authentification SMTP de Postfix s'appuie sur SASL (<foreignphrase>Simple Authentication and Security Layer</foreignphrase>). Il faut installer les paquets <emphasis role=\"pkg\">libsasl2-modules</emphasis> et <emphasis role=\"pkg\">sasl2-bin</emphasis>, puis il convient d'enregistrer un mot de passe dans la base SASL pour chaque utilisateur qui doit pouvoir s'authentifier sur le serveur SMTP. On utilise pour cela la commande <command>saslpasswd2</command>. L'option <literal>-u</literal> précise le domaine d'authentification il doit correspondre au paramètre <literal>smtpd_sasl_local_domain</literal> de Postfix. L'option <literal>-c</literal> sert à créer un utilisateur et l'option <literal>-f</literal> permet de modifier une base SASL située ailleurs qu'à son emplacement standard (<filename>/etc/sasldb2</filename>)."
+msgstr "L'authentification SMTP de Postfix s'appuie sur SASL (<foreignphrase>Simple Authentication and Security Layer</foreignphrase>). Il faut installer les paquets <emphasis role=\"pkg\">libsasl2-modules</emphasis> et <emphasis role=\"pkg\">sasl2-bin</emphasis>, puis il convient d'enregistrer un mot de passe dans la base SASL pour chaque utilisateur qui doit pouvoir s'authentifier sur le serveur SMTP. On utilise pour cela la commande <command>saslpasswd2</command>. L'option <literal>-u</literal> précise le domaine d'authentification, il doit correspondre au paramètre <literal>smtpd_sasl_local_domain</literal> de Postfix. L'option <literal>-c</literal> sert à créer un utilisateur et l'option <literal>-f</literal> permet de modifier une base SASL située ailleurs qu'à son emplacement standard (<filename>/etc/sasldb2</filename>)."
 
 msgid ""
 "\n"
@@ -1021,8 +1021,8 @@ msgstr "La liste complète des modules standards d'Apache se trouve en ligne. <u
 msgid "Apache is a modular server, and many features are implemented by external modules that the main program loads during its initialization. The default configuration only enables the most common modules, but enabling new modules is a simple matter of running <command>a2enmod <replaceable>module</replaceable></command>; to disable a module, the command is <command>a2dismod <replaceable>module</replaceable></command>. These programs actually only create (or delete) symbolic links in <filename>/etc/apache2/mods-enabled/</filename>, pointing at the actual files (stored in <filename>/etc/apache2/mods-available/</filename>)."
 msgstr "Apache est un serveur modulaire et la plupart des fonctionnalités sont implémentées dans des modules externes que le programme charge pendant son initialisation. La configuration par défaut n'active que les modules les plus courants et les plus utiles. Mais la commande <command>a2enmod <replaceable>module</replaceable></command> permet d'activer un nouveau module tandis que <command>a2dismod <replaceable>module</replaceable></command> le désactive. Ces deux programmes ne font rien d'autre que créer ou supprimer des liens symboliques dans <filename>/etc/apache2/mods-enabled/</filename> pointant vers des fichiers de <filename>/etc/apache2/mods-available/</filename>."
 
-msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
-msgstr "Par défaut, le serveur web écoute sur le port 80 (configuré dans <filename>/etc/apache2/ports.conf</filename>) et renvoie les pages web depuis le répertoire <filename>/var/www/</filename> (configuré dans <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
+msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/html/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
+msgstr "Par défaut, le serveur web écoute sur le port 80 (configuré dans <filename>/etc/apache2/ports.conf</filename>) et renvoie les pages web depuis le répertoire <filename>/var/www/html/</filename> (configuré dans <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Adding support for SSL"
 msgstr "<emphasis>POUR ALLER PLUS LOIN</emphasis> Prise en charge de SSL"
@@ -1521,7 +1521,7 @@ msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>sécurité</secondary>"
 
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr "Si les fonctionnalités de sécurité de Kerberos ne sont pas utilisées, il faut s'assurer que seules les machines autorisées à l'employer peuvent se connecter aux différents serveurs RPC qui lui permettent de fonctionner, car le protocole de base considère les données reçues du réseau comme des données sûres. Le pare-feu doit donc prohiber l'usurpation d'adresse IP (<foreignphrase>IP spoofing</foreignphrase>) pour qu'une machine extérieure ne puisse pas se faire passer pour une machine intérieure et les différents ports employés doivent être restreints aux machines devant accéder aux partages NFS."
+msgstr "Si les fonctionnalités de sécurité de Kerberos ne sont pas utilisées, il faut s'assurer que seules les machines autorisées à l'employer peuvent se connecter aux différents serveurs RPC qui lui permettent de fonctionner, car le protocole de base considère les données reçues du réseau comme des données sûres. Le pare-feu doit donc prohiber l'usurpation d'adresse IP (<foreignphrase>IP spoofing</foreignphrase>) pour qu'une machine extérieure ne puisse pas se faire passer pour une machine intérieure, et les différents ports employés doivent être restreints aux machines devant accéder aux partages NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
 msgstr "<emphasis>B.A.-BA</emphasis> RPC"
@@ -1536,7 +1536,7 @@ msgid "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
 msgstr "<primary><foreignphrase>Remote Procedure Call</foreignphrase></primary>"
 
 msgid "RPC services register to a directory known as the <emphasis>portmapper</emphasis>. A client wishing to perform an NFS query first addresses the <emphasis>portmapper</emphasis> (on port 111, either TCP or UDP), and asks for the NFS server; the reply usually mentions port 2049 (the default for NFS). Not all RPC services necessarily use a fixed port."
-msgstr "Les services RPC s'enregistrent dans un annuaire, le <foreignphrase>portmapper</foreignphrase>. Un client désireux d'effectuer une requête NFS s'adresse au <foreignphrase>portmapper</foreignphrase> (port 111 en TCP ou UDP) et lui demande où se trouve le serveur NFS. On lui répond généralement en indiquant le port 2 049 (port par défaut pour NFS). Tous les services RPC ne disposent pas nécessairement d'un port fixe."
+msgstr "Les services RPC s'enregistrent dans un annuaire, le <foreignphrase>portmapper</foreignphrase>. Un client désireux d'effectuer une requête NFS s'adresse au <foreignphrase>portmapper</foreignphrase> (port 111 en TCP ou UDP) et lui demande où se trouve le serveur NFS. On lui répond généralement en indiquant le port 2049 (port par défaut pour NFS). Tous les services RPC ne disposent pas nécessairement d'un port fixe."
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
 msgstr "Les anciennes versions du protocole nécessitaient d'autres services RPC qui utilisaient des ports assignés dynamiquement. Heureusement, avec la version 4 de NFS, seul le port 2049 (pour NFS) et 111 (pour l'annuaire, le <foreignphrase>portmapper</foreignphrase>) sont nécessaires et ils sont donc faciles à filtrer avec le pare-feu."
@@ -1582,7 +1582,7 @@ msgid "By default, the server only answers an NFS query when the current disk op
 msgstr "Le serveur ne répond à une requête NFS que lorsque l'opération sur disque a été complétée (option <literal>sync</literal>). L'option <literal>async</literal> (asynchrone) désactive cette fonctionnalité et améliore quelque peu les performances, au détriment de la fiabilité puisqu'il subsiste alors un risque de perte de données en cas de <foreignphrase>crash</foreignphrase> du serveur (des données acquittées par le serveur NFS n'auront pas été sauvegardées sur le disque avant le <foreignphrase>crash</foreignphrase>). La valeur par défaut de cette option ayant changé récemment (par rapport à l'historique de NFS), il est recommandé de toujours mentionner explicitement l'option souhaitée."
 
 msgid "In order to not give root access to the filesystem to any NFS client, all queries appearing to come from a root user are considered by the server as coming from the <literal>nobody</literal> user. This behavior corresponds to the <literal>root_squash</literal> option, and is enabled by default. The <literal>no_root_squash</literal> option, which disables this behavior, is risky and should only be used in controlled environments. The <literal>anonuid=<replaceable>uid</replaceable></literal> and <literal>anongid=<replaceable>gid</replaceable></literal> options allow specifying another fake user to be used instead of UID/GID 65534 (which corresponds to user <literal>nobody</literal> and group <literal>nogroup</literal>)."
-msgstr "Pour ne pas donner un accès root au système de fichiers à n'importe quel client NFS, toutes les requêtes provenant d'un utilisateur root sont transformées en requêtes provenant de l'utilisateur <literal>nobody</literal>. Cette option (<literal>root_squash</literal>) est activée par défaut ; l'option inverse <literal>no_root_squash</literal> ne doit être employée qu'avec parcimonie étant donné les risques qu'elle comporte. Les options <literal>anonuid=<replaceable>uid</replaceable></literal> et <literal>anongid=<replaceable>gid</replaceable></literal> permettent d'employer un autre utilisateur écran à la place des UID/GID 65 534 (qui correspondent à l'utilisateur <literal>nobody</literal> et au groupe <literal>nogroup</literal>)."
+msgstr "Pour ne pas donner un accès root au système de fichiers à n'importe quel client NFS, toutes les requêtes provenant d'un utilisateur root sont transformées en requêtes provenant de l'utilisateur <literal>nobody</literal>. Cette option (<literal>root_squash</literal>) est activée par défaut ; l'option inverse <literal>no_root_squash</literal> ne doit être employée qu'avec parcimonie étant donné les risques qu'elle comporte. Les options <literal>anonuid=<replaceable>uid</replaceable></literal> et <literal>anongid=<replaceable>gid</replaceable></literal> permettent d'employer un autre utilisateur écran à la place des UID/GID 65534 (qui correspondent à l'utilisateur <literal>nobody</literal> et au groupe <literal>nogroup</literal>)."
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
 msgstr "Avec NFSv4, il est possible d'ajouter une option <literal>sec</literal> pour préciser le niveau de sécurité souhaité : <literal>sec=sys</literal> est la valeur par défaut sans aucune sécurité particulière, <literal>sec=krb5</literal> active uniquement l'authentification, <literal>sec=krb5i</literal> y ajoute une protection d'intégrité, et <literal>sec=krb5p</literal> est le plus haut niveau qui inclut la protection de la confidentialité (avec le chiffrement des données). Pour que cela puisse marcher, une installation fonctionnelle de Kerberos est nécessaire (ce service n'est pas traité par ce livre)."
@@ -1832,7 +1832,7 @@ msgid "Mounting Windows Shares"
 msgstr "Monter un partage Windows"
 
 msgid "The <command>mount</command> command allows mounting a Windows share into the Linux filesystem hierarchy (with the help of <command>mount.cifs</command> provided by <emphasis role=\"pkg\">cifs-utils</emphasis>)."
-msgstr "La commande <command>mount</command> permet de monter un partage Windows dans l'arborescence du système Linux, avec l'aide de <command>mount.cifs</command> fourni par <emphasis role=\"pkg\">cifs-utils</emphasis>)."
+msgstr "La commande <command>mount</command> permet de monter un partage Windows dans l'arborescence du système Linux (avec l'aide de <command>mount.cifs</command> fourni par <emphasis role=\"pkg\">cifs-utils</emphasis>)."
 
 msgid "<primary><command>mount.cifs</command></primary>"
 msgstr "<primary><command>mount.cifs</command></primary>"
@@ -2221,7 +2221,7 @@ msgid "Create DUAConfigProfile"
 msgstr "<foreignphrase>Create DUAConfigProfile</foreignphrase>"
 
 msgid "no"
-msgstr "<foreignphrase>no</foreignphrase>"
+msgstr "non"
 
 msgid "We deliberately ignore migration of the <filename>/etc/aliases</filename> file, since the standard schema as provided by Debian does not include the structures that this script uses to describe email aliases. Should we want to integrate this data into the directory, the <filename>/etc/ldap/schema/misc.schema</filename> file should be added to the standard schema."
 msgstr "La migration du fichier <filename>/etc/aliases</filename> est volontairement ignorée parce que le schéma standard (installé par Debian) ne comprend pas les structures employées par ce script pour décrire les alias de courrier électronique. S'il est nécessaire d'intégrer cette information dans la base de données LDAP, il faudra ajouter le fichier <filename>/etc/ldap/schema/misc.schema</filename> comme schéma standard."
@@ -2695,7 +2695,7 @@ msgid "Real-Time Communication Services"
 msgstr "Services de communication en temps réel"
 
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
-msgstr "Les services de communication en temps réel (<foreignphrase>Real-Time Communication</foreignphrase>, RTC) regroupent les services de voix sur IP, de video/webcam, de messagerie instantanée (<foreignphrase>instant messaging</foreignphrase>, IM) et de partage de bureaux. Ce chapitre introduit trois services nécessaires dans une infrastructure de communication en temps réel: un serveur TURN, un serveur SIP et un serveur XMPP. Des explications claires et détaillées de comment planifier, installer et gérer ces services sont disponibles en anglais dans le <foreignphrase>Real-Time Communications Quick Start Guide</foreignphrase>, y compris des exemples spécifiques à Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
+msgstr "Les services de communication en temps réel (<foreignphrase>Real-Time Communication</foreignphrase>, RTC) regroupent les services de voix sur IP, de video/webcam, de messagerie instantanée (<foreignphrase>instant messaging</foreignphrase>, IM) et de partage de bureaux. Ce chapitre introduit trois services nécessaires dans une infrastructure de communication en temps réel : un serveur TURN, un serveur SIP et un serveur XMPP. Des explications claires et détaillées de comment planifier, installer et gérer ces services sont disponibles en anglais dans le <foreignphrase>Real-Time Communications Quick Start Guide</foreignphrase>, y compris des exemples spécifiques à Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 
 msgid "<primary>VoIP</primary><secondary>server</secondary>"
 msgstr "<primary>VoIP</primary><secondary>serveur</secondary>"
@@ -2797,13 +2797,13 @@ msgid "TURN Server"
 msgstr "Serveur TURN"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
-msgstr "TURN est un service qui aide les clients derrière des routeurs NAT et des pare-feu à trouver le chemin le plus efficace pour communiquer avec d'autres clients et pour relayer les flux media si aucun chemin direct n'est trouvé. Il est grandement recommandé d'installer le serveur TURN avant que tous les autres service RTC ne soient disponibles pour les utilisateurs finaux."
+msgstr "TURN est un service qui aide les clients derrière des routeurs NAT et des pare-feu à trouver le chemin le plus efficace pour communiquer avec d'autres clients et pour relayer les flux media si aucun chemin direct n'est trouvé. Il est grandement recommandé d'installer le serveur TURN avant que tous les autres services RTC ne soient disponibles pour les utilisateurs finaux."
 
 msgid "<primary>TURN</primary><secondary>server</secondary>"
 msgstr "<primary>TURN</primary><secondary>serveur</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
-msgstr "TURN and le protocole lié ICE sont des standards ouverts. Pour tirer profit de ces protocoles, en maximisant la connectivité et en minimisant la frustration des utilisateurs, il est important de s'assurer que tous les logiciels clients supportent ICE et TURN."
+msgstr "TURN et le protocole ICE sont des standards ouverts. Pour tirer profit de ces protocoles, en maximisant la connectivité et en minimisant la frustration des utilisateurs, il est important de s'assurer que tous les logiciels clients les supportent."
 
 msgid "<primary>ICE</primary>"
 msgstr "<primary>ICE</primary>"
@@ -2841,7 +2841,7 @@ msgstr ""
 "AltStunAddress = 198.51.100.20\n"
 "# votre domaine va ici, il doit correspondre à la valeur\n"
 "# utilisée pour créer vos mots de passe avec l'algorithme\n"
-"# de hachage HA1:\n"
+"# de hachage HA1 :\n"
 "AuthenticationRealm = myrealm\n"
 "\n"
 "UserDatabaseFile = /etc/reTurn/users.txt\n"
@@ -2854,7 +2854,7 @@ msgid "Managing the TURN users"
 msgstr "Gestion des utilisateurs de TURN"
 
 msgid "Use the htdigest utility to manage the TURN server user list."
-msgstr "Utilisez l'utilitaire <foreignphrase>htdigest</foreignphrase> pour gérer la liste des utilisateurs du serveur TURN."
+msgstr "Utilisez l'utilitaire <command>htdigest</command> pour gérer la liste des utilisateurs du serveur TURN."
 
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
@@ -2866,7 +2866,7 @@ msgid "SIP Proxy Server"
 msgstr "Serveur Proxy SIP"
 
 msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
-msgstr "Un serveur proxy SIP gère les connections SIP entrantes et sortantes entre différentes organisations, les fournisseurs de tronc SIP (<foreignphrase>SIP trunking</foreignphrase>), les autocommutateurs téléphoniques privés (<foreignphrase>Private Automatic Branch eXchange</foreignphrase>, PBX) comme Asterisk, les téléphones SIP, les logiciels de téléphonie basés sur SIP et les applications WebRTC."
+msgstr "Un serveur proxy SIP gère les connexions SIP entrantes et sortantes entre différentes organisations, les fournisseurs de tronc SIP (<foreignphrase>SIP trunking</foreignphrase>), les autocommutateurs téléphoniques privés (<foreignphrase>Private Automatic Branch eXchange</foreignphrase>, PBX) comme Asterisk, les téléphones SIP, les logiciels de téléphonie basés sur SIP et les applications WebRTC."
 
 msgid "<primary>SIP</primary><secondary>server</secondary>"
 msgstr "<primary>SIP</primary><secondary>serveur</secondary>"
@@ -2976,13 +2976,13 @@ msgstr ""
 "Transport2TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
 "Transport2TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
 "\n"
-"# Transport3 est pour les connections SIP sur WebSocket (WebRTC)\n"
+"# Transport3 est pour les connexions SIP sur WebSocket (WebRTC)\n"
 "# On utilise le port 8443 ici mais on pourrait utiliser le port 443\n"
 "Transport3Interface = 198.51.100.19:8443\n"
 "Transport3Type = WSS\n"
 "Transport3TlsDomain = falcot.com\n"
 "# Ceci demanderait au navigateur d'envoyer un certificat, mais les\n"
-"# navigateurs ne semblent pas bien le gérer, on le laisse donc à None:\n"
+"# navigateurs ne semblent pas bien le gérer, on le laisse donc à None :\n"
 "Transport3TlsClientVerification = None\n"
 "Transport3RecordRouteUri = sip:falcot.com;transport=WSS\n"
 "Transport3TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
@@ -2997,7 +2997,7 @@ msgstr ""
 "Transport4TlsPrivateKey = /etc/ssl/private/falcot.com-key.pem\n"
 "Transport4TlsCertificate = /etc/ssl/public/falcot.com.pem\n"
 "\n"
-"# Transport5: ceci pourrait être pour des connections TCP à un serveur\n"
+"# Transport5 : ceci pourrait être pour des connexions TCP à un serveur\n"
 "# Asterisk dans le réseau interne. N'autorisez pas le port 5060\n"
 "# dans le pare-feu externe.\n"
 "Transport5Interface = 198.51.100.19:5060\n"
@@ -3045,7 +3045,7 @@ msgid "<primary>XMPP</primary><secondary>server</secondary>"
 msgstr "<primary>XMPP</primary><secondary>serveur</secondary>"
 
 msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
-msgstr "<emphasis>Terminologie</emphasis> XMPP ou Jabber ?"
+msgstr "<emphasis>VOCABULAIRE</emphasis> XMPP ou Jabber ?"
 
 msgid "<primary>Jabber</primary>"
 msgstr "<primary>Jabber</primary>"
@@ -3121,7 +3121,7 @@ msgid "Running services on port 443"
 msgstr "Services fonctionnant sur le port 443"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
-msgstr "Certains administrateurs préfèrent faire tourner tous leurs services RTC sur le port 443. Cela simplifie la connection des utilisateurs qui sont dans des endroits éloignés, tels que des hôtels et des aéroports où les autres ports risquent d'être bloqués et où le trafic Internet est acheminé à travers des serveurs proxy HTTP."
+msgstr "Certains administrateurs préfèrent faire tourner tous leurs services RTC sur le port 443. Cela simplifie la connexion des utilisateurs qui sont dans des endroits éloignés, tels que des hôtels et des aéroports où les autres ports risquent d'être bloqués et où le trafic Internet est acheminé à travers des serveurs proxy HTTP."
 
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
 msgstr "Pour réaliser ceci, chaque service (SIP, XMPP et TURN) doit avoir une adresse IP différente. Tous les services peuvent tout de même être sur le même hôte puisque Linux gère des adresses IP multiples sur un seul hôte. Le numéro de port, 443, doit être spécifié dans les fichiers de configuration de chaque service et aussi dans les enregistrements DNS de type SRV."
@@ -3145,7 +3145,7 @@ msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
 msgstr "<primary>WebRTC</primary><secondary>démonstration</secondary>"
 
 msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
-msgstr "Pour découvrir WebRTC, il existe plusieurs sites de démonstrationqui permettent de tester directement les équipements. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
+msgstr "Pour découvrir WebRTC, il existe plusieurs sites de démonstration qui permettent de tester directement les équipements. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 
 msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
 msgstr "WebRTC est une technologie qui évolue rapidement et il est donc essentiel d'utiliser les paquets des distributions <emphasis role=\"distribution\">jessie-backports</emphasis> ou <emphasis role=\"distribution\">Testing</emphasis>."
@@ -3157,7 +3157,7 @@ msgid "<primary>JSCommunicator</primary>"
 msgstr "<primary>JSCommunicator</primary>"
 
 msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
-msgstr "Installer le paquet <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> est la méthode la plus rapide pour avoir un téléphone WebRTC sur un site web. Cela nécessite d'avoir un proxy SIP avec un transport WebSocket. Les instructions figurant dans <xref linkend=\"sect.sip-server-install\" /> donnent les informations nécessaires pour activer un transport WebSocket dans le proxy SIP <emphasis role=\"pkg\">repro</emphasis>."
+msgstr "Installer le paquet <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> est la méthode la plus rapide pour avoir un téléphone WebRTC sur un site web. Cela nécessite d'avoir un proxy SIP avec un transport WebSocket. Les instructions figurant dans la <xref linkend=\"sect.sip-server-install\" /> donnent les informations nécessaires pour activer un transport WebSocket dans le proxy SIP <emphasis role=\"pkg\">repro</emphasis>."
 
 msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
 msgstr "<emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> peut être utilisé de différentes façons. L'une des stratégies les plus simples est d'inclure ou de copier la configuration <filename>/etc/jscommunicator-web-phone/apache.conf</filename> dans la configuration d'un hôte virtuel Apache."
