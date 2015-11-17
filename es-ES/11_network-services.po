@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-11-17 12:22+0100\n"
-"PO-Revision-Date: 2015-09-16 23:21+0200\n"
-"Last-Translator: Ronnie Simon <ronniesimonf@gmail.com>\n"
+"PO-Revision-Date: 2015-12-08 20:36+0000\n"
+"Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/11_network-services/es/>\n"
 "Language: es-ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4-dev\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 msgid "Postfix"
 msgstr "Postfix"
@@ -34,12 +34,11 @@ msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
-#, fuzzy
 #| msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP"
 msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
-msgstr "Servicios de red: Postfix, Apache, NFS, Samba, Squid, LDAP"
+msgstr "Servicios de red: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 
 #, fuzzy
 #| msgid "Network services are the programs that users interact with directly in their daily work. They're the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
@@ -47,22 +46,21 @@ msgid "Network services are the programs that users interact with directly in th
 msgstr "Los servicios de red son los programas con los que los usuarios interactúan en su trabajo diario. Son la punta del iceberg del sistema de información y este capítulo se centra en ellos; las partes ocultas en las que se basan son la infraestructura que ya hemos descripto anteriormente."
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
-msgstr ""
+msgstr "Muchos servicios de red modernos requieren tecnología de cifrado para operar de forma confiable y segura, especialmente cuando son usados de forma pública en internet. Los certificados X.509 (a los cuales se conoce tambien como Certificados SSL o Certificados TLS) se usan comúnmente para esta finalidad. Un certificado para un dominio concreto se comparte entre más de un servicio de los que discutiremos a lo largo de este capítulo."
 
 #, fuzzy
 #| msgid "<primary>HTTPS</primary>"
 msgid "<primary>TLS</primary>"
-msgstr "<primary>HTTPS</primary>"
+msgstr "<primary>TLS</primary>"
 
 #, fuzzy
 #| msgid "<primary>RBL</primary>"
 msgid "<primary>X.509</primary>"
-msgstr "<primary>RBL</primary>"
+msgstr "<primary>X.509</primary>"
 
-#, fuzzy
 #| msgid "<primary>alias</primary>"
 msgid "<primary>Certificates</primary>"
-msgstr "<primary>alias</primary>"
+msgstr "<primary>Certificados</primary>"
 
 msgid "Mail Server"
 msgstr "Servidor de correo"
@@ -172,7 +170,6 @@ msgstr "Después de este paso, los administradores obtuvieron el siguiente archi
 msgid "Initial <filename>/etc/postfix/main.cf</filename> file"
 msgstr "Archivo <filename>/etc/postfix/main.cf</filename> inicial"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
@@ -292,6 +289,7 @@ msgstr ""
 "# Revise /usr/share/doc/postfix/TLS_README.gz en el paquete postfix-doc\n"
 "# para más información sobre cómo habilitar SSL en el cliente smtp.\n"
 "\n"
+"smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination\n"
 "myhostname = mail.falcot.com\n"
 "alias_maps = hash:/etc/aliases\n"
 "alias_database = hash:/etc/aliases\n"
@@ -308,15 +306,13 @@ msgstr ""
 msgid "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certificates"
 msgstr "<emphasis>SEGURIDAD</emphasis> Certificados SSL de <emphasis>Snake oil</emphasis>"
 
-#, fuzzy
 #| msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value, since they are generated similarly on all Debian systems, with the same “private” part. They should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
 msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value: you cannot rely on them to authenticate the server since they are automatically generated self-signed certificates. However they are useful to improve the privacy of the exchanges."
-msgstr "Los certificados <emphasis>snake oil</emphasis>, al igual que los medicamentos vendidos por charlatanes sin escrúpulos en los viejos tiempos (promocionados como <emphasis>aceite de serpiente</emphasis>, de ahí su nombre), no tienen absolutamente ningún valor puesto que se generan de forma idéntica en todos los sistemas Debian, con la misma parte «privada». Deben utilizarse exclusivamente para pruebas y el servicio normal debe utilizar certificados reales; puede generarlos utilizado el procedimiento descripto en la <xref linkend=\"sect.easy-rsa\" />."
+msgstr "Los certificados <emphasis>snake oil</emphasis>, al igual que los medicamentos vendidos por charlatanes sin escrúpulos en los viejos tiempos (promocionados como <emphasis>aceite de serpiente</emphasis>, de ahí su nombre), no tienen absolutamente ningún valor: no puede confiar en ellos para autenticación del servidor  puesto que son certificados autofirmados generados automáticamente. No obstante son útiles para mejorar la privacidad de los intercambios."
 
-#, fuzzy
 #| msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value, since they are generated similarly on all Debian systems, with the same “private” part. They should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
 msgid "In general they should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
-msgstr "Los certificados <emphasis>snake oil</emphasis>, al igual que los medicamentos vendidos por charlatanes sin escrúpulos en los viejos tiempos (promocionados como <emphasis>aceite de serpiente</emphasis>, de ahí su nombre), no tienen absolutamente ningún valor puesto que se generan de forma idéntica en todos los sistemas Debian, con la misma parte «privada». Deben utilizarse exclusivamente para pruebas y el servicio normal debe utilizar certificados reales; puede generarlos utilizado el procedimiento descripto en la <xref linkend=\"sect.easy-rsa\" />."
+msgstr "Por lo general deben utilizarse exclusivamente para pruebas y el servicio normal debe utilizar certificados reales; puede generarlos utilizado el procedimiento descripto en la <xref linkend=\"sect.easy-rsa\" />."
 
 msgid "Configuring Virtual Domains"
 msgstr "Configuración de dominios virtuales"
@@ -797,18 +793,16 @@ msgstr "También puede evitar los inconvenientes de las listas grises sólo util
 msgid "In that scenario, since DNS blacklists never triggers a definitive rejection, it becomes reasonable to use aggressive blacklists, including those listing all dynamic IP addresses from ISP clients (such as <literal>pbl.spamhaus.org</literal> or <literal>dul.dnsbl.sorbs.net</literal>)."
 msgstr "En este escenario, debido a que una lista negra de DNS nunca genera un rechazo definitivo, es razonable utilizar listas negras de DNS agresivas, incluyendo aquellas que incluyen todas las direcciones IP dinámicas de clientes de ISPs (como <literal>pbl.spamhaus.org</literal> o <literal>dul.dnsbl.sorbs.net</literal>)."
 
-#, fuzzy
 #| msgid "Since milter-greylist uses Sendmail's milter interface, the postfix side of its configuration is limited to “<literal>smtpd_milters = unix:/var/milter-greylist/milter-greylist.sock</literal>”. The <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page documents <filename>/etc/milter-greylist/greylist.conf</filename> and the numerous ways to configure milter-greylist."
 msgid "Since milter-greylist uses Sendmail's milter interface, the postfix side of its configuration is limited to “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. The <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page documents <filename>/etc/milter-greylist/greylist.conf</filename> and the numerous ways to configure milter-greylist. You will also have to edit <filename>/etc/default/milter-greylist</filename> to actually enable the service."
-msgstr "Como milter-greylist utiliza la interfaz de milter de Sendmail, la configuración del lado de postfix se limita a «<literal>smtpd_milters = unix:/var/milter-greylist/milter-greylist.sock</literal>». La página de manual <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> documenta <filename>/etc/milter-greylist/greylist.conf</filename> y las muchas formas de configurar milter-greylist."
+msgstr "Como milter-greylist utiliza la interfaz de milter de Sendmail, la configuración del lado de postfix se limita a «<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>». La página de manual <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> documenta <filename>/etc/milter-greylist/greylist.conf</filename> y las muchas formas de configurar milter-greylist. Deberá tambien editar el archivo <filename>/etc/default/milter-greylist</filename> para activar realmente el servicio."
 
 msgid "Customizing Filters Based On the Recipient"
 msgstr "Personalización de filtros basados en el receptor"
 
-#, fuzzy
 #| msgid "The last two sections reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in black-lists; this service asked for a non-filtered address so as to be able to correspond."
 msgid "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> and <xref linkend=\"sect.setting-up-greylisting\" /> reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in blacklists; this service asked for a non-filtered address so as to be able to correspond."
-msgstr "Las últimas dos secciones revisaron muchas de las restricciones posibles. Todas son útiles para limitar la cantidad de spam recibido, pero también tienen su desventajas. Por lo tanto, es más y más común, personalizar el conjunto de filtros según el receptor. En Falcot Corp, las listas grises son interesantes para la mayoría de los usuarios pero entorpece el trabajo de algunos usuarios que necesitan una latencia baja en sus correos (como el servicio de soporte técnico). De forma similar, el servicio comercial a veces tiene problemas para recibir correos de algunos proveedores asiáticos que pueden encontrarse en listas negras; este servicio solicitó una dirección sin filtros para poder intercambiar correspondencia."
+msgstr "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> y <xref linkend=\"sect.setting-up-greylisting\" /> revisaron muchas de las restricciones posibles. Todas son útiles para limitar la cantidad de spam recibido, pero también tienen su desventajas. Por lo tanto, es más y más común, personalizar el conjunto de filtros según el receptor. En Falcot Corp, las listas grises son interesantes para la mayoría de los usuarios pero entorpece el trabajo de algunos usuarios que necesitan una latencia baja en sus correos (como el servicio de soporte técnico). De forma similar, el servicio comercial a veces tiene problemas para recibir correos de algunos proveedores asiáticos que pueden encontrarse en listas negras; este servicio solicitó una dirección sin filtros para poder intercambiar correspondencia."
 
 msgid "Postfix provides such a customization of filters with a “restriction class” concept. The classes are declared in the <literal>smtpd_restriction_classes</literal> parameter, and defined the same way as <literal>smtpd_recipient_restrictions</literal>. The <literal>check_recipient_access</literal> directive then defines a table mapping a given recipient to the appropriate set of restrictions."
 msgstr "Postfix provee tal personalización de filtros con el concepto de «clases de restricción». Declarará las clases en el parámetro <literal>smtpd_restriction_classes</literal> de la misma forma que <literal>smtpd_recipient_restrictions</literal>. La directiva <literal>check_recipient_access</literal> define luego una tabla que asocia un receptor dado con el conjunto de restricciones apropiadas."
@@ -927,18 +921,16 @@ msgstr ""
 "# Revisión de virus con clamav-milter\n"
 "smtpd_milters = inet:[127.0.0.1]:10002"
 
-#, fuzzy
 #| msgid "If the antivirus causes problems, this line can be commented out, and <command>/etc/init.d/postfix reload</command> should be run so that this change is taken into account."
 msgid "If the antivirus causes problems, this line can be commented out, and <command>service postfix reload</command> should be run so that this change is taken into account."
-msgstr "Si el antivirus causa problema, puede comentar esta línea; deberá ejecutar <command>/etc/init.d/postfix reload</command> para que se tenga en cuenta el cambio."
+msgstr "Si el antivirus causa problema, puede comentar esta línea; deberá ejecutar <command>service postfix reload</command> para que se tenga en cuenta el cambio."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
 msgstr "<emphasis>EN LA PRÁCTICA</emphasis> Prueba del antivirus"
 
-#, fuzzy
 #| msgid "Once the antivirus is set up, its correct behavior should be tested. The simplest way to do that is to send a test email with an attachment containing the <filename>eicar.com</filename> (or <filename>eicar.com.zip</filename>) file, which can be downloaded online: <ulink type=\"block\" url=\"http://www.eicar.org/anti_virus_test_file.htm\" />"
 msgid "Once the antivirus is set up, its correct behavior should be tested. The simplest way to do that is to send a test email with an attachment containing the <filename>eicar.com</filename> (or <filename>eicar.com.zip</filename>) file, which can be downloaded online: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
-msgstr "Una vez que configuró el antivirus, debe probar que funciona correctamente. La forma más simple de hacerlo es enviar un correo de prueba con un adjunto que contenga el archivo <filename>eicar.com</filename> (o <filename>eicar.com.zip</filename>) que puede descargar: <ulink type=\"block\" url=\"http://www.eicar.org/anti_virus_test_file.htm\" />"
+msgstr "Una vez que configuró el antivirus, debe probar que funciona correctamente. La forma más simple de hacerlo es enviar un correo de prueba con un adjunto que contenga el archivo <filename>eicar.com</filename> (o <filename>eicar.com.zip</filename>) que puede descargar: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
 
 msgid "This file is not a true virus, but a test file that all antivirus software on the market diagnose as a virus to allow checking installations."
 msgstr "Este archivo no es un virus real sino un archivo de prueba que todo software antivirus en el mercado diagnostica como un virus para poder probar instalaciones."
@@ -1017,7 +1009,6 @@ msgstr ""
 "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd\n"
 "relay_host = [mail.falcot.com]"
 
-#, fuzzy
 #| msgid "The <filename>/etc/postfix/sasl_passwd</filename> file needs to contain the username and password to use for authenticating on the <literal>mail.falcot.com</literal> server. Here's an example:"
 msgid "The <filename>/etc/postfix/sasl_passwd</filename> file needs to contain the username and password to use for authenticating on the <literal>mail.falcot.com</literal> server. Here is an example:"
 msgstr "El archivo <filename>/etc/postfix/sasl_passwd</filename> necesita contener el nombre de usuarios y la contraseña a utilizar para autenticarse en el servidor <literal>mail.falcot.com</literal>. Por ejemplo:"
@@ -1069,17 +1060,15 @@ msgid "Installing Apache"
 msgstr "Instalación de Apache"
 
 msgid "Installing the <emphasis role=\"pkg\">apache2</emphasis> package is all that is needed. It contains all the modules, including the <emphasis>Multi-Processing Modules</emphasis> (MPMs) that affect how Apache handles parallel processing of many requests (those used to be provided in separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis> packages). It will also pull <emphasis role=\"pkg\">apache2-utils</emphasis> containing the command line utilities that we will discover later."
-msgstr ""
+msgstr "Lo único que necesita es instalar el paquete <emphasis role=\"pkg\">apache2</emphasis>. Contiene todos los módulos, incluídos los <emphasis>Módulos de Multi-proceso</emphasis> (MPMs), que afectan a cómo Apache gestiona el procesamiento en paralelo de muchas peticiones (que suelen facilitarse en los paquetes separados <emphasis role=\"pkg\">apache2-mpm-*\"</emphasis>. Arrastrará también <emphasis role=\"pkg\">apache2-utils</emphasis>, que contiene las utilidades de linea de órdenes que descubriremos más tarde."
 
-#, fuzzy
 #| msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis>worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis>prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis>event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
 msgid "The MPM in use affects significantly the way Apache will handle concurrent requests. With the <emphasis>worker</emphasis> MPM, it uses <emphasis>threads</emphasis> (lightweight processes), whereas with the <emphasis>prefork</emphasis> MPM it uses a pool of processes created in advance. With the <emphasis>event</emphasis> MPM it also uses threads, but the inactive connections (notably those kept open by the HTTP <emphasis>keep-alive</emphasis> feature) are handed back to a dedicated management thread."
-msgstr "Las diferencias entre las variantes de Apache 2 se concentran en la política utilizada para gestionar el procesamiento en paralelo de muchos pedidos; esta política esta implementada por un MPM (abreviación de <emphasis>módulo de multiprocesamiento</emphasis>: «Multi-Processing Module»). Entre los MPMs disponibles, <emphasis>worker</emphasis> utiliza <emphasis>hilos</emphasis> (procesos livianos) mientras que <emphasis>prefork</emphasis> utiliza un conjunto de proceso creados por adelantado (la forma tradicional y la única disponible en Apache 1.3). <emphasis>event</emphasis> también utiliza hilos, pero terminan antes, cuando la conexión sólo continúa abierta debido a la funcionalidad «<emphasis>keep-alive</emphasis>» de HTTP."
+msgstr "El uso de MPM en Apache afecta significativamente al manejo de las peticiones concurrentes. Con el <emphasis>worker</emphasis> MPM, se usan <emphasis>hilos</emphasis> (procesos ligeros) mientras que con <emphasis>prefork</emphasis> MPM usa un conjunto de procesos creados préviamente. Con el uso de <emphasis>event</emphasis> MPM tambien usa hilos pero las conexiones inactivas (las que se mantienen abiertas por la característica <emphasis>keep-alive</emphasis> de HTTP) son llevadas por el gestor de hilos dedicado."
 
-#, fuzzy
 #| msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the <emphasis>worker</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
 msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the default <emphasis>event</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
-msgstr "Los administradores de Falcot también instalan <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> para incluir la compatibilidad con PHP en Apache. Esto causa que se el MPM se desactive en <emphasis>worker</emphasis> y, en su lugar se haga uso de <emphasis>prefork</emphasis>, ya que PHP sólo funciona bajo ese MPM particular."
+msgstr "Los administradores de Falcot también instalan <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> para incluir la compatibilidad con PHP en Apache. Esto causa que se el MPM se desactive en el <emphasis>evento</emphasis> por defecto y, en su lugar se haga uso de <emphasis>prefork</emphasis>, ya que PHP sólo funciona bajo ese MPM particular."
 
 msgid "<emphasis>SECURITY</emphasis> Execution under the <literal>www-data</literal> user"
 msgstr "<emphasis>SEGURIDAD</emphasis> Ejecución bajo el usuario <literal>www-data</literal>"
@@ -1111,10 +1100,9 @@ msgstr "Puede encontrar la lista completa de los módulos estándar de Apache en
 msgid "Apache is a modular server, and many features are implemented by external modules that the main program loads during its initialization. The default configuration only enables the most common modules, but enabling new modules is a simple matter of running <command>a2enmod <replaceable>module</replaceable></command>; to disable a module, the command is <command>a2dismod <replaceable>module</replaceable></command>. These programs actually only create (or delete) symbolic links in <filename>/etc/apache2/mods-enabled/</filename>, pointing at the actual files (stored in <filename>/etc/apache2/mods-available/</filename>)."
 msgstr "Apache es un servidor modular y mucha funcionalidad está implementada por módulos externos que el programa principal carga durante su inicialización. La configuración predeterminada sólo activa los módulos más comunes, pero activar nuevos módulos es tan simple como ejecutar <command>a2enmod <replaceable>módulo</replaceable></command>; similarmente, podrá desactivar un módulo ejecutando <command>a2dismod <replaceable>módulo</replaceable></command>. En realidad, estos programas sólo crean (o eliminan) enlaces simbólicos en <filename>/etc/apache2/mods-enabled/</filename> que apuntan a los archivos en sí (almacenados en <filename>/etc/apache2/mods-available/</filename>)."
 
-#, fuzzy
 #| msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default</filename>)."
 msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/html/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
-msgstr "Con su configuración predeterminada, el servidor web escuchará en el puerto 80 (según se encuentra configurado en <filename>/etc/apache2/ports.conf</filename>) y servirá páginas del directorio <filename>/var/www/</filename> (según se encuentra configurado en <filename>/etc/apache2/sites-enabled/000-default</filename>)."
+msgstr "Con su configuración predeterminada, el servidor web escuchará en el puerto 80 (según se encuentra configurado en <filename>/etc/apache2/ports.conf</filename>) y servirá páginas del directorio <filename>/var/www/html/</filename> (según se encuentra configurado en <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Adding support for SSL"
 msgstr "<emphasis>YENDO MÁS ALLÁ</emphasis> Compatibilidad con SSL"
@@ -1149,10 +1137,9 @@ msgstr "Apache considera dos tipos distintos de servidores virtuales: aquellos b
 msgid "The (increasing) scarcity of IPv4 addresses usually favors the second method; however, it is made more complex if the virtual hosts need to provide HTTPS too, since the SSL protocol hasn't always provided for name-based virtual hosting; the SNI extension (<emphasis>Server Name Indication</emphasis>) that allows such a combination is not handled by all browsers. When several HTTPS sites need to run on the same server, they will usually be differentiated either by running on a different port or on a different IP address (IPv6 can help there)."
 msgstr "La escasez (creciente) de direcciones IPv4 generalmente favorece el segundo método; sin embargo, es más complejo si los servidores virtuales también necesitan proveer HTTPS ya que el protocolo SSL no siempre se adecuó a los servidores virtuales basados en nombres; no todos los navegadores son compatibles con la extensión SNI (<emphasis>indicación de nombre de servidor</emphasis>: «Server Name Indication») que permite esta combinación. Cuando varios sitios HTTPS necesitan ejecutar en el mismo servidor, generalmente se diferenciarán bien por ejecutar en un puerto o en una dirección IP diferente (IPv6 puede ayudar)."
 
-#, fuzzy
 #| msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
 msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
-msgstr "La configuración predeterminada de Apache 2, activa servidores virtuales basados en nombre. Además, define un servidor virtual predeterminado en el archivo <literal>/etc/apache2/sites-enabled/000-defailt</literal>; utilizará este servidor virtual si no se encuentra ningún servidor que coincida con el pedido enviado por el cliente."
+msgstr "La configuración predeterminada de Apache 2, activa servidores virtuales basados en nombre. Además, define un servidor virtual predeterminado en el archivo <literal>/etc/apache2/sites-enabled/000-default.conf</literal>; utilizará este servidor virtual si no se encuentra ningún servidor que coincida con el pedido enviado por el cliente."
 
 msgid "<emphasis>CAUTION</emphasis> First virtual host"
 msgstr "<emphasis>PRECAUCIÓN</emphasis> Primer servidor virtual"
@@ -1181,10 +1168,9 @@ msgstr "También debe tener cuidado de asegurar que la configuración del primer
 msgid "Each extra virtual host is then described by a file stored in <filename>/etc/apache2/sites-available/</filename>. Setting up a website for the <literal>falcot.org</literal> domain is therefore a simple matter of creating the following file, then enabling the virtual host with <command>a2ensite www.falcot.org</command>."
 msgstr "Luego puede describir cada servidor virtual adicional con un archivo almacenado en <filename>/etc/apache2/sites-available/</filename>. La configuración de un sitio web para el dominio <literal>falcot.org</literal> es tan simple como crear el siguiente archivo y luego habilitar el servidor virtual con <command>a2ensite www.falcot.org</command>."
 
-#, fuzzy
 #| msgid "The <filename>/etc/apache2/sites-available/www.falcot.org</filename> file"
 msgid "The <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename> file"
-msgstr "El archivo <filename>/etc/apache2/sites-available/www.falcot.org</filename>"
+msgstr "El archivo <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename>"
 
 msgid ""
 "\n"
@@ -1201,15 +1187,13 @@ msgstr ""
 "DocumentRoot /srv/www/www.falcot.org\n"
 "&lt;/VirtualHost&gt;"
 
-#, fuzzy
 #| msgid "The Apache server, as configured so far, uses the same log files for all virtual hosts (although this could be changed by adding <literal>CustomLog</literal> directives in the definitions of the virtual hosts). It therefore makes good sense to customize the format of this log file to have it include the name of the virtual host. This can be done by creating a <filename>/etc/apache2/conf.d/customlog</filename> file that defines a new format for all log files (with the <literal>LogFormat</literal> directive). The <literal>CustomLog</literal> line must also be removed (or commented out) from the <filename>/etc/apache2/sites-available/default</filename> file."
 msgid "The Apache server, as configured so far, uses the same log files for all virtual hosts (although this could be changed by adding <literal>CustomLog</literal> directives in the definitions of the virtual hosts). It therefore makes good sense to customize the format of this log file to have it include the name of the virtual host. This can be done by creating a <filename>/etc/apache2/conf-available/customlog.conf</filename> file that defines a new format for all log files (with the <literal>LogFormat</literal> directive) and by enabling it with <command>a2enconf customlog</command>. The <literal>CustomLog</literal> line must also be removed (or commented out) from the <filename>/etc/apache2/sites-available/000-default.conf</filename> file."
-msgstr "El servidor Apache, como está configurado hasta ahora, utiliza los mismos archivos de registro para todos los servidores virtuales (puede cambiarlo agregando directivas <literal>CustomLog</literal> en las definiciones de servidores virtuales). Por lo tanto, tiene sentido personalizar el formato de este archivo de registro para incluir el nombre del servidor virtual. Puede hacerlo creando un archivo <filename>/etc/apache2/conf.d/customlog</filename> que define un nuevo formato para todos los archivos de registro (con la directiva <literal>LogFormat</literal>). También debe eliminar (o comentar) la línea <literal>CustomLog</literal> del archivo <filename>/etc/apache2/sites-available/default</filename>."
+msgstr "El servidor Apache, como está configurado hasta ahora, utiliza los mismos archivos de registro para todos los servidores virtuales (puede cambiarlo agregando directivas <literal>CustomLog</literal> en las definiciones de servidores virtuales). Por lo tanto, tiene sentido personalizar el formato de este archivo de registro para incluir el nombre del servidor virtual. Puede hacerlo creando un archivo <filename>/etc/apache2/conf-available/customlog.conf</filename> que define un nuevo formato para todos los archivos de registro (con la directiva <literal>LogFormat</literal>) y habilitándolo con la orden <command>a2enconf customlog</command>. También debe eliminar (o comentar) la línea <literal>CustomLog</literal> del archivo <filename>/etc/apache2/sites-available/000-default.conf</filename>."
 
-#, fuzzy
 #| msgid "The <filename>/etc/apache2/conf.d/customlog</filename> file"
 msgid "The <filename>/etc/apache2/conf.d/customlog.conf</filename> file"
-msgstr "El archivo <filename>/etc/apache2/conf.d/customlog</filename>"
+msgstr "El archivo <filename>/etc/apache2/conf.d/customlog.conf</filename>"
 
 msgid ""
 "\n"
@@ -1401,10 +1385,9 @@ msgstr "La directiva <literal>Order</literal> le indica al servidor el orden en 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives can be followed by an IP address, a network (such as <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> or even <literal>192.168.0</literal>), a hostname or a domain name, or the <literal>all</literal> keyword, designating everyone."
 msgstr "A las directivas <literal>Allow from</literal> y <literal>Deny from</literal> le puede seguir una dirección IP, una red (como <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> o inclusive <literal>192.168.0</literal>), un nombre de equipo o nombre de dominio o la palabra clave <literal>all</literal> que incluye a todos."
 
-#, fuzzy
 #| msgid "Reject by default but allow from the local network"
 msgid "For instance, to reject connections by default but allow them from the local network, you could use this:"
-msgstr "Rechazar de forma predeterminada pero permitir desde la red local"
+msgstr "Por ejemplo, para rechazar conexiones de forma predeterminada pero permitir las que provienen de la red local podría usar esto:"
 
 msgid ""
 "\n"
@@ -1558,19 +1541,20 @@ msgid ""
 "  /etc/logrotate.d/httpd-prerotate/awstats\n"
 "</userinput>"
 msgstr ""
-"\n"
-"$ <userinput>cat /etc/logrotate.d/apache2</userinput>\n"
-"/var/log/apache2/*.log {\n"
-"  weekly\n"
+"<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
+"</userinput><computeroutput>/var/log/apache2/*.log {\n"
+"  daily\n"
 "  missingok\n"
-"  rotate 52\n"
+"  rotate 14\n"
 "  compress\n"
 "  delaycompress\n"
 "  notifempty\n"
 "  create 644 root adm\n"
 "  sharedscripts\n"
 "  postrotate\n"
-"    /etc/init.d/apache2 reload &gt; /dev/null\n"
+"    if /etc/init.d/apache2 status &gt; /dev/null ; then \\\n"
+"      /etc/init.d/apache2 reload &gt; /dev/null; \\\n"
+"    fi;\n"
 "  endscript\n"
 "  prerotate\n"
 "    if [ -d /etc/logrotate.d/httpd-prerotate ]; then \\\n"
@@ -1578,9 +1562,10 @@ msgstr ""
 "    fi; \\\n"
 "  endscript\n"
 "}\n"
-"$ <userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate</userinput>\n"
-"$ <userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
-"  /etc/logrotate.d/httpd-prerotate/awstats</userinput>"
+"$ </computeroutput><userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
+"  /etc/logrotate.d/httpd-prerotate/awstats\n"
+"</userinput>"
 
 msgid "Note also that the log files created by <command>logrotate</command> need to be readable by everyone, especially AWStats. In the above example, this is ensured by the <literal>create 644 root adm</literal> line (instead of the default <literal>640</literal> permissions)."
 msgstr "Sepa también que los archivos de registro creados por <command>logrotate</command> necesitan ser legibles por todos, especialmente AWStats. En el ejemplo anterior, se garantiza esto con la línea <literal>create 644 root adm</literal> (en lugar de los permisos predeterminados <literal>640</literal>)."
