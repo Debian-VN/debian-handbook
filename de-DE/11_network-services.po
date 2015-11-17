@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2015-10-20 08:52+0200\n"
+"POT-Creation-Date: 2015-11-17 12:22+0100\n"
 "PO-Revision-Date: 2014-11-10 21:44+0200\n"
 "Last-Translator: Georg Korger <georg.korger@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/debian-handbook/11_network-services/de/>\n"
@@ -1127,7 +1127,7 @@ msgstr "Apache ist ein modularer Server, und viele Leistungsmerkmale werden durc
 
 #, fuzzy
 #| msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default</filename>)."
-msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
+msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/html/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
 msgstr "In seiner Standardkonfiguration nimmt der Webserver an Port 80 Verbindungen an (wie in <filename>/etc/apache2/ports.conf</filename> konfiguriert), und liefert Seiten aus dem Verzeichnis <filename>/var/www/</filename> (wie in <filename>/etc/apache2/sites-enabled/000-default</filename> konfiguriert)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Adding support for SSL"
@@ -2906,9 +2906,6 @@ msgstr ""
 "# TLS certificates (needed for GnuTLS)\n"
 "TLS_CACERT      /etc/ssl/certs/ca-certificates.crt\n"
 
-msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
-msgstr "Dieses Kapitel hat nur einen Bruchteil der verfügbaren Serversoftware dargestellt; jedoch wurden die meisten der üblichen Netzwerkdienste beschrieben. Jetzt ist es Zeit für ein noch technischeres Kapitel: wir werden tiefer in die Einzelheiten einiger Konzepte eindringen, sowie Masseneinsätze und Virtualisierungen beschreiben."
-
 msgid "Real-Time Communication Services"
 msgstr ""
 
@@ -2973,13 +2970,21 @@ msgid ""
 "server1            IN     A      198.51.100.19\n"
 "server1            IN     AAAA   2001:DB8:1000:2000::19\n"
 "\n"
-"; some convenient CNAMEs\n"
-"turn-server        IN     CNAME  server1\n"
-"sip-proxy          IN     CNAME  server1\n"
-"xmpp-gw            IN     CNAME  server1\n"
+"; IPv4 only for TURN for now, some clients are buggy with IPv6\n"
+"turn-server        IN     A      198.51.100.19\n"
 "\n"
-"; DNS SRV for STUN / TURN\n"
+"; IPv4 and IPv6 addresses for SIP\n"
+"sip-proxy          IN     A      198.51.100.19\n"
+"sip-proxy          IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; IPv4 and IPv6 addresses for XMPP\n"
+"xmpp-gw            IN     A      198.51.100.19\n"
+"xmpp-gw            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; DNS SRV and NAPTR for STUN / TURN\n"
 "_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"_turn._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"RELAY:turn.udp\" \"\" _turn._udp.falcot.com.\n"
 "\n"
 "; DNS SRV and NAPTR records for SIP\n"
 "_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
@@ -3208,9 +3213,9 @@ msgid "<primary>XMPP</primary><secondary>server</secondary>"
 msgstr "<primary>MX</primary><secondary>Server</secondary>"
 
 #, fuzzy
-#| msgid "<emphasis>SECURITY</emphasis> No security"
-msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
-msgstr "<emphasis>SICHERHEIT</emphasis> Keine Sicherheit"
+#| msgid "<emphasis>VOCABULARY</emphasis> ISP"
+msgid "<emphasis>VOCABULARY</emphasis> XMPP or Jabber?"
+msgstr "<emphasis>WÖRTERVERZEICHNIS</emphasis> ISP"
 
 #, fuzzy
 #| msgid "<primary>spammer</primary>"
@@ -3378,6 +3383,14 @@ msgstr ""
 #| msgid "<primary>alias</primary>"
 msgid "<primary>DruCall</primary>"
 msgstr "<primary>Alias</primary>"
+
+msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
+msgstr "Dieses Kapitel hat nur einen Bruchteil der verfügbaren Serversoftware dargestellt; jedoch wurden die meisten der üblichen Netzwerkdienste beschrieben. Jetzt ist es Zeit für ein noch technischeres Kapitel: wir werden tiefer in die Einzelheiten einiger Konzepte eindringen, sowie Masseneinsätze und Virtualisierungen beschreiben."
+
+#, fuzzy
+#~| msgid "<emphasis>SECURITY</emphasis> No security"
+#~ msgid "<emphasis>Terminology</emphasis> XMPP or Jabber?"
+#~ msgstr "<emphasis>SICHERHEIT</emphasis> Keine Sicherheit"
 
 #~ msgid "NFS is a very useful tool, but its shortcomings must be kept in mind especially where security matters are concerned: all data goes over the network in the clear (a <emphasis>sniffer</emphasis> can intercept it); the server enforces access restrictions based on the client's IP address (which can be spoofed); and finally, when a client machine is granted access to a misconfigured NFS share, the client's root user can access all the files on the share (even those belonging to other users) since the server trusts the username it receives from the client (this is a historical limitation of the protocol)."
 #~ msgstr "NFS ist ein sehr nützliches Instrument, aber man darf seine Unzulänglichkeiten nicht außer Acht lassen, insbesondere wo es um Sicherheitsangelegenheiten geht: alle Daten laufen im Klartext über das Netzwerk (ein <emphasis>Sniffer</emphasis> kann sie abfangen); der Server verhängt Zugangsbeschränkungen aufgrund der IP-Adresse eines Benutzers (die vorgetäuscht sein kann); und schließlich kann, wenn einem Client-Rechner Zugriff auf eine falsch konfigurierte NFS-Freigabe gewährt wird, der Root-Benutzer des Clients auf alle Dateien dieser Freigabe zugreifen (selbst auf die, die anderen Benutzern gehören), da der Server dem Benutzernamen vertraut, den er vom Client erhält (dies ist ein historisches Handicap des Protokolls)."

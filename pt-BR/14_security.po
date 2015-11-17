@@ -516,15 +516,12 @@ msgstr "<command>dpkg --verify</command> é útil na detecção de alterações 
 msgid "<command>dpkg --verify</command> (or <command>dpkg -V</command>) is an interesting tool since it allows finding what installed files have been modified (potentially by an attacker), but this should be taken with a grain of salt. To do its job it relies on checksums stored in dpkg's own database which is stored on the hard disk (they can be found in <filename>/var/lib/dpkg/info/<replaceable>package</replaceable>.md5sums</filename>); a thorough attacker will therefore update these files so they contain the new checksums for the subverted files."
 msgstr "O <command>dpkg --verify</command> (ou <command>dpkg -V</command>) é uma ferramenta interessante já que permite encontrar quais arquivos instalados foram modificados (potencialmente por um invasor), mas isso é apenas um pequeno passo. Para fazer seu trabalho ele confia nos checksums armazenados no próprio banco de dados do dpkg, que é armazenado no disco rígido (eles podem ser encontrados em <filename>/var/lib/dpkg/info/<replaceable>pacote</replaceable>.md5sums</filename>); entretanto, um ataque completo irá atualizar esses arquivos para que eles contenham os novos checksums dos arquivos subvertidos."
 
-#| msgid "<emphasis>BACK TO BASICS</emphasis> Denial of service"
 msgid "<emphasis>BACK TO BASICS</emphasis> File fingerprint"
 msgstr "<emphasis>DE VOLTA AO BASICO</emphasis> Impressão digital de arquivo"
 
-#| msgid "<primary>filtering rule</primary>"
 msgid "<primary>fingerprint</primary>"
 msgstr "<primary>impressão digital</primary>"
 
-#| msgid "<primary>monitoring</primary>"
 msgid "<primary>control sum</primary>"
 msgstr "<primary>sum de controle</primary>"
 
@@ -567,7 +564,6 @@ msgstr "<primary><command>debsums</command></primary>"
 msgid "<command>debsums</command> is the ancestor of <command>dpkg -V</command> and is thus mostly obsolete. It suffers from the same limitations than dpkg. Fortunately, some of the limitations can be worked-around (whereas dpkg does not offer similar work-arounds)."
 msgstr "O <command>debsums</command> é o ancestral do <command>dpkg -V</command> e sendo assim é praticamente obsoleto. Ele sofre das mesmas limitações que o dpkg. Felizmente, algumas das limitações podem ser superadas (enqunato que o dpkg não oferece tais ações)."
 
-#| msgid "The other problem can be avoided in a similar fashion: the check must simply be based on a pristine <filename>.deb</filename> file. Since this implies having all the <filename>.deb</filename> files for all the installed packages, and being sure of their integrity, the simplest way is to grab them from a Debian mirror. This operation can be slow and tedious, and should therefore not be considered a proactive technique to be used on a regular basis."
 msgid "Since the data on the disk cannot be trusted, <command>debsums</command> offers to do its checks based on <filename>.deb</filename> files instead of relying on dpkg's database. To download trusted <filename>.deb</filename> files of all the packages installed, we can rely on APT's authenticated downloads. This operation can be slow and tedious, and should therefore not be considered a proactive technique to be used on a regular basis."
 msgstr "Já que dados no disco não são confiáveis, o  <command>debsums</command> oferece fazer sua checagem com base nos arquivos <filename>.deb</filename> ao invéz de confiar no banco de dados do dpkg. Para baixar arquivos <filename>.deb</filename> confiáveis de todos os pacotes instalados, nós podemos confiar nos downloads autênticados pelo APT. Essa operação pode ser lenta e tediosa, e deve assim, não ser considerada uma técnica proativa a ser usada no cotidiano."
 
@@ -660,7 +656,6 @@ msgstr "O ataque \"negação de serviço\" tem apenas um objetivo: tornar um ser
 msgid "Such an attack is sometimes “distributed”; this usually involves overloading the server with large numbers of queries coming from many different sources so that the server becomes unable to answer the legitimate queries. These types of attacks have gained well-known acronyms: <acronym>DDoS</acronym> and <acronym>DoS</acronym> (depending on whether the denial of service attack is distributed or not)."
 msgstr "Tal ataque é por vezes \"distribuído\", o que geralmente envolve sobrecarregar o servidor com um grande número de consultas provenientes de muitas fontes diferentes para que o servidor se torna incapaz de responder às perguntas legítimas. Estes tipos de ataques ganharam siglas bem conhecidas: <acronym>DDoS</acronym> e <acronym>DoS</acronym> (dependendo se o ataque de negação de serviço distribuído ou não)."
 
-#| msgid "<command>snort</command> (in the Debian package of the same name) is a NIDS — a <emphasis>Network Intrusion Detection System</emphasis>. Its function is to listen to the network and try to detect infiltration attempts and/or hostile acts (including denial of service attacks). All these events are logged, and a daily email is sent to the administrator with a summary of the past 24 hours."
 msgid "<command>suricata</command> (in the Debian package of the same name) is a NIDS — a <emphasis>Network Intrusion Detection System</emphasis>. Its function is to listen to the network and try to detect infiltration attempts and/or hostile acts (including denial of service attacks). All these events are logged in multiple files in <filename>/var/log/suricata</filename>. There are third party tools (Kibana/logstash) to better browse all the data collected. <ulink type=\"block\" url=\"http://suricata-ids.org\" /> <ulink type=\"block\" url=\"https://www.elastic.co/products/kibana\" />"
 msgstr "<command>suricata</command> (no pacote Debian com o mesmo nome) é um NIDS - um <emphasis>Sistema de Detecção de Intrusão de Rede</emphasis>. Sua função é ouvir a rede e tentar detectar tentativas de infiltração e/ou atos hostis (incluindo ataques de negação de serviço). Todos esses eventos são registrados em múltiplos arquivos em <filename>/var/log/suricata</filename>. Existem ferramentas de terceiros (Kibana/logstash) para melhor navegar pelos dados coletados. <ulink type=\"block\" url=\"http://suricata-ids.org\" /> <ulink type=\"block\" url=\"https://www.elastic.co/products/kibana\" />"
 
@@ -709,7 +704,6 @@ msgstr "<primary>AppArmor</primary>"
 msgid "Principles"
 msgstr "Princípios"
 
-#| msgid "SELinux (<emphasis>Security Enhanced Linux</emphasis>) is a <emphasis>Mandatory Access Control</emphasis> system built on Linux's LSM (<emphasis>Linux Security Modules</emphasis>) interface. In practice, the kernel queries SELinux before each system call to know whether the process is authorized to do the given operation."
 msgid "AppArmor is a <emphasis>Mandatory Access Control</emphasis> (MAC) system built on Linux's LSM (<emphasis>Linux Security Modules</emphasis>) interface. In practice, the kernel queries AppArmor before each system call to know whether the process is authorized to do the given operation. Through this mechanism, AppArmor confines programs to a limited set of resources."
 msgstr "AppArmor é um sistema <emphasis>Controle de Acesso Mandatório</emphasis> (MAC - Mandatory Access Control) construído sobre a interface LSM (<emphasis>Linux Security Modules</emphasis>) do Linux. Na prática, o kernel consulta o AppArmor antes de cada chamada do sistema para saber se o processo está autorizado a fazer a operação dada. Através desse mecanismo, o AppArmor confina programas a um limitado conjunto de recursos."
 
@@ -1570,7 +1564,6 @@ msgstr ""
 "<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.if ./</userinput>\n"
 "<computeroutput>$ </computeroutput><userinput>cp /usr/share/doc/selinux-policy-doc/example.te ./</userinput>"
 
-#| msgid "The <filename>.te</filename> file is the most important one. It defines the rules. The <filename>.fc</filename> file defines the “file contexts”, that is the types assigned to files related to this module. The data within the <filename>.fc</filename> file are used during the file labeling step. Finally, the <filename>.if</filename> file defines the interface of the module: it's a set of “public functions” that other modules can use to properly interact with the module that you're creating."
 msgid "The <filename>.te</filename> file is the most important one. It defines the rules. The <filename>.fc</filename> file defines the “file contexts”, that is the types assigned to files related to this module. The data within the <filename>.fc</filename> file are used during the file labeling step. Finally, the <filename>.if</filename> file defines the interface of the module: it is a set of “public functions” that other modules can use to properly interact with the module that you're creating."
 msgstr "O arquivo <filename>.te</filename> é o mais importante. Ele define as regras. O arquivo <filename>.fc</filename> define os arquivos de contextos\", isto é, os tipos atribuídos a arquivos relacionados a este módulo. Os dados dentro do arquivo <filename>.fc</filename> são utilizados durante a etapa de rotulagem do arquivo. Finalmente, o arquivo <filename>if</filename> define a interface do módulo: é um conjunto de \"funções públicas\" que outros módulos podem usar para interagir adequadamente com o módulo que você está criando."
 
@@ -1902,11 +1895,9 @@ msgstr "Ao observar essa entrada de log, é possível construir uma regra que pe
 msgid "<emphasis>COMPLEMENTS</emphasis> No roles in policy rules"
 msgstr "<emphasis>COMPLEMENTOS</emphasis> Nao ha papeis nas regras de politicas"
 
-#| msgid "<primary>monitoring</primary>"
 msgid "<primary>Type Enforcement</primary>"
 msgstr "<primary>Tipo de Aplicação</primary>"
 
-#| msgid "<primary>monitoring</primary>"
 msgid "<primary>Enforcement, Type Enforcement</primary>"
 msgstr "<primary>Aplicação, Tipo de Aplicação</primary>"
 
@@ -1958,7 +1949,6 @@ msgstr "Apache 2 inclui módulos que permitindo a filtragem da entrada de consul
 msgid "Setting up these checks can be a long and cumbersome task, but it can pay off when the web application to be deployed has a dubious track record where security is concerned."
 msgstr "Configurando estas verificações podem ser uma tarefa longa e complicada, mas pode pagar quando a aplicação web a ser implantada tiver um histórico duvidoso, onde a segurança é interesse."
 
-#| msgid "<emphasis>mod-security</emphasis> (in the <emphasis role=\"pkg\">libapache-mod-security</emphasis> package) is the main such module."
 msgid "<emphasis>mod-security2</emphasis> (in the <emphasis role=\"pkg\">libapache2-mod-security2</emphasis> package) is the main such module. It even comes with many ready-to-use rules of its own (in the <emphasis role=\"pkg\">modsecurity-crs</emphasis> package) that you can easily enable."
 msgstr "<emphasis>mod-security2</emphasis> (no pacote <emphasis role=\"pkg\">libapache2-mod-security2</emphasis>) é o tal módulo principal. Ele até mesmo vem com muitas regras prontas-para-uso próprias (no pacote <emphasis role=\"pkg\">modsecurity-crs</emphasis>) que você pode facilmente habilitar."
 
@@ -2108,7 +2098,6 @@ msgstr "Colocando o servidor Off-Line"
 msgid "In any but the most exotic cases, the cracking comes from the network, and the attacker needs a working network to reach their targets (access confidential data, share illegal files, hide their identity by using the machine as a relay, and so on). Unplugging the computer from the network will prevent the attacker from reaching these targets, if they haven't managed to do so yet."
 msgstr "Em qualquer dos casos porém, os mais exóticos, a quebra vem da rede, e o invasor precisa de uma rede trabalhando para alcançar as suas metas (acesso a dados confidenciais, compartilhar arquivos clandestinos, ocultar a sua identidade utilizando a máquina como de um retransmissor e assim sucessivamente). Desconectar o computador da rede impedirá que o atacante alcane esses objetivos, se eles não conseguiram fazer isso ainda."
 
-#| msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see following sections), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
 msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see <xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />, <xref linkend=\"sect.forensic-analysis\" /> and <xref linkend=\"sect.reconstituting-the-attack-scenario\" />), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
 msgstr "Isso só é possível se o servidor está fisicamente acessível. Quando o servidor está hospedado em uma hospedagem no centro provedor de dados do outro lado do país, ou se o servidor não está acessível por qualquer outro motivo, é geralmente uma boa idéia começar a reunir alguma informação importante (ver <xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />, <xref linkend=\"sect.forensic-analysis\" /> e <xref linkend=\"sect.reconstituting-the-attack-scenario\" /> ), então isolar o servidor tanto quanto possível, fechando tantos serviços quanto possível (geralmente tudo, menos o <command>sshd</command>). Este caso ainda é estranho, pois não se pode descartar a possibilidade de o atacante ter acesso SSH como o administrador tem, o que torna mais difícil \"limpar\" as máquinas."
 
@@ -2169,11 +2158,9 @@ msgstr "os arquivos de log em <filename>/var/log/</filename> muitas vezes permit
 msgid "special-purpose tools also allow restoring the contents of potentially deleted files, including log files that attackers often delete."
 msgstr "ferramentas special-purpose também permitem restaurar o conteúdo de arquivos potencialmente excluídos, incluindo arquivos de log que os atacantes muitas vezes excluíram."
 
-#| msgid "The <emphasis role=\"pkg\">sleuthkit</emphasis> package provides a few other tools to analyze a filesystem. Their use is made easier by the <emphasis>Autopsy Forensic Browser</emphasis> graphical interface (in the <emphasis role=\"pkg\">autopsy</emphasis> package). <indexterm><primary>Autopsy Forensic Browser</primary></indexterm>"
 msgid "Some of these operations can be made easier with specialized software. In particular, the <emphasis role=\"pkg\">sleuthkit</emphasis> package provides many tools to analyze a filesystem. Their use is made easier by the <emphasis>Autopsy Forensic Browser</emphasis> graphical interface (in the <emphasis role=\"pkg\">autopsy</emphasis> package)."
 msgstr "Algumas dessa operações podem ser facilitadas com softwares especializados. Em particular, o pacote <emphasis role=\"pkg\">sleuthkit</emphasis> fornece muitas ferramentas para analisar um sistema de arquivos. Seu uso é facilitado pela interface gráfica <emphasis>Autopsy Forensic Browser</emphasis> (no pacote de <emphasis role=\"pkg\">autopsy</emphasis> )."
 
-#| msgid "<primary>denial of service</primary>"
 msgid "<primary>Autopsy Forensic Browser</primary>"
 msgstr "<primary>Navegador Forense Autopsy</primary>"
 
