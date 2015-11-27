@@ -26,7 +26,7 @@ msgid "Archive"
 msgstr "Archive"
 
 msgid "Meta-package"
-msgstr "Méta-paquet"
+msgstr "Métapaquet"
 
 msgid "Debian Developer"
 msgstr "Développeur Debian"
@@ -128,16 +128,16 @@ msgid "Building your First Package"
 msgstr "Construire son premier paquet"
 
 msgid "Meta-Packages or Fake Packages"
-msgstr "Méta-paquet ou faux paquet"
+msgstr "Métapaquet ou faux paquet"
 
 msgid "Fake packages and meta-packages are similar, in that they are empty shells that only exist for the effects their meta-data have on the package handling stack."
-msgstr "Faux paquet et méta-paquet se concrétisent tous deux par un paquet vide qui n'existe que pour les effets de ses informations d'en-têtes sur la chaîne logicielle de gestion des paquets."
+msgstr "Faux paquet et métapaquet se concrétisent tous deux par un paquet vide qui n'existe que pour les effets de ses informations d'en-têtes sur la chaîne logicielle de gestion des paquets."
 
 msgid "The purpose of a fake package is to trick <command>dpkg</command> and <command>apt</command> into believing that some package is installed even though it's only an empty shell. This allows satisfying dependencies on a package when the corresponding software was installed outside the scope of the packaging system. Such a method works, but it should still be avoided whenever possible, since there is no guarantee that the manually installed software behaves exactly like the corresponding package would and other packages depending on it would not work properly."
 msgstr "Le faux paquet existe pour tromper <command>dpkg</command> et <command>apt</command> en leur faisant croire que le paquet correspondant est installé alors qu'il ne s'agit que d'une coquille vide. Cela aide à satisfaire les dépendances lorsque le logiciel en question a été installé manuellement. Cette méthode fonctionne, mais il faut l'éviter autant que possible ; rien ne garantit en effet que le logiciel installé manuellement constitue un remplaçant parfait du paquet concerné et certains autres paquets, qui en dépendent, pourraient donc ne pas fonctionner."
 
 msgid "On the other hand, a meta-package exists mostly as a collection of dependencies, so that installing the meta-package will actually bring in a set of other packages in a single step."
-msgstr "Le méta-paquet existe en tant que collection de paquets par le biais de ses dépendances, que son installation installera donc toutes."
+msgstr "Le métapaquet existe en tant que collection de paquets par le biais de ses dépendances, que son installation installera donc toutes."
 
 msgid "Both these kinds of packages can be created by the <command>equivs-control</command> and <command>equivs-build</command> commands (in the <emphasis role=\"pkg\">equivs</emphasis> package). The <command>equivs-control <replaceable>file</replaceable></command> command creates a Debian package header file that should be edited to contain the name of the expected package, its version number, the name of the maintainer, its dependencies, and its description. Other fields without a default value are optional and can be deleted. The <literal>Copyright</literal>, <literal>Changelog</literal>, <literal>Readme</literal> and <literal>Extra-Files</literal> fields are not standard fields in Debian packages; they only make sense within the scope of <command>equivs-build</command>, and they will not be kept in the headers of the generated package."
 msgstr "Pour créer ces deux types de paquets, on peut recourir aux programmes <command>equivs-control</command> et <command>equivs-build</command> (du paquet Debian <emphasis>equivs</emphasis>). La commande <command>equivs-control <replaceable>fichier</replaceable></command> crée un fichier contenant des en-têtes de paquet Debian qu'on modifiera pour indiquer le nom du paquet souhaité, son numéro de version, le nom du mainteneur, ses dépendances, sa description. Tous les autres champs dépourvus de valeur par défaut sont optionnels et peuvent être supprimés. Les champs <literal>Copyright</literal>, <literal>Changelog</literal>, <literal>Readme</literal> et <literal>Extra-Files</literal> ne sont pas standards pour un paquet Debian. Propres à <command>equivs-build</command>, ils disparaîtront des en-têtes réels du paquet généré."
