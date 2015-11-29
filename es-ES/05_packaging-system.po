@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-06 16:10+0200\n"
-"PO-Revision-Date: 2015-10-19 15:08+0200\n"
-"Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
+"PO-Revision-Date: 2015-11-29 22:57+0000\n"
+"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/05_packaging-system/es/>\n"
 "Language: es-ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 msgid "Binary package"
 msgstr "Paquete binario"
@@ -51,10 +51,9 @@ msgstr "<primary><command>ar</command></primary>"
 msgid "The Debian package format is designed so that its content may be extracted on any Unix system that has the classic commands <command>ar</command>, <command>tar</command>, and <command>gzip</command> (sometimes <command>xz</command> or <command>bzip2</command>). This seemingly trivial property is important for portability and disaster recovery."
 msgstr "El formato del paquete Debian fue diseñado para que su contenido pueda ser extraído en cualquier sistema Unix que tenga los programas clásicos <command>ar</command>, <command>tar</command> y <command>gzip</command> (a veces <command>xz</command> o <command>bzip2</command>). Esta propiedad aparentemente trivial es importante para portabilidad y recuperación en caso de desastres."
 
-#, fuzzy
 #| msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see the “TOOLS” sidebar). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice)."
 msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice). If your system suffered some even more outrageous fortune, and even these don't work (maybe the deepest system libraries are missing?), you should try the static version of <command>busybox</command> (provided in the <emphasis role=\"pkg\">busybox-static</emphasis> package), which is even more self-contained, and provides subcommands such as <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
-msgstr "Imagine por ejemplo que eliminó por error el programa <command>dpkg</command> y que, por lo tanto, ya no puede instalar paquetes Debian. Siendo <command>dpkg</command> un paquete en sí mismo pareciera como que su sistema estuviese condenado... afortunadamente conoce el formato de un paquete y puede descargar el archivo <filename>.deb</filename> para el paquete <emphasis role=\"pkg\">dpkg</emphasis> e instalarlo manualmente (revise el recuadro <xref linkend=\"sidebar.dpkg-apt-ar\" />). Si por cualquier motivo o problema uno o más de los programas <command>ar</command>, <command>tar</command> o <command>gzip</command>/<command>xz</command>/<command>bzip2</command> desaparecieron sólo necesitará copiar el programa faltante de otro sistema (ya que cada uno de ellos funciona de forma completamente autónoma una simple copia bastará). Si su sistema sufre algun evento de peor fortuna e incluso esto no funciona (¿quizás a su sistema le falten bibliotecas a más bajo nivel?), debería intentar la versión estática del comando <command>busybox</command> (proporcionado en el paquete <emphasis role=\"pkg\">busybox-static</emphasis>), el cual se contiene a sí mismo y proporciona subcomandos como <command>busybox ar</command>, <command>busybox tar</command> y <command>busybox gunzip</command>."
+msgstr "Imagine por ejemplo que eliminó por error el programa <command>dpkg</command> y que, por lo tanto, ya no puede instalar paquetes Debian. Siendo <command>dpkg</command> un paquete en sí mismo pareciera como que su sistema estuviese condenado... afortunadamente conoce el formato de un paquete y puede descargar el archivo <filename>.deb</filename> para el paquete <emphasis role=\"pkg\">dpkg</emphasis> e instalarlo manualmente (revise el recuadro <xref linkend=\"sidebar.dpkg-apt-ar\" />). Si por cualquier motivo o problema uno o más de los programas <command>ar</command>, <command>tar</command> o <command>gzip</command>/<command>xz</command>/<command>bzip2</command> desaparecieron sólo necesitará copiar el programa faltante de otro sistema (ya que cada uno de ellos funciona de forma completamente autónoma una simple copia bastará). Si su sistema sufre algun evento de peor fortuna e incluso esto no funciona (¿quizás a su sistema le falten bibliotecas a más bajo nivel?), debería intentar la versión estática del programa <command>busybox</command> (incluido en el paquete <emphasis role=\"pkg\">busybox-static</emphasis>), el cual es inclusive más autocontenido y proporciona órdenes como <command>busybox ar</command>, <command>busybox tar</command> y <command>busybox gunzip</command>."
 
 msgid "<emphasis>TOOLS</emphasis> <command>dpkg</command>, <command>APT</command> and <command>ar</command>"
 msgstr "<emphasis>HERRAMIENTAS</emphasis> <command>dpkg</command>, <command>APT</command> y <command>ar</command>"
@@ -74,7 +73,6 @@ msgstr "<command>APT</command> es un grupo de programas que permite la ejecució
 msgid "As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
 msgstr "En cuanto al programa <command>ar</command>, permite manejar los archivos del mismo nombre: <command>ar t <replaceable>compendio</replaceable></command> muestra la lista de archivos contenidos en el compendio, <command>ar x <replaceable>compendio</replaceable></command> extrae dichos archivos al directorio actual, <command>ar d <replaceable>compendio</replaceable> <replaceable>archivo</replaceable></command> elimina un archivo del compendio, etc. Su página de manual (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documenta todas sus funcionalidades. <command>ar</command> es una herramienta muy rudimentaria que un administrador Unix sólo utilizaría en raras ocasiones, pero utilizarían rutinariamente <command>tar</command>, un programa de manejo de archivos y compendios más evolucionado. Es por eso que es sencillo restaurar <command>dpkg</command> en el caso de que sea eliminado por error. Sólo necesita descargar el paquete Debian y extraer el contenido del archivo <filename>data.tar.gz</filename> en la raíz del sistema (<filename>/</filename>):"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>ar x dpkg_1.16.10_amd64.deb</userinput>\n"
@@ -103,7 +101,6 @@ msgstr "El <xref linkend=\"solving-problems\" /> discute las páginas de manual 
 msgid "Have a look at the content of a <filename>.deb</filename> file:"
 msgstr "Estos son los contenidos de un archivo <filename>.deb</filename>:"
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput>$ </computeroutput><userinput>ar t dpkg_1.16.10_amd64.deb</userinput>\n"
 #| "<computeroutput>debian-binary\n"
@@ -231,10 +228,9 @@ msgstr "<primary>metainformación de un paquete</primary>"
 msgid "<primary>package</primary><secondary>meta-information</secondary>"
 msgstr "<primary>paquete</primary><secondary>metainformación</secondary>"
 
-#, fuzzy
 #| msgid "The Debian package is not only an archive of files intended for installation. It is part of a larger whole, and it describes its relationship with other Debian packages (dependencies, conflicts, suggestions). It also provides scripts that enable the execution of commands at different stages in the package's lifecycle (installation, removal, upgrades). These data used by the package management tools are not part of the packaged software, but are, within the package, what is called its “meta-information” (information about other information)."
 msgid "The Debian package is not only an archive of files intended for installation. It is part of a larger whole, and it describes its relationship with other Debian packages (dependencies, conflicts, suggestions). It also provides scripts that enable the execution of commands at different stages in the package's lifecycle (installation, removal, upgrades). These data are used by the package management tools but are not part of the packaged software; they are, within the package, what is called its “meta-information” (information about other information)."
-msgstr "Un paquete Debian no es sólo un compendio de archivos a instalar. Es parte de un todo más grande y describe su relación con otros paquetes Debian (dependencias, conflictos, sugerencias). También provee scripts que permiten la ejecución de órdenes en diferentes etapas del ciclo de vida del paquete (instalación, eliminación, actualización). Estos datos utilizados por las herramientas de gestión de paquetes no son parte del software empaquetado pero son, dentro del paquete, lo que se denomina «metainformación» (información sobre otra información)."
+msgstr "Un paquete Debian no es sólo un compendio de archivos a instalar. Es parte de un todo más grande y describe su relación con otros paquetes Debian (dependencias, conflictos, sugerencias). También provee scripts que permiten la ejecución de órdenes en diferentes etapas del ciclo de vida del paquete (instalación, eliminación, actualización). Estos datos utilizados por las herramientas de gestión de paquetes no son parte del software empaquetado, son lo que se denomina «metainformación» (información sobre otra información) dentro del paquete."
 
 msgid "Description: the <filename>control</filename> File"
 msgstr "Descripción: el archivo <filename>control</filename>"
@@ -242,12 +238,10 @@ msgstr "Descripción: el archivo <filename>control</filename>"
 msgid "<primary><filename>control</filename></primary>"
 msgstr "<primary><filename>control</filename></primary>"
 
-#, fuzzy
 #| msgid "This file uses a structure similar to email headers (as defined by RFC 2822). For example, for <emphasis role=\"pkg\">apt</emphasis>, the <filename>control</filename> file looks like the following:"
 msgid "This file uses a structure similar to email headers (as defined by RFC 2822). For example, for <emphasis role=\"pkg\">apt</emphasis>, the <filename>control</filename> file looks like the following:"
 msgstr "Este archivo utiliza una estructura similar a las cabeceras de email (definidas en RFC 2822). Por ejemplo el archivo <filename>control</filename> de <emphasis role=\"pkg\">apt</emphasis> se ve de la siguiente forma:"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput>$ </computeroutput><userinput>apt-cache show apt</userinput>\n"
@@ -399,10 +393,9 @@ msgstr "<primary><literal>Depends</literal>, campo de cabecera</primary>"
 msgid "<primary>package</primary><secondary>dependency</secondary>"
 msgstr "<primary>paquete</primary><secondary>dependencia</secondary>"
 
-#, fuzzy
 #| msgid "The dependencies are defined in the <literal>Depends</literal> field in the package header. This is a list of conditions to be met for the package to work correctly — this information is used by tools such as <command>apt</command> in order to install the required libraries, in their appropriate versions, that the package to be installed depends on. For each dependency, it is possible to restrict the range of versions that meet that condition. In other words, it is possible to express the fact that we need the package <emphasis role=\"pkg\">libc6</emphasis> in a version equal to or greater than “2.3.4” (written “<command>libc6 (&gt;= 2.3.4)</command>”). Version comparison operators are as follows:"
 msgid "The dependencies are defined in the <literal>Depends</literal> field in the package header. This is a list of conditions to be met for the package to work correctly — this information is used by tools such as <command>apt</command> in order to install the required libraries, in appropriate versions fulfilling the dependencies of the package to be installed. For each dependency, it is possible to restrict the range of versions that meet that condition. In other words, it is possible to express the fact that we need the package <emphasis role=\"pkg\">libc6</emphasis> in a version equal to or greater than “2.15” (written “<command>libc6 (&gt;= 2.15)</command>”). Version comparison operators are as follows:"
-msgstr "Las dependencias están definidas en el campo <literal>Depends</literal> en la cabecera del paquete. Esta es una lista de condiciones a cumplir para que el paquete funcione correctamente — las herramientas como <command>apt</command> utilizan esta información para instalar las bibliotecas necesarias, las versiones apropiadas, de las que depende el paquete a instalar. Para cada dependencia es posible restringir el rango de versiones que cumplen dicha condición. En otras palabras, es posible expresar el hecho de que necesitamos el paquete <emphasis role=\"pkg\">libc6</emphasis> en una versión igual o mayor a «2.3.4» (escrito como «<command>libc6 (>= 2.3.4)</command>». Los operadores de comparación de versiones son los siguientes:"
+msgstr "Las dependencias están definidas en el campo <literal>Depends</literal> en la cabecera del paquete. Esta es una lista de condiciones a cumplir para que el paquete funcione correctamente — las herramientas como <command>apt</command> utilizan esta información para instalar las bibliotecas necesarias, las versiones apropiadas, para satisfacer las dependencias del paquete a instalar. Para cada dependencia es posible restringir el rango de versiones que cumplen dicha condición. En otras palabras, es posible expresar el hecho de que necesitamos el paquete <emphasis role=\"pkg\">libc6</emphasis> en una versión igual o mayor a «2.15» (escrito como «<command>libc6 (>= 2.15)</command>». Los operadores de comparación de versiones son los siguientes:"
 
 msgid "<command>&lt;&lt;</command>: less than;"
 msgstr "<command>&lt;&lt;</command>: menor que;"
@@ -788,7 +781,7 @@ msgid ""
 "DPkg::options { \"--force-confdef\"; \"--force-confold\"; }"
 msgstr ""
 "\n"
-"DPkg::options { \"--force-confdef\"; \"--force-confold\"; }\n"
+"DPkg::options { \"--force-confdef\"; \"--force-confold\"; }"
 
 msgid "Including this option in the configuration file means that it will also be used in a graphical interface such as <command>aptitude</command>."
 msgstr "Incluir esta opción en el archivo de configuración singifica que también será utilizada en una interfaz gráfica como <command>aptitude</command>."
@@ -832,7 +825,6 @@ msgstr "El archivo <filename>.dsc</filename> («Debian Source Control»: control
 msgid "A <filename>.dsc</filename> file"
 msgstr "Un archivo <filename>.dsc</filename>"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "-----BEGIN PGP SIGNED MESSAGE-----\n"
@@ -1010,13 +1002,13 @@ msgid "If you have a source package, you can use the <command>dpkg-source</comma
 msgstr "Si tiene un paquete fuente, puede utilizar <command>dpkg-source</command> (del paquete <emphasis>role=\"pkg\"</emphasis>) para descomprimirlo:"
 
 msgid "<computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-1.dsc</userinput>"
-msgstr "<computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-1.dsc</userinput>\n"
+msgstr "<computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-1.dsc</userinput>"
 
 msgid "You can also use <command>apt-get</command> to download a source package and unpack it right away. It requires that the appropriate <literal>deb-src</literal> lines be present in the <filename>/etc/apt/sources.list</filename> file, however (for further details, see <xref linkend=\"sect.apt-sources.list\" />). These are used to list the “sources” of source packages (meaning the servers on which a group of source packages are hosted)."
 msgstr "También puede utilizar <command>apt-get</command> para descargar un paquete fuente y descomprimirlo inmediatamente. Necesita, sin embargo, que las líneas <literal>deb-src</literal> apropiadas estén presentes en el archivo <filename>/etc/apt/sources.list</filename> (para maś detalles, revise la <xref linkend=\"sect.apt-sources.list\" />). Éstas son utilizadas para listar los orígenes de los paquetes fuente (los servidores en los que se encuentran un grupo de paquetes fuente)."
 
 msgid "<computeroutput>$ </computeroutput><userinput>apt-get source <replaceable>package</replaceable></userinput>"
-msgstr "<computeroutput>$ </computeroutput><userinput>apt-get source <replaceable>paquete</replaceable></userinput>\n"
+msgstr "<computeroutput>$ </computeroutput><userinput>apt-get source <replaceable>package</replaceable></userinput>"
 
 msgid "Usage within Debian"
 msgstr "Utilización dentro de Debian"
@@ -1054,7 +1046,6 @@ msgstr "<command>dpkg</command> es, sobre todo, la herramienta para instalar un 
 msgid "Installation of a package with <command>dpkg</command>"
 msgstr "Instalación de un paquete con <command>dpkg</command>"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>dpkg -i man-db_2.6.2-1_amd64.deb</userinput>\n"
@@ -1088,7 +1079,6 @@ msgstr "Podemos ver los diferentes pasos que realiza <command>dpkg</command>; sa
 msgid "Separate unpacking and configuration"
 msgstr "Desempaquetado y configuración separados"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>dpkg --unpack man-db_2.6.2-1_amd64.deb</userinput>\n"
@@ -1139,7 +1129,7 @@ msgstr ""
 "\n"
 "<computeroutput>Unpacking libgdm (from .../libgdm_3.8.3-2_amd64.deb) ...\n"
 "dpkg: error processing /var/cache/apt/archives/libgdm_3.8.3-2_amd64.deb (--unpack):\n"
-" trying to overwrite '/usr/bin/gdmflexiserver', which is also in package gdm3 3.4.1-9</computeroutput>\n"
+" trying to overwrite '/usr/bin/gdmflexiserver', which is also in package gdm3 3.4.1-9</computeroutput>"
 
 msgid "In this case, if you think that replacing this file is not a significant risk to the stability of your system (which is usually the case), you can use the option <literal>--force-overwrite</literal>, which tells <command>dpkg</command> to ignore this error and overwrite the file."
 msgstr "En este caso, si piensa que reemplazar este archivo no es un riesgo significativo para la estabilidad de su sistema (que es el caso frecuentemente), puede utilizar la opción <literal>--force-overwrite</literal> que le indica a <command>dpkg</command> que ignore dicho error y sobreescriba el archivo."
@@ -1156,7 +1146,6 @@ msgstr "<primary>dependencia rota</primary>"
 msgid "If you are not careful, the use of an option <literal>--force-*</literal> can lead to a system where the APT family of commands will refuse to function. In effect, some of these options allow installation of a package when a dependency is not met, or when there is a conflict. The result is an inconsistent system from the point of view of dependencies, and the APT commands will refuse to execute any action except those that will bring the system back to a consistent state (this often consists of installing the missing dependency or removing a problematic package). This often results in a message like this one, obtained after installing a new version of <emphasis role=\"pkg\">rdesktop</emphasis> while ignoring its dependency on a newer version of the <emphasis role=\"pkg\">libc6</emphasis>:"
 msgstr "Si no es cuidadoso, utilizar una opción <literal>--force-*</literal> puede llevar a un sistema en el que la familia de programas APT se negarán a funcionar. De hecho, algunas de estas opciones permitirán instalar un paquete cuando no se cumple una de sus dependencias o cuando existe un conflicto. El resultado será un sistema inconsistente desde el punto de vista de dependencias y los programas APT se negarán a efectuar cualquier acción excepto aquellas que le permitan devolver el sistema a un estado consistente (que generalmente consiste en instalar la dependencia faltante o eliminar un paquete problemático). Esto resulta en mensajes como el siguiente, obtenido luego de instalar una nueva versión de <emphasis role=\"pjg\">rdesktop</emphasis> ignorando su dependencia en una nueva versión de <emphasis role=\"pkg\">libc6</emphasis>:"
 
-#, fuzzy
 #| msgid ""
 #| "# apt-get dist-upgrade\n"
 #| "[...]\n"
@@ -1173,13 +1162,12 @@ msgid ""
 "  rdesktop: Depends: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed\n"
 "E: Unmet dependencies. Try using -f.</computeroutput>"
 msgstr ""
-"# apt full-upgrade\n"
-"[...]\n"
+"<computeroutput># </computeroutput><userinput>apt full-upgrade\n"
+"</userinput><computeroutput>[...]\n"
 "You might want to run 'apt-get -f install' to correct these.\n"
 "The following packages have unmet dependencies:\n"
 "  rdesktop: Depends: libc6 (&gt;= 2.5) but 2.3.6.ds1-13etch7 is installed\n"
-"E: Unmet dependencies. Try using -f.\n"
-"  "
+"E: Unmet dependencies. Try using -f.</computeroutput>"
 
 msgid "A courageous administrator who is certain of the correctness of their analysis may choose to ignore a dependency or conflict and use the corresponding <literal>--force-*</literal> option. In this case, if they want to be able to continue to use <command>apt</command> or <command>aptitude</command>, they must edit <filename>/var/lib/dpkg/status</filename> to delete/modify the dependency, or conflict, that they chose to override."
 msgstr "Un administrador valiente que está seguro de la correctitud de su análisis podría elegir ignorar una dependencia o conflicto y utilizar la opción <literal>--force-*</literal> correspondiente. En este caso, si desea poder continuar utilizando <command>apt</command> o <command>aptitude</command>, deberá editar <filename>/var/lib/dpkg/status</filename> para borrar o modificar la dependencia o conflicto que desea invalidar."
@@ -1205,7 +1193,6 @@ msgstr "Ejecutar <command>dpkg</command> con la opción <literal>-r</literal> o 
 msgid "Removal and purge of the <emphasis role=\"pkg\">debian-cd</emphasis> package"
 msgstr "Eliminación y purgado del paquete <emphasis role=\"pkg\">debian-cd</emphasis>"
 
-#, fuzzy
 #| msgid ""
 #| "<computeroutput># </computeroutput><userinput>dpkg -r debian-cd</userinput>\n"
 #| "<computeroutput>(Reading database ... 97747 files and directories currently installed.)\n"
@@ -1225,11 +1212,11 @@ msgid ""
 msgstr ""
 "<computeroutput># </computeroutput><userinput>dpkg -r debian-cd</userinput>\n"
 "<computeroutput>(Reading database ... 97747 files and directories currently installed.)\n"
-"Removing debian-cd ...\n"
+"Removing debian-cd (3.1.17) ...\n"
 "# </computeroutput><userinput>dpkg -P debian-cd</userinput>\n"
 "<computeroutput>(Reading database ... 97401 files and directories currently installed.)\n"
-"Removing debian-cd ...\n"
-"Purging configuration files for debian-cd ...</computeroutput>\n"
+"Removing debian-cd (3.1.17) ...\n"
+"Purging configuration files for debian-cd (3.1.17) ...</computeroutput>"
 
 msgid "Querying <command>dpkg</command>'s Database and Inspecting <filename>.deb</filename> Files"
 msgstr "Consulta de la base de datos de <command>dpkg</command> e inspección de archivos <filename>.deb</filename>"
@@ -1255,7 +1242,6 @@ msgstr "Antes de finalizar esta sección, estudiaremos algunas opciones de <comm
 msgid "Various queries with <command>dpkg</command>"
 msgstr "Varias consultas con <command>dpkg</command>"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput>$ </computeroutput><userinput>dpkg -L base-passwd</userinput>\n"
@@ -1665,7 +1651,7 @@ msgstr ""
 "<computeroutput>1\n"
 "$ </computeroutput><userinput>dpkg --compare-versions 2.6.0pre3-1 lt 2.6.0-1</userinput>\n"
 "<computeroutput>$ </computeroutput><userinput>echo $?</userinput>\n"
-"<computeroutput>1</computeroutput>\n"
+"<computeroutput>1</computeroutput>"
 
 msgid "Note the unexpected failure of the last comparison: for <command>dpkg</command>, <literal>pre</literal>, usually denoting a pre-release, has no particular meaning, and this program compares the alphabetic characters in the same way as the numbers (a &lt; b &lt; c ...), in alphabetical order. This is why it considers “<literal>0pre3</literal>” to be greater than “<literal>0</literal>”. When we want a package's version number to indicate that it is a pre-release, we use the tilde character, “<literal>~</literal>”:"
 msgstr "Note el fallo inesperado de la última comparación: <literal>pre</literal>, que generalmente denota una prepublicación, no tiene un significado especial para <command>dpkg</command> y éste compara los caracteres alfabéticos de la misma forma que los números (a &lt; b &lt; c ...): en orden alfabético. Es por esto que considera «<literal>0pre3</literal>» mayor que «<literal>0</literal>». Si deseamos que el número de versión de un paquete indique que es una prepublicación, utilizamos el carácter virgulilla: «<literal>~</literal>»:"
@@ -1679,7 +1665,7 @@ msgstr ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>dpkg --compare-versions 2.6.0~pre3-1 lt 2.6.0-1</userinput>\n"
 "<computeroutput>$ </computeroutput><userinput>echo $?</userinput>\n"
-"<computeroutput>0</computeroutput>\n"
+"<computeroutput>0</computeroutput>"
 
 msgid "<command>dpkg</command>'s Log File"
 msgstr "Archivo de registro de <command>dpkg</command>"
@@ -1705,12 +1691,10 @@ msgstr "Esta restricción asegura que el usuario no termine con binarios compila
 msgid "Enabling Multi-Arch"
 msgstr "Activación de multiarquitectura"
 
-#, fuzzy
 #| msgid "<command>dpkg</command>'s multi-arch support allows users to define “foreign architectures” that can be installed on the current system. This is simply done with <command>dpkg --add-architecture</command> like in the example below. There's a corresponding <command>dpkg --remove-architecture</command> to drop support of a foreign architecture, but it can only be used when no packages of this architecture remain."
 msgid "<command>dpkg</command>'s multi-arch support allows users to define “foreign architectures” that can be installed on the current system. This is simply done with <command>dpkg --add-architecture</command> like in the example below. There is a corresponding <command>dpkg --remove-architecture</command> to drop support of a foreign architecture, but it can only be used when no packages of this architecture remain."
 msgstr "La compatibilidad multiarquitectura de <command>dpkg</command> le permite al usuario definir «arquitecturas extranjeras» que pueden ser instaladas en el sistema actual. Puede hacer esto simplemente ejecutando <command>dpkg --add-architecture</command> como en el ejemplo a continuación. Existe también el correspondiente <command>dpkg --remove-architecture</command> para eliminar la compatibilidad de una arquitectura extranjera, pero sólo puede utilizarlo cuando ya no existan paquetes instalados de dicha arquitectura."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>dpkg --print-architecture</userinput>\n"
@@ -1810,7 +1794,6 @@ msgstr "Cambios relacionados con multiarquitectura"
 msgid "To make multi-arch actually useful and usable, libraries had to be repackaged and moved to an architecture-specific directory so that multiple copies (targeting different architectures) can be installed alongside. Such updated packages contain the “<literal>Multi-Arch: same</literal>” header field to tell the packaging system that the various architectures of the package can be safely co-installed (and that those packages can only satisfy dependencies of packages of the same architecture). Since multi-arch made its debut in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, not all libraries have been converted yet."
 msgstr "Para poder hacer que multiarquitectura fuese útil y usable, se debieron reempaquetar bibliotecas y moverlas a un directorio específico de la arquitectura para que se pudieran instalar simultáneamete varias copias (para diferentes arquitecturas). Estos paquetes actualizados contienen el campo de cabecera «<literal>Multi-Arch: same</literal>» para indicarle al sistema de paquetes que se pueden instalar simultáneamente y sin problemas varias arquitecturas del mismo (y que dichos paquetes sólo satisfacen dependencias de los paquetes de la misma arquitectura). Desde el debut de multiarquitectura en Debian <emphasis role=\"distribution\">Wheezy</emphasis>, aun no todas las bibliotecas fueron convertidas."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "$ <userinput>dpkg -s gcc-4.7-base</userinput>\n"
@@ -1838,18 +1821,18 @@ msgid ""
 "</userinput><computeroutput>gcc-4.9-base:amd64, gcc-4.9-base:armhf: /usr/share/doc/gcc-4.9-base/copyright\n"
 "</computeroutput>"
 msgstr ""
-"\n"
-"$ <userinput>dpkg -s gcc-4.9-base</userinput>\n"
-"dpkg-query: error: --status needs a valid package name but 'gcc-4.9-base' is not: ambiguous package name 'gcc-4.9-base' with more than one installed instance\n"
+"<computeroutput>$ </computeroutput><userinput>dpkg -s gcc-4.9-base\n"
+"</userinput><computeroutput>dpkg-query: error: --status needs a valid package name but 'gcc-4.9-base' is not: ambiguous package name 'gcc-4.9-base' with more than one installed instance\n"
 "\n"
 "Use --help for help about querying packages.\n"
-"$ <userinput>dpkg -s gcc-4.9-base:amd64 gcc-4.9-base:armhf | grep ^Multi</userinput>\n"
+"$ </computeroutput><userinput>dpkg -s gcc-4.9-base:amd64 gcc-4.9-base:armhf | grep ^Multi\n"
+"</userinput><computeroutput>Multi-Arch: same\n"
 "Multi-Arch: same\n"
-"Multi-Arch: same\n"
-"$ <userinput>dpkg -L libgcc1:amd64 |grep .so</userinput>\n"
-"/lib/x86_64-linux-gnu/libgcc_s.so.1\n"
-"$ <userinput>dpkg -S /usr/share/doc/gcc-4.9-base/copyright</userinput>\n"
-"gcc-4.9-base:amd64, gcc-4.9-base:armhf: /usr/share/doc/gcc-4.9-base/copyright"
+"$ </computeroutput><userinput>dpkg -L libgcc1:amd64 |grep .so\n"
+"</userinput><computeroutput>/lib/x86_64-linux-gnu/libgcc_s.so.1\n"
+"$ </computeroutput><userinput>dpkg -S /usr/share/doc/gcc-4.9-base/copyright\n"
+"</userinput><computeroutput>gcc-4.9-base:amd64, gcc-4.9-base:armhf: /usr/share/doc/gcc-4.9-base/copyright\n"
+"</computeroutput>"
 
 msgid "It is worth noting that <literal>Multi-Arch: same</literal> packages must have their names qualified with their architecture to be unambiguously identifiable. They also have the possibility to share files with other instances of the same package; <command>dpkg</command> ensures that all packages have bit-for-bit identical files when they are shared. Last but not least, all instances of a package must have the same version. They must thus be upgraded together."
 msgstr "Vale la pena aclarar que los paquetes que contengan <literal>Multi-Arch: same</literal> deben poseer nombres que inlcuyan su arquitectura para poder identificarlos unívocamente. También tienen la posibilidad de compartir archivos con otras instancias del mismo paquete; <command>dpkg</command> se asegura que todos los paquetes tengan archivos idénticos bit a bit cuando son compartidos. Por último, todas las instancias de un paquete deben tener la misma versión. Por lo tanto, deben actualizarse simultáneamente."
@@ -1895,7 +1878,7 @@ msgstr ""
 "<computeroutput>$ </computeroutput><userinput>fakeroot alien --to-deb phpMyAdmin-2.0.5-2.noarch.rpm</userinput> \n"
 "<computeroutput>phpmyadmin_2.0.5-2_all.deb generated\n"
 "$ </computeroutput><userinput>ls -s phpmyadmin_2.0.5-2_all.deb</userinput>\n"
-"<computeroutput>  64 phpmyadmin_2.0.5-2_all.deb</computeroutput>\n"
+"<computeroutput>  64 phpmyadmin_2.0.5-2_all.deb</computeroutput>"
 
 msgid "You will find that this process is extremely simple. You must know, however, that the package generated does not have any dependency information, since the dependencies in the two packaging formats don't have systematic correspondence. The administrator must thus manually ensure that the converted package will function correctly, and this is why Debian packages thus generated should be avoided as much as possible. Fortunately, Debian has the largest collection of software packages of all distributions, and it is likely that whatever you seek is already in there."
 msgstr "Encontrará que el proceso es extremadamente simple. Debe saber, sin embargo, que el paquete generado no tiene información sobre dependencias ya que las dependencias de los dos formatos de paquetes no tienen una correspondencia sistemática. El administrador debe, por lo tanto, asegurarse manualmente que el paquete convertido funcionará correctamente y esta es la razón por la que se deben evitar los paquetes Debian así generados tanto como sea posible. Afortunadamente, Debian tiene la colección más grande de paquetes de software entre todas las distribuciones y es probable que lo que sea que busque ya esté allí."
