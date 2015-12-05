@@ -17,116 +17,155 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "System boot"
 msgstr "システム起動"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Initscripts"
 msgstr "初期化スクリプト"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "SSH"
 msgstr "SSH"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Telnet"
 msgstr "Telnet"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Rights"
 msgstr "権限"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Permissions"
 msgstr "パーミッション"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Supervision"
 msgstr "管理"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Inetd"
 msgstr "Inetd"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Cron"
 msgstr "Cron"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Backup"
 msgstr "バックアップ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Hotplug"
 msgstr "ホットプラグ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "PCMCIA"
 msgstr "PCMCIA"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "APM"
 msgstr "APM"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "ACPI"
 msgstr "ACPI"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Unix Services"
 msgstr "Unix サービス"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This chapter covers a number of basic services that are common to many Unix systems. All administrators should be familiar with them."
-msgstr "この章では、多くの Unix システムに共通する数多くの基本的なサービスをカバーします。すべての管理者はこれらに精通しているべきです。"
+msgstr "この章では、多くの Unix システムに共通する数多くの基本的なサービスをカバーします。すべての管理者はこれらの基本的なサービスに精通しているべきです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "System Boot"
 msgstr "システム起動"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>booting</primary><secondary>the system</secondary>"
-msgstr "<primary>起動</primary><secondary>システムの</secondary>"
+msgstr "<primary>起動</primary><secondary>システムの起動</secondary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "When you boot the computer, the many messages scrolling by on the console display many automatic initializations and configurations that are being executed. Sometimes you may wish to slightly alter how this stage works, which means that you need to understand it well. That is the purpose of this section."
-msgstr "コンピュータを起動する際、コンソール画面にスクロールされる多くのメッセージには、実行されている多くの自動初期化と自動設定に関する情報が表示されます。この段階の挙動を少し変えたいと思うことがあるかもしれません。これは起動処理をよく理解する必要があることを意味しています。これがこの節の目的です。"
+msgstr "コンピュータを起動する際、コンソール画面にスクロールされる多くのメッセージには、実行されている多くの自動初期化と自動設定に関する情報が表示されます。この段階の挙動を少し変えたいと思うことがあるかもしれません。これは起動処理をよく理解する必要があることを意味しています。この節の目的は起動処理をよく理解することにあります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "First, the BIOS takes control of the computer, detects the disks, loads the <emphasis>Master Boot Record</emphasis>, and executes the bootloader. The bootloader takes over, finds the kernel on the disk, loads and executes it. The kernel is then initialized, and starts to search for and mount the partition containing the root filesystem, and finally executes the first program — <command>init</command>. Frequently, this “root partition” and this <command>init</command> are, in fact, located in a virtual filesystem that only exists in RAM (hence its name, “initramfs”, formerly called “initrd” for “initialization RAM disk”). This filesystem is loaded in memory by the bootloader, often from a file on a hard drive or from the network. It contains the bare minimum required by the kernel to load the “true” root filesystem: this may be driver modules for the hard drive, or other devices without which the system cannot boot, or, more frequently, initialization scripts and modules for assembling RAID arrays, opening encrypted partitions, activating LVM volumes, etc. Once the root partition is mounted, the initramfs hands over control to the real init, and the machine goes back to the standard boot process."
-msgstr "最初に BIOS がコンピュータを制御し、ディスクを検出し、<emphasis>Master Boot Record</emphasis> を読み込み、ブートローダを実行します。以降、ブートローダが引き継ぎ、ディスクからカーネルを見つけ、カーネルを読み込んで実行します。そして、カーネルが初期化され、root ファイルシステムを含むパーティションの検索とマウントを開始し、最後に最初のプログラム — <command>init</command> — を実行します。実際には、「root パーティション」と <command>init</command> は RAM の中にだけ存在する仮想ファイルシステム (そのためこの名前は「initramfs」、以前は「初期化 RAM ディスク」という意味で「initrd」と呼ばれていました) 上に置かれていることが多いです。多くの場合、このファイルシステムはハードドライブのファイルかネットワークから、ブートローダによってメモリに読み込まれます。このファイルシステムには、カーネルが「真の」root ファイルシステムを読み込むために必要な最低限の要素が含まれています。具体的に言えば、ハードドライブやそれなしではシステムが起動できないその他のデバイスのドライバモジュール、より頻繁にあるのが、RAID アレイを組み立て、暗号化されたパーティションを開き、LVM ボリュームを有効化するなどの初期化スクリプトとモジュールが含まれています。一度 root パーティションがマウントされたら、initramfs は制御を真の init に渡し、マシンは標準的な起動処理に戻ります。"
+msgstr "最初に BIOS がコンピュータを制御し、ディスクを検出し、<emphasis>マスターブートレコード</emphasis>を読み込み、ブートローダを実行します。以降、ブートローダが引き継ぎ、ディスクからカーネルを見つけ、カーネルを読み込んで実行します。そして、カーネルが初期化され、ルートファイルシステムを含むパーティションの検索とマウントを開始し、最後に最初のプログラムである <command>init</command> を実行します。「ルートパーティション」と <command>init</command> は RAM の中にだけ存在する仮想ファイルシステム (これは現在「initramfs」と呼ばれていますが、以前は「初期化 RAM ディスク」という意味で「initrd」と呼ばれていました) 上に置かれていることが多いです。多くの場合、initramfs はハードドライブのファイルかネットワークから、ブートローダによってメモリに読み込まれます。initramfs には、カーネルが「真の」ルートファイルシステムを読み込むために必要な最低限の要素が含まれています。具体的に言えば、ハードドライブやそれなしではシステムが起動できないその他のデバイスのドライバモジュール、より頻繁にあるのが、RAID アレイを組み立て、暗号化されたパーティションを開き、LVM ボリュームを有効化するなどの初期化スクリプトとモジュールが含まれています。一度ルートパーティションがマウントされたら、initramfs は制御を真の init に渡し、マシンは標準的な起動処理に戻ります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Boot sequence of a computer running Linux with systemd"
 msgstr "systemd を使う Linux の動くコンピュータの起動シーケンス"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The systemd init system"
 msgstr "systemd init システム"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The “real init” is currently provided by <emphasis role=\"pkg\">systemd</emphasis> and this section documents this init system."
-msgstr "「基本的な init」は現在 <emphasis role=\"pkg\">systemd</emphasis> によって提供されています。この節ではこの init システムに付いて説明します。"
+msgstr "「init の実体」は現在 <emphasis role=\"pkg\">systemd</emphasis> によって提供されています。この節ではこの init システムに関して説明します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CULTURE</emphasis> Before <command>systemd</command>"
 msgstr "<emphasis>CULTURE</emphasis> <command>systemd</command> 以前"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<command>systemd</command> is a relatively recent “init system”, and although it was already available, to a certain extent, in <emphasis role=\"distribution\">Wheezy</emphasis>, it has only become the default in Debian <emphasis role=\"distribution\">Jessie</emphasis>. Previous releases relied, by default, on the “System V init” (in the <emphasis role=\"pkg\">sysv-rc</emphasis> package), a much more traditional system. We describe the System V init later on."
 msgstr "<command>systemd</command> は比較的最近の「init システム」で、既に <emphasis role=\"distribution\">Wheezy</emphasis> ではある程度利用できましたが、Debian <emphasis role=\"distribution\">Jessie</emphasis> からデフォルトに採用されました。以前のリリースはデフォルトで「System V init」(<emphasis role=\"pkg\">sysv-rc</emphasis> パッケージに含まれます) を採用していました。System V init はより伝統的なシステムです。System V init については後で説明します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
 msgstr "<emphasis>ALTERNATIVE</emphasis> 他の起動システム"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This book describes the boot system used by default in Debian <emphasis role=\"distribution\">Jessie</emphasis> (as implemented by the <emphasis role=\"pkg\">systemd</emphasis> package), as well as the previous default, <emphasis role=\"pkg\">sysvinit</emphasis>, which is derived and inherited from <emphasis>System V</emphasis> Unix systems; there are others."
-msgstr "本書は Debian <emphasis role=\"distribution\">Jessie</emphasis> のデフォルト起動システム (<emphasis role=\"pkg\">systemd</emphasis> パッケージによる実装) および以前のデフォルト起動システム <emphasis role=\"pkg\">sysvinit</emphasis> について説明します。<emphasis role=\"pkg\">sysvinit</emphasis> は <emphasis>System V</emphasis> Unix システムから派生し受け継がれたものです。さらに、他の起動システムも存在します。"
+msgstr "本書は Debian <emphasis role=\"distribution\">Jessie</emphasis> のデフォルト起動システム (<emphasis role=\"pkg\">systemd</emphasis> パッケージによる実装) および以前のデフォルト起動システム <emphasis role=\"pkg\">sysvinit</emphasis> について説明します。<emphasis role=\"pkg\">sysvinit</emphasis> は <emphasis>System V</emphasis> Unix システムから派生し受け継がれたものです。また、他の起動システムも存在します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
-msgstr "<emphasis role=\"pkg\">file-rc</emphasis> は極めて単純なやり方を使う起動システムです。<emphasis role=\"pkg\">file-rc</emphasis> はランレベルの原則を守りますが、ディレクトリとシンボリックリンクを設定ファイルで置換します。この設定ファイルを使っては <command>init</command> に対して起動するプロセスとその起動順を伝えます。"
+msgstr "<emphasis role=\"pkg\">file-rc</emphasis> は極めて単純なやり方を使う起動システムです。<emphasis role=\"pkg\">file-rc</emphasis> はランレベルの原則を守りますが、ディレクトリとシンボリックリンクを設定ファイルで置換します。この設定ファイルを使って <command>init</command> に対して起動するプロセスとその起動順を伝えます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Jessie</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
-msgstr "Debian 上の <command>upstart</command> システムはまだ完全に試されていません。<command>upstart</command> はイベントに基づく起動システムです。すなわち init スクリプトはもはや逐次的順序でなく、あるスクリプトが依存する他のスクリプトの完了などのイベントに応じて起動されます。Ubuntu の始めたこのシステムは Debian <emphasis role=\"distribution\">Jessie</emphasis> に含まれますが、デフォルトではありません。さらに実際のところ、<command>upstart</command> は <emphasis role=\"pkg\">sysvinit</emphasis> の代替として始まりました。<command>upstart</command> の起動するタスクの 1 つが <emphasis role=\"pkg\">sysv-rc</emphasis> パッケージの提供する伝統的なシステム向けに書かれたスクリプトを起動します。"
+msgstr "Debian 上の <command>upstart</command> システムはまだ完全にテストされていません。<command>upstart</command> はイベントに基づく起動システムです。すなわち init スクリプトはもはや逐次的順序でなく、スクリプトの完了などのイベントに応じてそのスクリプトに依存していた別のスクリプトが起動されます。Ubuntu の始めた <command>upstart</command> システムは Debian <emphasis role=\"distribution\">Jessie</emphasis> に含まれますが、デフォルトではありません。実際のところ、<command>upstart</command> は <emphasis role=\"pkg\">sysvinit</emphasis> の代替として始まり、<command>upstart</command> の起動するタスクの 1 つが <emphasis role=\"pkg\">sysv-rc</emphasis> パッケージの提供する伝統的なシステム向けに書かれたスクリプトを起動するようになっています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "There are also other systems and other operating modes, such as <command>runit</command> or <command>minit</command>, but they are relatively specialized and not widespread."
 msgstr "他の起動システムや他の動作モードも存在します。たとえば <command>runit</command> や <command>minit</command> などです。しかしこれらは比較的特殊で広く使われていません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>SPECIFIC CASE</emphasis> Booting from the network"
 msgstr "<emphasis>SPECIFIC CASE</emphasis> ネットワークからの起動"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "In some configurations, the BIOS may be configured not to execute the MBR, but to seek its equivalent on the network, making it possible to build computers without a hard drive, or which are completely reinstalled on each boot. This option is not available on all hardware and it generally requires an appropriate combination of BIOS and network card."
-msgstr "一部の設定では、BIOS が MBR を実行しないように設定され、その代わり同じものをネットワークから探すように設定されているかもしれません。こうすることで、ハードドライブなしでコンピュータを組み立てたり、起動するたびに完全に再インストールすることが可能になります。このオプションは、すべてのハードウェアで利用できるというわけではありませんし、通常 BIOS とネットワークカードの適切な組み合わせが必要です。"
+msgstr "一部の設定では、BIOS が MBR を実行しないように設定され、その代わり MBR に相当するものをネットワークから探すように設定されているかもしれません。こうすることで、ハードドライブなしでコンピュータを組み立てたり、起動するたびに完全に再インストールすることが可能になります。このオプションは、すべてのハードウェアで利用できるというわけではありませんし、通常 BIOS とネットワークカードの適切な組み合わせが必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Booting from the network can be used to launch the <command>debian-installer</command> or FAI (see <xref linkend=\"sect.installation-methods\" />)."
-msgstr "ネットワークからの起動は <command>debian-installer</command> や FAI (<xref linkend=\"sect.installation-methods\" />参照) を起動するために使われます。"
+msgstr "ネットワークからの起動は <command>debian-installer</command> や FAI (<xref linkend=\"sect.installation-methods\" />を参照してください) を起動するために使われます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>BACK TO BASICS</emphasis> The process, a program instance"
 msgstr "<emphasis>BACK TO BASICS</emphasis> プロセス、プログラムインスタンス"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>process</primary>"
 msgstr "<primary>プロセス</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "A process is the representation in memory of a running program. It includes all of the information necessary for the proper execution of the software (the code itself, but also the data that it has in memory, the list of files that it has opened, the network connections it has established, etc.). A single program may be instantiated into several processes, not necessarily running under different user IDs."
-msgstr "プロセスとは、実行中のプログラムのメモリ内表現です。プロセスには、ソフトウェアを適切に実行するために必要なすべての情報が含まれます (これにはソフトウェアのコードだけでなく、ソフトウェアが所有するメモリ内のデータ、ソフトウェアが開いたファイルのリスト、ソフトウェアが確立したネットワーク接続などが含まれます)。単独のプログラムは複数のプロセスにインスタンス化されるかもしれませんし、異なるユーザ ID の下で実行される必要はありません。"
+msgstr "プロセスとは実行中のプログラムのメモリ内表現です。プロセスにはソフトウェアを適切に実行するために必要なすべての情報が含まれます (これにはソフトウェアのコードだけでなく、ソフトウェアが所有するメモリ内のデータ、ソフトウェアが開いたファイルのリスト、ソフトウェアが確立したネットワーク接続などが含まれます)。単独のプログラムが複数のプロセスを生成するかもしれませんし、ユーザはこの単独のプログラムを複数実行することも可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>SECURITY</emphasis> Using a shell as <command>init</command> to gain root rights"
-msgstr "<emphasis>SECURITY</emphasis> root 権を獲得するために <command>init</command> としてシェルを使う"
+msgstr "<emphasis>SECURITY</emphasis> root 権限を獲得するために <command>init</command> としてシェルを使う"
 
 msgid "By convention, the first process that is booted is the <command>init</command> program (which is a symbolic link to <filename>/lib/systemd/systemd</filename> by default). However, it is possible to pass an <literal>init</literal> option to the kernel indicating a different program."
 msgstr "慣例により、起動される最初のプロセスは <command>init</command> プログラムです (これはデフォルトで <filename>/lib/systemd/systemd</filename> へのシンボリックリンクです)。しかしながら、カーネルに <literal>init</literal> オプションを渡して別のプログラムを開始することも可能です。"
@@ -135,7 +174,7 @@ msgid "<primary><command>init</command></primary>"
 msgstr "<primary><command>init</command></primary>"
 
 msgid "Any person who is able to access the computer can press the <keycap>Reset</keycap> button, and thus reboot it. Then, at the bootloader's prompt, it is possible to pass the <literal>init=/bin/sh</literal> option to the kernel to gain root access without knowing the administrator's password."
-msgstr "コンピュータに触ることができる人は誰でも、<keycap>Reset</keycap> ボタンを押して、コンピュータを再起動することが可能です。そして、ブートローダプロンプトでカーネルに <literal>init=/bin/sh</literal> オプションを渡せば、管理者パスワードを知らなくても root 権を取得できます。"
+msgstr "コンピュータに触ることができる人は誰でも、<keycap>Reset</keycap> ボタンを押して、コンピュータを再起動することが可能です。そして、ブートローダプロンプトでカーネルに <literal>init=/bin/sh</literal> オプションを渡せば、管理者パスワードを知らなくても root 権限を取得できます。"
 
 msgid "To prevent this, you can protect the bootloader itself with a password. You might also think about protecting access to the BIOS (a password protection mechanism is almost always available), without which a malicious intruder could still boot the machine on a removable media containing its own Linux system, which they could then use to access data on the computer's hard drives."
 msgstr "これを避けるため、パスワードでブートローダを保護することが可能です。さらに BIOS へのアクセスも保護したいと考えるかもしれません (パスワード保護機能はほぼ必ず付いています)。パスワードがなければ、悪意ある侵入者が、自分の Linux システムを含むリムーバブルメディアからマシンを起動して、コンピュータのハードドライブのデータにアクセスするかもしれません。"
@@ -593,7 +632,7 @@ msgid "The OpenSSL library, as initially provided in Debian <emphasis role=\"dis
 msgstr "当初 Debian <emphasis role=\"distribution\">Etch</emphasis> から配布されていた OpenSSL ライブラリは乱数発生器 (RNG) に深刻な問題がありました。具体的には、Debian メンテナによって、メモリテストツール <command>valgrind</command> で OpenSSL ライブラリを使うアプリケーションを解析した際に警告を出さなくなるような、変更が行われました。不幸なことに、この変更により RNG はエントロピーのソースを 1 つしか使わなくなりました。ここで使われたエントロピーソースはプロセス番号 (PID) に相当するもので、PID の取りうる値は 32,000 程度しかないため PID をソースとして用いても十分な乱数度は得られません。<ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
 
 msgid "Specifically, whenever OpenSSL was used to generate a key, it always produced a key within a known set of hundreds of thousands of keys (32,000 multiplied by a small number of key lengths). This affected SSH keys, SSL keys, and X.509 certificates used by numerous applications, such as OpenVPN. A cracker had only to try all of the keys to gain unauthorized access. To reduce the impact of the problem, the SSH daemon was modified to refuse problematic keys that are listed in the <emphasis role=\"pkg\">openssh-blacklist</emphasis> and <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> packages. Additionally, the <command>ssh-vulnkey</command> command allows identification of possibly compromised keys in the system."
-msgstr "具体的に言えば、OpenSSL を使って鍵を生成した場合、生成された鍵は常に数十万 (32,000 かける鍵長種数) の既知の範囲内に有る鍵のうちの 1 つになります。この脆弱性は、たとえば OpenVPN など数多くのアプリケーションが使う SSH 鍵、SSL 鍵、X.509 証明書に、影響をおよぼしました。クラッカーは、全種類の鍵を試すだけで、不正にアクセスすることが可能でした。この問題の影響を減らす目的で、SSH デーモンは <emphasis role=\"pkg\">openssh-blacklist</emphasis> と <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> パッケージにリストされている問題の有る鍵を拒否するように変更されました。さらに、<command>ssh-vulnkey</command> コマンドを使えば、システム内からこの脆弱性の影響を受けているかもしれない鍵を識別することが可能です。"
+msgstr "具体的に言えば、OpenSSL を使って鍵を生成した場合、生成された鍵は常に数十万 (32,000 かける鍵長種数) の既知の範囲内にある鍵のうちの 1 つになります。この脆弱性は、たとえば OpenVPN など数多くのアプリケーションが使う SSH 鍵、SSL 鍵、X.509 証明書に、影響をおよぼしました。クラッカーは、全種類の鍵を試すだけで、不正にアクセスすることが可能でした。この問題の影響を減らす目的で、SSH デーモンは <emphasis role=\"pkg\">openssh-blacklist</emphasis> と <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> パッケージにリストされている問題のある鍵を拒否するように変更されました。さらに、<command>ssh-vulnkey</command> コマンドを使えば、システム内からこの脆弱性の影響を受けているかもしれない鍵を識別することが可能です。"
 
 msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both within the OpenSSL project and with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. On Debian's side, the maintainer wanted to validate the modifications with the OpenSSL developers, but simply explained the modifications without providing the corresponding patch to review and failed to mention his role within Debian. Finally, the maintenance choices were sub-optimal: the changes made to the original code were not clearly documented; all the modifications were effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
 msgstr "この出来事をいっそう詳しく調べると、これは OpenSSL プロジェクト内と Debian パッケージメンテナ双方にあった多数の (小さな) 問題の結果であるということが、明らかになります。OpenSSL のように広く使われるライブラリは — 修正せずとも — <command>valgrind</command> でテストした時に警告を出すべきではありません。さらに、コード (特に RNG と同様に慎重に取り扱われるべき部分) はこのような誤解を避ける目的で詳しい注釈を付けられるべきです。Debian 側について言えば、メンテナは OpenSSL 開発者から修正に対する検証を受けることを望んでいながら、修正の検証に必要なパッチを OpenSSL 開発者に提供することもせずに自分の修正について簡単に説明しただけで、Debian 内における自分の役割を口にすることもしませんでした。最終的に、メンテナンス上の選択は最適なものではありませんでした。具体的に言えば、元のコードに対して行った修正は文書中で明らかにされず、さらにすべての修正は Subversion リポジトリに効果的に保存されていましたが、最終的にすべての修正はソースパッケージの作成中に 1 つのパッチにまとめられました。"
@@ -1825,7 +1864,7 @@ msgid "When <emphasis>udev</emphasis> is notified by the kernel of the appearanc
 msgstr "<emphasis>udev</emphasis> が新しいデバイスの出現についてカーネルから通知を受けると、<filename>/sys/</filename> 内の対応するエントリを調べて与えられたデバイスに関するさまざまな情報、特にデバイスを一意に識別する情報 (ネットワークカードの MAC アドレス、USB デバイスのシリアル番号など) を収集します。"
 
 msgid "Armed with all of this information, <emphasis>udev</emphasis> then consults all of the rules contained in <filename>/etc/udev/rules.d/</filename> and <filename>/lib/udev/rules.d/</filename>. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially (except when a file uses “GOTO” directives). Thus, there may be several rules that correspond to a given event."
-msgstr "この情報を武器にして、<emphasis>udev</emphasis> は <filename>/etc/udev/rules.d/</filename> と <filename>/lib/udev/rules.d/</filename> に含まれるすべてのルールを調査します。この過程で <emphasis>udev</emphasis> は、どのような名前をデバイスに割り当てるか、どのような名前でシンボリックリンクを作成するか (別名を与えるために)、どのようなコマンドを実行するか、を決定します。これらのファイルすべてが調査され、ルールがすべて順番に評価されます (「GOTO」ディレクティブを使う場合を除きます)。そのため、与えられたイベントに対応する複数のルールが有るかもしれません。"
+msgstr "この情報を武器にして、<emphasis>udev</emphasis> は <filename>/etc/udev/rules.d/</filename> と <filename>/lib/udev/rules.d/</filename> に含まれるすべてのルールを調査します。この過程で <emphasis>udev</emphasis> は、どのような名前をデバイスに割り当てるか、どのような名前でシンボリックリンクを作成するか (別名を与えるために)、どのようなコマンドを実行するか、を決定します。これらのファイルすべてが調査され、ルールがすべて順番に評価されます (「GOTO」ディレクティブを使う場合を除きます)。そのため、与えられたイベントに対応する複数のルールがあるかもしれません。"
 
 msgid "The syntax of rules files is quite simple: each row contains selection criteria and variable assignments. The former are used to select events for which there is a need to react, and the latter defines the action to take. They are all simply separated with commas, and the operator implicitly differentiates between a selection criterion (with comparison operators, such as <literal>==</literal> or <literal>!=</literal>) or an assignment directive (with operators such as <literal>=</literal>, <literal>+=</literal> or <literal>:=</literal>)."
 msgstr "ルールの構文はとても単純です。つまり各行には、選択基準と変数代入命令が含まれます。選択基準は反応を必要とするイベントを選ぶのに使われ、変数代入命令はイベントに対して行う動作を定義します。選択基準と変数代入命令は単純にコンマで区切られており、演算子を使って選択基準 (<literal>==</literal> または <literal>!=</literal> などの比較演算子を付ける) と変数代入命令 (<literal>=</literal>、<literal>+=</literal>、<literal>:=</literal> などの演算子を付ける) を暗黙のうちに区別します。"
@@ -2013,7 +2052,7 @@ msgstr ""
 "</computeroutput>"
 
 msgid "To create a new rule, you can use tests on the device's variables, as well as those of one of the parent devices. The above case allows us to create two rules like these:"
-msgstr "新しいルールを作るために、デバイスの変数および親デバイスの変数に対するテストを行います。上の例から、以下の様な 2 つのルールを作成します。"
+msgstr "新しいルールを作るために、デバイスの変数および親デバイスの変数に対するテストを行います。上の例から、以下のような 2 つのルールを作成します。"
 
 msgid ""
 "KERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/disk\"\n"

@@ -225,7 +225,7 @@ msgstr "<primary>パッケージ</primary><secondary>メタ情報</secondary>"
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Tag: PTAL;
 msgid "The Debian package is not only an archive of files intended for installation. It is part of a larger whole, and it describes its relationship with other Debian packages (dependencies, conflicts, suggestions). It also provides scripts that enable the execution of commands at different stages in the package's lifecycle (installation, removal, upgrades). These data are used by the package management tools but are not part of the packaged software; they are, within the package, what is called its “meta-information” (information about other information)."
-msgstr "Debian パッケージはインストールされるファイルのアーカイブというだけではありません。Debian パッケージには他の Debian パッケージとの関係性 (依存関係、衝突、提案) を表す情報が含まれています。さらに Debian パッケージにはスクリプトも含まれています。このスクリプトはパッケージライフサイクルのある時点 (インストール、削除、アップグレード) にコマンドを実行するためのものです。これらのデータはパッケージ管理ツールによって使われますが、パッケージ化されたソフトウェアの一部ではありません。しかし、これらのデータはパッケージの「メタ情報」(ソフトウェア以外の情報のデータ) と呼ばれて、パッケージに含まれています。"
+msgstr "Debian パッケージはインストールされるファイルのアーカイブというだけではありません。Debian パッケージには他の Debian パッケージとの関係性 (依存関係、衝突、提案) を表す情報が含まれています。さらに Debian パッケージにはスクリプトも含まれています。このスクリプトはパッケージライフサイクルのある時点 (インストール、削除、アップグレード) にコマンドを実行するためのものです。これらのデータはパッケージ管理ツールによって使われますが、パッケージングされたソフトウェアの一部ではありません。しかし、これらのデータはパッケージの「メタ情報」(ソフトウェア以外の情報のデータ) と呼ばれて、パッケージに含まれています。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Description: the <filename>control</filename> File"
@@ -689,8 +689,9 @@ msgid "In general, the <filename>preinst</filename> script is executed prior to 
 msgstr "一般的に言って、<filename>preinst</filename> スクリプトはパッケージのインストール前に実行され、<filename>postinst</filename> はインストール後に実行されます。同様に、<filename>prerm</filename> はパッケージの削除前に実行され、<filename>postrm</filename> は削除後に実行されます。パッケージの更新とは、パッケージの古いバージョンを削除して新しいバージョンをインストールすることと等価です。ここで起こりうるすべてのシナリオを詳細に説明することは不可能なので、最も一般的なケースを 2 種類だけ挙げます。具体的に言えば、インストール/更新と削除について説明します。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "<emphasis>CAUTION</emphasis> Symbolic names of the scripts"
-msgstr "<emphasis>CAUTION</emphasis> スクリプトのシンボリック名"
+msgstr "<emphasis>CAUTION</emphasis> スクリプト名の表記規則"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The sequences described in this section call configuration scripts by specific names, such as <command>old-prerm</command> or <command>new-postinst</command>. They are, respectively, the <command>prerm</command> script contained in the old version of the package (installed before the update) and the <command>postinst</command> script contained in the new version (installed by the update)."
@@ -810,7 +811,7 @@ msgstr "<command>debconf</command> は Debian で繰り返し発生する問題�
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<command>debconf</command> has many interesting features: it requires the developer to specify user interaction; it allows localization of all the strings displayed to users (all translations are stored in the <filename>templates</filename> file describing the interactions); it has different frontends to display the questions to the user (text mode, graphical mode, non-interactive); and it allows creation of a central database of responses to share the same configuration with several computers... but the most important is that it is now possible to present all of the questions in a row to the user, prior to starting a long installation or update process. The user can go about their business while the system handles the installation on its own, without having to stay there staring at the screen waiting for questions."
-msgstr "<command>debconf</command> には多くの興味深い機能があります。具体的に言えば <command>debconf</command> を使うことで開発者は、ユーザに入力させる内容を規定したり、ユーザに向けて表示されるすべての文字列を地域化したり  (すべての翻訳は入力内容を説明している <filename>templates</filename> ファイルに保存されます)、ユーザに質問を表示するためのさまざまなフロントエンド (テキストモード、グラフィカルモード、非対話型モード) に自前で対応させる必要がなくなり、複数のコンピュータで同じ設定を共有するためにユーザが入力した内容の中央データベースを作成したり、することが可能になります。しかし <command>debconf</command> の最も重要な機能はユーザに対するすべての質問が長時間かかるインストールや更新作業の前に行われる点です。ユーザはシステムがインストールを行っている間に自分の仕事をできます、質問に答えるために画面の前に居続ける必要はありません。"
+msgstr "<command>debconf</command> には多くの興味深い機能があります。具体的に言えば <command>debconf</command> を使うことで開発者は、ユーザに入力させる内容を規定したり、ユーザに向けて表示されるすべての文字列を地域化したり (すべての翻訳は入力内容を説明している <filename>templates</filename> ファイルに保存されます)、ユーザに質問を表示するためのさまざまなフロントエンド (テキストモード、グラフィカルモード、非対話型モード) に自前で対応させる必要がなくなり、複数のコンピュータで同じ設定を共有するためにユーザが入力した内容の中央データベースを作成したり、することが可能になります。しかし <command>debconf</command> の最も重要な機能はユーザに対するすべての質問が長時間かかるインストールや更新作業の前に行われる点です。ユーザはシステムがインストールを行っている間に自分の仕事をできます、質問に答えるために画面の前に居続ける必要はありません。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Checksums, List of Configuration Files"
@@ -1347,7 +1348,7 @@ msgstr "ほとんどのオプションには「長い」もの (1 語以上の�
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Before concluding this section, we will study <command>dpkg</command> options that query the internal database in order to obtain information. Giving first the long options and then corresponding short options (that will evidently take the same possible arguments) we cite <literal>--listfiles <replaceable>package</replaceable></literal> (or <literal>-L</literal>), which lists the files installed by this package; <literal>--search <replaceable>file</replaceable></literal> (or <literal>-S</literal>), which finds the package(s) containing the file; <literal>--status <replaceable>package</replaceable></literal> (or <literal>-s</literal>), which displays the headers of an installed package; <literal>--list</literal> (or <literal>-l</literal>), which displays the list of packages known to the system and their installation status; <literal>--contents <replaceable>file.deb</replaceable></literal> (or <literal>-c</literal>), which lists the files in the Debian package specified; <literal>--info<replaceable> file.deb </replaceable></literal> (or <literal>-I</literal>), which displays the headers of this Debian package."
-msgstr "この節を締め括る前に、内部データベースに問い合わせて情報を得る際に使う <command>dpkg</command> のオプションについて学びましょう。各オプションは最初に長いオプション、その後に対応する短いオプション (両者は同じ引数を取るのは明らかです) のように記載しています。<literal>--listfiles <replaceable>package</replaceable></literal> (または <literal>-L</literal>) は与えられたパッケージがインストールするファイルを表示します。<literal>--search <replaceable>file</replaceable></literal> (または <literal>-S</literal>) はファイルを含むパッケージを探します。<literal>--status <replaceable>package</replaceable></literal> (または <literal>-s</literal>) はインストールされたパッケージのヘッダを表示します。<literal>--list</literal> (または <literal>-l</literal>) はシステムが把握しているパッケージのリストとその状態を表示します。<literal>--contents <replaceable>file.deb</replaceable></literal> (または <literal>-c</literal>) は指定された Debian パッケージに含まれるファイルを表示します。<literal>--info<replaceable> file.deb </replaceable></literal> (または <literal>-I</literal>) は指定された Debian パッケージのヘッダを表示します。"
+msgstr "この節を締め括る前に、内部データベースに問い合わせて情報を得る際に使う <command>dpkg</command> のオプションについて学びましょう。各オプションは最初に長いオプション、その後に対応する短いオプション (両者は同じ引数を取るのは明らかです) のように記載しています。<literal>--listfiles <replaceable>package</replaceable></literal> (または <literal>-L</literal>) は与えられたパッケージがインストールするファイルを表示します。<literal>--search <replaceable>file</replaceable></literal> (または <literal>-S</literal>) はファイルを含むパッケージを探します。<literal>--status <replaceable>package</replaceable></literal> (または <literal>-s</literal>) はインストールされたパッケージのヘッダを表示します。<literal>--list</literal> (または <literal>-l</literal>) はシステムが把握しているパッケージのリストとその状態を表示します。<literal>--contents <replaceable>file.deb</replaceable></literal> (または <literal>-c</literal>) は指定された Debian パッケージに含まれるファイルを表示します。<literal>--info <replaceable>file.deb</replaceable></literal> (または <literal>-I</literal>) は指定された Debian パッケージのヘッダを表示します。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Various queries with <command>dpkg</command>"
@@ -1827,7 +1828,7 @@ msgstr "マルチアーキテクチャサポートによって、依存関係の
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Coexistence with Other Packaging Systems"
-msgstr "他のパッケージ化システムとの共存"
+msgstr "他のパッケージングシステムとの共存"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>RPM</primary>"
@@ -1847,7 +1848,7 @@ msgstr "フリーソフトウェア世界では Debian パッケージ以外の�
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In this case, you should know that the program <command>rpm</command>, which handles RPM packages, is available as a Debian package, so it is possible to use this package format on Debian. Care should be taken, however, to limit these manipulations to extract the information from a package or to verify its integrity. It is, in truth, unreasonable to use <command>rpm</command> to install an RPM on a Debian system; RPM uses its own database, separate from those of native software (such as <command>dpkg</command>). This is why it is not possible to ensure a stable coexistence of two packaging systems."
-msgstr "Debian パッケージが提供されなかったとしても、Debian には RPM パッケージを取り扱うプログラム <command>rpm</command> がパッケージとして用意されており、Debian では RPM パッケージフォーマットを取り扱うことができます。しかしながら、パッケージから情報を引き出したり、整合性を検証するための操作は制限されていることに注意してください。実のところ、RPM を Debian システムにインストールするために <command>rpm</command> を使うのは合理的ではありません。さらに RPM はネイティブソフトウェア (<command>dpkg</command> など) とは異なる自分自身のデータベースを使います。このため、2 つのパッケージ化システムを安定に共存させることを保証するのは不可能です。"
+msgstr "Debian パッケージが提供されなかったとしても、Debian には RPM パッケージを取り扱うプログラム <command>rpm</command> がパッケージとして用意されており、Debian では RPM パッケージフォーマットを取り扱うことができます。しかしながら、パッケージから情報を引き出したり、整合性を検証するための操作は制限されていることに注意してください。実のところ、RPM を Debian システムにインストールするために <command>rpm</command> を使うのは合理的ではありません。さらに RPM はネイティブソフトウェア (<command>dpkg</command> など) とは異なる自分自身のデータベースを使います。このため、2 つのパッケージングシステムを安定に共存させることを保証するのは不可能です。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "On the other hand, the <emphasis role=\"pkg\">alien</emphasis> utility can convert RPM packages into Debian packages, and vice versa."
@@ -1889,7 +1890,7 @@ msgid "The stability of the software deployed using the <command>dpkg</command> 
 msgstr "<command>dpkg</command> ツールを使って配備されたソフトウェアの安定性は Debian の名声に寄与しています。次の章で説明する APT ツール集はこの長所を引き継いで、さらに、管理者が不可欠だが難しい作業であるパッケージの状態管理をしなくても済むようにしました。"
 
 #~ msgid "Before multi-arch, when you wanted to uses a 32 bit appliction on a 64 bit system, you had to install <emphasis role=\"pkg\">ia32-libs</emphasis> to have 32 bit versions of the most popular libraries. That package was a huge hack that repackaged 32 bit libraries in an “amd64” package."
-#~ msgstr "マルチアーキテクチャ以前、32 ビットアプリケーションを 64 ビットシステムで実行したければ、<emphasis role=\"pkg\">ia32-libs</emphasis> をインストールすることで、システム内に人気の高いライブラリの 32 ビット版を持つ必要がありました。このパッケージは amd64 パッケージ内の 32 ビットライブラリを再パッケージ化した大規模なハックでした。"
+#~ msgstr "マルチアーキテクチャ以前、32 ビットアプリケーションを 64 ビットシステムで実行したければ、<emphasis role=\"pkg\">ia32-libs</emphasis> をインストールすることで、システム内に人気の高いライブラリの 32 ビット版を持つ必要がありました。このパッケージは amd64 パッケージ内の 32 ビットライブラリを再パッケージングした大規模なハックでした。"
 
 #~ msgid "<primary><emphasis role=\"pkg\">ia32-libs</emphasis></primary>"
 #~ msgstr "<primary><emphasis role=\"pkg\">ia32-libs</emphasis></primary>"

@@ -1276,7 +1276,7 @@ msgstr ""
 "/dev/sda7      403970491 586099395 182128904  93G 8e Linux LVM</computeroutput>"
 
 msgid "The first partitions of both disks (about 1 GB) are assembled into a RAID-1 volume, <filename>md0</filename>. This mirror is directly used to store the root filesystem."
-msgstr "両方のディスクの最初のパーティション (約 1 GB) は RAID-1 ボリューム <filename>md0</filename> に組み込まれます。このミラーは root ファイルシステムを保存するために直接的に使われます。"
+msgstr "両方のディスクの最初のパーティション (約 1 GB) は RAID-1 ボリューム <filename>md0</filename> に組み込まれます。このミラーはルートファイルシステムを保存するために直接的に使われます。"
 
 msgid "The <filename>sda2</filename> and <filename>sdc2</filename> partitions are used as swap partitions, providing a total 2 GB of swap space. With 1 GB of RAM, the workstation has a comfortable amount of available memory."
 msgstr "<filename>sda2</filename> と <filename>sdc2</filename> パーティションは swap パーティションとして使われます。スワップ領域のサイズは合計で 2 GB になります。RAM のサイズは 1 GB で、ワークステーションで利用できるメモリサイズは十分な量と言えます。"
@@ -1315,7 +1315,7 @@ msgid "Virtualization is one of the most major advances in the recent years of c
 msgstr "仮想化は最近のコンピューティングにおける最も大きな進歩の一つです。仮想化という用語は、実際のハードウェアに対するさまざまな独立性の度合いを持つ仮想コンピュータを模倣するさまざまな抽象化と技術を指します。1 台の物理的なサーバが同時かつ隔離された状態で動く複数のシステムをホストすることが可能です。仮想化アプリケーションは数多く存在し、隔離された仮想システムを使うことができます。たとえば、さまざまに設定されたテスト環境を作ったり、安全性を確保する目的で異なる仮想マシン間でホストされたサービスを分離したり、することが可能です。"
 
 msgid "There are multiple virtualization solutions, each with its own pros and cons. This book will focus on Xen, LXC, and KVM, but other noteworthy implementations include the following:"
-msgstr "複数の仮想化ソリューションが存在し、それぞれが利点と欠点を持っています。本書では Xen、LXC、KVM に注目しますが、他にも以下の様な注目すべき実装が存在します。"
+msgstr "複数の仮想化ソリューションが存在し、それぞれが利点と欠点を持っています。本書では Xen、LXC、KVM に注目しますが、他にも以下のような注目すべき実装が存在します。"
 
 msgid "<primary><emphasis>VMWare</emphasis></primary>"
 msgstr "<primary><emphasis>VMWare</emphasis></primary>"
@@ -1973,7 +1973,7 @@ msgid "<emphasis>TIP</emphasis> Add your user to the libvirt group"
 msgstr "<emphasis>TIP</emphasis> libvirt グループに対するユーザの追加"
 
 msgid "All samples in this section assume that you are running commands as root. Effectively, if you want to control a local libvirt daemon, you need either to be root or to be a member of the <literal>libvirt</literal> group (which is not the case by default). Thus if you want to avoid using root rights too often, you can add yoursel to the <literal>libvirt</literal> group and run the various commands under your user identity."
-msgstr "この節で挙げたすべての例では、root がコマンドを実行しています。実際、あるユーザがローカルの libvirt デーモンを操作するには、root になるか <literal>libvirt</literal> グループのメンバーになって (デフォルト状態では <literal>libvirt</literal> グループはユーザの初期参加グループに設定されていません) コマンドを実行する必要があります。このユーザに root 権を頻繁に使わせることを避けたい場合、そのユーザを <literal>libvirt</literal> グループに追加して、本人の権限でさまざまなコマンドを実行するように設定することが可能です。"
+msgstr "この節で挙げたすべての例では、root がコマンドを実行しています。実際、あるユーザがローカルの libvirt デーモンを操作するには、root になるか <literal>libvirt</literal> グループのメンバーになって (デフォルト状態では <literal>libvirt</literal> グループはユーザの初期参加グループに設定されていません) コマンドを実行する必要があります。このユーザに root 権限を頻繁に使わせることを避けたい場合、そのユーザを <literal>libvirt</literal> グループに追加して、本人の権限でさまざまなコマンドを実行するように設定することが可能です。"
 
 msgid "Let us now start the installation process for the virtual machine, and have a closer look at <command>virt-install</command>'s most important options. This command registers the virtual machine and its parameters in libvirtd, then starts it so that its installation can proceed."
 msgstr "それでは仮想マシンのインストール作業を開始し、<command>virt-install</command> の最も重要なオプションを詳細に見て行きましょう。<command>virt-install</command> は仮想マシンとそのパラメータを libvirtd に登録し、インストールを進めるために仮想マシンを開始します。"
@@ -2175,13 +2175,13 @@ msgid "The Falcot Corp administrators, like many administrators of large IT serv
 msgstr "巨大な IT サービスの管理者と同様、Falcot Corp の管理者もまた、可能であれば自動的に新しいマシンへ素早くインストール (または再インストール) するツールを必要とします。"
 
 msgid "These requirements can be met by a wide range of solutions. On the one hand, generic tools such as SystemImager handle this by creating an image based on a template machine, then deploy that image to the target systems; at the other end of the spectrum, the standard Debian installer can be preseeded with a configuration file giving the answers to the questions asked during the installation process. As a sort of middle ground, a hybrid tool such as FAI (<emphasis>Fully Automatic Installer</emphasis>) installs machines using the packaging system, but it also uses its own infrastructure for tasks that are more specific to massive deployments (such as starting, partitioning, configuration and so on)."
-msgstr "これらの要求に応えるためのさまざまな解決策が存在します。一方では、SystemImager などの一般的なツールが存在します。これはテンプレートマシンに基づくイメージを作成し、そのイメージを目標のシステムで展開します。他方では、標準的な Debian インストーラが存在します。これはインストール作業中に尋ねられる質問の回答を含めた設定ファイルを使って preseed を実行します。両者の折衷案として、FAI (<emphasis>Fully Automatic Installer</emphasis>) などのハイブリッドツールが存在します。これはパッケージ化システムを使ってインストールし、自分自身の機能を使って大規模な配備に特有のタスク (起動、パーティショニング、設定など) をこなします。"
+msgstr "これらの要求に応えるためのさまざまな解決策が存在します。一方では、SystemImager などの一般的なツールが存在します。これはテンプレートマシンに基づくイメージを作成し、そのイメージを目標のシステムで展開します。他方では、標準的な Debian インストーラが存在します。これはインストール作業中に尋ねられる質問の回答を含めた設定ファイルを使って preseed を実行します。両者の折衷案として、FAI (<emphasis>Fully Automatic Installer</emphasis>) などのハイブリッドツールが存在します。これはパッケージングシステムを使ってインストールし、自分自身の機能を使って大規模な配備に特有のタスク (起動、パーティショニング、設定など) をこなします。"
 
 msgid "Each of these solutions has its pros and cons: SystemImager works independently from any particular packaging system, which allows it to manage large sets of machines using several distinct Linux distributions. It also includes an update system that doesn't require a reinstallation, but this update system can only be reliable if the machines are not modified independently; in other words, the user must not update any software on their own, or install any other software. Similarly, security updates must not be automated, because they have to go through the centralized reference image maintained by SystemImager. This solution also requires the target machines to be homogeneous, otherwise many different images would have to be kept and managed (an i386 image won't fit on a powerpc machine, and so on)."
-msgstr "これらの解決策には、利点と欠点があります。なぜなら SystemImager は特定のパッケージ化システムに依存しないからです。このことにより、複数の Linux ディストリビューションを使う数多くのマシン群を管理することが可能です。SystemImager には、再インストールの要らない更新システムが含まれていますが、この更新システムを信頼できるのは、各マシンは個別に変更されないという仮定が満足される場合だけです。さらに言い換えれば、ユーザは自分のマシンにインストールされたソフトウェアの更新もできませんし、他のソフトウェアのインストールもできません。同様に、セキュリティ更新を自動的に行ってはいけません。なぜなら、セキュリティ更新は SystemImager がメンテナンスする中央集権化された基準イメージによって提供されるからです。また SystemImager による解決策では、管理される側のマシンの種類が同じである必要があります。異種マシンを管理する場合、多くの異なるイメージをメンテナンスおよび管理する必要があります (i386 用のイメージを powerpc マシンに使うことはできません)。"
+msgstr "これらの解決策には、利点と欠点があります。なぜなら SystemImager は特定のパッケージングシステムに依存しないからです。このことにより、複数の Linux ディストリビューションを使う数多くのマシン群を管理することが可能です。SystemImager には、再インストール不要の更新システムが含まれていますが、この更新システムを信頼できるのは、各マシンは個別に変更されないという仮定が満足される場合だけです。さらに言い換えれば、ユーザは自分のマシンにインストールされたソフトウェアの更新もできませんし、他のソフトウェアのインストールもできません。同様に、セキュリティ更新を自動的に行ってはいけません。なぜなら、セキュリティ更新は SystemImager がメンテナンスする中央集権化された基準イメージによって提供されるからです。また SystemImager による解決策では、管理される側のマシンの種類が同じである必要があります。異種マシンを管理する場合、多くの異なるイメージをメンテナンスおよび管理する必要があります (i386 用のイメージを powerpc マシンに使うことはできません)。"
 
 msgid "On the other hand, an automated installation using debian-installer can adapt to the specifics of each machine: the installer will fetch the appropriate kernel and software packages from the relevant repositories, detect available hardware, partition the whole hard disk to take advantage of all the available space, install the corresponding Debian system, and set up an appropriate bootloader. However, the standard installer will only install standard Debian versions, with the base system and a set of pre-selected “tasks”; this precludes installing a particular system with non-packaged applications. Fulfilling this particular need requires customizing the installer… Fortunately, the installer is very modular, and there are tools to automate most of the work required for this customization, most importantly simple-CDD (CDD being an acronym for <emphasis>Custom Debian Derivative</emphasis>). Even the simple-CDD solution, however, only handles initial installations; this is usually not a problem since the APT tools allow efficient deployment of updates later on."
-msgstr "逆に、debian-installer を使ってインストールを自動化する場合、マシンごとの違いに適合したシステムをインストールすることが可能です。具体的に言えば、インストーラは対応するリポジトリから適切なカーネルとソフトウェアパッケージを取得し、利用できるハードウェアを検出し、利用できる領域全体を生かしてハードディスク全体をパーティショニングし、対応する Debian システムをインストールし、適切なブートローダを設定します。しかしながら、標準的なインストーラはベースシステムと事前に選択された「tasks」を含む標準的な Debian バージョンをインストールするだけです。さらに、パッケージ化されていないアプリケーションを備えた特製のシステムをインストールできません。この特別な必要性を満足させるにはインストーラのカスタマイズが必要です… 幸いなことに、インストーラはとてもモジュール化されており、カスタマイズに必要なほとんどの仕事を自動化するツールが存在します。最も重要なツールは simple-CDD です (CDD は <emphasis>Custom Debian Derivative</emphasis> の頭字語です)。しかしながら simple-CDD が取り扱うことが可能なのは最初のインストールだけです。しかしこれは通常問題になりません。なぜなら、APT ツールのおかげでインストール後の更新作業は効果的に行うことが可能だからです。"
+msgstr "逆に、debian-installer を使ってインストールを自動化する場合、マシンごとの違いに適合したシステムをインストールすることが可能です。具体的に言えば、インストーラは対応するリポジトリから適切なカーネルとソフトウェアパッケージを取得し、利用できるハードウェアを検出し、利用できる領域全体を生かしてハードディスク全体をパーティショニングし、対応する Debian システムをインストールし、適切なブートローダを設定します。しかしながら、標準的なインストーラはベースシステムと事前に選択された「tasks」を含む標準的な Debian バージョンをインストールするだけです。さらに、パッケージングされていないアプリケーションを備えた特製のシステムをインストールできません。この特別な必要性を満足させるにはインストーラのカスタマイズが必要です… 幸いなことに、インストーラはとてもモジュール化されており、カスタマイズに必要なほとんどの仕事を自動化するツールが存在します。最も重要なツールは simple-CDD です (CDD は <emphasis>Custom Debian Derivative</emphasis> の頭字語です)。しかしながら simple-CDD が取り扱うことが可能なのは最初のインストールだけです。しかしこれは通常問題になりません。なぜなら、APT ツールのおかげでインストール後の更新作業は効果的に行うことが可能だからです。"
 
 msgid "We will only give a rough overview of FAI, and skip SystemImager altogether (which is no longer in Debian), in order to focus more intently on debian-installer and simple-CDD, which are more interesting in a Debian-only context."
 msgstr "FAI については大ざっぱな概要を説明し、(もはや Debian に含まれない) SystemImager については完全に省略し、Debian だけのシステムではより興味深い debian-installer と simple-CDD に特に注目します。"
@@ -2211,7 +2211,7 @@ msgid "fetching a kernel from the network, and booting it;"
 msgstr "ネットワークからカーネルを取得して起動します。"
 
 msgid "mounting the root filesystem from NFS;"
-msgstr "NFS で root ファイルシステムをマウントします。"
+msgstr "NFS でルートファイルシステムをマウントします。"
 
 msgid "executing <command>/usr/sbin/fai</command>, which controls the rest of the process (the next steps are therefore initiated by this script);"
 msgstr "<command>/usr/sbin/fai</command> を実行します、これはインストール作業を制御します (このスクリプトが以降の各段階を初期化します)。"
@@ -2304,7 +2304,7 @@ msgid "third, the type of question;"
 msgstr "3 番目のフィールドは質問の種類です。"
 
 msgid "the fourth and last field contains the value for the answer. Note that it must be separated from the third field with a single space; if there are more than one, the following space characters are considered part of the value."
-msgstr "4 番目と最後のフィールドは質問に対する回答を含みます。3 番目のフィールドの後ろに必ず 1 つの空白を含めなければいけない点に注意してください。さらに 1 つ以上の回答が有る場合、続く空白文字は回答の一部として取り扱われます。"
+msgstr "4 番目と最後のフィールドは質問に対する回答を含みます。3 番目のフィールドの後ろに必ず 1 つの空白を含めなければいけない点に注意してください。さらに 1 つ以上の回答がある場合、続く空白文字は回答の一部として取り扱われます。"
 
 msgid "The simplest way to write a preseed file is to install a system by hand. Then <command>debconf-get-selections --installer</command> will provide the answers concerning the installer. Answers about other packages can be obtained with <command>debconf-get-selections</command>. However, a cleaner solution is to write the preseed file by hand, starting from an example and the reference documentation: with such an approach, only questions where the default answer needs to be overridden can be preseeded; using the <literal>priority=critical</literal> boot parameter will instruct Debconf to only ask critical questions, and use the default answer for others."
 msgstr "preseed ファイルを書く最も簡単な方法はシステムを手作業でインストールする方法です。インストール完了後に <command>debconf-get-selections --installer</command> を実行してインストーラに関連する回答を取得します。<command>debconf-get-selections</command> を使えば、他のパッケージに関連する回答を取得することが可能です。しかしながら、最も明確な解決策は記載例と基準文書を参考にしながら手作業で preseed ファイルを書くことです。なぜなら、このような取り扱い方をすることで、デフォルト回答に対して上書きが必要な質問だけに回答を事前指定することが可能だからです。さらに <literal>priority=critical</literal> 起動パラメータ使うことで、Debconf が重要な質問だけを尋ね、他の質問にはデフォルトの回答を使うようにすることが可能です。"
@@ -2619,7 +2619,7 @@ msgid "a <emphasis>hostgroup</emphasis> is a set of hosts that should be grouped
 msgstr "<emphasis>hostgroup</emphasis> はグループ化して表示されたり、同じ設定要素を持つホスト群です。"
 
 msgid "a <emphasis>service</emphasis> is a testable element related to a host or a host group. It will most often be a check for a network service, but it can also involve checking that some parameters are within an acceptable range (for instance, free disk space or processor load);"
-msgstr "<emphasis>service</emphasis> はホストやホストグループに対して検査する要素です。これは多くの場合あるネットワークサービスに対する検査ですが、いくつかのパラメータが条件を満たす範囲内に有るか (たとえば、空きディスク領域やプロセッサ負荷) 検査することも可能です。"
+msgstr "<emphasis>service</emphasis> はホストやホストグループに対して検査する要素です。これは多くの場合あるネットワークサービスに対する検査ですが、いくつかのパラメータが条件を満たす範囲内にあるか (たとえば、空きディスク領域やプロセッサ負荷) 検査することも可能です。"
 
 msgid "a <emphasis>servicegroup</emphasis> is a set of services that should be grouped together for display;"
 msgstr "<emphasis>servicegroup</emphasis> はグループ化して表示されるサービス群です。"
@@ -2850,7 +2850,7 @@ msgstr "多くの Nagios プラグインでは、あるホストに固有のい�
 #~ msgstr "<emphasis role=\"distribution\">Jessie</emphasis> の標準的なカーネルはコンテナに対して利用を許可するメモリサイズを制限できません。この機能は存在し、カーネルに組み込まれていますが、デフォルトでは無効化されています。なぜなら、システム全体の性能に (わずかな) 影響をおよぼすからです。しかしながら、この機能を有効化することは簡単で、<command>cgroup_enable=memory</command> カーネルコマンドラインオプションを起動時に設定するだけです。"
 
 #~ msgid "The procedure requires setting up a <filename>yum.conf</filename> file containing the necessary parameters, including the path to the source RPM repositories, the path to the plugin configuration, and the destination folder. For this example, we will assume that the environment will be stored in <filename>/var/tmp/yum-bootstrap</filename>. The file <filename>/var/tmp/yum-bootstrap/yum.conf</filename> file should look like this:"
-#~ msgstr "この手順の中で、必要なパラメータを含む <filename>yum.conf</filename> ファイルを設定する必要があります。<filename>yum.conf</filename> ファイルには、ソース RPM リポジトリへのパス、プラグイン設定のパス、宛先フォルダが含まれます。以下の例では、環境を <filename>/var/tmp/yum-bootstrap</filename> に保存することを仮定しています。<filename>/var/tmp/yum-bootstrap/yum.conf</filename> ファイルは以下の様になります。"
+#~ msgstr "この手順の中で、必要なパラメータを含む <filename>yum.conf</filename> ファイルを設定する必要があります。<filename>yum.conf</filename> ファイルには、ソース RPM リポジトリへのパス、プラグイン設定のパス、宛先フォルダが含まれます。以下の例では、環境を <filename>/var/tmp/yum-bootstrap</filename> に保存することを仮定しています。<filename>/var/tmp/yum-bootstrap/yum.conf</filename> ファイルは以下のようになります。"
 
 #~ msgid "The <filename>/var/tmp/yum-bootstrap/repos.d</filename> directory should contain the descriptions of the RPM source repositories in <filename>*.repo</filename> files, just as in <filename>/etc/yum.repos.d</filename> in an already installed RPM-based system. Here is an example for a CentOS 6 installation:"
 #~ msgstr "<filename>/var/tmp/yum-bootstrap/repos.d</filename> ディレクトリには、RPM ソースリポジトリを示した <filename>*.repo</filename> ファイルを含めるべきです。このファイルはインストール済みの RPM に基づくシステムの <filename>/etc/yum.repos.d</filename> にあるものとよく似ています。以下は CentOS 6 のインストールに使うファイルの例です。"
