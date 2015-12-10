@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: 0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-01 20:53+0200\n"
-"PO-Revision-Date: 2015-12-09 18:22+0000\n"
+"PO-Revision-Date: 2015-12-17 00:19+0000\n"
 "Last-Translator: Marco De Luca <marcodeluca@hotmail.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/it/>\n"
 "Language: it-IT\n"
@@ -152,10 +152,10 @@ msgid "Finally, be aware that most BIOS have a generic password available. Initi
 msgstr "Infine, fare attenzione al fatto che la maggior parte dei BIOS dispone di una password generica. Inizialmente destinate alla risoluzione di problemi per coloro che hanno dimenticato la password, queste password sono ora pubbliche e disponibili su Internet (provare a cercare \"password generica per BIOS\" in un motore di ricerca). Tutte queste protezioni ostacoleranno quindi l'accesso non autorizzato alla macchina senza essere in grado di evitarlo completamente. Non c'è un modo affidabile per proteggere un computer se l'utente malintenzionato può accedervi fisicamente; in ogni caso potrebbe smontare gli hard disk per connetterli a un computer sotto il proprio controllo, o addirittura rubare l'intera macchina, o cancellare la memoria del BIOS per ripristinarne la password…"
 
 msgid "Systemd executes several processes, in charge of setting up the system: keyboard, drivers, filesystems, network, services. It does this while keeping a global view of the system as a whole, and the requirements of the components. Each component is described by a “unit file” (sometimes more); the general syntax is derived from the widely-used “*.ini files“ syntax, with <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> pairs grouped between <literal>[<replaceable>section</replaceable>]</literal> headers. Unit files are stored under <filename>/lib/systemd/system/</filename> and <filename>/etc/systemd/system/</filename>; they come in several flavours, but we will focus on “services” and “targets” here."
-msgstr ""
+msgstr "Systemd esegue diversi processi, responsabili della configurazione del sistema: tastiera, drivers, filesystem, rete, servizi. Lo fa mantenendo una vsione globale del sistema nel suo complesso, ed i requisiti dei componenti. Ciascun componente è descritto da un \"file unit\" (a volte più); la sintassi generale deriva dalla sintassi ampiamente usata nei \"file *.ini\", con coppie <literal><replaceable>chiave</replaceable> = <replaceable>valore</replaceable></literal> raggruppate tra le intestazioni <literal>[<replaceable>section</replaceable>]</literal>. I file unit vengono memorizzati in <filename>/lib/systemd/system/</filename> e <filename>/etc/systemd/system/</filename>; sono disponibili in vari gusti, ma qui ci si concentrerà su \"service\" e \"target\"."
 
 msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here is the service file for SSH:"
-msgstr ""
+msgstr "Un \"service file\" di systemd descrive un processo gestito da systemd. Contiene più o meno le stesso informazioni degli script-init vecchio stile, ma ma espresse in modo dichiarativo (e molto più conciso). systemd gestisce la maggior parte dei compiti ripetitivi (avviare e arrestare il processo, controllare il suo stato, la registrazione, far cadere i privilegi, e così via), ed il service file ha bisogno solo di compilare le specifiche dei processi. Per esempio, questo è un service file per SSH:"
 
 msgid ""
 "[Unit]\n"
@@ -194,22 +194,22 @@ msgid "As you can see, there is very little code in there, only declarations. Sy
 msgstr "Come si può vedere, c'è poco codice lì dentro, solo dichiarazioni. Systemd si occupa di visualizzare i report, tenendo tracci dei processi, ed anche riavviandoli quando necessario."
 
 msgid "A systemd “target file” describes a state of the system, where a set of services are known to be operational. It can be thought of as an equivalent of the old-style runlevel. One of the targets is <literal>local-fs.target</literal>; when it is reached, the rest of the system can assume that all local filesystems are mounted and accessible. Other targets include <literal>network-online.target</literal> and <literal>sound.target</literal>. The dependencies of a target can be listed either within the target file (in the <literal>Requires=</literal> line), or using a symbolic link to a service file in the <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal> directory. For instance, <filename>/etc/systemd/system/printer.target.wants/</filename> contains a link to <filename>/lib/systemd/system/cups.service</filename>; systemd will therefore ensure CUPS is running in order to reach <literal>printer.target</literal>."
-msgstr ""
+msgstr "Un \"target file\" di systemd descrive uno stato del sistema, dove un insieme di servizi sono noti per essere operativi. Può essere pensato come un equivalente del runlevel vecchio-stile. Uno dei target è <literal>local-fs.target</literal>; quando è raggiunto, il resto del sistema può ritenere tutti i filesystem locali montati ed accessibili. Un'altro target include <literal>network-online.target</literal> e <literal>sound.target</literal>. Le dipendenze del target possono essere elencate sia nel file di destinazione (alla riga <literal>Requires=</literal>), oppure usando un collegamento simbolico al file del servizio nella directory <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal>. Per esempio, <filename>/etc/systemd/system/printer.target.wants/</filename> contiene un collegamento a <filename>/lib/systemd/system/cups.service</filename>; systemd si assicurerà quindi che CUPS sia in esecuzione in modo da raggiungere il target <literal>printer.target</literal>."
 
 msgid "Since unit files are declarative rather than scripts or programs, they cannot be run directly, and they are only interpreted by systemd; several utilities therefore allow the administrator to interact with systemd and control the state of the system and of each component."
-msgstr ""
+msgstr "Dal momento che gli unit file sono dichiararativi e non script o programmi, non possono essere eseguiti direttamente, e sono solo interpretati da systemd; diverese utility consentono quindi all'amministratore di interagire con systemd e controllare lo stato del sistema e di ogni componente."
 
 msgid "The first such utility is <command>systemctl</command>. When run without any arguments, it lists all the unit files known to systemd (except those that have been disabled), as well as their status. <command>systemctl status</command> gives a better view of the services, as well as the related processes. If given the name of a service (as in <command>systemctl status ntp.service</command>), it returns even more details, as well as the last few log lines related to the service (more on that later)."
-msgstr ""
+msgstr "La prima di queste utility è <command>systemctl</command>. Quando viene eseguita senza argomenti, elenca tutti gli unit file noti a systemd (eccetto quelli che sono stati disabilitati), coì come il loro stato. <command>systemctl status</command> dà una migliore visione dei servizi, nonchè dei relativi processi. Se viene passato il nome di un servizio (come in <command>systemctl status ntp.service</command>), restituisce ancora più dettagli, così come le ultime righe dei log relativi al servizio (ne parleremo più avanti)."
 
 msgid "Starting a service by hand is a simple matter of running <command>systemctl start <replaceable>servicename</replaceable>.service</command>. As one can guess, stopping the service is done with <command>systemctl stop <replaceable>servicename</replaceable>.service</command>; other subcommands include <command>reload</command> and <command>restart</command>."
-msgstr ""
+msgstr "L'avvio del servizio manualmente è una cosa semplice eseguendo  command>systemctl start <replaceable>nomedelservizio</replaceable>.service</command>. Come si può intuire, l'arresto di un servizio è fatto con <command>systemctl stop <replaceable>nomedelservizio</replaceable>.service</command>; altri comandi includono <command>reload</command> e <command>restart</command>."
 
 msgid "To control whether a service is active (i.e. whether it will get started automatically on boot), use <command>systemctl enable <replaceable>servicename</replaceable>.service</command> (or <command>disable</command>). <command>is-enabled</command> allows checking the status of the service."
-msgstr ""
+msgstr "Per controllare se un servizio è attivo (es. se partirà automaticamente all'avvio), usa <command>systemctl enable <replaceable>nomedelservizio</replaceable>.service</command> (oppure <command>disable</command>). <command>is-enabled</command> permette il controllo dello stato del servizio."
 
 msgid "An interesting feature of systemd is that it includes a logging component named <command>journald</command>. It comes as a complement to more traditional logging systems such as <command>syslogd</command>, but it adds interesting features such as a formal link between a service and the messages it generates, and the ability to capture error messages generated by its initialisation sequence. The messages can be displayed later on, with a little help from the <command>journalctl</command> command. Without any arguments, it simply spews all log messages that occurred since system boot; it will rarely be used in such a manner. Most of the time, it will be used with a service identifier:"
-msgstr ""
+msgstr "Una caratteristica interessante di systemd è che include un componente di registrazione chiamato <command>journald</command>. Si presenta come un complemento a più sistemi di registrazione tradizionali come <command>syslogd</command>, ma aggiunge delle caratteristiche interessanti come un collegamento formale tra un servizio ed i messaggi che genera, e la capacità di cattuare i messaggi generati dalla sua sequenza di avvio. I messaggi possono essere visualizzati in seguito, con un piccolo aiuto da parte del comando <command>journalctl</command>. Senza argomenti, sputa fuori semplicemente tutti i messaggi di log che si sono verificati dall'avvio del sistema; raramente è usato in questo modo. La maggior parte delle volte sarà utilizzato con un identificatore del servizio:"
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>journalctl -u ssh.service\n"
@@ -234,11 +234,12 @@ msgstr ""
 "Mar 31 10:09:32 mirtuel sshd[1151]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
 "</computeroutput>"
 
+#, fuzzy
 msgid "Another useful command-line flag is <command>-f</command>, which instructs <command>journalctl</command> to keep displaying new messages as they are emitted (much in the manner of <command>tail -f <replaceable>file</replaceable></command>)."
-msgstr ""
+msgstr "Un'altro utile flag da riga di comando è <command>-f</command>, che indica a <command>journalctl</command> di mantenere la visualizzazione di nuovi messaggi quando sono emessi (più di quanto faccia <command>tail -f <replaceable>file</replaceable></command>)."
 
 msgid "If a service doesn't seem to be working as expected, the first step to solve the problem is to check that the service is actually running with <command>systemctl status</command>; if it is not, and the messages given by the first command are not enough to diagnose the problem, check the logs gathered by journald about that service. For instance, assume the SSH server doesn't work:"
-msgstr ""
+msgstr "Se un servizio sembra non funzionare come previsto, la prima cosa da fare per risolvere il problema è quella di verifica se il servizio sia effettivamente in esecuzione con <command>systemctl status</command>; se non lo è, ed i messaggi dati dal primo comando non sono sufficienti a diagnosticare il problema, controllare i log raccolti da journald su quel servizio. Ad esempio, si supponga che il server SSH non funzioni:"
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
@@ -1863,10 +1864,9 @@ msgstr "<emphasis>udev</emphasis> è stato creato proprio per risolvere questo p
 msgid "<emphasis>IN PRACTICE</emphasis> Network card management"
 msgstr "<emphasis>IN PRATICA</emphasis> Gestione delle schede di rete"
 
-#, fuzzy
 #| msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the 2.6 kernel no longer guarantees fixed naming of network interfaces. But a user who wants to configure their network in <filename>/etc/network/interfaces</filename> needs a fixed name!"
 msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the Linux kernel does not guarantee fixed naming of network interfaces. But users who want to configure their network in <filename>/etc/network/interfaces</filename> need a fixed name!"
-msgstr "Molti computer hanno più schede di rete (a volte due interfacce cablate e un'interfaccia wifi), e con il supporto per <emphasis>hotplug</emphasis> per la maggior parte dei tipi di bus, il kernel 2.6 non garantisce più nomi fissati per le interfacce di rete. Ma un utente che vuole configurare la propria rete in <filename>/etc/network/interfaces</filename> ha bisogno di un nome fisso!"
+msgstr "Molti computer hanno più schede di rete (a volte due interfacce cablate e un'interfaccia wifi), e con il supporto per <emphasis>hotplug</emphasis> per la maggior parte dei tipi di bus, il kernel di Linux non garantisce una denominazione fissa per le interfacce di rete. Ma un utente che vuole configurare la propria rete in <filename>/etc/network/interfaces</filename> ha bisogno di un nome fisso!"
 
 msgid "It would be difficult to ask every user to create their own <emphasis>udev</emphasis> rules to address this problem. This is why <emphasis>udev</emphasis> was configured in a rather peculiar manner; on first boot (and, more generally, each time that a new network card appears) it uses the name of the network interface and its MAC address to create new rules that will reassign the same name on subsequent boots. These rules are stored in <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
 msgstr "Sarebbe difficile chiedere ad ogni utente di creare le proprie regole <emphasis>udev</emphasis> per affrontare questo problema. Questo è il motivo per cui <emphasis>udev</emphasis> è stato configurato in un modo piuttosto singolare; al primo avvio (e, più in generale, ogni volta che appare una nuova scheda di rete) utilizza il nome dell'interfaccia di rete e il suo indirizzo MAC per creare nuove regole che riassegneranno lo stesso nome agli avvii successivi. Queste regole sono memorizzate in <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
