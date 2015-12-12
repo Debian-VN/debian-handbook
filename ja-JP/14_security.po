@@ -491,7 +491,7 @@ msgid "<primary><command>mrtg</command></primary>"
 msgstr "<primary><command>mrtg</command></primary>"
 
 msgid "<command>mrtg</command> (in the similarly-named package) is an older tool. Despite some rough edges, it can aggregate historical data and display them as graphs. It includes a number of scripts dedicated to collecting the most commonly monitored data such as processor load, network traffic, web page hits, and so on."
-msgstr "<command>mrtg</command> (よく似た名前のパッケージに含まれます) は古いツールです。一部では低く評価されていますが、<command>mrtg</command> は時系列データを集計し、これをグラフとして表示することが可能です。<command>mrtg</command> は最も一般的に監視されるデータ、たとえばプロセッサの負荷、ネットワークトラフィック、ウェブページのヒット、などの情報を収集する多数の専用スクリプトを備えています。"
+msgstr "<command>mrtg</command> (同名のパッケージに含まれます) は古いツールです。一部では低く評価されていますが、<command>mrtg</command> は時系列データを集計し、これをグラフとして表示することが可能です。<command>mrtg</command> は最も一般的に監視されるデータ、たとえばプロセッサの負荷、ネットワークトラフィック、ウェブページのヒット、などの情報を収集する多数の専用スクリプトを備えています。"
 
 msgid "The <emphasis role=\"pkg\">mrtg-contrib</emphasis> and <emphasis role=\"pkg\">mrtgutils</emphasis> packages contain example scripts that can be used directly."
 msgstr "<emphasis role=\"pkg\">mrtg-contrib</emphasis> と <emphasis role=\"pkg\">mrtgutils</emphasis> パッケージには、直接使うことができるスクリプトの例が含まれます。"
@@ -554,7 +554,7 @@ msgstr ""
 "??5?????? c /etc/salt/roster</computeroutput>"
 
 msgid "In the sample above, dpkg reports a change to SSH's service file that the administrator made to the packaged file instead of using an appropriate <filename>/etc/systemd/system/ssh.service</filename> override (which would be stored below <filename>/etc</filename> like any configuration change should be). It also lists multiple configuration files (identified by the \"c\" letter on the second field) that had been legitimately modified."
-msgstr "上の例では、dpkg はパッケージから提供された SSH のサービスファイルが直接変更されていることを報告しています。一般に管理者はパッケージから提供された設定ファイル以外のファイルを直接編集するべきではありません。今回の場合ならば、改めて <filename>/etc/systemd/system/ssh.service</filename> を作成し、これを編集するべきです (このファイルは一般に設定変更を配置すべき場所である <filename>/etc</filename> ディレクトリの下に配置されます)。さらに、dpkg は設定ファイルとみなされた複数のファイルが修正されていることを報告しています (この場合、左から 2 番目のフィールドが「c」文字になります)。設定ファイルに対する修正は合法的と言えます。"
+msgstr "上の例では、dpkg はパッケージから提供された SSH の service ファイルが直接変更されていることを報告しています。一般に管理者はパッケージから提供された設定ファイル以外のファイルを直接編集するべきではありません。今回の場合ならば、改めて <filename>/etc/systemd/system/ssh.service</filename> を作成し、これを編集するべきです (このファイルは一般に設定変更を配置すべき場所である <filename>/etc</filename> ディレクトリの下に配置されます)。さらに、dpkg は設定ファイルとみなされた複数のファイルが修正されていることを報告しています (この場合、左から 2 番目のフィールドが「c」文字になります)。設定ファイルに対する修正は合法的と言えます。"
 
 msgid "Auditing Packages: <command>debsums</command> and its Limits"
 msgstr "パッケージの監査、<command>debsums</command> とその限界"
@@ -1891,7 +1891,7 @@ msgid "The target object is a FIFO file."
 msgstr "対象オブジェクトは FIFO ファイルです。"
 
 msgid "By observing this log entry, it is possible to build a rule that would allow this operation. For example: <literal>allow syslogd_t device_t:fifo_file { read write }</literal>. This process can be automated, and it's exactly what the <command>audit2allow</command> command (of the <emphasis role=\"pkg\">policycoreutils</emphasis> package) offers. This approach is only useful if the various objects are already correctly labeled according to what must be confined. In any case, you will have to carefully review the generated rules and validate them according to your knowledge of the application. Effectively, this approach tends to grant more rights than are really required. The proper solution is often to create new types and to grant rights on those types only. It also happens that a denied operation isn't fatal to the application, in which case it might be better to just add a “<literal>dontaudit</literal>” rule to avoid the log entry despite the effective denial."
-msgstr "ログエントリを観察することで、その操作を許可するために必要なルールを構築することが可能です。たとえば <literal>allow syslogd_t device_t:fifo_file { read write }</literal> です。この作業は自動化することが可能です。これが (<emphasis role=\"pkg\">policycoreutils</emphasis> パッケージに含まれる) <command>audit2allow</command> コマンドの役割です。設定する必要のある内容に応じて、さまざまなオブジェクトが既に正しくラベル付けされている場合にのみ、このアプローチは役に立ちます。いずれにせよ、管理者は必ず、生成されたルールを注意深く確認し、アプリケーションに対する知識に基づいてルールの妥当性を検査しなければいけません。事実上、このアプローチはアプリケーションが本当に必要としている権限よりも多くの権限を与えようとします。ほとんどの場合、新しいタイプを作成し、作成したタイプだけに権限を与えることが適切な解決策と言えます。また、拒否された操作がアプリケーションにとって致命的でない場合もあります。この場合、「<literal>dontaudit</literal>」ルールを追加するだけに留めることがより良い解決策かもしれません。こうすることで、実際の実行を拒否するのではなくログエントリの記録だけが拒否されます。"
+msgstr "ログエントリを観察することで、その操作を許可するために必要なルールを構築することが可能です。たとえば <literal>allow syslogd_t device_t:fifo_file { read write }</literal> です。この作業は自動化することが可能です。これが <command>audit2allow</command> コマンド (<emphasis role=\"pkg\">policycoreutils</emphasis> パッケージに含まれます) の役割です。設定する必要のある内容に応じて、さまざまなオブジェクトが既に正しくラベル付けされている場合にのみ、このアプローチは役に立ちます。いずれにせよ、管理者は必ず、生成されたルールを注意深く確認し、アプリケーションに対する知識に基づいてルールの妥当性を検査しなければいけません。事実上、このアプローチはアプリケーションが本当に必要としている権限よりも多くの権限を与えようとします。ほとんどの場合、新しいタイプを作成し、作成したタイプだけに権限を与えることが適切な解決策と言えます。また、拒否された操作がアプリケーションにとって致命的でない場合もあります。この場合、「<literal>dontaudit</literal>」ルールを追加するだけに留めることがより良い解決策かもしれません。こうすることで、実際の実行を拒否するのではなくログエントリの記録だけが拒否されます。"
 
 msgid "<emphasis>COMPLEMENTS</emphasis> No roles in policy rules"
 msgstr "<emphasis>COMPLEMENTS</emphasis> ロールを設定されていないポリシールール"
