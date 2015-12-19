@@ -17,210 +17,281 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID"
 msgstr "RAID"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "LVM"
 msgstr "LVM"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "FAI"
 msgstr "FAI"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Preseeding"
 msgstr "Preseeding"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Monitoring"
 msgstr "監視"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Virtualization"
 msgstr "仮想化"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Xen"
 msgstr "Xen"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "LXC"
 msgstr "LXC"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Advanced Administration"
 msgstr "高度な管理"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This chapter revisits some aspects we already described, with a different perspective: instead of installing one single computer, we will study mass-deployment systems; instead of creating RAID or LVM volumes at install time, we'll learn to do it by hand so we can later revise our initial choices. Finally, we will discuss monitoring tools and virtualization techniques. As a consequence, this chapter is more particularly targeting professional administrators, and focuses somewhat less on individuals responsible for their home network."
-msgstr "この章では、われわれが既に説明した一部の側面を異なる視点から再度取り上げます。すなわち、1 台のコンピュータにインストールするのではなく、大規模な配備システムについて学びます。さらに、インストール時に RAID や LVM ボリュームを作成する代わりに、われわれは手作業でそれを行う方法について学びます。こうすることで最初の選択を訂正することが可能です。最後に、われわれは監視ツールと仮想化技術について議論します。その結果として、この章はより熟練した管理者を対象にしており、ホームネットワークに責任を負う個人を対象にしていません。"
+msgstr "この章では、前章までに説明した一部の側面を異なる視点から再度取り上げます。すなわち、1 台のコンピュータにインストールするのではなく、大規模な配備システムについて学びます。さらに、初回インストール時に RAID や LVM ボリュームを作成するのではなく、手作業でこれを行う方法について学びます。こうすることで初回インストール時の選択を訂正することが可能です。最後に、監視ツールと仮想化技術について議論します。その結果として、この章はより熟練した管理者を対象にしており、ホームネットワークに責任を負う個人を対象にしていません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID and LVM"
 msgstr "RAID と LVM"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<xref linkend=\"installation\" /> presented these technologies from the point of view of the installer, and how it integrated them to make their deployment easy from the start. After the initial installation, an administrator must be able to handle evolving storage space needs without having to resort to an expensive reinstallation. They must therefore understand the required tools for manipulating RAID and LVM volumes."
-msgstr "<xref linkend=\"installation\" />では、インストーラの視点からこれらの技術を説明し、最初からこれらを簡単に配備するための統合方法について説明しました。最初のインストールの後、管理者は再インストールという手間のかかる最終手段を行使することなく、より大きなストレージ領域の要求に対処しなければいけません。管理者は RAID と LVM ボリュームを操作するために必要なツールを理解しなければいけません。"
+msgstr "<xref linkend=\"installation\" />ではインストーラの視点から RAID と LVM の技術を説明し、インストーラを使って初回インストール時に RAID や LVM を簡単に配備する方法について説明しました。初回インストールが終わったら、管理者は再インストールという手間のかかる最終手段を行使することなく、より大きなストレージ領域の要求に対処しなければいけません。すなわち、管理者は RAID と LVM ボリュームを操作するために必要なツールを理解しなければいけません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID and LVM are both techniques to abstract the mounted volumes from their physical counterparts (actual hard-disk drives or partitions thereof); the former secures the data against hardware failure by introducing redundancy, the latter makes volume management more flexible and independent of the actual size of the underlying disks. In both cases, the system ends up with new block devices, which can be used to create filesystems or swap space, without necessarily having them mapped to one physical disk. RAID and LVM come from quite different backgrounds, but their functionality can overlap somewhat, which is why they are often mentioned together."
-msgstr "RAID と LVM は両方ともマウントされたボリュームを物理的に対応する物 (実際のハードディスクドライブまたはそのパーティション) から抽象化する技術です。さらに、RAID は冗長性を導入することでデータをハードディスク障害から守り、LVM はボリューム管理をより柔軟にしてディスクの実サイズに依存しないようにします。どちらの場合であっても、最終的にシステムには新しいブロックデバイスが追加されますが、そのブロックデバイスをある物理ディスクに対応付けなくとも、ファイルシステムやスワップ領域を作成するために使うことが可能です。RAID と LVM は全く異なる生い立ちを持っていますが、両者の機能は多少重複しています。このため、両者は一緒に言及されることが多いです。"
+msgstr "RAID と LVM は両方ともマウントされたボリュームを物理的に対応する物 (実際のハードディスクドライブまたはそのパーティション) から抽象化する技術です。さらに、RAID は冗長性を導入することでデータをハードディスク障害から守り、LVM はボリューム管理をより柔軟にしてディスクの実サイズに依存しないようにします。どちらの場合であっても、最終的にシステムには新しいブロックデバイスが追加されます。追加されたブロックデバイスはファイルシステムやスワップ領域を作成するために使われますが、必ずしも単独の物理ディスクに対応付けられるものではありません。RAID と LVM は全く異なる生い立ちを持っていますが、両者の機能は多少重複しています。このため、両者は一緒に言及されることが多いです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>PERSPECTIVE</emphasis> Btrfs combines LVM and RAID"
 msgstr "<emphasis>PERSPECTIVE</emphasis> Btrfs が LVM と RAID を結び付ける"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "While LVM and RAID are two distinct kernel subsystems that come between the disk block devices and their filesystems, <emphasis>btrfs</emphasis> is a new filesystem, initially developed at Oracle, that purports to combine the featuresets of LVM and RAID and much more. It is mostly functional, and although it is still tagged “experimental” because its development is incomplete (some features aren't implemented yet), it has already seen some use in production environments. <ulink type=\"block\" url=\"http://btrfs.wiki.kernel.org/\" />"
-msgstr "LVM と RAID は 2 種類の明らかに異なるカーネルサブシステムで、これはディスクブロックデバイスとそのファイルシステムの間のやり取りを担います。<emphasis>btrfs</emphasis> は最初 Oracle で開発された新しいファイルシステムで、LVM と RAID の機能を結び付けると主張しています。<emphasis>btrfs</emphasis> は開発がまだ完了していない (一部の機能がまだ実装されていない) ため「実験中」とタグ付けされていますが、大部分が機能し、本番環境で使われています。<ulink type=\"block\" url=\"http://btrfs.wiki.kernel.org/\" />"
+msgstr "LVM と RAID は 2 種類の全く別のカーネルサブシステムで、どちらもディスクブロックデバイスとそのファイルシステムの間のやり取りを担当します。<emphasis>btrfs</emphasis> は最初 Oracle で開発された新しいファイルシステムで、LVM と RAID の機能を結び付けると主張しています。<emphasis>btrfs</emphasis> は開発がまだ完了していない (一部の機能がまだ実装されていない) ため「実験中」とタグ付けされていますが、ほとんどうまく機能し、既に本番環境で使われています。<ulink type=\"block\" url=\"http://btrfs.wiki.kernel.org/\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Among the noteworthy features are the ability to take a snapshot of a filesystem tree at any point in time. This snapshot copy doesn't initially use any disk space, the data only being duplicated when one of the copies is modified. The filesystem also handles transparent compression of files, and checksums ensure the integrity of all stored data."
 msgstr "<emphasis>btrfs</emphasis> の特筆すべき機能に、任意の時点におけるファイルシステムツリーのスナップショットを取る機能があります。このスナップショットコピーは初期状態ではいかなるディスク領域も使いません、コピー内容の 1 つが修正された際にデータが複製されます。また、このファイルシステムはファイルを透過的に圧縮することが可能で、さらにチェックサムを用いて保存されているデータの完全性を保証します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "In both the RAID and LVM cases, the kernel provides a block device file, similar to the ones corresponding to a hard disk drive or a partition. When an application, or another part of the kernel, requires access to a block of such a device, the appropriate subsystem routes the block to the relevant physical layer. Depending on the configuration, this block can be stored on one or several physical disks, and its physical location may not be directly correlated to the location of the block in the logical device."
-msgstr "RAID と LVM のどちらの場合も、カーネルはハードディスクドライブやパーティションに対応するものとよく似たブロックデバイスファイルを提供します。アプリケーションやカーネルの別の部分がそのようなデバイスのあるブロックにアクセスを要求する場合、適切なサブシステムがブロックを対応する物理層に転送します。設定に依存して、このブロックは 1 つか複数の物理ディスクに保存されます。その物理的場所は論理デバイス内のブロックの位置と直接的に対応するものではないかもしれません。"
+msgstr "RAID と LVM のどちらの場合も、カーネルはハードディスクドライブやパーティションに対応するブロックデバイスファイルとよく似たブロックデバイスファイルを提供します。アプリケーションやカーネルの別の部分がそのようなデバイスのあるブロックにアクセスを要求する場合、適切なサブシステムが要求されたブロックを物理層のブロックに対応付けます。設定に依存して、アプリケーション側から見たブロックは単独か複数の物理ディスクに保存されます。このブロックの物理的場所は論理デバイス内のブロックの位置と直接的に対応するものではないかもしれません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Software RAID"
 msgstr "ソフトウェア RAID"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>RAID</primary>"
 msgstr "<primary>RAID</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID means <emphasis>Redundant Array of Independent Disks</emphasis>. The goal of this system is to prevent data loss in case of hard disk failure. The general principle is quite simple: data are stored on several physical disks instead of only one, with a configurable level of redundancy. Depending on this amount of redundancy, and even in the event of an unexpected disk failure, data can be losslessly reconstructed from the remaining disks."
-msgstr "RAID は <emphasis>Redundant Array of Independent Disks</emphasis> を意味します。このシステムの目標はハードディスク障害の際にデータ損失を防ぐことです。一般的な原則は極めて単純です。すなわち、データは設定できる冗長性のレベルに基づいて 1 つではなく複数のディスクに保存されます。冗長性の量に依存して、たとえ予想外のディスク障害が起きた場合でも、データを残りのディスクから損失なく再構成することが可能です。"
+msgstr "RAID は <emphasis>Redundant Array of Independent Disks</emphasis> を意味します。RAID システムの目標はハードディスク障害の際にデータ損失を防ぐことです。一般原則は極めて単純です。すなわち、データは設定できる冗長性のレベルに基づいて単独ではなく複数のディスクに保存されます。冗長性の度合いに依存して、たとえ予想外のディスク障害が起きた場合でも、データを残りのディスクから損失なく再構成することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CULTURE</emphasis> <foreignphrase>Independent</foreignphrase> or <foreignphrase>inexpensive</foreignphrase>?"
 msgstr "<emphasis>CULTURE</emphasis> <foreignphrase>independent</foreignphrase> それとも <foreignphrase>inexpensive</foreignphrase>?"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The I in RAID initially stood for <emphasis>inexpensive</emphasis>, because RAID allowed a drastic increase in data safety without requiring investing in expensive high-end disks. Probably due to image concerns, however, it is now more customarily considered to stand for <emphasis>independent</emphasis>, which doesn't have the unsavory flavour of cheapness."
-msgstr "当初、RAID の I は <emphasis>inexpensive</emphasis> を意味していました。なぜなら、RAID は高価な高性能ディスクへ投資することなくデータの安全性を劇的に高めることが可能だったからです。しかしながらおそらく心証的な懸念から、現在 RAID の I は通例 <emphasis>independent</emphasis> を意味するものとされます。<emphasis>independent</emphasis> には安価であることに対する良くない印象がありません。"
+msgstr "当初、RAID の I は <emphasis>inexpensive</emphasis> を意味していました。なぜなら、RAID は高価な高性能ディスクへ投資することなくデータの安全性を劇的に高めることが可能だったからです。しかしながらおそらく心証的な懸念から、現在 RAID の I は通例 <emphasis>independent</emphasis> を意味するものとされます。<emphasis>independent</emphasis> には安価であることに対する悪い印象がないからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID can be implemented either by dedicated hardware (RAID modules integrated into SCSI or SATA controller cards) or by software abstraction (the kernel). Whether hardware or software, a RAID system with enough redundancy can transparently stay operational when a disk fails; the upper layers of the stack (applications) can even keep accessing the data in spite of the failure. Of course, this “degraded mode” can have an impact on performance, and redundancy is reduced, so a further disk failure can lead to data loss. In practice, therefore, one will strive to only stay in this degraded mode for as long as it takes to replace the failed disk. Once the new disk is in place, the RAID system can reconstruct the required data so as to return to a safe mode. The applications won't notice anything, apart from potentially reduced access speed, while the array is in degraded mode or during the reconstruction phase."
-msgstr "RAID は専用ハードウェア (SCSI や SATA コントローラカードに統合された RAID モジュール) またはソフトウェア抽象化 (カーネル) を使って実装することが可能です。ハードウェアかソフトウェアかに関わらず、十分な冗長性を備えた RAID システムはディスク障害があっても透過的に利用できる状態を継続することが可能です。従って、スタックの上層 (アプリケーション) はディスク障害にも関わらず、引き続きデータにアクセスできます。もちろん「信頼性低下状態」は性能に影響をおよぼし、冗長性を低下させます。このため、もう一つ別のディスク障害が起きるとデータを失うことになります。それ故、実践的には、管理者は信頼性低下状態を障害の起きたディスクが交換されるまでの間だけにとどめるように努力します。新しいディスクが配備されると、RAID システムは要求されたデータを再構成することが可能です。こうすることで信頼性の高い状態に戻ります。アプリケーションは、RAID アレイが信頼性低下状態か再構成状態の間にアクセス速度が低下する可能性のある点を除いて、何も気付かないでしょう。"
+msgstr "RAID は専用ハードウェア (SCSI や SATA コントローラカードに統合された RAID モジュール) またはソフトウェア抽象化 (カーネル) を使って実装することが可能です。ハードウェアかソフトウェアかに関わらず、十分な冗長性を備えた RAID システムはディスク障害があっても利用できる状態を透過的に継続することが可能です。従って、スタックの上層 (アプリケーション) はディスク障害にも関わらず、引き続きデータにアクセスできます。もちろん「信頼性低下状態」は性能に影響をおよぼし、冗長性を低下させます。このため、もう一つ別のディスク障害が起きるとデータを失うことになります。このため実践的には、管理者は信頼性低下状態を障害の起きたディスクが交換されるまでの間だけにとどめるように努力します。新しいディスクが配備されると、RAID システムは要求されたデータを再構成することが可能です。こうすることで信頼性の高い状態に戻ります。信頼性低下状態か再構成状態にある RAID アレイのアクセス速度は低下する可能性がありますが、この点を除けばアプリケーションがディスク障害に気が付くことはないでしょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "When RAID is implemented by hardware, its configuration generally happens within the BIOS setup tool, and the kernel will consider a RAID array as a single disk, which will work as a standard physical disk, although the device name may be different (depending on the driver)."
 msgstr "RAID がハードウェアで実装された場合、その設定は通常 BIOS セットアップツールによってなされます。カーネルは RAID アレイを標準的な物理ディスクとして機能する単一のディスクとみなします。RAID アレイのデバイス名は (ドライバに依存して) 違うかもしれません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We only focus on software RAID in this book."
 msgstr "本書ではソフトウェア RAID だけに注目します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Different RAID Levels"
 msgstr "さまざまな RAID レベル"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID is actually not a single system, but a range of systems identified by their levels; the levels differ by their layout and the amount of redundancy they provide. The more redundant, the more failure-proof, since the system will be able to keep working with more failed disks. The counterpart is that the usable space shrinks for a given set of disks; seen the other way, more disks will be needed to store a given amount of data."
-msgstr "実際のところ RAID は 1 種類だけというわけではなく、そのレベルによって識別される複数の種類があります。このため、設計と提供される冗長性の度合いが異なる複数の RAID レベルが存在します。より冗長性を高くすれば、より障害に強くなります。なぜなら、より多くのディスクで障害が起きても、システムを動かし続けることができるからです。これに応じて、与えられた一連のディスクに対して利用できる領域が小さくなります。つまり、あるサイズのデータを保存するために必要なディスク領域のサイズが多くなります。"
+msgstr "実際のところ RAID の種類は 1 種類だけではなく、そのレベルによって識別される複数の種類があります。すなわち、設計と提供される冗長性の度合いが異なる複数の RAID レベルが存在します。より冗長性を高くすれば、より障害に強くなります。なぜなら、より多くのディスクで障害が起きても、システムを動かし続けることができるからです。これに応じて、与えられた一連のディスクに対して利用できる領域が小さくなります。すなわち、あるサイズのデータを保存するために必要なディスク領域のサイズが多くなります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Linear RAID"
 msgstr "リニア RAID"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Even though the kernel's RAID subsystem allows creating “linear RAID”, this is not proper RAID, since this setup doesn't involve any redundancy. The kernel merely aggregates several disks end-to-end and provides the resulting aggregated volume as one virtual disk (one block device). That's about its only function. This setup is rarely used by itself (see later for the exceptions), especially since the lack of redundancy means that one disk failing makes the whole aggregate, and therefore all the data, unavailable."
-msgstr "カーネルの RAID サブシステムを使うことで、「リニア RAID」を作ることも可能ですが、これは適切な RAID ではありません。なぜなら、このリニア RAID には冗長性が一切ないからです。カーネルはただ単純に複数のディスク端と端を統合し結果的に統合されたボリュームを 1 つの仮想ディスク (1 つのブロックデバイス) として提供します。これがリニア RAID のすべてです。リニア RAID を使うのは極めてまれな場合に限られます (後から使用例を説明します)。特に、冗長性がないということは 1 つのディスクの障害が統合されたボリューム全体を駄目にする、そしてすべてのデータを駄目にすることを意味します。"
+msgstr "カーネルの RAID サブシステムを使えば「リニア RAID」を作ることも可能ですが、「リニア RAID」は適切な RAID ではありません。なぜなら、「リニア RAID」には冗長性が一切ないからです。カーネルはただ単純に複数のディスク端同士を統合し、統合されたボリュームを 1 つの仮想ディスク (1 つのブロックデバイス) として提供するだけです。これが「リニア RAID」のすべてです。「リニア RAID」を使うのは極めてまれな場合に限られます (後から使用例を説明します)。なぜなら、冗長性がないということは 1 つのディスクの障害が統合されたボリューム全体を駄目にすること、ひいてはすべてのデータを駄目にすることを意味するからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-0"
 msgstr "RAID-0"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This level doesn't provide any redundancy either, but disks aren't simply stuck on end one after another: they are divided in <emphasis>stripes</emphasis>, and the blocks on the virtual device are stored on stripes on alternating physical disks. In a two-disk RAID-0 setup, for instance, even-numbered blocks of the virtual device will be stored on the first physical disk, while odd-numbered blocks will end up on the second physical disk."
-msgstr "RAID-0 レベルも冗長性を提供しませんが、順番通り単純に物理ディスクを連結する構成ではありません。すなわち、物理ディスクは<emphasis>ストライプ状</emphasis>に分割され、仮想デバイスのブロックは互い違いになった物理ディスクのストライプに保存されます。たとえば 2 台のディスクから構成されている RAID-0 セットアップでは、偶数を付番されたブロックは最初の物理ディスクに保存され、奇数を付番されたブロックは 2 番目の物理ディスクに保存されます。"
+msgstr "同様に RAID-0 にも冗長性がありません。しかしながら、RAID-0 は順番通り単純に物理ディスクを連結する構成ではありません。すなわち、物理ディスクは<emphasis>ストライプ状</emphasis>に分割され、仮想デバイスのブロックは互い違いになった物理ディスクのストライプに保存されます。たとえば 2 台のディスクから構成されている RAID-0 セットアップでは、偶数を付番されたブロックは最初の物理ディスクに保存され、奇数を付番されたブロックは 2 番目の物理ディスクに保存されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This system doesn't aim at increasing reliability, since (as in the linear case) the availability of all the data is jeopardized as soon as one disk fails, but at increasing performance: during sequential access to large amounts of contiguous data, the kernel will be able to read from both disks (or write to them) in parallel, which increases the data transfer rate. However, RAID-0 use is shrinking, its niche being filled by LVM (see later)."
-msgstr "RAID-0 システムは信頼性を向上させることではなく、性能を向上させることを目標にしています。システムの信頼性、データの可用性は (リニア RAID と同様に) ディスク障害があればすぐに脅かされるからです。つまり隣接した巨大なデータにシーケンシャルアクセスする場合、カーネルは両方のディスクから平行して読み込む (書き込む) ことが可能でしょう。このことにより、データの転送率が増加します。しかしながら、RAID-0 が使われる機会は減り、代わりに LVM (後から説明します) が使われるようになっています。"
+msgstr "RAID-0 システムを使っても信頼性は向上しません。なぜなら、システムの信頼性すなわちデータの可用性は (リニア RAID と同様に) ディスク障害があればすぐに脅かされるからです。しかしながら、RAID-0 システムを使うことで性能は向上します。すなわち隣接した巨大なデータにシーケンシャルアクセスする場合、カーネルは両方のディスクから平行して読み込む (書き込む) ことが可能です。これによりデータの転送率が増加します。とは言うものの、RAID-0 が使われる機会は減り、代わりに LVM (後から説明します) が使われるようになっています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-1"
 msgstr "RAID-1"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This level, also known as “RAID mirroring”, is both the simplest and the most widely used setup. In its standard form, it uses two physical disks of the same size, and provides a logical volume of the same size again. Data are stored identically on both disks, hence the “mirror” nickname. When one disk fails, the data is still available on the other. For really critical data, RAID-1 can of course be set up on more than two disks, with a direct impact on the ratio of hardware cost versus available payload space."
-msgstr "RAID-1 レベルは「RAID ミラーリング」としても知られ、最も簡単で最も広く使われています。RAID-1 の標準的な構造では、同じサイズの 2 台の物理ディスクを使い、物理ディスクと同じサイズの論理ボリュームが利用できるようになります。データを両方のディスクに保存するため、「ミラー」と呼ばれています。一方のディスクに障害があれば、他方のディスク上のデータを利用することが可能です。非常に重要なデータ用に、もちろん RAID-1 を 2 台以上の構成にすることも可能ですが、これはハードウェア費用と利用できる保存領域の比率に直接的な影響をおよぼします。"
+msgstr "RAID-1 は「RAID ミラーリング」としても知られ、最も簡単で最も広く使われています。RAID-1 の標準的な構成では、同じサイズの 2 台の物理ディスクを使い、物理ディスクと同じサイズの論理ボリュームが利用できるようになります。データを両方のディスクに保存するため、「ミラー」と呼ばれています。一方のディスクに障害があっても、他方のディスクからデータを利用することが可能です。もちろん、非常に重要なデータ用に RAID-1 を 2 台以上の構成にすることも可能ですが、これはハードウェア費用と利用できる保存領域の比率に直接的な影響をおよぼします。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Disks and cluster sizes"
 msgstr "<emphasis>NOTE</emphasis> ディスクとクラスタサイズ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "If two disks of different sizes are set up in a mirror, the bigger one will not be fully used, since it will contain the same data as the smallest one and nothing more. The useful available space provided by a RAID-1 volume therefore matches the size of the smallest disk in the array. This still holds for RAID volumes with a higher RAID level, even though redundancy is stored differently."
-msgstr "異なるサイズの 2 台のディスクをミラーでセットアップする場合、サイズの大きい側のディスクは完全に利用されません。なぜなら、大きい側のディスクは最も小さいディスクと同じサイズのデータを含むに過ぎないからです。このため RAID-1 ボリュームで提供される利用できる領域のサイズは RAID アレイの最も小さなディスクのサイズと同じになります。冗長性を異なる方法で確保している、より高い RAID レベルの RAID ボリュームの場合に対しても同じことが言えます。"
+msgstr "異なるサイズの 2 台のディスクをミラーでセットアップする場合、サイズの大きい側のディスクは完全に利用されません。なぜなら、大きい側のディスクに含まれるデータは最も小さいディスクに含まれるデータと同じデータだからです。このため RAID-1 ボリュームで提供される利用できる領域のサイズは RAID アレイの最も小さなディスクのサイズと同じになります。冗長性を異なる方法で確保しているより高い RAID レベルの RAID ボリュームに対しても同じことが言えます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "It is therefore important, when setting up RAID arrays (except for RAID-0 and “linear RAID”), to only assemble disks of identical, or very close, sizes, to avoid wasting resources."
-msgstr "それ故、(RAID-0 と「リニア RAID」以外の) RAID アレイをセットアップする場合、資源の無駄を防ぐために、アレイを構成するディスクはそのサイズが完全に同じか近いものを使うことが重要です。"
+msgstr "それ故、(RAID-0 と「リニア RAID」以外の) RAID アレイをセットアップする場合、資源の無駄を防ぐためにアレイを構成するディスクはそのサイズが完全に同じか近いものを使うことが重要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Spare disks"
 msgstr "<emphasis>NOTE</emphasis> 予備ディスク"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID levels that include redundancy allow assigning more disks than required to an array. The extra disks are used as spares when one of the main disks fails. For instance, in a mirror of two disks plus one spare, if one of the first two disks fails, the kernel will automatically (and immediately) reconstruct the mirror using the spare disk, so that redundancy stays assured after the reconstruction time. This can be used as another kind of safeguard for critical data."
-msgstr "冗長性を持たせた RAID レベルでは、アレイに必要なディスク数よりも多くのディスクを使うことが可能です。追加的ディスクは主要ディスクに障害が起きた場合に予備として使われます。たとえば、2 台のディスクと 1 台の予備ディスクのミラー構成では、最初の 2 台のうちの 1 台に障害が起きた場合、カーネルは自動的に (そして素早く) 予備ディスクを使ってミラーを再構成します。こうすることで、再構成の完了後に冗長性は確保されます。予備ディスクは、重要なデータに対する別の種類の安全装置として使うことが可能です。"
+msgstr "冗長性を持たせた RAID レベルでは、必要なディスク数よりも多くのディスクで RAID アレイを構成させることが可能です。追加的ディスクは主要ディスクに障害が起きた場合に予備として使われます。たとえば、2 台のディスクと 1 台の予備ディスクのミラー構成では、最初の 2 台のうちの 1 台に障害が起きた場合、カーネルは自動的に (そして素早く) 予備ディスクを使ってミラーを再構成し、再構成の完了後に冗長性が再確保されます。すなわち、重要なデータに対するもう一つの安全装置として予備ディスクを使うことが可能ということです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "One would be forgiven for wondering how this is better than simply mirroring on three disks to start with. The advantage of the “spare disk” configuration is that the spare disk can be shared across several RAID volumes. For instance, one can have three mirrored volumes, with redundancy assured even in the event of one disk failure, with only seven disks (three pairs, plus one shared spare), instead of the nine disks that would be required by three triplets."
 msgstr "この方式が単純に 3 台のディスクに対して最初からミラーリングを行うよりも優れているとされることに疑問を持つかもしれません。「予備ディスク」を設定する利点は複数の RAID ボリュームで予備ディスクを共有することが可能という点です。たとえば、1 台のディスク障害に対する冗長性を確保した 3 つのミラーされたボリュームを構成するには、ディスクを 7 台 (3 つのペアと 1 台の共有された予備) 用意するだけですみます。これに対して各ボリュームに 3 台のディスクを用意する場合には 9 台のディスクが必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This RAID level, although expensive (since only half of the physical storage space, at best, is useful), is widely used in practice. It is simple to understand, and it allows very simple backups: since both disks have identical contents, one of them can be temporarily extracted with no impact on the working system. Read performance is often increased since the kernel can read half of the data on each disk in parallel, while write performance isn't too severely degraded. In case of a RAID-1 array of N disks, the data stays available even with N-1 disk failures."
-msgstr "RAID-1 レベルは、高価であるにも関わらず (物理ストレージ領域の、良くても、たった半分しか使えない)、広く実運用されています。RAID-1 は簡単に理解でき、簡単にバックアップできます。なぜなら、両方のディスクが全く同じ内容を持っているため、運用システムに影響をおよぼすことなしに、片方を一時的に取り外すことが可能だからです。通常、読み込み性能は上昇します。なぜなら、カーネルはデータの半分をそれぞれのディスクから平行して読むことができるからです。これに対して、書き込み性能はそれほど悪化しません。N 台のディスクからなる RAID-1 アレイの場合、データは N-1 台のディスク障害に対して保護されます。"
+msgstr "RAID-1 は高価であるにも関わらず (良くても物理ストレージ領域のたった半分しか使えないにも関わらず)、広く実運用されています。RAID-1 は簡単に理解でき、簡単にバックアップできます。なぜなら両方のディスクが全く同じ内容を持っているため、片方を一時的に取り外しても運用システムに影響をおよぼさないからです。通常 RAID-1 を使うことで、読み込み性能は好転します。なぜなら、カーネルはデータの半分をそれぞれのディスクから平行して読むことができるからです。これに対して、書き込み性能はそれほど悪化しません。N 台のディスクからなる RAID-1 アレイの場合、データは N-1 台のディスク障害に対して保護されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-4"
 msgstr "RAID-4"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This RAID level, not widely used, uses N disks to store useful data, and an extra disk to store redundancy information. If that disk fails, the system can reconstruct its contents from the other N. If one of the N data disks fails, the remaining N-1 combined with the “parity” disk contain enough information to reconstruct the required data."
-msgstr "RAID-4 は広く使われていません。RAID-4 は実データを保存するために N 台のディスクを使い、冗長性情報を保存するために 1 台の追加的ディスクを使います。追加的ディスクに障害が起きた場合、システムは他の N 台からデータを再構成することが可能です。N 台のデータディスクのうち、最大で 1 台に障害が起きた場合、残りの N-1 台と「パリティ」ディスクには、要求されたデータを再構成するために十分な情報が含まれます。"
+msgstr "RAID-4 は広く使われていません。RAID-4 は実データを保存するために N 台のディスクを使い、冗長性情報を保存するために 1 台の「パリティ」ディスクを使います。「パリティ」ディスクに障害が起きた場合、システムは他の N 台からデータを再構成することが可能です。N 台のデータディスクのうち、最大で 1 台に障害が起きた場合、残りの N-1 台と「パリティ」ディスクには、要求されたデータを再構成するために十分な情報が含まれます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-4 isn't too expensive since it only involves a one-in-N increase in costs and has no noticeable impact on read performance, but writes are slowed down. Furthermore, since a write to any of the N disks also involves a write to the parity disk, the latter sees many more writes than the former, and its lifespan can shorten dramatically as a consequence. Data on a RAID-4 array is safe only up to one failed disk (of the N+1)."
-msgstr "RAID-4 は高価過ぎるわけではありません。なぜなら、1 台当たりの費用は N 分の 1 だけ増加するに過ぎないからです。また、読み込み性能には大きな影響をおよぼしませんが、書き込み性能には深刻な影響をおよぼします。加えて、N 台の実データ用ディスクに対して書き込むと、パリティディスクに対する書き込みが発生するので、パリティディスクは実データ用ディスクに比べて書き込み回数が増えます。その結果、パリティディスクは極めて寿命が短くなります。RAID-4 アレイのデータは (N+1 台のディスクのうち) 1 台の障害に対して保護されます。"
+msgstr "RAID-4 は高価過ぎるというわけではありません。なぜならディスク 1 台につきたった N 分の 1 台分の追加費用で済むからです。また RAID-4 を使うと読み込み性能が大きく低下するというわけでもありません。しかしながら、RAID-4 は書き込み性能に深刻な影響をおよぼします。加えて、N 台の実データ用ディスクのどのディスクに書き込んでもパリティディスクに対する書き込みが発生するので、パリティディスクは実データ用ディスクに比べて書き込み回数が増えます。その結果、パリティディスクは極めて寿命が短くなります。RAID-4 アレイのデータは (N+1 台のディスクのうち) 1 台の障害に対して保護されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-5"
 msgstr "RAID-5"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-5 addresses the asymmetry issue of RAID-4: parity blocks are spread over all of the N+1 disks, with no single disk having a particular role."
-msgstr "RAID-5 は RAID-4 の非対称性問題を対処したものです。パリティブロックは N+1 台のディスクに分散して保存され、特定のディスクが特定の役割を果たすことはありません。"
+msgstr "RAID-5 は RAID-4 の非対称性問題を対処したものです。すなわち、パリティブロックは N+1 台のディスクに分散して保存され、特定のディスクが特定の役割を果たすことはありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Read and write performance are identical to RAID-4. Here again, the system stays functional with up to one failed disk (of the N+1), but no more."
 msgstr "読み込みと書き込み性能は RAID-4 と同様です。繰り返しになりますが、RAID-5 システムは (N+1 台のディスクのうち) 最大で 1 台までに障害が起きても動作します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-6"
 msgstr "RAID-6"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-6 can be considered an extension of RAID-5, where each series of N blocks involves two redundancy blocks, and each such series of N+2 blocks is spread over N+2 disks."
-msgstr "RAID-6 は RAID-5 の拡張と考えられます。RAID-6 では、N 個のブロックのそれぞれに対して 2 個の冗長性ブロックを使います。この N+2 個のブロックは N+2 台のディスクに分散して保存されます。"
+msgstr "RAID-6 は RAID-5 の拡張と考えられます。RAID-6 では、N 個の連続するブロックに対して 2 個の冗長性ブロックを使います。この N+2 個のブロックは N+2 台のディスクに分散して保存されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This RAID level is slightly more expensive than the previous two, but it brings some extra safety since up to two drives (of the N+2) can fail without compromising data availability. The counterpart is that write operations now involve writing one data block and two redundancy blocks, which makes them even slower."
-msgstr "RAID-6 は RAID-4 と RAID-5 に比べて少し高価ですが、さらなる安全策を講じることが可能です。なぜなら、(N+2 台中の) 最大で 2 台までの障害に対してデータを守ることが可能だからです。書き込み操作は 1 つのデータブロックと 2 つの冗長性ブロックを書き込むことになりますから、書き込み性能がさらに遅くなります。"
+msgstr "RAID-6 は RAID-4 と RAID-5 に比べて少し高価ですが、RAID-6 を使うことで安全性はさらに高まります。なぜなら、(N+2 台中の) 最大で 2 台までの障害に対してデータを守ることが可能だからです。書き込み操作は 1 つのデータブロックと 2 つの冗長性ブロックを書き込むことに対応しますから、RAID-6 の書き込み性能は RAID-4 と RAID-5 に比べてさらに悪化します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-1+0"
 msgstr "RAID-1+0"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This isn't strictly speaking, a RAID level, but a stacking of two RAID groupings. Starting from 2×N disks, one first sets them up by pairs into N RAID-1 volumes; these N volumes are then aggregated into one, either by “linear RAID” or (increasingly) by LVM. This last case goes farther than pure RAID, but there's no problem with that."
-msgstr "厳密に言えば RAID-1+0 は RAID レベルではなく、2 種類の RAID 分類を積み重ねたものです。2×N 台のディスクが必要で、最初に 2 台ずつのペアから N 台の RAID-1 ボリュームを作ります。N 台の RAID-1 ボリュームは「リニア RAID」か LVM (次第にこちらを選ぶケースが増えています) のどちらか一方を使って 1 台に統合されます。LVM を使うと純粋な RAID ではなくなりますが、LVM を使っても問題はありません。"
+msgstr "厳密に言えば RAID-1+0 は RAID レベルではなく、2 種類の RAID 分類を積み重ねたものです。RAID-1+0 を使うには 2×N 台のディスクが必要で、最初に 2 台ずつのペアから N 台の RAID-1 ボリュームを作ります。N 台の RAID-1 ボリュームは「リニア RAID」か LVM (次第にこちらを選ぶケースが増えています) のどちらか一方を使って 1 台に統合されます。LVM を使うと純粋な RAID ではなくなりますが、LVM を使っても問題はありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-1+0 can survive multiple disk failures: up to N in the 2×N array described above, provided that at least one disk keeps working in each of the RAID-1 pairs."
-msgstr "RAID-1+0 は複数のディスク障害を乗り切ることが可能です。具体的に言えば、上に挙げた 2×N アレイの場合、最大で N 台までの障害に耐えます。ただし、各 RAID-1 ペアのうち、少なくとも 1 台のディスクが動き続けなければいけません。"
+msgstr "RAID-1+0 は複数のディスク障害を乗り切ることが可能です。具体的に言えば、上に挙げた 2×N アレイの場合、最大で N 台までの障害に耐えます。ただし、各 RAID-1 ペアを構成するディスクの両方に障害が発生してはいけません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>GOING FURTHER</emphasis> RAID-10"
 msgstr "<emphasis>GOING FURTHER</emphasis> RAID-10"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-10 is generally considered a synonym of RAID-1+0, but a Linux specificity makes it actually a generalization. This setup allows a system where each block is stored on two different disks, even with an odd number of disks, the copies being spread out along a configurable model."
-msgstr "通常 RAID-10 は RAID-1+0 の同意語と考えられますが、Linux では特別に RAID-10 をより一般的な構成を可能にするものとして定めています。RAID-10 では、システムが各ブロックを 2 種類の異なるディスクに保存することが可能です。奇数台のディスク構成の場合でも、このコピーは設定可能なモデルに従って分散して保存されます。"
+msgstr "通常 RAID-10 は RAID-1+0 の同意語と考えられますが、Linux では特別に RAID-10 をより一般的な構成を可能にするものとして定めています。RAID-10 では、システムが各ブロックを 2 種類の異なるディスクに保存することが可能です。奇数台のディスク構成の場合でも、ブロックのコピーは設定可能なモデルに従って分散して保存されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Performances will vary depending on the chosen repartition model and redundancy level, and of the workload of the logical volume."
-msgstr "性能は、選択した再分割モデルと冗長性の度合い、そして論理ボリュームの作業負荷に依存して変化します。"
+msgstr "RAID-10 の性能は選択した再分割モデルと冗長性の度合い、そして論理ボリュームの作業負荷に依存して変化します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Obviously, the RAID level will be chosen according to the constraints and requirements of each application. Note that a single computer can have several distinct RAID arrays with different configurations."
-msgstr "明らかに、RAID レベルは各用途からの制限および要求に従って選択されます。1 台のコンピュータに、異なる設定を持つ複数の RAID アレイを配置することが可能である点に注意してください。"
+msgstr "RAID レベルを選ぶ際には、各用途からの制限および要求を考慮する必要があるのは明らかです。1 台のコンピュータに異なる設定を持つ複数の RAID アレイを配置することが可能である点に注意してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Setting up RAID"
 msgstr "RAID の設定"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis role=\"pkg\">mdadm</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">mdadm</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Setting up RAID volumes requires the <emphasis role=\"pkg\">mdadm</emphasis> package; it provides the <command>mdadm</command> command, which allows creating and manipulating RAID arrays, as well as scripts and tools integrating it to the rest of the system, including the monitoring system."
-msgstr "RAID ボリュームを設定するには <emphasis role=\"pkg\">mdadm</emphasis> パッケージが必要です。さらに <emphasis role=\"pkg\">mdadm</emphasis> パッケージには、RAID アレイを作成したり操作するための <command>mdadm</command> コマンド、システムの他の部分に RAID アレイを統合するためのスクリプトやツール、監視システム、が含まれます。"
+msgstr "RAID ボリュームを設定するには <emphasis role=\"pkg\">mdadm</emphasis> パッケージが必要です。<emphasis role=\"pkg\">mdadm</emphasis> パッケージには RAID アレイを作成したり操作するための <command>mdadm</command> コマンド、システムの他の部分に RAID アレイを統合するためのスクリプトやツール、監視システムが含まれます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Our example will be a server with a number of disks, some of which are already used, the rest being available to setup RAID. We initially have the following disks and partitions:"
 msgstr "以下の例では、多数のディスクを持つサーバをセットアップします。ディスクの一部は既に利用されており、残りは RAID をセットアップするために利用できるようになっています。最初の状態で、以下のディスクとパーティションが存在します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "the <filename>sdb</filename> disk, 4 GB, is entirely available;"
-msgstr "<filename>sdb</filename> ディスク、4 GB、は全部利用できます。"
+msgstr "<filename>sdb</filename> ディスク (4 GB) は全領域を利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "the <filename>sdc</filename> disk, 4 GB, is also entirely available;"
-msgstr "<filename>sdc</filename> ディスク、4 GB、も全部利用できます。"
+msgstr "<filename>sdc</filename> ディスク (4 GB) は全領域を利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "on the <filename>sdd</filename> disk, only partition <filename>sdd2</filename> (about 4 GB) is available;"
-msgstr "<filename>sdd</filename> ディスクでは、<filename>sdd2</filename> (約 4 GB) パーティションだけが利用できます。"
+msgstr "<filename>sdd</filename> ディスクは <filename>sdd2</filename> パーティション (約 4 GB) だけを利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "finally, a <filename>sde</filename> disk, still 4 GB, entirely available."
-msgstr "最後に、<filename>sde</filename> ディスク、4 GB、全部利用できます。"
+msgstr "<filename>sde</filename> ディスク (4 GB) は全領域を利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Identifying existing RAID volumes"
 msgstr "<emphasis>NOTE</emphasis> 既存の RAID ボリュームの識別"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <filename>/proc/mdstat</filename> file lists existing volumes and their states. When creating a new RAID volume, care should be taken not to name it the same as an existing volume."
-msgstr "<filename>/proc/mdstat</filename> ファイルには、既存のボリュームとその状態が書かれています。新しい RAID ボリュームを作成する場合、既存のボリュームと同じ名前を付けないように注意してください。"
+msgstr "<filename>/proc/mdstat</filename> ファイルには既存のボリュームとその状態が書かれています。新しい RAID ボリュームを作成する場合、既存のボリュームと同じ名前を付けないように注意してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We're going to use these physical elements to build two volumes, one RAID-0 and one mirror (RAID-1). Let's start with the RAID-0 volume:"
-msgstr "2 つのボリューム、RAID-0 とミラー (RAID-1)、を作るためにこれらの物理ディスクを使います。RAID-0 ボリュームから始めましょう。"
+msgstr "RAID-0 とミラー (RAID-1) の 2 つのボリュームを作るために上記の物理ディスクを使います。それでは RAID-0 ボリュームから作っていきましょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc</userinput>\n"
 "<computeroutput>mdadm: Defaulting to version 1.2 metadata\n"
@@ -320,12 +391,16 @@ msgstr ""
 "/dev/md0         7.9G   18M  7.4G    1% /srv/raid-0\n"
 "</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <command>mdadm --create</command> command requires several parameters: the name of the volume to create (<filename>/dev/md*</filename>, with MD standing for <foreignphrase>Multiple Device</foreignphrase>), the RAID level, the number of disks (which is compulsory despite being mostly meaningful only with RAID-1 and above), and the physical drives to use. Once the device is created, we can use it like we'd use a normal partition, create a filesystem on it, mount that filesystem, and so on. Note that our creation of a RAID-0 volume on <filename>md0</filename> is nothing but coincidence, and the numbering of the array doesn't need to be correlated to the chosen amount of redundancy. It's also possible to create named RAID arrays, by giving <command>mdadm</command> parameters such as <filename>/dev/md/linear</filename> instead of <filename>/dev/md0</filename>."
-msgstr "<command>mdadm --create</command> コマンドは複数のパラメータを要求します。具体的に言えば、作成するボリュームの名前 (<filename>/dev/md*</filename>、MD は <foreignphrase>Multiple Device</foreignphrase> を意味します)、RAID レベル、ディスク数 (普通この値は RAID-1 とそれ以上のレベルでのみ意味があるにも関わらず、これは必須オプションです)、利用する物理デバイスを要求します。デバイスを作成したら、デバイスを通常のパーティションを取り扱うのと同様のやり方で取り扱うことが可能です。ファイルシステムを作成したり、ファイルシステムをマウントしたり、することが可能です。作成する RAID-0 ボリュームに <filename>md0</filename> と名前を付けたのは偶然に過ぎない点に注意してください。アレイに付けられた番号と冗長性の度合いを関連付ける必要はありません。また、<filename>/dev/md0</filename> の代わりに <filename>/dev/md/linear</filename> のような <command>mdadm</command> パラメータを使えば、名前付き RAID アレイを作成することも可能です。"
+msgstr "<command>mdadm --create</command> コマンドには複数のパラメータが必要です。具体的に言えば、作成するボリュームの名前 (<filename>/dev/md*</filename>、MD は <foreignphrase>Multiple Device</foreignphrase> を意味します)、RAID レベル、ディスク数 (普通この値は RAID-1 とそれ以上のレベルでのみ意味があるにも関わらず、これは必須オプションです)、RAID を構成する物理デバイスを指定する必要があります。RAID デバイスを作成したら、RAID デバイスを通常のパーティションを取り扱うのと同様のやり方で取り扱うことが可能です。すなわち、ファイルシステムを作成したり、ファイルシステムをマウントしたりすることが可能です。ここで作成する RAID-0 ボリュームに <filename>md0</filename> と名前を付けたのは偶然に過ぎない点に注意してください。アレイに付けられた番号と冗長性の度合いを関連付ける必要はありません。また、<filename>/dev/md0</filename> の代わりに <filename>/dev/md/linear</filename> のようなパラメータを <command>mdadm</command> に渡すことで、名前付き RAID アレイを作成することも可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Creation of a RAID-1 follows a similar fashion, the differences only being noticeable after the creation:"
-msgstr "同様のやり方を使って RAID-1 を作成します。注意するべき違いは作成後に説明します。"
+msgstr "同様のやり方で RAID-1 を作成します。注意するべき違いは作成後に説明します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd2 /dev/sde</userinput>\n"
 "<computeroutput>mdadm: Note: this array has metadata at the start and\n"
@@ -415,39 +490,55 @@ msgstr ""
 "[...]\n"
 "</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>TIP</emphasis> RAID, disks and partitions"
 msgstr "<emphasis>TIP</emphasis> RAID、ディスク、パーティション"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "As illustrated by our example, RAID devices can be constructed out of disk partitions, and do not require full disks."
 msgstr "上の例で示した通り、RAID デバイスはディスクパーティションに作成することが可能です。必ずディスク全体を使わなければいけないというわけではありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A few remarks are in order. First, <command>mdadm</command> notices that the physical elements have different sizes; since this implies that some space will be lost on the bigger element, a confirmation is required."
 msgstr "いくつかの注意点があります。最初に、<command>mdadm</command> は物理デバイス同士のサイズが異なる点を指摘しています。さらに、このことによりサイズが大きい側のデバイスの一部の領域が使えなくなるため、確認が求められています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "More importantly, note the state of the mirror. The normal state of a RAID mirror is that both disks have exactly the same contents. However, nothing guarantees this is the case when the volume is first created. The RAID subsystem will therefore provide that guarantee itself, and there will be a synchronization phase as soon as the RAID device is created. After some time (the exact amount will depend on the actual size of the disks…), the RAID array switches to the “active” or “clean” state. Note that during this reconstruction phase, the mirror is in a degraded mode, and redundancy isn't assured. A disk failing during that risk window could lead to losing all the data. Large amounts of critical data, however, are rarely stored on a freshly created RAID array before its initial synchronization. Note that even in degraded mode, the <filename>/dev/md1</filename> is usable, and a filesystem can be created on it, as well as some data copied on it."
-msgstr "さらに重要なことは、ミラーの状態に注意することです。RAID ミラーの正常な状態とは、両方のディスクが全く同じ内容を持っている状態です。しかしながら、ボリュームを最初に作成した直後、RAID ミラーは正常な状態であることを保証されません。このため、RAID サブシステムは RAID ミラーの正常な状態を保証するために、RAID デバイスが作成されたらすぐに同期化作業を始めます。しばらくの後 (必要な時間はディスクの実サイズに依存します…)、RAID アレイは「active」または「clean」状態に移行します。同期化作業中、ミラーは信頼性低下状態で、冗長性は保証されない点に注意してください。同期化作業中にディスク障害が起きると、すべてのデータを失うことにつながる恐れがあります。しかしながら、最近作成された RAID アレイの最初の同期化作業の前に、大量の重要なデータがこの RAID アレイに保存されていることはほとんどないでしょう。信頼性低下状態であっても、<filename>/dev/md1</filename> を利用することが可能で、ファイルシステムを作成したり、データのコピーを取ったりすることが可能、という点に注意してください。"
+msgstr "さらに重要なことは、ミラーの状態に注意することです。RAID ミラーの正常な状態とは、両方のディスクが全く同じ内容を持っている状態です。しかしながら、ボリュームを最初に作成した直後の RAID ミラーは正常な状態であることを保証されません。このため、RAID サブシステムは RAID ミラーの正常な状態を保証するために、RAID デバイスが作成されたらすぐに同期化作業を始めます。しばらくの後 (必要な時間はディスクの実サイズに依存します)、RAID アレイは「active」または「clean」状態に移行します。同期化作業中、ミラーは信頼性低下状態で、冗長性は保証されない点に注意してください。同期化作業中にディスク障害が起きると、すべてのデータを失うことにつながる恐れがあります。しかしながら、最近作成された RAID アレイの最初の同期化作業の前に大量の重要なデータがこの RAID アレイに保存されていることはほとんどないでしょう。信頼性低下状態であっても <filename>/dev/md1</filename> を利用することが可能で、ファイルシステムを作成したり、データのコピーを取ったりすることが可能という点に注意してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>TIP</emphasis> Starting a mirror in degraded mode"
 msgstr "<emphasis>TIP</emphasis> 信頼性低下状態でミラーを開始する"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Sometimes two disks are not immediately available when one wants to start a RAID-1 mirror, for instance because one of the disks one plans to include is already used to store the data one wants to move to the array. In such circumstances, it is possible to deliberately create a degraded RAID-1 array by passing <filename>missing</filename> instead of a device file as one of the arguments to <command>mdadm</command>. Once the data have been copied to the “mirror”, the old disk can be added to the array. A synchronization will then take place, giving us the redundancy that was wanted in the first place."
-msgstr "RAID-1 ミラーを構成する 2 台のディスクの両方をすぐに使えないことが時々あります。たとえば、ミラーを構成するディスクの片方に、ミラーに移動したいデータが既に保存されている場合です。このような場合、<command>mdadm</command> に渡すデバイスファイル引数の片方をデバイスファイルの代わりに <filename>missing</filename> にすることで、意図的に信頼性低下状態の RAID-1 アレイを作成することも可能です。ミラーに移動したいデータを含むディスクからデータを「ミラー」にコピーした後、そのディスクをアレイに追加することが可能です。追加作業が終われば、同期化作業が行われ、ミラーに移動したかったデータの冗長性が確保されます。"
+msgstr "RAID-1 ミラーを構成する 2 台のディスクの両方をすぐに使えないことが時々あります。たとえば、ミラーを構成するディスクの片方にミラーに移動したいデータが既に保存されている場合です。このような場合、<command>mdadm</command> に渡すデバイスファイル引数の片方をデバイスファイルの代わりに <filename>missing</filename> にすることで、意図的に信頼性低下状態の RAID-1 アレイを作成することも可能です。ミラーに移動したいデータを含むディスクからデータを「ミラー」にコピーした後、そのディスクをアレイに追加することが可能です。追加作業が終われば、同期化作業が行われ、ミラーに移動したかったデータの冗長性が確保されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>TIP</emphasis> Setting up a mirror without synchronization"
 msgstr "<emphasis>TIP</emphasis> 同期化作業を行わずにミラーをセットアップする"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "RAID-1 volumes are often created to be used as a new disk, often considered blank. The actual initial contents of the disk is therefore not very relevant, since one only needs to know that the data written after the creation of the volume, in particular the filesystem, can be accessed later."
-msgstr "RAID-1 ボリュームは通常新しいディスクとして使うために作成され、そのディスクにはデータが保存されていないと考えられます。このため、RAID を構成するディスクの初期内容は特に意味を持ちません。ボリュームの作成前、具体的に言えば初期ファイルシステムの作成前、に書き込まれていたデータは作成後にアクセスできないという点に注意してください。"
+msgstr "通常 RAID-1 ボリュームは新しいディスクとして使うために作成され、RAID-1 ボリュームの作成直後にはデータが保存されていないと考えられます。すなわち、RAID-1 ボリュームの初期内容に価値はなく、RAID-1 で保護したい重要なデータは RAID-1 ボリュームの作成後に書き込まれるデータというわけです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "One might therefore wonder about the point of synchronizing both disks at creation time. Why care whether the contents are identical on zones of the volume that we know will only be read after we have written to them?"
-msgstr "そんなわけで、作成された時点で両方のディスクの同期化が行われる点について疑問に思うかもしれません。内容はゾーンに書き込まれた後で読み込まれるにも関わらず、なぜ、ボリュームのゾーン上で内容が同一であるか否かに注意する必要があるのでしょうか?"
+msgstr "そう考えると、RAID-1 ボリュームにデータが書き込まれる前に RAID-1 ボリュームを構成するディスクの内容が同期されるという点について疑問に思うかもしれません。RAID-1 ボリュームに書き込んでいないデータは後から読み込まれることもないのにも関わらず、なぜ RAID-1 ボリュームの作成時に RAID-1 ボリュームを構成するディスクの内容の同期化作業が必要なのでしょうか?"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "Fortunately, this synchronization phase can be avoided by passing the <literal>--assume-clean</literal> option to <command>mdadm</command>. However, this option can lead to surprises in cases where the initial data will be read (for instance if a filesystem is already present on the physical disks), which is why it isn't enabled by default."
-msgstr "幸いなことに、同期化作業は <literal>--assume-clean</literal> オプションを <command>mdadm</command> に渡せば避けることが可能です。しかしながら、初期データが読まれる場合、このオプションを使うと問題があります (たとえば、物理ディスク上にファイルシステムが既に存在している場合、問題があります)。このため、デフォルトでこのオプションは有効化されません。"
+msgstr "幸いなことに、RAID-1 を構成するディスクの内容の同期化作業は <literal>--assume-clean</literal> オプションを <command>mdadm</command> に渡せば避けることが可能です。しかしながら、初期データが読まれる場合、<literal>--assume-clean</literal> オプションを使うと問題があります (たとえば、物理ディスク上にファイルシステムが既に存在している場合、問題があります)。このため、デフォルトでこのオプションは有効化されません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Now let's see what happens when one of the elements of the RAID-1 array fails. <command>mdadm</command>, in particular its <literal>--fail</literal> option, allows simulating such a disk failure:"
 msgstr "RAID-1 アレイを構成するディスクの 1 台に障害が発生した場合、何が起きるかを見て行きましょう。<command>mdadm</command> に <literal>--fail</literal> オプションを付けることで、ディスク障害を模倣することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm /dev/md1 --fail /dev/sde</userinput>\n"
 "<computeroutput>mdadm: set /dev/sde faulty in /dev/md1\n"
@@ -493,9 +584,12 @@ msgstr ""
 "\n"
 "       1       8       64        -      faulty   /dev/sde</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The contents of the volume are still accessible (and, if it is mounted, the applications don't notice a thing), but the data safety isn't assured anymore: should the <filename>sdd</filename> disk fail in turn, the data would be lost. We want to avoid that risk, so we'll replace the failed disk with a new one, <filename>sdf</filename>:"
-msgstr "ボリュームの内容はまだアクセスすることが可能 (そして、ボリュームがマウントされていた場合、アプリケーションはディスク障害に気が付きません) ですが、データの安全性はもはや保証されません。つまり <filename>sdd</filename> ディスクに障害が発生した場合、データは失われます。この危険性を避けるために、われわれは障害の発生したディスクを新しいディスク <filename>sdf</filename> に交換します。"
+msgstr "RAID-1 ボリュームの内容はまだアクセスすることが可能ですが (そして、RAID-1 ボリュームがマウントされていた場合、アプリケーションはディスク障害に気が付きませんが)、データの安全性はもはや保証されません。つまり <filename>sdd</filename> ディスクにも障害が発生した場合、データは失われます。この危険性を避けるために、障害の発生したディスクを新しいディスク <filename>sdf</filename> に交換します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm /dev/md1 --add /dev/sdf</userinput>\n"
 "<computeroutput>mdadm: added /dev/sdf\n"
@@ -595,9 +689,12 @@ msgstr ""
 "\n"
 "       1       8       64        -      faulty   /dev/sde</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Here again, the kernel automatically triggers a reconstruction phase during which the volume, although still accessible, is in a degraded mode. Once the reconstruction is over, the RAID array is back to a normal state. One can then tell the system that the <filename>sde</filename> disk is about to be removed from the array, so as to end up with a classical RAID mirror on two disks:"
-msgstr "繰り返しになりますが、ボリュームはまだアクセスすることが可能ですが、ボリュームが信頼性低下状態ならば、カーネルは自動的に再構成作業を実行します。再構成作業が終了したら、RAID アレイは正常状態に戻ります。ここで、システムに <filename>sde</filename> ディスクをアレイから削除することを伝えることが可能です。削除することで、2 台のディスクからなる古典的な RAID ミラーになります。"
+msgstr "繰り返しになりますが、ボリュームはまだアクセスすることが可能とは言うもののボリュームが信頼性低下状態ならば、カーネルは自動的に再構成作業を実行します。再構成作業が終了したら、RAID アレイは正常状態に戻ります。ここで、システムに <filename>sde</filename> ディスクをアレイから削除することを伝えることが可能です。削除することで、2 台のディスクからなる古典的な RAID ミラーになります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm /dev/md1 --remove /dev/sde</userinput>\n"
 "<computeroutput>mdadm: hot removed /dev/sde from /dev/md1\n"
@@ -617,21 +714,30 @@ msgstr ""
 "       0       8       50        0      active sync   /dev/sdd2\n"
 "       2       8       80        1      active sync   /dev/sdf</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "From then on, the drive can be physically removed when the server is next switched off, or even hot-removed when the hardware configuration allows hot-swap. Such configurations include some SCSI controllers, most SATA disks, and external drives operating on USB or Firewire."
-msgstr "この後、今後サーバの電源を切った後にドライブを物理的に取り外したり、ハードウェア設定がホットスワップに対応しているならばホットリムーブすることが可能です。一部の SCSI コントローラ、ほとんどの SATA ディスク、USB や Firewire で接続された外部ドライブなどはホットスワップに対応しています。"
+msgstr "この後、今後サーバの電源を切った際にドライブを物理的に取り外したり、ハードウェア設定がホットスワップに対応しているならばドライブをホットリムーブすることが可能です。一部の SCSI コントローラ、多くの SATA ディスク、USB や Firewire で接続された外部ドライブなどはホットスワップに対応しています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Backing up the Configuration"
 msgstr "設定のバックアップ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Most of the meta-data concerning RAID volumes are saved directly on the disks that make up these arrays, so that the kernel can detect the arrays and their components and assemble them automatically when the system starts up. However, backing up this configuration is encouraged, because this detection isn't fail-proof, and it is only expected that it will fail precisely in sensitive circumstances. In our example, if the <filename>sde</filename> disk failure had been real (instead of simulated) and the system had been restarted without removing this <filename>sde</filename> disk, this disk could start working again due to having been probed during the reboot. The kernel would then have three physical elements, each claiming to contain half of the same RAID volume. Another source of confusion can come when RAID volumes from two servers are consolidated onto one server only. If these arrays were running normally before the disks were moved, the kernel would be able to detect and reassemble the pairs properly; but if the moved disks had been aggregated into an <filename>md1</filename> on the old server, and the new server already has an <filename>md1</filename>, one of the mirrors would be renamed."
 msgstr "RAID ボリュームに関連するメタデータのほとんどはアレイを構成するディスク上に直接保存されています。このため、カーネルはアレイとその構成要素を検出し、システムの起動時に自動的にアレイを組み立てることが可能です。しかしながら、この設定をバックアップすることを推奨します。なぜなら、この検出機構は不注意による間違いを防ぐものではないからです。そして、注意して取り扱うべき状況ではまさに検出機構がうまく働かないことが見込まれます。上の例で、<filename>sde</filename> ディスク障害が本物で (模倣でない)、<filename>sde</filename> ディスクを取り外す前にシステムを再起動した場合、<filename>sde</filename> ディスクは再起動中に検出され、システムに復帰します。カーネルは 3 つの物理ディスクを検出し、それぞれのディスクが同じ RAID ボリュームの片割れであると主張します。さらに別の混乱する状況が考えられます。2 台のサーバで使われていた RAID ボリュームを片方のサーバに集約することを考えてみましょう。ディスクが移動される前、各アレイは正常に実行されていました。カーネルはアレイを検出して、適切なペアを組み立てることが可能です。しかし、片方のサーバに移動されたディスクが前のサーバでは <filename>md1</filename> に組み込まれており、さらに新しいサーバが既に <filename>md1</filename> という名前のアレイを持っていた場合、どちらか一方の名前が変えられます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Backing up the configuration is therefore important, if only for reference. The standard way to do it is by editing the <filename>/etc/mdadm/mdadm.conf</filename> file, an example of which is listed here:"
 msgstr "このため、参考情報に過ぎないとは言うものの、設定を保存することは重要です。設定を保存する標準的な方法は <filename>/etc/mdadm/mdadm.conf</filename> ファイルを編集することです。以下に例を示します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<command>mdadm</command> configuration file"
 msgstr "<command>mdadm</command> 設定ファイル"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Ref: $ man 5 mdadm.conf;
+# Ref: $ man 1 madam;
 msgid ""
 "# mdadm.conf\n"
 "#\n"
@@ -661,39 +767,43 @@ msgid ""
 msgstr ""
 "# mdadm.conf\n"
 "#\n"
-"# Please refer to mdadm.conf(5) for information about this file.\n"
+"# このファイルに関する詳細は mdadm.conf(5) を参照してください。\n"
 "#\n"
 "\n"
-"# by default (built-in), scan all partitions (/proc/partitions) and all\n"
-"# containers for MD superblocks. alternatively, specify devices to scan, using\n"
-"# wildcards if desired.\n"
+"# デフォルト (組み込み) 状態ならば、MD スーパーブロックを持つパーティション\n"
+"# (/proc/partitions) とコンテナをすべてスキャンします。以下のようにスキャンする\n"
+"# デバイスを指定することも可能です。必要ならばワイルドカードを使ってください。\n"
 "DEVICE /dev/sd*\n"
 "\n"
-"# auto-create devices with Debian standard permissions\n"
+"# デバイスの自動作成時に使う Debian の標準的なパーミッションを指定します\n"
 "CREATE owner=root group=disk mode=0660 auto=yes\n"
 "\n"
-"# automatically tag new arrays as belonging to the local system\n"
+"# 新規アレイの所属先にローカルシステムを自動登録します\n"
 "HOMEHOST &lt;system&gt;\n"
 "\n"
-"# instruct the monitoring daemon where to send mail alerts\n"
+"# 監視デーモンに root を警告メールの送信先として通知します\n"
 "MAILADDR root\n"
 "\n"
-"# definitions of existing MD arrays\n"
+"# 既存の MD アレイの定義\n"
 "ARRAY /dev/md0 metadata=1.2 name=mirwiz:0 UUID=bb085b35:28e821bd:20d697c9:650152bb\n"
 "ARRAY /dev/md1 metadata=1.2 name=mirwiz:1 UUID=6ec558ca:0c2c04a0:19bca283:95f67464\n"
 "\n"
-"# This configuration was auto-generated on Thu, 17 Jan 2013 16:21:01 +0100\n"
-"# by mkconf 3.2.5-3"
+"# この設定ファイルは mkconf 3.2.5-3 により\n"
+"# Fri, 18 Jan 2013 00:21:01 +0900 に自動生成されました"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "One of the most useful details is the <literal>DEVICE</literal> option, which lists the devices where the system will automatically look for components of RAID volumes at start-up time. In our example, we replaced the default value, <literal>partitions containers</literal>, with an explicit list of device files, since we chose to use entire disks and not only partitions, for some volumes."
-msgstr "最も役に立つ設定項目の 1 つに <literal>DEVICE</literal> オプションがあります。これは起動時にシステムが RAID ボリュームの構成情報を自動的に探すデバイスをリストします。上の例では、デフォルト値 <literal>partitions containers</literal> を置き替え、デバイスファイルを明示したリストにしました。なぜなら、パーティションだけでなくすべてのディスクをボリュームとして使うように決めたからです。"
+msgstr "最も役に立つ設定項目の 1 つに <literal>DEVICE</literal> オプションがあります。これは起動時にシステムが RAID ボリュームの構成情報を自動的に探すデバイスをリストします。上の例では、値をデフォルト値 <literal>partitions containers</literal> からデバイスファイルを明示したリストに置き換えました。なぜなら、パーティションだけでなくすべてのディスクをボリュームとして使うように決めたからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The last two lines in our example are those allowing the kernel to safely pick which volume number to assign to which array. The metadata stored on the disks themselves are enough to re-assemble the volumes, but not to determine the volume number (and the matching <filename>/dev/md*</filename> device name)."
 msgstr "上の例における最後の 2 行を使うことで、カーネルはアレイに割り当てるボリューム番号を安全に選ぶことが可能です。ディスク本体に保存されたメタ情報はボリュームを再度組み上げるのに十分ですが、ボリューム番号を定義する (そして <filename>/dev/md*</filename> デバイス名にマッチすることを確認する) には不十分です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Fortunately, these lines can be generated automatically:"
-msgstr "幸いなことに、この行を自動的に生成することが可能です。"
+msgstr "幸いなことに、以下のコマンドを実行すればこの行を自動的に生成することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mdadm --misc --detail --brief /dev/md?</userinput>\n"
 "<computeroutput>ARRAY /dev/md0 metadata=1.2 name=mirwiz:0 UUID=bb085b35:28e821bd:20d697c9:650152bb\n"
@@ -703,72 +813,99 @@ msgstr ""
 "<computeroutput>ARRAY /dev/md0 metadata=1.2 name=mirwiz:0 UUID=bb085b35:28e821bd:20d697c9:650152bb\n"
 "ARRAY /dev/md1 metadata=1.2 name=mirwiz:1 UUID=6ec558ca:0c2c04a0:19bca283:95f67464</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The contents of these last two lines doesn't depend on the list of disks included in the volume. It is therefore not necessary to regenerate these lines when replacing a failed disk with a new one. On the other hand, care must be taken to update the file when creating or deleting a RAID array."
 msgstr "最後の 2 行の内容はボリュームを構成するディスクのリストに依存しません。このため、障害の発生したディスクを新しいディスクに交換した際に、これを改めて生成する必要はありません。逆に、RAID アレイを作成および削除した際に、必ずこの設定ファイルを注意深く更新する必要があります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>LVM</primary>"
 msgstr "<primary>LVM</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>Logical Volume Manager</primary>"
 msgstr "<primary>論理ボリュームマネージャ</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "LVM, the <emphasis>Logical Volume Manager</emphasis>, is another approach to abstracting logical volumes from their physical supports, which focuses on increasing flexibility rather than increasing reliability. LVM allows changing a logical volume transparently as far as the applications are concerned; for instance, it is possible to add new disks, migrate the data to them, and remove the old disks, without unmounting the volume."
-msgstr "LVM、<emphasis>論理ボリュームマネージャ</emphasis>、は物理ディスクから論理ボリュームを抽象化する別のアプローチで、信頼性を増加させるのではなく柔軟性を増加させることに注目しています。LVM を使うことで、アプリケーションから見る限り透過的に論理ボリュームを変更することが可能です。さらに、たとえば LVM は、新しいディスクを追加し、データを新しいディスクに移行し、古いディスクを削除することが、ボリュームをアンマウントせずに可能です。"
+msgstr "LVM (<emphasis>論理ボリュームマネージャ</emphasis>) は物理ディスクから論理ボリュームを抽象化するもう一つの方法で、信頼性を増加させるのではなく柔軟性を増加させることに注目しています。LVM を使うことで、アプリケーションから見る限り透過的に論理ボリュームを変更することが可能です。LVM を使うことで、たとえば新しいディスクを追加し、データを新しいディスクに移行し、古いディスクを削除することがボリュームをアンマウントせずに可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "LVM Concepts"
 msgstr "LVM の概念"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This flexibility is attained by a level of abstraction involving three concepts."
-msgstr "LVM の柔軟性は 3 つの概念から成る、抽象化レベルによって達成されます。"
+msgstr "LVM の柔軟性は 3 つの概念から構成された抽象化レベルによって達成されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "First, the PV (<emphasis>Physical Volume</emphasis>) is the entity closest to the hardware: it can be partitions on a disk, or a full disk, or even any other block device (including, for instance, a RAID array). Note that when a physical element is set up to be a PV for LVM, it should only be accessed via LVM, otherwise the system will get confused."
-msgstr "最初に、PV (<emphasis>物理ボリューム</emphasis>) はハードウェアに最も近い物です。具体的に言えば、PV はディスクのパーティション、ディスク全体、その他の任意のブロックデバイス (たとえば、RAID アレイ) などの物理的要素です。物理的要素を LVM の PV に設定した場合、物理的要素へのアクセスは必ず LVM を介すべきという点に注意してください。そうでなければ、システムが混乱します。"
+msgstr "1 番目の概念は PV (<emphasis>物理ボリューム</emphasis>) です。PV はハードウェアに最も近い要素です。具体的に言えば、PV はディスクのパーティション、ディスク全体、その他の任意のブロックデバイス (たとえば、RAID アレイ) などの物理的要素を指します。物理的要素を LVM の PV に設定した場合、物理的要素へのアクセスは必ず LVM を介すべきという点に注意してください。そうでなければ、システムが混乱します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A number of PVs can be clustered in a VG (<emphasis>Volume Group</emphasis>), which can be compared to disks both virtual and extensible. VGs are abstract, and don't appear in a device file in the <filename>/dev</filename> hierarchy, so there's no risk of using them directly."
-msgstr "複数の PV は VG (<emphasis>ボリュームグループ</emphasis>) にクラスタ化することが可能です。VG は仮想的ディスクや拡張できるディスクと比較されます。VG は概念的なもので、<filename>/dev</filename> 階層のデバイスファイルに現れません。そのため、VG を直接的に操作する危険はありません。"
+msgstr "2 番目の概念は VG (<emphasis>ボリュームグループ</emphasis>) です。複数の PV は VG にクラスタ化することが可能です。VG は仮想的かつ拡張できるディスクに例えられます。VG は概念的な要素で、<filename>/dev</filename> 階層のデバイスファイルに現れません。そのため、VG を直接的に操作する危険はありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The third kind of object is the LV (<emphasis>Logical Volume</emphasis>), which is a chunk of a VG; if we keep the VG-as-disk analogy, the LV compares to a partition. The LV appears as a block device with an entry in <filename>/dev</filename>, and it can be used as any other physical partition can be (most commonly, to host a filesystem or swap space)."
-msgstr "3 番目のオブジェクトは LV (<emphasis>論理ボリューム</emphasis>) です。LV は VG の中の一つの塊です。さらに VG をディスクと比較する類推に従って考えると、LV はパーティションと比較されます。LV はブロックデバイスとして <filename>/dev</filename> に現れ、他の物理パーティションと同様に取り扱うことが可能です (一般的に言って、ファイルシステムやスワップ領域を作成することが可能です)。"
+msgstr "3 番目の概念は LV (<emphasis>論理ボリューム</emphasis>) です。LV は VG の中の 1 つの塊です。さらに VG をディスクに例えたのと同様の考え方を使うと、LV はパーティションに例えられます。LV はブロックデバイスとして <filename>/dev</filename> に現れ、他の物理パーティションと同様に取り扱うことが可能です (一般的に言えば、LV にファイルシステムやスワップ領域を作成することが可能です)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The important thing is that the splitting of a VG into LVs is entirely independent of its physical components (the PVs). A VG with only a single physical component (a disk for instance) can be split into a dozen logical volumes; similarly, a VG can use several physical disks and appear as a single large logical volume. The only constraint, obviously, is that the total size allocated to LVs can't be bigger than the total capacity of the PVs in the volume group."
-msgstr "重要な事柄は、VG を LV に分割する場合に物理的要素 (PV) はいかなる制約も要求しないという点です。1 つの物理的要素 (たとえばディスク) から構成される VG は複数の論理ボリュームに分割できます。従って同様に、VG に複数の物理ディスクを参加させ、VG を 1 つの大きな論理ボリュームとして提供することが可能です。明らかに、たった 1 つの制約事項は各 LV に割り当てるサイズの合計が、LV が所属するボリュームグループの PV の合計サイズを超えることができないという点です。"
+msgstr "ここで重要な事柄は VG を LV に分割する場合に物理的要素 (PV) はいかなる制約も要求しないという点です。1 つの PV (たとえばディスク) から構成される VG を複数の LV に分割できます。同様に、複数の PV から構成される VG を 1 つの大きな LV として提供することも可能です。制約事項がたった 1 つしかないのは明らかです。それはある VG から分割された LV のサイズの合計はその VG を構成する PV のサイズの合計を超えることができないという点です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "It often makes sense, however, to have some kind of homogeneity among the physical components of a VG, and to split the VG into logical volumes that will have similar usage patterns. For instance, if the available hardware includes fast disks and slower disks, the fast ones could be clustered into one VG and the slower ones into another; chunks of the first one can then be assigned to applications requiring fast data access, while the second one will be kept for less demanding tasks."
-msgstr "しかしながら、VG を構成する物理的要素の特徴を一致させること、各論理ボリュームの用途に対する要求性能を考慮しながら VG を論理ボリュームに分割すること、は通常理に適った方針です。たとえば、利用できるハードウェアに高速なディスクと低速なディスクがある場合、高速なディスクから構成される VG と低速なディスクから構成される VG に分けることが可能です。このため、高速なディスクから構成される VG に含まれる論理ボリュームを高速なデータアクセスを必要とするアプリケーションに割り当て、低速なディスクから構成される VG に含まれる論理ボリュームを負荷の少ない作業用に割り当てます。"
+msgstr "しかしながら、ある VG を構成する PV 同士の性能を同様のものにしたり、その VG から分割された LV 同士に求められる性能を同様のものにしたりすることは通常理に適った方針です。たとえば、利用できるハードウェアに高速な PV と低速な PV がある場合、高速な PV から構成される VG と低速な PV から構成される VG に分けると良いでしょう。こうすることで、高速な PV から構成される VG から分割された LV を高速なデータアクセスを必要とするアプリケーションに割り当て、低速な PV から構成される VG から分割された LV を負荷の少ない作業用に割り当てることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "In any case, keep in mind that an LV isn't particularly attached to any one PV. It is possible to influence where the data from an LV are physically stored, but this possibility isn't required for day-to-day use. On the contrary: when the set of physical components of a VG evolves, the physical storage locations corresponding to a particular LV can be migrated across disks (while staying within the PVs assigned to the VG, of course)."
-msgstr "いかなる場合でも、LV は特定の PV に所属しないということを覚えておいてください。ある LV に含まれるデータが物理的に保存されている場所を操作することも可能ですが、普通に使っている限りその必要はありません。逆に、VG を構成する一連の物理的要素が変化する場合、特定の LV に対応する物理ストレージの場所をディスク上で変化させることが可能です (もちろん、変化の範囲は対象の VG を構成する PV の中に限られます)。"
+msgstr "いかなる場合でも、LV は特定の PV を使用するわけではないという点を覚えておいてください。ある LV に含まれるデータの物理的な保存場所を操作することも可能ですが、普通に使っている限りその必要はありません。逆に、VG を構成する PV 群の構成要素が変化した場合、ある LV に含まれるデータの物理的な保存場所は対象の LV の分割元である VG の中ひいてはその VG を構成する PV 群の構成要素の中を移動することがあります (もちろん、データの移動先は対象の LV の分割元の VG を構成する PV 群の構成要素の中に限られます)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Setting up LVM"
 msgstr "LVM の設定"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Let us now follow, step by step, the process of setting up LVM for a typical use case: we want to simplify a complex storage situation. Such a situation usually happens after some long and convoluted history of accumulated temporary measures. For the purposes of illustration, we'll consider a server where the storage needs have changed over time, ending up in a maze of available partitions split over several partially used disks. In more concrete terms, the following partitions are available:"
-msgstr "典型的な用途に対する LVM の設定過程を、段階的に見て行きましょう。具体的に言えば、複雑なストレージの状況を単純化したい場合を見ていきます。通常、長く複雑な一時的措置を繰り返した挙句の果てに、この状況に陥ることがあります。説明目的で、徐々にストレージを変更する必要のあったサーバを考えます。このサーバでは、複数の一部使用済みディスクに、利用できるパーティションが分けられています。より具体的に言えば、以下のパーティションが利用できます。"
+msgstr "典型的な用途に対する LVM の設定過程を、段階的に見て行きましょう。具体的に言えば、複雑なストレージの状況を単純化したい場合を見ていきます。通常、長く複雑な一時的措置を繰り返した挙句の果てに、この状況に陥ることがあります。説明目的で、徐々にストレージを変更する必要のあったサーバを考えます。このサーバでは、PV として利用できるパーティションが複数の一部使用済みディスクに分散しています。より具体的に言えば、以下のパーティションを PV として利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "on the <filename>sdb</filename> disk, a <filename>sdb2</filename> partition, 4 GB;"
-msgstr "<filename>sdb</filename> ディスク上に、<filename>sdb2</filename> パーティション、4 GB。"
+msgstr "<filename>sdb</filename> ディスク上の <filename>sdb2</filename> パーティション (4 GB)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "on the <filename>sdc</filename> disk, a <filename>sdc3</filename> partition, 3 GB;"
-msgstr "<filename>sdc</filename> ディスク上に、<filename>sdc3</filename> パーティション、3 GB。"
+msgstr "<filename>sdc</filename> ディスク上の <filename>sdc3</filename> パーティション (3 GB)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "the <filename>sdd</filename> disk, 4 GB, is fully available;"
-msgstr "<filename>sdd</filename> ディスク、4 GB、は全領域を利用できます。"
+msgstr "<filename>sdd</filename> ディスク (4 GB) は全領域を利用できます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "on the <filename>sdf</filename> disk, a <filename>sdf1</filename> partition, 4 GB; and a <filename>sdf2</filename> partition, 5 GB."
-msgstr "<filename>sdf</filename> ディスク上に、<filename>sdf1</filename> パーティション、4 GB。および <filename>sdf2</filename> パーティション、5 GB。"
+msgstr "<filename>sdf</filename> ディスク上の <filename>sdf1</filename> パーティション (4 GB) および <filename>sdf2</filename> パーティション (5 GB)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In addition, let's assume that disks <filename>sdb</filename> and <filename>sdf</filename> are faster than the other two."
 msgstr "加えて、<filename>sdb</filename> と <filename>sdf</filename> が他の 2 台に比べて高速であると仮定しましょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "Our goal is to set up three logical volumes for three different applications: a file server requiring 5 GB of storage space, a database (1 GB) and some space for back-ups (12 GB). The first two need good performance, but back-ups are less critical in terms of access speed. All these constraints prevent the use of partitions on their own; using LVM can abstract the physical size of the devices, so the only limit is the total available space."
-msgstr "われわれの目標は、3 種類の異なるアプリケーション用に 3 つの論理ボリュームを設定することです。具体的に言えば、5 GB のストレージ領域が必要なファイルサーバ、データベース (1 GB)、バックアップ用の領域 (12 GB) を設定することです。ファイルサーバとデータベースは高い性能を必要とします。しかし、バックアップはアクセス速度をそれほど重要視しません。これらすべての制約事項により、各アプリケーションの使うパーティションが制限されます。さらに LVM を使うことで、デバイスの物理的サイズをまとめることが可能です。このため、利用できる領域の合計だけが制限です。"
+msgstr "今回の目標は、3 種類の異なるアプリケーション用に 3 つの LV を設定することです。具体的に言えば、5 GB のストレージ領域が必要なファイルサーバ、データベース (1 GB)、バックアップ用の領域 (12 GB) 用の LV を設定することです。ファイルサーバとデータベースは高い性能を必要とします。しかし、バックアップはアクセス速度をそれほど重要視しません。これらの要件により、各アプリケーションに設定する LV の使用する PV が決定されます。さらに LVM を使いますので、PV の物理的サイズからくる制限はありません。このため、PV 群として利用できる領域のサイズの合計だけが制限となります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The required tools are in the <emphasis role=\"pkg\">lvm2</emphasis> package and its dependencies. When they're installed, setting up LVM takes three steps, matching the three levels of concepts."
-msgstr "必要なツールは <emphasis role=\"pkg\">lvm2</emphasis> パッケージとその依存パッケージに含まれています。これらのパッケージをインストールしたら、3 つの手順を踏んで LVM をセットアップします。各手順は LVM の概念の 3 つのレベルに対応します。"
+msgstr "LVM の設定に必要なツールは <emphasis role=\"pkg\">lvm2</emphasis> パッケージとその依存パッケージに含まれています。これらのパッケージをインストールしたら、3 つの手順を踏んで LVM を設定します。各手順は LVM の概念の 3 つの抽象化レベルに対応します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "First, we prepare the physical volumes using <command>pvcreate</command>:"
-msgstr "最初に、<command>pvcreate</command> を使って物理ボリュームを作成します。"
+msgstr "最初に、<command>pvcreate</command> を使って PV を作成します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>pvdisplay</userinput>\n"
 "<computeroutput># </computeroutput><userinput>pvcreate /dev/sdb2</userinput>\n"
@@ -830,12 +967,18 @@ msgstr ""
 "  /dev/sdf2       lvm2 ---  5.22g 5.22g\n"
 "</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "So far, so good; note that a PV can be set up on a full disk as well as on individual partitions of it. As shown above, the <command>pvdisplay</command> command lists the existing PVs, with two possible output formats."
-msgstr "ここまでは順調です。さらに PV はディスク全体およびディスク上の各パーティションに対して設定することが可能です。上に示した通り、<command>pvdisplay</command> コマンドは既存の PV をリストします。出力フォーマットは 2 種類あります。"
+msgstr "ここまでは順調です。PV はディスク全体およびディスク上の各パーティションに対して設定することが可能という点に注意してください。上に示した通り、<command>pvdisplay</command> コマンドは既存の PV をリストします。出力フォーマットは 2 種類あります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Now let's assemble these physical elements into VGs using <command>vgcreate</command>. We'll gather only PVs from the fast disks into a <filename>vg_critical</filename> VG; the other VG, <filename>vg_normal</filename>, will also include slower elements."
-msgstr "<command>vgcreate</command> を使って、これらの物理的要素から VG を構成しましょう。高速なディスクの PV から <filename>vg_critical</filename> VG を構成します。さらに、これ以外の低速なディスクを含む PV から <filename>vg_normal</filename> VG を構成します。"
+msgstr "<command>vgcreate</command> を使って、これらの PV から VG を構成しましょう。高速なディスクの PV から <filename>vg_critical</filename> VG を構成します。さらに、これ以外の低速なディスクの PV から <filename>vg_normal</filename> VG を構成します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>vgdisplay</userinput>\n"
 "<computeroutput>  No volume groups found\n"
@@ -905,12 +1048,18 @@ msgstr ""
 "  vg_normal     3   0   0 wz--n- 12.30g 12.30g\n"
 "</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Here again, commands are rather straightforward (and <command>vgdisplay</command> proposes two output formats). Note that it is quite possible to use two partitions of the same physical disk into two different VGs. Note also that we used a <filename>vg_</filename> prefix to name our VGs, but it is nothing more than a convention."
-msgstr "繰り返しになりますが、コマンドはかなり簡潔です (<command>vgdisplay</command> には 2 種類の出力フォーマットがあります)。同じ物理ディスクの 2 つのパーティションを 2 つの異なる VG に割り当てることが可能である点に注意してください。また、<filename>vg_</filename> 接頭辞を VG の名前に使っていますが、これは慣例に過ぎない点に注意してください。"
+msgstr "繰り返しになりますが、<command>vgdisplay</command> コマンドはかなり簡潔です (そして <command>vgdisplay</command> には 2 種類の出力フォーマットがあります)。同じ物理ディスク上にある 2 つの PV から 2 つの異なる VG を構成することが可能である点に注意してください。また、<filename>vg_</filename> 接頭辞を VG の名前に使っていますが、これは慣例に過ぎない点に注意してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "We now have two “virtual disks”, sized about 8 GB and 12 GB, respectively. Let's now carve them up into “virtual partitions” (LVs). This involves the <command>lvcreate</command> command, and a slightly more complex syntax:"
-msgstr "これでサイズが約 8 GB と 12 GB の 2 台の「仮想ディスク」を手に入れたことになります。それでは仮想ディスクを「仮想パーティション」(LV) に分割しましょう。これを行うには <command>lvcreate</command> コマンドを少し複雑な構文で実行します。"
+msgstr "これでサイズが約 8 GB と約 12 GB の 2 台の「仮想ディスク」(VG) を手に入れたことになります。それでは仮想ディスク (VG) を「仮想パーティション」(LV) に分割しましょう。これを行うには <command>lvcreate</command> コマンドを少し複雑な構文で実行します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>lvdisplay</userinput>\n"
 "<computeroutput># </computeroutput><userinput>lvcreate -n lv_files -L 5G vg_critical</userinput>\n"
@@ -974,24 +1123,38 @@ msgstr ""
 "  lv_files   vg_critical -wi-a---  5.00g                                           \n"
 "  lv_backups vg_normal   -wi-a--- 12.00g</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Two parameters are required when creating logical volumes; they must be passed to the <command>lvcreate</command> as options. The name of the LV to be created is specified with the <literal>-n</literal> option, and its size is generally given using the <literal>-L</literal> option. We also need to tell the command what VG to operate on, of course, hence the last parameter on the command line."
-msgstr "論理ボリュームを作成する場合、2 種類のパラメータが必要です。このため、必ず 2 種類のパラメータをオプションとして <command>lvcreate</command> に渡します。作成する LV の名前を <literal>-n</literal> オプションで指定し、サイズを <literal>-L</literal> オプションで指定します。また、操作対象の VG をコマンドに伝えることが必要です。これはもちろん最後のコマンドラインパラメータです。"
+msgstr "LV を作成する場合、2 種類のパラメータが必要です。このため、必ず 2 種類のパラメータをオプションとして <command>lvcreate</command> に渡します。作成する LV の名前を <literal>-n</literal> オプションで指定し、サイズを <literal>-L</literal> オプションで指定します。また、操作対象の VG をコマンドに伝えることが必要です。これはもちろん最後のコマンドラインパラメータです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<emphasis>GOING FURTHER</emphasis> <command>lvcreate</command> options"
-msgstr "<emphasis>GOING FURTHER</emphasis> <command>lvcreate</command> オプション"
+msgstr "<emphasis>GOING FURTHER</emphasis> <command>lvcreate</command> のオプション"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "The <command>lvcreate</command> command has several options to allow tweaking how the LV is created."
 msgstr "<command>lvcreate</command> コマンドは複数のオプションを取り、作成する LV を微調整することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Let's first describe the <literal>-l</literal> option, with which the LV's size can be given as a number of blocks (as opposed to the “human” units we used above). These blocks (called PEs, <emphasis>physical extents</emphasis>, in LVM terms) are contiguous units of storage space in PVs, and they can't be split across LVs. When one wants to define storage space for an LV with some precision, for instance to use the full available space, the <literal>-l</literal> option will probably be preferred over <literal>-L</literal>."
-msgstr "最初に <literal>-l</literal> オプションについて説明しましょう。<literal>-l</literal> オプションを使った場合 LV のサイズをブロック数で指定することが可能です (上の例で用いた「人間にとって分かりやすい」単位ではありません)。ブロックとは (LVM の用語で PE、<emphasis>物理エクステント</emphasis>、と呼ばれています) PV 中のストレージ領域の連続した単位です。ブロックは LV 中に分散されています。正確にある LV 用のストレージ領域を定義したい場合、たとえば利用できる領域のすべてを使いたい場合、<literal>-l</literal> オプションのほうが <literal>-L</literal> オプションよりも使いやすいでしょう。"
+msgstr "最初に <literal>-l</literal> オプションについて説明しましょう。<literal>-l</literal> オプションを使った場合 LV のサイズをブロック数 (上の例で用いた「人間にとって分かりやすい」単位ではありません) で指定することが可能です。ブロックとは (LVM の用語で PE すなわち<emphasis>物理エクステント</emphasis>と呼ばれています) PV 中のストレージ領域の連続した単位です。ブロックは LV 中に分散されています。ある LV 用のストレージ領域を正確に定義したい場合、たとえば利用できる領域のすべてを使いたい場合、<literal>-l</literal> オプションのほうが <literal>-L</literal> オプションよりも使いやすいでしょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "It's also possible to hint at the physical location of an LV, so that its extents are stored on a particular PV (while staying within the ones assigned to the VG, of course). Since we know that <filename>sdb</filename> is faster than <filename>sdf</filename>, we may want to store the <filename>lv_base</filename> there if we want to give an advantage to the database server compared to the file server. The command line becomes: <command>lvcreate -n lv_base -L 1G vg_critical /dev/sdb2</command>. Note that this command can fail if the PV doesn't have enough free extents. In our example, we would probably have to create <filename>lv_base</filename> before <filename>lv_files</filename> to avoid this situation – or free up some space on <filename>sdb2</filename> with the <command>pvmove</command> command."
-msgstr "LV の物理的な位置を指定することも可能です。こうすることで、LV のエクステントが特定の PV 上 (もちろん、VG を構成する PV 上に限ります) に作られます。<filename>sdb</filename> が <filename>sdf</filename> よりも高速なので、<filename>lv_base</filename> を <filename>sdb</filename> 上に作成することで、ファイルサーバよりもデータベースサーバが高速にアクセスできるようにしたいとわれわれは考えています。コマンドラインは次のようになります。すなわち <command>lvcreate -n lv_base -L 1G vg_critical /dev/sdb2</command> です。指定した PV に十分な空きエクステントがない場合、このコマンドは失敗する可能性があります。われわれの例で、このような失敗を防ぐには <filename>lv_files</filename> の前に <filename>lv_base</filename> を作成するか、<command>pvmove</command> コマンドを使って <filename>sdb2</filename> に多少の領域を空ける必要があるかもしれません。"
+msgstr "LV の物理的な位置を示唆することも可能です。こうすることで、LV の PE は特定の PV 上 (もちろん、VG を構成する PV 上に限ります) に作成されます。<filename>sdb</filename> は <filename>sdf</filename> よりも高速なので、<filename>lv_base</filename> を <filename>sdb</filename> 上に作成することでファイルサーバよりもデータベースサーバが高速にアクセスできるようにするには、以下のコマンドラインを使います。すなわち <command>lvcreate -n lv_base -L 1G vg_critical /dev/sdb2</command> です。指定した PV に十分な空き PE がない場合、このコマンドは失敗する可能性があります。今回の例でこのような失敗を防ぐには <filename>lv_files</filename> の前に <filename>lv_base</filename> を作成するか、<command>pvmove</command> コマンドを使って <filename>sdb2</filename> に多少の領域を空ける必要があるかもしれません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Logical volumes, once created, end up as block device files in <filename>/dev/mapper/</filename>:"
-msgstr "論理ボリュームが作成され、ブロックデバイスファイルとして <filename>/dev/mapper/</filename> に現れます。"
+msgstr "LV が作成され、ブロックデバイスファイルとして <filename>/dev/mapper/</filename> に現れます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>ls -l /dev/mapper</userinput>\n"
 "<computeroutput>total 0\n"
@@ -1017,18 +1180,27 @@ msgstr ""
 "brw-rw---- 1 root disk 253, 2  6月 10 17:05 /dev/dm-2\n"
 "</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Autodetecting LVM volumes"
 msgstr "<emphasis>NOTE</emphasis> LVM ボリュームの自動検出"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Ref: $ man 8 vgchange;
 msgid "When the computer boots, the <filename>lvm2-activation</filename> systemd service unit executes <command>vgchange -aay</command> to “activate” the volume groups: it scans the available devices; those that have been initialized as physical volumes for LVM are registered into the LVM subsystem, those that belong to volume groups are assembled, and the relevant logical volumes are started and made available. There is therefore no need to edit configuration files when creating or modifying LVM volumes."
-msgstr "コンピュータの起動時に、<filename>lvm2-activation</filename> systemd サービスユニットは <command>vgchange -aay</command> を実行してボリュームグループを「始動」します。つまり、<filename>lvm2-activation</filename> systemd サービスユニットは利用できるデバイスを探します。そして LVM 用の物理ボリュームとして初期化されたデバイスは LVM サブシステムに登録され、ボリュームグループに所属するデバイスは組み上げられ、対応する論理ボリュームは開始され、利用できるようにされます。このため、LVM ボリュームを作成したり変更する際に設定ファイルを編集する必要はありません。"
+msgstr "コンピュータの起動時に、<filename>lvm2-activation</filename> systemd サービスユニットは <command>vgchange -aay</command> を実行して VG を「始動」します。具体的に言えば、<filename>lvm2-activation</filename> systemd サービスユニットは利用できるデバイスを探します。そして LVM サブシステムに LVM 用の PV として初期化されたデバイスが登録され、PV から構成される VG が開始され、VG から分割された LV が開始され、LV が利用できるようになります。このため、LVM ボリュームを作成したり変更する際に設定ファイルを編集する必要はありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Note, however, that the layout of the LVM elements (physical and logical volumes, and volume groups) is backed up in <filename>/etc/lvm/backup</filename>, which can be useful in case of a problem (or just to sneak a peek under the hood)."
-msgstr "しかしながら、LVM 要素の配置図 (物理ボリューム、論理ボリューム、ボリュームグループ) は <filename>/etc/lvm/backup</filename> にバックアップされ、問題が起きた時 (見えないところで何が行われているかを確認したい時) に有益です。"
+msgstr "しかしながら、LVM 要素 (PV、LV、GV) の配置図は <filename>/etc/lvm/backup</filename> にバックアップされ、問題が起きた時 (見えないところで何が行われているかを確認したい時) に有益です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "To make things easier, convenience symbolic links are also created in directories matching the VGs:"
-msgstr "分かり易くするために、VG に対応するディレクトリの中に便利なシンボリックリンクが作成されます。"
+msgstr "ブロックデバイスファイルを分かり易くするために、VG に対応するディレクトリの中に便利なシンボリックリンクが作成されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>ls -l /dev/vg_critical</userinput>\n"
 "<computeroutput>total 0\n"
@@ -1046,9 +1218,12 @@ msgstr ""
 "<computeroutput>合計 0\n"
 "lrwxrwxrwx 1 root root 7  6月 10 17:05 lv_backups -&gt; ../dm-2</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The LVs can then be used exactly like standard partitions:"
 msgstr "LV は標準的なパーティションと全く同様に取り扱われます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mkfs.ext4 /dev/vg_normal/lv_backups</userinput>\n"
 "<computeroutput>mke2fs 1.42.12 (29-Aug-2014)\n"
@@ -1090,15 +1265,20 @@ msgstr ""
 "/dev/vg_critical/lv_files   /srv/files      ext4 defaults 0 2\n"
 "/dev/vg_normal/lv_backups   /srv/backups    ext4 defaults 0 2</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "From the applications' point of view, the myriad small partitions have now been abstracted into one large 12 GB volume, with a friendlier name."
 msgstr "アプリケーションにしてみれば、無数の小さなパーティションがわかり易い名前を持つ 1 つの大きな 12 GB のボリュームにまとめられたことになります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "LVM Over Time"
-msgstr "LVM の経時変化"
+msgstr "経時変化に伴う LVM の利便性"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Even though the ability to aggregate partitions or physical disks is convenient, this is not the main advantage brought by LVM. The flexibility it brings is especially noticed as time passes, when needs evolve. In our example, let's assume that new large files must be stored, and that the LV dedicated to the file server is too small to contain them. Since we haven't used the whole space available in <filename>vg_critical</filename>, we can grow <filename>lv_files</filename>. For that purpose, we'll use the <command>lvresize</command> command, then <command>resize2fs</command> to adapt the filesystem accordingly:"
-msgstr "パーティションや物理ディスクを統合する機能は便利ですが、これは LVM のもたらす主たる利点ではありません。ボリュームを進化させる必要が生じた場合に、LVM のもたらす柔軟性が時間経過に伴い特に重要視されるようになります。われわれの例で、新たに巨大なファイルを保存したいけれども、ファイルサーバ用の LV はこの巨大なファイルを保存するには狭すぎる、と仮定しましょう。われわれはまだ <filename>vg_critical</filename> で利用できる全領域を使い切っていないので、<filename>lv_files</filename> のサイズを増やすことが可能です。この目的のために <command>lvresize</command> コマンドを使い、ボリュームのサイズの変化にファイルシステムを対応させるために <command>resize2fs</command> を使います。"
+msgstr "LVM のパーティションや物理ディスクを統合する機能は便利ですが、これは LVM のもたらす主たる利点ではありません。時間経過に伴い LVM のもたらす柔軟性が特に重要になる時とは LV のサイズを増加させる必要が生じた時でしょう。ここまでの例を使い、LV に新たに巨大なファイルを保存したいけれども、ファイルサーバ用の LV はこの巨大なファイルを保存するには狭すぎると仮定しましょう。<filename>vg_critical</filename> から分割できる全領域はまだ使い切られていないので、<filename>lv_files</filename> のサイズを増やすことが可能です。LV のサイズを増やすために <command>lvresize</command> コマンドを使い、LV のサイズの変化にファイルシステムを対応させるために <command>resize2fs</command> を使います。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>df -h /srv/files/</userinput>\n"
 "<computeroutput>Filesystem                        Size  Used Avail Use% Mounted on\n"
@@ -1150,18 +1330,24 @@ msgstr ""
 "<computeroutput>ファイルシス                     サイズ  使用  残り 使用% マウント位置\n"
 "/dev/mapper/vg_critical-lv_files   6.9G  4.6G  2.1G   70% /srv/files</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CAUTION</emphasis> Resizing filesystems"
 msgstr "<emphasis>CAUTION</emphasis> ファイルシステムのサイズ変更"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Not all filesystems can be resized online; resizing a volume can therefore require unmounting the filesystem first and remounting it afterwards. Of course, if one wants to shrink the space allocated to an LV, the filesystem must be shrunk first; the order is reversed when the resizing goes in the other direction: the logical volume must be grown before the filesystem on it. It's rather straightforward, since at no time must the filesystem size be larger than the block device where it resides (whether that device is a physical partition or a logical volume)."
-msgstr "すべてのファイルシステムがオンラインでサイズを変更できるわけではありません。このため、ボリュームサイズを変更するには、最初にファイルシステムのアンマウントし、その後に再マウントしなければいけません。もちろん、LV に割り当てられた領域サイズを小さくしたい場合、最初にファイルシステムのサイズを小さくしなければいけません。サイズを大きくする場合、この順番は逆転します。すなわち、ファイルシステムの前に論理ボリュームのサイズを大きくされなければいけません。これはかなりわかり易いです。なぜなら、ブロックデバイス上に存在するファイルシステムのサイズをブロックデバイスよりも大きくすることは絶対に不可能だからです (この原則はデバイスが物理パーティションか論理ボリュームかに依存しません)。"
+msgstr "すべてのファイルシステムがオンラインでサイズを変更できるわけではありません。このため、ボリュームのサイズ変更前にファイルシステムをアンマウントし、ボリュームのサイズ変更後に再マウントしなければいけません。もちろん、ボリュームのサイズを小さくする場合、ボリューム上のファイルシステムのサイズを小さくした後にボリュームのサイズを小さくしなければいけません。ボリュームのサイズを大きくする場合、ボリュームのサイズを大きくした後にボリューム上のファイルシステムを大きくしなければいけません。これはかなりわかり易いです。なぜなら、ブロックデバイス上に存在するファイルシステムのサイズをブロックデバイスよりも大きくすることは絶対に不可能だからです (この原則はボリュームが物理パーティションか LV かに依存しません)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The ext3, ext4 and xfs filesystems can be grown online, without unmounting; shrinking requires an unmount. The reiserfs filesystem allows online resizing in both directions. The venerable ext2 allows neither, and always requires unmounting."
-msgstr "ext3、ext4、xfs ファイルシステムはオンラインでサイズを増加させることが可能で、アンマウントが不要です。しかし、サイズを減少させる場合はアンマウントを必要とします。reiserfs はオンラインでサイズを増加および減少することが可能です。ext2 は増加も減少も可能ですが、アンマウントが必要です。"
+msgstr "ext3、ext4、xfs ファイルシステムはオンラインでサイズを増加させることすなわちアンマウントすることなくサイズを増加させることが可能です。しかし、サイズを減少させる場合はアンマウントを必要とします。reiserfs はオンラインでサイズを増加および減少することが可能です。ext2 は増加も減少も可能ですが、アンマウントを必要とします。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We could proceed in a similar fashion to extend the volume hosting the database, only we've reached the VG's available space limit:"
-msgstr "データベースをホストしているボリュームを拡張するために、同じやり方を使います。VG の利用できる領域は既にほぼ使い切った状態になっています。"
+msgstr "同様の方法でデータベースをホストしている <filename>lv_base</filename> のサイズを増加させます。以下の通り <filename>lv_base</filename> の分割元である <filename>vg_critical</filename> から分割できる領域は既にほぼ使い切った状態になっています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>df -h /srv/base/</userinput>\n"
 "<computeroutput>Filesystem                       Size  Used Avail Use% Mounted on\n"
@@ -1177,9 +1363,13 @@ msgstr ""
 "<computeroutput>  VG          #PV #LV #SN Attr   VSize VFree \n"
 "  vg_critical   2   2   0 wz--n- 8.09g 92.00m</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "No matter, since LVM allows adding physical volumes to existing volume groups. For instance, maybe we've noticed that the <filename>sdb1</filename> partition, which was so far used outside of LVM, only contained archives that could be moved to <filename>lv_backups</filename>. We can now recycle it and integrate it to the volume group, and thereby reclaim some available space. This is the purpose of the <command>vgextend</command> command. Of course, the partition must be prepared as a physical volume beforehand. Once the VG has been extended, we can use similar commands as previously to grow the logical volume then the filesystem:"
-msgstr "どんな状況であっても、LVM を使っていれば物理ボリュームを既存のボリュームグループに追加することが可能です。たとえば、今までは LVM の外で管理されていた <filename>sdb1</filename> パーティションには、<filename>lv_backups</filename> に移動しても問題のないアーカイブだけが含まれていた点に気が付いたとしましょう。このため、<filename>sdb1</filename> パーティションを再利用し、ボリュームグループに統合させることが可能です。その結果、利用できる領域を増やすことが可能です。これが <command>vgextend</command> コマンドの目的です。もちろん、<filename>sdb1</filename> パーティションを物理ボリュームとして準備しなければいけません。VG を拡張したら、先と同様のコマンドを使って先に論理ボリュームを増加させ、その後にファイルシステムを増加させます。"
+msgstr "でもご安心ください。LVM を使っていれば新しい PV を既存の VG を構成する PV の 1 つとして追加することが可能です。たとえば、今までは LVM の外で管理されていた <filename>sdb1</filename> パーティションには、<filename>lv_backups</filename> に移動しても問題のないアーカイブだけが含まれていた点に気が付いたとしましょう。このため、<filename>sdb1</filename> パーティションを <filename>vg_critical</filename> を構成する PV の 1 つとして再利用することが可能です。こうすることで、<filename>vg_critical</filename> から <filename>lv_base</filename> に分割される領域のサイズを増やすことが可能です。これが <command>vgextend</command> コマンドの目的です。もちろん、事前に <filename>sdb1</filename> パーティションを PV として準備しなければいけません。<filename>vg_critical</filename> を拡張したら、先と同様のコマンドを使って先に <filename>lv_base</filename> のサイズを増加させ、その後に  <filename>lv_base</filename> 上のファイルシステムのサイズを増加させます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>pvcreate /dev/sdb1</userinput>\n"
 "<computeroutput>  Physical volume \"/dev/sdb1\" successfully created\n"
@@ -1207,39 +1397,54 @@ msgstr ""
 "<computeroutput>ファイルシス                    サイズ  使用  残り 使用% マウント位置\n"
 "/dev/mapper/vg_critical-lv_base   2.0G  854M  1.1G   45% /srv/base</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>GOING FURTHER</emphasis> Advanced LVM"
-msgstr "<emphasis>GOING FURTHER</emphasis> 上級の LVM"
+msgstr "<emphasis>GOING FURTHER</emphasis> LVM の上級活用"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "LVM also caters for more advanced uses, where many details can be specified by hand. For instance, an administrator can tweak the size of the blocks that make up physical and logical volumes, as well as their physical layout. It is also possible to move blocks across PVs, for instance to fine-tune performance or, in a more mundane way, to free a PV when one needs to extract the corresponding physical disk from the VG (whether to affect it to another VG or to remove it from LVM altogether). The manual pages describing the commands are generally clear and detailed. A good entry point is the <citerefentry><refentrytitle>lvm</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page."
-msgstr "また、LVM にはさらに上級の使い方があり、多くの設定事項を手作業で指定することが可能です。たとえば、管理者は物理および論理ボリュームを形作るブロックサイズおよびボリュームの物理的な配置を微調整することが可能です。また、ブロックを PV 間で移動することも可能です。これは、たとえば性能を微調整したり、よりありふれたケースでは (別の VG に移動したり、完全に LVM から取り外すために) 対応する物理ボリュームを VG から取り外したい PV を空にする目的で行われます。コマンドを説明しているマニュアルページは基本的に明快で詳細です。手始めに、<citerefentry><refentrytitle>lvm</refentrytitle> <manvolnum>8</manvolnum></citerefentry> マニュアルページを参照することをお勧めします。"
+msgstr "LVM にはさらに上級の使い方があり、多くの設定事項を手作業で指定することが可能です。たとえば、管理者は PV と LV のブロックサイズおよびボリュームの物理的な配置を微調整することが可能です。また、ブロックを PV 間で移動することも可能です。これは、たとえば性能を微調整したり、よりありふれたケースではある物理ディスクに対応する PV を VG の構成要素から外したりするため (PV を別の VG に移動したり、完全に LVM から取り外したりするため) に行われます。コマンドを説明しているマニュアルページは基本的に明快で詳細です。手始めに、<citerefentry><refentrytitle>lvm</refentrytitle> <manvolnum>8</manvolnum></citerefentry> マニュアルページを参照することをお勧めします。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID or LVM?"
 msgstr "RAID それとも LVM?"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID and LVM both bring indisputable advantages as soon as one leaves the simple case of a desktop computer with a single hard disk where the usage pattern doesn't change over time. However, RAID and LVM go in two different directions, with diverging goals, and it is legitimate to wonder which one should be adopted. The most appropriate answer will of course depend on current and foreseeable requirements."
-msgstr "RAID と LVM はどちらも、用途が変わらない 1 台のハードディスクを備えたデスクトップコンピュータの単純なケースではすぐに、疑う余地のない利点をもたらします。しかしながら、RAID と LVM は目標を分岐させて別々の道を歩んでいます。どちらを使うべきか悩むのは間違っていることではありません。最も適切な答えは、もちろん現在の要求と将来に予測される要求に依存します。"
+msgstr "1 番目の利用形態は用途が時間的に変化しない 1 台のハードディスクを備えたデスクトップコンピュータのような単純な利用形態です。この場合 RAID と LVM はどちらも疑う余地のない利点をもたらします。しかしながら、RAID と LVM は目標を分岐させて別々の道を歩んでいます。どちらを使うべきか悩むのは間違っていることではありません。最も適切な答えはもちろん現在の要求と将来に予測される要求に依存します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "There are a few simple cases where the question doesn't really arise. If the requirement is to safeguard data against hardware failures, then obviously RAID will be set up on a redundant array of disks, since LVM doesn't really address this problem. If, on the other hand, the need is for a flexible storage scheme where the volumes are made independent of the physical layout of the disks, RAID doesn't help much and LVM will be the natural choice."
-msgstr "いくつかの状況では、疑問の余地がないくらい簡単に答えを出すことが可能です。ハードウェア障害からデータを保護することが求められる場合、ディスクの冗長性アレイ上に RAID をセットアップするのは明らかです。なぜなら LVM はこの種の問題に全く対処しないからです。逆に、柔軟なストレージ計画が必要でディスクの物理的な配置に依存せずにボリュームを構成したい場合、RAID はあまり役に立たず LVM を選ぶのが自然です。"
+msgstr "いくつかの状況では、疑問の余地がないくらい簡単に答えを出すことが可能です。2 番目の利用形態はハードウェア障害からデータを保護することが求められる利用形態です。この場合、ディスクの冗長性アレイ上に RAID をセットアップするのは明らかです。なぜなら LVM はこの種の問題への対応策を全く用意していないからです。逆に、柔軟なストレージ計画が必要でディスクの物理的な配置に依存せずにボリュームを構成したい場合、RAID はあまり役に立たず LVM を選ぶのが自然です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> If performance matters…"
-msgstr "<emphasis>NOTE</emphasis> 性能を重要視する場合…"
+msgstr "<emphasis>NOTE</emphasis> 性能が重要な場合"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "If input/output speed is of the essence, especially in terms of access times, using LVM and/or RAID in one of the many combinations may have some impact on performances, and this may influence decisions as to which to pick. However, these differences in performance are really minor, and will only be measurable in a few use cases. If performance matters, the best gain to be obtained would be to use non-rotating storage media (<indexterm><primary>SSD</primary></indexterm><emphasis>solid-state drives</emphasis> or SSDs); their cost per megabyte is higher than that of standard hard disk drives, and their capacity is usually smaller, but they provide excellent performance for random accesses. If the usage pattern includes many input/output operations scattered all around the filesystem, for instance for databases where complex queries are routinely being run, then the advantage of running them on an SSD far outweigh whatever could be gained by picking LVM over RAID or the reverse. In these situations, the choice should be determined by other considerations than pure speed, since the performance aspect is most easily handled by using SSDs."
-msgstr "入出力速度が最重要の場合、特にアクセス速度という意味で、LVM および RAID を組み合わせて使うと性能に少なからず影響をおよぼし、どの方式を採用するかに関する議論に影響をおよぼします。しかしながら、性能差は極めて少なく、この程度の性能差が無視できない場合は極めて少ないと言えるでしょう。性能が重要な場合、実現できる最良の改善方針は非回転ストレージメディア (<indexterm><primary>SSD</primary></indexterm><emphasis>ソリッドステートドライブ</emphasis>や SSD) を使うことです。SSD のメガバイト当たりの費用は標準的なハードディスクドライブよりも高価で、SSD の容量は通常小さいですが、SSD はランダムアクセスで素晴らしい性能を発揮します。ファイルシステムに広く分散された位置から数多くの入出力を行うような場合、たとえば複雑な問い合わせが定期的に実行されるデータベースの場合、SSD 上にデータベースを置くことは、RAID over LVM または LVM over RAID 上にデータベースを置くことよりも、良好な性能が手に入ります。このような場合、純粋な速度だけでなく他の要素も検討した上で採用の可否を決定するべきです。なぜなら、性能が必要な場合、SSD を採用することが最も短絡的な解決策だからです。"
+msgstr "特にアクセス速度という意味の入出力速度が最重要な場合を考えてみましょう。LVM および RAID はどのような組み合わせで使っても性能にある程度の影響をおよぼします。このため、どの組み合わせを採用するかが議題に挙げられるかもしれません。しかしながら、どんな組み合わせを使っても性能差は極めて少なく、この程度の性能差が無視できない場合は極めて少ないと言えるでしょう。性能が重要な場合、実現できる最良の改善方針は非回転ストレージメディア (<indexterm><primary>SSD</primary></indexterm><emphasis>ソリッドステートドライブ</emphasis>すなわち SSD) を使うことです。SSD のメガバイト当たりの費用は標準的なハードディスクドライブよりも高価で、SSD の容量は通常小さいですが、SSD はランダムアクセスで素晴らしい性能を発揮します。ファイルシステムに広く分散された位置から数多くの入出力を行うような場合 (たとえば複雑な問い合わせが定期的に実行されるデータベースの場合)、SSD 上にデータベースを置くほうが RAID over LVM または LVM over RAID 上にデータベースを置くよりも良好な性能が手に入ります。このような場合、純粋な速度だけでなく他の要素も検討した上で採用の可否を決定するべきです。なぜなら、性能が必要な場合に SSD を採用することは最も安直な解決策だからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The third notable use case is when one just wants to aggregate two disks into one volume, either for performance reasons or to have a single filesystem that is larger than any of the available disks. This case can be addressed both by a RAID-0 (or even linear-RAID) and by an LVM volume. When in this situation, and barring extra constraints (for instance, keeping in line with the rest of the computers if they only use RAID), the configuration of choice will often be LVM. The initial set up is barely more complex, and that slight increase in complexity more than makes up for the extra flexibility that LVM brings if the requirements change or if new disks need to be added."
-msgstr "3 番目の注目すべき利用形態は単に 2 つのディスクを 1 つのボリュームにまとめる場合です。これは性能が欲しかったり、利用できるディスクのどれよりも大きな単一のファイルシステムにするという理由が考えられます。この場合、RAID-0 (またはリニア RAID) か LVM ボリュームを使って対処できます。この状況では、追加的な制約事項 (たとえば、残りのコンピュータが RAID だけを使っている場合に RAID を使わなければいけないなど) がなければ、通常 LVM を選択します。LVM の最初のセットアップは RAID に比べて複雑ですが、LVM は複雑度を少し増加させるだけで、要求が変った場合や新しいディスクを追加する必要ができた場合に対処可能な、追加的な柔軟性を大きく上昇させます。"
+msgstr "3 番目に注目すべき利用形態は単に 2 つのディスクを 1 つのボリュームにまとめるような利用形態です。性能が欲しかったり、利用できるディスクのどれよりも大きな単一のファイルシステムにしたい場合にこの利用形態が採用されます。この場合、RAID-0 (またはリニア RAID) か LVM ボリュームを使って対処できます。この状況では、追加的な制約事項 (たとえば、他のコンピュータが RAID だけを使っている場合に RAID を使わなければいけないなどの制約事項) がなければ、通常 LVM を選択すると良いでしょう。LVM の最初のセットアップは RAID に比べて複雑ですが、LVM は複雑度を少し増加させるだけで要求が変った場合や新しいディスクを追加する必要ができた場合に対処可能な追加的な柔軟性を大きく上昇させます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: https://wiki.archlinux.org/index.php/Software_RAID_and_LVM;
 msgid "Then of course, there is the really interesting use case, where the storage system needs to be made both resistant to hardware failure and flexible when it comes to volume allocation. Neither RAID nor LVM can address both requirements on their own; no matter, this is where we use both at the same time — or rather, one on top of the other. The scheme that has all but become a standard since RAID and LVM have reached maturity is to ensure data redundancy first by grouping disks in a small number of large RAID arrays, and to use these RAID arrays as LVM physical volumes; logical partitions will then be carved from these LVs for filesystems. The selling point of this setup is that when a disk fails, only a small number of RAID arrays will need to be reconstructed, thereby limiting the time spent by the administrator for recovery."
-msgstr "そしてもちろん、本当に興味深い利用形態はストレージシステムにハードウェア障害に対する耐性を持たせさらにボリューム割り当てに対する柔軟性を持たせる必要がある場合です。RAID と LVM のどちらも片方だけで両方の要求を満足させることは不可能です。つまりこの要求を満足させるには、RAID と LVM の両方を同時に使用するというよりも、一方の上に他方を構成する方針を採用すべきです。RAID と LVM は成熟しているため、この方針はほぼ標準的になりつつあります。この方針では、最初にディスクを少数の大きな RAID アレイにグループ分けして、それらの RAID アレイを LVM 物理ボリュームとして使うことにより、データの冗長性を確保します。そして論理パーティションはファイルシステム用の LV から分配されます。この方針の売りは、ディスク障害が起きた場合に再構築しなければいけない RAID アレイの数が少ない点です。このため、管理者は復旧に必要な時間を減らすことが可能です。"
+msgstr "そしてもちろん、最後の本当に興味深い利用形態はストレージシステムにハードウェア障害に対する耐性を持たせさらにボリューム分割に対する柔軟性を持たせる必要がある場合の利用形態です。RAID と LVM のどちらも片方だけで両方の要求を満足させることは不可能です。しかし心配ありません。この要求を満足させるには RAID と LVM の両方を同時に使用する方針、正確に言えば一方の上に他方を構成する方針を採用すれば良いでのです。RAID と LVM の高い成熟度のおかげでほぼ標準になりつつある方針に従うならば、最初にディスクを少数の大きな RAID アレイにグループ分けすることでデータの冗長性を確保します。さらにそれらの RAID アレイを LVM の PV として使います。そして、ファイルシステム用の VG から分割された LV を論理パーティションとして使います。この標準的な方針の優れた点は、ディスク障害が起きた場合に再構築しなければいけない RAID アレイの数が少ない点です。このため、管理者は復旧に必要な時間を減らすことが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Let's take a concrete example: the public relations department at Falcot Corp needs a workstation for video editing, but the department's budget doesn't allow investing in high-end hardware from the bottom up. A decision is made to favor the hardware that is specific to the graphic nature of the work (monitor and video card), and to stay with generic hardware for storage. However, as is widely known, digital video does have some particular requirements for its storage: the amount of data to store is large, and the throughput rate for reading and writing this data is important for the overall system performance (more than typical access time, for instance). These constraints need to be fulfilled with generic hardware, in this case two 300 GB SATA hard disk drives; the system data must also be made resistant to hardware failure, as well as some of the user data. Edited videoclips must indeed be safe, but video rushes pending editing are less critical, since they're still on the videotapes."
-msgstr "ここで具体例を見てみましょう。たとえば Falcot Corp の広報課では、動画編集用にワークステーションが必要ですが、広報課の予算の都合上、最初から高性能のハードウェアに投資することは不可能です。グラフィック性能を担うハードウェア (モニタとビデオカード) に大きな予算を割き、ストレージ用には一般的なハードウェアを使うように決定されました。しかしながら、広く知られている通り、デジタルビデオ用のストレージはある種の条件を必要とします。つまり、保存されるデータのサイズが大きく、このデータを読み込みおよび書き込みする際の処理速度がシステム全体の性能にとって重要 (たとえば、平均的なアクセス時間よりも重要) です。この条件を一般的なハードウェアを使って満足させます。この場合 2 台の SATA ハードディスクドライブを使います。さらに、システムデータと一部のユーザデータはハードウェア障害に対する耐性を持たせる必要があります。編集済みのビデオクリップを保護しなければいけませんが、編集前のビデオ素材をそれほど気にする必要はありません。なぜなら、編集前のビデオ素材はまだビデオテープで残されているからです。"
+msgstr "ここで具体例を見てみましょう。たとえば Falcot Corp の広報課は動画編集用にワークステーションを必要としていますが、広報課の予算の都合上、最初から高性能のハードウェアに投資することは不可能です。このため、グラフィック性能を担うハードウェア (モニタとビデオカード) に大きな予算を割き、ストレージ用には一般的なハードウェアを使うことが決定されました。しかしながら、広く知られている通りデジタルビデオ用のストレージはある種の条件を必要とします。すなわち、保存されるデータのサイズが大きく、このデータを読み込みおよび書き込みする際の処理速度がシステム全体の性能にとって重要 (たとえば、平均的なアクセス時間よりも重要) という条件です。この条件を一般的なハードウェアを使って満足させる必要があります。今回の場合 2 台の SATA ハードディスクドライブを使います。さらに、システムデータと一部のユーザデータはハードウェア障害に対する耐性を持たせる必要があります。編集済みのビデオクリップを保護する必要はありますが、編集前のビデオ素材をそれほど気にする必要はありません。なぜなら、編集前のビデオ素材はまだビデオテープに残されているからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "RAID-1 and LVM are combined to satisfy these constraints. The disks are attached to two different SATA controllers to optimize parallel access and reduce the risk of a simultaneous failure, and they therefore appear as <filename>sda</filename> and <filename>sdc</filename>. They are partitioned identically along the following scheme:"
-msgstr "前述の条件を満足させるために RAID-1 と LVM を組み合わせます。ディスクの並行アクセスを最適化し、そして障害が同時に発生する危険性を減らすために、各ディスクは 2 つの異なる SATA コントローラに接続されています。このため、各ディスクは <filename>sda</filename> と <filename>sdc</filename> として現れます。以下の方針で示す通り、全く同一の方法でパーティショニングされます。"
+msgstr "前述の条件を満足させるために RAID-1 と LVM を組み合わせます。ディスクの並行アクセスを最適化し、そして障害が同時に発生する危険性を減らすために、各ディスクは 2 つの異なる SATA コントローラに接続されています。このため、各ディスクは <filename>sda</filename> と <filename>sdc</filename> として現れます。どちらのディスクも以下に示したパーティショニング方針に従ってパーティショニングされます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>fdisk -l /dev/sda</userinput>\n"
 "<computeroutput>\n"
@@ -1275,126 +1480,174 @@ msgstr ""
 "/dev/sda6      203977306 403970490 199993184 102G fd Linux raid autodetect\n"
 "/dev/sda7      403970491 586099395 182128904  93G 8e Linux LVM</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The first partitions of both disks (about 1 GB) are assembled into a RAID-1 volume, <filename>md0</filename>. This mirror is directly used to store the root filesystem."
-msgstr "両方のディスクの最初のパーティション (約 1 GB) は RAID-1 ボリューム <filename>md0</filename> に組み込まれます。このミラーはルートファイルシステムを保存するために直接的に使われます。"
+msgstr "<filename>sda1</filename> と <filename>sdc1</filename> パーティション (約 1 GB) から RAID-1 ボリューム <filename>md0</filename> を構成します。<filename>md0</filename> はルートファイルシステムを保存するために直接的に使われます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <filename>sda2</filename> and <filename>sdc2</filename> partitions are used as swap partitions, providing a total 2 GB of swap space. With 1 GB of RAM, the workstation has a comfortable amount of available memory."
-msgstr "<filename>sda2</filename> と <filename>sdc2</filename> パーティションは swap パーティションとして使われます。スワップ領域のサイズは合計で 2 GB になります。RAM のサイズは 1 GB で、ワークステーションで利用できるメモリサイズは十分な量と言えます。"
+msgstr "<filename>sda2</filename> と <filename>sdc2</filename> パーティションから swap パーティションを作成します。スワップ領域のサイズは合計で 2 GB になります。RAM のサイズ 1 GB と合わせれば、ワークステーションで利用できるメモリサイズは十分な量と言えます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <filename>sda5</filename> and <filename>sdc5</filename> partitions, as well as <filename>sda6</filename> and <filename>sdc6</filename>, are assembled into two new RAID-1 volumes of about 100 GB each, <filename>md1</filename> and <filename>md2</filename>. Both these mirrors are initialized as physical volumes for LVM, and assigned to the <filename>vg_raid</filename> volume group. This VG thus contains about 200 GB of safe space."
-msgstr "<filename>sda5</filename> と <filename>sdc5</filename> パーティションおよび <filename>sda6</filename> と <filename>sdc6</filename> パーティションは、それぞれ約 100 GB の 2 つの新しい RAID-1 ボリューム <filename>md1</filename> と <filename>md2</filename> に組み上げられます。これらのミラーは LVM の物理ボリュームとして初期化され、<filename>vg_raid</filename> ボリュームグループに割り当てられます。<filename>vg_raid</filename> VG は約 200 GB の安全な領域になります。"
+msgstr "<filename>sda5</filename> と <filename>sdc5</filename> パーティションおよび <filename>sda6</filename> と <filename>sdc6</filename> パーティションからそれぞれ約 100 GB の 2 つの新しい RAID-1 ボリューム <filename>md1</filename> と <filename>md2</filename> を構成します。<filename>md1</filename> と <filename>md2</filename> は LVM の PV として初期化され、これらの PV から <filename>vg_raid</filename> VG を構成します。<filename>vg_raid</filename> は約 200 GB の安全な領域になります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The remaining partitions, <filename>sda7</filename> and <filename>sdc7</filename>, are directly used as physical volumes, and assigned to another VG called <filename>vg_bulk</filename>, which therefore ends up with roughly 200 GB of space."
-msgstr "残りのパーティションである <filename>sda7</filename> と <filename>sdc7</filename> は直接的に物理ボリュームとして使われ、<filename>vg_bulk</filename> と呼ばれる別の VG に割り当てられます。これはおよそ 200 GB の領域になります。"
+msgstr "残りのパーティションである <filename>sda7</filename> と <filename>sdc7</filename> はそのまま LVM の PV として初期化され、これらの PV から <filename>vg_bulk</filename> VG を構成します。<filename>vg_bulk</filename> はおよそ 200 GB の領域になります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Once the VGs are created, they can be partitioned in a very flexible way. One must keep in mind that LVs created in <filename>vg_raid</filename> will be preserved even if one of the disks fails, which will not be the case for LVs created in <filename>vg_bulk</filename>; on the other hand, the latter will be allocated in parallel on both disks, which allows higher read or write speeds for large files."
-msgstr "VG を作成したら、VG をとても柔軟な方法でパーティショニングすることが可能です。<filename>vg_raid</filename> に作成された LV は 1 台にディスク障害に対して耐性を持ちますが、<filename>vg_bulk</filename> の場合そうではない点を忘れないでください。逆に、<filename>vg_bulk</filename> は両方のディスクにわたって割り当てられるので、巨大なファイルの読み書き速度が高速化されるでしょう。"
+msgstr "VG を作成したら、VG をとても柔軟な方法で LV に分割することが可能です。<filename>vg_raid</filename> から分割された LV は 1 台のディスク障害に対して耐性を持ちますが、<filename>vg_bulk</filename> から分割された LV はディスク障害に対する耐性を持たない点を忘れないでください。逆に、<filename>vg_bulk</filename> は両方のディスクにわたって割り当てられるので、<filename>vg_bulk</filename> から分割された LV に保存された巨大なファイルの読み書き速度は高速化されるでしょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We will therefore create the <filename>lv_usr</filename>, <filename>lv_var</filename> and <filename>lv_home</filename> LVs on <filename>vg_raid</filename>, to host the matching filesystems; another large LV, <filename>lv_movies</filename>, will be used to host the definitive versions of movies after editing. The other VG will be split into a large <filename>lv_rushes</filename>, for data straight out of the digital video cameras, and a <filename>lv_tmp</filename> for temporary files. The location of the work area is a less straightforward choice to make: while good performance is needed for that volume, is it worth risking losing work if a disk fails during an editing session? Depending on the answer to that question, the relevant LV will be created on one VG or the other."
-msgstr "<filename>lv_usr</filename>、<filename>lv_var</filename>、<filename>lv_home</filename> という LV を <filename>vg_raid</filename> に作成し、それぞれに対応するファイルシステムをホストするようにします。一方、別の大きな LV <filename>lv_movies</filename> は編集済みの最終版の映像をホストするために使われます。<filename>vg_bulk</filename> を、デジタルビデオカメラから取り出したデータ用の大きな <filename>lv_rushes</filename> と、一時ファイル用の <filename>lv_tmp</filename>、に分割します。作業領域を作成する場所は簡単に決められるものではありません。つまり、作業領域用のボリュームは良い性能を必要としますが、編集作業中にディスク障害が起きた場合に作業内容を保護する必要があるでしょうか? この質問の回答次第で、対応する LV を <filename>vg_raid</filename> か <filename>vg_bulk</filename> のどちらの VG に作成するかが決まります。"
+msgstr "<filename>vg_raid</filename> から <filename>lv_usr</filename>、<filename>lv_var</filename>、<filename>lv_home</filename> を分割し、各 LV に応じたファイルシステムをホストさせます。さらに、<filename>vg_raid</filename> からもう一つの大きな LV である <filename>lv_movies</filename> を分割し、<filename>lv_movies</filename> に編集済みの最終版の映像をホストさせます。また、<filename>vg_bulk</filename> からデジタルビデオカメラから取り出したデータ用の大きな <filename>lv_rushes</filename> と一時ファイル用の <filename>lv_tmp</filename> を分割します。<filename>vg_raid</filename> と <filename>vg_bulk</filename> のどちらから作業領域用の LV を分割するかは簡単に決められるものではありません。つまり、作業領域用の LV は良い性能を必要としますが、編集作業中にディスク障害が起きた場合に作業内容を保護する必要があるでしょうか? この質問の回答次第で、作業領域用の LV を <filename>vg_raid</filename> か <filename>vg_bulk</filename> のどちらの VG に作成するかが決まります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We now have both some redundancy for important data and much flexibility in how the available space is split across the applications. Should new software be installed later on (for editing audio clips, for instance), the LV hosting <filename>/usr/</filename> can be grown painlessly."
-msgstr "これで、重要なデータ用に多少の冗長性と、利用できる領域が用途ごとにどのように分割されるかに関する大きな柔軟性が確保されました。後から (たとえば音声クリップの編集用に) 新しいソフトウェアをインストールする場合も、<filename>/usr/</filename> をホストしている LV を簡単に増加することが可能です。"
+msgstr "これで、重要なデータ用に多少の冗長性と、利用できる領域が用途ごとにどのように分割されるかに関する大きな柔軟性が確保されました。後から (たとえば音声クリップの編集用に) 新しいソフトウェアをインストールする場合も、<filename>/usr/</filename> をホストしている LV のサイズを簡単に増加することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Why three RAID-1 volumes?"
 msgstr "<emphasis>NOTE</emphasis> なぜ 3 種類の RAID-1 ボリュームが必要なのでしょうか?"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "We could have set up one RAID-1 volume only, to serve as a physical volume for <filename>vg_raid</filename>. Why create three of them, then?"
-msgstr "<filename>vg_raid</filename> 用の物理ボリュームとして提供される RAID-1 ボリュームを 1 つだけセットアップすることも可能でした。それにも関わらず、なぜ 3 種類の RAID-1 ボリュームを作成したのでしょうか?"
+msgstr "RAID-1 ボリュームを 1 つだけ作成し、作成した PV から <filename>vg_raid</filename> を構成し、<filename>vg_raid</filename> から保護したい内容用の LV を分割することも可能でした。それにも関わらず、なぜ 3 種類の RAID-1 ボリュームを作成したのでしょうか?"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The rationale for the first split (<filename>md0</filename> vs. the others) is about data safety: data written to both elements of a RAID-1 mirror are exactly the same, and it is therefore possible to bypass the RAID layer and mount one of the disks directly. In case of a kernel bug, for instance, or if the LVM metadata become corrupted, it is still possible to boot a minimal system to access critical data such as the layout of disks in the RAID and LVM volumes; the metadata can then be reconstructed and the files can be accessed again, so that the system can be brought back to its nominal state."
-msgstr "最初の分割 (<filename>md0</filename> とその他) の根本的理由はデータの安全性を考慮したためです。つまり RAID-1 ミラーの両方の要素に書き込まれるデータは全く同じだからです。そのため RAID 層を迂回し、片方のディスクだけを直接マウントすることが可能です。たとえば、カーネルバグや LVM メタ情報が破壊された場合、RAID と LVM ボリュームに含まれるディスクの配置などの重要なデータにアクセスするために最小限のシステムを起動することが可能です。そして、このメタ情報を再構成したり、ファイルにアクセスすることが可能です。こうすることで、システムを正常状態に戻すことが可能です。"
+msgstr "最初の分割 (<filename>md0</filename> とその他) の根本的理由はデータの安全性を考慮したためです。つまり RAID-1 ミラーを構成する要素に書き込まれるデータは要素同士で全く同じだからです。そのため RAID 層を迂回し、RAID-1 ミラーを構成する 1 台のディスクだけを直接マウントすることが可能です。すなわち、カーネルにバグがあったり LVM メタ情報が破壊されたりした場合でも、RAID と LVM ボリュームに含まれるディスクの配置などの重要なデータにアクセスするために最小限のシステムを起動することが可能ということです。そして、このメタ情報を再構成したりファイルにアクセスしたりすることが可能です。こうすることで、システムを正常状態に戻すことが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The rationale for the second split (<filename>md1</filename> vs. <filename>md2</filename>) is less clear-cut, and more related to acknowledging that the future is uncertain. When the workstation is first assembled, the exact storage requirements are not necessarily known with perfect precision; they can also evolve over time. In our case, we can't know in advance the actual storage space requirements for video rushes and complete video clips. If one particular clip needs a very large amount of rushes, and the VG dedicated to redundant data is less than halfway full, we can re-use some of its unneeded space. We can remove one of the physical volumes, say <filename>md2</filename>, from <filename>vg_raid</filename> and either assign it to <filename>vg_bulk</filename> directly (if the expected duration of the operation is short enough that we can live with the temporary drop in performance), or undo the RAID setup on <filename>md2</filename> and integrate its components <filename>sda6</filename> and <filename>sdc6</filename> into the bulk VG (which grows by 200 GB instead of 100 GB); the <filename>lv_rushes</filename> logical volume can then be grown according to requirements."
-msgstr "2 番目の分割 (<filename>md1</filename> と <filename>md2</filename>) の根本的理由は明確というわけではありませんが、将来の不明確さを認めていることに関連します。最初動画編集用ワークステーションを組み上げた時、要求される正確なストレージサイズを完全な精度で知る必要はありません。それどころか、ストレージサイズは時間経過に従い増加するかもしれません。われわれの場合、ビデオ素材と編集済みビデオクリップ用に実際に要求されるストレージ領域を事前に知ることはできません。特定のクリップがとても大きな量の素材を必要とし、冗長性データ用の VG はまだ半分以上が未使用状態の場合、ここから一部の未使用領域を再利用することが可能です。われわれは物理ボリュームの 1 つを削除、たとえば <filename>vg_raid</filename> から <filename>md2</filename> を削除し、これを <filename>vg_bulk</filename> に直接割り当てるか (予想される作業時間が一時的な性能の低下を許容できる程度に十分短い場合に限ります)、<filename>md2</filename> の RAID セットアップをやり直してその構成要素である <filename>sda6</filename> と <filename>sdc6</filename> を VG に統合する (この場合 100 GB ではなく 200 GB の増加になります)、ことが可能です。さらに <filename>lv_rushes</filename> 論理ボリュームは必要に応じて増加させることが可能です。"
+msgstr "2 番目の分割 (<filename>md1</filename> と <filename>md2</filename>) の根本的理由は明確というわけではありませんが、将来の不明確さを認めていることに関連します。動画編集用ワークステーションを最初に組み上げる時点で、要求される正確なストレージサイズを完全な精度で知ることは不可能です。それどころか、ストレージサイズは時間経過に従い増加するかもしれません。今回の場合、ビデオ素材用の <filename>lv_rushes</filename> と編集済みビデオクリップ用の <filename>lv_movies</filename> に対して実際に要求されるストレージサイズを事前に知ることはできません。とても大きな量の素材を必要とするクリップを <filename>lv_rushes</filename> に保存する必要があり、さらに冗長性データ用 VG である <filename>vg_raid</filename> のまだ半分以上が未使用状態ならば、<filename>vg_raid</filename> から未使用領域を再利用することが可能です。具体的には <filename>vg_raid</filename> の構成要素から片方の PV (たとえば <filename>md2</filename>) を削除し、<filename>md2</filename> を <filename>vg_bulk</filename> を構成する PV として初期化するか (予想される作業時間が一時的な性能の低下を許容できる程度に十分短い場合に限ります)、<filename>md2</filename> の RAID-1 セットアップを破棄してその構成要素である <filename>sda6</filename> と <filename>sdc6</filename> を <filename>vg_bulk</filename> を構成する PV として初期化する (この場合 100 GB ではなく 200 GB の増加になります) ことが可能です。そして <filename>lv_rushes</filename> を必要に応じて増加させることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>virtualization</primary>"
 msgstr "<primary>仮想化</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Virtualization is one of the most major advances in the recent years of computing. The term covers various abstractions and techniques simulating virtual computers with a variable degree of independence on the actual hardware. One physical server can then host several systems working at the same time and in isolation. Applications are many, and often derive from this isolation: test environments with varying configurations for instance, or separation of hosted services across different virtual machines for security."
-msgstr "仮想化は最近のコンピューティングにおける最も大きな進歩の一つです。仮想化という用語は、実際のハードウェアに対するさまざまな独立性の度合いを持つ仮想コンピュータを模倣するさまざまな抽象化と技術を指します。1 台の物理的なサーバが同時かつ隔離された状態で動く複数のシステムをホストすることが可能です。仮想化アプリケーションは数多く存在し、隔離された仮想システムを使うことができます。たとえば、さまざまに設定されたテスト環境を作ったり、安全性を確保する目的で異なる仮想マシン間でホストされたサービスを分離したり、することが可能です。"
+msgstr "仮想化は最近のコンピューティングにおける最も大きな進歩の 1 つです。仮想化という用語は、実際のハードウェアに対するさまざまな独立性の度合いを持つ仮想コンピュータを模倣するさまざまな抽象化と技術を指します。1 台の物理的なサーバが同時かつ隔離された状態で動く複数のシステムをホストすることが可能です。仮想化アプリケーションは数多く存在し、隔離された仮想システムを使うことができます。たとえば、さまざまに設定されたテスト環境を作ったり、安全性を確保する目的で異なる仮想マシン間でホストされたサービスを分離したりすることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "There are multiple virtualization solutions, each with its own pros and cons. This book will focus on Xen, LXC, and KVM, but other noteworthy implementations include the following:"
 msgstr "複数の仮想化ソリューションが存在し、それぞれが利点と欠点を持っています。本書では Xen、LXC、KVM に注目しますが、他にも以下のような注目すべき実装が存在します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>VMWare</emphasis></primary>"
 msgstr "<primary><emphasis>VMWare</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>Bochs</emphasis></primary>"
 msgstr "<primary><emphasis>Bochs</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>QEMU</emphasis></primary>"
 msgstr "<primary><emphasis>QEMU</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>VirtualBox</emphasis></primary>"
 msgstr "<primary><emphasis>VirtualBox</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>KVM</emphasis></primary>"
 msgstr "<primary><emphasis>KVM</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>LXC</emphasis></primary>"
 msgstr "<primary><emphasis>LXC</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "QEMU is a software emulator for a full computer; performances are far from the speed one could achieve running natively, but this allows running unmodified or experimental operating systems on the emulated hardware. It also allows emulating a different hardware architecture: for instance, an <emphasis>amd64</emphasis> system can emulate an <emphasis>arm</emphasis> computer. QEMU is free software. <ulink type=\"block\" url=\"http://www.qemu.org/\" />"
-msgstr "QEMU は完全にコンピュータを模倣するソフトウェアエミュレータです。このため QEMU の性能はネイティブに実行した場合の速度には遠くおよびませんが、QEMU を使うことで修正されていなかったり実験的なオペレーティングシステムをエミュレートされたハードウェア上で実行することが可能です。QEMU はまた、異なるハードウェアアーキテクチャをエミュレートすることが可能です。たとえば、<emphasis>amd64</emphasis> システムで <emphasis>arm</emphasis> コンピュータをエミュレートすることが可能です。QEMU はフリーソフトウェアです。<ulink type=\"block\" url=\"http://www.qemu.org/\" />"
+msgstr "QEMU は完全なコンピュータを模倣するソフトウェアエミュレータです。このため QEMU の性能はネイティブに実行した場合の速度には遠くおよびませんが、QEMU を使うことで修正されていなかったり実験的なオペレーティングシステムをエミュレートされたハードウェア上で実行することが可能です。さらに QEMU は異なるハードウェアアーキテクチャをエミュレートすることが可能です。たとえば、<emphasis>amd64</emphasis> システムで <emphasis>arm</emphasis> コンピュータをエミュレートすることが可能です。QEMU はフリーソフトウェアです。<ulink type=\"block\" url=\"http://www.qemu.org/\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Bochs is another free virtual machine, but it only emulates the x86 architectures (i386 and amd64)."
 msgstr "Bochs はフリーの仮想マシンですが、x86 アーキテクチャ (i386 と amd64) だけをエミュレートすることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "VMWare is a proprietary virtual machine; being one of the oldest out there, it is also one of the most widely-known. It works on principles similar to QEMU. VMWare proposes advanced features such as snapshotting a running virtual machine. <ulink type=\"block\" url=\"http://www.vmware.com/\" />"
-msgstr "VMWare はプロプライエタリの仮想マシンです。そして VMWare はこの分野で最も古く、最も広く使われているソフトウェアの 1 つです。VMWare は QEMU とよく似た原理で動いています。VMWare には、たとえば実行中の仮想マシンのスナップショットなどの高度な機能が含まれています。<ulink type=\"block\" url=\"http://www.vmware.com/\" />"
+msgstr "VMWare はプロプライエタリの仮想マシンです。VMWare はこの分野で最も古く、最も広く使われているソフトウェアの 1 つです。VMWare は QEMU とよく似た原理で動いています。VMWare には実行中の仮想マシンのスナップショットなどの高度な機能が含まれています。<ulink type=\"block\" url=\"http://www.vmware.com/\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "VirtualBox is a virtual machine that is mostly free software (some extra components are available under a proprietary license). Unfortunately it is in Debian's “contrib” section because it includes some precompiled files that cannot be rebuilt without a proprietary compiler. While younger than VMWare and restricted to the i386 and amd64 architectures, it still includes some snapshotting and other interesting features. <ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
-msgstr "VirtualBox は仮想マシンで、ほぼフリーソフトウェアです (一部の追加的な構成要素はプロプライエタリライセンスの下で利用できます)。残念なことに VirtualBox は Debian の「contrib」セクションにあります。なぜなら VirtualBox にはいくつかのコンパイル済みファイルが含まれ、このファイルはプロプライエタリコンパイラがなければ再ビルドできないからです。VirtualBox は VMWare よりも若く、i386 と amd64 アーキテクチャに制限されており、スナップショットやその他の興味深い機能を備えています。<ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
+msgstr "VirtualBox はほぼフリーソフトウェアの仮想マシンです (一部の追加的な構成要素はプロプライエタリライセンスの下で利用できます)。残念なことに VirtualBox は Debian の「contrib」セクションにあります。なぜなら VirtualBox にはいくつかのコンパイル済みファイルが含まれ、このファイルを再ビルドするにはプロプライエタリコンパイラが必要だからです。VirtualBox は VMWare よりも歴史が浅く、i386 と amd64 アーキテクチャだけをサポートします。しかしながら、VirtualBox はスナップショットやその他の興味深い機能を備えています。<ulink type=\"block\" url=\"http://www.virtualbox.org/\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Xen <indexterm><primary>Xen</primary></indexterm> is a “paravirtualization” solution. It introduces a thin abstraction layer, called a “hypervisor”, between the hardware and the upper systems; this acts as a referee that controls access to hardware from the virtual machines. However, it only handles a few of the instructions, the rest is directly executed by the hardware on behalf of the systems. The main advantage is that performances are not degraded, and systems run close to native speed; the drawback is that the kernels of the operating systems one wishes to use on a Xen hypervisor need to be adapted to run on Xen."
-msgstr "Xen<indexterm><primary>Xen</primary></indexterm> は「準仮想化」ソリューションです。Xen には薄い抽象化層が含まれ、この抽象化層は「ハイパーバイザ」と呼ばれ、ハードウェアとその上にあるシステムの間に位置します。さらにハイパーバイザは審判員として振る舞い、仮想マシンからハードウェアへのアクセスを制御します。しかしながら、ハイパーバイザは命令のほんの一部だけを取り扱い、残りはシステムの代わりにハードウェアによって直接的に実行されます。こうすることによる主な有効性は性能が低下せず、システムがネイティブ速度に迫る性能を発揮するという点です。一方で欠点は Xen ハイパーバイザ上で使いたいオペレーティングシステムのカーネルは Xen 上で実行するために修正される必要があるという点です。"
+msgstr "Xen<indexterm><primary>Xen</primary></indexterm> は「準仮想化」ソリューションです。Xen には薄い抽象化層が含まれ、この抽象化層は「ハイパーバイザ」と呼ばれ、ハードウェアとその上にあるシステムの間に位置します。さらにハイパーバイザは審判員として振る舞い、仮想マシンからハードウェアへのアクセスを制御します。しかしながら、Xen ハイパーバイザは命令のほんの一部だけを取り扱い、残りは Xen ハイパーバイザではなくハードウェアによって直接的に実行されます。こうすることによる主な有効性は性能が低下せず、システムがネイティブ速度に迫る性能を発揮するという点です。一方で欠点は Xen ハイパーバイザ上でオペレーティングシステムを実行するには実行されるオペレーティングシステムのカーネルを修正しなければいけないという点です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Let's spend some time on terms. The hypervisor is the lowest layer, that runs directly on the hardware, even below the kernel. This hypervisor can split the rest of the software across several <emphasis>domains</emphasis>, which can be seen as so many virtual machines. One of these domains (the first one that gets started) is known as <emphasis>dom0</emphasis>, and has a special role, since only this domain can control the hypervisor and the execution of other domains. These other domains are known as <emphasis>domU</emphasis>. In other words, and from a user point of view, the <emphasis>dom0</emphasis> matches the “host” of other virtualization systems, while a <emphasis>domU</emphasis> can be seen as a “guest”."
-msgstr "用語について少し時間を割きましょう。ハイパーバイザはカーネルよりも下層の最も低い層に位置し、ハードウェア上で直接動きます。ハイパーバイザは残りのソフトウェアをいくつかの<emphasis>ドメイン</emphasis>に分割することが可能で、<emphasis>ドメイン</emphasis>は多数の仮想マシンと考えられます。これらのドメインの 1 つ (最初に起動されたもの) は <emphasis>dom0</emphasis> として知られており、特別な役割を担います。なぜなら、<emphasis>dom0</emphasis> だけがハイパーバイザを制御することが可能だからです。他のドメインは <emphasis>domU</emphasis> として知られています。ユーザ視点で言い換えれば、<emphasis>dom0</emphasis> は他の仮想システムにおける「ホスト」、これに対して <emphasis>domU</emphasis> は「ゲスト」になります。"
+msgstr "用語の解説に少し時間を割きましょう。Xen ハイパーバイザはカーネルよりも下層の最も低い層に位置し、ハードウェア上で直接動きます。Xen ハイパーバイザは残りのソフトウェアをいくつかの<emphasis>ドメイン</emphasis>に分割することが可能で、<emphasis>ドメイン</emphasis>は多数の仮想マシンと考えられます。これらのドメインの 1 つ (最初に起動されたもの) は <emphasis>dom0</emphasis> と呼ばれ、特別な役割を担います。なぜなら、<emphasis>dom0</emphasis> だけが Xen ハイパーバイザを制御することが可能だからです。他のドメインは <emphasis>domU</emphasis> として知られています。ユーザ視点で言い換えれば、<emphasis>dom0</emphasis> は他の仮想システムにおける「ホスト」、これに対して <emphasis>domU</emphasis> は「ゲスト」になります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CULTURE</emphasis> Xen and the various versions of Linux"
 msgstr "<emphasis>CULTURE</emphasis> Xen と Linux のさまざまなバージョン"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
+# Ref: https://lwn.net/Articles/194543/
 msgid "Xen was initially developed as a set of patches that lived out of the official tree, and not integrated to the Linux kernel. At the same time, several upcoming virtualization systems (including KVM) required some generic virtualization-related functions to facilitate their integration, and the Linux kernel gained this set of functions (known as the <emphasis>paravirt_ops</emphasis> or <emphasis>pv_ops</emphasis> interface). Since the Xen patches were duplicating some of the functionality of this interface, they couldn't be accepted officially."
-msgstr "当初 Xen は Linux 公式ツリーの外部パッチとして開発され、Linux カーネルに統合されませんでした。同時に、複数の次世代仮想化システム (KVM など) は統合を簡単にするために一部の包括的な仮想化関連関数を必要としており、Linux カーネルは (<emphasis>paravirt_ops</emphasis> または <emphasis>pv_ops</emphasis> インターフェースとして知られる) 一連の仮想化関連関数を獲得しました。Xen のパッチはこのインターフェースのいくつかの機能を複製していたため、Xen のパッチは公式に受け入れられませんでした。"
+msgstr "当初 Xen は Linux 公式ツリーの外部パッチとして開発され、Linux カーネルに組み込まれていませんでした。これと同時期に、複数の次世代仮想化システム (KVM など) は Linux カーネルへの組み込みを簡単にするためにいくつかの包括的な仮想化関連関数を必要としており、さらに Linux カーネルが (<emphasis>paravirt_ops</emphasis> または <emphasis>pv_ops</emphasis> インターフェースとして知られる) 一連の仮想化関連関数を獲得しました。Xen のパッチはこのインターフェースのいくつかの機能を複製していたため、Xen のパッチは公式に受け入れられませんでした。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Xensource, the company behind Xen, therefore had to port Xen to this new framework, so that the Xen patches could be merged into the official Linux kernel. That meant a lot of code rewrite, and although Xensource soon had a working version based on the paravirt_ops interface, the patches were only progressively merged into the official kernel. The merge was completed in Linux 3.0. <ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/XenParavirtOps\" />"
-msgstr "このため、Xen を影で支える会社の Xensource は新しい枠組みの下で Xen を移植しなければいけませんでした。この移植作業により、Xen のパッチを公式の Linux カーネルにマージすることが可能になりました。この移植作業は多くのコードを書き換えることを意味しています。Xensource はすぐに paravirt_ops インターフェースを使って評価版を作ったにも関わらず、Xen のパッチを公式カーネルにマージする作業は徐々に進みました。マージか完了したのは Linux 3.0 です。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/XenParavirtOps\" />"
+msgstr "このため、Xen を影で支える会社の Xensource は新しく Linux カーネルに取り込まれた仮想化関連関数を使って Xen を移植しなければいけませんでした。この移植作業により、Xen のパッチを公式の Linux カーネルに取り込むことが可能になりました。この移植作業は多くのコードを書き換えることを意味していました。Xensource はすぐに paravirt_ops インターフェースを使って評価版を作ったにも関わらず、Xen のパッチを公式カーネルにマージする作業はゆっくりと進みました。マージか完了したのは Linux 3.0 です。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/XenParavirtOps\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Since <emphasis role=\"distribution\">Jessie</emphasis> is based on version 3.16 of the Linux kernel, the standard <emphasis role=\"pkg\">linux-image-686-pae</emphasis> and <emphasis role=\"pkg\">linux-image-amd64</emphasis> packages include the necessary code, and the distribution-specific patching that was required for <emphasis role=\"distribution\">Squeeze</emphasis> and earlier versions of Debian is no more. <ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Xen_Kernel_Feature_Matrix\" />"
-msgstr "<emphasis role=\"distribution\">Jessie</emphasis> は Linux カーネルのバージョン 3.16 に基づくため、標準的な <emphasis role=\"pkg\">linux-image-686-pae</emphasis> と <emphasis role=\"pkg\">linux-image-amd64</emphasis> パッケージには必要なコードが含まれます。Debian の <emphasis role=\"distribution\">Squeeze</emphasis> およびそれ以前のバージョンに対するディストリビューションに特有のパッチはありません。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Xen_Kernel_Feature_Matrix\" />"
+msgstr "<emphasis role=\"distribution\">Jessie</emphasis> は Linux カーネルのバージョン 3.16 に基づくため、標準的な <emphasis role=\"pkg\">linux-image-686-pae</emphasis> と <emphasis role=\"pkg\">linux-image-amd64</emphasis> パッケージには Xen を動作させるために必要なコードが含まれます。Debian の <emphasis role=\"distribution\">Squeeze</emphasis> およびそれ以前のバージョンで必要とされていたディストリビューションに特有のパッチ作業はもはや必要ありません。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Xen_Kernel_Feature_Matrix\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Architectures compatible with Xen"
 msgstr "<emphasis>NOTE</emphasis> Xen 互換のアーキテクチャ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Xen is currently only available for the i386, amd64, arm64 and armhf architectures."
 msgstr "現在のところ、Xen を利用できるのは i386、amd64、arm64、armhf アーキテクチャだけです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CULTURE</emphasis> Xen and non-Linux kernels"
 msgstr "<emphasis>CULTURE</emphasis> Xen と非 Linux カーネル"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Xen requires modifications to all the operating systems one wants to run on it; not all kernels have the same level of maturity in this regard. Many are fully-functional, both as dom0 and domU: Linux 3.0 and later, NetBSD 4.0 and later, and OpenSolaris. Others only work as a domU. You can check the status of each operating system in the Xen wiki: <ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Dom0_Kernels_for_Xen\" /> <ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/DomU_Support_for_Xen\" />"
-msgstr "Xen 上でオペレーティングシステムを動作させるには、いかなるオペレーティングシステムであってもそれを修正する必要があります。さらに、すべてのオペレーティングシステムのカーネルがこの点に関して同じ程度の成熟度を持っているとは限りません。多くのオペレーティングシステムは dom0 および domU として完全に動作します。具体的に言えば、Linux 3.0 とそれ以降、NetBSD 4.0 とそれ以降、OpenSolaris は dom0 および domU として完全に動作します。また、他のオペレーティングシステムは dom0 としては動作せず domU として動作します。dom0 および domU として動作するオペレーティングシステムの状況を確認するには Xen のウィキに含まれる該当ページをご覧ください。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Dom0_Kernels_for_Xen\" /><ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/DomU_Support_for_Xen\" />"
+msgstr "Xen 上でオペレーティングシステムを動作させるには、いかなるオペレーティングシステムであってもそれを修正する必要があります。さらに、すべてのオペレーティングシステムのカーネルが修正点に関して同じ程度の成熟度を持っているとは限りません。多くのオペレーティングシステムは dom0 および domU として完全に動作します。具体的に言えば、Linux 3.0 とそれ以降、NetBSD 4.0 とそれ以降、OpenSolaris は dom0 および domU として完全に動作します。また、他のオペレーティングシステムは dom0 としては動作せず domU として動作します。dom0 および domU として動作するオペレーティングシステムの状況を確認するには Xen のウィキに含まれる該当ページをご覧ください。<ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/Dom0_Kernels_for_Xen\" /><ulink type=\"block\" url=\"http://wiki.xenproject.org/wiki/DomU_Support_for_Xen\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "However, if Xen can rely on the hardware functions dedicated to virtualization (which are only present in more recent processors), even non-modified operating systems can run as domU (including Windows)."
-msgstr "しかしながら、Xen が仮想化専用のハードウェア機能 (最近のプロセッサだけが搭載した機能) に頼っている場合や、修正されていないオペレーティングシステム (Windows など) は domU としてのみ動作します。"
+msgstr "しかしながら、Xen で仮想化専用のハードウェア機能 (最近のプロセッサだけが搭載した機能) に依存するオペレーティングシステムを動作させる場合や、修正されていないオペレーティングシステム (Windows など) を動作させる場合、そのオペレーティングシステムは domU としてのみ動作します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Using Xen under Debian requires three components:"
 msgstr "Debian の下で Xen を使うには 3 つの要素が必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "The hypervisor itself. According to the available hardware, the appropriate package will be either <emphasis role=\"pkg\">xen-hypervisor-4.4-amd64</emphasis>, <emphasis role=\"pkg\">xen-hypervisor-4.4-armhf</emphasis>, or <emphasis role=\"pkg\">xen-hypervisor-4.4-arm64</emphasis>."
-msgstr "ハイパーバイザ自身。適切なパッケージは利用できるハードウェアによって決まり、<emphasis role=\"pkg\">xen-hypervisor-4.4-amd64</emphasis>、<emphasis role=\"pkg\">xen-hypervisor-4.4-armhf</emphasis>、<emphasis role=\"pkg\">xen-hypervisor-4.4-arm64</emphasis> のうちどれか一つです。"
+msgstr "Xen ハイパーバイザ自身。適切なパッケージは利用できるハードウェアによって決まります。すなわち <emphasis role=\"pkg\">xen-hypervisor-4.4-amd64</emphasis>、<emphasis role=\"pkg\">xen-hypervisor-4.4-armhf</emphasis>、<emphasis role=\"pkg\">xen-hypervisor-4.4-arm64</emphasis> のうちどれか 1 つが必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A kernel that runs on that hypervisor. Any kernel more recent than 3.0 will do, including the 3.16 version present in <emphasis role=\"distribution\">Jessie</emphasis>."
-msgstr "ハイパーバイザ上で実行するカーネル。<emphasis role=\"distribution\">Jessie</emphasis> の提供するバージョン 3.16 を含めて、バージョン 3.0 より新しい Linux カーネルが動作します。"
+msgstr "ハイパーバイザ上で実行するカーネル。バージョン 3.0 より新しい Linux カーネルが動作します。<emphasis role=\"distribution\">Jessie</emphasis> に含まれる Linux カーネルのバージョンは 3.16 なのでこれも動作します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "The i386 architecture also requires a standard library with the appropriate patches taking advantage of Xen; this is in the <emphasis role=\"pkg\">libc6-xen</emphasis> package."
-msgstr "i386 アーキテクチャでは、Xen を活用するための適切なパッチを組み込んだ標準的なライブラリが必要です。そしてこれは <emphasis role=\"pkg\">libc6-xen</emphasis> パッケージに含まれます。"
+msgstr "さらに i386 アーキテクチャでは、Xen を活用するための適切なパッチを組み込んだ標準的なライブラリが必要です。このライブラリは <emphasis role=\"pkg\">libc6-xen</emphasis> パッケージに含まれます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "In order to avoid the hassle of selecting these components by hand, a few convenience packages (such as <emphasis role=\"pkg\">xen-linux-system-amd64</emphasis>) have been made available; they all pull in a known-good combination of the appropriate hypervisor and kernel packages. The hypervisor also brings <emphasis role=\"pkg\">xen-utils-4.4</emphasis>, which contains tools to control the hypervisor from the dom0. This in turn brings the appropriate standard library. During the installation of all that, configuration scripts also create a new entry in the Grub bootloader menu, so as to start the chosen kernel in a Xen dom0. Note however that this entry is not usually set to be the first one in the list, and will therefore not be selected by default. If that is not the desired behavior, the following commands will change it:"
-msgstr "複数の構成要素を手作業で選択するという煩わしさを避けるために、いくつかの便利なパッケージ (<emphasis role=\"pkg\">xen-linux-system-amd64</emphasis> など) が用意されています。そしてこれらのパッケージをインストールすることで、適切なハイパーバイザとカーネルパッケージが既知の良い組み合わせで導入されます。ハイパーバイザには <emphasis role=\"pkg\">xen-utils-4.4</emphasis> が含まれます。このパッケージには dom0 からハイパーバイザを操作するためのツールが含まれます。同様に、このパッケージには適切な標準的ライブラリが含まれます。すべてのインストール中に、設定スクリプトは Grub ブートローダメニューに新しいエントリを作成します。こうすることで Xen dom0 から選択されたカーネルを開始することが可能です。しかしながら、通常このエントリはリストの最初に置かれないため、デフォルトで選択されません。この点に注意してください。これを望まない場合、以下のコマンドを使って変更してください。"
+msgstr "複数の構成要素を手作業で選択するという煩わしさを避けるために、いくつかの便利なパッケージ (<emphasis role=\"pkg\">xen-linux-system-amd64</emphasis> など) が用意されています。これらのパッケージをインストールすることで、適切な Xen ハイパーバイザとカーネルパッケージが既知の良い組み合わせで導入されます。ここで導入される Xen ハイパーバイザには <emphasis role=\"pkg\">xen-utils-4.4</emphasis> が含まれます。<emphasis role=\"pkg\">xen-utils-4.4</emphasis> パッケージには dom0 からハイパーバイザを操作するためのツールが含まれます。同様に、<emphasis role=\"pkg\">xen-utils-4.4</emphasis> パッケージには適切な標準的ライブラリが含まれます。すべてのインストール中に、設定スクリプトは Grub ブートローダメニューに新しいエントリを作成します。こうすることで Xen dom0 から選択されたカーネルを開始することが可能です。しかしながら、通常このエントリはリストの最初に置かれないため、デフォルトで選択されません。この点に注意してください。これを望まない場合、以下のコマンドを使って変更してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>mv /etc/grub.d/20_linux_xen /etc/grub.d/09_linux_xen\n"
 "</userinput><computeroutput># </computeroutput><userinput>update-grub\n"
@@ -1404,42 +1657,65 @@ msgstr ""
 "</userinput><computeroutput># </computeroutput><userinput>update-grub\n"
 "</userinput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Once these prerequisites are installed, the next step is to test the behavior of the dom0 by itself; this involves a reboot to the hypervisor and the Xen kernel. The system should boot in its standard fashion, with a few extra messages on the console during the early initialization steps."
-msgstr "これらの前提要件をインストールしたら、次に dom0 の挙動をテストします。そしてこれを行うには、ハイパーバイザと Xen カーネルの再起動が必要です。システムは標準的な方法で起動するべきです。初期化の早い段階でコンソールにいくつかの追加的メッセージが表示されます。"
+msgstr "これらの前提要件をインストールしたら、次に dom0 の挙動をテストします。テストを行うには、Xen ハイパーバイザと Xen カーネルの再起動が必要です。システムは標準的な方法で起動するべきです。初期化の早い段階でコンソールにいくつかの追加的メッセージが表示されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Now is the time to actually install useful systems on the domU systems, using the tools from <emphasis role=\"pkg\">xen-tools</emphasis>. This package provides the <command>xen-create-image</command> command, which largely automates the task. The only mandatory parameter is <literal>--hostname</literal>, giving a name to the domU; other options are important, but they can be stored in the <filename>/etc/xen-tools/xen-tools.conf</filename> configuration file, and their absence from the command line doesn't trigger an error. It is therefore important to either check the contents of this file before creating images, or to use extra parameters in the <command>xen-create-image</command> invocation. Important parameters of note include the following:"
-msgstr "これで、有用なシステムを domU システムに実際にインストールできるようになりました。これを行うには <emphasis role=\"pkg\">xen-tools</emphasis> の提供するツールを使います。このパッケージには <command>xen-create-image</command> コマンドが含まれます。これはタスクの大部分を自動化します。必須のパラメータは <literal>--hostname</literal> だけで、このパラメータは domU の名前を設定します。他のオプションは重要ですが、<filename>/etc/xen-tools/xen-tools.conf</filename> 設定ファイルに保存することが可能です。そして、コマンドラインでオプションを指定しなくてもエラーは起きません。このため、イメージを作る前にこのファイルの内容を確認するか、<command>xen-create-image</command> の実行時に追加的パラメータを使うことが重要です。以下に注目すべき重要なパラメータを示します。"
+msgstr "これで、実用システムを domU システムに実際にインストールできるようになりました。これを行うには <emphasis role=\"pkg\">xen-tools</emphasis> に含まれるツールを使います。<emphasis role=\"pkg\">xen-tools</emphasis> パッケージには <command>xen-create-image</command> コマンドが含まれます。<command>xen-create-image</command> コマンドはインストール作業の大部分を自動化します。必須のパラメータは <literal>--hostname</literal> だけで、このパラメータは domU の名前を設定します。他のオプションは重要ですが、オプションを <filename>/etc/xen-tools/xen-tools.conf</filename> 設定ファイルに保存することが可能です。そして、コマンドラインでオプションを指定しなくてもエラーは起きません。このため、イメージを作る前にこのファイルの内容を確認するか、<command>xen-create-image</command> の実行時に追加的パラメータを使うことが重要です。以下に注目すべき重要なパラメータを示します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<literal>--memory</literal>, to specify the amount of RAM dedicated to the newly created system;"
-msgstr "<literal>--memory</literal>、新たに作成するシステム用の RAM のサイズを指定します。"
+msgstr "<literal>--memory</literal>。新たに作成する domU システム専用の RAM のサイズを指定します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<literal>--size</literal> and <literal>--swap</literal>, to define the size of the “virtual disks” available to the domU;"
-msgstr "<literal>--size</literal> と <literal>--swap</literal>、domU で利用できる「仮想ディスク」のサイズを定義します。"
+msgstr "<literal>--size</literal> と <literal>--swap</literal>。domU で利用できる「仮想ディスク」のサイズを定義します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<literal>--debootstrap</literal>, to cause the new system to be installed with <command>debootstrap</command>; in that case, the <literal>--dist</literal> option will also most often be used (with a distribution name such as <emphasis role=\"distribution\">jessie</emphasis>)."
-msgstr "<literal>--debootstrap</literal>、<command>debootstrap</command> を使って新しいシステムをインストールします。さらに、このオプションを使う場合、<literal>--dist</literal> オプション (ディストリビューションの名前、たとえば <emphasis role=\"distribution\">jessie</emphasis>) を一緒に使うことが多いです。"
+msgstr "<literal>--debootstrap</literal>。<command>debootstrap</command> を使って新しいシステムをインストールします。このオプションを使う場合、<literal>--dist</literal> オプション (ディストリビューションの名前、たとえば <emphasis role=\"distribution\">jessie</emphasis>) を一緒に使うことが多いです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<emphasis>GOING FURTHER</emphasis> Installing a non-Debian system in a domU"
 msgstr "<emphasis>GOING FURTHER</emphasis> 非 Debian システムを domU にインストール"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "In case of a non-Linux system, care should be taken to define the kernel the domU must use, using the <literal>--kernel</literal> option."
-msgstr "非 Linux システムの場合、<literal>--kernel</literal> オプションを使って、domU が使わなければいけないカーネルを定義するには注意が必要です。"
+msgstr "非 Linux システムを domU にインストールする場合、<literal>--kernel</literal> オプションを使って、domU で使うカーネルを定義しなければいけない点に注意してください。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<literal>--dhcp</literal> states that the domU's network configuration should be obtained by DHCP while <literal>--ip</literal> allows defining a static IP address."
-msgstr "<literal>--dhcp</literal> は domU のネットワーク設定を DHCP で取得することを宣言します。対して、<literal>--ip</literal> は静的 IP アドレスを定義します。"
+msgstr "<literal>--dhcp</literal>。domU のネットワーク設定を DHCP で取得することを宣言します。対して、<literal>--ip</literal> は静的 IP アドレスを定義します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Lastly, a storage method must be chosen for the images to be created (those that will be seen as hard disk drives from the domU). The simplest method, corresponding to the <literal>--dir</literal> option, is to create one file on the dom0 for each device the domU should be provided. For systems using LVM, the alternative is to use the <literal>--lvm</literal> option, followed by the name of a volume group; <command>xen-create-image</command> will then create a new logical volume inside that group, and this logical volume will be made available to the domU as a hard disk drive."
-msgstr "最後に、作成されるイメージ (domU からはハードディスクドライブに見えるイメージ) の保存方法を選択します。最も簡単な方法は、対応する <literal>--dir</literal> オプションを使い、各 domU を格納するデバイス用のファイルを dom0 上に作成する方法です。LVM を使っているシステムでは、<literal>--lvm</literal> オプションを使い、ボリュームグループの名前を指定しても良いでしょう。そして <command>xen-create-image</command> は新しい論理ボリュームをグループの中に作成し、この論理ボリュームがハードディスクドライブとして domU から利用できるようにされます。"
+msgstr "最後に、作成されるイメージ (domU からはハードディスクドライブに見えるイメージ) の保存方法を選択します。最も簡単な方法は、<literal>--dir</literal> オプションを使い、各 domU を格納するデバイス用のファイルを dom0 上に作成する方法です。LVM を使っているシステムでは、<literal>--lvm</literal> オプションを使い、VG の名前を指定しても良いでしょう。この場合 <command>xen-create-image</command> は指定された VG から新しい LV を分割し、この LV をハードディスクドライブとして domU から利用できるようにします。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>NOTE</emphasis> Storage in the domU"
 msgstr "<emphasis>NOTE</emphasis> domU 内のストレージ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Entire hard disks can also be exported to the domU, as well as partitions, RAID arrays or pre-existing LVM logical volumes. These operations are not automated by <command>xen-create-image</command>, however, so editing the Xen image's configuration file is in order after its initial creation with <command>xen-create-image</command>."
-msgstr "ハードディスク全体、パーティション、RAID アレイ、既存の LVM 論理ボリュームを domU に書き出すことも可能です。<command>xen-create-image</command> はこれらの操作を自動化していませんが、<command>xen-create-image</command> を使って Xen イメージの設定ファイルを作成した後にこれを編集することでこの操作が可能です。"
+msgstr "ハードディスク全体、パーティション、RAID アレイ、既存の LVM の LV を domU に書き出すことも可能です。<command>xen-create-image</command> を使ってもこれらの操作を自動化することは不可能ですが、<command>xen-create-image</command> を使って Xen イメージの設定ファイルを作成した後にその設定ファイルを編集することで対応する操作が可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Once these choices are made, we can create the image for our future Xen domU:"
 msgstr "これらを選んだ後、将来の Xen domU 用のイメージを作成することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "<computeroutput># </computeroutput><userinput>xen-create-image --hostname testxen --dhcp --dir /srv/testxen --size=2G --dist=jessie --role=udev</userinput>\n"
 "<computeroutput>\n"
