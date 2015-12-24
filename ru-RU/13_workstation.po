@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-21 09:09+0200\n"
-"PO-Revision-Date: 2015-12-23 22:26+0000\n"
-"Last-Translator: Lev Lamberov <l.lamberov@gmail.com>\n"
+"PO-Revision-Date: 2015-12-25 00:57+0000\n"
+"Last-Translator: Anton Seliverstov <anton@mail2moon.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/13_workstation/ru/>\n"
 "Language: ru-RU\n"
 "MIME-Version: 1.0\n"
@@ -13,71 +13,77 @@ msgstr ""
 "X-Generator: Weblate 2.5-dev\n"
 
 msgid "Workstation"
-msgstr ""
+msgstr "Рабочая станция"
 
 msgid "Graphical desktop"
-msgstr ""
+msgstr "Графический рабочий стол"
 
 msgid "Office work"
 msgstr ""
 
+#, fuzzy
 msgid "X.org"
-msgstr ""
+msgstr "X.org"
 
+#, fuzzy
 msgid "Now that server deployments are done, the administrators can focus on installing the individual workstations and creating a typical configuration."
-msgstr ""
+msgstr "Теперь, когда развёртывание сервера завершено, администраторы могут заняться типичными настройками персональных рабочих станций."
 
 msgid "Configuring the X11 Server"
-msgstr ""
+msgstr "Настройка сервера X11"
 
 msgid "<primary>XFree86</primary>"
-msgstr ""
+msgstr "<primary>XFree86</primary>"
 
+#, fuzzy
 msgid "<primary>X.org</primary>"
-msgstr ""
+msgstr "<primary>X.org</primary>"
 
+#, fuzzy
 msgid "<primary>X11</primary>"
-msgstr ""
+msgstr "<primary>X11</primary>"
 
 msgid "<primary>interface</primary><secondary>graphical</secondary>"
 msgstr ""
 
 msgid "The initial configuration for the graphical interface can be awkward at times; very recent video cards often don't work perfectly with the X.org version shipped in the Debian stable version."
-msgstr ""
+msgstr "Начальная настройка графического интерфейса порой может оказаться затруднительной; новейшие видео карты часто не очень хорошо работают с версией X.org, поставляемой в составе стабильной версии Debian."
 
 msgid "A brief reminder: X.org is the software component that allows graphical applications to display windows on screen. It includes a driver that makes efficient use of the video card. The features offered to the graphical applications are exported through a standard interface, <emphasis>X11</emphasis> (<emphasis role=\"distribution\">Jessie</emphasis> contains its <emphasis>X11R7.7</emphasis> version)."
-msgstr ""
+msgstr "Напоминаем: X.org - это программный компонент, позволяющий графическим приложениям отображать окна на экране. Он включает драйвер, позволяющий эффективно использовать графическую карту. Её возможности передаются графическим приложениям через стандартный интерфейс <emphasis>X11</emphasis> (<emphasis role=\"distribution\">Jessie</emphasis> поставляется с его версией <emphasis>X11R7.7</emphasis>)."
 
 msgid "<emphasis>PERSPECTIVE</emphasis> X11, XFree86 and X.org"
-msgstr ""
+msgstr "<emphasis>АЛЬТЕРНАТИВЫ</emphasis> X11 - XFree86 и X.org"
 
 msgid "X11 is the graphical system most widely used on Unix-like systems (also available, in addition to the native system, for Windows and Mac OS). Strictly speaking, the “X11” term only refers to a protocol specification, but it is also used to refer to the implementation in practice."
-msgstr ""
+msgstr "Графическая система X11 чаще всего используется на Unix-подобных системах (также доступна в качестве дополнения к родной системе в Windows и Mac OS). Строго говоря, термин “X11” указывает на спецификацию протокола, но здесь он также указывает и на его практическую реализацию."
 
 msgid "X11 had a rough start, but the 1990's saw XFree86 emerge as the reference implementation because it was free software, portable, and maintained by a collaborative community. However, the rate of evolution slowed down near the end when the software only gained new drivers. That situation, along with a very controversial license change, led to the X.org fork in 2004. This is now the reference implementation, and Debian <emphasis role=\"distribution\">Jessie</emphasis> uses X.org version 7.7."
-msgstr ""
+msgstr "У X11 начало было не простым, но в 1990 появилась XFree86, которая стала эталонной реализацией, так как это была свободная портативная программа, поддерживаемая сообществом. Однако, темпы её развития сильно снизились к появлению первых драйверов под неё. Эта ситуация в паре со спорным решением о смене лицензии привело к появлению форка X.org в 2004. Теперь это новый эталон реализации и Debian <emphasis role=\"distribution\">Jessie</emphasis> использует X.org версии 7.7."
 
 msgid "Current versions of X.org are able to autodetect the available hardware: this applies to the video card and the monitor, as well as keyboards and mice; in fact, it is so convenient that the package no longer even creates a <filename>/etc/X11/xorg.conf</filename> configuration file. This is all made possible by features provided by the Linux kernel (in particular for keyboards and mice), by having each driver list the video cards it supports, and by using the DDC protocol to fetch monitor characteristics."
-msgstr ""
+msgstr "Последние версии X.org способны самостоятельно определять аппаратное обеспечение: это относится как к видео карте и монитору, так к клавиатуре и мыши; Это настолько удобно, что пакет даже не создаёт файл конфигурации <filename>/etc/X11/xorg.conf</filename>. Такое стало возможным благодаря функциям ядра Linux (в частности, для клавиатуры и мыши), запрашивая с каждого драйвера список поддерживаемых видео карт и получая характеристики монитора через DDC драйвер."
 
 msgid "<primary>resolution</primary>"
-msgstr ""
+msgstr "<primary>разрешение</primary>"
 
 msgid "The keyboard configuration is currently set up in <filename>/etc/default/keyboard</filename>. This file is used both to configure the text console and the graphical interface, and it is handled by the <emphasis role=\"pkg\">keyboard-configuration</emphasis> package. Details on configuring the keyboard layout are available in <xref linkend=\"sect.keyboard-config\" />."
-msgstr ""
+msgstr "Настройка клавиатыры теперь производится в <filename>/etc/default/keyboard</filename>. Этот файл используется для настройки текстовой консоли и графического интерфейса, а управляется пакетом <emphasis role=\"pkg\">keyboard-configuration</emphasis>. Подробности о настройке раскладки клавиатуры доступны в <xref linkend=\"sect.keyboard-config\" />."
 
 msgid "The <emphasis role=\"pkg\">xserver-xorg-core</emphasis> package provides a generic X server, as used by the 7.x versions of X.org. This server is modular and uses a set of independent drivers to handle the many different kinds of video cards. Installing <emphasis role=\"pkg\">xserver-xorg</emphasis> ensures that both the server and at least one video driver are installed."
-msgstr ""
+msgstr "Пакет <emphasis role=\"pkg\">xserver-xorg-core</emphasis> предоставляет обычный X сервер, используемый 7.x версией X.org. Это модульный сервер, использующий ряд независимых драйверов для поддержки множества различных видов видео карт. Установка пакета <emphasis role=\"pkg\">xserver-xorg</emphasis> гарантирует наличие сервера и как минимум одного драйвера."
 
 msgid "<primary>server</primary><secondary>X</secondary>"
-msgstr ""
+msgstr "<primary>сервер</primary><secondary>X</secondary>"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">xserver-xorg</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">xserver-xorg</emphasis></primary>"
 
 msgid "Note that if the detected video card is not handled by any of the available drivers, X.org tries using the VESA and fbdev drivers. The former is a generic driver that should work everywhere, but with limited capabilities (fewer available resolutions, no hardware acceleration for games and visual effects for the desktop, and so on) while the latter works on top of the kernel's framebuffer device. The X server writes its messages to the <filename>/var/log/Xorg.0.log</filename> log file, which is where one would look to know what driver is currently in use. For example, the following snippet matches what the <literal>intel</literal> driver outputs when it is loaded:"
-msgstr ""
+msgstr "Обратите внимание, если обнаруженная видеокарта не поддерживается ни одним драйвером, X.org попытается использовать драйверы VESA и fbdev. Первый - универсальный драйвер, который хоть и с ограниченными возможностями, но должен работать всегда (доступно меньше разрешений, нет аппаратного ускорения для игр, визуальных эффектов рабочего стола, и так далее), а второй работает поверх устройства фреймбуфера ядра. X сервер записывает свои сообщения в файл <filename>/var/log/Xorg.0.log</filename>, оттуда можно узнать, какой драйвер сейчас используется. Например, вот отрывок из вывода драйвера <literal>intel</literal>, когда он загружен:"
 
+#, fuzzy
 msgid ""
 "\n"
 "(==) Matched intel as autoconfigured driver 0\n"
@@ -88,48 +94,62 @@ msgid ""
 "(II) LoadModule: \"intel\"\n"
 "(II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so"
 msgstr ""
+"\n"
+"(==) Matched intel as autoconfigured driver 0\n"
+"(==) Matched modesetting as autoconfigured driver 1\n"
+"(==) Matched vesa as autoconfigured driver 2\n"
+"(==) Matched fbdev as autoconfigured driver 3\n"
+"(==) Assigned the driver to the xf86ConfigLayout\n"
+"(II) LoadModule: \"intel\"\n"
+"(II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so"
 
+#, fuzzy
 msgid "<primary>VESA</primary>"
-msgstr ""
+msgstr "<primary>VESA</primary>"
 
 msgid "<primary>video card</primary>"
-msgstr ""
+msgstr "<primary>видео карта</primary>"
 
 msgid "<emphasis>EXTRA</emphasis> Proprietary drivers"
-msgstr ""
+msgstr "<emphasis>ДОПОЛНИТЕЛЬНО</emphasis> Проприетарные драйверы"
 
 msgid "Some video card makers (most notably nVidia) refuse to publish the hardware specifications that would be required to implement good free drivers. They do, however, provide proprietary drivers that allow using their hardware. This policy is nefarious, because even when the provided driver exists, it is usually not as polished as it should be; more importantly, it does not necessarily follow the X.org updates, which may prevent the latest available driver from loading correctly (or at all). We cannot condone this behavior, and we recommend you avoid these makers and favor more cooperative manufacturers."
-msgstr ""
+msgstr "Некоторые производители ведео карт (прежде всего nVidia) отказываются публиковать спецификации оборудования, которые необходимы для разработки качественных свободных драйверов. Однако, они предоставляют проприетарные драйверы, которые позволяют использовать их оборудование. Это порочная практика, потому что не смотря на наличие драйвера, его качество, как правило, оставляет желать лучшего; ещё хуже, что он может и не учитывать обновлений X.org, что может привести к неправильной загрузке драйвера или к невозможности загрузки вообще. Мы не намерены с этим мириться и рекомендуем вместо таких производителей выбирать тех, что более расположены к сотрудничеству."
 
 msgid "If you still end up with such a card, you will find the required packages in the <emphasis>non-free</emphasis> section: <emphasis role=\"pkg\">nvidia-glx</emphasis> for nVidia cards, and <emphasis role=\"pkg\">fglrx-driver</emphasis> for some ATI cards. Both cases require matching kernel modules. Building these modules can be automated by installing the <emphasis role=\"pkg\">nvidia-kernel-dkms</emphasis> (for nVidia), or <emphasis role=\"pkg\">fglrx-modules-dkms</emphasis> (for ATI) packages."
-msgstr ""
+msgstr "Если всё же Вы остановились на такой карте, то необходимые пакеты имеются в секции <emphasis>non-free</emphasis>: <emphasis role=\"pkg\">nvidia-glx</emphasis> для карт nVidia, и <emphasis role=\"pkg\">fglrx-driver</emphasis> для некоторых карт ATI. Оба варианта требуют дополнительных модулей ядра. Сборку этих модулей можно автоматизировать установкой пакета  <emphasis role=\"pkg\">nvidia-kernel-dkms</emphasis> (для nVidia), или <emphasis role=\"pkg\">fglrx-modules-dkms</emphasis> (для ATI) пакетов."
 
 msgid "The “nouveau” project aims to develop a free software driver for nVidia cards. As of <emphasis role=\"distribution\">Jessie</emphasis>, its feature set does not match the proprietary driver. In the developers' defense, we should mention that the required information can only be gathered by reverse engineering, which makes things difficult. The free driver for ATI video cards, called “radeon”, is much better in that regard although it often requires a non-free firmware."
-msgstr ""
+msgstr "Проект “nouveau” направлен на развитие свободного драйвера для карт nVidia. В состав <emphasis role=\"distribution\">Jessie</emphasis> не входят проприетарные драйверы. В защиту разработчиков надо сказать, что собрать необходимую информацию можно только путём обратной разработки, что весьма не просто. В этом плане свободный драйвер для видео карт ATI “radeon” намного лучше, хотя и требует несвободные прошивки."
 
+#, fuzzy
 msgid "<primary>ATI</primary>"
-msgstr ""
+msgstr "<primary>ATI</primary>"
 
+#, fuzzy
 msgid "<primary>nVidia</primary>"
-msgstr ""
+msgstr "<primary>nVidia</primary>"
 
 msgid "Customizing the Graphical Interface"
-msgstr ""
+msgstr "Настройка графического интерфейса"
 
 msgid "Choosing a Display Manager"
-msgstr ""
+msgstr "Выбор Менеджера Дисплеев"
 
 msgid "<primary>manager</primary><secondary>display</secondary>"
-msgstr ""
+msgstr "<primary>менеджер</primary><secondary>дисплеев</secondary>"
 
+#, fuzzy
 msgid "<primary><command>gdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>gdm</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>kdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>kdm</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>xdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>xdm</command></primary>"
 
 msgid "The graphical interface only provides display space. Running the X server by itself only leads to an empty screen, which is why most installations use a <emphasis>display manager</emphasis> to display a user authentication screen and start the graphical desktop once the user has authenticated. The three most popular display managers in current use are <emphasis role=\"pkg\">gdm3</emphasis> (<foreignphrase>GNOME Display Manager</foreignphrase>), <emphasis role=\"pkg\">kdm</emphasis> (<foreignphrase>KDE Display Manager</foreignphrase>) and <emphasis role=\"pkg\">lightdm</emphasis> (<foreignphrase>Light Display Manager</foreignphrase>). Since the Falcot Corp administrators have opted to use the GNOME desktop environment, they logically picked <command>gdm3</command> as a display manager too. The <filename>/etc/gdm3/daemon.conf</filename> configuration file has many options (the list can be found in the <filename>/usr/share/gdm/gdm.schemas</filename> schema file) to control its behaviour while <filename>/etc/gdm3/greeter.dconf-defaults</filename> contains settings for the greeter “session” (more than just a login window, it is a limited desktop with power management and accessibility related tools). Note that some of the most useful settings for end-users can be tweaked with GNOME's control center."
 msgstr ""
