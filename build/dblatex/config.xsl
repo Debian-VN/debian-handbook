@@ -194,6 +194,10 @@ actual page. By default the page is centered as required in this mode.
       <l:template name="page.citation" text=" page %p"/>
       <l:template name="sidebar" text="« %t »"/>
     </l:context>
+    <l:context name="xref-number">
+      <!-- Don't start with capital letter -->
+      <l:template name="table" text="tableau %n"/>
+    </l:context>
     <l:context name="xref-number-and-title">
       <!-- Don't start with capital letters -->
       <l:template name="chapter" text=" chapitre %n, « %t »"/>
