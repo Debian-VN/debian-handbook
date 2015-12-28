@@ -38,7 +38,7 @@ msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TU
 msgstr "Services réseau : Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
-msgstr "Les services réseau sont les programmes interagissant directement avec les utilisateurs dans leur travail quotidien. C'est la partie émergée de l'iceberg « système d'information » présentée dans ce chapitre. La partie immergée, l'infrastructure, sur laquelle ils s'appuient, reste en arrière-plan."
+msgstr "Les services réseau sont les programmes interagissant directement avec les utilisateurs dans leur travail quotidien. C'est la partie émergée de l'iceberg « système d'information » présentée dans ce chapitre. La partie immergée, l'infrastructure sur laquelle ils s'appuient, reste en arrière-plan."
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
 msgstr "De nombreux services réseau nécessitent une technologie de chiffrement pour fonctionner de manière fiable et sécurisée, tout particulièrement lorsqu'ils sont utilisés sur l'Internet public. Les certificats X.509 (que l'on connaît aussi sous l'appellation de certificats SSL ou certificats TLS) sont fréquemment utilisés à cet effet. Un certificat pour un domaine spécifique peut souvent être partagé entre plusieurs des services présentés dans ce chapitre."
@@ -101,7 +101,7 @@ msgid "<primary>server</primary><secondary>SMTP</secondary>"
 msgstr "<primary>serveur</primary><secondary>SMTP</secondary>"
 
 msgid "SMTP (<emphasis>Simple Mail Transfer Protocol</emphasis>) is the protocol used by mail servers to exchange and route emails."
-msgstr "SMTP (<emphasis>Simple Mail Transfer Protocol</emphasis>) est le protocole employé par les serveurs de messagerie pour s'échanger et router les courriers électroniques."
+msgstr "SMTP <emphasis>(Simple Mail Transfer Protocol)</emphasis> est le protocole employé par les serveurs de messagerie pour s'échanger et router les courriers électroniques."
 
 msgid "Several Debconf questions are asked during the installation of the package. The answers allow generating a first version of the <filename>/etc/postfix/main.cf</filename> configuration file."
 msgstr "Au cours de l'installation du paquet, plusieurs questions sont posées par l'intermédiaire de <command>debconf</command>. Les réponses permettront de générer un premier fichier <filename>/etc/postfix/main.cf</filename>."
@@ -113,10 +113,10 @@ msgid "<emphasis>VOCABULARY</emphasis> ISP"
 msgstr "<emphasis>VOCABULAIRE</emphasis> FAI"
 
 msgid "<primary>ISP, Internet Service Provider</primary>"
-msgstr "<primary>FAI, Fournisseur d'Accès à Internet</primary>"
+msgstr "<primary>FAI, Fournisseur d'accès à Internet</primary>"
 
 msgid "ISP is the acronym for “Internet Service Provider”. It covers an entity, often a commercial company, that provides Internet connections and the associated basic services (email, news and so on)."
-msgstr "FAI est l'abréviation de « Fournisseur d'Accès à Internet ». Il s'agit d'une entité (souvent société commerciale) qui fournit des connexions à Internet ainsi que les services de base associés (serveur de messagerie électronique, de news, etc.). Parmi les FAI français, on peut citer Free, Orange (ex-Wanadoo), SFR, AOL, FDN, etc. L'abréviation anglaise correspondante est ISP pour <foreignphrase>Internet Service Provider</foreignphrase>."
+msgstr "FAI est l'abréviation de « Fournisseur d'accès à Internet ». Il s'agit d'une entité (souvent société commerciale) qui fournit des connexions à Internet ainsi que les services de base associés (serveur de messagerie électronique, de news, etc.). Parmi les FAI français, on peut citer Free, Orange (ex-Wanadoo), SFR, AOL, FDN, etc. L'abréviation anglaise correspondante est ISP pour <foreignphrase>Internet Service Provider</foreignphrase>."
 
 msgid "The second question deals with the full name of the machine, used to generate email addresses from a local user name; the full name of the machine ends up as the part after the at-sign (“@”). In the case of Falcot, the answer should be <literal>mail.falcot.com</literal>. This is the only question asked by default, but the configuration it leads to is not complete enough for the needs of Falcot, which is why the administrators run <command>dpkg-reconfigure postfix</command> so as to be able to customize more parameters."
 msgstr "La deuxième question porte sur le nom complet de la machine, employé pour générer une adresse de courrier électronique depuis un nom d'utilisateur local (c'est la partie suivant l'arobase « <literal>@</literal> »). Pour Falcot, la réponse est <literal>mail.falcot.com</literal>. C'est la seule question posée en standard, mais elle ne suffit pas pour avoir une configuration satisfaisante, les administrateurs exécutent donc <command>dpkg-reconfigure postfix</command> afin de pouvoir personnaliser plus de paramètres."
@@ -253,10 +253,10 @@ msgid "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certific
 msgstr "<emphasis>SÉCURITÉ</emphasis> Certificat SSL <foreignphrase>snake oil</foreignphrase>"
 
 msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value: you cannot rely on them to authenticate the server since they are automatically generated self-signed certificates. However they are useful to improve the privacy of the exchanges."
-msgstr "L'expression anglaise <foreignphrase>snake oil</foreignphrase> pourrait se traduire par « poudre aux yeux ». Ces certificats présentent un intérêt limité : on ne peut pas s'appuyer sur eux pour authentifier le serveur car il s'agit de certificats auto-signés générés automatiquement. Cependant ils sont utiles pour améliorer la confidentialité des échanges."
+msgstr "L'expression anglaise <foreignphrase>snake oil</foreignphrase> pourrait se traduire par « poudre aux yeux ». Ces certificats présentent un intérêt limité : on ne peut pas s'appuyer sur eux pour authentifier le serveur car il s'agit de certificats auto signés générés automatiquement. Cependant, ils sont utiles pour améliorer la confidentialité des échanges."
 
 msgid "In general they should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
-msgstr "Ils ne devraient être utilisés qu'à des fins de test, en production on se doit d'utiliser de vrais certificats. Ces derniers pourront être générés par exemple en suivant la procédure décrite dans la <xref linkend=\"sect.easy-rsa\" />."
+msgstr "Ils ne devraient être utilisés qu'à des fins de test, en production on se doit d'utiliser de vrais certificats. Ces derniers pourront être générés, par exemple, en suivant la procédure décrite dans la <xref linkend=\"sect.easy-rsa\" />."
 
 msgid "Configuring Virtual Domains"
 msgstr "Configuration de domaines virtuels"
@@ -392,7 +392,7 @@ msgid "Restrictions for Receiving and Sending"
 msgstr "Restrictions à la réception et à l'envoi"
 
 msgid "The growing number of unsolicited bulk emails (<emphasis>spam</emphasis>) requires being increasingly strict when deciding which emails a server should accept. This section presents some of the strategies included in Postfix."
-msgstr "Avec le nombre croissant de messages non sollicités (<foreignphrase>spams</foreignphrase>), il est nécessaire d'être de plus en plus strict sur les messages que le serveur accepte. Cette section présente les différentes stratégies intégrées à Postfix."
+msgstr "Avec le nombre croissant de messages non sollicités <foreignphrase>(spams)</foreignphrase>, il est nécessaire d'être de plus en plus strict sur les messages que le serveur accepte. Cette section présente les différentes stratégies intégrées à Postfix."
 
 msgid "<emphasis>CULTURE</emphasis> The spam problem"
 msgstr "<emphasis>CULTURE</emphasis> Le problème du spam"
@@ -404,7 +404,7 @@ msgid "“Spam” is a generic term used to designate all the unsolicited commer
 msgstr "Le terme de spam désigne toutes les publicités non sollicitées (en anglais, on parle d'UCE — <foreignphrase>Unsolicited Commercial Email</foreignphrase>) qui inondent nos boîtes aux lettres électroniques et les spammeurs sont les gens sans scrupules qui les expédient. Peu leur importent les nuisances qu'ils causent, statistiquement il suffit qu'un très faible pourcentage de personnes se laissent tenter par leurs offres pour qu'ils rentrent dans leurs frais. Le coût d'expédition d'un message électronique est en effet très faible. Toute adresse électronique publique (par exemple, employée sur un forum web, apparaissant dans une archive de liste de diffusion, citée dans un blog, etc.) sera découverte par les robots des spammeurs et sera soumise à un flux incessant de messages non sollicités."
 
 msgid "All system administrators try to face this nuisance with spam filters, but of course spammers keep adjusting to try to work around these filters. Some even rent networks of machines compromised by a worm from various crime syndicates. Recent statistics estimate that up to 95% of all emails circulating on the Internet are spam!"
-msgstr "Face à ces nuisances, tous les administrateurs informatiques essaient de mettre en place des filtres anti-spam, mais les spammeurs cherchent sans arrêt à les contourner. Certains n'hésitent pas à faire appel aux services de réseaux mafieux contrôlant de nombreuses machines compromises par un ver. Les dernières statistiques estiment que 95% des courriers expédiés sont des spams !"
+msgstr "Face à ces nuisances, tous les administrateurs informatiques essaient de mettre en place des filtres anti-spam, mais les spammeurs cherchent sans arrêt à les contourner. Certains n'hésitent pas à faire appel aux services de réseaux mafieux contrôlant de nombreuses machines compromises par un ver. Les dernières statistiques estiment que 95 % des courriers expédiés sont des spams !"
 
 msgid "IP-Based Access Restrictions"
 msgstr "Restreindre l'accès en fonction de l'adresse IP"
@@ -449,7 +449,7 @@ msgid "The <filename>/etc/postfix/access_clientip</filename> table lists IP addr
 msgstr "La table <filename>/etc/postfix/access_clientip</filename> donne la liste des adresses IP et réseau. La table <filename>/etc/postfix/access_helo</filename> fournit celle des noms de machines et de domaines. Enfin, la table <filename>/etc/postfix/access_sender</filename> précise les adresses électroniques. Après toute modification, chacun de ces fichiers doit être transformé en table de hachage, c'est-à-dire en une forme optimisée pour les accès rapides, par la commande <command>postmap /etc/postfix/<replaceable>fichier</replaceable></command>."
 
 msgid "The third directive allows the administrator to set up a blacklist and a whitelist of email servers, stored in the <filename>/etc/postfix/access_clientip</filename> file. Servers in the whitelist are considered as trusted, and the emails coming from there therefore do not go through the following filtering rules."
-msgstr "La troisième directive permet à l'administrateur de mettre en place une liste noire et une liste blanche de serveurs de courriers électroniques, stockées dans le fichier <filename>/etc/postfix/access_clientip</filename>. Une liste blanche permet à l'administrateur de préciser les serveurs de confiance dispensés des règles suivantes."
+msgstr "La troisième directive permet à l'administrateur de mettre en place une liste noire et une liste blanche de serveurs de courrier électronique, stockées dans le fichier <filename>/etc/postfix/access_clientip</filename>. Une liste blanche permet à l'administrateur de préciser les serveurs de confiance dispensés des règles suivantes."
 
 msgid "The last two rules reject any message coming from a server listed in one of the indicated blacklists. RBL is an acronym for <emphasis>Remote Black List</emphasis>; there are several such lists, but they all list badly configured servers that spammers use to relay their emails, as well as unexpected mail relays such as machines infected with worms or viruses."
 msgstr "Les deux dernières règles de l'exemple refusent tout message provenant d'un serveur présent dans l'une des différentes listes noires indiquées (RBL signifie <foreignphrase>Remote Black Lists</foreignphrase>, ou listes noires distantes). Celles-ci recensent les machines mal configurées employées par les spammeurs pour relayer leur courrier, ainsi que les relais inhabituels que constituent des machines infectées par des vers ou virus ayant cet effet."
@@ -603,7 +603,7 @@ msgid "Applying Restrictions"
 msgstr "Application des restrictions"
 
 msgid "Although the above commands validate information at various stages of the SMTP exchange, Postfix only sends the actual rejection as a reply to the <literal>RCPT TO</literal> command."
-msgstr "Bien que toutes les règles évoquées ci-dessus soient prévues pour vérifier les informations à différents moments d'un échange SMTP, le refus réel n'est signifié par Postfix que lors de la réponse à la commande <literal>RCPT TO</literal> (annonce du destinataire)."
+msgstr "Bien que toutes les règles évoquées précédemment soient prévues pour vérifier les informations à différents moments d'un échange SMTP, le refus réel n'est signifié par Postfix que lors de la réponse à la commande <literal>RCPT TO</literal> (annonce du destinataire)."
 
 msgid "This means that even if the message is rejected due to an invalid <literal>EHLO</literal> command, Postfix knows the sender and the recipient when announcing the rejection. It can then log a more explicit message than it could if the transaction had been interrupted from the start. In addition, a number of SMTP clients do not expect failures on the early SMTP commands, and these clients will be less disturbed by this late rejection."
 msgstr "Ainsi, même si le message est refusé suite à une commande <literal>EHLO</literal> invalide, Postfix connaîtra l'émetteur et le destinataire lorsqu'il annoncera le refus. Il peut donc enregistrer un message de log plus explicite que s'il avait interrompu la connexion dès le début. De plus, beaucoup de clients SMTP ne s'attendent pas à subir un échec sur l'une des premières commandes du protocole SMTP et les clients mal programmés seront moins perturbés par ce refus tardif."
@@ -615,7 +615,7 @@ msgid "Filtering Based on the Message Contents"
 msgstr "Filtrer en fonction du contenu du message"
 
 msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying to the email headers from those applying to the email body."
-msgstr "Le système de vérification et de restriction ne serait pas complet sans moyen de réagir au contenu du message. <foreignphrase>Postfix</foreignphrase> distingue deux types de vérifications : sur les en-têtes du courrier et sur le corps du message."
+msgstr "Le système de vérification et de restriction ne serait pas complet sans moyen de réagir au contenu du message. Postfix distingue deux types de vérifications : sur les en-têtes du courrier et sur le corps du message."
 
 msgid "Enabling content-based filters"
 msgstr "Activation des filtres sur le contenu"
@@ -633,7 +633,7 @@ msgid "<primary>email</primary><secondary>filtering on contents</secondary>"
 msgstr "<primary>courrier électronique</primary><secondary>filtrage sur le contenu</secondary>"
 
 msgid "Both files contain a list of regular expressions (commonly known as <emphasis>regexps</emphasis> or <emphasis>regexes</emphasis>) and associated actions to be triggered when the email headers (or body) match the expression."
-msgstr "Les deux fichiers contiennent une liste d'expressions rationnelles (<foreignphrase>regexp</foreignphrase>). Chacune est associée à une action à exécuter si elle est satisfaite par les en-têtes ou le corps du message."
+msgstr "Les deux fichiers contiennent une liste d'expressions rationnelles <foreignphrase>(regexp)</foreignphrase>. Chacune est associée à une action à exécuter si elle est satisfaite par les en-têtes ou le corps du message."
 
 msgid "<emphasis>QUICK LOOK</emphasis> Regexp tables"
 msgstr "<emphasis>DÉCOUVERTE</emphasis> Tables <foreignphrase>regexp</foreignphrase>"
@@ -707,7 +707,7 @@ msgid "Theoretically, greylisting should only delay the first mail from a given 
 msgstr "En théorie, le greylisting ne retarde que le premier courriel d'un expéditeur donné pour un destinataire donné et le délai est de l'ordre de quelques minutes à quelques dizaines de minutes. Cependant, la réalité n'est pas toujours si simple. En effet, certains gros fournisseurs d'accès emploient plusieurs serveurs SMTP en grappe et après le premier refus, rien ne garantit que le même serveur effectue la deuxième tentative. Si ce n'est pas le cas, la deuxième tentative échouera à nouveau et, au lieu d'un délai de quelques minutes, on peut constater des délais de plusieurs heures (jusqu'à ce que l'on retombe sur un serveur qui avait déjà essayé) car à chaque nouvelle erreur, le serveur SMTP augmente le délai d'attente avant le prochain essai."
 
 msgid "As a consequence, the incoming IP address may vary in time even for a single sender. But it goes further: even the sender address can change. For instance, many mailing-list servers encode extra information in the sender address so as to be able to handle error messages (known as <emphasis>bounces</emphasis>). Each new message sent to a mailing-list may then need to go through greylisting, which means it has to be stored (temporarily) on the sender's server. For very large mailing-lists (with tens of thousands of subscribers), this can soon become a problem."
-msgstr "Ainsi donc, l'adresse IP entrante pour un expéditeur donné n'est pas forcément fixe dans le temps. De même, l'adresse d'un expéditeur donné n'est pas forcément fixe non plus. De nombreux logiciels de listes de diffusion encodent des informations dans l'adresse de l'expéditeur afin de traiter de manière automatisée les retours d'erreurs (<foreignphrase>bounces</foreignphrase>). Chaque nouveau message d'une liste de diffusion peut devoir repasser par le filtre du greylisting, ce qui implique à l'émetteur de le stocker. Pour les très grosses listes avec des dizaines de milliers d'abonnés, cela peut rapidement devenir problématique."
+msgstr "Ainsi donc, l'adresse IP entrante pour un expéditeur donné n'est pas forcément fixe dans le temps. De même, l'adresse d'un expéditeur donné n'est pas forcément fixe non plus. De nombreux logiciels de listes de diffusion encodent des informations dans l'adresse de l'expéditeur afin de traiter de manière automatisée les retours d'erreurs <foreignphrase>(bounces)</foreignphrase>. Chaque nouveau message d'une liste de diffusion peut devoir repasser par le filtre du greylisting, ce qui implique à l'émetteur de le stocker. Pour les très grosses listes avec des dizaines de milliers d'abonnés, cela peut rapidement devenir problématique."
 
 msgid "To mitigate these drawbacks, Postgrey manages a whitelist of such sites, and messages emanating from them are immediately accepted without going through greylisting. This list can easily be adapted to local needs, since it is stored in the <filename>/etc/postgrey/whitelist_clients</filename> file."
 msgstr "Pour ces raisons, Postgrey dispose d'une liste blanche de sites correspondant à ces caractéristiques. Pour ceux-là, il répond d'accepter le message immédiatement. Il est possible de la personnaliser en éditant le fichier <filename>/etc/postgrey/whitelist_clients</filename>."
@@ -722,7 +722,7 @@ msgid "In that scenario, since DNS blacklists never triggers a definitive reject
 msgstr "Dans ce scénario, comme les listes noires DNS ne déclenchent aucun refus définitif, il est possible d'employer des listes noires DNS assez agressives et notamment celles qui listent toutes les adresses IP dynamiques des clients des fournisseurs d'accès, comme <literal>pbl.spamhaus.org</literal> ou <literal>dul.dnsbl.sorbs.net</literal>."
 
 msgid "Since milter-greylist uses Sendmail's milter interface, the postfix side of its configuration is limited to “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. The <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page documents <filename>/etc/milter-greylist/greylist.conf</filename> and the numerous ways to configure milter-greylist. You will also have to edit <filename>/etc/default/milter-greylist</filename> to actually enable the service."
-msgstr "Comme <emphasis role=\"pkg\">milter-greylist</emphasis> utilise l'interface standard de <emphasis>milter</emphasis> définie par Sendmail, la configuration du côté Postfix des choses se limite à <literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>.  La page de manuel <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> documente le fichier <filename>/etc/milter-greylist/greylist.conf</filename> et les différentes façons de configurer <emphasis role=\"pkg\">milter-greylist</emphasis>. Il faut aussi éditer le fichier <filename>/etc/default/milter-greylist</filename> pour activer le service."
+msgstr "Comme <emphasis role=\"pkg\">milter-greylist</emphasis> utilise l'interface standard de <emphasis>milter</emphasis> définie par Sendmail, la configuration au niveau de Postfix se limite à <literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>.  La page de manuel <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> documente le fichier <filename>/etc/milter-greylist/greylist.conf</filename> et les différentes façons de configurer <emphasis role=\"pkg\">milter-greylist</emphasis>. Il faut aussi éditer le fichier <filename>/etc/default/milter-greylist</filename> pour activer le service."
 
 msgid "Customizing Filters Based On the Recipient"
 msgstr "Personnalisation des filtres en fonction du destinataire"
@@ -787,7 +787,7 @@ msgstr ""
 "# Filtrage agressif pour quelques privilégiés\n"
 "joe@falcot.com         aggressive\n"
 "\n"
-"# Règle spéciale pour le robot de gestion de liste\n"
+"# Règle spéciale pour le robot de gestion de listes\n"
 "sympa@falcot.com       reject_unverified_sender\n"
 "\n"
 "# Par défaut, le greylisting\n"
@@ -812,7 +812,7 @@ msgid "<primary><command>clamav-milter</command></primary>"
 msgstr "<primary><command>clamav-milter</command></primary>"
 
 msgid "The task of interfacing between antivirus and the email server goes to <command>clamav-milter</command>. A <emphasis>milter</emphasis> (short for <emphasis>mail filter</emphasis>) is a filtering program specially designed to interface with email servers. A milter uses a standard application programming interface (API) that provides much better performance than filters external to the email servers. Milters were initially introduced by <emphasis>Sendmail</emphasis>, but <emphasis>Postfix</emphasis> soon followed suit."
-msgstr "Pour interfacer cet antivirus au serveur de messagerie, on emploiera le logiciel <command>clamav-milter</command>. Un <emphasis>milter</emphasis> (terme dérivé de l'expression <foreignphrase>mail filter</foreignphrase>) est un logiciel de filtrage de courriers spécialement conçu pour s'interfacer avec les serveurs de courriers électroniques. Les <emphasis>milters</emphasis> exploitent une interface de programmation (API) dédiée qui assure de bien meilleures performances comparé aux filtres gérés en dehors des serveurs de courriers. <emphasis>Sendmail</emphasis> a été le premier à introduire cette technologie mais <emphasis>Postfix</emphasis> lui a emboîté le pas."
+msgstr "Pour interfacer cet antivirus au serveur de messagerie, on emploiera le logiciel <command>clamav-milter</command>. Un <emphasis>milter</emphasis> (terme dérivé de l'expression <foreignphrase>mail filter</foreignphrase>) est un logiciel de filtrage de courriers spécialement conçu pour s'interfacer avec les serveurs de courrier électronique. Les <emphasis>milters</emphasis> exploitent une interface de programmation (API) dédiée qui assure de bien meilleures performances comparé aux filtres gérés en dehors des serveurs de courrier. <emphasis>Sendmail</emphasis> a été le premier à introduire cette technologie mais <emphasis>Postfix</emphasis> lui a emboîté le pas."
 
 msgid "<emphasis>QUICK LOOK</emphasis> A milter for Spamassassin"
 msgstr "<emphasis>DÉCOUVERTE</emphasis> Un milter pour Spamassassin"
@@ -821,7 +821,7 @@ msgid "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
 
 msgid "The <emphasis role=\"pkg\">spamass-milter</emphasis> package provides a milter based on <emphasis>SpamAssassin</emphasis>, the famous unsolicited email detector. It can be used to flag messages as probable spams (by adding an extra header) and/or to reject the messages altogether if their “spamminess” score goes beyond a given threshold."
-msgstr "Le paquet <emphasis role=\"pkg\">spamass-milter</emphasis> contient un filtre basé sur le célèbre logiciel de détection de courriels non-sollicités <emphasis>SpamAssassin</emphasis>. Il peut être employé pour marquer les messages comme des spams probables (en ajoutant un en-tête supplémentaire) et/ou pour les rejeter si le score du message dépasse une certaine limite."
+msgstr "Le paquet <emphasis role=\"pkg\">spamass-milter</emphasis> contient un filtre basé sur le célèbre logiciel de détection de courriels non sollicités <emphasis>SpamAssassin</emphasis>. Il peut être employé pour marquer les messages comme des spams probables (en ajoutant un en-tête supplémentaire) et/ou pour les rejeter si le score du message dépasse une certaine limite."
 
 msgid "Once the <emphasis role=\"pkg\">clamav-milter</emphasis> package is installed, the milter should be reconfigured to run on a TCP port rather than on the default named socket. This can be achieved with <command>dpkg-reconfigure clamav-milter</command>. When prompted for the “Communication interface with Sendmail”, answer “<literal>inet:10002@127.0.0.1</literal>”."
 msgstr "Une fois le paquet <emphasis role=\"pkg\">clamav-milter</emphasis> installé, le milter devrait être reconfiguré pour utiliser un port TCP plutôt que la socket nommée proposée par défaut. Lors de l'exécution de <command>dpkg-reconfigure clamav-milter</command>, il s'agit de répondre <literal>inet:10002@127.0.0.1</literal> à la question portant sur l'interface de communication avec Sendmail."
@@ -866,10 +866,10 @@ msgid "Authenticated SMTP"
 msgstr "SMTP authentifié"
 
 msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, this may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
-msgstr "Pour être capable d'envoyer des courriers électroniques, il faut pouvoir accéder à un serveur SMTP et il faut que ce dernier vous y autorise. Lorsqu'on est itinérant, cela nécessite de changer régulièrement de serveur SMTP puisque le serveur SMTP de Falcot ne va pas accepter de relayer des messages de la part d'une adresse IP apparemment extérieure à l'entreprise. Il y a deux solutions : soit l'itinérant installe son propre serveur de courrier sur son ordinateur, soit il continue d'utiliser le serveur SMTP de l'entreprise mais il s'authentifie au préalable comme étant un employé de la société. La première solution n'est pas conseillée car l'ordinateur n'est pas connecté en permanence et il ne peut donc pas essayer régulièrement de réémettre en cas de problème. Nous allons donc voir comment mettre en place la seconde."
+msgstr "Pour être capable d'envoyer des courriers électroniques, il faut pouvoir accéder à un serveur SMTP et il faut que ce dernier vous y autorise. Lorsqu'on est itinérant, cela nécessite de changer régulièrement de serveur SMTP puisque celui de Falcot ne va pas accepter de relayer des messages de la part d'une adresse IP apparemment extérieure à l'entreprise. Il y a deux solutions : soit l'itinérant installe son propre serveur de courrier sur son ordinateur, soit il continue d'utiliser le serveur SMTP de l'entreprise mais il s'authentifie au préalable comme étant un employé de la société. La première solution n'est pas conseillée car l'ordinateur n'est pas connecté en permanence et il ne peut donc pas essayer régulièrement de réémettre en cas de problème. Nous allons donc voir comment mettre en place la seconde."
 
 msgid "SMTP authentication in Postfix relies on SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). It requires installing the <emphasis role=\"pkg\">libsasl2-modules</emphasis> and <emphasis role=\"pkg\">sasl2-bin</emphasis> packages, then registering a password in the SASL database for each user that needs authenticating on the SMTP server. This is done with the <command>saslpasswd2</command> command, which takes several parameters. The <literal>-u</literal> option defines the authentication domain, which must match the <literal>smtpd_sasl_local_domain</literal> parameter in the Postfix configuration. The <literal>-c</literal> option allows creating a user, and <literal>-f</literal> allows specifying the file to use if the SASL database needs to be stored at a different location than the default (<filename>/etc/sasldb2</filename>)."
-msgstr "L'authentification SMTP de Postfix s'appuie sur SASL (<foreignphrase>Simple Authentication and Security Layer</foreignphrase>). Il faut installer les paquets <emphasis role=\"pkg\">libsasl2-modules</emphasis> et <emphasis role=\"pkg\">sasl2-bin</emphasis>, puis il convient d'enregistrer un mot de passe dans la base SASL pour chaque utilisateur qui doit pouvoir s'authentifier sur le serveur SMTP. On utilise pour cela la commande <command>saslpasswd2</command>. L'option <literal>-u</literal> précise le domaine d'authentification, il doit correspondre au paramètre <literal>smtpd_sasl_local_domain</literal> de Postfix. L'option <literal>-c</literal> sert à créer un utilisateur et l'option <literal>-f</literal> permet de modifier une base SASL située ailleurs qu'à son emplacement standard (<filename>/etc/sasldb2</filename>)."
+msgstr "L'authentification SMTP de Postfix s'appuie sur SASL <foreignphrase>(Simple Authentication and Security Layer)</foreignphrase>. Il faut installer les paquets <emphasis role=\"pkg\">libsasl2-modules</emphasis> et <emphasis role=\"pkg\">sasl2-bin</emphasis>, puis il convient d'enregistrer un mot de passe dans la base SASL pour chaque utilisateur qui doit pouvoir s'authentifier sur le serveur SMTP. On utilise pour cela la commande <command>saslpasswd2</command>. L'option <literal>-u</literal> précise le domaine d'authentification, il doit correspondre au paramètre <literal>smtpd_sasl_local_domain</literal> de Postfix. L'option <literal>-c</literal> sert à créer un utilisateur et l'option <literal>-f</literal> permet de modifier une base SASL située ailleurs qu'à son emplacement standard (<filename>/etc/sasldb2</filename>)."
 
 msgid ""
 "\n"
@@ -971,7 +971,7 @@ msgid "<emphasis>ALTERNATIVE</emphasis> Other web servers"
 msgstr "<emphasis>ALTERNATIVE</emphasis> Autres serveurs web"
 
 msgid "Apache is merely the most widely-known (and widely-used) web server, but there are others; they can offer better performance under certain workloads, but this has its counterpart in the smaller number of available features and modules. However, when the prospective web server is built to serve static files or to act as a proxy, the alternatives, such as <emphasis role=\"pkg\">nginx</emphasis> and <emphasis role=\"pkg\">lighttpd</emphasis>, are worth investigating."
-msgstr "Apache n'est que le plus connu et le plus répandu des serveurs web, mais il en existe d'autres, qui peuvent offrir de meilleures performances dans certains cas d'usage, le plus souvent au détriment de la quantité de fonctions et modules disponibles. Lorsqu'il s'agit de servir des fichiers statiques, ou d'agir en serveur mandataire (<foreignphrase>proxy</foreignphrase>), il est judicieux de s'intéresser à ces alternatives, parmi lesquelles on peut citer Nginx et lighttpd."
+msgstr "Apache n'est que le plus connu et le plus répandu des serveurs web, mais il en existe d'autres, qui peuvent offrir de meilleures performances dans certains cas d'usage, le plus souvent au détriment de la quantité de fonctions et modules disponibles. Lorsqu'il s'agit de servir des fichiers statiques, ou d'agir en serveur mandataire <foreignphrase>(proxy)</foreignphrase>, il est judicieux de s'intéresser à ces alternatives, parmi lesquelles on peut citer Nginx et lighttpd."
 
 msgid "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
@@ -1001,7 +1001,7 @@ msgid "<primary>suexec</primary>"
 msgstr "<primary>suexec</primary>"
 
 msgid "By default, Apache handles incoming requests under the identity of the <literal>www-data</literal> user. This means that a security vulnerability in a CGI script executed by Apache (for a dynamic page) won't compromise the whole system, but only the files owned by this particular user."
-msgstr "Par défaut, Apache traite les requêtes entrantes en tant qu'utilisateur <literal>www-data</literal>. De la sorte, une faille de sécurité dans un script CGI exécuté par Apache (pour une page dynamique) ne compromet pas tout le système, mais seulement les données possédées par cet utilisateur."
+msgstr "Par défaut, Apache traite les requêtes entrantes en tant qu'utilisateur <literal>www-data</literal>. Ainsi, une faille de sécurité dans un script CGI exécuté par Apache (pour une page dynamique) ne compromet pas tout le système, mais seulement les données possédées par cet utilisateur."
 
 msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule so that some CGI scripts are executed under the identity of another user. This is configured with a <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> directive in the Apache configuration."
 msgstr "L'usage du module <emphasis>suexec</emphasis> permet de changer cette règle afin que certains CGI soient exécutés avec les droits d'un autre utilisateur. Cela se paramètre avec la directive <literal>SuexecUserGroup <replaceable>utilisateur</replaceable> <replaceable>groupe</replaceable></literal> dans la configuration de Apache."
@@ -1055,10 +1055,10 @@ msgid "Apache considers two different kinds of virtual hosts: those that are bas
 msgstr "Apache distingue deux types d'hôtes virtuels : ceux qui se basent sur l'adresse IP (ou le port) et ceux qui reposent sur le nom DNS du serveur web. La première méthode nécessite une adresse IP différente pour chaque site tandis que la seconde n'emploie qu'une adresse IP et différencie les sites par le nom d'hôte communiqué par le client HTTP (ce qui ne fonctionne qu'avec la version 1.1 du protocole HTTP, heureusement déjà employée par tous les navigateurs web)."
 
 msgid "The (increasing) scarcity of IPv4 addresses usually favors the second method; however, it is made more complex if the virtual hosts need to provide HTTPS too, since the SSL protocol hasn't always provided for name-based virtual hosting; the SNI extension (<emphasis>Server Name Indication</emphasis>) that allows such a combination is not handled by all browsers. When several HTTPS sites need to run on the same server, they will usually be differentiated either by running on a different port or on a different IP address (IPv6 can help there)."
-msgstr "La rareté (de plus en plus pressante) des adresses IPv4 fait en général privilégier cette deuxième méthode. Elle est cependant complexifiée si chacun des hôtes virtuels a besoin de HTTPS : le protocole SSL n'a pas toujours permis ce fonctionnement et l'extension SNI (<foreignphrase>Server Name Indication</foreignphrase>) qui le rend possible n'est pas connue de tous les navigateurs. Si plusieurs sites HTTPS doivent fonctionner sur un même serveur, on préférera donc les différencier soit par leur port, soit par leur adresse IP (en utilisant éventuellement IPv6)."
+msgstr "La rareté (de plus en plus pressante) des adresses IPv4 fait en général privilégier cette deuxième méthode. Elle est cependant complexifiée si chacun des hôtes virtuels a besoin de HTTPS : le protocole SSL n'a pas toujours permis ce fonctionnement et l'extension SNI <foreignphrase>(Server Name Indication)</foreignphrase> qui le rend possible n'est pas connue de tous les navigateurs. Si plusieurs sites HTTPS doivent fonctionner sur un même serveur, on préférera donc les différencier soit par leur port, soit par leur adresse IP (en utilisant éventuellement IPv6)."
 
 msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
-msgstr "La configuration par défaut d'Apache 2 exploite les hôtes virtuels basés sur le nom. En plus un hôte virtuel par défaut a été défini dans le fichier <literal>/etc/apache2/sites-enabled/000-default.conf</literal>. Cet hôte virtuel sera employé si aucun autre hôte virtuel ne correspond à la requête du client."
+msgstr "La configuration par défaut d'Apache 2 exploite les hôtes virtuels basés sur le nom. De plus, un hôte virtuel par défaut a été défini dans le fichier <literal>/etc/apache2/sites-enabled/000-default.conf</literal>. Cet hôte virtuel sera employé si aucun autre hôte virtuel ne correspond à la requête du client."
 
 msgid "<emphasis>CAUTION</emphasis> First virtual host"
 msgstr "<emphasis>ATTENTION</emphasis> Premier hôte virtuel"
@@ -1073,7 +1073,7 @@ msgid "<primary>Server Name Indication</primary>"
 msgstr "<primary><foreignphrase>Server Name Indication</foreignphrase></primary>"
 
 msgid "The Apache server supports an SSL protocol extension called <emphasis>Server Name Indication</emphasis> (SNI). This extension allows the browser to send the hostname of the web server during the establishment of the SSL connection, much earlier than the HTTP request itself, which was previously used to identify the requested virtual host among those hosted on the same server (with the same IP address and port). This allows Apache to select the most appropriate SSL certificate for the transaction to proceed."
-msgstr "Apache prend en charge une extension du protocole SSL appelée <foreignphrase>Server Name Indication</foreignphrase> (SNI). Elle permet au navigateur web d'envoyer le nom d'hôte du serveur web dès l'établissement de la connexion SSL, donc bien avant l'envoi de la requête HTTP qui sert habituellement à identifier le bon site web parmi tous les hôtes virtuels hébergés sur le même serveur (et la même adresse IP). Ainsi Apache peut sélectionner le certificat SSL adéquat pour la communication."
+msgstr "Apache prend en charge une extension du protocole SSL appelée <foreignphrase>Server Name Indication</foreignphrase> (SNI). Elle permet au navigateur web d'envoyer le nom d'hôte du serveur web dès l'établissement de la connexion SSL, donc bien avant l'envoi de la requête HTTP qui sert habituellement à identifier le bon site web parmi tous les hôtes virtuels hébergés sur le même serveur (et la même adresse IP). Ainsi, Apache peut sélectionner le certificat SSL adéquat pour la communication."
 
 msgid "Before SNI, Apache would always use the certificate defined in the default virtual host. Clients trying to access another virtual host would then display warnings, since the certificate they received didn't match the website they were trying to access. Fortunately, most browsers now work with SNI; this includes Microsoft Internet Explorer starting with version 7.0 (starting on Vista), Mozilla Firefox starting with version 2.0, Apple Safari since version 3.2.1, and all versions of Google Chrome."
 msgstr "Avant l'introduction de SNI, Apache employait systématiquement le certificat de l'hôte virtuel par défaut. Lorsque le certificat ne correspondait pas au site web demandé, les navigateurs affichaient donc des avertissements. Notons que ce comportement persiste lorsque l'utilisateur dispose d'un navigateur n'acceptant pas SNI. Fort heureusement la plupart des navigateurs l'exploitent désormais ; c'est le cas de Microsoft Internet Explorer depuis sa version 7.0 (sur Vista seulement, pas XP), de Mozilla Firefox depuis sa version 2.0, de Apple Safari depuis sa version 3.2.1 et de toutes les versions de Google Chrome."
@@ -1085,7 +1085,7 @@ msgid "Care should also be taken to ensure that the configuration for the first 
 msgstr "On veillera également à ce que le premier hôte virtuel (celui par défaut) dispose bien d'une configuration autorisant TLSv1 (et donc SSL). En effet, c'est toujours les paramètres du premier hôte virtuel qui sont utilisés pour établir la connexion et il faut qu'ils la permettent !"
 
 msgid "Each extra virtual host is then described by a file stored in <filename>/etc/apache2/sites-available/</filename>. Setting up a website for the <literal>falcot.org</literal> domain is therefore a simple matter of creating the following file, then enabling the virtual host with <command>a2ensite www.falcot.org</command>."
-msgstr "Chaque hôte virtuel supplémentaire est ensuite décrit par un fichier placé dans le répertoire <filename>/etc/apache2/sites-available/</filename>. Ainsi, la mise en place du domaine <literal>falcot.org</literal> se résume à créer le fichier ci-dessous puis à l'activer avec <command>a2ensite www.falcot.org</command>."
+msgstr "Chaque hôte virtuel supplémentaire est ensuite décrit par un fichier placé dans le répertoire <filename>/etc/apache2/sites-available/</filename>. Ainsi, la mise en place du domaine <literal>falcot.org</literal> se résume à créer le fichier ci-dessous, puis à l'activer avec <command>a2ensite www.falcot.org</command>."
 
 msgid "The <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename> file"
 msgstr "Fichier <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename>"
@@ -1202,7 +1202,7 @@ msgid "<primary><filename>.htaccess</filename></primary>"
 msgstr "<primary><filename>.htaccess</filename></primary>"
 
 msgid "Most of the directives that can occur in a <literal>Directory</literal> block are also legal in a <filename>.htaccess</filename> file."
-msgstr "La plupart des directives qu'on peut placer dans un bloc <literal>Directory</literal> peuvent également se trouver dans un fichier <filename>.htaccess</filename>."
+msgstr "La plupart des directives qu'on peut placer dans un bloc <literal>Directory</literal> peut également se trouver dans un fichier <filename>.htaccess</filename>."
 
 msgid "The <literal>AllowOverride</literal> directive lists all the options that can be enabled or disabled by way of a <filename>.htaccess</filename> file. A common use of this option is to restrict <literal>ExecCGI</literal>, so that the administrator chooses which users are allowed to run programs under the web server's identity (the <literal>www-data</literal> user)."
 msgstr "La directive <literal>AllowOverride</literal> donne toutes les options qu'on peut activer ou désactiver par l'intermédiaire d'un fichier <filename>.htaccess</filename>. Il est souvent important de contrôler l'option <literal>ExecCGI</literal> pour rester maître des utilisateurs autorisés à exécuter un programme au sein du serveur web (sous l'identifiant <literal>www-data</literal>)."
@@ -1464,7 +1464,7 @@ msgid "FTP File Server"
 msgstr "Serveur de fichiers FTP"
 
 msgid "<primary>FTP (<emphasis>File Transfer Protocol</emphasis>)</primary>"
-msgstr "<primary>FTP (<foreignphrase>File Transfer Protocol</foreignphrase>)</primary>"
+msgstr "<primary>FTP <foreignphrase>(File Transfer Protocol)</foreignphrase></primary>"
 
 msgid "FTP (<emphasis>File Transfer Protocol</emphasis>) is one of the first protocols of the Internet (RFC 959 was issued in 1985!). It was used to distribute files before the Web was even born (the HTTP protocol was created in 1990, and formally defined in its 1.0 version by RFC 1945, issued in 1996)."
 msgstr "Le protocole de transfert de fichiers FTP (<foreignphrase>File Transfer Protocol</foreignphrase>) est un des premiers protocoles d'Internet (la RFC 959 date de 1985 !). Il a servi à diffuser des fichiers avant même l'invention du Web (la RFC 1945 décrivant le protocole HTTP/1.0 date de 1996 mais ce dernier existait depuis 1990)."
@@ -1488,7 +1488,7 @@ msgid "NFS File Server"
 msgstr "Serveur de fichiers NFS"
 
 msgid "NFS (<emphasis>Network File System</emphasis>) is a protocol allowing remote access to a filesystem through the network. All Unix systems can work with this protocol; when Windows systems are involved, Samba must be used instead."
-msgstr "NFS (<foreignphrase>Network File System</foreignphrase>) est un protocole qui permet d'accéder à un système de fichiers à distance par le réseau, pris en charge par tous les systèmes Unix. Pour Windows, il faudra employer Samba."
+msgstr "NFS <foreignphrase>(Network File System)</foreignphrase> est un protocole qui permet d'accéder à un système de fichiers à distance par le réseau, pris en charge par tous les systèmes Unix. Pour Windows, il faudra employer Samba."
 
 msgid "<primary>NFS</primary>"
 msgstr "<primary>NFS</primary>"
@@ -1521,7 +1521,7 @@ msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>sécurité</secondary>"
 
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr "Si les fonctionnalités de sécurité de Kerberos ne sont pas utilisées, il faut s'assurer que seules les machines autorisées à l'employer peuvent se connecter aux différents serveurs RPC qui lui permettent de fonctionner, car le protocole de base considère les données reçues du réseau comme des données sûres. Le pare-feu doit donc prohiber l'usurpation d'adresse IP (<foreignphrase>IP spoofing</foreignphrase>) pour qu'une machine extérieure ne puisse pas se faire passer pour une machine intérieure, et les différents ports employés doivent être restreints aux machines devant accéder aux partages NFS."
+msgstr "Si les fonctionnalités de sécurité de Kerberos ne sont pas utilisées, il faut s'assurer que seules les machines autorisées à l'employer peuvent se connecter aux différents serveurs RPC qui lui permettent de fonctionner, car le protocole de base considère les données reçues du réseau comme des données sûres. Le pare-feu doit donc interdire l'usurpation d'adresse IP <foreignphrase>(IP spoofing)</foreignphrase> pour qu'une machine extérieure ne puisse pas se faire passer pour une machine intérieure, et les différents ports employés doivent être restreints aux machines devant accéder aux partages NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
 msgstr "<emphasis>B.A.-BA</emphasis> RPC"
@@ -1567,13 +1567,13 @@ msgstr ""
 "/repertoire/a/partager machine1(option1,option2,...) machine2(...) ...\n"
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identified with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
-msgstr "Il est important de remarquer qu'avec NFSv4, tous les répertoires exportés doivent faire partie d'une seule et même arborescence, et que le répertoire racine de cette arborescence doit être exportée et identifiée avec l'option <literal>fsid=0</literal> ou <literal>fsid=root</literal>."
+msgstr "Il est important de remarquer qu'avec NFSv4, tous les répertoires exportés doivent faire partie d'une seule et même arborescence, et que le répertoire racine de cette arborescence doit être exporté et identifié avec l'option <literal>fsid=0</literal> ou <literal>fsid=root</literal>."
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr "Chaque machine est identifiée par son nom DNS ou son adresse IP. Il est aussi possible de spécifier un ensemble de machines en employant la syntaxe <literal>*.falcot.com</literal> ou en décrivant une plage complète d'adresses IP (exemples : <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal>)."
 
 msgid "Directories are made available as read-only by default (or with the <literal>ro</literal> option). The <literal>rw</literal> option allows read-write access. NFS clients typically connect from a port restricted to root (in other words, below 1024); this restriction can be lifted by the <literal>insecure</literal> option (the <literal>secure</literal> option is implicit, but it can be made explicit if needed for clarity)."
-msgstr "Par défaut, un partage n'est accessible qu'en lecture seule (option <literal>ro</literal> comme <foreignphrase>read only</foreignphrase>). L'option <literal>rw</literal> (comme <foreignphrase>read-write</foreignphrase>) donne un accès en lecture/écriture. Les clients NFS doivent se connecter depuis un port réservé à root (c'est-à-dire inférieur à 1 024) à moins que l'option <literal>insecure</literal> (pas sûr) n'ait été employée (l'option <literal>secure</literal> — sûr — est implicite en l'absence de <literal>insecure</literal>, mais on peut quand même la mentionner)."
+msgstr "Par défaut, un partage n'est accessible qu'en lecture seule (option <literal>ro</literal> comme <foreignphrase>read only</foreignphrase>). L'option <literal>rw</literal> (comme <foreignphrase>read-write</foreignphrase>) donne un accès en lecture/écriture. Les clients NFS doivent se connecter depuis un port réservé à root (c'est-à-dire inférieur à 1 024) à moins que l'option <literal>insecure</literal> (« pas sûr ») n'ait été employée (l'option <literal>secure</literal> — « sûr » — est implicite en l'absence de <literal>insecure</literal>, mais on peut quand même la mentionner)."
 
 msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgstr "<primary>NFS</primary><secondary>options</secondary>"
@@ -1678,7 +1678,7 @@ msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
 msgstr "<emphasis>DOCUMENTATION</emphasis> Pour aller plus loin"
 
 msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
-msgstr "Le serveur Samba est extrêmement configurable et peut répondre à de très nombreux cas d'utilisation correspondant à des besoins et des architectures réseau très différents. Le cas traité dans ce livre utilise Samba comme serveur autonome, mais il peut très bien être un contrôleur de domaine NT4 ou un contrôleur de domaine basé sur Active Directory, ou un simple membre d'un domaine existant (qui pourrait être géré par un serveur Windows)."
+msgstr "Le serveur Samba est extrêmement configurable et peut répondre à de très nombreux cas d'utilisation correspondant à des besoins et des architectures réseau très différents. Le cas traité dans ce livre utilise Samba comme serveur autonome, mais il peut très bien être un contrôleur de domaine NT4 ou un contrôleur de domaine basé sur Active Directory, ou encore un simple membre d'un domaine existant (qui pourrait être géré par un serveur Windows)."
 
 msgid "<primary>domain controller</primary>"
 msgstr "<primary>contrôleur de domaine</primary>"
@@ -1802,7 +1802,7 @@ msgid "Adding Users"
 msgstr "Ajout des utilisateurs"
 
 msgid "Each Samba user needs an account on the server; the Unix accounts must be created first, then the user needs to be registered in Samba's database. The Unix step is done quite normally (using <command>adduser</command> for instance)."
-msgstr "Chaque utilisateur de Samba ayant besoin d'un compte sur le serveur, il faut créer les comptes Unix puis enregistrer chaque utilisateur dans la base de données de Samba. La création des comptes Unix se fait tout à fait normalement (avec la commande <command>adduser</command> par exemple)."
+msgstr "Chaque utilisateur de Samba ayant besoin d'un compte sur le serveur, il faut créer les comptes Unix puis enregistrer chaque utilisateur dans la base de données de Samba. La création des comptes Unix se réalise tout à fait normalement (avec la commande <command>adduser</command> par exemple)."
 
 msgid "Adding an existing user to the Samba database is a matter of running the <command>smbpasswd -a <replaceable>user</replaceable></command> command; this command asks for the password interactively."
 msgstr "L'ajout d'un utilisateur existant dans la base de données de Samba s'effectue par la commande <command>smbpasswd -a <replaceable>utilisateur</replaceable></command>, qui demande le mot de passe interactivement."
@@ -1891,7 +1891,7 @@ msgid "Here are the required steps:"
 msgstr "Voici les étapes à suivre :"
 
 msgid "Enter the CUPS configuration interface: <literal>http://localhost:631/admin</literal>"
-msgstr "Entrer dans l'interface de configuration de CUPS : <literal>http://localhost:631/admin</literal>"
+msgstr "Entrer dans l'interface de configuration de CUPS : <literal>http://localhost:631/admin</literal>."
 
 msgid "Click on “Add Printer”."
 msgstr "Cliquer sur « Ajouter une imprimante »."
@@ -1985,7 +1985,7 @@ msgid "Configuring a Filter"
 msgstr "Configuration d'un filtre"
 
 msgid "<command>squid</command> itself does not perform the filtering; this action is delegated to <command>squidGuard</command>. The former must then be configured to interact with the latter. This involves adding the following directive to the <filename>/etc/squid3/squid.conf</filename> file:"
-msgstr "Le filtrage des requêtes n'est pas effectué par <command>squid</command> mais par <command>squidGuard</command>. Il faut donc configurer <command>squid</command> pour qu'il interagisse avec ce dernier, ce qui s'effectue en ajoutant au fichier <filename>/etc/squid3/squid.conf</filename> la directive ci-dessous :"
+msgstr "Le filtrage des requêtes n'est pas effectué par <command>squid</command> mais par <command>squidGuard</command>. Il faut donc configurer <command>squid</command> pour qu'il interagisse avec ce dernier, ce qui s'effectue en ajoutant au fichier <filename>/etc/squid3/squid.conf</filename> la directive suivante :"
 
 msgid "<primary><command>squidGuard</command></primary>"
 msgstr "<primary><command>squidGuard</command></primary>"
@@ -2004,7 +2004,7 @@ msgid "The filter is enabled with the <command>service squid3 reload</command> c
 msgstr "La commande <command>service squid3 reload</command> active le filtre. Le paquet <emphasis role=\"pkg\">squidguard</emphasis> n'offrant aucun filtrage par défaut,  l'administrateur a la responsabilité de le définir. Pour cela, il doit créer le fichier <filename>/etc/squid3/squidGuard.conf</filename>, en utilisant éventuellement <filename>/etc/squidguard/squidGuard.conf.default</filename> comme modèle."
 
 msgid "The working database must be regenerated with <command>update-squidguard</command> after each change of the <command>squidGuard</command> configuration file (or one of the lists of domains or URLs it mentions). The configuration file syntax is documented on the following website: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
-msgstr "Après chaque modification du fichier de configuration de <command>squidGuard</command> ou de l'une des listes de domaines ou d'URL qu'il mentionne, il est nécessaire de régénérer la base de données de travail. Cela s'effectue en exécutant la commande <command>update-squidguard</command>. Le format du fichier de configuration est documenté sur le site web ci-dessous : <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
+msgstr "Après chaque modification du fichier de configuration de <command>squidGuard</command> ou de l'une des listes de domaines ou d'URL qu'il mentionne, il est nécessaire de régénérer la base de données de travail. Cela s'effectue en exécutant la commande <command>update-squidguard</command>. Le format du fichier de configuration est documenté sur le site web suivant : <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
 
 msgid "<primary><command>update-squidguard</command></primary>"
 msgstr "<primary><command>update-squidguard</command></primary>"
@@ -2037,7 +2037,7 @@ msgid "OpenLDAP is an implementation of the LDAP protocol; in other words, it is
 msgstr "OpenLDAP implémente le protocole LDAP ; ce n'est qu'une base de données adaptée pour gérer des annuaires. Son intérêt est multiple : l'emploi d'un serveur LDAP aide à centraliser la gestion des comptes des utilisateurs et des droits associés. De plus, la base de données LDAP est facile à dupliquer, ce qui permet de mettre en place plusieurs serveurs synchronisés. En cas de croissance rapide du réseau, il sera aisé de monter en puissance en répartissant la charge sur plusieurs serveurs."
 
 msgid "LDAP data is structured and hierarchical. The structure is defined by “schemas” which describe the kind of objects that the database can store, with a list of all their possible attributes. The syntax used to refer to a particular object in the database is based on this structure, which explains its complexity."
-msgstr "Les données LDAP sont structurées et hiérarchisées. Les « schémas » définissent les objets que la base peut stocker avec la liste de tous les attributs possibles. La syntaxe qui permet de désigner un objet de la base traduit cette structure, même si elle n'est pas aisée à maîtriser."
+msgstr "Les données LDAP sont structurées et hiérarchisées. Les « schémas » définissent les objets que la base peut stocker avec la liste de tous les attributs possibles. La syntaxe qui permet de désigner un objet de la base traduit cette structure, même si elle n'est pas facile à maîtriser."
 
 msgid "The <emphasis role=\"pkg\">slapd</emphasis> package contains the OpenLDAP server. The <emphasis role=\"pkg\">ldap-utils</emphasis> package includes command-line tools for interacting with LDAP servers."
 msgstr "Le paquet <emphasis role=\"pkg\">slapd</emphasis> contient le serveur OpenLDAP. Le paquet <emphasis role=\"pkg\">ldap-utils</emphasis> renferme des utilitaires en ligne de commande pour interagir avec les serveurs LDAP."
@@ -2046,10 +2046,10 @@ msgid "<primary><emphasis>slapd</emphasis></primary>"
 msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
 msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions and the resulting database is unlikely to suit your needs. Fortunately a simple <command>dpkg-reconfigure slapd</command> will let you reconfigure the LDAP database with more details:"
-msgstr "L'installation du paquet <emphasis role=\"pkg\">slapd</emphasis> est généralement peu interactive, et le résultat ne répond que rarement aux besoins. Heureusement il suffit de lancer la commande <command>dpkg-reconfigure slapd</command> pour reconfigurer la base de données LDAP plus en détail :"
+msgstr "L'installation du paquet <emphasis role=\"pkg\">slapd</emphasis> est généralement peu interactive, et le résultat ne répond que rarement aux besoins. Heureusement, il suffit de lancer la commande <command>dpkg-reconfigure slapd</command> pour reconfigurer la base de données LDAP plus en détail :"
 
 msgid "Omit OpenLDAP server configuration? No, of course, we want to configure this service."
-msgstr "Faut-il ignorer la configuration de <command>slapd</command> ? Non bien sûr, nous allons configurer ce service."
+msgstr "Faut-il ignorer la configuration de <command>slapd</command> ? Non, bien sûr, nous allons configurer ce service."
 
 msgid "DNS domain name: “<literal>falcot.com</literal>”."
 msgstr "Quel est le nom de domaine ? « <literal>falcot.com</literal> »."
@@ -2061,7 +2061,7 @@ msgid "An administrative passwords needs to be typed in."
 msgstr "Il faut saisir un mot de passe administrateur pour la base de données."
 
 msgid "Database backend to use: “MDB”."
-msgstr "Module de base de données à utiliser ? « MDB »."
+msgstr "Quel est le module de base de données à utiliser ? « MDB »."
 
 msgid "Do you want the database to be removed when <emphasis role=\"pkg\">slapd</emphasis> is purged? No. No point in risking losing the database in case of a mistake."
 msgstr "La base doit-elle être supprimée si le paquet <command>slapd</command> est supprimé ? Non. Mieux vaut éviter de perdre ces données suite à une mauvaise manipulation."
@@ -2161,7 +2161,7 @@ msgid "Since an empty database is not particularly useful, we are going to injec
 msgstr "La base de données vide n'ayant pas grand intérêt, il s'agit maintenant d'y intégrer l'ensemble des annuaires existants, notamment les utilisateurs, groupes, services et hôtes."
 
 msgid "The <emphasis role=\"pkg\">migrationtools</emphasis> package provides a set of scripts dedicated to extract data from the standard Unix directories (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> and so on), convert this data, and inject it into the LDAP database."
-msgstr "Le paquet Debian <emphasis role=\"pkg\">migrationtools</emphasis> offre un ensemble de scripts qui permettent justement de récupérer les informations depuis les annuaires Unix standards (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename>, etc.) puis de les intégrer dans la base de données LDAP."
+msgstr "Le paquet Debian <emphasis role=\"pkg\">migrationtools</emphasis> offre un ensemble de scripts qui permettent justement de récupérer les informations depuis les annuaires Unix standards (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename>, etc.), puis de les intégrer dans la base de données LDAP."
 
 msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 msgstr "<primary><emphasis>migrationtools</emphasis></primary>"
@@ -2215,13 +2215,13 @@ msgid "Bind credentials"
 msgstr "<foreignphrase>Bind credentials</foreignphrase>"
 
 msgid "the administrative password"
-msgstr "le mot de passe administrateur"
+msgstr "Le mot de passe administrateur"
 
 msgid "Create DUAConfigProfile"
 msgstr "<foreignphrase>Create DUAConfigProfile</foreignphrase>"
 
 msgid "no"
-msgstr "non"
+msgstr "Non"
 
 msgid "We deliberately ignore migration of the <filename>/etc/aliases</filename> file, since the standard schema as provided by Debian does not include the structures that this script uses to describe email aliases. Should we want to integrate this data into the directory, the <filename>/etc/ldap/schema/misc.schema</filename> file should be added to the standard schema."
 msgstr "La migration du fichier <filename>/etc/aliases</filename> est volontairement ignorée parce que le schéma standard (installé par Debian) ne comprend pas les structures employées par ce script pour décrire les alias de courrier électronique. S'il est nécessaire d'intégrer cette information dans la base de données LDAP, il faudra ajouter le fichier <filename>/etc/ldap/schema/misc.schema</filename> comme schéma standard."
@@ -2275,13 +2275,13 @@ msgid "Does the LDAP database require login?"
 msgstr "La base demande-t-elle un <foreignphrase>login</foreignphrase> ?"
 
 msgid "Special LDAP privileges for root"
-msgstr "Donner les privilèges de superutilisateur local au compte administrateur LDAP ?"
+msgstr "Faut-il donner les privilèges de superutilisateur local au compte administrateur LDAP ?"
 
 msgid "yes"
-msgstr "oui"
+msgstr "Oui"
 
 msgid "Make the configuration file readable/writeable by its owner only"
-msgstr "Rendre le fichier de configuration lisible et modifiable uniquement par son propriétaire ?"
+msgstr "Doit-on rendre le fichier de configuration lisible et modifiable uniquement par son propriétaire ?"
 
 msgid "LDAP account for root"
 msgstr "Compte LDAP pour le super-utilisateur (root)"
@@ -2339,10 +2339,10 @@ msgstr ""
 "netgroup: ldap files\n"
 
 msgid "The <command>ldap</command> module is usually inserted before others, and it will therefore be queried first. The notable exception is the <literal>hosts</literal> service since contacting the LDAP server requires consulting DNS first (to resolve <literal>ldap.falcot.com</literal>). Without this exception, a hostname query would try to ask the LDAP server; this would trigger a name resolution for the LDAP server, and so on in an infinite loop."
-msgstr "Le module <command>ldap</command>, systématiquement ajouté au début, est donc consulté en premier. Le service <literal>hosts</literal> fait exception puisque pour contacter le serveur LDAP, il faut consulter le DNS au préalable (pour résoudre <literal>ldap.falcot.com</literal>). Sans cette précaution, une requête de résolution de nom de machine consulterait le serveur LDAP, ce qui déclencherait une résolution du nom du serveur LDAP, etc. produisant une boucle infinie."
+msgstr "Le module <command>ldap</command>, systématiquement ajouté au début, est donc consulté en premier. Le service <literal>hosts</literal> fait exception puisque pour contacter le serveur LDAP, il faut consulter le DNS au préalable (pour résoudre <literal>ldap.falcot.com</literal>). Sans cette précaution, une requête de résolution de nom de machine consulterait le serveur LDAP, ce qui déclencherait une résolution du nom du serveur LDAP, etc., produisant une boucle infinie."
 
 msgid "If the LDAP server should be considered authoritative (and the local files used by the <command>files</command> module disregarded), services can be configured with the following syntax:"
-msgstr "Si l'on souhaite que le serveur LDAP soit la référence unique (et ne pas prendre en compte les fichiers locaux employés par le module <emphasis>files</emphasis>), il est possible de configurer chaque service avec la syntaxe :"
+msgstr "Si l'on souhaite que le serveur LDAP soit la référence unique (et ne pas prendre en compte les fichiers locaux employés par le module <emphasis>files</emphasis>), il est possible de configurer chaque service avec la syntaxe suivante :"
 
 msgid "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
 msgstr "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
@@ -2363,7 +2363,7 @@ msgid "Changing the standard PAM configuration used by various programs is a sen
 msgstr "Le changement de la configuration PAM standard employée par les divers programmes est une opération sensible. En cas de mauvaise manipulation, il peut être impossible de s'authentifier, donc de se connecter. Pensez donc à garder un shell root ouvert en parallèle pour corriger vos erreurs le cas échéant."
 
 msgid "The LDAP module for PAM is provided by the <emphasis role=\"pkg\">libpam-ldap</emphasis> package. Installing this package asks a few questions very similar to those in <emphasis role=\"pkg\">libnss-ldap</emphasis>; some configuration parameters (such as the URI for the LDAP server) are even actually shared with the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Answers are summarized in <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr "Il faut installer le module LDAP pour PAM, qui se trouve dans le paquet Debian <emphasis role=\"pkg\">libpam-ldap</emphasis>. Son installation pose des questions similaires à celles de <emphasis role=\"pkg\">libnss-ldap</emphasis>, et, d'ailleurs certains paramètres de configuration (comme l'URI du serveur LDAP) sont tout simplement partagés avec le paquet <emphasis role=\"pkg\">libnss-ldap</emphasis>. Les réponses sont résumées dans le <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
+msgstr "Il faut installer le module LDAP pour PAM, qui se trouve dans le paquet Debian <emphasis role=\"pkg\">libpam-ldap</emphasis>. Son installation pose des questions similaires à celles de <emphasis role=\"pkg\">libnss-ldap</emphasis> et d'ailleurs, certains paramètres de configuration (comme l'URI du serveur LDAP) sont tout simplement partagés avec le paquet <emphasis role=\"pkg\">libnss-ldap</emphasis>. Les réponses sont résumées dans le <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
 
 msgid "<primary><emphasis>libpam-ldap</emphasis></primary>"
 msgstr "<primary><emphasis>libpam-ldap</emphasis></primary>"
@@ -2372,16 +2372,16 @@ msgid "Configuration of <emphasis>libpam-ldap</emphasis>"
 msgstr "Configuration de <emphasis>libpam-ldap</emphasis>"
 
 msgid "Allow LDAP admin account to behave like local root?"
-msgstr "Le superutilisateur local doit-il être un administrateur de la base LDAP ?"
+msgstr "Le super-utilisateur local doit-il être un administrateur de la base LDAP ?"
 
 msgid "Yes. This allows using the usual <command>passwd</command> command for changing passwords stored in the LDAP database."
-msgstr "oui. Cela permet d'utiliser la commande <command>passwd</command> habituelle pour changer les mots de passe stockés dans la base LDAP."
+msgstr "Oui. Cela permet d'utiliser la commande <command>passwd</command> habituelle pour changer les mots de passe stockés dans la base LDAP."
 
 msgid "Does the LDAP database require logging in?"
 msgstr "La base LDAP demande-t-elle une identification ?"
 
 msgid "the LDAP database administrative password"
-msgstr "le mot de passe administrateur de la base LDAP"
+msgstr "Le mot de passe administrateur de la base LDAP"
 
 msgid "Local encryption algorithm to use for passwords"
 msgstr "Algorithme de chiffrement à utiliser localement pour les mots de passe"
@@ -2423,13 +2423,13 @@ msgid "Configuring the Server"
 msgstr "Configuration côté serveur"
 
 msgid "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
-msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary> <secondary>création de clefs</secondary>"
+msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary> <secondary>création de clés</secondary>"
 
 msgid "<primary>key pair</primary>"
 msgstr "<primary><filename>biclé</filename></primary>"
 
 msgid "The first step is to create a key pair (comprising a public key and a private key) for the LDAP server. The Falcot administrators reuse <emphasis>easy-rsa</emphasis> to generate it (see <xref linkend=\"sect.easy-rsa\" />). Running <command>./build-server-key ldap.falcot.com</command> asks a few mundane questions (location, organization name and so on). The answer to the “common name” question <emphasis>must</emphasis> be the fully-qualified hostname for the LDAP server; in our case, <literal>ldap.falcot.com</literal>."
-msgstr "La première étape consiste à créer une biclé (la publique et la privée) pour LDAP.  Pour cela, les administrateurs de Falcot réutilisent <emphasis>easy-rsa</emphasis> (voir la <xref linkend=\"sect.easy-rsa\" />). L'exécution de la commande <command>./build-server-key ldap.falcot.com</command> pose plusieurs questions banales (lieu, nom de l'organisation, etc.). Il est impératif de répondre à la question <guimenuitem>Common Name</guimenuitem> le nom complet du serveur LDAP ; en l'occurrence il s'agit donc de <literal>ldap.falcot.com</literal>."
+msgstr "La première étape consiste à créer une biclé (clé publique et clé privée) pour LDAP.  Pour cela, les administrateurs de Falcot réutilisent <emphasis>easy-rsa</emphasis> (voir la <xref linkend=\"sect.easy-rsa\" />). L'exécution de la commande <command>./build-server-key ldap.falcot.com</command> pose plusieurs questions banales (lieu, nom de l'organisation, etc.). Il est impératif de répondre à la question <guimenuitem>Common Name</guimenuitem> par le nom complet du serveur LDAP ; en l'occurrence il s'agit donc de <literal>ldap.falcot.com</literal>."
 
 msgid "This command creates a certificate in the <filename>keys/ldap.falcot.com.crt</filename> file; the corresponding private key is stored in <filename>keys/ldap.falcot.com.key</filename>."
 msgstr "La commande précédente a généré un certificat dans le fichier <filename>keys/ldap.falcot.com.crt</filename> et la clé privée correspondante est stockée dans <filename>keys/ldap.falcot.com.key</filename>."
@@ -2506,7 +2506,7 @@ msgid "<primary><command>ldapvi</command></primary>"
 msgstr "<primary><command>ldapvi</command></primary>"
 
 msgid "With <command>ldapvi</command>, you can display an LDIF output of any part of the LDAP directory, make some changes in the text editor, and let the tool do the corresponding LDAP operations for you."
-msgstr "<command>ldapvi</command> permet d'afficher une représentation LDIF d'une partie de l'annuaire LDAP dans un éditeur de texte.  Si l'on effectue des modifications dans cet éditeur, <command>ldapvi</command> les convertira en opérations LDAP et effectuera ces opérations automatiquement."
+msgstr "<command>ldapvi</command> permet d'afficher une représentation LDIF d'une partie de l'annuaire LDAP dans un éditeur de texte.  Si l'on effectue des modifications dans cet éditeur, <command>ldapvi</command> les convertira en opérations LDAP et effectuera ces dernières automatiquement."
 
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr "C'est donc une manière particulièrement pratique de mettre à jour la configuration du serveur LDAP, simplement en éditant la hiérarchie <literal>cn=config</literal>."
@@ -2836,7 +2836,7 @@ msgstr ""
 "TurnAddress = 198.51.100.19\n"
 "TurnV6Address = 2001:DB8:1000:2000::19\n"
 "AltStunAddress = 198.51.100.20\n"
-"# votre domaine va ici, il doit correspondre à la valeur utilisée pour"
+"# votre domaine va ici, il doit correspondre à la valeur utilisée pour\n"
 "# créer vos mots de passe avec l'algorithme de hachage HA1 :\n"
 "AuthenticationRealm = myrealm\n"
 "\n"
@@ -2862,7 +2862,7 @@ msgid "SIP Proxy Server"
 msgstr "Serveur Proxy SIP"
 
 msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
-msgstr "Un serveur proxy SIP gère les connexions SIP entrantes et sortantes entre différentes organisations, les fournisseurs de tronc SIP (<foreignphrase>SIP trunking</foreignphrase>), les autocommutateurs téléphoniques privés (<foreignphrase>Private Automatic Branch eXchange</foreignphrase>, PBX) comme Asterisk, les téléphones SIP, les logiciels de téléphonie basés sur SIP et les applications WebRTC."
+msgstr "Un serveur proxy SIP gère les connexions SIP entrantes et sortantes entre différentes organisations, les fournisseurs de tronc SIP <foreignphrase>(SIP trunking)</foreignphrase>, les autocommutateurs téléphoniques privés (<foreignphrase>Private Automatic Branch eXchange</foreignphrase>, PBX) comme Asterisk, les téléphones SIP, les logiciels de téléphonie basés sur SIP et les applications WebRTC."
 
 msgid "<primary>SIP</primary><secondary>server</secondary>"
 msgstr "<primary>SIP</primary><secondary>serveur</secondary>"
@@ -2877,7 +2877,7 @@ msgid "<primary>SIP</primary><secondary>trunk</secondary>"
 msgstr "<primary>SIP</primary><secondary><foreignphrase>trunk</foreignphrase></secondary>"
 
 msgid "It is strongly recommended to install and configure the SIP proxy before attempting a SIP PBX setup. The SIP proxy normalizes a lot of the traffic reaching the PBX and provides greater connectivity and resilience."
-msgstr "Il est fortement recommandé d'installer et de configurer le proxy SIP avant d'essayer de mettre en place un <foreignphrase>PBX</foreignphrase> (autocommutateur téléphonique privé). Le proxy SIP normalise une grande partie du trafic arrivant au PBX et fournit une plus grande connectivité et une plus grande résilience."
+msgstr "Il est fortement recommandé d'installer et de configurer le proxy SIP avant d'essayer de mettre en place un <foreignphrase>PBX</foreignphrase> (autocommutateur téléphonique privé). Le proxy SIP normalise une large partie du trafic arrivant au PBX et fournit une plus grande connectivité et une résilience plus importante."
 
 msgid "Install the SIP proxy"
 msgstr "Installation du proxy SIP"
@@ -2954,7 +2954,7 @@ msgstr ""
 "\n"
 "# Transport1 est pour SIP sur des connexions TLS\n"
 "# On utilise le port 5061 ici mais on pourrait utiliser le port\n"
-"# 443 si des clients sont derrières des pare-feu trop restrictifs\n"
+"# 443 si des clients sont derrière des pare-feu trop restrictifs\n"
 "Transport1Interface = 198.51.100.19:5061\n"
 "Transport1Type = TLS\n"
 "Transport1TlsDomain = falcot.com\n"
@@ -3011,7 +3011,7 @@ msgstr ""
 "EnableCertificateAuthenticator = True"
 
 msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
-msgstr "Définissez le mot de passe administrateur pour l'interface web avec l'utilitaire <command>htdigest</command>. Le nom de l'utilisateur doit être <emphasis>admin</emphasis> et le domaine (<foreignphrase>realm</foreignphrase>) doit correspondre à la valeur spécifiée dans <filename>repro.config</filename>."
+msgstr "Définissez le mot de passe administrateur pour l'interface web avec l'utilitaire <command>htdigest</command>. Le nom de l'utilisateur doit être <emphasis>admin</emphasis> et le domaine <foreignphrase>(realm)</foreignphrase> doit correspondre à la valeur spécifiée dans <filename>repro.config</filename>."
 
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
@@ -3120,7 +3120,7 @@ msgid "Some administrators prefer to run all of their RTC services on port 443. 
 msgstr "Certains administrateurs préfèrent faire tourner tous leurs services RTC sur le port 443. Cela simplifie la connexion des utilisateurs qui sont dans des endroits éloignés, tels que des hôtels et des aéroports où les autres ports risquent d'être bloqués et où le trafic Internet est acheminé à travers des serveurs proxy HTTP."
 
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
-msgstr "Pour réaliser ceci, chaque service (SIP, XMPP et TURN) doit avoir une adresse IP différente. Tous les services peuvent tout de même être sur le même hôte puisque Linux gère des adresses IP multiples sur un seul hôte. Le numéro de port, 443, doit être spécifié dans les fichiers de configuration de chaque service et aussi dans les enregistrements DNS de type SRV."
+msgstr "Pour réaliser ceci, chaque service (SIP, XMPP et TURN) doit avoir une adresse IP différente. Tous les services peuvent cependant être sur le même hôte puisque Linux gère des adresses IP multiples sur un seul hôte. Le numéro de port, 443, doit être spécifié dans les fichiers de configuration de chaque service et aussi dans les enregistrements DNS de type SRV."
 
 msgid "Adding WebRTC"
 msgstr "Ajout de WebRTC"
@@ -3159,7 +3159,7 @@ msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasi
 msgstr "<emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> peut être utilisé de différentes façons. L'une des stratégies les plus simples est d'inclure ou de copier la configuration <filename>/etc/jscommunicator-web-phone/apache.conf</filename> dans la configuration d'un hôte virtuel Apache."
 
 msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
-msgstr "Une fois que les fichiers de jscommunicator sont disponibles sur le serveur web, il convient de personnaliser le fichier <filename>/etc/jscommunicator-web-phone/config.js</filename> pour pointer sur le serveur TURN et sur le serveur SIP. Par exemple ainsi :"
+msgstr "Une fois que les fichiers de JSCommunicator sont disponibles sur le serveur web, il convient de personnaliser le fichier <filename>/etc/jscommunicator-web-phone/config.js</filename> pour pointer sur le serveur TURN et sur le serveur SIP. Par exemple ainsi :"
 
 msgid ""
 "\n"
