@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 20:53+0200\n"
-"PO-Revision-Date: 2015-12-29 03:23+0000\n"
-"Last-Translator: Mario Frasca <mariotomo@gmail.com>\n"
+"PO-Revision-Date: 2016-01-26 16:52+0000\n"
+"Last-Translator: Marco De Luca <marcodeluca@hotmail.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/92_short-remedial-course/it/>\n"
 "Language: it-IT\n"
 "MIME-Version: 1.0\n"
@@ -48,9 +48,8 @@ msgstr "Nel mondo Unix, ogni amministratore deve usare la riga di comando, prima
 msgid "<emphasis>QUICK LOOK</emphasis> Starting the command interpreter"
 msgstr "<emphasis>RAPIDO SGUARDO</emphasis> Avvio dell'interprete dei comandi"
 
-#, fuzzy
 msgid "A command-line environment can be run from the graphical desktop, by an application known as a “terminal”. In GNOME, you can start it from the “Activities” overview (that you get when you move the mouse in the top-left corner of the screen) by typing the first letters of the application name. In KDE, you will find it in the <menuchoice><guimenu>K</guimenu> <guisubmenu>Applications</guisubmenu> <guisubmenu>System</guisubmenu></menuchoice> menu."
-msgstr "Un ambiente a riga di comando può essere eseguito dal desktop grafico, tramite un'applicazione conosciuta come \"terminale\". In GNOME, è possibile avviarlo dall'overview \"Attività\" (che si attiva portando il puntatore del mouse nell'angolo in alto a sinistra dello schermo), digitando la prima lettera del nome dell'applicazione. In KDE, lo trovi in  <menuchoice><guimenu>K</guimenu> <guisubmenu>Applications</guisubmenu> <guisubmenu>System</guisubmenu></menuchoice> menu."
+msgstr "Un ambiente a riga di comando può essere eseguito dal desktop grafico, tramite un'applicazione conosciuta come \"terminale\". In GNOME, è possibile avviarlo dall'overview \"Attività\" (che si attiva portando il puntatore del mouse nell'angolo in alto a sinistra dello schermo), digitando la prima lettera del nome dell'applicazione. In KDE, si trova nel menu <menuchoice><guimenu>K</guimenu> <guisubmenu>Applicazioni</guisubmenu> <guisubmenu>Sistema</guisubmenu></menuchoice>."
 
 msgid "This section only gives a quick peek at the commands. They all have many options not described here, so please refer to the abundant documentation in their respective manual pages."
 msgstr "Questa sezione da solo un rapido sguardo ai comandi. Tutti hanno molte opzioni qui non descritte, quindi per favore fare riferimento all'abbondante documentazione nelle loro rispettive pagine di manuale."
@@ -152,16 +151,16 @@ msgid "Managing Processes"
 msgstr "Gestione Processi"
 
 msgid "The <command>ps aux</command> command lists the processes currently running and helps identifying them by showing their <emphasis>pid</emphasis> (process id). Once the <emphasis>pid</emphasis> of a process is known, the <command>kill -<replaceable>signal</replaceable> <replaceable>pid</replaceable></command> command allows sending it a signal (if the process belongs to the current user). Several signals exist; most commonly used are <literal>TERM</literal> (a request to terminate gracefully) and <literal>KILL</literal> (a forced kill)."
-msgstr ""
+msgstr "Il comando <command>ps aux</command> elenca i processi in esecuzione ed aiuta ad identificarli mostrando il loro <emphasis>pid</emphasis> (process id). Una volta conosciuto il <emphasis>pid</emphasis> di un processo, il comando <command>kill -<replaceable>signal</replaceable> <replaceable>pid</replaceable></command> permette di inviare un segnale (se il processo appartiene all'utente corrente). Esistono diversi segnali; i più comunemente usati sono <literal>TERM</literal> (una richiesta a terminare in modo naturale) e <literal>KILL</literal> (un'arresto forzato)."
 
 msgid "The command interpreter can also run programs in the background if the command is followed by a “&amp;”. By using the ampersand, the user resumes control of the shell immediately even though the command is still running (hidden from the user; as a background process). The <command>jobs</command> command lists the processes running in the background; running <command>fg %<replaceable>job-number</replaceable></command> (for <emphasis>foreground</emphasis>) restores a job to the foreground. When a command is running in the foreground (either because it was started normally, or brought back to the foreground with <command>fg</command>), the <keycombo action=\"simul\"><keycap>Control</keycap><keycap>Z</keycap></keycombo> key combination pauses the process and resumes control of the command-line. The process can then be restarted in the background with <command>bg %<replaceable>job-number</replaceable></command> (for <foreignphrase>background</foreignphrase>)."
-msgstr ""
+msgstr "L'interprete dei comandi può anche eseguire i programmi in background se il comando è seguito da una \"&amp;\". Utilizzando la e commerciale, l'utente riprende immediatamente il controllo della shell anche se il comando è ancora in esecuzione (nascosto all'utente; come processo in background). Il comando <command>jobs</command> elenca i processi in esecuzione in background; eseguendo <command>fg %<replaceable>numero-lavoro</replaceable></command> (per <emphasis>foreground</emphasis>) il processo viene riportato in primo piano. Quando un comando è in esecuzione in primo piano (o perché è stato avviato normalmente, o perchè riportato in primo piano con <command>fg</command>), la combinazione dei tasti <keycombo action=\"simul\"><keycap>Control</keycap><keycap>Z</keycap></keycombo> sospende il processo e riprende il controllo della riga di comando. Il processo può essere riavviato in background con <command>bg %<replaceable>numero-lavoro</replaceable></command> (per <foreignphrase>background</foreignphrase>)."
 
 msgid "System Information: Memory, Disk Space, Identity"
 msgstr "Informazioni di Sistema: Memoria, Spazio su Disco, Identità"
 
 msgid "The <command>free</command> command displays information on memory; <command>df</command> (<emphasis>disk free</emphasis>) reports on the available disk space on each of the disks mounted in the filesystem. Its <literal>-h</literal> option (for <emphasis>human readable</emphasis>) converts the sizes into a more legible unit (usually mebibytes or gibibytes). In a similar fashion, the <command>free</command> command supports the <literal>-m</literal> and <literal>-g</literal> options, and displays its data either in mebibytes or in gibibytes, respectively."
-msgstr ""
+msgstr "Il comando <command>free</command> visualizza le informazioni sulla memoria; <command>df</command> (<emphasis>disk free</emphasis>) riporta la disponibilità di spazio su ogni disco montato nel filesystem. La sua opzione <literal>-h</literal> (per <emphasis>human readable</emphasis> leggibile dagli umani) converte le dimensioni in unità più leggibili (solitamente megabyte o gigabyte). Allo stesso modo, il comando <command>free</command> supporta le opzioni <literal>-m</literal> e <literal>-g</literal>, e visualizza i dati, rispettivamente in megabyte o in gigabyte."
 
 msgid ""
 "\n"
@@ -179,9 +178,23 @@ msgid ""
 "/dev/sda5             44552904  36315896   7784380  83% /home\n"
 "</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>free</userinput>\n"
+"<computeroutput>             total       used       free     shared    buffers     cached\n"
+"Mem:       1028420    1009624      18796          0      47404     391804\n"
+"-/+ buffers/cache:     570416     458004\n"
+"Swap:      2771172     404588    2366584\n"
+"$ </computeroutput><userinput>df</userinput>\n"
+"<computeroutput>Filesystem           1K-blocchi      Usati Disponib. Uso% Montato su\n"
+"/dev/sda2              9614084   4737916   4387796  52% /\n"
+"tmpfs                   514208         0    514208   0% /lib/init/rw\n"
+"udev                     10240       100     10140   1% /dev\n"
+"tmpfs                   514208    269136    245072  53% /dev/shm\n"
+"/dev/sda5             44552904  36315896   7784380  83% /home\n"
+"</computeroutput>"
 
 msgid "The <command>id</command> command displays the identity of the user running the session, along with the list of groups they belong to. Since access to some files or devices may be limited to group members, checking available group membership may be useful."
-msgstr ""
+msgstr "Il <command>id</command> visualizza l'identità dell'utente che esegue la sessione, insieme alla lista dei gruppi a cui appartiene. Poiché l'accesso ad alcuni file o dispositivi può essere limitata ai membri del gruppo, può essere utile verificare l'appartenenza al gruppo disponibile."
 
 msgid ""
 "\n"
@@ -189,6 +202,10 @@ msgid ""
 "<computeroutput>uid=1000(rhertzog) gid=1000(rhertzog) groups=1000(rhertzog),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(netdev),109(bluetooth),115(scanner)</computeroutput>\n"
 "      "
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>id</userinput>\n"
+"<computeroutput>uid=1000(rhertzog) gid=1000(rhertzog) groups=1000(rhertzog),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(netdev),109(bluetooth),115(scanner)</computeroutput>\n"
+"      "
 
 msgid "Organization of the Filesystem Hierarchy"
 msgstr "Organizzazione della Gerarchia del Filesystem"
@@ -200,211 +217,208 @@ msgid "The Root Directory"
 msgstr "La Directory Root"
 
 msgid "A Debian system is organized along the <emphasis>Filesystem Hierarchy Standard</emphasis> (FHS). This standard defines the purpose of each directory. For instance, the top-level directories are described as follows:"
-msgstr ""
+msgstr "Un sistema Debian è organizzato secondo il <emphasis>Filesystem Hierarchy Standard</emphasis> (FHS). Questo standard definisce lo scopo di ogni directory. Per esempio, le directory di primo livello sono descritte come segue:"
 
 msgid "<filename>/bin/</filename>: basic programs;"
-msgstr ""
+msgstr "<filename>/bin/</filename>: programmi base;"
 
 msgid "<filename>/boot/</filename>: Linux kernel and other files required for its early boot process;"
-msgstr ""
+msgstr "<filename>/boot/</filename>: kerne Linux ed altri file necessari per il suo processo d'avvio;"
 
 msgid "<filename>/dev/</filename>: device files;"
-msgstr ""
+msgstr "<filename>/dev/</filename>: file del dispositivo;"
 
 msgid "<filename>/etc/</filename>: configuration files;"
 msgstr "<filename>/etc/</filename>: files di configurazione;"
 
 msgid "<filename>/home/</filename>: user's personal files;"
-msgstr ""
+msgstr "<filename>/home/</filename>: file personali dell'utente;"
 
 msgid "<filename>/lib/</filename>: basic libraries;"
 msgstr "<filename>/lib/</filename>: libraries di base;"
 
 msgid "<filename>/media/*</filename>: mount points for removable devices (CD-ROM, USB keys and so on);"
-msgstr ""
+msgstr "<filename>/media/*</filename>: punti di mount per i dispositivi rimovibili (CD-ROM, chiavette USB ecc.);"
 
 msgid "<filename>/mnt/</filename>: temporary mount point;"
-msgstr ""
+msgstr "<filename>/mnt/</filename>: punto di mount temporaneo;"
 
 msgid "<filename>/opt/</filename>: extra applications provided by third parties;"
-msgstr ""
+msgstr "<filename>/opt/</filename>: applicazioni extra fornite da terze parti;"
 
 msgid "<filename>/root/</filename>: administrator's (root's) personal files;"
-msgstr ""
+msgstr "<filename>/root/</filename>: file personali dell'ammininistratore (dell'utente root);"
 
 msgid "<filename>/run/</filename>: volatile runtime data that does not persist across reboots (not yet included in the FHS);"
-msgstr ""
+msgstr "<filename>/run/</filename>: dati runtime volatili che non rimangono dopo i riavvi (non ancora inclusi nel FHS);"
 
 msgid "<filename>/sbin/</filename>: system programs;"
-msgstr ""
+msgstr "<filename>/sbin/</filename>: programmi di sistema;"
 
 msgid "<filename>/srv/</filename>: data used by servers hosted on this system;"
-msgstr ""
+msgstr "<filename>/srv/</filename>: dati usati dal server opsitato sul sistema;"
 
 msgid "<filename>/tmp/</filename>: temporary files; this directory is often emptied at boot;"
-msgstr ""
+msgstr "<filename>/tmp/</filename>: file temporanei; questa directory è spesso svuotata all'avvio;"
 
 msgid "<filename>/usr/</filename>: applications; this directory is further subdivided into <filename>bin</filename>, <filename>sbin</filename>, <filename>lib</filename> (according to the same logic as in the root directory). Furthermore, <filename>/usr/share/</filename> contains architecture-independent data. <filename>/usr/local/</filename> is meant to be used by the administrator for installing applications manually without overwriting files handled by the packaging system (<command>dpkg</command>)."
-msgstr ""
+msgstr "<filename>/usr/</filename>: applicazioni; questa directory è ulteriormente suddivisa in <filename>bin</filename>, <filename>sbin</filename>, <filename>lib</filename> (seguendo la logica della directory principale). Inoltre, <filename>/usr/share/</filename> contiene i dati indipendenti dall'architettura. <filename>/usr/local/</filename> è pensato per essere utilizzato dall'amministratore per installare manualmente le applicazioni senza sovrascrivere i file gestiti dal sistema di impacchettamento (<command>dpkg</command>)."
 
 msgid "<filename>/var/</filename>: variable data handled by daemons. This includes log files, queues, spools, caches and so on."
-msgstr ""
+msgstr "<filename>/var/</filename>: dati variabili gestiti dai demoni. Questi includono file di log, code, spool, cache ecc."
 
 msgid "<filename>/proc/</filename> and <filename>/sys/</filename> are specific to the Linux kernel (and not part of the FHS). They are used by the kernel for exporting data to user space (see <xref linkend=\"sect.userspace-presentation\" /> and <xref linkend=\"sect.user-space\" /> for explanations about this concept)."
-msgstr ""
+msgstr "<filename>/proc/</filename> e <filename>/sys/</filename> sono specifici per il kernel Linux (e non fanno parte di FHS). Sono utilizzati dal kernel per l'esportazione dei dati nello spazio utente (vedi <xref linkend=\"sect.userspace-presentation\" /> e <xref linkend=\"sect.user-space\" /> per spiegazioni riguardo questo concetto)."
 
 msgid "The User's Home Directory"
-msgstr ""
+msgstr "Directory Home dell'Utente"
 
 msgid "The contents of a user's home directory is not standardized, but there are still a few noteworthy conventions. One is that a user's home directory is often referred to by a tilde (“~”). That is useful to know because command interpreters automatically replace a tilde with the correct directory (usually <filename>/home/<replaceable>user</replaceable>/</filename>)."
-msgstr ""
+msgstr "I contenuti della directory home dell'utente non sono standardizzati, ma ci sono ancora alcune convenzioni degne di nota. Una è che spesso la directory home dell'utente viene spesso definita da una tilde (“~”). Questo è utile da sapere poichè gli interpreti di comando sostituiscono automaticamente una tilde con la directory corretta (di solito <filename>/home/<replaceable>utente</replaceable>/</filename>)."
 
 msgid "Traditionally, application configuration files are often stored directly under the user's home directory, but their names usually start with a dot (for instance, the <command>mutt</command> email client stores its configuration in <filename>~/.muttrc</filename>). Note that filenames that start with a dot are hidden by default; and <command>ls</command> only lists them when the <literal>-a</literal> option is used, and graphical file managers need to be told to display hidden files."
-msgstr ""
+msgstr "Tradizionalmente, i file di configurazione dell'applicazione vengono spesso memorizzati direttamente nella directory home dell'utente, ma i loro nomi di solito iniziano con un punto (per esempio, il client email <command>mutt</command> salva la sua configurazione in <filename>~/.muttrc</filename>). Si noti che i nomi dei file che iniziano con un punto sono nascosti per impostazione predefinita; ed il comando <command>ls</command> li elenca solo quando viene utilizzata l'opzione <literal>-a</literal>, ed i file manager grafici hanno bisogno di visualizzare i file nascosti."
 
 msgid "Some programs also use multiple configuration files organized in one directory (for instance, <filename>~/.ssh/</filename>). Some applications (such as the Iceweasel web browser) also use their directory to store a cache of downloaded data. This means that those directories can end up using a lot of disk space."
-msgstr ""
+msgstr "Alcuni programmi utilizzano anche più file di configurazione organizzati in una directory (ad esempio, <filename>~/.ssh/</filename>). Alcune applicazioni (come ad esempio il browser Iceweasel) usano anche loro directory per memorizzare una cache di dati scaricati. Questo significa che quelle directory possono occupare un sacco di spazio su disco."
 
 msgid "These configuration files stored directly in a user's home directory, often collectively referred to as <emphasis>dotfiles</emphasis>, have long proliferated to the point that these directories can be quite cluttered with them. Fortunately, an effort led collectively under the FreeDesktop.org umbrella has resulted in the “XDG Base Directory Specification”, a convention that aims at cleaning up these files and directory. This specification states that configuration files should be stored under <filename>~/.config</filename>, cache files under <filename>~/.cache</filename>, and application data files under <filename>~/.local</filename> (or subdirectories thereof). This convention is slowly gaining traction, and several applications (especially graphical ones) have started following it."
-msgstr ""
+msgstr "Questi file di configurazione archiviati direttamente nella home directory dell'utente, spesso comunemente denominati <emphasis>dotfiles</emphasis>, si sono nel tempo moltiplicati al punto che potrebbero riempire quasi interamente queste directory. Fortunatamente, uno sforzo condotto collettivamente sotto la direzione di FreeDesktop.org ha portato alla \"XDG Base Directory Specification\", un convegno che mira a ripulire questi file e directory. Questa specifica stabilisce che i file di configurazione devono essere conservati in <filename>~/.config</filename>, file di cache in <filename>~/.cache</filename>, e file di dati dell'applicazione in <filename>~/.local</filename> (o in sottodirectory). Questa convenzione si sta lentamente consolidando, e diverse applicazioni (specialmente quelle grafiche) hanno iniziato a seguirla."
 
 msgid "Graphical desktops usually display the contents of the <filename>~/Desktop/</filename> directory (or whatever the appropriate translation is for systems not configured in English) on the desktop (ie, what is visible on screen once all applications are closed or iconized)."
-msgstr ""
+msgstr "I desktop grafici di solito visualizzano i contenuti della directory <filename>~/Desktop/</filename> (o qualsiasi altra cosa per i sistemi non configurati in Inglese) sul desktop (vale adire, ciò che visibile sullo schermo una volta che tutte le applicazioni sono state chiuse o ridotte a icona)."
 
 msgid "Finally, the email system sometimes stores incoming emails into a <filename>~/Mail/</filename> directory."
-msgstr ""
+msgstr "Infine,a volte il sistema di posta elettronica memorizza la posta in arrivo nella dierctory <filename>~/Mail/</filename>."
 
 msgid "Inner Workings of a Computer: the Different Layers Involved"
-msgstr ""
+msgstr "Funzionamento Interno di un Computer: i Diversi Livelli Coinvolti"
 
 msgid "A computer is often considered as something rather abstract, and the externally visible interface is much simpler than its internal complexity. Such complexity comes in part from the number of pieces involved. However, these pieces can be viewed in layers, where a layer only interacts with those immediately above or below."
-msgstr ""
+msgstr "Un computer è spesso considerato come qualcosa piuttosto astratto, e l'interfaccia visibile esternamente è molto più semplice rispetto alla complessità interna. Tale complessità deriva in parte dal numero di pezzi coinvolti. Tuttavia, questi pezzi possono essere visualizzati in strati, dove uno strato interagisce solo con quelli immediatamente sopra o sotto."
 
 msgid "An end-user can get by without knowing these details… as long as everything works. When confronting a problem such as, “The internet doesn't work!”, the first thing to do is to identify in which layer the problem originates. Is the network card (hardware) working? Is it recognized by the computer? Does the Linux kernel see it? Are the network parameters properly configured? All these questions isolate an appropriate layer and focus on a potential source of the problem."
-msgstr ""
+msgstr "Un utente finale può utilizzarlo senza conoscere questi dettagli... fino a quando tutto funziona. Quando si affronta un problema come, \"Internet non funziona!\", la prima cosa da fare è identificare in quale strato ha avuto origine il problema. La scheda di rete (hardware) funziona? E' riconosciuta dal computer? Il kernel Linux la vede? I parametri di rete sono configurati correttamente? Tutte queste domande isolano uno strato adeguato e mettono a fuoco la potenziale fonte del problema."
 
 msgid "The Deepest Layer: the Hardware"
-msgstr ""
+msgstr "Lo Strato più Profondo: l'Hardware"
 
 msgid "<primary>IDE</primary>"
-msgstr ""
+msgstr "<primary>IDE</primary>"
 
 msgid "<primary>SCSI</primary>"
-msgstr ""
+msgstr "<primary>SCSI</primary>"
 
 msgid "<primary>Serial ATA</primary>"
-msgstr ""
+msgstr "<primary>Serial ATA</primary>"
 
 msgid "<primary>Parallel ATA</primary>"
-msgstr ""
+msgstr "<primary>Parallel ATA</primary>"
 
 msgid "<primary>ATA</primary>"
-msgstr ""
+msgstr "<primary>ATA</primary>"
 
 msgid "<primary>IEEE 1394</primary>"
 msgstr "<primary>IEEE 1394</primary>"
 
 msgid "<primary>Firewire</primary>"
-msgstr ""
+msgstr "<primary>Firewire</primary>"
 
 msgid "<primary>USB</primary>"
 msgstr "<primary>USB</primary>"
 
 msgid "Let us start with a basic reminder that a computer is, first and foremost, a set of hardware elements. There is generally a main board (known as the <emphasis>motherboard</emphasis>), with one (or more) processor(s), some RAM, device controllers, and extension slots for option boards (for other device controllers). Most noteworthy among these controllers are IDE (Parallel ATA), SCSI and Serial ATA, for connecting to storage devices such as hard disks. Other controllers include USB, which is able to host a great variety of devices (ranging from webcams to thermometers, from keyboards to home automation systems) and IEEE 1394 (Firewire). These controllers often allow connecting several devices so the complete subsystem handled by a controller is therefore usually known as a “bus”. Option boards include graphics cards (into which monitor screens will be plugged), sound cards, network interface cards, and so on. Some main boards are pre-built with these features, and don't need option boards."
-msgstr ""
+msgstr "Cominciamo con un promemoria base che un computer è, prima di tutto, un insieme di elementi hardware. C'è generalmente una scheda principale (nota come <emphasis>scheda madre</emphasis>), con uno (o più) processori, qualche RAM, controller di dispositivi, e slot di espansione per schede aggiuntive (per altri controller di dispositivi). I più degni di nota tra questi controller sono gli IDE (Parallel ATA), SCSI e Serial ATA, per il collegamento di dispositivi di memorizzazione come gli hard disk. Altri controller includono l'USB,  che è in grado di ospitare una grande varietà di dispositivi (che vanno dalle webcam ai termometri, dalle tastiere ai sistemi di automazione domestica) e l'IEEE 1394 (Firewire). Questi controller spesso consentono il collegamento di più dispositivi così il sottosistema completo gestito da un controller è quindi generalmente noto come \"bus\". Schede opzionali includono le schede grafiche (alle quali verranno collegati gli schermi dei monitor), le schede audio, le schede di rete, e così via. Alcune schede madri hanno già integrate queste caratteristiche, e non hanno bisogno di schede aggiuntive."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Checking that the hardware works"
-msgstr ""
+msgstr "<emphasis>IN PRACTICA</emphasis> Verifica dell'hardware"
 
 msgid "Checking that a piece of hardware works can be tricky. On the other hand, proving that it doesn't work is sometimes quite simple."
-msgstr ""
+msgstr "La veririfica che una parte di hardware funzioni può essere difficile. D'altra parte, dimostrare che non funziona è qualche volta abbastanza semplice."
 
 msgid "A hard disk drive is made of spinning platters and moving magnetic heads. When a hard disk is powered up, the platter motor makes a characteristic whir. It also dissipates energy as heat. Consequently, a hard disk drive that stays cold and silent when powered up is broken."
-msgstr ""
+msgstr "Un hard disk è fatto di piatti rotanti e testine magnetica in movimento. Quando un hard disk si accende, il motore del piatto fa un ronzio caratteristico. E dissipa anche energia come calore. Di conseguenza, un disco rigido che rimane freddo e silenzioso quando acceso è rotto."
 
 msgid "Network cards often include LEDs displaying the state of the link. If a cable is plugged in and leads to a working network hub or switch, at least one LED will be on. If no LED lights up, either the card itself, the network device, or the cable between them, is faulty. The next step is therefore testing each component individually."
-msgstr ""
+msgstr "Le schede di rete spesso includono LED che mostrano lo stato del collegamento. Se un cavo è collegato ad un hub di rete funzionante o ad uno switch, almeno un LED si accende. Se non si accende nessun LED, o la scheda stessa, o il dispositivo di rete, oppure il cavo tra di loro, è difettoso. Il passo successivo è quindi testare ciascun componente singolarmente."
 
 msgid "Some option boards — especially 3D video cards — include cooling devices, such as heat sinks and/or fans. If the fan does not spin even though the card is powered up, a plausible explanation is the card overheated. This also applies to the main processor(s) located on the main board."
-msgstr ""
+msgstr "Alcune schede opzionali - le schede video 3D in particolare - includono dispositivi di raffreddamento, come i dissipatori di calore e/o ventilatori. Se la ventola non gira anche se la scheda è alimentata, una spiegazione plausibile è la scheda sia surriscaldata. Questo vale anche per il processore(i) principale(i) situato(i) sulla scheda madre."
 
 msgid "The Starter: the BIOS or UEFI"
-msgstr ""
+msgstr "L'Avviatore: il BOIS o l'UEFI"
 
 msgid "<primary>BIOS</primary>"
 msgstr "<primary>BIOS</primary>"
 
-#, fuzzy
 #| msgid "<primary>USB</primary>"
 msgid "<primary>UEFI</primary>"
-msgstr "<primary> USB </primary>"
+msgstr "<primary>UEFI</primary>"
 
-#, fuzzy
 #| msgid "<primary>USB</primary>"
 msgid "<primary>Master Boot Record (MBR)</primary>"
-msgstr "<primary> USB </primary>"
+msgstr "<primary>Master Boot Record (MBR)</primary>"
 
 msgid "Hardware, on its own, is unable to perform useful tasks without a corresponding piece of software driving it. Controlling and interacting with the hardware is the purpose of the operating system and applications. These, in turn, require functional hardware to run."
-msgstr ""
+msgstr "L'hardware, da solo, non è in grado di eseguire operazioni utili il corrispondente pezzo di software che lo guidi. Il controllo e l'interazione con l'hardware è lo scopo del sistema operativo e delle applicazioni. Questi, a loro volta, richiedono hardware funzionale per essere eseguiti."
 
 msgid "This symbiosis between hardware and software does not happen on its own. When the computer is first powered up, some initial setup is required. This role is assumed by the BIOS or UEFI, a piece of software embedded into the main board that runs automatically upon power-up. Its primary task is searching for software it can hand over control to. Usually, in the BIOS case, this involves looking for the first hard disk with a boot sector (also known as the <emphasis>master boot record</emphasis> or <acronym>MBR</acronym>), loading that boot sector, and running it. From then on, the BIOS is usually not involved (until the next boot). In the case of UEFI, the process involves scanning disks to find a dedicated EFI partition containing further EFI applications to execute."
-msgstr ""
+msgstr "Questa simbiosi tra hardware e software non avviene da sola. Quando il computer viene acceso dapprima, sono necessarie alcune configurazioni iniziali. Questo compito è assunto dal BIOS o dall'UEFI, un pezzo di software incluso nella scheda madre che si avvia automaticamente al momento dell'accensione. Il suo compito principale è cercare un software a cui possa cui trasferire il controllo. Di solito, nel caso del BIOS, questo comporta la ricerca del primo disco rigido con settore d'avvio (noto anche come <emphasis>master boot record</emphasis> o <acronym>MBR</acronym>), per caricare il settore d'avvio, ed eseguirlo. Da quel momento in poi, il BIOS di solito non è più coinvolto (fino al successivo avvio). Nel caso di EUFI, il processo comporta anche la scansione dei dischi per trovare una partizione EFI dedicata contenente ulteriori applicazioni EFI da eseguire."
 
 msgid "<emphasis>TOOL</emphasis> Setup, the BIOS/UEFI configuration tool"
-msgstr ""
+msgstr "<emphasis>STRUMENTO</emphasis> Impostare, lo strumento di configurazione del BIOS/UEFI"
 
 msgid "<primary><emphasis>Setup</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Impostare</emphasis></primary>"
 
 msgid "The BIOS/UEFI also contains a piece of software called Setup, designed to allow configuring aspects of the computer. In particular, it allows choosing which boot device is preferred (for instance, the floppy disk or CD-ROM drive), setting the system clock, and so on. Starting Setup usually involves pressing a key very soon after the computer is powered on. This key is often <keycap>Del</keycap> or <keycap>Esc</keycap>, sometimes <keycap>F2</keycap> or <keycap>F10</keycap>. Most of the time, the choice is flashed on screen while booting."
-msgstr ""
+msgstr "Il BIOS/UEFI contiene anche un software chiamato programma di installazione, progettato per consentire di configurare gli spetti del computer. In particolare, consente di scegliere il dispositivo d'avvio preferito (per esempio, il floppy disk o il CD-ROM), di impostare l'orologio di sistema, e così via. L'avvio del setup di solito si ottiene premendo molto presto un tastosubito dopo che il computer si è acceso. Questo tasto è spesso <keycap>Del</keycap> o <keycap>Esc</keycap>, a volte <keycap>F2</keycap> o <keycap>F10</keycap>. L amggior parte delle volte, la scelta è visualizzata sullo schermo durante l'avvio."
 
 msgid "The boot sector (or the EFI partition), in turn, contains another piece of software, called the bootloader, whose purpose is to find and run an operating system. Since this bootloader is not embedded in the main board but loaded from disk, it can be smarter than the BIOS, which explains why the BIOS does not load the operating system by itself. For instance, the bootloader (often GRUB on Linux systems) can list the available operating systems and ask the user to choose one. Usually, a time-out and default choice is provided. Sometimes the user can also choose to add parameters to pass to the kernel, and so on. Eventually, a kernel is found, loaded into memory, and executed."
-msgstr ""
+msgstr "Il settore di avvio (o la partizione EFI), a sua volta, contiene un'altro pezzo di software, chiamato bootloader, il cui scopo è quello di trovare ed eseguire un sistema operativo. Dal momento che questo bootloader non è incorporato nella scheda madre, ma è caricato dal disco, può avere più funzionalità del BIOS, il che spiega perché il BIOS non carica il sistema operativo stesso. Ad esempio, il bootloader (spesso GRUB su sistemi Linux) può elencare i sistemi operativi disponibili e chiedere all'utente di sceglierne uno. Di solito, viene fornita una scelta predefinita ed una di timeout. A volte l'utente può anche scegliere di aggiungere parametri da passare al kernel, e così via. Alla fine, un kernel viene trovato, caricato in memoria, ed eseguito."
 
 msgid "<emphasis>NOTE</emphasis> UEFI, a modern replacement to the BIOS"
-msgstr ""
+msgstr "<emphasis>NOTA</emphasis> UEFI, un moderno sostituto del BIOS"
 
-#, fuzzy
 #| msgid "<primary>USB</primary>"
 msgid "<primary>Secure Boot</primary>"
-msgstr "<primary> USB </primary>"
+msgstr "<primary>Avvio Sicuro</primary>"
 
 msgid "UEFI is a relatively recent development. Most new computers will support UEFI booting, but usually they also support BIOS booting alongside for backwards compatibility with operating systems that are not ready to exploit UEFI."
-msgstr ""
+msgstr "UEFI è uno sviluppo relativamente recente. La maggior parte dei nuovi computer supportano il boot UEFI, ma di solito hanno anche il supporto all'avvio da BIOS per retrocompatibilità con i sistemi operativi che non sono pronti a sfruttare UEFI."
 
 msgid "This new system gets rid of some of the limitations of BIOS booting: with the usage of a dedicated partition, the bootloaders no longer need special tricks to fit in a tiny <emphasis>master boot record</emphasis> and then discover the kernel to boot. Even better, with a suitably built Linux kernel, UEFI can directly boot the kernel without any intermediary bootloader. UEFI is also the basic foundation used to deliver <emphasis>Secure Boot</emphasis>, a technology ensuring that you run only software validated by your operating system vendor."
-msgstr ""
+msgstr "Questo nuovo sistema si libera di alcune delle limitazioni del BIOS: con l'utilizzo di una partizione dedicata, i bootloader non hanno più bisogno trucchi speciali per adattarsi in un piccolo <emphasis>master boot record</emphasis> e poi scoprire il kernel da avviare. Ancora meglio, con un kernel Linux opportunamente costruito, UEFI può avviare direttamente il kernel senza alcun bootloader intermedio. UEFI è anche il fondamento di base usato per fornire <emphasis>Secure Boot</emphasis>, una tecnologia per garantire che si esegua solo software convalidato dal produttore del sistema operativo."
 
 msgid "The BIOS/UEFI is also in charge of detecting and initializing a number of devices. Obviously, this includes the IDE/SATA devices (usually hard disk(s) and CD/DVD-ROM drives), but also PCI devices. Detected devices are often listed on screen during the boot process. If this list goes by too fast, use the <keycap>Pause</keycap> key to freeze it for long enough to read. Installed PCI devices that don't appear are a bad omen. At worst, the device is faulty. At best, it is merely incompatible with the current version of the BIOS or main board. PCI specifications evolve, and old main boards are not guaranteed to handle newer PCI devices."
-msgstr ""
+msgstr "Il BIOS/UEFI è anche responsabile del rilevamento edell'inizializzazione di un numero di dispositivi. Ovviamente, questo include i dispositivi IDE/SATA (di solito hard disk e unità CD/DVD-ROM), ma anche i dispositivi PCI. I dispositivi rilevati sono spesso elencati sullo schermo durante il processo di avvio. Se questo elenco scorre troppo velocemente, utilizzare il tasto <keycap>Pausa</keycap> per fermarlo il tempo sufficiente per leggere. Dispositivi PCI installati che non vengono visualizzati sono un cattivo presagio. Nel peggiore dei casi, il dispositivo è difettoso. Nella migliore delle ipotesi, è semplicemente incompatibile con la versione corrente del BIOS o con la scheda madre. Le specifiche PCI si evolvono, e le vecchie scehde madri non garantiscono di gestire i dispositivi PCI più recenti."
 
 msgid "The Kernel"
-msgstr ""
+msgstr "Il Kernel"
 
 msgid "Both the BIOS/UEFI and the bootloader only run for a few seconds each; now we are getting to the first piece of software that runs for a longer time, the operating system kernel. This kernel assumes the role of a conductor in an orchestra, and ensures coordination between hardware and software. This role involves several tasks including: driving hardware, managing processes, users and permissions, the filesystem, and so on. The kernel provides a common base to all other programs on the system."
-msgstr ""
+msgstr "Sia il BIOS/EUFI che il bootloader sono eseguiti solo per pochi secondi ciascuno; ora stiamo ottenendo il primo pezzo di software che viene eseguito per un tempo più lungo, il kernel del sistema operativo. Questo kernel assume il ruolo di un direttore d'orchestra, e assicura il coordinamento tra hardware e software. Questo ruolo prevede diverse attività tra cui: guidare l'hardware, gestire i processi, gli utenti ed i permessi, il filesystem, e così via. Il kernel fornisce una base comune a tutti gli altri programmi sul sistema."
 
 msgid "The User Space"
-msgstr ""
+msgstr "Lo Spazio Utente"
 
 msgid "Although everything that happens outside of the kernel can be lumped together under “user space”, we can still separate it into software layers. However, their interactions are more complex than before, and the classifications may not be as simple. An application commonly uses libraries, which in turn involve the kernel, but the communications can also involve other programs, or even many libraries calling each other."
-msgstr ""
+msgstr "Anche se tutto ciò che accade al di fuori del kernel può essere accomunato sottola dicitura \"user space\" (spazio utente), possiamo ancora separarlo in strati software. Tuttavia, le interazioni tra i processi esterni al kernel sono più complesse rispetto a prima, e le classificazioni possono non essere così semplici. Un'applicazione utilizza comunemente librerie, che a loro volta coinvolgono il kernel, ma le comunicazioni possono coinvolgere anche altri programmi, o anche altre librerie che si chiamano a vicenda."
 
 msgid "Some Tasks Handled by the Kernel"
-msgstr ""
+msgstr "Alcuni Compiti di cui si occupa il Kernel"
 
 msgid "Driving the Hardware"
-msgstr ""
+msgstr "Guidare l'Hardware"
 
 msgid "The kernel is, first and foremost, tasked with controlling the hardware parts, detecting them, switching them on when the computer is powered on, and so on. It also makes them available to higher-level software with a simplified programming interface, so applications can take advantage of devices without having to worry about details such as which extension slot the option board is plugged into. The programming interface also provides an abstraction layer; this allows video-conferencing software, for example, to use a webcam independently of its make and model. The software can just use the <emphasis>Video for Linux</emphasis> (V4L) interface, and the kernel translates the function calls of this interface into the actual hardware commands needed by the specific webcam in use."
-msgstr ""
+msgstr "Il kernel ha, prima di tutto, il compito di controllare i componenti hardware, individuarli, avviarli quando il computer è acceso, e così via. Fornisce loro anche software di livello superiore con un'interfaccia di programmazione semplificata, cosicchè le applicazioni possono utilizzare i dispositivi senza doversi preoccupare di dettagli come ad esempio a quale slot di espansione è collegata la scheda aggiuntiva. L'interfaccia di programmazione prevede anche un livello di astrazione; questo permette al software di video-conferenza, ad esempio, di usare una webcam indipendentemente dalla sua marca e modello. Il software è in grado appena di utilizzare l'interfaccia <emphasis>Video for Linux</emphasis> (V4L),  ed il kernel traduce le chiamate di funzione di questa interfaccia nei comandi hardware effettivi necessari alla specifica webcam in uso."
 
 msgid "<indexterm><primary><command>lspci</command></primary></indexterm> <indexterm><primary><command>lsusb</command></primary></indexterm> <indexterm><primary><command>lsdev</command></primary></indexterm> <indexterm><primary><command>lspcmcia</command></primary></indexterm> The kernel exports many details about detected hardware through the <filename>/proc/</filename> and <filename>/sys/</filename> virtual filesystems. Several tools summarize those details. Among them, <command>lspci</command> (in the <emphasis role=\"pkg\">pciutils</emphasis> package) lists PCI devices, <command>lsusb</command> (in the <emphasis role=\"pkg\">usbutils</emphasis> package) lists USB devices, and <command>lspcmcia</command> (in the <emphasis role=\"pkg\">pcmciautils</emphasis> package) lists PCMCIA cards. These tools are very useful for identifying the exact model of a device. This identification also allows more precise searches on the web, which in turn, lead to more relevant documents."
-msgstr ""
+msgstr "<indexterm><primary><command>lspci</command></primary></indexterm> <indexterm><primary><command>lsusb</command></primary></indexterm> <indexterm><primary><command>lsdev</command></primary></indexterm> <indexterm><primary><command>lspcmcia</command></primary></indexterm> Il kernel esporta molti dettagli sull'hardware rilevato attraverso i filesystem virtuali <filename>/proc/</filename> e <filename>/sys/</filename>. Diversi strumenti riassumono questi dettagli. Tra questi, <command>lspci</command> (nel pacchetto <emphasis role=\"pkg\">pciutils</emphasis>) elenca i dispositivi USB, e <command>lspcmcia</command> (nel pacchetto <emphasis role=\"pkg\">pcmciautils</emphasis>) elenca le schede PCMCIA. Questi strumenti sono molto utili per identificare il modello esatto del dispositivo. Questa identificazione permette anche le ricerche più precise sul web, che a sua volta, porta a documenti più pertinenti."
 
 msgid "Example of information provided by <command>lspci</command> and <command>lsusb</command>"
-msgstr ""
+msgstr "Esempio di informazioni fornite da <command>lspci</command> e <command>lsusb</command>"
 
 msgid ""
 "\n"
@@ -425,192 +439,210 @@ msgid ""
 "Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth\n"
 "</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>lspci</userinput>\n"
+"<computeroutput>[...]\n"
+"00:02.1 Display controller: Intel Corporation Mobile 915GM/GMS/910GML Express Graphics Controller (rev 03)\n"
+"00:1c.0 PCI bridge: Intel Corporation 82801FB/FBM/FR/FW/FRW (ICH6 Family) PCI Express Port 1 (rev 03)\n"
+"00:1d.0 USB Controller: Intel Corporation 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB UHCI #1 (rev 03)\n"
+"[...]\n"
+"01:00.0 Ethernet controller: Broadcom Corporation NetXtreme BCM5751 Gigabit Ethernet PCI Express (rev 01)\n"
+"02:03.0 Network controller: Intel Corporation PRO/Wireless 2200BG Network Connection (rev 05)\n"
+"$ </computeroutput><userinput>lsusb</userinput>\n"
+"<computeroutput>Bus 005 Device 004: ID 413c:a005 Dell Computer Corp.\n"
+"Bus 005 Device 008: ID 413c:9001 Dell Computer Corp.\n"
+"Bus 005 Device 007: ID 045e:00dd Microsoft Corp.\n"
+"Bus 005 Device 006: ID 046d:c03d Logitech, Inc.\n"
+"[...]\n"
+"Bus 002 Device 004: ID 413c:8103 Dell Computer Corp. Wireless 350 Bluetooth\n"
+"</computeroutput>"
 
 msgid "These programs have a <literal>-v</literal> option, that lists much more detailed (but usually not necessary) information. Finally, the <command>lsdev</command> command (in the <emphasis role=\"pkg\">procinfo</emphasis> package) lists communication resources used by devices."
-msgstr ""
+msgstr "Questi programmi hanno un'opzione <literal>-v</literal>, che riporta informazioni molto più dettagliate (ma di solito non è necessario). Infine, il comando <command>lsdev</command> (nel pacchetto <emphasis role=\"pkg\">procinfo</emphasis>) elenca le risorse di comunicazione utilizzate dai dispositivi."
 
 msgid "Applications often access devices by way of special files created within <filename>/dev/</filename> (see sidebar <xref linkend=\"sidebar.special-files\" />). These are special files that represent disk drives (for instance, <filename>/dev/hda</filename> and <filename>/dev/sdc</filename>), partitions (<filename>/dev/hda1</filename> or <filename>/dev/sdc3</filename>), mice (<filename>/dev/input/mouse0</filename>), keyboards (<filename>/dev/input/event0</filename>), soundcards (<filename>/dev/snd/*</filename>), serial ports (<filename>/dev/ttyS*</filename>), and so on."
-msgstr ""
+msgstr "Le applicazioni spesso accedono ai dispositivi per mezzo di file speciali creati all'interno della cartella <filename>/dev/</filename> (vedi riquadro <xref linkend=\"sidebar.special-files\" />). Si tratta di file speciali che rappresentano le unità disco (per esempio, <filename>/dev/hda</filename> e <filename>/dev/sdc</filename>), le partizioni(<filename>/dev/hda1</filename> o <filename>/dev/sdc3</filename>), i mouse (<filename>/dev/input/mouse0</filename>), le tastiere (<filename>/dev/input/event0</filename>), le schede audio (<filename>/dev/snd/*</filename>), le porte seriali (<filename>/dev/ttyS*</filename>), e così via."
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Filesystem"
 
 msgid "<primary>filesystem</primary>"
-msgstr ""
+msgstr "<primary>filesystem</primary>"
 
 msgid "<primary>system, filesystem</primary>"
-msgstr ""
+msgstr "<primary>sistema, filesystem</primary>"
 
 msgid "Filesystems are one of the most prominent aspects of the kernel. Unix systems merge all the file stores into a single hierarchy, which allows users (and applications) to access data simply by knowing its location within that hierarchy."
-msgstr ""
+msgstr "I filesystem sono uno degli aspetti più importanti del kernel. I sistemi unix uniscono tutti gli archivi in un'unica gerarchia, che permette agli utenti (ed alle applicazioni) di accedere ai dati semplicemente conoscendo la loro posizione all'interno di tale gerarchia."
 
 msgid "The starting point of this hierarchical tree is called the root, <filename>/</filename>. This directory can contain named subdirectories. For instance, the <literal>home</literal> subdirectory of <filename>/</filename> is called <filename>/home/</filename>. This subdirectory can, in turn, contain other subdirectories, and so on. Each directory can also contain files, where the actual data will be stored. Thus, the <filename>/home/rmas/Desktop/hello.txt</filename> name refers to a file named <literal>hello.txt</literal> stored in the <literal>Desktop</literal> subdirectory of the <literal>rmas</literal> subdirectory of the <literal>home</literal> directory present in the root. The kernel translates between this naming system and the actual, physical storage on a disk."
-msgstr ""
+msgstr "Il punto di partenza di questo albero gerarchico è chiamato radice (root), <filename>/</filename>. Questa directory può contenere sottodirectory. Ad esempio, la directory <literal>home</literal> sottodirectory di <filename>/</filename> è chiamata <filename>/home/</filename>. Questa sottodirectory può, a sua volta, contiene altre sottodirectory, e così via. Ogni directory può contenere anche file, in cui verranno memorizzati i dati effettivi. Così, il nome <filename>/home/marco/Scrivania/ciao.txt</filename> si riferisce ad un file chiamato <literal>ciao.txt</literal> memorizzato in <literal>Scrivania</literal> sottodirectory di <literal>marco</literal> sottodirectory della directory <literal>home</literal> presente nella radice. Il kernel fa la traduzione tra questo sistema di denominazione e la reale, fisica archiviazione su un disco."
 
 msgid "Unlike other systems, there is only one such hierarchy, and it can integrate data from several disks. One of these disks is used as the root, and the others are “mounted” on directories in the hierarchy (the Unix command is called <command>mount</command>); these other disks are then available under these “mount points”. This allows storing users' home directories (traditionally stored within <filename>/home/</filename>) on a second hard disk, which will contain the <literal>rhertzog</literal> and <literal>rmas</literal> directories. Once the disk is mounted on <filename>/home/</filename>, these directories become accessible at their usual locations, and paths such as <filename>/home/rmas/Desktop/hello.txt</filename> keep working."
-msgstr ""
+msgstr "A differenza di altri sistemi, c'è solo un tale gerarchia, e può integrare dati da più dischi. Uno di questi dischi è usato come radice, e gli altri sono \"montati\" sulle directory nella gerarchia (il comando Unix è chiamato <command>mount</command>); questi altri dischi sono poi disponibili sotto questi \"punti di montaggio\". Questo permette di memorizzare le directory home degli utenti (di solito memorizzate all'interno di <filename>/home/</filename>) su un secondo hard disk, che conterrà le directory <literal>marco</literal> e <literal>grazia</literal>. Una volta che il disco è montato in <filename>/home/</filename>, queste directory diventano accessibili alle loro solite posizioni, e percorsi come <filename>/home/marco/Scrivania/ciao.txt</filename> continueranno a funzionare."
 
 msgid "<primary><command>mkfs</command></primary>"
-msgstr ""
+msgstr "<primary><command>mkfs</command></primary>"
 
 msgid "There are many filesystem formats, corresponding to many ways of physically storing data on disks. The most widely known are <emphasis>ext2</emphasis>, <emphasis>ext3</emphasis> and <emphasis>ext4</emphasis>, but others exist. For instance, <emphasis>vfat</emphasis> is the system that was historically used by DOS and Windows operating systems, which allows using hard disks under Debian as well as under Windows. In any case, a filesystem must be prepared on a disk before it can be mounted and this operation is known as “formatting”. Commands such as <command>mkfs.ext3</command> (where <command>mkfs</command> stands for <emphasis>MaKe FileSystem</emphasis>) handle formatting. These commands require, as a parameter, a device file representing the partition to be formatted (for instance, <filename>/dev/sda1</filename>). This operation is destructive and should only be run once, except if one deliberately wishes to wipe a filesystem and start afresh."
-msgstr ""
+msgstr "Ci sono molti formati di filesystem, che corrispondono a molti modi per memorizzare fisicamente i dati sui dischi. I più conosciuti sono <emphasis>ext2</emphasis>, <emphasis>ext3</emphasis> ed <emphasis>ext4</emphasis>, ma ne esistono altri. Ad esempio, <emphasis>vfat</emphasis> è il sistema che è stato storicamente utilizzato dai sistemi operativi DOS e Windows, e che consente di utilizzare i disci rigidi sotto Debian così come in Windows. In questo caso, il filesystem deve essere preparato sul disco prima che venga montato e questa operazione è nota come \"formattazione\". I comandi come <command>mkfs.ext3</command> (dove <command>mkfs</command> sta per <emphasis>MaKe FileSystem</emphasis>) gestiscono la formattazione. Questi comandi richiedono, come parametro, un file del dispositivo che rappresenta la partizione che deve essere formattata (per esempio, <filename>/dev/sda1</filename>). Questa operazione è distruttiva e deve essere eseguita una sola volta, a meno che non si voglia deliberatamente ripulire un filesystem e ricominciare da capo."
 
 msgid "There are also network filesystems, such as <acronym>NFS</acronym>, where data is not stored on a local disk. Instead, data is transmitted through the network to a server that stores and retrieves them on demand. The filesystem abstraction shields users from having to care: files remain accessible in their usual hierarchical way."
-msgstr ""
+msgstr "Ci sono anche i file system di rete, come <acronym>NFS</acronym>, in cui i dati non sono memorizzati su un disco locale. Invece, i dati vengono trasmessi attraverso la rete a un server che li memorizza e li recupera su richiesta. L'astrazione del filesystem protegge gli utenti dal dover fare attenzione: i file rimangono di solito accessibili in modo gerarchico."
 
 msgid "Shared Functions"
-msgstr ""
+msgstr "Funzioni Condivise"
 
 msgid "Since a number of the same functions are used by all software, it makes sense to centralize them in the kernel. For instance, shared filesystem handling allows any application to simply open a file by name, without needing to worry where the file is stored physically. The file can be stored in several different slices on a hard disk, or split across several hard disks, or even stored on a remote file server. Shared communication functions are used by applications to exchange data independently of the way the data is transported. For instance, transport could be over any combination of local or wireless networks, or over a telephone landline."
-msgstr ""
+msgstr "Dal momento che un certo numero di stesse funzioni è utilizzato da tutti i software, ha senso che vengano centralizzate nel kernel. Ad esempio, la gestione del file system condiviso permette a qualsiasi applicazione semplicemente aprire un file per nome, senza la necessità di preoccuparsi del modo in cui il file è memorizzato fisicamente. Il file può essere memorizzato in parecchie parti diverse su un disco rigido, o diviso su più dischi rigidi, o anche memorizzato su un file server remoto. Le funzioni di comunicazione condivise vengono utilizzate dalle applicazioni per scambiare dati indipendentemente dal modo in cui i dati vengono trasportati. Per esempio, il trasporto potrebbe avvenire su qualsiasi combinazione di reti locali o wireless, o su un telefono fisso."
 
 msgid "<primary><emphasis>pid</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>pid</emphasis></primary>"
 
 msgid "A process is a running instance of a program. This requires memory to store both the program itself and its operating data. The kernel is in charge of creating and tracking them. When a program runs, the kernel first sets aside some memory, then loads the executable code from the filesystem into it, and then starts the code running. It keeps information about this process, the most visible of which is an identification number known as <emphasis>pid</emphasis> (<emphasis>process identifier</emphasis>)."
-msgstr ""
+msgstr "Un processo è un'istanza di un programma in esecuzione. Ciò richiede memoria per memorizzare sia il programma che i suoi dati in esecuzione. Il kermel si occupa della creazione e del loro monitoraggio. Quando un programma viene eseguito, il kernel prima mette da parte un pò di memoria, quindi carica il codice eseguibile dal filesystem in esso, e poi avvia l'esecuzione del codice. Mantiene le informazioni su questo processo, delle quali la più visibile è il numero identificativo conosciuto come <emphasis>pid</emphasis> (<emphasis>process identifier</emphasis>)."
 
 msgid "Unix-like kernels (including Linux), like most other modern operating systems, are capable of “multi-tasking”. In other words, they allow running many processes “at the same time”. There is actually only one running process at any one time, but the kernel cuts time into small slices and runs each process in turn. Since these time slices are very short (in the millisecond range), they create the illusion of processes running in parallel, although they are actually only active during some time intervals and idle the rest of the time. The kernel's job is to adjust its scheduling mechanisms to keep that illusion, while maximizing the global system performance. If the time slices are too long, the application may not appear as responsive as desired. Too short, and the system loses time switching tasks too frequently. These decisions can be tweaked with process priorities. High-priority processes will run for longer and with more frequent time slices than low-priority processes."
-msgstr ""
+msgstr "I kernel Unix-like (incluso Linux), come la maggior parte dei sistemi operativi moderni, sono “multi-tasking”. In altre parole, permettono l'esecuzione di molti processi \"contemporaneamente\". In realtà c'è solo un processo in esecuzione in un dato momento, ma il kernel fraziona il tempo in intervalli ed esegue ogni processo a turno. Poiché questi intervalli di tempo sono molto brevi (in millisecondi), creano l'illusione di processi in esecuzione in parallelo, anche se in realtà sono attivi solo durante alcuni intervalli di tempo e inattivi il resto del tempo. Il lavoro del kernel è quello di regolare il suo meccanismo di pianificazione per mantenere questa illusione, massimizzando le prestazioni globali del sistema. Se gli intervalli di tempo sono troppo lunghi, l'applicazione potrebbe non mostrarsi così reattiva come si desidera. Se sono troppo brevi, il sitema perde tempo a passare da un lavoro (task) ad un'altro così di frequente. queste decisioni possono essere modificate attraverso le priorità dei processi. I processi ad alta priorità verranno eseguiti per più tempo e con intervalli più frequenti rispetto ai processi a bassa priorità."
 
 msgid "<emphasis>NOTE</emphasis> Multi-processor systems (and variants)"
-msgstr ""
+msgstr "<emphasis>NOTA</emphasis> Sistemi Multi-processore (e varianti)"
 
 msgid "The limitation described above of only one process being able to run at a time, doesn't always apply. The actual restriction is that there can only be one running process <emphasis>per processor core</emphasis> at a time. Multi-processor, multi-core or “hyper-threaded” systems allow several processes to run in parallel. The same time-slicing system is still used, though, so as to handle cases where there are more active processes than available processor cores. This is far from unusual: a basic system, even a mostly idle one, almost always has tens of running processes."
-msgstr ""
+msgstr "La limitazione descritta sopra di un solo processo che può essere eseguito per volta, non si applica sempre. L'attuale restrizione  è che ci può essere un solo processo in esecuzione <emphasis>per core di processore</emphasis> alla volta. I sistemi multi-processore, multi-core o \"hyper-threading\" consentono l'esecuzione di più processi in parallelo.  Lo stesso sistema time-slicing è ancora usato, anche se, per gestire i casi in cui vi sono processi più attivi che core disponibili. Questo è ben lungi dall'essere insolito: un sistema di base, anche uno in idle, quasi sempre ha decine di processi in esecuzione."
 
 msgid "Of course, the kernel allows running several independent instances of the same program. But each can only access its own time slices and memory. Their data thus remain independent."
-msgstr ""
+msgstr "Naturalmente, il kernel permette di eseguire diverse istanze indipendenti dello stesso programma. Ma ciascuno può accedere solo ai propri intervalli di tempo e memoria. I loro dati rimangono quindi indipendenti."
 
 msgid "Rights Management"
-msgstr ""
+msgstr "Gestione dei Diritti"
 
 msgid "Unix-like systems are also multi-user. They provide a rights management system that supports separate users and groups; it also allows control over actions based on permissions. The kernel manages data for each process, allowing it to control permissions. Most of the time, a process is identified by the user who started it. That process is only permitted to take those actions available to its owner. For instance, trying to open a file requires the kernel to check the process identity against access permissions (for more details on this particular example, see <xref linkend=\"sect.rights-management\" />)."
-msgstr ""
+msgstr "I sistemi Unix-like sono anche multi-utente. Essi forniscono un sistema di gestione dei diritti che supporta utenti e gruppi separati; permette anche il controllo sulle azioni basate sulle autorizzazioni. Il kernel gestisce i dati per ogni processo, permettendo di controllare i permessi. La maggior parte del tempo, il processo è identificato dall'utente che lo ha iniziato. Tale processo è consentito solo per rendere quelle azioni disponibili al suo proprietario. Ad esempio, il tentativo di aprire un file richiede che il kernel controlli l'identità del processo contro le autorizzazioni di accesso (per maggiori dettagli su questo particolare esempio, vedere <xref linkend=\"sect.rights-management\" />)."
 
 msgid "<primary>user space</primary>"
-msgstr ""
+msgstr "<primary>spazio utente</primary>"
 
 msgid "<primary>kernel space</primary>"
-msgstr ""
+msgstr "<primary>spazio kernel</primary>"
 
 msgid "“User space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
-msgstr ""
+msgstr "\"Spazio utente\" si riferisce l'ambiente di runtime di normali (al contrario di kernel) processi. Questo non significa necessariamente che questi processi siano effettivamente avviati dagli utenti perchè normalmente un sistema standard ha diversi processi \"demoni\" (o in background) in esecuzione prima che l'utente apri anche una sessione. I processi demoni sono considerati processi user-space."
 
 msgid "<primary><command>init</command></primary>"
 msgstr "<primary><command>init</command></primary>"
 
 msgid "When the kernel gets past its initialization phase, it starts the very first process, <command>init</command>. Process #1 alone is very rarely useful by itself, and Unix-like systems run with many additional processes."
-msgstr ""
+msgstr "Qunado il kernel ternima la sua fase di inizializzazione, avvia il primo processo, <command>init</command>. Il processo #1 da solo è molto raramente utile di per sé, ed i sistemi Unix-like vengono eseguiti con molti processi aggiuntivi."
 
 msgid "<primary><emphasis>fork</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>fork</emphasis></primary>"
 
 msgid "First of all, a process can clone itself (this is known as a <emphasis>fork</emphasis>). The kernel allocates a new (but identical) process memory space, and another process to use it. At this time, the only difference between these two processes is their <emphasis>pid</emphasis>. The new process is usually called a child process, and the original process whose <emphasis>pid</emphasis> doesn't change, is called the parent process."
-msgstr ""
+msgstr "Prima di tutto, un processo può clonare se stesso (questo è noto come <emphasis>fork</emphasis>). Il kermel alloca un nuovo (ma identico) spazio di memoria per il processo, ed un'altro processo per usarlo. In questo momento, l'unica differenza tra questi due processi è il loro <emphasis>pid</emphasis>. Il nuovo processo è chiamato di solito processo figlio, ed il processo originale il cui <emphasis>pid</emphasis> non cambia, è chiamato processo padre."
 
 msgid "Sometimes, the child process continues to lead its own life independently from its parent, with its own data copied from the parent process. In many cases, though, this child process executes another program. With a few exceptions, its memory is simply replaced by that of the new program, and execution of this new program begins. This is the mechanism used by the init process (with process number 1) to start additional services and execute the whole startup sequence. At some point, one process among <command>init</command>'s offspring starts a graphical interface for users to log in to (the actual sequence of events is described in more details in <xref linkend=\"sect.system-boot\" />)."
-msgstr ""
+msgstr "A volte, il processo figlio continua a condurre la sua propria vita indipendentemente dal suo genitore, con i propri dati copiati dal processo genitore. In molti casi, però, questo processo figlio esegue un altro programma. Con poche eccezioni, la memoria viene semplicemente sostituita da quella del nuovo programma, e l'esecuzione di questo nuovo programma inizia. Questo è il meccanismo utilizzato dal processo init (con il processo numero 1) per avviare servizi aggiuntivi ed eseguire l'intera sequenza di avvio. Ad un certo punto, un processo tra i processi figli di <command>init</command> avvia un'interfaccia grafica per gli utenti che devono fare il login (la sequenza reale degli eventi è descritta in dettaglio in <xref linkend=\"sect.system-boot\" />)."
 
+#, fuzzy
 msgid "When a process finishes the task for which it was started, it terminates. The kernel then recovers the memory assigned to this process, and stops giving it slices of running time. The parent process is told about its child process being terminated, which allows a process to wait for the completion of a task it delegated to a child process. This behavior is plainly visible in command-line interpreters (known as <emphasis>shells</emphasis>). When a command is typed into a shell, the prompt only comes back when the execution of the command is over. Most shells allow for running the command in the background, it is a simple matter of adding an <userinput>&amp;</userinput> to the end of the command. The prompt is displayed again right away, which can lead to problems if the command needs to display data of its own."
-msgstr ""
+msgstr "Quando un processo completa il compito per cui è stato avviato, termina. Il kernel poi recupera la memoria assegnata a questo processo, e smette di assegnarli porzioni di tempo per l'esecuzione."
 
 msgid "Daemons"
-msgstr ""
+msgstr "Demoni"
 
 msgid "<primary>daemon</primary>"
-msgstr ""
+msgstr "<primary>demone</primary>"
 
 msgid "A “daemon” is a process started automatically by the boot sequence. It keeps running (in the background) to perform maintenance tasks or provide services to other processes. This “background task” is actually arbitrary, and does not match anything particular from the system's point of view. They are simply processes, quite similar to other processes, which run in turn when their time slice comes. The distinction is only in the human language: a process that runs with no interaction with a user (in particular, without any graphical interface) is said to be running “in the background” or “as a daemon”."
-msgstr ""
+msgstr "Un \"demone\" è un processo avviato automaticamente dalla sequenza di avvio. Continua a funzionare (in background) per eseguire operazioni di manutenzione o per fornire servizi ad altri processi. Questa \"attività in background\" è in realtà arbitraria, e non corrisponde a niente di particolare dal punto di vista del sistema. Sono semplicemente processi, molto simili ad altri processi, che a loro volta si avviano quando arriva il loro intervallo di tempo. La distinzione è solo nel linguaggio umano: un processo che viene eseguito senza interazione con l'utente (in particolare, senza alcuna interfaccia grafica) è detto essere in esecuzione \"in background\" o \"come demone\"."
 
 msgid "<emphasis>VOCABULARY</emphasis> Daemon, demon, a derogatory term?"
-msgstr ""
+msgstr "<emphasis>VOCABOLARIO</emphasis> Daemon, demone, un termine dispregiativo?"
 
 msgid "Although <emphasis>daemon</emphasis> term shares its Greek etymology with <emphasis>demon</emphasis>, the former does not imply diabolical evil, instead, it should be understood as a kind of helper spirit. This distinction is subtle enough in English; it is even worse in other languages where the same word is used for both meanings."
-msgstr ""
+msgstr "Anche se il termine <emphasis>daemon</emphasis> condivide la sua etimologia greca con <emphasis>demon</emphasis>, il primo non implica il male diabolico, invece, dovrebbe essere inteso come una sorta di spirito aiutante. Questa distinzione è abbastanza sottile in inglese; è anche peggio in altre lingue in cui la stessa parola è usata per entrambi i significati."
 
 msgid "Several such daemons are described in detail in <xref linkend=\"unix-services\" />."
-msgstr ""
+msgstr "Molti di questi demoni sono descritti in dettaglio nella <xref linkend=\"unix-services\" />."
 
 msgid "Inter-Process Communications"
-msgstr ""
+msgstr "Comunicazioni tra Processi"
 
 msgid "<primary>IPC</primary>"
-msgstr ""
+msgstr "<primary>IPC</primary>"
 
 msgid "<primary>Inter-Process Communications</primary>"
-msgstr ""
+msgstr "<primary>Inter-Process Communications (Comunicazioni tra Processi)</primary>"
 
 msgid "An isolated process, whether a daemon or an interactive application, is rarely useful on its own, which is why there are several methods allowing separate processes to communicate together, either to exchange data or to control one another. The generic term referring to this is <emphasis>inter-process communication</emphasis>, or IPC for short."
-msgstr ""
+msgstr "Un processo isolato, sia esso un demone o un'applicazione interattiva, raramente è utile di per sé, ed è per questo ci sono diversi metodi che consentono ai processi separati di comunicare tra loro, sia per lo scambio di dati che per controllarsi l'un l'altro. Il termine generico che si riferisce a questo è <emphasis>comunicazione tra processi</emphasis>, o IPC in breve."
 
 msgid "The simplest IPC system is to use files. The process that wishes to send data writes it into a file (with a name known in advance), while the recipient only has to open the file and read its contents."
-msgstr ""
+msgstr "Il più semplice sistema di IPC è quello di utilizzare i file. Il processo che desidera inviare dati scrive in un file (con un nome noto in anticipo), mentre il destinatario deve solo aprire il file e leggere i contenuti."
 
 msgid "<primary><emphasis>pipe</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>pipe</emphasis></primary>"
 
 msgid "In the case where you do not wish to store data on disk, you can use a <emphasis>pipe</emphasis>, which is simply an object with two ends; bytes written in one end are readable at the other. If the ends are controlled by separate processes, this leads to a simple and convenient inter-process communication channel. Pipes can be classified into two categories: named pipes, and anonymous pipes. A named pipe is represented by an entry on the filesystem (although the transmitted data is not stored there), so both processes can open it independently if the location of the named pipe is known beforehand. In cases where the communicating processes are related (for instance, a parent and its child process), the parent process can also create an anonymous pipe before forking, and the child inherits it. Both processes will then be able to exchange data through the pipe without needing the filesystem."
-msgstr ""
+msgstr "Nel caso in cui non si desideri memorizzare i dati su disco, è possibile utilizzare una <emphasis>pipe</emphasis>, che è semplicemente un oggetto con due estremità; i byte scritti in una delle estremità sono leggibili dall'altra. Se le estremità sono controllate da processi separati, questo porta ad un canale di comunicazione tra processi semplice e conveniente. Le pipe possono essere classificate in due categorie: pipe con nome, e pipe anonime. Una pipe con nome è rappresentata da una sola voce sul filesystem (anche se i dati trasmessi non sono memorizzati lì), quindi entrambi i processi possono aprirla indipendentemente se la posizione della pipe con nome è nota in anticipo. Nel caso in cui sono collegati processi comunicanti (per esempio, un processo genitore ed un processo figlio), il processo padre può anche creare una pipe anonima prima di fare il fork, ed il processo figlio la eredita. Entrambi i processi saranno quindi in grado di scambiare dati attraverso la pipe senza bisogno del filesystem."
 
 msgid "<emphasis>IN PRACTICE</emphasis> A concrete example"
-msgstr ""
+msgstr "<emphasis>IN PRATICA</emphasis> Un'esempio concreto"
 
 msgid "Let's describe in some detail what happens when a complex command (a <emphasis>pipeline</emphasis>) is run from a shell. We assume we have a <command>bash</command> process (the standard user shell on Debian), with <emphasis>pid</emphasis> 4374; into this shell, we type the command: <command>ls | sort</command> ."
-msgstr ""
+msgstr "Descriviamo in dettaglio ciò che accade quando un comando complesso (una <emphasis>pipeline</emphasis>) viene eseguita da una shell. Supponiamo di avere un processo <command>bash</command> (la shell utente standard su Debian), con <emphasis>pid</emphasis> 4374; in questa shell, digitiamo il comando: <command>ls | sort</command> ."
 
 msgid "The shell first interprets the command typed in. In our case, it understands there are two programs (<command>ls</command> and <command>sort</command>), with a data stream flowing from one to the other (denoted by the <userinput>|</userinput> character, known as <emphasis>pipe</emphasis>). <command>bash</command> first creates an unnamed pipe (which initially exists only within the <command>bash</command> process itself)."
-msgstr ""
+msgstr "La shell prima interpreta il comando digitato. Nel nostro caso, si capisce che ci sono due programmi (<command>ls</command> e <command>sort</command>), con un flusso di dati che scorre da uno all'altro (indicato dal carattere <userinput>|</userinput>, noto come <emphasis>pipe</ emphasis>). <command>bash</command> crea innanzitutto una pipe senza nome (che inizialmente esiste solo all'interno del processo <command>bash</command> stesso)."
 
 msgid "Then the shell clones itself; this leads to a new <command>bash</command> process, with <emphasis>pid</emphasis> #4521 (<emphasis>pids</emphasis> are abstract numbers, and generally have no particular meaning). Process #4521 inherits the pipe, which means it is able to write in its “input” side; <command>bash</command> redirects its standard output stream to this pipe's input. Then it executes (and replaces itself with) the <command>ls</command> program, which lists the contents of the current directory. Since <command>ls</command> writes on its standard output, and this output has previously been redirected, the results are effectively sent into the pipe."
-msgstr ""
+msgstr "Poi la shell clona se stessa; questo porta ad un nuovo processo <command>bash</command>, con <emphasis>pid</emphasis> #4521 (i <emphasis>pid</emphasis> sono numeri astratti, ed in genere non hanno un significato particolare). Il processo #4521 eredita la pipe, che significa che è in grado di scrivere nel suo lato di \"input\"; la <command>bash</command> reindirizza il suo flusso di output standard verso l'ingresso di questa pipe. Poi esegue (e si sostituisce ad esso) il programma <command>ls</command>, che elenca il contenuto della directory corrente. Dal momento che <command>ls</command> scrive sul suo output standard, e questo output è stato precedentemente reindirizzato, i risultati sono inviati effettivamente nella pipe."
 
 msgid "A similar operation happens for the second command: <command>bash</command> clones itself again, leading to a new <command>bash</command> process with pid #4522. Since it is also a child process of #4374, it also inherits the pipe; <command>bash</command> then connects its standard input to the pipe output, then executes (and replaces itself with) the <command>sort</command> command, which sorts its input and displays the results."
-msgstr ""
+msgstr "Un'operazione simile avviene per il secondo comando: <command>bash</command> si clona ancora, portando ad un nuovo processo <command>bash</command> con pid # 4522. Dal momento che è anche un processo figlio di # 4374, eredita anche la pipe; <command>bash</command> poi connette il suo input standard all'uscita della pipe, poi esegue (e si sostituisce ad esso) il comando <command>sort</command>, che ordina il suo input e visualizza i risultati."
 
 msgid "All the pieces of the puzzle are now set up: <command>ls</command> reads the current directory and writes the list of files into the pipe; <command>sort</command> reads this list, sorts it alphabetically, and displays the results. Processes numbers #4521 and #4522 then terminate, and #4374 (which was waiting for them during the operation), resumes control and displays the prompt to allow the user to type in a new command."
-msgstr ""
+msgstr "Tutti i pezzi del puzzle sono ora impostati: <command>ls</command> legge la directory corrente e scrive l'elenco dei file nella pipe; <command>sort</command> legge questa lista, la ordine in ordine alfabetico, e visualizza i risultati. Processi numero #4521 e #4522 poi terminano, e #4374 (che li aspettava durante l'operazione), riprende il controllo e visualizza il prompt per consentire all'utente di digitare un nuovo comando."
 
 msgid "Not all inter-process communications are used to move data around, though. In many situations, the only information that needs to be transmitted are control messages such as “pause execution” or “resume execution”. Unix (and Linux) provides a mechanism known as <emphasis>signals</emphasis>, through which a process can simply send a specific signal (chosen from a predefined list of signals) to another process. The only requirement is to know the <emphasis>pid</emphasis> of the target."
-msgstr ""
+msgstr "Comunque, non tutte le comunicazioni tra processi sono usate per sposteare dati in giro. In molte situazioni, l'unica informazione che deve essere trasmessa sono i messaggi di controllo come \"metti in pausa l'esecuzione\" oppure \"riprendi l'esecuzione\". Unix (e Linux) forniscono un meccanismo noto come <emphasis>signals</emphasis>, attraverso il quale un processo può semplicemente inviare un segnale specifico (scelto da un'elenco predefinito di segnali) ad un'altro processo. L'unico requisito è quello di conoscere il <emphasis>pid</emphasis> del bersaglio."
 
 msgid "For more complex communications, there are also mechanisms allowing a process to open access, or share, part of its allocated memory to other processes. Memory now shared between them can be used to move data between the processes."
-msgstr ""
+msgstr "Per le comunicazioni più complesse, ci sono anche meccanismi che consentono ad un processo di aprire l'accesso, o condividere, parte della sua memoria con altri processi. La memoria ora condivisa tra di essi può essere utilizzata per spostare i dati tra i processi."
 
 msgid "Finally, network connections can also help processes communicate; these processes can even be running on different computers, possibly thousands of kilometers apart."
-msgstr ""
+msgstr "Infine, le connessioni di rete possono anche aiutare i processi a comunicare; questi processi possono anche essere in esecuzione su computer diversi, forse anche a migliaia di chilometri di distanza."
 
 msgid "It is quite standard for a typical Unix-like system to make use of all these mechanisms to various degrees."
-msgstr ""
+msgstr "E 'abbastanza normale per un tipico sistema Unix-like fare uso di tutti questi meccanismi a vari gradi."
 
 msgid "Libraries"
-msgstr ""
+msgstr "Librerie"
 
 msgid "<primary>library (of functions)</primary>"
-msgstr ""
+msgstr "<primary>libreria (di funzioni)</primary>"
 
 msgid "Function libraries play a crucial role in a Unix-like operating system. They are not proper programs, since they cannot be executed on their own, but collections of code fragments that can be used by standard programs. Among the common libraries, you can find:"
-msgstr ""
+msgstr "Le librerie di funzioni svolgono un ruolo cruciale in un sistema operativo Unix-like. Esse non sono programmi veri e propri, poiché non possono essere eseguiti da soli, ma raccolte di frammenti di codice che possono essere utilizzate da programmi standard. Tra le librerie comuni, potete trovare:"
 
 msgid "the standard C library (<emphasis>glibc</emphasis>), which contains basic functions such as ones to open files or network connections, and others facilitating interactions with the kernel;"
-msgstr ""
+msgstr "la libreria standard C (<emphasis>glibc</emphasis>), che contiene le funzioni di base come quelle per aprire i file o le connessioni di rete, ed altre che facilitano le interazioni con il kernel;"
 
 msgid "graphical toolkits, such as Gtk+ and Qt, allowing many programs to reuse the graphical objects they provide;"
-msgstr ""
+msgstr "i toolkit grafici, come Gtk e Qt, consentono a molti programmi di riutilizzare gli oggetti grafici che forniscono;"
 
 msgid "the <emphasis>libpng</emphasis> library, that allows loading, interpreting and saving images in the PNG format."
-msgstr ""
+msgstr "la libreria <emphasis>libpng</emphasis>, che consente il caricamento, l'interpretazione ed il salvataggio delle immagini in formato PNG."
 
 msgid "Thanks to those libraries, applications can reuse existing code. Application development is simplified since many applications can reuse the same functions. With libraries often developed by different persons, the global development of the system is closer to Unix's historical philosophy."
-msgstr ""
+msgstr "Grazie a queste librerie, le applicazioni possono riutilizzare il codice esistente. Lo sviluppo delle applicazioni è semplificato dal momento che molte applicazioni possono riutilizzare le stesse funzioni. Con librerie spesso sviluppate da persone diverse, lo sviluppo globale del sistema è più vicino alla filosofia storica di Unix."
 
 msgid "<emphasis>CULTURE</emphasis> The Unix Way: one thing at a time"
-msgstr ""
+msgstr "<emphasis>CULTURA</emphasis> Il Modo Unix: una cosa alla volta"
 
 msgid "One of the fundamental concepts that underlies the Unix family of operating systems is that each tool should only do one thing, and do it well; applications can then reuse these tools to build more advanced logic on top. This philosophy can be seen in many incarnations. Shell scripts may be the best example: they assemble complex sequences of very simple tools (such as <command>grep</command>, <command>wc</command>, <command>sort</command>, <command>uniq</command> and so on). Another implementation of this philosophy can be seen in code libraries: the <emphasis>libpng</emphasis> library allows reading and writing PNG images, with different options and in different ways, but it does only that; no question of including functions that display or edit images."
-msgstr ""
+msgstr "Uno dei concetti fondamentali che sta alla base della famiglia di sistemi operativi Unix è che ogni strumento deve fare solo una cosa, e farla bene; le applicazioni possono poi riutilizzare questi strumenti per costruire logica più avanzata. Questa filosofia può essere visto in molte incarnazioni. Gli script shell possono essere il miglior esempio: sono formati da sequenze complesse di comandi molto semplici (come <command>grep</command>, <command>wc</command>, <command>sort</command>, <command>uniq</command> e così via). Un'altra applicazione di questa filosofia può essere vista nelle librerie di codice: la libreria <emphasis>libpng</emphasis> permette la lettura e la scrittura di immagini PNG, ma fa solo questo, non include nessuna funzione che permette la visualizzazione o la modifica delle immagini."
 
 msgid "Moreover, these libraries are often referred to as “shared libraries”, since the kernel is able to only load them into memory once, even if several processes use the same library at the same time. This allows saving memory, when compared with the opposite (hypothetical) situation where the code for a library would be loaded as many times as there are processes using it."
-msgstr ""
+msgstr "Inoltre, queste librerie sono spesso indicate come \"librerie condivise\", dato che il kernel è in grado di caricarle in memoria solo una volta, anche se più processi utilizzano la stessa libreria allo stesso tempo. Ciò permette risparmio di memoria, se confrontato con la situazione (ipotetica) contraria in cui il codice per una libreria sarebbe caricato tante volte quanti sono i processi che la utilizzano."
