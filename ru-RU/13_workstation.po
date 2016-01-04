@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-21 09:09+0200\n"
-"PO-Revision-Date: 2016-01-03 14:34+0000\n"
-"Last-Translator: Anton Seliverstov <anton@mail2moon.com>\n"
+"PO-Revision-Date: 2016-01-04 13:13+0000\n"
+"Last-Translator: qupl <qupl@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/13_workstation/ru/>\n"
 "Language: ru-RU\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,6 @@ msgstr "Графический рабочий стол"
 msgid "Office work"
 msgstr ""
 
-#, fuzzy
 msgid "X.org"
 msgstr "X.org"
 
@@ -35,11 +34,9 @@ msgstr "Настройка сервера X11"
 msgid "<primary>XFree86</primary>"
 msgstr "<primary>XFree86</primary>"
 
-#, fuzzy
 msgid "<primary>X.org</primary>"
 msgstr "<primary>X.org</primary>"
 
-#, fuzzy
 msgid "<primary>X11</primary>"
 msgstr "<primary>X11</primary>"
 
@@ -47,7 +44,7 @@ msgid "<primary>interface</primary><secondary>graphical</secondary>"
 msgstr "<primary>интерфейс</primary> <secondary>графический</secondary>"
 
 msgid "The initial configuration for the graphical interface can be awkward at times; very recent video cards often don't work perfectly with the X.org version shipped in the Debian stable version."
-msgstr "Начальная настройка графического интерфейса порой может оказаться затруднительной; новейшие видео карты часто не очень хорошо работают с версией X.org, поставляемой в составе стабильной версии Debian."
+msgstr "Начальная настройка графического интерфейса порой может оказаться затруднительной; новейшие видеокарты часто не очень хорошо работают с версией X.org, поставляемой в составе стабильной версии Debian."
 
 msgid "A brief reminder: X.org is the software component that allows graphical applications to display windows on screen. It includes a driver that makes efficient use of the video card. The features offered to the graphical applications are exported through a standard interface, <emphasis>X11</emphasis> (<emphasis role=\"distribution\">Jessie</emphasis> contains its <emphasis>X11R7.7</emphasis> version)."
 msgstr "Напоминаем: X.org - это программный компонент, позволяющий графическим приложениям отображать окна на экране. Он включает драйвер, позволяющий эффективно использовать графическую карту. Её возможности передаются графическим приложениям через стандартный интерфейс <emphasis>X11</emphasis> (<emphasis role=\"distribution\">Jessie</emphasis> поставляется с его версией <emphasis>X11R7.7</emphasis>)."
@@ -68,22 +65,20 @@ msgid "<primary>resolution</primary>"
 msgstr "<primary>разрешение</primary>"
 
 msgid "The keyboard configuration is currently set up in <filename>/etc/default/keyboard</filename>. This file is used both to configure the text console and the graphical interface, and it is handled by the <emphasis role=\"pkg\">keyboard-configuration</emphasis> package. Details on configuring the keyboard layout are available in <xref linkend=\"sect.keyboard-config\" />."
-msgstr "Настройка клавиатыры теперь производится в <filename>/etc/default/keyboard</filename>. Этот файл используется для настройки текстовой консоли и графического интерфейса, а управляется пакетом <emphasis role=\"pkg\">keyboard-configuration</emphasis>. Подробности о настройке раскладки клавиатуры доступны в <xref linkend=\"sect.keyboard-config\" />."
+msgstr "Настройка клавиатуры теперь производится в <filename>/etc/default/keyboard</filename>. Этот файл используется для настройки текстовой консоли и графического интерфейса, а управляется пакетом <emphasis role=\"pkg\">keyboard-configuration</emphasis>. Подробности о настройке раскладки клавиатуры доступны в <xref linkend=\"sect.keyboard-config\" />."
 
 msgid "The <emphasis role=\"pkg\">xserver-xorg-core</emphasis> package provides a generic X server, as used by the 7.x versions of X.org. This server is modular and uses a set of independent drivers to handle the many different kinds of video cards. Installing <emphasis role=\"pkg\">xserver-xorg</emphasis> ensures that both the server and at least one video driver are installed."
-msgstr "Пакет <emphasis role=\"pkg\">xserver-xorg-core</emphasis> предоставляет обычный X сервер, используемый 7.x версией X.org. Это модульный сервер, использующий ряд независимых драйверов для поддержки множества различных видов видео карт. Установка пакета <emphasis role=\"pkg\">xserver-xorg</emphasis> гарантирует наличие сервера и как минимум одного драйвера."
+msgstr "Пакет <emphasis role=\"pkg\">xserver-xorg-core</emphasis> предоставляет обычный X сервер, используемый 7.x версией X.org. Это модульный сервер, использующий ряд независимых драйверов для поддержки множества различных видов видеокарт. Установка пакета <emphasis role=\"pkg\">xserver-xorg</emphasis> гарантирует наличие сервера и как минимум одного драйвера."
 
 msgid "<primary>server</primary><secondary>X</secondary>"
 msgstr "<primary>сервер</primary><secondary>X</secondary>"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">xserver-xorg</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">xserver-xorg</emphasis></primary>"
 
 msgid "Note that if the detected video card is not handled by any of the available drivers, X.org tries using the VESA and fbdev drivers. The former is a generic driver that should work everywhere, but with limited capabilities (fewer available resolutions, no hardware acceleration for games and visual effects for the desktop, and so on) while the latter works on top of the kernel's framebuffer device. The X server writes its messages to the <filename>/var/log/Xorg.0.log</filename> log file, which is where one would look to know what driver is currently in use. For example, the following snippet matches what the <literal>intel</literal> driver outputs when it is loaded:"
 msgstr "Обратите внимание, если обнаруженная видеокарта не поддерживается ни одним драйвером, X.org попытается использовать драйверы VESA и fbdev. Первый - универсальный драйвер, который хоть и с ограниченными возможностями, но должен работать всегда (доступно меньше разрешений, нет аппаратного ускорения для игр, визуальных эффектов рабочего стола, и так далее), а второй работает поверх устройства фреймбуфера ядра. X сервер записывает свои сообщения в файл <filename>/var/log/Xorg.0.log</filename>, оттуда можно узнать, какой драйвер сейчас используется. Например, вот отрывок из вывода драйвера <literal>intel</literal>, когда он загружен:"
 
-#, fuzzy
 msgid ""
 "\n"
 "(==) Matched intel as autoconfigured driver 0\n"
@@ -103,18 +98,17 @@ msgstr ""
 "(II) LoadModule: \"intel\"\n"
 "(II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so"
 
-#, fuzzy
 msgid "<primary>VESA</primary>"
 msgstr "<primary>VESA</primary>"
 
 msgid "<primary>video card</primary>"
-msgstr "<primary>видео карта</primary>"
+msgstr "<primary>видеокарта</primary>"
 
 msgid "<emphasis>EXTRA</emphasis> Proprietary drivers"
 msgstr "<emphasis>ДОПОЛНИТЕЛЬНО</emphasis> Проприетарные драйверы"
 
 msgid "Some video card makers (most notably nVidia) refuse to publish the hardware specifications that would be required to implement good free drivers. They do, however, provide proprietary drivers that allow using their hardware. This policy is nefarious, because even when the provided driver exists, it is usually not as polished as it should be; more importantly, it does not necessarily follow the X.org updates, which may prevent the latest available driver from loading correctly (or at all). We cannot condone this behavior, and we recommend you avoid these makers and favor more cooperative manufacturers."
-msgstr "Некоторые производители ведео карт (прежде всего nVidia) отказываются публиковать спецификации оборудования, которые необходимы для разработки качественных свободных драйверов. Однако, они предоставляют проприетарные драйверы, которые позволяют использовать их оборудование. Это порочная практика, потому что не смотря на наличие драйвера, его качество, как правило, оставляет желать лучшего; ещё хуже, что он может и не учитывать обновлений X.org, что может привести к неправильной загрузке драйвера или к невозможности загрузки вообще. Мы не намерены с этим мириться и рекомендуем вместо таких производителей выбирать тех, что более расположены к сотрудничеству."
+msgstr "Некоторые производители ведеокарт (прежде всего nVidia) отказываются публиковать спецификации оборудования, которые необходимы для разработки качественных свободных драйверов. Однако, они предоставляют проприетарные драйверы, которые позволяют использовать их оборудование. Это порочная практика, потому что не смотря на наличие драйвера, его качество, как правило, оставляет желать лучшего; ещё хуже, что он может и не учитывать обновлений X.org, что может привести к неправильной загрузке драйвера или к невозможности загрузки вообще. Мы не намерены с этим мириться и рекомендуем вместо таких производителей выбирать тех, что более расположены к сотрудничеству."
 
 msgid "If you still end up with such a card, you will find the required packages in the <emphasis>non-free</emphasis> section: <emphasis role=\"pkg\">nvidia-glx</emphasis> for nVidia cards, and <emphasis role=\"pkg\">fglrx-driver</emphasis> for some ATI cards. Both cases require matching kernel modules. Building these modules can be automated by installing the <emphasis role=\"pkg\">nvidia-kernel-dkms</emphasis> (for nVidia), or <emphasis role=\"pkg\">fglrx-modules-dkms</emphasis> (for ATI) packages."
 msgstr "Если всё же Вы остановились на такой карте, то необходимые пакеты имеются в секции <emphasis>non-free</emphasis>: <emphasis role=\"pkg\">nvidia-glx</emphasis> для карт nVidia, и <emphasis role=\"pkg\">fglrx-driver</emphasis> для некоторых карт ATI. Оба варианта требуют дополнительных модулей ядра. Сборку этих модулей можно автоматизировать установкой пакета  <emphasis role=\"pkg\">nvidia-kernel-dkms</emphasis> (для nVidia), или <emphasis role=\"pkg\">fglrx-modules-dkms</emphasis> (для ATI) пакетов."
@@ -122,11 +116,9 @@ msgstr "Если всё же Вы остановились на такой ка�
 msgid "The “nouveau” project aims to develop a free software driver for nVidia cards. As of <emphasis role=\"distribution\">Jessie</emphasis>, its feature set does not match the proprietary driver. In the developers' defense, we should mention that the required information can only be gathered by reverse engineering, which makes things difficult. The free driver for ATI video cards, called “radeon”, is much better in that regard although it often requires a non-free firmware."
 msgstr "Проект “nouveau” направлен на развитие свободного драйвера для карт nVidia. В состав <emphasis role=\"distribution\">Jessie</emphasis> не входят проприетарные драйверы. В защиту разработчиков надо сказать, что собрать необходимую информацию можно только путём обратной разработки, что весьма не просто. В этом плане свободный драйвер для видео карт ATI “radeon” намного лучше, хотя и требует несвободные прошивки."
 
-#, fuzzy
 msgid "<primary>ATI</primary>"
 msgstr "<primary>ATI</primary>"
 
-#, fuzzy
 msgid "<primary>nVidia</primary>"
 msgstr "<primary>nVidia</primary>"
 
@@ -139,20 +131,17 @@ msgstr "Выбор Менеджера Дисплеев"
 msgid "<primary>manager</primary><secondary>display</secondary>"
 msgstr "<primary>менеджер</primary><secondary>дисплеев</secondary>"
 
-#, fuzzy
 msgid "<primary><command>gdm</command></primary>"
 msgstr "<primary><command>gdm</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>kdm</command></primary>"
 msgstr "<primary><command>kdm</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>xdm</command></primary>"
 msgstr "<primary><command>xdm</command></primary>"
 
 msgid "The graphical interface only provides display space. Running the X server by itself only leads to an empty screen, which is why most installations use a <emphasis>display manager</emphasis> to display a user authentication screen and start the graphical desktop once the user has authenticated. The three most popular display managers in current use are <emphasis role=\"pkg\">gdm3</emphasis> (<foreignphrase>GNOME Display Manager</foreignphrase>), <emphasis role=\"pkg\">kdm</emphasis> (<foreignphrase>KDE Display Manager</foreignphrase>) and <emphasis role=\"pkg\">lightdm</emphasis> (<foreignphrase>Light Display Manager</foreignphrase>). Since the Falcot Corp administrators have opted to use the GNOME desktop environment, they logically picked <command>gdm3</command> as a display manager too. The <filename>/etc/gdm3/daemon.conf</filename> configuration file has many options (the list can be found in the <filename>/usr/share/gdm/gdm.schemas</filename> schema file) to control its behaviour while <filename>/etc/gdm3/greeter.dconf-defaults</filename> contains settings for the greeter “session” (more than just a login window, it is a limited desktop with power management and accessibility related tools). Note that some of the most useful settings for end-users can be tweaked with GNOME's control center."
-msgstr ""
+msgstr "Графический интерфейс обеспечивает отображение пространства. Запуск X-сервера приводит только к пустому экрану, поэтому в большинстве установок используется <emphasis>менеджер дисплея</emphasis> для отображения экрана аутентификации пользователя и старта графического окружения рабочего стола после аутентификации. Три наиболее популярных менеджера дисплея используемых сейчас: <emphasis role=\"pkg\">gdm3</emphasis> (<foreignphrase>GNOME Display Manager</foreignphrase>), <emphasis role=\"pkg\">kdm</emphasis> (<foreignphrase>KDE Display Manager</foreignphrase>) и <emphasis role=\"pkg\">lightdm</emphasis> (<foreignphrase>Light Display Manager</foreignphrase>). Так администраторы Falcot Corp решили использовать окружение рабочего стола GNOME, поэтому логично что в качестве менеджера дисплея они взяли <command>gdm3</command>. Файл конфигурации <filename>/etc/gdm3/daemon.conf</filename> имеет много опций (список можно найти в файле <filename>/usr/share/gdm/gdm.schemas</filename>) для управления его поведением, в то время как <filename>/etc/gdm3/greeter.dconf-defaults</filename> содержит настройки для приветствия \"сессии\" (больше, чем просто окно входа в систему, это ограниченный рабочий стол с управлением питанием и связанными инструментами). Обратите внимание, что некоторые из самых используемых пользовательских настроек могут быть изменены в центре управления GNOME."
 
 msgid "Choosing a Window Manager"
 msgstr "Выбор оконного менеджера"
@@ -161,13 +150,13 @@ msgid "Since each graphical desktop provides its own window manager, choosing th
 msgstr ""
 
 msgid "<primary><command>metacity</command></primary>"
-msgstr ""
+msgstr "<primary><command>metacity</command></primary>"
 
 msgid "<primary><command>mutter</command></primary>"
-msgstr ""
+msgstr "<primary><command>mutter</command></primary>"
 
 msgid "<primary><command>kwin</command></primary>"
-msgstr ""
+msgstr "<primary><command>kwin</command></primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Window manager"
 msgstr ""
@@ -199,7 +188,6 @@ msgstr ""
 msgid "<primary>Fluxbox</primary>"
 msgstr ""
 
-#, fuzzy
 msgid "<primary>Openbox</primary>"
 msgstr "<primary>Openbox</primary>"
 
@@ -749,58 +737,58 @@ msgid "<primary>SIP</primary><secondary>user agent</secondary>"
 msgstr ""
 
 msgid "Each client application varies in functionality. Some applications are more convenient for intensive chat users while other applications are more stable for webcam users. It may be necessary to test several applications to identify those which are most satisfactory. A user may finally decide that they need more than one application, for example, an XMPP application for messaging with customers and an IRC application for collaboration with some online communities."
-msgstr ""
+msgstr "Клиентские приложения различаются по функциональности. Некоторые больше подходят для активных пользователей чатов, другие больше подходят владельцам вебкамер. Это важно при проверке какие приложения более востребованы.  Пользователь может решить, что ему нужно больше чем одно приложение, например, программа для обмена сообщениями через XMPP и IRC-клиент для сотрудничества с некоторыми интернет-сообществами."
 
 msgid "To maximize the ability of users to communicate with the wider world, it is recommended to configure both SIP and XMPP clients or a single client that supports both protocols."
-msgstr ""
+msgstr "Чтобы максимизировать возможности пользователей для общения с остальным миром, рекомендуется настроить как SIP так и XMPP-клиенты или одного клиента, который поддерживает оба протокола."
 
 msgid "<primary>SIP</primary>"
-msgstr ""
+msgstr "<primary>SIP</primary>"
 
 msgid "<primary>XMPP</primary>"
-msgstr ""
+msgstr "<primary>XMPP</primary>"
 
 msgid "The default GNOME desktop includes the Empathy communications client. Empathy can support both SIP and XMPP. It supports instant messaging (IM), voice and video. The KDE desktop provides KDE Telepathy, a communications client based on the same underlying Telepathy APIs used by the GNOME Empathy client."
 msgstr ""
 
 msgid "<primary>Empathy</primary>"
-msgstr ""
+msgstr "<primary>Empathy</primary>"
 
 msgid "<primary>Telepathy</primary>"
-msgstr ""
+msgstr "<primary>Telepathy</primary>"
 
 msgid "Popular alternatives to Empathy/Telepathy include Ekiga, Jitsi, Linphone, Psi and Ring (formerly known as SFLphone)."
-msgstr ""
+msgstr "Популярные альтернативы Empathy/Telepathy - это Ekiga, Jitsi, Linphone, Psi и Ring (ранее известный как SFLphone)."
 
 msgid "<primary>Ekiga</primary>"
-msgstr ""
+msgstr "<primary>Ekiga</primary>"
 
 msgid "<primary>Jitsi</primary>"
-msgstr ""
+msgstr "<primary>Jitsi</primary>"
 
 msgid "<primary>Linphone</primary>"
-msgstr ""
+msgstr "<primary>Linphone</primary>"
 
 msgid "<primary>Psi</primary>"
-msgstr ""
+msgstr "<primary>Psi</primary>"
 
 msgid "<primary>Ring (soft-phone)</primary>"
-msgstr ""
+msgstr "<primary>Ring (программный телефон)</primary>"
 
 msgid "<primary>SFLphone</primary>"
-msgstr ""
+msgstr "<primary>SFLphone</primary>"
 
 msgid "Some of these applications can also interact with mobile users using apps such as Lumicall on Android. <ulink type=\"block\" url=\"http://lumicall.org\" />"
-msgstr ""
+msgstr "Некоторые приложения позволяют взаимодействовать с мобильными пользователями, использующими программы наподобие Lumicall на Android. <ulink type=\"block\" url=\"http://lumicall.org\" />"
 
 msgid "<primary>Lumicall</primary>"
-msgstr ""
+msgstr "<primary>Lumicall</primary>"
 
 msgid "The <emphasis>Real-Time Communications Quick Start Guide</emphasis> has a chapter dedicated to client software. <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/useragents.html\" />"
 msgstr ""
 
 msgid "<emphasis>TIP</emphasis> Look for clients supporting ICE and TURN"
-msgstr ""
+msgstr "<emphasis>СОВЕТ</emphasis> Обратите внимание на клиенты с поддержкой ICE и TURN"
 
 msgid "Some RTC clients have significant problems sending voice and video through firewalls and NAT networks. Users may receive ghost calls (their phone rings but they don't hear the other person) or they may not be able to call at all."
 msgstr ""
@@ -821,7 +809,7 @@ msgid "IRC can also be considered, in addition to SIP and XMPP. IRC is more orie
 msgstr ""
 
 msgid "<primary>IRC</primary>"
-msgstr ""
+msgstr "<primary>IRC</primary>"
 
 msgid "<primary><foreignphrase>Internet Relay Chat</foreignphrase></primary>"
 msgstr ""
@@ -830,7 +818,7 @@ msgid "IRC clients are a bit more complex, and they usually provide many feature
 msgstr ""
 
 msgid "Since the IRC protocol is very old, many clients are available to cater for many user groups; examples include XChat and Smuxi (graphical clients based on GTK+), Irssi (text mode), Erc (integrated to Emacs), and so on."
-msgstr ""
+msgstr "Поскольку протокол IRC очень старый, доступно множество клиентов для разных групп пользователей, например XChat и Smuxi (графические клиенты на основе GTK +), Irssi (текстовый режим), ERC (интегрирован в Emacs) и так далее."
 
 msgid "<emphasis>QUICK LOOK</emphasis> Video conferencing with Ekiga"
 msgstr ""
@@ -842,16 +830,16 @@ msgid "<primary>video conference</primary>"
 msgstr ""
 
 msgid "<primary>H323</primary>"
-msgstr ""
+msgstr "<primary>H323</primary>"
 
 msgid "If only one Ekiga client is to run behind the firewall, the configuration is rather straightforward, and only involves forwarding a few ports to the dedicated host: TCP port 1720 (listening for incoming connections), TCP port 5060 (for SIP), TCP ports 30000 to 30010 (for control of open connections) and UDP ports 5000 to 5100 (for audio and video data transmission and registration to an H323 proxy)."
-msgstr ""
+msgstr "Если только один клиент Ekiga запущен за брандмауэром, то конфигурация довольно проста, и включает в себя только проброс нескольких портов для выделенного хоста: TCP-порт 1720 (прослушивание входящих соединений), TCP-порт 5060 (для SIP), TCP-порты с  30000 по 30010 (для управления открытыми соединениями) и UDP-порты  с 5000 по 5100 (для передачи аудио и видео данных и регистрации на H323 прокси)."
 
 msgid "<primary>GnomeMeeting</primary>"
-msgstr ""
+msgstr "<primary>GnomeMeeting</primary>"
 
 msgid "When several Ekiga clients are to run behind the firewall, complexity increases notably. An H323 proxy (for instance the <emphasis role=\"pkg\">gnugk</emphasis> package) must be set up, and its configuration is far from simple."
-msgstr ""
+msgstr "Сложность особенно возрастает, когда несколько клиентов Ekiga запускаются за брандмауэром. H323-прокси (например пакета  <emphasis role=\"pkg\">gnugk</emphasis>) должен быть настроен, и его конфигурация не слишком проста."
 
 msgid "<primary><emphasis role=\"pkg\">gnugk</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">gnugk</emphasis></primary>"
