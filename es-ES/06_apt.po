@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-06 16:10+0200\n"
-"PO-Revision-Date: 2015-12-20 11:55+0000\n"
-"Last-Translator: Adrià García-Alzórriz <adria@fsfe.org>\n"
+"PO-Revision-Date: 2016-01-18 21:11+0000\n"
+"Last-Translator: Marcos Mezo <mmezo@selexco.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/debian-handbook/06_apt/es/>\n"
 "Language: es-ES\n"
 "MIME-Version: 1.0\n"
@@ -54,12 +54,10 @@ msgstr "En inglés se utiliza la misma palabra para «origen» y «fuente»: «<
 msgid "APT needs to be given a “list of package sources”: the file <filename>/etc/apt/sources.list</filename> will list the different repositories (or “sources”) that publish Debian packages. APT will then import the list of packages published by each of these sources. This operation is achieved by downloading <filename>Packages.xz</filename> or a variant using a different compression method (such as <filename>Packages.gz</filename> or <filename>.bz2</filename>) files (in case of a source of binary packages) and <filename>Sources.xz</filename> or a variant (in case of a source of source packages) and by analyzing their contents. When an old copy of these files is already present, APT can update it by only downloading the differences (see sidebar <xref linkend=\"sidebar.apt-pdiff\" />)."
 msgstr "Se necesita proveerle a APT una «lista de orígenes de paquetes»: el archivo <filename>/etc/apt/sources.list</filename> contendrá una lista de diferentes repositorios («sources») que publican paquetes Debian. APT importará la lista de paquetes publicada por cada una de estos repositorios. Realiza esta operación descargando los archivos <filename>Packages.xz</filename> (en el caso de paquetes binarios) o una variante que utiliza otro método de compresión (como <filename>Packages.gz</filename> o <filename>.bz2</filename>) y archivos <filename>Sources.xz</filename> o una variante (en el caso de un origen de paquetes fuente) y analizando sus contenidos. Cuando ya posee una copia antigua de estos archivos, APT puede actualizarla sólo descargando las diferencias (revise el recuadro <xref linkend=\"sidebar.apt-pdiff\" />)."
 
-#, fuzzy
 #| msgid "<primary><filename>Packages.gz</filename></primary>"
 msgid "<primary><filename>Packages.xz</filename></primary>"
 msgstr "<primary><filename>Packages.xz</filename></primary>"
 
-#, fuzzy
 #| msgid "<primary><filename>Sources.gz</filename></primary>"
 msgid "<primary><filename>Sources.xz</filename></primary>"
 msgstr "<primary><filename>Sources.xz</filename></primary>"
@@ -315,7 +313,6 @@ msgstr "Siempre se crean las retroadaptaciones de <literal>stable-backports</lit
 msgid "Even though this repository provides newer versions of packages, APT will not install them unless you give explicit instructions to do so (or unless you have already done so with a former version of the given backport):"
 msgstr "Aún cuando este repositorio provea versiones de paquetes más nuevas, APT no las instalará a menos que le indique explícitamente que lo haga (o si ya lo hizo con una versión anterior de dicha retroadaptación):"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "$ <userinput>sudo apt-get install <replaceable>package</replaceable>/wheezy-backports</userinput>\n"
@@ -507,10 +504,9 @@ msgstr "<primary><command>aptitude</command></primary>"
 msgid "APT is a vast project, whose original plans included a graphical interface. It is based on a library which contains the core application, and <command>apt-get</command> is the first front end — command-line based — which was developed within the project. <command>apt</command> is a second command-line based front end provided by APT which overcomes some design mistakes of <command>apt-get</command>."
 msgstr "APT es un proyecto gigante y su plan original incluia una interfaz gráfica. Está basado en una biblioteca que contiene la aplicación central y <command>apt-get</command> fue la primera interfaz — basada en la línea de órdenes — desarrollada dentro del proyecto. <command>apt</command> es un segundo frontend de linea de comandos proporcionado por APT el cual soluciona algunos errores de diseño de la orden <command>apt-get</command>."
 
-#, fuzzy
 #| msgid "Numerous other graphical interfaces then appeared as external projects: <command>synaptic</command>, <command>aptitude</command> (which includes both a text mode interface and a graphical one — even if not complete yet), <command>wajig</command>, etc. The most recommended interface, <command>apt-get</command>, is the one used during the installation of Debian, and the one that we will use in the examples given in this section. Note however that <command>aptitude</command>'s command-line syntax is very similar. When there are major differences between <command>apt-get</command> and <command>aptitude</command>, these differences will be detailed."
 msgid "Numerous other graphical interfaces then appeared as external projects: <command>synaptic</command>, <command>aptitude</command> (which includes both a text mode interface and a graphical one — even if not complete yet), <command>wajig</command>, etc. The most recommended interface, <command>apt</command>, is the one that we will use in the examples given in this section. Note however that <command>apt-get</command> and <command>aptitude</command> have a very similar command line syntax. When there are major differences between <command>apt</command>, <command>apt-get</command> and <command>aptitude</command>, these differences will be detailed."
-msgstr "Varias otras interfaces gráficas aparecieron luego como proyectos externos: <command>synaptic</command>, <command>aptitude</command> (que incluye tanto una interfaz en modo texto como una gráfica — aún cuando no esté completa), <command>wajig</command>, etc. La interfaz más recomendada, <command>apt</command> es la que utilizaremos en los ejemplos de esta sección. Note, sin embargo, que la sintaxis de línea de órdenes de <command>aptitude</command> es muy similar. Detallaremos cuando existan grandes diferencias entre <command>apt-get</command>, <command>apt</command> y <command>aptitude</command>."
+msgstr "Varias otras interfaces gráficas aparecieron luego como proyectos externos: <command>synaptic</command>, <command>aptitude</command> (que incluye tanto una interfaz en modo texto como una gráfica — aún cuando no esté completa), <command>wajig</command>, etc. La interfaz más recomendada, <command>apt</command> es la que utilizaremos en los ejemplos de esta sección. Note, sin embargo, que la sintaxis de línea de órdenes de <command>apt-get</command> y de <command>aptitude</command> son muy similares. Detallaremos cuando existan grandes diferencias entre <command>apt</command>, <command>apt-get</command> y <command>aptitude</command>."
 
 msgid "Initialization"
 msgstr "Inicialización"
@@ -518,7 +514,6 @@ msgstr "Inicialización"
 msgid "For any work with APT, the list of available packages needs to be updated; this can be done simply through <command>apt update</command>. Depending on the speed of your connection, the operation can take a while since it involves downloading a certain number of <filename>Packages</filename>/<filename>Sources</filename>/<filename>Translation-<replaceable>language-code</replaceable></filename> files, which have gradually become bigger and bigger as Debian has developed (at least 10 MB of data for the <literal>main</literal> section). Of course, installing from a CD-ROM set does not require any downloading — in this case, the operation is very fast."
 msgstr "Para cualquier trabajo con APT necesita actualizar la lista de paquetes; puede hacer esto simplemente con <command>apt update</command>. Dependiendo de la velocidad de su conexión esta operación puede demorar ya que involucra descargar una cantidad de archivos <filename>Packages</filename>/<filename>Sources</filename>/<filename>Translation-<replaceable>codigo-idioma</replaceable></filename> que han crecido gradualmente a medida que se desarrolló Debian (más de 10 MB de datos para la sección <literal>main</literal>). Por su puesto, instalar desde un CD-ROM no requiere descarga alguna — en ese caso esta operación es muy rápida."
 
-#, fuzzy
 #| msgid "<primary><command>apt-get update</command></primary>"
 msgid "<primary><command>apt update</command></primary>"
 msgstr "<primary><command>apt update</command></primary>"
