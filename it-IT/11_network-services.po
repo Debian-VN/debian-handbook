@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 20:53+0200\n"
-"PO-Revision-Date: 2015-12-25 22:52+0000\n"
+"PO-Revision-Date: 2016-02-05 13:09+0000\n"
 "Last-Translator: Marco De Luca <marcodeluca@hotmail.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/11_network-services/it/>\n"
 "Language: it-IT\n"
@@ -356,9 +356,8 @@ msgstr "I messaggi indirizzati ad una casella su di un dominio virtuale sono con
 msgid "Enabling a virtual mailbox domain requires naming this domain in the <literal>virtual_mailbox_domains</literal> variable, and referencing a mailbox mapping file in <literal>virtual_mailbox_maps</literal>. The <literal>virtual_mailbox_base</literal> parameter contains the directory under which the mailboxes will be stored."
 msgstr "Abilitare una casella di posta in un dominio virtuale richiede di inserire il dominio nella variabile <literal>virtual_mailbox_domains</literal> fornendo un file di mappatura caselle in <literal>virtual_mailbox_maps</literal>. Il parametro <literal>virtual_mailbox_base</literal> contiene la directory dove le caselle di posta saranno conservate."
 
-#, fuzzy
 msgid "The <literal>virtual_uid_maps</literal> parameter (respectively <literal>virtual_gid_maps</literal>) references the file containing the mapping between the email address and the system user (respectively group) that “owns” the corresponding mailbox. To get all mailboxes owned by the same owner/group, the <literal>static:5000</literal> syntax assigns a fixed UID/GID (of value 5000 here)."
-msgstr "I parametri <literal>virtual_uid_maps</literal> e <literal>virtual_gid_maps</literal> forniscono le mappature tra un indirizzo email e, rispettivamente, l'utente o gruppo di sistema che «possiede» la casella di posta corrispondente. Per far sì che tutte le caselle di posta siano di proprietà dello stesso proprietario/gruppo la sintassi è <literal>static:5000</literal>."
+msgstr "I parametri <literal>virtual_uid_maps</literal> e <literal>virtual_gid_maps</literal> forniscono le mappature tra un indirizzo email e l'utente di sistema (o gruppo rispettivamente) che \"possiede\" la casella di posta corrispondente. Per assegnare tutte le caselle di posta allo stesso proprietario/gruppo la sintassi è <literal>static:5000</literal>."
 
 msgid ""
 "\n"
@@ -735,17 +734,15 @@ msgstr "Gli effetti negativi del greylisting possono essere mitigati applicando 
 msgid "In that scenario, since DNS blacklists never triggers a definitive rejection, it becomes reasonable to use aggressive blacklists, including those listing all dynamic IP addresses from ISP clients (such as <literal>pbl.spamhaus.org</literal> or <literal>dul.dnsbl.sorbs.net</literal>)."
 msgstr "In tal scenario, poichè che le blacklist DNS non innescano mai un rifiuto definitivo, diventa ragionevole l'uso di blacklist aggressive, comprese quelle che includono tutti gli indirizzi  IP dinamici assegnati dai Provider ai loro clienti (come <literal>pbl.spamhaus.org</literal> o <literal>dul.dnsbl.sorbs.net</literal>)."
 
-#, fuzzy
 msgid "Since milter-greylist uses Sendmail's milter interface, the postfix side of its configuration is limited to “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. The <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page documents <filename>/etc/milter-greylist/greylist.conf</filename> and the numerous ways to configure milter-greylist. You will also have to edit <filename>/etc/default/milter-greylist</filename> to actually enable the service."
-msgstr "Poichè milter-greylist usa l'intrefaccia milter di Sendmail , il lato postix della sua configurazione è limitato a  “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”."
+msgstr "Poichè milter-greylist usa l'intrefaccia milter di Sendmail , il lato postix della sua configurazione è limitato a  “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. La pagina del manuale <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> documenta <filename>/etc/milter-greylist/greylist.conf</filename> ed i numerosi modi di configurare milter-greylist. Inoltre sarà necessario modificare il file <filename>/etc/default/milter-greylist</filename> per consentire effettivamente il servizio."
 
 msgid "Customizing Filters Based On the Recipient"
 msgstr "Personalizzare i filtri in base al destinatario"
 
-#, fuzzy
 #| msgid "The last two sections reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in black-lists; this service asked for a non-filtered address so as to be able to correspond."
 msgid "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> and <xref linkend=\"sect.setting-up-greylisting\" /> reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in blacklists; this service asked for a non-filtered address so as to be able to correspond."
-msgstr "Nelle ultime due sezioni sono state analizzate molte delle possibili restrizioni. Tutte puntano a diminuire la quantità di spam ricevuto ma tutte hanno effetti collaterali. Quindi è sempre più comune personalizzare l'insieme di filtri in base al destinatario. Alla Falcot Corporation il greylisting è utile per la maggior parte degli utenti, ma ostacola l'attività di alcuni utenti che necessitano di una bassa latenza per le proprie email (come il servizio di supporto tecnico). Allo stesso modo il servizio di supporto commerciale incontra a volte delle difficoltà nella ricezione di email da alcuni provider asiatici che sono inseriti nelle blacklist: il servizio di supporto commerciale ha quindi richiesto un indirizzo email non filtrato per poter comunicare."
+msgstr "La <xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> e la <xref linkend=\"sect.setting-up-greylisting\" /> riportano molte delle possibili limitazioni. Tutte hanno un loro metodo per diminuire la quantità di spam ricevuto ma tutte hanno effetti collaterali. Quindi è sempre più comune personalizzare l'insieme di filtri in base al destinatario. Alla Falcot Corporation il greylisting è utile per la maggior parte degli utenti, ma ostacola l'attività di alcuni utenti che necessitano di una bassa latenza per le proprie email (come il servizio di supporto tecnico). Allo stesso modo il servizio di supporto commerciale incontra a volte delle difficoltà nella ricezione di email da alcuni provider asiatici che sono inseriti nelle blacklist: il servizio di supporto commerciale ha quindi richiesto un indirizzo email non filtrato per poter comunicare."
 
 msgid "Postfix provides such a customization of filters with a “restriction class” concept. The classes are declared in the <literal>smtpd_restriction_classes</literal> parameter, and defined the same way as <literal>smtpd_recipient_restrictions</literal>. The <literal>check_recipient_access</literal> directive then defines a table mapping a given recipient to the appropriate set of restrictions."
 msgstr "Postfix fornisce la personalizzazione sui filtri tramite il concetto di «restrizione di classe». Le classi sono dichiarate nel parametro <literal>smtpd_restriction_classes</literal> e sono definite come in <literal>smtpd_recipient_restrictions</literal>. La direttiva <literal>check_recipient_access</literal> definisce quindi una tabella che associa un destinatario ad un insieme appropriato di restrizioni."
@@ -846,8 +843,9 @@ msgstr "Una volta che il pacchetto <emphasis role=\"pkg\">clamav-milter</emphasi
 msgid "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
 msgstr "<emphasis>NOTA</emphasis> Porta TCP reale contro cosiddetta socket"
 
+#, fuzzy
 msgid "The reason why we use a real TCP port rather than the named socket is that the postfix daemons often run chrooted and do not have access to the directory hosting the named socket. You could also decide to keep using a named socket and pick a location within the chroot (<filename>/var/spool/postfix/</filename>)."
-msgstr ""
+msgstr "Il motivo per cui viene usata una vera e propria porta TCP piuttosto che una named socket è che i demoni postfix spesso eseguono chroot e non hanno accesso alla directory che ospita la socket. Si potrebbe anche decidere di continuare ad usare la socket e scegliere una posizione all'interno di chroot (</filename>/var/spool/postfix/<filename>)."
 
 msgid "The standard ClamAV configuration fits most situations, but some important parameters can still be customized with <command>dpkg-reconfigure clamav-base</command>."
 msgstr "La configurazione standard di ClamAV è adeguata per molte situazioni, ma alcuni parametri importanti possono comunque essere personalizzati con <command>dpkg-reconfigure clamav-base</command>."
@@ -884,10 +882,9 @@ msgstr "Tutti i messaggi gestiti da Postfix passano ora attraverso il filtro ant
 msgid "Authenticated SMTP"
 msgstr "SMTP autenticato"
 
-#, fuzzy
 #| msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, that may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
 msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, this may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
-msgstr "Per poter inviare email è necessario un server SMTP che sia raggiungibile e che inoltre consenta di inviare messaggi. Per questo motivo gli utenti in movimento potrebbero dover cambiare regolarmente la configurazione dei propri client SMTP, dato che il server SMTP della Falcot rifiuta i messaggi provenienti da indirizzi IP apparentemente non correlati con l'azienda. Esistono due soluzioni a questo problema: l'utente in movimento può installare un server SMTP sul proprio computer oppure continuare ad utilizzare il server aziendale con qualche tipo di autenticazione che lo riconosca quale dipendente. La prima soluzione non è raccomandata dato che il computer non sarà connesso permanentemente e non sarà quindi in grado di ritentare l'invio dei messaggi in caso di problemi: ci concentreremo quindi sulla seconda soluzione."
+msgstr "Per poter inviare email è necessario un server SMTP che sia raggiungibile; ed inoltre è necessario dire al server SMTP di inviare email attraverso di esso. Per gli utenti in movimento, questo potrebbe dire di dover cambiare regolarmente la configurazione dei propri client SMTP, dato che il server SMTP della Falcot rifiuta i messaggi provenienti da indirizzi IP apparentemente non correlati con l'azienda. Esistono due soluzioni a questo problema: l'utente in movimento può installare un server SMTP sul proprio computer oppure continuare ad utilizzare il server aziendale con qualche tipo di autenticazione che lo riconosca come dipendente. La prima soluzione non è raccomandata dato che il computer non sarà connesso permanentemente e non sarà quindi in grado di ritentare l'invio dei messaggi in caso di problemi: ci concentreremo quindi sulla seconda soluzione."
 
 msgid "SMTP authentication in Postfix relies on SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). It requires installing the <emphasis role=\"pkg\">libsasl2-modules</emphasis> and <emphasis role=\"pkg\">sasl2-bin</emphasis> packages, then registering a password in the SASL database for each user that needs authenticating on the SMTP server. This is done with the <command>saslpasswd2</command> command, which takes several parameters. The <literal>-u</literal> option defines the authentication domain, which must match the <literal>smtpd_sasl_local_domain</literal> parameter in the Postfix configuration. The <literal>-c</literal> option allows creating a user, and <literal>-f</literal> allows specifying the file to use if the SASL database needs to be stored at a different location than the default (<filename>/etc/sasldb2</filename>)."
 msgstr "L'autenticazione SMTP con Postfix fa affidamento su SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). Richiede l'installazione dei pacchetti <emphasis role=\"pkg\">libsasl2-modules</emphasis> e <emphasis role=\"pkg\">sasl2-bin</emphasis> e la registrazione di una password nel database SASL per ogni utente che necessita di autenticarsi sul server SMTP. Questo è realizzabile per mezzo del comando <command>saslpasswd2</command> che accetta diversi parametri. L'opzione <literal>-u</literal> definisce il dominio di autenticazione e deve corrispondere al parametro <literal>smtpd_sasl_local_domain</literal> nella configurazione di Postfix. L'opzione <literal>-c</literal> consente di creare un utente e <literal>-f</literal> permette di specificare il file da usare se il database SASL necessita di essere conservato in una posizione diversa da quella predefinita (<filename>/etc/sasldb2</filename>)."
@@ -1004,8 +1001,9 @@ msgstr "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
 msgid "Installing Apache"
 msgstr "Installare Apache"
 
+#, fuzzy
 msgid "Installing the <emphasis role=\"pkg\">apache2</emphasis> package is all that is needed. It contains all the modules, including the <emphasis>Multi-Processing Modules</emphasis> (MPMs) that affect how Apache handles parallel processing of many requests (those used to be provided in separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis> packages). It will also pull <emphasis role=\"pkg\">apache2-utils</emphasis> containing the command line utilities that we will discover later."
-msgstr ""
+msgstr "L'installazione del pacchetto <emphasis role=\"pkg\">apache2</emphasis> è tutto ciò che è necessario. Contiene tutti i moduli, compresi <emphasis>Multi-Processing Modules</emphasis> (MPMs), che influenzano il mdo di Apache di gestire l'elaborazione di numerose richieste di processi in parallelo ("
 
 #, fuzzy
 #| msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
@@ -1067,7 +1065,7 @@ msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out o
 msgstr "Apache 2.2 include il modulo SSL richiesto per rendere sicuro HTTP (HTTPS) senza bisogno di aggiunte. Naturalmente è richiesto che sia attivato con <command>a2enmod ssl</command> e che le direttive richieste siano state aggiunte ai file di configurazione. Un esempio di configurazione è fornito in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
 
 msgid "Some extra care must be taken if you want to favor SSL connections with <emphasis>Perfect Forward Secrecy</emphasis> (those connections use ephemeral session keys ensuring that a compromission of the server's secret key does not result in the compromission of old encrypted traffic that could have been stored while sniffing on the network). Have a look at Mozilla's recommandations in particular: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
-msgstr ""
+msgstr "Qualche accortezza in più dve essere presa se si vuole permettere connessioni SSL con <emphasis>Perfect Forward Secrecy</emphasis> (queste connessioni utilizzano chiavi di sessione effimere assicurando così che la compromissione della chiave segreta del server con comporti anche la compromissione del vecchio traffico di dati criptato che avrebbe potuto essere conservato effettuando sniffing sulla rete). Dai un'occhiata alle raccamondazioni di Mozilla, in particolare: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
 
 #, fuzzy
 msgid "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
@@ -1305,21 +1303,21 @@ msgid "<primary><literal>Require</literal>, Apache directive</primary>"
 msgstr "<primary><literal>Require</literal>, direttiva Apache</primary>"
 
 msgid "It can be used to restrict access based on many criteria; we will stop at describing access restriction based on the IP address of the client, but it can be made much more powerful than that, especially when several <literal>Require</literal> directives are combined within a <literal>RequireAll</literal> block."
-msgstr ""
+msgstr "Può essere usata per limitare l'accesso in base a molti criteri; ci soffermeremo alla descrizione delle limitazioni di accesso in base all'indirizzo IP del client, ma possono essere apllicate politiche ancora più restrittive, in particolare quando più direttive <literal>Require</literal> sono combinate all'interno di un blocco <literal>RequireAll</literal>."
 
 #| msgid "Reject by default but allow from the local network"
 msgid "Only allow from the local network"
 msgstr "Consenti solo dalla rete locale"
 
 msgid "Require ip 192.168.0.0/16"
-msgstr ""
+msgstr "Require ip 192.168.0.0/16"
 
 #| msgid "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
 msgid "<emphasis>ALTERNATIVE</emphasis> Old syntax"
 msgstr "<emphasis>ALTERNATIVA</emphasis> Vecchia sintassi"
 
 msgid "The <literal>Require</literal> syntax is only available in Apache 2.4 (the version in <emphasis role=\"distribution\">Jessie</emphasis>). For users of <emphasis role=\"distribution\">Wheezy</emphasis>, the Apache 2.2 syntax is different, and we describe it here mainly for reference, although it can also be made available in Apache 2.4 using the <literal>mod_access_compat</literal> module."
-msgstr ""
+msgstr "La sintassi <literal>Require</literal> è disponibile solo in Apache 2.4 (la versione disponibile in <emphasis role=\"distribution\">Jessie</emphasis>). Per gli utenti di <emphasis role=\"distribution\">Wheezy</emphasis>, la sintassi di Apache 2.2 è differente, e qui la descriviamo principalmente per riferimento, anche se può anche essere resa disponibile in Apache 2.4 utilizzando il modulo <literal>mod_access_compact</literal>."
 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives control access restrictions for a directory (and its subdirectories, recursively)."
 msgstr "Le direttive <literal>Allow from</literal> e <literal>Deny from</literal> controllano le restrizioni di accesso ad una directory (e ricorsivamente, le sottodirectory)."
@@ -1545,13 +1543,13 @@ msgid "<primary>server</primary><secondary>file</secondary>"
 msgstr "<primary>server</primary><secondary>file</secondary>"
 
 msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
-msgstr ""
+msgstr "NFS è uno strumento molto utile ma, storicamente, ha sempre sofferto di molte limitazioni, la maggior parte delle quali sono state affrontate con la versione 4 del protocollo. Lo svantaggio è che l'ultima versione di NFS è più difficile da configurare quando si desidera fare uso di funzionalità di sicurezza di base come l'autenticazione e la crittografia di dati che si basa su Kerberos. E senza quelle, il protocollo NFS deve essere limitato a una rete locale fidata (trusted) in quanto i dati passano attraverso la rete in chiaro (una <emphasis>sniffer</emphasis> può intercettarli) ed i diritti di accesso sono concessi in base all'indirizzo IP del client (che può essere falsificato)."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 msgstr "<emphasis>DOCUMENTAZIONE</emphasis> NFS HOWTO"
 
 msgid "Good documentation to deploy NFSv4 is rather scarce. Here are some pointers with content of varying quality but that should at least give some hints on what should be done. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
-msgstr ""
+msgstr "Una buona documentazione per spiegare NFSv4 è piuttosto scarsa. Ecco alcune indicazioni con contenuti di diversa qualità, ma che dovrebbero almeno dare alcuni suggerimenti su ciò che dovrebbe essere fatto. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
 
 msgid "Securing NFS"
 msgstr "Mettere in sicurezza NFS"
@@ -1580,7 +1578,7 @@ msgid "RPC services register to a directory known as the <emphasis>portmapper</e
 msgstr "I servizi RPC si registrano in una directory conosciuta con il nome di <emphasis>portmapper</emphasis>. Un client che desidera eseguire una richiesta NFS contatta prima di tutto il <emphasis>portmapper</emphasis> (sulla porta 111, TCP o UDP) e chiede del server NFS: la risposta generalmente menziona la porta 2049 (quella predefinita per NFS). Non tutti i servizi RPC necessariamente usano una porta fissa."
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
-msgstr ""
+msgstr "Le vecchie versioni del protocollo richiedono altri servizi RPC che usano porte assegnate dinamicamente. Fortunatamente, con NFS versione 4, sono necessarie solo porta 2049 (per NFS) e 111 (per il portmapper) e sono quindi facili da filtrare sul firewall."
 
 msgid "<primary><command>portmapper</command></primary>"
 msgstr "<primary><command>portmapper</command></primary>"
@@ -1608,7 +1606,7 @@ msgstr ""
 "/directory/da/condividere macchina1(opzione1,opzione2,...) macchina2(...) ..."
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identified with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
-msgstr ""
+msgstr "Si noti che con NFSv4, tutte le directory esportate devono essere parte di un unica gerarchia e che la directory radice di quella gerarchia deve essere esportata e identificata con l'opzione <literal>fsid=0</literal> oppure <literal>fsid=root</literal>."
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
 msgstr "Ogni macchina può essere identificata sia dal suo nome DNS che dal suo IP. È anche possibile specificare un intero insieme di macchine utilizzando una sintassi come <literal>*.falcot.com</literal> o un intervallo di indirizzi IP come <literal>192.168.0.0/255.255.255.0</literal> o <literal>192.168.0.0/24</literal>."
@@ -1627,7 +1625,7 @@ msgid "In order to not give root access to the filesystem to any NFS client, all
 msgstr "Per non fornire a qualsiasi client NFS l'accesso root al file system, tutte le richieste provenienti da un utente root sono considerate dal server come provenienti dall'utente <literal>anonymous</literal>. Questo comportamento corrisponde all'opzione <literal>root_squash</literal>, ed è abilitata per impostazione predefinita. L'opzione <literal>no_root_squash</literal>, che disabilita questo comportamento, è rischiosa e dovrebbe essere usata solo in ambienti controllati. Le opzioni <literal>anonuid=<replaceable>uid</replaceable></literal> e <literal>anongid=<replaceable>gid</replaceable></literal> permettono di specificare un altro falso utente da utilizzare al posto di UID/GID 65534 (che corrisponde all'utente <literal>nobody</literal> ed al gruppo <literal>nogroup</literal>)."
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
-msgstr ""
+msgstr "Con NFSv4, è possibile aggiungere l'opzione <literal>sec</literal> per indicare il livello di protezione desiderato: <literal>sec=sys</literal> è l'impostazione predefinita senza particolari caratteristiche di sicurezza, <literal>sec=krb5</literal> abilita solo l'autenticazione, <literal>sec=krb5i</literal> aggiunge protezione di integrità, e <literal>sec=krb5p</literal> è il livello più completo che comprende la tutela della privacy (con crittografia dei dati). Per questo lavoro bisogna lavorare alla configurazione di Kerberos (questo servizio non è coperto da questo libro)."
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
 msgstr "Sono disponibili altre opzioni: sono documentate nella pagina di manuale <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
@@ -1736,7 +1734,7 @@ msgid "<primary>Windows domain</primary>"
 msgstr "<primary>Dominio Windows</primary>"
 
 msgid "The <emphasis role=\"pkg\">samba-doc</emphasis> package contains a wealth of commented example files in <filename>/usr/share/doc/samba-doc/examples/</filename>."
-msgstr ""
+msgstr "Il pacchetto <emphasis role=\"pkg\">samba-doc</emphasis> contiene una grande quantitàdi file di esempio commentati in <filename>/usr/share/doc/samba-doc/examples/</filename>."
 
 msgid "<emphasis>TOOL</emphasis> Authenticating with a Windows Server"
 msgstr "<emphasis>STRUMENTO</emphasis> Autenticarsi con un Server Windows"
@@ -1760,7 +1758,7 @@ msgid "The package sets up a minimal configuration during the initial installati
 msgstr "Questo pacchetto imposta una configurazione minimale basata sulle risposte ad alcune domande poste da Debconf durante l'installazione iniziale; questa fase di configurazione può essere ripetuta in seguito con <command>dpkg-reconfigure samba-common samba</command>."
 
 msgid "The first piece of required information is the name of the workgroup where the Samba server will belong (the answer is <literal>FALCOTNET</literal> in our case)."
-msgstr ""
+msgstr "Il primo pezzo di informazioni richieste è il nome del gruppo di lavoro a cui apparterrà il server Samba (la risposta nel nostro caso è <literal>FALCOTNET</literal>)."
 
 msgid "The package also proposes identifying the WINS server from the information provided by the DHCP daemon. The Falcot Corp administrators rejected this option, since they intend to use the Samba server itself as the WINS server."
 msgstr "Il pacchetto propone inoltre di identificare il server WINS attraverso le informazioni fornite dal demone DHCP. Gli amministratori della Falcot Corporation rifiutano questa opzione, poiché intendono utilizzare lo stesso server Samba come server WINS."
@@ -1811,6 +1809,38 @@ msgid ""
 "\n"
 "[...]"
 msgstr ""
+"\n"
+"[global]\n"
+"\n"
+"## Browsing/Identification ###\n"
+"\n"
+"# Change this to the workgroup/NT-domain name your Samba server will part of\n"
+"   workgroup = FALCOTNET\n"
+"\n"
+"# Windows Internet Name Serving Support Section:\n"
+"# WINS Support - Tells the NMBD component of Samba to enable its WINS Server\n"
+"   wins support = yes <co id=\"smb.conf.wins\"></co>\n"
+"\n"
+"[...]\n"
+"\n"
+"####### Authentication #######\n"
+"\n"
+"# Server role. Defines in which mode Samba will operate. Possible\n"
+"# values are \"standalone server\", \"member server\", \"classic primary\n"
+"# domain controller\", \"classic backup domain controller\", \"active\n"
+"# directory domain controller\". \n"
+"#\n"
+"# Most people will want \"standalone sever\" or \"member server\".\n"
+"# Running as \"active directory domain controller\" will require first\n"
+"# running \"samba-tool domain provision\" to wipe databases and create a\n"
+"# new domain.\n"
+"   server role = standalone server\n"
+"\n"
+"# \"security = user\" is always a good idea. This will require a Unix account\n"
+"# in this server for every user accessing the server.\n"
+"   security = user <co id=\"smb.conf.security\"></co>\n"
+"\n"
+"[...]"
 
 msgid "Indicates that Samba should act as a Netbios name server (WINS) for the local network."
 msgstr "Indica che Samba agirà come name server Netbios (WINS) per la rete locale."
@@ -1889,7 +1919,7 @@ msgid "Other options can be specified on the command-line; their full list is av
 msgstr "Altre opzioni possono essere specificate sulla riga di comando. La lista completa è disponibile nella pagina di manuale <citerefentry><refentrytitle>smbmount</refentrytitle> <manvolnum>1</manvolnum></citerefentry>. Due opzioni in particolare possono risultare interessanti: <literal>uid</literal> e <literal>gid</literal> consentono di forzare il proprietario ed il gruppo dei file disponibili nella condivisione montata, così da non limitare l'accesso a root."
 
 msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab</filename>:"
-msgstr ""
+msgstr "Il montaggio (mount) di una condivisione Windows può anche essere configurato in <filename>/etc/fstab</filename>:"
 
 msgid ""
 "\n"
@@ -1917,7 +1947,7 @@ msgid "Enter the CUPS configuration interface: <literal>http://localhost:631/adm
 msgstr "Accesso all'interfaccia di configurazione di CUPS: <literal>http://localhost:631/admin</literal>"
 
 msgid "Click on “Add Printer”."
-msgstr ""
+msgstr "Clicca su \"Add Printer\"."
 
 # sull'interfaccia web di CUPS è riportato in inglese... già controllato anche in wheezy
 #, fuzzy
@@ -1932,10 +1962,10 @@ msgid "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</rep
 msgstr "<literal>smb://<replaceable>utente</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>stampante</replaceable></literal>."
 
 msgid "Enter the name that will uniquely identify this printer. Then enter the description and location of the printer. Those are the strings that will be shown to end users to help them identify the printers."
-msgstr ""
+msgstr "Inserire il nome che identificherà in modo univoco questa stampante. Quindi inserire la descrizione e la posizione della stampante. Queste sono le stringhe che verranno mostrate agli utenti finali per aiutarli ad identificare le stampanti."
 
 msgid "Indicate the manufacturer/model of the printer, or directly provide a working printer description file (PPD)."
-msgstr ""
+msgstr "Identificare il produttore/modello della stampante, ofornire direttamente un file di descrizione della stampante di lavoro (PPD)."
 
 msgid "Voilà, the printer is operational!"
 msgstr "Voilà, la stampante è operativa!"
@@ -2320,13 +2350,13 @@ msgid "Does the LDAP database require login?"
 msgstr "Il database LDAP deve richiedere il login?"
 
 msgid "Special LDAP privileges for root"
-msgstr ""
+msgstr "Privilegi speciali LDAP per root"
 
 msgid "yes"
-msgstr ""
+msgstr "si"
 
 msgid "Make the configuration file readable/writeable by its owner only"
-msgstr ""
+msgstr "Rendere il file di configurazione leggibile/scrivibile solo dal suo proprietario"
 
 msgid "LDAP account for root"
 msgstr "L'account LDAP per root"
@@ -2432,10 +2462,10 @@ msgid "the LDAP database administrative password"
 msgstr "La password amministrativa del database LDAP"
 
 msgid "Local encryption algorithm to use for passwords"
-msgstr ""
+msgstr "Algoritmo di crittografia locale da utilizzare per le password"
 
 msgid "crypt"
-msgstr ""
+msgstr "cripta"
 
 msgid "Installing <emphasis role=\"pkg\">libpam-ldap</emphasis> automatically adapts the default PAM configuration defined in the <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> and <filename>/etc/pam.d/common-account</filename> files. This mechanism uses the dedicated <command>pam-auth-update</command> tool (provided by the <emphasis role=\"pkg\">libpam-runtime</emphasis> package). This tool can also be run by the administrator should they wish to enable or disable PAM modules."
 msgstr "L'installazione di <emphasis role=\"pkg\">libpam-ldap</emphasis> adatta automaticamente la configurazione predefinita di PAM contenuta nei file <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> e <filename>/etc/pam.d/common-account</filename>. Questo meccanismo utilizza lo strumento dedicato <command>pam-auth-update</command> (fornito con il pacchetto <emphasis role=\"pkg\">libpam-runtime</emphasis>). Questo strumento può anche essere eseguito dall'amministratore qualora desideri abilitare o disabilitare dei moduli PAM."
@@ -2468,7 +2498,7 @@ msgid "By default, the LDAP protocol transits on the network as cleartext; this 
 msgstr "In via predefinita il protocollo LDAP transita sulla rete come testo in chiaro: questo include le password (cifrate). Poiché le password cifrate possono essere estratte dalla rete rimangono vulnerabili ad attacchi a dizionario. Questo può essere evitato utilizzando uno strato di cifratura addizionale: abilitare questo strato è l'argomento di questa sezione."
 
 msgid "Configuring the Server"
-msgstr "Configurare il server"
+msgstr "Configurazione del server"
 
 msgid "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
 msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creazione delle chiavi</secondary>"
@@ -2485,7 +2515,7 @@ msgid "This command creates a certificate in the <filename>keys/ldap.falcot.com.
 msgstr "Questo comando crea un certificato nel file <filename>newcert.pem</filename>: la corrispondente chiave privata è conservata nel file <filename>newkey.pem</filename>."
 
 msgid "Now these keys have to be installed in their standard location, and we must make sure that the private file is readable by the LDAP server which runs under the <literal>openldap</literal> user identity:"
-msgstr ""
+msgstr "Ora questi tasti devono essere installati nella loro posizione standard, e dobbiamo fare in modo che il file privato sia leggibile dal server LDAP che gira sotto l'identità utente <literal>openldap</literal>:"
 
 #, fuzzy
 #| msgid ""
@@ -2510,7 +2540,7 @@ msgstr ""
 "<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
-msgstr ""
+msgstr "Bisogna anche dire al demone <command>slapd</command> di usare queste chiavi per la crittografia. La configurazione del server LDAP è gestita dinamicamente: la configurazione può essere aggiornata con le normali operazioni LDAP sulla gerarchia di oggetti <literal>cn=config</literal>, ed il server aggiornerà <filename>/etc/ldap/slapd.d</filename> in tempo reale per rendere la configurazione persistente. <command>ldapmodify</command> è quindi lo strumento giusto per aggiornare la configurazione:"
 
 msgid "Configuring <command>slapd</command> for encryption"
 msgstr "Configurare <command>slapd</command> per la cifratura"
@@ -2533,20 +2563,34 @@ msgid ""
 "modifying entry \"cn=config\"\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
+"dn: cn=config\n"
+"changetype: modify\n"
+"add: olcTLSCertificateFile\n"
+"olcTLSCertificateFile: /etc/ssl/certs/ldap.falcot.com.pem\n"
+"-\n"
+"add: olcTLSCertificateKeyFile\n"
+"olcTLSCertificateKeyFile: /etc/ssl/private/ldap.falcot.com.key\n"
+"-\n"
+"END\n"
+"</userinput><computeroutput># </computeroutput><userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif\n"
+"</userinput><computeroutput>SASL/EXTERNAL authentication started\n"
+"SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth\n"
+"SASL SSF: 0\n"
+"modifying entry \"cn=config\"\n"
+"</computeroutput>"
 
-#, fuzzy
 msgid "<emphasis>TOOL</emphasis> <command>ldapvi</command> to edit an LDAP directory"
-msgstr "<emphasis>STRUMENTO</emphasis> Consultare una directory LDAP"
+msgstr "<emphasis>STRUMENTO</emphasis> <command>ldapvi</command> per modificare una directory LDAP"
 
-#, fuzzy
 msgid "<primary><command>ldapvi</command></primary>"
-msgstr "<primary><command>clamav</command></primary>"
+msgstr "<primary><command>ldapvi</command></primary>"
 
 msgid "With <command>ldapvi</command>, you can display an LDIF output of any part of the LDAP directory, make some changes in the text editor, and let the tool do the corresponding LDAP operations for you."
-msgstr ""
+msgstr "Con il comando <command>ldapvi</command>, è possibile visualizzare un output LDIF di qualsiasi parte della directory LDAP, apportare alcune modifiche nell'editor di testo, e lasciare che lo strumento faccia le operazione LDAP per voi."
 
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
-msgstr ""
+msgstr "E' quindi un modo conveniente per aggiornare la configurazione del server LDAP, semplicemente modificando la gerarchia <literal>cn=config</literal>."
 
 #, fuzzy
 #| msgid ""
@@ -2613,6 +2657,52 @@ msgid ""
 "# Additional options to pass to slapd\n"
 "SLAPD_OPTIONS=\"\""
 msgstr ""
+"\n"
+"# Default location of the slapd.conf file or slapd.d cn=config directory. If\n"
+"# empty, use the compiled-in default (/etc/ldap/slapd.d with a fallback to\n"
+"# /etc/ldap/slapd.conf).\n"
+"SLAPD_CONF=\n"
+"\n"
+"# System account to run the slapd server under. If empty the server\n"
+"# will run as root.\n"
+"SLAPD_USER=\"openldap\"\n"
+"\n"
+"# System group to run the slapd server under. If empty the server will\n"
+"# run in the primary group of its user.\n"
+"SLAPD_GROUP=\"openldap\"\n"
+"\n"
+"# Path to the pid file of the slapd server. If not set the init.d script\n"
+"# will try to figure it out from $SLAPD_CONF (/etc/ldap/slapd.conf by\n"
+"# default)\n"
+"SLAPD_PIDFILE=\n"
+"\n"
+"# slapd normally serves ldap only on all TCP-ports 389. slapd can also\n"
+"# service requests on TCP-port 636 (ldaps) and requests via unix\n"
+"# sockets.\n"
+"# Example usage:\n"
+"# SLAPD_SERVICES=\"ldap://127.0.0.1:389/ ldaps:/// ldapi:///\"\n"
+"SLAPD_SERVICES=\"ldaps:/// ldapi:///\"\n"
+"\n"
+"# If SLAPD_NO_START is set, the init script will not start or restart\n"
+"# slapd (but stop will still work).  Uncomment this if you are\n"
+"# starting slapd via some other means or if you don't want slapd normally\n"
+"# started at boot.\n"
+"#SLAPD_NO_START=1\n"
+"\n"
+"# If SLAPD_SENTINEL_FILE is set to path to a file and that file exists,\n"
+"# the init script will not start or restart slapd (but stop will still\n"
+"# work).  Use this for temporarily disabling startup of slapd (when doing\n"
+"# maintenance, for example, or through a configuration management system)\n"
+"# when you don't want to edit a configuration file.\n"
+"SLAPD_SENTINEL_FILE=/etc/ldap/noslapd\n"
+"\n"
+"# For Kerberos authentication (via SASL), slapd by default uses the system\n"
+"# keytab file (/etc/krb5.keytab).  To use a different keytab file,\n"
+"# uncomment this line and change the path.\n"
+"#export KRB5_KTNAME=/etc/krb5.keytab\n"
+"\n"
+"# Additional options to pass to slapd\n"
+"SLAPD_OPTIONS=\"\""
 
 msgid "Configuring the Client"
 msgstr "Configurare il client"
@@ -2622,7 +2712,7 @@ msgid "On the client side, the configuration for the <emphasis>libpam-ldap</emph
 msgstr "Sul client la configurazione per i moduli <emphasis>libpam-ldap</emphasis> e <emphasis>libnss-ldap</emphasis> dev'essere modificata aggiungendo la direttiva <literal>ssl on</literal> ai file di configurazione <filename>/etc/pam_ldap.conf</filename> e <filename>/etc/libnss-ldap.conf</filename>."
 
 msgid "LDAP clients also need to be able to authenticate the server. In a X.509 public key infrastructure, public certificates are signed by the key of a certificate authority (CA). With <emphasis>easy-rsa</emphasis>, the Falcot administrators have created their own CA and they now need to configure the system to trust the signatures of Falcot's CA. This can be done by putting the CA certificate in <filename>/usr/local/share/ca-certificates</filename> and running <command>update-ca-certificates</command>."
-msgstr ""
+msgstr "I cliet LDAP devono essere in grado di autenticare il server. In un'infrastruttura a chiave pubblica X.509, i certificati pubblici sono firmati con una chiavedi un'autorità di certificazione (CA). Con <emphasis>esy-rsa</emphasis>, gli amministratori Falcot hanno creato la propria CA ed ora hanno bisogno di configurare il sistema per rendere fidate (trusted) le firme della CA di Falcot. Questo può essere fatto mettendo il certificato CA in <filename>/usr/local/share/ca-certificates</filename> ed eseguendo <command>update-ca-certificates</command>."
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
@@ -2634,9 +2724,17 @@ msgid ""
 "done.\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
+"</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
+"</userinput><computeroutput>Aggiornamento certificati in /etc/ssl/certs... 1 aggiunto, 0 rimossi; fatto.\n"
+"Esecuzione gancio in /etc/ca-certificates/update.d....\n"
+"Aggiunto debian:falcot.pem\n"
+"fatto.\n"
+"fatto.\n"
+"</computeroutput>"
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
-msgstr ""
+msgstr "Ultimo ma non meno importante, l'URI LDAP predefinito e la base DN predefinita utilizzati dai vari strumenti della riga di comando possono essere modificati in <filename>/etc/ldap/ldap.conf</filename>. Ciò farà risparmiare un bel po' di battitura."
 
 msgid "The <filename>/etc/ldap/ldap.conf</filename> file"
 msgstr "Il file <filename>/etc/ldap/ldap.conf</filename>"
@@ -2677,10 +2775,10 @@ msgstr ""
 "TLS_CACERT /etc/ssl/certs/ldap-cert.pem\n"
 
 msgid "Real-Time Communication Services"
-msgstr ""
+msgstr "Servizi di Comunicazione Real-Time"
 
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
-msgstr ""
+msgstr "I servizi Real-Time Communication (RTC) includono voce, video/webcam, instant messaging (IM) e condivisione desktop. Questo capitolo fornisce una breve introduzione a tre dei servizi necessari per il funzionamento RTC, tra cui il server TURN, server SIP e il server XMPP. i dettagli completi di come pianificare, installare e gestire questi servizi sono disponibili nella Guida rapida Real-Time Communications, che include esempi specifici di Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 
 #, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
@@ -2702,7 +2800,7 @@ msgid "<primary>Chat</primary><secondary>server</secondary>"
 msgstr "<primary>MX</primary><secondary>server</secondary>"
 
 msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
-msgstr ""
+msgstr "Sia SIP e XMPP in grado di fornire le stesse funzionalità. SIP è un po' più conosciuto per voce e video mentre XMPP è tradizionalmente considerato come un protocollo di messaggistica istantanea. In realtà, entrambi possono essere utilizzati per qualsiasi di questi scopi. Per massimizzare le opzioni di connettività, si consiglia di eseguire entrambi in parallelo."
 
 #| msgid "<primary>SMTP</primary>"
 msgid "<primary>SIP</primary>"
@@ -2713,23 +2811,22 @@ msgid "<primary>XMPP</primary>"
 msgstr "<primary>XMPP</primary>"
 
 msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
-msgstr ""
+msgstr "Questi servizi si basano su certificati X.509 sia per l'autenticazione che per la riservatezza. Vedere <xref linkend=\"sect.easy-rsa\" /> per i dettagli su come crearli. In alternativa <emphasis>Real-Time Communications Quick Start Guide</emphasis> ha anche alcune spiegazioni utili: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
 
 msgid "DNS settings for RTC services"
-msgstr ""
+msgstr "Impostazioni DNS per i servizi RTC"
 
 msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
-msgstr ""
+msgstr "I servizi RTC richiedono registrazioni DNS SVR e NAPTR. Un esempio di configurazione che può essere collocato nel file di zona per <literal>falcot.com</literal>:"
 
 #, fuzzy
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
 msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
-msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
+msgstr "<primary>DNS</primary><secondary>record NAPTR</secondary>"
 
 msgid ""
 "\n"
@@ -2761,6 +2858,34 @@ msgid ""
 "_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
 "_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 msgstr ""
+"\n"
+"; the server where everything will run\n"
+"server1            IN     A      198.51.100.19\n"
+"server1            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; IPv4 only for TURN for now, some clients are buggy with IPv6\n"
+"turn-server        IN     A      198.51.100.19\n"
+"\n"
+"; IPv4 and IPv6 addresses for SIP\n"
+"sip-proxy          IN     A      198.51.100.19\n"
+"sip-proxy          IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; IPv4 and IPv6 addresses for XMPP\n"
+"xmpp-gw            IN     A      198.51.100.19\n"
+"xmpp-gw            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; DNS SRV and NAPTR for STUN / TURN\n"
+"_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"_turn._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"RELAY:turn.udp\" \"\" _turn._udp.falcot.com.\n"
+"\n"
+"; DNS SRV and NAPTR records for SIP\n"
+"_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"SIPS+D2T\" \"\" _sips._tcp.falcot.com.\n"
+"\n"
+"; DNS SRV records for XMPP Server and Client modes:\n"
+"_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
+"_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 
 #, fuzzy
 #| msgid "NFS Server"
@@ -2768,26 +2893,24 @@ msgid "TURN Server"
 msgstr "Server NFS"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
-msgstr ""
+msgstr "TURN è un servizio che aiuta i clienti dietro router NAT e firewall a scoprire il modo più efficace per comunicare con altri clienti e per trasmettere i flussi multimediali se non può essere trovato nessun percorso multimediale diretto. E' vivamente consigliato che il server TURN sia installato prima che tutti gli altri servizi RTC vengano offerti agli utenti finali."
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>TURN</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+msgstr "<primary>TURN</primary><secondary>server</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
-msgstr ""
+msgstr "TURN e il relativo protocollo ICE sono degli standard aperti. Per beneficiare di questi protocolli, massimizzando la connettività e riducendo al minimo la frustrazione degli utenti, è importante assicurarsi che tutto il software client supporti ICE e TURN."
 
-#, fuzzy
 #| msgid "<primary>PICS</primary>"
 msgid "<primary>ICE</primary>"
-msgstr "<primary>PICS</primary>"
+msgstr "<primary>ICE</primary>"
 
 msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
-msgstr ""
+msgstr "Perchè l'algoritmo ICE lavori in modo efficace, il server deve avere due indirizzi IPv4 pubblici."
 
 msgid "Install the TURN server"
-msgstr ""
+msgstr "Installare il server TURN"
 
 #, fuzzy
 #| msgid "Configuring the <emphasis role=\"pkg\">libnss-ldap</emphasis> package"
@@ -2795,7 +2918,7 @@ msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> pac
 msgstr "Configurare il pacchetto <emphasis role=\"pkg\">libnss-ldap</emphasis>"
 
 msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
-msgstr ""
+msgstr "Modificare il file di configurazione <filename>/etc/reTurn/reTurnServer.config</filename>. La cosa più importante da fare è inserire gli indirizzi IP del server."
 
 msgid ""
 "\n"
@@ -2811,9 +2934,21 @@ msgid ""
 "UserDatabaseFile = /etc/reTurn/users.txt\n"
 "UserDatabaseHashedPasswords = true"
 msgstr ""
+"\n"
+"# your IP addresses go here:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# your domain goes here, it must match the value used\n"
+"# to hash your passwords if they are already hashed\n"
+"# using the HA1 algorithm:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
 
 msgid "Restart the service."
-msgstr ""
+msgstr "Riavvia il servizio."
 
 msgid "Managing the TURN users"
 msgstr ""
@@ -2955,7 +3090,7 @@ msgid "Restart the service to use the new configuration."
 msgstr ""
 
 msgid "Managing the SIP proxy"
-msgstr ""
+msgstr "Gestione del proxy SIP"
 
 msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</literal> to complete the configuration by adding domains, local users and static routes."
 msgstr ""
@@ -3001,7 +3136,7 @@ msgid "<primary>Prosody</primary>"
 msgstr "<primary>Postfix</primary>"
 
 msgid "Install the XMPP server"
-msgstr ""
+msgstr "Installa il server XMPP"
 
 msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
 msgstr ""
@@ -3013,6 +3148,8 @@ msgid ""
 "\n"
 "admins = { \"joe@falcot.com\" }"
 msgstr ""
+"\n"
+"admins = { \"joe@falcot.com\" }"
 
 msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
 msgstr ""
@@ -3026,6 +3163,13 @@ msgid ""
 "                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
 "                }"
 msgstr ""
+"\n"
+"VirtualHost \"falcot.com\"\n"
+"        enabled = true\n"
+"        ssl = {\n"
+"                key = \"/etc/ssl/private/falcot.com-key.pem\";\n"
+"                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
+"                }"
 
 msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
 msgstr ""
@@ -3048,12 +3192,14 @@ msgid ""
 "\n"
 "# prosodyctl adduser joe@falcot.com"
 msgstr ""
+"\n"
+"# prosodyctl adduser joe@falcot.com"
 
 msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
 msgstr ""
 
 msgid "Running services on port 443"
-msgstr ""
+msgstr "Servizi in esecuzione sulla porta 443"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
 msgstr ""
@@ -3139,6 +3285,31 @@ msgid ""
 "\n"
 "  ..."
 msgstr ""
+"\n"
+"JSCommSettings = {\n"
+"\n"
+"  // Web server environment\n"
+"  webserver: {\n"
+"    url_prefix: null            // If set, prefix used to construct sound/ URLs\n"
+"  },\n"
+"\n"
+"  // STUN/TURN media relays\n"
+"  stun_servers: [],\n"
+"  turn_servers: [\n"
+"    { server:\"turn:turn-server.falcot.com?transport=udp\", username:\"joe\", password:\"j0Ep455d\" }\n"
+"  ],\n"
+"\n"
+"  // WebSocket connection\n"
+"  websocket: {\n"
+"      // Notice we use the falcot.com domain certificate and port 8443\n"
+"      // This matches the Transport3 and Transport4 example in\n"
+"      // the falcot.com repro.config file\n"
+"    servers: 'wss://falcot.com:8443',\n"
+"    connection_recovery_min_interval: 2,\n"
+"    connection_recovery_max_interval: 30\n"
+"  },\n"
+"\n"
+"  ..."
 
 msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
 msgstr ""
