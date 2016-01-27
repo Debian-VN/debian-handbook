@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 20:53+0200\n"
-"PO-Revision-Date: 2016-01-26 16:52+0000\n"
+"PO-Revision-Date: 2016-01-27 10:41+0100\n"
 "Last-Translator: Marco De Luca <marcodeluca@hotmail.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/92_short-remedial-course/it/>\n"
 "Language: it-IT\n"
@@ -594,7 +594,7 @@ msgid "Let's describe in some detail what happens when a complex command (a <emp
 msgstr "Descriviamo in dettaglio ciò che accade quando un comando complesso (una <emphasis>pipeline</emphasis>) viene eseguita da una shell. Supponiamo di avere un processo <command>bash</command> (la shell utente standard su Debian), con <emphasis>pid</emphasis> 4374; in questa shell, digitiamo il comando: <command>ls | sort</command> ."
 
 msgid "The shell first interprets the command typed in. In our case, it understands there are two programs (<command>ls</command> and <command>sort</command>), with a data stream flowing from one to the other (denoted by the <userinput>|</userinput> character, known as <emphasis>pipe</emphasis>). <command>bash</command> first creates an unnamed pipe (which initially exists only within the <command>bash</command> process itself)."
-msgstr "La shell prima interpreta il comando digitato. Nel nostro caso, si capisce che ci sono due programmi (<command>ls</command> e <command>sort</command>), con un flusso di dati che scorre da uno all'altro (indicato dal carattere <userinput>|</userinput>, noto come <emphasis>pipe</ emphasis>). <command>bash</command> crea innanzitutto una pipe senza nome (che inizialmente esiste solo all'interno del processo <command>bash</command> stesso)."
+msgstr "La shell prima interpreta il comando digitato. Nel nostro caso, si capisce che ci sono due programmi (<command>ls</command> e <command>sort</command>), con un flusso di dati che scorre da uno all'altro (indicato dal carattere <userinput>|</userinput>, noto come <emphasis>pipe</emphasis>). <command>bash</command> crea innanzitutto una pipe senza nome (che inizialmente esiste solo all'interno del processo <command>bash</command> stesso)."
 
 msgid "Then the shell clones itself; this leads to a new <command>bash</command> process, with <emphasis>pid</emphasis> #4521 (<emphasis>pids</emphasis> are abstract numbers, and generally have no particular meaning). Process #4521 inherits the pipe, which means it is able to write in its “input” side; <command>bash</command> redirects its standard output stream to this pipe's input. Then it executes (and replaces itself with) the <command>ls</command> program, which lists the contents of the current directory. Since <command>ls</command> writes on its standard output, and this output has previously been redirected, the results are effectively sent into the pipe."
 msgstr "Poi la shell clona se stessa; questo porta ad un nuovo processo <command>bash</command>, con <emphasis>pid</emphasis> #4521 (i <emphasis>pid</emphasis> sono numeri astratti, ed in genere non hanno un significato particolare). Il processo #4521 eredita la pipe, che significa che è in grado di scrivere nel suo lato di \"input\"; la <command>bash</command> reindirizza il suo flusso di output standard verso l'ingresso di questa pipe. Poi esegue (e si sostituisce ad esso) il programma <command>ls</command>, che elenca il contenuto della directory corrente. Dal momento che <command>ls</command> scrive sul suo output standard, e questo output è stato precedentemente reindirizzato, i risultati sono inviati effettivamente nella pipe."
