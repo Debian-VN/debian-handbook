@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 20:53+0200\n"
-"PO-Revision-Date: 2016-02-05 14:39+0000\n"
-"Last-Translator: Alessio Dessi <alessio.dessi@gmail.com>\n"
+"PO-Revision-Date: 2016-02-06 00:19+0000\n"
+"Last-Translator: Marco De Luca <marcodeluca@hotmail.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/debian-handbook/11_network-services/it/>\n"
 "Language: it-IT\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +168,6 @@ msgstr "Dopo questa prima fase gli amministratori dispongono del file di configu
 msgid "Initial <filename>/etc/postfix/main.cf</filename> file"
 msgstr "File <filename>/etc/postfix/main.cf</filename> iniziale"
 
-#, fuzzy
 msgid ""
 "\n"
 "# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
@@ -215,44 +214,48 @@ msgid ""
 "inet_protocols = all"
 msgstr ""
 "\n"
-"# Si veda /usr/share/postfix/main.cf.dist per una versione più completa e commentata\n"
+"# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
 "\n"
-"# Specifico di Debian: specificare un nome di file farà sì che la prima riga\n"
-"# di questo file sia utilizzata come nome. Il valore predefinito di Debian\n"
-"# è /etc/mailname.\n"
+"\n"
+"# Debian specific:  Specifying a file name will cause the first\n"
+"# line of that file to be used as the name.  The Debian default\n"
+"# is /etc/mailname.\n"
 "#myorigin = /etc/mailname\n"
 "\n"
 "smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)\n"
 "biff = no\n"
 "\n"
-"# aggiungere .domain è compito del MUA.\n"
+"# appending .domain is the MUA's job.\n"
 "append_dot_mydomain = no\n"
 "\n"
-"# Togliere il commento dalla riga seguente per generare i messaggi d'avviso «consegna ritardata»\n"
+"# Uncomment the next line to generate \"delayed mail\" warnings\n"
 "#delay_warning_time = 4h\n"
 "\n"
-"# Parametri TLS\n"
+"readme_directory = no\n"
+"\n"
+"# TLS parameters\n"
 "smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem\n"
 "smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key\n"
 "smtpd_use_tls=yes\n"
-"smtpd_tls_session_cache_database = btree:${queue_directory}/smtpd_scache\n"
-"smtp_tls_session_cache_database = btree:${queue_directory}/smtp_scache\n"
+"smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache\n"
+"smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache\n"
 "\n"
-"# Si veda /usr/share/doc/postfix/TLS_README.gz nel pacchetto postfix-doc per\n"
-"# informazioni sull'attivazione di SSL nel client SMTP.\n"
+"# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for\n"
+"# information on enabling SSL in the smtp client.\n"
 "\n"
+"smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination\n"
 "myhostname = mail.falcot.com\n"
 "alias_maps = hash:/etc/aliases\n"
 "alias_database = hash:/etc/aliases\n"
 "myorigin = /etc/mailname\n"
-"mydestination = mail.falcot.com, falcot.com, localhost, localhost.localdomain\n"
+"mydestination = mail.falcot.com, falcot.com, localhost.localdomain, localhost\n"
 "relayhost = \n"
-"mynetworks = 127.0.0.0/8 192.168.0.0/16\n"
+"mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.0.0/16\n"
 "mailbox_command = procmail -a \"$EXTENSION\"\n"
 "mailbox_size_limit = 0\n"
 "recipient_delimiter = +\n"
 "inet_interfaces = all\n"
-"inet_protocols = all\n"
+"inet_protocols = all"
 
 msgid "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certificates"
 msgstr "<emphasis>SICUREZZA</emphasis> Certificati SSL <emphasis>Snake oil</emphasis>"
@@ -843,9 +846,8 @@ msgstr "Una volta che il pacchetto <emphasis role=\"pkg\">clamav-milter</emphasi
 msgid "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
 msgstr "<emphasis>NOTA</emphasis> Porta TCP reale contro cosiddetta socket"
 
-#, fuzzy
 msgid "The reason why we use a real TCP port rather than the named socket is that the postfix daemons often run chrooted and do not have access to the directory hosting the named socket. You could also decide to keep using a named socket and pick a location within the chroot (<filename>/var/spool/postfix/</filename>)."
-msgstr "Il motivo per cui viene usata una vera e propria porta TCP piuttosto che una named socket è che i demoni postfix spesso eseguono chroot e non hanno accesso alla directory che ospita la socket. Si potrebbe anche decidere di continuare ad usare la socket e scegliere una posizione all'interno di chroot (</filename>/var/spool/postfix/<filename>)."
+msgstr "Il motivo per cui viene usata una vera e propria porta TCP piuttosto che una socket è che i demoni postfix spesso sono eseguiti sotto chroot e non hanno accesso alla directory che ospita la socket. Si potrebbe anche decidere di continuare ad usare la socket e scegliere una posizione all'interno di chroot (<filename>/var/spool/postfix/</filename>)."
 
 msgid "The standard ClamAV configuration fits most situations, but some important parameters can still be customized with <command>dpkg-reconfigure clamav-base</command>."
 msgstr "La configurazione standard di ClamAV è adeguata per molte situazioni, ma alcuni parametri importanti possono comunque essere personalizzati con <command>dpkg-reconfigure clamav-base</command>."
@@ -1001,14 +1003,12 @@ msgstr "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
 msgid "Installing Apache"
 msgstr "Installare Apache"
 
-#, fuzzy
 msgid "Installing the <emphasis role=\"pkg\">apache2</emphasis> package is all that is needed. It contains all the modules, including the <emphasis>Multi-Processing Modules</emphasis> (MPMs) that affect how Apache handles parallel processing of many requests (those used to be provided in separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis> packages). It will also pull <emphasis role=\"pkg\">apache2-utils</emphasis> containing the command line utilities that we will discover later."
-msgstr "L'installazione del pacchetto <emphasis role=\"pkg\">apache2</emphasis> è tutto ciò che è necessario. Contiene tutti i moduli, compresi <emphasis>Multi-Processing Modules</emphasis> (MPMs), che influenzano il mdo di Apache di gestire l'elaborazione di numerose richieste di processi in parallelo ("
+msgstr "L'installazione del pacchetto <emphasis role=\"pkg\">apache2</emphasis> è tutto ciò che è necessario. Contiene tutti i moduli, compresi <emphasis>Multi-Processing Modules</emphasis> (MPMs), che influenzano il modo in cui Apache gestisce l'elaborazione in parallelo di numerose richieste (quelle usate per fornire in pacchetti separati <emphasis role=\"pkg\">apache2-mpm-*</emphasis>). Installerà anche <emphasis role=\"pkg\">apache2-utils</emphasis> contenente le utility a riga di comando che scopriremo dopo."
 
-#, fuzzy
 #| msgid "The differences between the variants of Apache 2 are concentrated in the policy used to handle parallel processing of many requests; this policy is implemented by an MPM (short for <emphasis>Multi-Processing Module</emphasis>). Among the available MPMs, <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> uses <emphasis>threads</emphasis> (lightweight processes), whereas <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> uses a pool of processes created in advance (the traditional way, and the only one available in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> also uses threads, but they are terminated earlier, when the incoming connection is only kept open by the HTTP <emphasis>keep-alive</emphasis> feature."
 msgid "The MPM in use affects significantly the way Apache will handle concurrent requests. With the <emphasis>worker</emphasis> MPM, it uses <emphasis>threads</emphasis> (lightweight processes), whereas with the <emphasis>prefork</emphasis> MPM it uses a pool of processes created in advance. With the <emphasis>event</emphasis> MPM it also uses threads, but the inactive connections (notably those kept open by the HTTP <emphasis>keep-alive</emphasis> feature) are handed back to a dedicated management thread."
-msgstr "Le differenze tra le varianti di Apache2 sono relative alla politica di gestione adottata per elaborare parallelamente più richieste. Questa politica è implementata da un MPM (appreviazione per <emphasis>Multi-Processing Module</emphasis>). Tra gli MPM disponibili il pacchetto <emphasis role=\"pkg\">apache2-mpm-worker</emphasis> utilizza i <emphasis>thread</emphasis> (processi leggeri) mentre il pacchetto <emphasis role=\"pkg\">apache2-mpm-prefork</emphasis> utilizza un insieme di processi creati anticipatamente (è il metodo tradizionale oltre che l'unico disponibile in Apache 1.3). <emphasis role=\"pkg\">apache2-mpm-event</emphasis> utilizza a sua volta i thread ma questi vengono terminati subito dopo aver evaso la richiesta mentre la connessione in ingresso è mantenuta aperta unicamente dalla funzione <emphasis>keep-alive</emphasis> di HTTP."
+msgstr "L'MPM in uso influenza in modo significativo il modo in cui Apache gestirà richieste simultanee. Con il <emphasis>worker</emphasis> MPM, utilizza <emphasis>threads</emphasis> (processi leggeri), mentre con il <emphasis>prefork</emphasis> MPM utilizza una serie di processi creati in anticipo. Con <emphasis>event</emphasis> MPM anche utilizza i threads, ma le connessioni inattive (in particolare quelle tenute aperte dalla funzione  HTTP <emphasis>keep-alive</emphasis>) vengono consegnate ad una gestione dedicata del thread."
 
 msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the default <emphasis>event</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
 msgstr "Gli amministratori della Falcot installano anche <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> per includere il supporto PHP all'interno di Apache. Questo fa si che venga disabilitato il valore predefinito <emphasis>event</emphasis> di MPM, e che invece al suo posto venga usato <emphasis>prefork</emphasis>, poiché PHP può funzionare unicamente con quel particolare MPM."
@@ -1059,17 +1059,15 @@ msgstr "<primary>HTTPS</primary>"
 msgid "<primary>HTTP</primary><secondary>secure</secondary>"
 msgstr "<primary>HTTP</primary><secondary>secure</secondary>"
 
-#, fuzzy
 #| msgid "Apache 2.2 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
 msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
-msgstr "Apache 2.2 include il modulo SSL richiesto per rendere sicuro HTTP (HTTPS) senza bisogno di aggiunte. Naturalmente è richiesto che sia attivato con <command>a2enmod ssl</command> e che le direttive richieste siano state aggiunte ai file di configurazione. Un esempio di configurazione è fornito in <filename>/usr/share/doc/apache2.2-common/examples/apache2/extra/httpd-ssl.conf.gz</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.2/mod/mod_ssl.html\" />"
+msgstr "Apache 2.4 include il modulo SSL richiesto per rendere sicuro HTTP (HTTPS) senza bisogno di aggiunte. Naturalmente è richiesto che sia attivato con <command>a2enmod ssl</command>, poi che le direttive richieste siano state aggiunte ai file di configurazione. Un esempio di configurazione è fornito in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
 
 msgid "Some extra care must be taken if you want to favor SSL connections with <emphasis>Perfect Forward Secrecy</emphasis> (those connections use ephemeral session keys ensuring that a compromission of the server's secret key does not result in the compromission of old encrypted traffic that could have been stored while sniffing on the network). Have a look at Mozilla's recommandations in particular: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
 msgstr "Qualche accortezza in più dve essere presa se si vuole permettere connessioni SSL con <emphasis>Perfect Forward Secrecy</emphasis> (queste connessioni utilizzano chiavi di sessione effimere assicurando così che la compromissione della chiave segreta del server con comporti anche la compromissione del vecchio traffico di dati criptato che avrebbe potuto essere conservato effettuando sniffing sulla rete). Dai un'occhiata alle raccamondazioni di Mozilla, in particolare: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
 
-#, fuzzy
 msgid "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
-msgstr "<primary><emphasis>nfs-user-server</emphasis></primary>"
+msgstr "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
 
 msgid "Configuring Virtual Hosts"
 msgstr "Configurare gli host virtuali"
@@ -1086,10 +1084,9 @@ msgstr "Apache considera due tipologie differenti di host virtuali: quelli che s
 msgid "The (increasing) scarcity of IPv4 addresses usually favors the second method; however, it is made more complex if the virtual hosts need to provide HTTPS too, since the SSL protocol hasn't always provided for name-based virtual hosting; the SNI extension (<emphasis>Server Name Indication</emphasis>) that allows such a combination is not handled by all browsers. When several HTTPS sites need to run on the same server, they will usually be differentiated either by running on a different port or on a different IP address (IPv6 can help there)."
 msgstr "La (crescente) carenza di indirizzi IPv4 favorisce in genere il secondo metodo anche se questo è reso più complesso qualora gli host virtuali necessitino di fornire anche HTTPS poiché il protocollo SSL non è sempre disponibile in caso di host virtuali basati sul nome. L'estensione SNI (<emphasis>Server Name Indication</emphasis>) che permette questo genere di combinazione non è supportata da tutti i browser. Quando più siti HTTPS necessitano di girare sullo stesso server vengono spesso differenziati utilizzando una porta o un indirizzo IP differente (IPv6 in questo caso può essere d'aiuto)."
 
-#, fuzzy
 #| msgid "The default configuration for Apache 2 enables name-based virtual hosts (with the <literal>NameVirtualHost *:80</literal> directive in the <filename>/etc/apache2/ports.conf</filename> file). In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
 msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
-msgstr "La configurazione predefinita per Apache 2 abilita gli host virtuali basati sul nome (con la direttiva <literal>NameVirtualHost *:80</literal> nel file <filename>/etc/apache2/ports.conf</filename>). Inoltre è definito un host virtuale predefinito nel file <literal>/etc/apache2/sites-enabled/000-default</literal>: questo host virtuale viene utilizzato qualora non venga trovato alcun host che corrisponde alla richiesta inviata dal client."
+msgstr "La configurazione predefinita per Apache 2 abilita gli host virtuali basati sul nome. Inoltre, è definito un host virtuale predefinito nel file <literal>/etc/apache2/sites-enabled/000-default.conf</literal>: questo host virtuale viene utilizzato qualora non venga trovato alcun host che corrisponde alla richiesta inviata dal client."
 
 msgid "<emphasis>CAUTION</emphasis> First virtual host"
 msgstr "<emphasis>ATTENZIONE</emphasis> Il primo host virtuale"
@@ -1557,10 +1554,9 @@ msgstr "Mettere in sicurezza NFS"
 msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
 
-#, fuzzy
 #| msgid "Since NFS trusts the information it receives from the network, it is vital to ensure that only the machines allowed to use it can connect to the various required RPC servers. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr "Poiché NFS considera affidabili le informazioni che riceve dalla rete è vitale assicurarsi che solo le macchine autorizzate al suo utilizzo possano connettersi ai vari server RPC richiesti. Il firewall deve inoltre bloccare l'<emphasis>IP spoofing</emphasis>, per prevenire che macchine esterne possano agire come una interna, e limitare l'accesso alle porte appropriate alle solo macchine che devono accedere alle condivisioni NFS."
+msgstr "Se non si utilizzano le funzioni di sicurezza basate su Kerberos, è vitale assicurarsi che solo le macchine autorizzate all'uso di NFS possano connettersi ai vari server RPC richiesti, in quanto il protocollo di base si fida dei dati ricevuti dalla rete. Il firewall deve inoltre bloccare l'<emphasis>IP spoofing</emphasis> per prevenire che macchine esterne possano agire come una interna, e limitare l'accesso alle porte appropriate alle solo macchine che devono accedere alle condivisioni NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
 msgstr "<emphasis>FONDAMENTALI</emphasis> RPC"
@@ -1678,9 +1674,8 @@ msgstr ""
 "\n"
 "arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 
-#, fuzzy
 msgid "The entry described above mounts, at system startup, the <filename>/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/srv/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share. Note that on the server, the <filename>shared</filename> directory is below the NFSv4 root export (for example <filename>/export/shared</filename>), it is not a top-level directory."
-msgstr "La riga descritta in precedenza monta, all'avvio del sistema, la directory NFS <filename>/srv/shared/</filename> dal server <literal>arrakis</literal> nella directory locale <filename>/shared/</filename>. L'accesso in lettura-scrittura è richiesto (da qui il parametro <literal>rw</literal>). L'opzione <literal>nosuid</literal> è una misura di protezione che rimuove qualsiasi bit <literal>setuid</literal> o <literal>setgit</literal> dai programmi contenuti nella condivisione. Se la condivisione NFS è pensata unicamente per conservare documenti, un'altra opzione raccomandata è <literal>noexec</literal> che previene l'esecuzione di eventuali programmi conservati nella condivisione."
+msgstr "La riga descritta in precedenza monta, all'avvio del sistema, la directory NFS <filename>/srv/shared/</filename> dal server <literal>arrakis</literal> nella directory locale <filename>/shared/</filename>. L'accesso in lettura-scrittura è richiesto (da qui il parametro <literal>rw</literal>). L'opzione <literal>nosuid</literal> è una misura di protezione che rimuove qualsiasi bit <literal>setuid</literal> o <literal>setgit</literal> dai programmi contenuti nella condivisione. Se la condivisione NFS è pensata unicamente per conservare documenti, un'altra opzione raccomandata è <literal>noexec</literal> che previene l'esecuzione di eventuali programmi conservati nella condivisione. Si noti che sul server, la directory <filename>shared</filename> è sotto NFSv4 root export (per esempio <filename>/export/shared</filename>), non è una directory di livello superiore."
 
 msgid "The <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the options in some detail."
 msgstr "La pagina di manuale <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> descrive tutte le opzioni dettagliatamente."
@@ -1722,10 +1717,9 @@ msgstr "<primary><command>nmbd</command></primary>"
 msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
 msgstr "<emphasis>DOCUMENTAZIONE</emphasis> Andiamo oltre"
 
-#, fuzzy
 #| msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as main domain controller, but it can also be a simple server on the domain and delegate authentication to the main controller (which could be a Windows server)."
 msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
-msgstr "Il server Samba è estremamente configurabile e versatile e può assolvere efficacemente a molti casi d'utilizzo e differenti architetture di rete. Questo libro si focalizza sull'utilizzo di Samba come controller di dominio principale, ma può anche essere impiegato come un semplice server sul dominio e delegando l'autenticazione al controller di dominio principale (che può essere un server Windows)."
+msgstr "Il server Samba è estremamente configurabile e versatile, e può assolvere efficacemente a molti casi d'utilizzo che corrispondono ad esigenze ed architetture di rete molto differenti. Questo libro si focalizza sull'utilizzo di Samba come server standalone, ma può anche essere impiegato come Controller di Dominio NT4 o come full Controller di un Dominio Active Directory, o come semplice membro di un dominio esistente (che potrebbe essere gestito da un server Windows)."
 
 msgid "<primary>domain controller</primary>"
 msgstr "<primary>controller di dominio</primary>"
@@ -1752,10 +1746,9 @@ msgstr "Maggiori informazioni possono essere trovate nella directory <filename>/
 msgid "Configuring with <command>debconf</command>"
 msgstr "Configurare con <command>debconf</command>"
 
-#, fuzzy
 #| msgid "The package sets up a minimal configuration based on the answers to a few Debconf questions asked during the initial installation; this configuration step can be replayed later with <command>dpkg-reconfigure samba-common samba</command>."
 msgid "The package sets up a minimal configuration during the initial installation but you should really run <command>dpkg-reconfigure samba-common</command> to adapt it:"
-msgstr "Questo pacchetto imposta una configurazione minimale basata sulle risposte ad alcune domande poste da Debconf durante l'installazione iniziale; questa fase di configurazione può essere ripetuta in seguito con <command>dpkg-reconfigure samba-common samba</command>."
+msgstr "Il pacchetto imposta una configurazione minimale durante l'installazione iniziale ma in realtà si dovrebbe eseguire <command>dpkg-reconfigure samba-common</command>per adattarlo:"
 
 msgid "The first piece of required information is the name of the workgroup where the Samba server will belong (the answer is <literal>FALCOTNET</literal> in our case)."
 msgstr "Il primo pezzo di informazioni richieste è il nome del gruppo di lavoro a cui apparterrà il server Samba (la risposta nel nostro caso è <literal>FALCOTNET</literal>)."
@@ -1914,9 +1907,8 @@ msgstr ""
 "username = <replaceable>utente</replaceable>\n"
 "password = <replaceable>password</replaceable>"
 
-#, fuzzy
 msgid "Other options can be specified on the command-line; their full list is available in the <citerefentry><refentrytitle>mount.cifs</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page. Two options in particular can be interesting: <literal>uid</literal> and <literal>gid</literal> allow forcing the owner and group of files available on the mount, so as not to restrict access to root."
-msgstr "Altre opzioni possono essere specificate sulla riga di comando. La lista completa è disponibile nella pagina di manuale <citerefentry><refentrytitle>smbmount</refentrytitle> <manvolnum>1</manvolnum></citerefentry>. Due opzioni in particolare possono risultare interessanti: <literal>uid</literal> e <literal>gid</literal> consentono di forzare il proprietario ed il gruppo dei file disponibili nella condivisione montata, così da non limitare l'accesso a root."
+msgstr "Altre opzioni possono essere specificate dalla riga di comando. La lista completa è disponibile nella pagina di manuale <citerefentry><refentrytitle>smbmount</refentrytitle> <manvolnum>1</manvolnum></citerefentry>. Due opzioni in particolare possono risultare interessanti: <literal>uid</literal> e <literal>gid</literal> consentono di forzare l'assegnazione del proprietario ed del gruppo dei file disponibili al mount, così da non limitare l'accesso a root."
 
 msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab</filename>:"
 msgstr "Il montaggio (mount) di una condivisione Windows può anche essere configurato in <filename>/etc/fstab</filename>:"
@@ -1950,13 +1942,11 @@ msgid "Click on “Add Printer”."
 msgstr "Clicca su \"Add Printer\"."
 
 # sull'interfaccia web di CUPS è riportato in inglese... già controllato anche in wheezy
-#, fuzzy
 msgid "Choose the printer device, pick “Windows Printer via SAMBA”."
-msgstr "Quando scegli la periferica per la stampante scegli “Windows Printer via SAMBA”."
+msgstr "Scegliere la stampante, selezionare “Windows Printer via SAMBA”."
 
-#, fuzzy
 msgid "Enter the connection URI for the network printer. It should look like the following:"
-msgstr "L'URI che descrive la stampante è simile al seguente:"
+msgstr "Inserire l'URI per la stampante di rete. Dovrebbe essere simile al seguente:"
 
 msgid "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
 msgstr "<literal>smb://<replaceable>utente</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>stampante</replaceable></literal>."
@@ -2081,10 +2071,9 @@ msgstr "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
 msgid "<primary>PICS</primary>"
 msgstr "<primary>PICS</primary>"
 
-#, fuzzy
 #| msgid "The <emphasis role=\"pkg\">dansguardian</emphasis> package is an alternative to <emphasis>squidguard</emphasis>. This software does not simply handle a black-list of forbidden URLs, but it can take advantage of the PICS system (<emphasis>Platform for Internet Content Selection</emphasis>) to decide whether a page is acceptable by dynamic analysis of its contents."
 msgid "The <emphasis role=\"pkg\">dansguardian</emphasis> package is an alternative to <emphasis>squidguard</emphasis>. This software does not simply handle a blacklist of forbidden URLs, but it can take advantage of the PICS system (<emphasis>Platform for Internet Content Selection</emphasis>) to decide whether a page is acceptable by dynamic analysis of its contents."
-msgstr "Il pacchetto <emphasis role=\"pkg\">dansguardian</emphasis> è un'alternativa a <emphasis>squidguard</emphasis>. Questo software non si limita a gestire una blacklist di URL proibiti ma trae vantaggio dal sistema PICS (<emphasis>Platform for Internet Content Selection</emphasis>) per decidere quando una pagina è accettabile attraverso analisi dinamiche del contenuto."
+msgstr "Il pacchetto <emphasis role=\"pkg\">dansguardian</emphasis> è un'alternativa a <emphasis>squidguard</emphasis>. Questo software non si limita a gestire una blacklist di URL proibiti, ma trae vantaggio dal sistema PICS (<emphasis>Platform for Internet Content Selection</emphasis>) per decidere quando una pagina è accettabile attraverso analisi dinamiche del contenuto."
 
 msgid "LDAP Directory"
 msgstr "Directory LDAP"
@@ -2098,10 +2087,9 @@ msgstr "<primary>OpenLDAP</primary>"
 msgid "<primary>directory, LDAP</primary>"
 msgstr "<primary>directory, LDAP</primary>"
 
-#, fuzzy
 #| msgid "OpenLDAP is an implementation of the LDAP protocol; in other words, it's a special-purpose database designed for storing directories. In the most common use case, using an LDAP server allows centralizing management of user accounts and the related permissions. Moreover, an LDAP database is easily replicated, which allows setting up multiple synchronized LDAP servers. When the network and the user base grows quickly, the load can then be balanced across several servers."
 msgid "OpenLDAP is an implementation of the LDAP protocol; in other words, it is a special-purpose database designed for storing directories. In the most common use case, using an LDAP server allows centralizing management of user accounts and the related permissions. Moreover, an LDAP database is easily replicated, which allows setting up multiple synchronized LDAP servers. When the network and the user base grows quickly, the load can then be balanced across several servers."
-msgstr "OpenLDAP è un'implementazione del protocollo LDAP: in altre parole si tratta di un database progettato con lo speciale proposito di conservare directory. Il caso d'uso più comune riguarda l'impiego di un server LDAP per centralizzare la gestione degli account utente ed i relativi permessi. Un database LDAP è inoltre facilmente replicato cosa che permette di impostare server LDAP multipli e sincronizzati. Quando la rete e la base utenti crescono velocemente il carico può essere bilanciato tra i vari server."
+msgstr "OpenLDAP è un'implementazione del protocollo LDAP; in altre parole, si tratta di un database progettato con lo speciale scopo di conservare directory. Il caso d'uso più comune, è l'impiego di un server LDAP per permettere di centralizzare la gestione degli account utente ed i relativi permessi. Inoltre, un database LDAP è facilmente replicato, cosa che permette di impostare sincronizzazioni multiple con altri server LDAP. Quando la rete e la base utenti crescono velocemente, il carico può essere bilanciato tra i vari server."
 
 msgid "LDAP data is structured and hierarchical. The structure is defined by “schemas” which describe the kind of objects that the database can store, with a list of all their possible attributes. The syntax used to refer to a particular object in the database is based on this structure, which explains its complexity."
 msgstr "I dati di LDAP sono strutturati e gerarchici. La struttura è definita attraverso «schemi» che descrivono il tipo di oggetti che il database può contenere, con una lista di tutti i loro possibili attributi. La sintassi usata per riferirsi ad un particolare oggetto nel database è basata su questa struttura, cosa che spiega la sua complessità."
@@ -2112,9 +2100,8 @@ msgstr "Il pacchetto <emphasis role=\"pkg\">slapd</emphasis> contiene il server 
 msgid "<primary><emphasis>slapd</emphasis></primary>"
 msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
-#, fuzzy
 msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions and the resulting database is unlikely to suit your needs. Fortunately a simple <command>dpkg-reconfigure slapd</command> will let you reconfigure the LDAP database with more details:"
-msgstr "Installare <emphasis role=\"pkg\">slapd</emphasis> necessita normalmente di rispondere a qualche domanda <command>debconf</command>. Questa fase della configurazione può essere forzata con il comando <command>dpkg-reconfigure slapd</command>."
+msgstr "L'installazione di <emphasis role=\"pkg\">slapd</emphasis> necessita normalmente di rispondere a molto poche domande ed il database risultante è improbabile che soddisfi le vostre esigenze. Fortunatamente un semplice <command>dpkg-reconfigure slapd</command> vi permetterà di riconfigurare il database LDAP con maggiori dettagli:"
 
 msgid "Omit OpenLDAP server configuration? No, of course, we want to configure this service."
 msgstr "Omettere la configurazione del server OpenLDAP? No, naturalmente vogliamo configurare questo servizio."
@@ -2237,12 +2224,11 @@ msgstr "Il pacchetto <emphasis role=\"pkg\">migrationtools</emphasis> fornisce u
 msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 
-#, fuzzy
 msgid "Once the package is installed, the <filename>/etc/migrationtools/migrate_common.ph</filename> must be edited; the <varname>IGNORE_UID_BELOW</varname> and <varname>IGNORE_GID_BELOW</varname> options need to be enabled (uncommenting them is enough), and <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> need to be updated."
-msgstr "Dopo aver installato il pacchetto il file <filename>/etc/migrationtools/migrate_common.ph</filename> dev'essere modificato. Le opzioni <varname>IGNORE_UID_BELOW</varname> e <varname>IGNORE_GID_BELOW</varname> devono essere abilitate (è sufficiente de-commentarle)."
+msgstr "Dopo averlo installato il pacchetto il file <filename>/etc/migrationtools/migrate_common.ph</filename> dev'essere modificato. Le opzioni <varname>IGNORE_UID_BELOW</varname> e <varname>IGNORE_GID_BELOW</varname> devono essere abilitate (è sufficiente decommentarle), e <varname>DEFAULT_MAIL_DOMAIN</varname><varname>DEFAULT_BASE</varname> devono essere aggiornate."
 
 msgid "The actual migration operation is handled by the <command>migrate_all_online.sh</command> command, as follows:"
-msgstr "La reale operazione di migrazione è gestita dal comando <command>migrate_all_online.sh</command> come segue:"
+msgstr "La reale operazione di migrazione è gestita dal comando <command>migrate_all_online.sh</command>, come segue:"
 
 msgid ""
 "\n"
@@ -2301,13 +2287,11 @@ msgstr "Abbiamo deliberatamente ignorato la migrazione del file <filename>/etc/a
 msgid "<emphasis>TOOL</emphasis> Browsing an LDAP directory"
 msgstr "<emphasis>STRUMENTO</emphasis> Consultare una directory LDAP"
 
-#, fuzzy
 msgid "The <command>jxplorer</command> command (in the package of the same name) is a graphical tool allowing to browse and edit an LDAP database. It is an interesting tool that provides an administrator with a good overview of the hierarchical structure of the LDAP data."
-msgstr "Il comando <command>luma</command> (contenuto nell'omonimo pacchetto) è uno strumento grafico per navigare e modificare un database LDAP. È uno strumento interessante che garantisce all'amministratore una buona panoramica sulla struttura gerarchica dei dati LDAP."
+msgstr "Il comando <command>jxplorer</command> (contenuto nell'omonimo pacchetto) è uno strumento grafico per navigare e modificare un database LDAP. È uno strumento interessante che garantisce all'amministratore una buona panoramica sulla struttura gerarchica dei dati LDAP."
 
-#, fuzzy
 msgid "<primary><command>jxplorer</command></primary>"
-msgstr "<primary><command>portmapper</command></primary>"
+msgstr "<primary><command>jxplorer</command></primary>"
 
 msgid "Also note the use of the <literal>-c</literal> option to the <command>ldapadd</command> command; this option requests that processing doesn't stop in case of error. Using this option is required because converting the <filename>/etc/services</filename> often generates a few errors that can safely be ignored."
 msgstr "Notare altresì l'uso dell'opzione <literal>-c</literal> con il comando <command>ldapadd</command>: questa opzione richiede che l'elaborazione non si interrompa in caso di errori. Utilizzare questa opzione è necessario poiché convertire il database <filename>/etc/services</filename> genera spesso qualche errore che può essere ignorato senza conseguenze."
@@ -2321,9 +2305,8 @@ msgstr "Ora il database LDAP contiene diverse informazioni utili ed è giunto il
 msgid "Configuring NSS"
 msgstr "Configurare NSS"
 
-#, fuzzy
 msgid "The NSS system (Name Service Switch, see sidebar <xref linkend=\"sidebar.intro-nss\" />) is a modular system designed to define or fetch information for system directories. Using LDAP as a source of data for NSS requires installing the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Its installation asks a few questions; the answers are summarized in <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr "Il sistema NSS (Name Service Switch, si veda il riquadro <xref linkend=\"cadre.intro-nss\" />) è un sistema modulare progettato per definire o recuperare informazioni sulle directory di sistema. Utilizzare LDAP come sorgente di dati per NSS richiede l'installazione del pacchetto <emphasis role=\"pkg\">libnss-ldap</emphasis>. La sua installazione pone alcune domande: le risposte sono riassunte in <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
+msgstr "Il sistema NSS (Name Service Switch, si veda il riquadro <xref linkend=\"cadre.intro-nss\" />) è un sistema modulare progettato per definire o recuperare informazioni sulle directory di sistema. Utilizzare LDAP come sorgente di dati per NSS richiede l'installazione del pacchetto <emphasis role=\"pkg\">libnss-ldap</emphasis>. La sua installazione pone alcune domande; le risposte sono riassunte nella <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
 
 msgid "<primary><emphasis>libnss-ldap</emphasis></primary>"
 msgstr "<primary><emphasis>libnss-ldap</emphasis></primary>"
@@ -2370,7 +2353,6 @@ msgstr "Il file <filename>/etc/nsswitch.conf</filename> richiede poi di essere m
 msgid "The <filename>/etc/nsswitch.conf</filename> file"
 msgstr "Il file <filename>/etc/nsswitch.conf</filename>"
 
-#, fuzzy
 msgid ""
 "\n"
 "# /etc/nsswitch.conf\n"
@@ -2396,9 +2378,9 @@ msgstr ""
 "\n"
 "# /etc/nsswitch.conf\n"
 "#\n"
-"# Esempio di configurazione della funzionalità GNU Name Service Switch.\n"
-"# Se sono (stati) installati i pacchetti `glibc-doc' ed `info' provare:\n"
-"# `info libc \"Name Service Switch\"' per informazioni riguardo questo file.\n"
+"# Example configuration of GNU Name Service Switch functionality.\n"
+"# If you have the `glibc-doc' and `info' packages installed, try:\n"
+"# `info libc \"Name Service Switch\"' for information about this file.\n"
 "\n"
 "passwd: ldap compat\n"
 "group: ldap compat\n"
@@ -2412,11 +2394,10 @@ msgstr ""
 "ethers: ldap db files\n"
 "rpc: ldap db files\n"
 "\n"
-"netgroup: files\n"
+"netgroup: ldap files"
 
-#, fuzzy
 msgid "The <command>ldap</command> module is usually inserted before others, and it will therefore be queried first. The notable exception is the <literal>hosts</literal> service since contacting the LDAP server requires consulting DNS first (to resolve <literal>ldap.falcot.com</literal>). Without this exception, a hostname query would try to ask the LDAP server; this would trigger a name resolution for the LDAP server, and so on in an infinite loop."
-msgstr "Il modulo <command>ldap</command> è generalmente inserito prima degli altri e sarà conseguentemente richiamato per primo. L'unica eccezione degna di nota è il servizio <literal>hosts</literal> dato che contattare il server LDAP richiede di contattare per prima cosa il DNS (per risolvere <literal>ldap.falcot.com</literal>). Senza questa eccezione la richiesta DNS cercherebbe di contattare il server LDAP ma questo causerebbe un tentativo di risoluzione del nome per il server LDAP e così via in un ciclo infinito. Per ciò che riguarda i servizi <literal>netgroup</literal>, essi non sono ancora gestiti dal modulo LDAP."
+msgstr "Il modulo <command>ldap</command> è generalmente inserito prima degli altri, e sarà di conseguenza richiamato per primo. L'unica eccezione degna di nota è il servizio <literal>hosts</literal> dato che contattare il server LDAP richiede prima la consultazione del DNS (per risolvere <literal>ldap.falcot.com</literal>). Senza questa eccezione, la richiesta cercherebbe di contattare il server LDAP; questo causerebbe un tentativo di risoluzione del nome per il server LDAP, e così via in un ciclo infinito."
 
 msgid "If the LDAP server should be considered authoritative (and the local files used by the <command>files</command> module disregarded), services can be configured with the following syntax:"
 msgstr "Se il server LDAP dev'essere considerato autoritativo (e i file locali utilizzati dal modulo <command>files</command> ignorati) i servizi possono essere configurati con la seguente sintassi:"
@@ -2430,7 +2411,6 @@ msgstr "Se l'entità richiesta non esiste nel database LDAP, la richiesta restit
 msgid "Configuring PAM"
 msgstr "Configurare PAM"
 
-#, fuzzy
 msgid "This section describes a PAM configuration (see sidebar <xref linkend=\"sidebar.intro-pam\" />) that will allow applications to perform the required authentications against the LDAP database."
 msgstr "Questa sezione descrive una configurazione di PAM (si veda il riquadro <xref linkend=\"cadre.intro-pam\" />) che consentirà alle applicazioni di eseguire le autenticazioni richieste attraverso il database LDAP."
 
@@ -2506,18 +2486,15 @@ msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>crea
 msgid "<primary>key pair</primary>"
 msgstr "<primary>coppia di chiavi</primary>"
 
-#, fuzzy
 msgid "The first step is to create a key pair (comprising a public key and a private key) for the LDAP server. The Falcot administrators reuse <emphasis>easy-rsa</emphasis> to generate it (see <xref linkend=\"sect.easy-rsa\" />). Running <command>./build-server-key ldap.falcot.com</command> asks a few mundane questions (location, organization name and so on). The answer to the “common name” question <emphasis>must</emphasis> be the fully-qualified hostname for the LDAP server; in our case, <literal>ldap.falcot.com</literal>."
-msgstr "Il primo passo richiede la creazione di una coppia di chiavi (comprensiva di chiave pubblica e chiave privata) per il server LDAP. Questo richiede l'installazione del pacchetto <emphasis role=\"pkg\">openssl</emphasis>. L'esecuzione di <command>/usr/lib/ssl/misc/CA.pl -newcert</command> pone alcune domande banali (luogo, nome dell'organizzazione e così via). La risposta alla domanda \"common name\" <emphasis>deve</emphasis> essere il nome di dominio pienamente qualificato del server LDAP: nel nostro caso <literal>ldap.falcot.com</literal>."
+msgstr "Il primo passo richiede la creazione di una coppia di chiavi (comprensiva di chiave pubblica e chiave privata) per il server LDAP. Gli amministratori della Falcot riutilizzano <emphasis>easy-rsa</emphasis> per generarla (vedere <xref linkend=\"sect.easy-rsa\" />). L'esecuzione di <command>./build-server-key ldap.falcot.com</command> pone alcune domande banali (luogo, nome dell'organizzazione e così via). La risposta alla domanda \"common name\" <emphasis>deve</emphasis> essere il nome di dominio pienamente qualificato del server LDAP; nel nostro caso <literal>ldap.falcot.com</literal>."
 
-#, fuzzy
 msgid "This command creates a certificate in the <filename>keys/ldap.falcot.com.crt</filename> file; the corresponding private key is stored in <filename>keys/ldap.falcot.com.key</filename>."
-msgstr "Questo comando crea un certificato nel file <filename>newcert.pem</filename>: la corrispondente chiave privata è conservata nel file <filename>newkey.pem</filename>."
+msgstr "Questo comando crea un certificato nel file <filename>keys/ldap.falcot.com.crt</filename>; la corrispondente chiave privata è conservata nel file <filename>keys/ldap.falcot.com.key</filename>."
 
 msgid "Now these keys have to be installed in their standard location, and we must make sure that the private file is readable by the LDAP server which runs under the <literal>openldap</literal> user identity:"
 msgstr "Ora questi tasti devono essere installati nella loro posizione standard, e dobbiamo fare in modo che il file privato sia leggibile dal server LDAP che gira sotto l'identità utente <literal>openldap</literal>:"
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
@@ -2534,10 +2511,15 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
 "</userinput>"
 msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>mv newkey.pem /etc/ssl/private/ldap-key.pem</userinput>\n"
-"<computeroutput># </computeroutput><userinput>chmod 0600 /etc/ssl/private/ldap-key.pem</userinput>\n"
-"<computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap-cert.pem</userinput>\n"
+"<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
+"</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
+"Adding user openldap to group ssl-cert\n"
+"Done.\n"
+"# </computeroutput><userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
+"</userinput>"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
 msgstr "Bisogna anche dire al demone <command>slapd</command> di usare queste chiavi per la crittografia. La configurazione del server LDAP è gestita dinamicamente: la configurazione può essere aggiornata con le normali operazioni LDAP sulla gerarchia di oggetti <literal>cn=config</literal>, ed il server aggiornerà <filename>/etc/ldap/slapd.d</filename> in tempo reale per rendere la configurazione persistente. <command>ldapmodify</command> è quindi lo strumento giusto per aggiornare la configurazione:"
@@ -2592,7 +2574,6 @@ msgstr "Con il comando <command>ldapvi</command>, è possibile visualizzare un o
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr "E' quindi un modo conveniente per aggiornare la configurazione del server LDAP, semplicemente modificando la gerarchia <literal>cn=config</literal>."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
@@ -2600,8 +2581,8 @@ msgid ""
 "<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
 "</userinput>"
 msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
+"<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
+"</userinput>"
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
 msgstr "L'ultimo passo per abilitare la cifratura richiede la modifica della variabile <varname>SLAPD_SERVICES</varname> nel file <filename>/etc/default/slapd</filename>. Inoltre, per essere prudenti, si renderà necessario disabilitare l'LDAP non sicuro."
@@ -2707,9 +2688,8 @@ msgstr ""
 msgid "Configuring the Client"
 msgstr "Configurare il client"
 
-#, fuzzy
 msgid "On the client side, the configuration for the <emphasis>libpam-ldap</emphasis> and <emphasis>libnss-ldap</emphasis> modules needs to be modified to use an <literal>ldaps://</literal> URI."
-msgstr "Sul client la configurazione per i moduli <emphasis>libpam-ldap</emphasis> e <emphasis>libnss-ldap</emphasis> dev'essere modificata aggiungendo la direttiva <literal>ssl on</literal> ai file di configurazione <filename>/etc/pam_ldap.conf</filename> e <filename>/etc/libnss-ldap.conf</filename>."
+msgstr "Sul client, la configurazione per i moduli <emphasis>libpam-ldap</emphasis> e <emphasis>libnss-ldap</emphasis> deve essere modificata per usare un URI <literal>ldaps://</literal>."
 
 msgid "LDAP clients also need to be able to authenticate the server. In a X.509 public key infrastructure, public certificates are signed by the key of a certificate authority (CA). With <emphasis>easy-rsa</emphasis>, the Falcot administrators have created their own CA and they now need to configure the system to trust the signatures of Falcot's CA. This can be done by putting the CA certificate in <filename>/usr/local/share/ca-certificates</filename> and running <command>update-ca-certificates</command>."
 msgstr "I cliet LDAP devono essere in grado di autenticare il server. In un'infrastruttura a chiave pubblica X.509, i certificati pubblici sono firmati con una chiavedi un'autorità di certificazione (CA). Con <emphasis>esy-rsa</emphasis>, gli amministratori Falcot hanno creato la propria CA ed ora hanno bisogno di configurare il sistema per rendere fidate (trusted) le firme della CA di Falcot. Questo può essere fatto mettendo il certificato CA in <filename>/usr/local/share/ca-certificates</filename> ed eseguendo <command>update-ca-certificates</command>."
@@ -2739,7 +2719,6 @@ msgstr "Ultimo ma non meno importante, l'URI LDAP predefinito e la base DN prede
 msgid "The <filename>/etc/ldap/ldap.conf</filename> file"
 msgstr "Il file <filename>/etc/ldap/ldap.conf</filename>"
 
-#, fuzzy
 msgid ""
 "#\n"
 "# LDAP Defaults\n"
@@ -2762,8 +2741,8 @@ msgstr ""
 "# LDAP Defaults\n"
 "#\n"
 "\n"
-"# Si veda ldap.conf(5) per dettagli\n"
-"# Questo file dovrebbe essere leggibile da tutti ma non scrivibile da tutti.\n"
+"# See ldap.conf(5) for details\n"
+"# This file should be world readable but not world writable.\n"
 "\n"
 "BASE   dc=falcot,dc=com\n"
 "URI    ldaps://ldap.falcot.com\n"
@@ -2772,7 +2751,8 @@ msgstr ""
 "#TIMELIMIT      15\n"
 "#DEREF          never\n"
 "\n"
-"TLS_CACERT /etc/ssl/certs/ldap-cert.pem\n"
+"# TLS certificates (needed for GnuTLS)\n"
+"TLS_CACERT      /etc/ssl/certs/ca-certificates.crt"
 
 msgid "Real-Time Communication Services"
 msgstr "Servizi di Comunicazione Real-Time"
@@ -2780,24 +2760,20 @@ msgstr "Servizi di Comunicazione Real-Time"
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 msgstr "I servizi Real-Time Communication (RTC) includono voce, video/webcam, instant messaging (IM) e condivisione desktop. Questo capitolo fornisce una breve introduzione a tre dei servizi necessari per il funzionamento RTC, tra cui il server TURN, server SIP e il server XMPP. i dettagli completi di come pianificare, installare e gestire questi servizi sono disponibili nella Guida rapida Real-Time Communications, che include esempi specifici di Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>VoIP</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+msgstr "<primary>VoIP</primary><secondary>server</secondary>"
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>RTC</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+msgstr "<primary>RTC</primary><secondary>server</secondary>"
 
-#, fuzzy
 msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
-msgstr "<primary>file</primary><secondary>server</secondary>"
+msgstr "<primary>Instant Messaging</primary><secondary>server</secondary>"
 
-#, fuzzy
 #| msgid "<primary>MX</primary><secondary>server</secondary>"
 msgid "<primary>Chat</primary><secondary>server</secondary>"
-msgstr "<primary>MX</primary><secondary>server</secondary>"
+msgstr "<primary>Chat</primary><secondary>server</secondary>"
 
 msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
 msgstr "Sia SIP e XMPP in grado di fornire le stesse funzionalità. SIP è un po' più conosciuto per voce e video mentre XMPP è tradizionalmente considerato come un protocollo di messaggistica istantanea. In realtà, entrambi possono essere utilizzati per qualsiasi di questi scopi. Per massimizzare le opzioni di connettività, si consiglia di eseguire entrambi in parallelo."
@@ -2819,10 +2795,9 @@ msgstr "Impostazioni DNS per i servizi RTC"
 msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
 msgstr "I servizi RTC richiedono registrazioni DNS SVR e NAPTR. Un esempio di configurazione che può essere collocato nel file di zona per <literal>falcot.com</literal>:"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
-msgstr "<primary>NFS</primary><secondary>sicurezza</secondary>"
+msgstr "<primary>DNS</primary><secondary>record SRV</secondary>"
 
 #| msgid "<primary>NFS</primary><secondary>security</secondary>"
 msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
@@ -2887,10 +2862,9 @@ msgstr ""
 "_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
 "_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 
-#, fuzzy
 #| msgid "NFS Server"
 msgid "TURN Server"
-msgstr "Server NFS"
+msgstr "Server TURN"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
 msgstr "TURN è un servizio che aiuta i clienti dietro router NAT e firewall a scoprire il modo più efficace per comunicare con altri clienti e per trasmettere i flussi multimediali se non può essere trovato nessun percorso multimediale diretto. E' vivamente consigliato che il server TURN sia installato prima che tutti gli altri servizi RTC vengano offerti agli utenti finali."
@@ -2912,10 +2886,9 @@ msgstr "Perchè l'algoritmo ICE lavori in modo efficace, il server deve avere du
 msgid "Install the TURN server"
 msgstr "Installare il server TURN"
 
-#, fuzzy
 #| msgid "Configuring the <emphasis role=\"pkg\">libnss-ldap</emphasis> package"
 msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> package."
-msgstr "Configurare il pacchetto <emphasis role=\"pkg\">libnss-ldap</emphasis>"
+msgstr "Installare il pacchetto <emphasis role=\"pkg\">resiprocate-turn-server</emphasis>."
 
 msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
 msgstr "Modificare il file di configurazione <filename>/etc/reTurn/reTurnServer.config</filename>. La cosa più importante da fare è inserire gli indirizzi IP del server."
@@ -2956,45 +2929,37 @@ msgstr "Gestione degli utenti TURN"
 msgid "Use the htdigest utility to manage the TURN server user list."
 msgstr "Utilizzare l'utility htdigest per gestire l'elenco utenti del server TURN."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
 msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
 msgstr "Utilizzare il segnale HUP signal per consentire al server di ricaricare il file <filename>/etc/reTurn/users.txt</filename> dopo la modifica o abilitare la funzione automatica di ricarica nel <filename>/etc/reTurn/reTurnServer.config</filename>."
 
-#, fuzzy
 #| msgid "NFS Server"
 msgid "SIP Proxy Server"
-msgstr "Server NFS"
+msgstr "Proxy Server SIP"
 
 msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
 msgstr "Un server proxy SIP gestisce le connessioni SIP in entrata e in uscita tra le altre organizzazioni, fornitori di SIP trunking, PBXes SIP come Asterisk, telefoni SIP, softphone SIP-based e applicazioni WebRTC."
 
-#, fuzzy
 #| msgid "<primary>HTTP</primary><secondary>server</secondary>"
 msgid "<primary>SIP</primary><secondary>server</secondary>"
-msgstr "<primary>HTTP</primary><secondary>server</secondary>"
+msgstr "<primary>SIP</primary><secondary>server</secondary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgid "<primary>SIP</primary><secondary>proxy</secondary>"
-msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+msgstr "<primary>SIP</primary><secondary>proxy</secondary>"
 
-#, fuzzy
 #| msgid "<primary>server</primary><secondary>MX</secondary>"
 msgid "<primary>SIP</primary><secondary>PBX</secondary>"
-msgstr "<primary>server</primary><secondary>MX</secondary>"
+msgstr "<primary>SIP</primary><secondary>PBX</secondary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgid "<primary>SIP</primary><secondary>trunk</secondary>"
-msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+msgstr "<primary>SIP</primary><secondary>trunk</secondary>"
 
 msgid "It is strongly recommended to install and configure the SIP proxy before attempting a SIP PBX setup. The SIP proxy normalizes a lot of the traffic reaching the PBX and provides greater connectivity and resilience."
 msgstr "E' altamente raccomandato installare e configurare il proxy SIP prima di tentare una configurazione SIP PBX. Il proxy SIP normalizza la magior partedel traffico che raggiunge il PBX e fornisce una maggiore connettività e resilienza."
@@ -3005,13 +2970,12 @@ msgstr "Installare il proxy SIP"
 msgid "Install the <emphasis role=\"pkg\">repro</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
 msgstr "Installare il apcchetto <emphasis role=\"pkg\">repro</emphasis>. E' altamente raccomandato l'uso del pacchetto da <emphasis role=\"distribution\">jessie-backports</emphasis>, in quanto ha i più recenti miglioramenti per massimizzare la connettività e la resilienza."
 
-#, fuzzy
 #| msgid "<primary>key pair</primary>"
 msgid "<primary>repro</primary>"
-msgstr "<primary>coppia di chiavi</primary>"
+msgstr "<primary>repro</primary>"
 
 msgid "Edit the <filename>/etc/repro/repro.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server. The example below demonstrates how to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4 and IPv6:"
-msgstr ""
+msgstr "Modifica il file di configurazione <filename>/etc/repro/repro.config</filename>. La cosa più importante da fare è inserire gli indirizzi IP del server. L'esempio sotto mostra come impostare correttamente sia SIP che WebSockets/WebRTC, utilizzando TLS, IPv4 e IPv6:"
 
 msgid ""
 "\n"
@@ -3133,74 +3097,66 @@ msgstr ""
 "EnableCertificateAuthenticator = True"
 
 msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
-msgstr ""
+msgstr "Utilizzare l'utility di comando <command>htdigest</command> per gestire la password dell'amministratore per l'interfaccia web. Il nome utente deve essere <emphasis>admin</emphasis> ed il nome di dominio deve corrispondere al valore specificato in <filename>repro.config</filename>."
 
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>"
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>/etc/init.d/nfs-kernel-server start</userinput>\n"
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
 
 msgid "Restart the service to use the new configuration."
-msgstr ""
+msgstr "Riavvia il servizio per usare la nuova configurazione."
 
 msgid "Managing the SIP proxy"
 msgstr "Gestione del proxy SIP"
 
 msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</literal> to complete the configuration by adding domains, local users and static routes."
-msgstr ""
+msgstr "Vai all'interfaccia web all'indirizzo <literal>http://sip-proxy.falcot.com:5080</literal> per completare la configurazione ed aggiungere domini, utenti locali e route statiche."
 
 msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
-msgstr ""
+msgstr "Il primo passo è quello di aggiungere il dominio locale. Il processo deve essere riavviato dopo aggiunta o la rimozione di domini dall'elenco."
 
 msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
-msgstr ""
+msgstr "Il proxy sa come instradare le chiamate tra utenti locali e indirizzo completo SIP, la configurazione di routing è necessaria solo per sovrascritture del comportamento predefinito, ad esempio, per riconoscere i numeri di telefono, aggiungere un prefisso e instradarli a un provider SIP."
 
-#, fuzzy
 #| msgid "Mail Server"
 msgid "XMPP Server"
-msgstr "Mail Server"
+msgstr "Server XMPP"
 
 msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
-msgstr ""
+msgstr "Un server XMPP gestisce la connettività tra gli utenti XMPP locali e gli utenti XMPP in altri domini su Internet pubblico."
 
-#, fuzzy
 #| msgid "<primary>MX</primary><secondary>server</secondary>"
 msgid "<primary>XMPP</primary><secondary>server</secondary>"
-msgstr "<primary>MX</primary><secondary>server</secondary>"
+msgstr "<primary>XMPP</primary><secondary>server</secondary>"
 
-#, fuzzy
 #| msgid "<emphasis>VOCABULARY</emphasis> ISP"
 msgid "<emphasis>VOCABULARY</emphasis> XMPP or Jabber?"
-msgstr "<emphasis>VOCABOLARIO</emphasis> ISP"
+msgstr "<emphasis>VOCABOLARIO</emphasis> XMPP o Jabber?"
 
-#, fuzzy
 #| msgid "<primary>spammer</primary>"
 msgid "<primary>Jabber</primary>"
-msgstr "<primary>spammer</primary>"
+msgstr "<primary>Jabber</primary>"
 
 msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
-msgstr ""
+msgstr "XMPP è a volte indicato come Jabber. In realtà, Jabber è un marchio e XMPP è il nome ufficiale dello standard."
 
 msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
-msgstr ""
+msgstr "Prosody è un popolare server XMPP che opera in modo affidabile su server Debian."
 
-#, fuzzy
 #| msgid "<primary>Postfix</primary>"
 msgid "<primary>Prosody</primary>"
-msgstr "<primary>Postfix</primary>"
+msgstr "<primary>Prosody</primary>"
 
 msgid "Install the XMPP server"
 msgstr "Installa il server XMPP"
 
 msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
-msgstr ""
+msgstr "Installare il pacchetto <emphasis role=\"pkg\">prosody</emphasis>. E' altamente raccomandato l'uso del pacchetto da <emphasis role=\"distribution\">jessie-backports</emphasis> , in quanto ha i più recenti miglioramenti per massimizzare la connettività e la resilienza."
 
 msgid "Review the <filename>/etc/prosody/prosody.cfg.lua</filename> configuration file. The most important thing to do is insert JIDs of the users who are permitted to manage the server."
-msgstr ""
+msgstr "Rivedere il file di configurazione <filename>/etc/prosody/prosody.cfg.lua</filename>. La cosa più importante da fare è inserire i JIDs degli utenti che hanno il permesso di gestire il server."
 
 msgid ""
 "\n"
@@ -3210,7 +3166,7 @@ msgstr ""
 "admins = { \"joe@falcot.com\" }"
 
 msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
-msgstr ""
+msgstr "E' necessario un file di configurazione individuale per ogni dominio. Copiare l'esempio da <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> ed usarlo come punto di partenza. Qui è <literal>falcot.com.cfg.lua</literal>:"
 
 msgid ""
 "\n"
@@ -3230,21 +3186,17 @@ msgstr ""
 "                }"
 
 msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
-msgstr ""
+msgstr "Per abilitare il dominio ci deve essere un collegamento simbolico a<filename>/etc/prosody/conf.d/</filename>. Crearlo in questo modo:"
 
-#, fuzzy
 msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
-msgstr ""
-"\n"
-"<computeroutput># </computeroutput><userinput>mount -t nfs -o rw,nosuid arrakis.interne.falcot.com:/srv/shared /shared</userinput>"
+msgstr "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
 
-#, fuzzy
 #| msgid "Configuring the Server"
 msgid "Managing the XMPP server"
-msgstr "Configurare il server"
+msgstr "Gestione del server XMPP"
 
 msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
-msgstr ""
+msgstr "Alcune operazioni di gestione possono essere eseguite utilizzando l'utility da riga di comando <literal>prosodyctl</literal>. Per esempio, per aggiungere l'account amministratore specificato in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
 
 msgid ""
 "\n"
@@ -3254,67 +3206,61 @@ msgstr ""
 "# prosodyctl adduser joe@falcot.com"
 
 msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
-msgstr ""
+msgstr "Vedere <ulink url=\"http://prosody.im/doc/configure\">Documentazione online di Prosody</ulink> per maggiori dettagli su come personalizzare la configurazione."
 
 msgid "Running services on port 443"
 msgstr "Servizi in esecuzione sulla porta 443"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
-msgstr ""
+msgstr "Alcuni amministratori preferiscono eseguire tutti i loro servizi RTC sulla porta 443. Ciò consente agli utenti di collegarsi da postazioni remote come alberghi e aeroporti dove altre porte potrebbero essere bloccate o il traffico Internet venire instradato attraverso server proxy HTTP."
 
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
-msgstr ""
+msgstr "Per utilizzare questa strategia, ogni servizio (SIP, XMPP e TURN) ha bisogno di un indirizzo IP diverso. Tutti i servizi possono essere ancora sullo stesso host poiché Linux supporta più indirizzi IP su un singolo host. Il numero della porta, 443, deve essere specificato nel file di configurazione per ogni processo e anche nei record DNS SRV."
 
-#, fuzzy
 #| msgid "Adding Users"
 msgid "Adding WebRTC"
-msgstr "Aggiungere utenti"
+msgstr "Aggiungere WebRTC"
 
 msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
-msgstr ""
+msgstr "La Falcot vuole consentire ai clienti di effettuare chiamate telefoniche direttamente dal sito web. Gli amministratori Falcot vogliono anche usare WebRTC come parte del loro piano di disaster recovery, possono utilizzare per uso personale il browser web a casa per accedere al sistema telefonico aziendale e lavorare normalmente in caso di emergenza."
 
-#, fuzzy
 #| msgid "<primary>RPC</primary>"
 msgid "<primary>WebRTC</primary>"
-msgstr "<primary>RPC</primary>"
+msgstr "<primary>WebRTC</primary>"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>client</secondary>"
 msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
-msgstr "<primary>NFS</primary><secondary>client</secondary>"
+msgstr "<primary>SIP</primary><secondary>WebSocket</secondary>"
 
-#, fuzzy
 #| msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
 msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
-msgstr "<emphasis>IN PRATICA</emphasis> Verificare l'antivirus"
+msgstr "<emphasis>IN PRATICA</emphasis> Provare WebRTC"
 
-#, fuzzy
 #| msgid "<primary>NFS</primary><secondary>options</secondary>"
 msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
-msgstr "<primary>NFS</primary><secondary>opzioni</secondary>"
+msgstr "<primary>WebRTC</primary><secondary>dimostrazione</secondary>"
 
 msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
-msgstr ""
+msgstr "Se non hai provato WebRTC prima, ci sono diversi siti che danno una dimostrazione online e strutture di prova. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 
 msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
-msgstr ""
+msgstr "WebRTC è una tecnologia in rapida evoluzione ed è essenziale per utilizzare i pacchetti dalle distribuzioni <emphasis role=\"distribution\">jessie-backports</emphasis> o <emphasis role=\"distribution\">Testing</emphasis>."
 
 msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
-msgstr ""
+msgstr "JS Communicator è un generico, telefono WebRTC non marchiato che non richiede alcun scripting lato server come PHP. E 'costruito esclusivamente con HTML, CSS e JavaScript. E 'la base per molti altri servizi WebRTC e moduli per altri framework web publishing avanzati. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
 
-#, fuzzy
 #| msgid "<primary>Samba</primary>"
 msgid "<primary>JSCommunicator</primary>"
-msgstr "<primary>Samba</primary>"
+msgstr "<primary>JSCommunicator</primary>"
 
 msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
-msgstr ""
+msgstr "Il pacchetto <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> è il modo più rapido per installare un telefono WebRTC in un sito web. E' richiesto un proxy SIP con un trasporto WebSocket. Le istruzioni nella <xref linkend=\"sect.sip-server-install\" /> contengono i dettagli necessari per consentire il trasporto WebSocket nel proxy SIP <emphasis role=\"pkg\">repro</emphasis>."
 
 msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
-msgstr ""
+msgstr "Dopo l'installazione di <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, ci sono vari modi per usarlo. Una strategia semplice è quello di includere o copiare la configurazione da <filename>/etc/jscommunicator-web-phone/apache.conf</filename> nella configurazione di un host virtuale di Apache."
 
 msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
-msgstr ""
+msgstr "Una volta che i file web-phone sono disponibili nel server web, personalizzare il <filename>/etc/jscommunicator-web-phone/config.js</filename> per puntare al server TURN ed al proxy SIP. Per esempio:"
 
 msgid ""
 "\n"
@@ -3370,7 +3316,7 @@ msgstr ""
 "  ..."
 
 msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
-msgstr ""
+msgstr "Siti web click-to-call più avanzati utilizzano generalmente script lato server per generare dinamicamente il file <literal>config.js</literal>. Il codice sorgente di <ulink url=\"http://drucall.org\">DruCall</ulink> dimostra come farlo con PHP."
 
 #| msgid "<primary>alias</primary>"
 msgid "<primary>DruCall</primary>"
