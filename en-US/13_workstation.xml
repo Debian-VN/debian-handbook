@@ -35,19 +35,19 @@
     driver that makes efficient use of the video card. The features offered
     to the graphical applications are exported through a standard
     interface, <emphasis>X11</emphasis> (<emphasis
-    role="distribution">Jessie</emphasis> contains its
-    <emphasis>X11R7.7</emphasis> version).</para>
+    role="distribution">Jessie</emphasis> contains version
+    <emphasis>X11R7.7</emphasis>).</para>
 
     <sidebar>
       <title><emphasis>PERSPECTIVE</emphasis> X11, XFree86 and X.org</title>
 
       <para>X11 is the graphical system most widely used on Unix-like
-      systems (also available, in addition to the native system, for
-      Windows and Mac OS). Strictly speaking, the “X11” term only
+      systems (also available for
+      Windows and Mac OS). Strictly speaking, the term “X11” only
       refers to a protocol specification, but it is also used to refer to
       the implementation in practice.</para>
 
-      <para>X11 had a rough start, but the 1990's saw XFree86 emerge as the
+      <para>X11 had a rough start, but the 1990s saw XFree86 emerge as the
       reference implementation because it was free software, portable, and
       maintained by a collaborative community. However, the rate of
       evolution slowed down near the end when the software only gained new
@@ -85,10 +85,10 @@
 
     <para>Note that if the detected video card is not handled by any
     of the available drivers, X.org tries using the VESA and fbdev
-    drivers. The former is a generic driver that should work
+    drivers. VESA is a generic driver that should work
     everywhere, but with limited capabilities (fewer available
     resolutions, no hardware acceleration for games and visual effects
-    for the desktop, and so on) while the latter works on top of the
+    for the desktop, and so on) while fbdev works on top of the
     kernel's framebuffer device. The X server writes its messages to
     the <filename>/var/log/Xorg.0.log</filename> log file, which is
     where one would look to know what driver is currently in use. For
@@ -126,9 +126,9 @@
       <emphasis role="pkg">nvidia-glx</emphasis> for nVidia cards, and
       <emphasis role="pkg">fglrx-driver</emphasis> for some ATI cards. Both
       cases require matching kernel modules. Building these modules can be
-      automated by installing the <emphasis
+      automated by installing the packages <emphasis
       role="pkg">nvidia-kernel-dkms</emphasis> (for nVidia), or <emphasis
-      role="pkg">fglrx-modules-dkms</emphasis> (for ATI) packages.</para>
+      role="pkg">fglrx-modules-dkms</emphasis> (for ATI).</para>
 
       <para>The “nouveau” project aims to develop a free software
       driver for nVidia cards. As of <emphasis
@@ -137,7 +137,7 @@
       mention that the required information can only be gathered by reverse
       engineering, which makes things difficult. The free driver for ATI
       video cards, called “radeon”, is much better in that
-      regard although it often requires a non-free firmware.</para>
+      regard although it often requires non-free firmware.</para>
       <indexterm><primary>ATI</primary></indexterm>
       <indexterm><primary>nVidia</primary></indexterm>
     </sidebar>
@@ -180,8 +180,9 @@
       <title>Choosing a Window Manager</title>
 
       <para>Since each graphical desktop provides its own window
-      manager, choosing the former usually implies software selections
-      from the latter. GNOME uses the <command>mutter</command> window
+      manager, which window manager you choose is usually influenced by
+      which desktop you have selected.  GNOME uses the
+      <command>mutter</command> window
       manager, KDE uses <command>kwin</command>, and Xfce (which
       we present later) has <command>xfwm</command>. The Unix
       philosophy always allows using one's window manager of choice,
@@ -197,14 +198,13 @@
         <indexterm><primary>manager</primary><secondary>window</secondary></indexterm>
         <indexterm><primary><emphasis>window manager</emphasis></primary></indexterm>
 
-	<para>True to the Unix tradition of doing one thing only but doing
-	it well, the window manager displays the “decorations” around
+	<para>The window manager displays the “decorations” around
 	the windows belonging to the currently running applications, which
 	includes frames and the title bar. It also allows reducing,
 	restoring, maximizing, and hiding windows. Most window managers
 	also provide a menu that pops up when the desktop is clicked in a
 	specific way. This menu provides the means to close the window
-	manager session, starting new applications, and in some cases,
+	manager session, start new applications, and in some cases,
 	change to another window manager (if installed).</para>
       </sidebar>
 
@@ -216,8 +216,7 @@
       blackbox, fluxbox, or openbox. In these cases, the system should be configured so that the
       appropriate window manager gets precedence; the standard way is to
       change the <command>x-window-manager</command> alternative with the
-      <command>update-alternatives --config x-window-manager</command>
-      command.</para>
+      command <command>update-alternatives --config x-window-manager</command>.</para>
       <indexterm><primary>WindowMaker</primary></indexterm>
       <indexterm><primary>Afterstep</primary></indexterm>
       <indexterm><primary>Blackbox</primary></indexterm>
@@ -332,8 +331,8 @@
     desktop project, but it chose the Qt graphical toolkit and that choice
     wasn't acceptable for a large number of developers. Qt was not free
     software at the time, and GNOME was started based on the GTK+ toolkit.
-    Qt became free software in the interval, but the projects haven't
-    merged and evolved in parallel instead.</para>
+    Qt has since become free software, but the projects still evolved in
+    parallel.</para>
 
     <para>GNOME and KDE still work together: under the FreeDesktop.org
     umbrella, the projects collaborated in defining standards for
@@ -356,7 +355,7 @@
 
       <para>GNOME is noteworthy for its efforts in usability and
       accessibility. Design professionals have been involved in writing
-      standards and recommendations. This has helped developers to create
+      its standards and recommendations, which has helped developers to create
       satisfying graphical user interfaces. The project also gets
       encouragement from the big players of computing, such as Intel, IBM,
       Oracle, Novell, and of course, various Linux distributions. Finally,
@@ -379,8 +378,8 @@
       <command>gsettings</command>, and <command>dconf</command>
       command-line tools, or by the <command>dconf-editor</command>
       graphical user interfaces. The administrator can therefore change
-      users' configuration with a simple script. The following website
-      lists all information of interest to an administrator tasked to
+      users' configuration with a simple script. The GNOME website
+      provides information to guide administrators who
       manage GNOME workstations:
       <ulink type="block" url="https://help.gnome.org/admin/"/>
       </para>
@@ -397,7 +396,7 @@
       <para>KDE has had a rapid evolution based on a very hands-on
       approach. Its authors quickly got very good results, which allowed
       them to grow a large user-base. These factors contributed to the
-      overall project quality. KDE is a perfectly mature desktop
+      overall project quality. KDE is a mature desktop
       environment with a wide range of applications.</para>
 
       <figure>
@@ -410,8 +409,8 @@
       </figure>
 
       <para>Since the Qt 4.0 release, the last remaining license problem
-      with KDE is no more. This version was released under the GPL both for
-      Linux and Windows (whereas the Windows version was previously
+      with KDE has been solved. This version was released under the GPL both
+      for Linux and Windows (the Windows version was previously
       released under a non-free license). Note that KDE applications must
       be developed using the C++ language.</para>
     </section>
@@ -425,7 +424,7 @@
       across both desktops.</para>
       <indexterm><primary>Xfce</primary></indexterm>
 
-      <para>Unlike GNOME and KDE, Xfce does not aim at being a vast
+      <para>Unlike GNOME and KDE, Xfce does not aim to become a vast
       project. Beyond the basic components of a modern desktop (file
       manager, window manager, session manager, a panel for application
       launchers and so on), it only provides a few specific applications: 
@@ -445,7 +444,7 @@
       <para>Another desktop environment provided in
       <emphasis role="distribution">Jessie</emphasis> is LXDE,
       which focuses on the “lightweight” aspect. It can be installed
-      with the help of the <emphasis role="pkg">lxde</emphasis>
+      with the <emphasis role="pkg">lxde</emphasis>
       meta-package.</para>
       <indexterm><primary>LXDE</primary></indexterm>
     </section>
@@ -466,9 +465,9 @@
 	project about the most popular packages. A script is run weekly
 	by <command>cron</command> which sends (by HTTP or email) an
 	anonymized list of the installed packages and the latest access
-	date for the files they contain. This allows differentiating,
-	among the installed packages, those that are actually
-	used.</para>
+	date for the files they contain. This allows the Debian maintainers to
+	know which packages are most frequently installed, and of these, how
+	frequently they are actually used.  </para>
 	<indexterm><primary><emphasis role="pkg">popularity-contest</emphasis></primary></indexterm>
 	<indexterm><primary>popularity of packages</primary></indexterm>
 	<indexterm><primary>package</primary><secondary>popularity</secondary></indexterm>
@@ -484,14 +483,14 @@
         <para>The collected data are made public every day.
         <ulink type="block" url="http://popcon.debian.org/"/></para>
 
-	<para>These statistics can also help choose between two packages
-	that would seem otherwise equivalent. Choosing the more popular
-	package increases the probability of making a good choice.</para>
+	<para>These statistics can also help users to choose between two
+	packages that seem otherwise equivalent. Choosing the more popular
+	package is probably a safer choice.</para>
       </sidebar>
 
       <para>Evolution is the GNOME email client and can be installed with
-      <command>apt-get install evolution</command>. Evolution goes beyond
-      a simple email client, and also provides a calendar, an address
+      <command>apt-get install evolution</command>. Evolution is more than
+      a simple email client: it also provides a calendar, an address
       book, a task list, and a memo (free-form note) application. Its
       email component includes a powerful message indexing system, and
       allows for the creation of virtual folders based on search queries
@@ -509,7 +508,7 @@
 	</mediaobject>
       </figure>
 
-      <para>An extension to Evolution allows integration to a Microsoft
+      <para>An extension to Evolution allows integration with a Microsoft
       Exchange email system; the required package is
       <emphasis role="pkg">evolution-ews</emphasis>.</para>
       <indexterm><primary><emphasis role="pkg">evolution-ews</emphasis></primary></indexterm>
@@ -537,13 +536,19 @@
     <section>
       <title>Thunderbird and Icedove</title>
 
-      <para>This email software, included in the <emphasis
-      role="pkg">icedove</emphasis> package, is part of the Mozilla
-      software suite. Various localization sets are available in
+      <para>The <emphasis role="pkg">icedove</emphasis> package provides the
+      Debian version of Thunderbird, the email client from the Mozilla software
+      suite.  For legal reasons detailed in the sidebar
+      <xref linkend="sidebar.firefox-iceweasel"/>, Debian <emphasis
+      role="distribution">Jessie</emphasis> contains Icedove, and not
+      Thunderbird, but the only real differences between them are their
+      names and icons.</para>
+
+      <para>
+      Various localization sets are available in
       <emphasis role="pkg">icedove-l10n-*</emphasis> packages; the
       <emphasis role="pkg">enigmail</emphasis> extension handles message
-      encrypting and signing (alas, it is not available in all
-      languages).</para>
+      encrypting and signing, but it is not available in all languages.</para>
 
       <figure>
 	<title>The Icedove email software</title>
@@ -556,14 +561,6 @@
       <indexterm><primary>Thunderbird, Mozilla</primary></indexterm>
       <indexterm><primary>Mozilla</primary><secondary>Thunderbird</secondary></indexterm>
 
-      <para>Thunderbird is one of the best email clients, and it seems to
-      be a great success, just like Mozilla Firefox.</para>
-
-      <para>Strictly speaking, Debian <emphasis
-      role="distribution">Jessie</emphasis> contains Icedove, and not
-      Thunderbird, for legal reasons we will detail in the sidebar
-      <xref linkend="sidebar.firefox-iceweasel"/>; but apart from their names
-      (and icons), there are no real differences between them.</para>
     </section>
   </section>
   <section>
@@ -578,11 +575,11 @@
     <indexterm><primary>WebKit</primary></indexterm>
     <indexterm><primary>Epiphany</primary></indexterm>
 
-    <para>Konqueror, the KDE file manager, also behaves as a web browser.
+    <para>Konqueror, available in the <emphasis role="pkg">konqueror</emphasis>
+    package, is the KDE file manager, which also functions as a web browser.
     It uses the KDE-specific KHTML rendering engine; KHTML is an
     excellent engine, as witnessed by the fact that Apple's WebKit is
-    based on KHTML. Konqueror is available in the <emphasis
-    role="pkg">konqueror</emphasis> package.
+    based on KHTML.
     <indexterm><primary>Konqueror</primary></indexterm></para>
 
     <para>Users not satisfied by either of the above can use Iceweasel.
@@ -636,10 +633,11 @@
     <sidebar>
       <title><emphasis>CULTURE</emphasis> Mozilla</title>
 
-      <para>Netscape Navigator was the standard browser when the web
-      started reaching the masses, but it was progressively left behind
-      when Microsoft Internet Explorer came around. Faced with this
-      failure, Netscape (the company) decided to “free” its source
+      <para>Netscape Navigator was the standard browser when the web started
+      reaching the masses, but lost ground when Microsoft bundled Internet
+      Explorer with Windows and signed contracts with computer manufacturers
+      which forbade them from pre-installing Netscape Navigator. Faced with
+      this failure, Netscape (the company) decided to “free” its source
       code, by releasing it under a free license, to give it a second
       life. This was the beginning of the Mozilla project. After many
       years of development, the results are more than satisfying: the
@@ -708,10 +706,10 @@
       to maintain because they aggregate multiple tools and
       have requirements that are not always easy to reconcile in
       the context of an integrated distribution. Thus there
-      is a long list of groupware that were once available
+      is a long list of groupware packages that were once available
       in Debian but have been dropped for lack of maintainers
       or incompatibility with other (newer) software in Debian.
-      It has been the case of PHPGroupware, eGroupware, and
+      This has been the case with PHPGroupware, eGroupware, and
       Kolab.
       <ulink type="block" url="http://www.phpgroupware.org/"/>
       <ulink type="block" url="http://www.egroupware.org/"/>
@@ -726,7 +724,7 @@
       increasingly integrated into “standard” software. This is
       reducing the requirement for specific, specialized groupware
       software. On the other hand, this usually requires a specific
-      server. More interestingly, Citadel (in the <emphasis
+      server. Citadel (in the <emphasis
       role="pkg">citadel-suite</emphasis> package) and Sogo (in the
       <emphasis role="pkg">sogo</emphasis> package) are alternatives
       that are available in Debian <emphasis
@@ -757,14 +755,13 @@
       <itemizedlist>
 	<listitem>
 	  <para><emphasis>communication</emphasis>: web forums,
-	  mailing-list manager, announcement system allowing a project to
-	  publish news;</para>
+	  mailing-list manager, and announcement system allowing a project to
+	  publish news</para>
 	</listitem>
 	<listitem>
-	  <para><emphasis>tracking</emphasis>: task tracker to control
-	  progress and schedule tasks, trackers for bugs (or patches or
-	  feature requests, or any other kind of “ticket”),
-	  surveys;</para>
+	  <para><emphasis>tracking</emphasis>: tools to track project progress
+	  and schedule tasks, to track bugs, feature requests, or any other
+	  kind of “ticket”, and to run surveys</para>
 	</listitem>
 	<listitem>
 	  <para><emphasis>sharing</emphasis>: documentation manager to
@@ -774,17 +771,17 @@
 	</listitem>
       </itemizedlist>
 
-      <para>Since FusionForge is largely targeting development projects,
+      <para>Since FusionForge largely targets development projects,
       it also integrates many tools such as CVS, Subversion, Git, Bazaar,
-      Darcs, Mercurial and Arch for source control management or
-      “configuration management” or “version control” — this
-      process has many names. These programs keep a history of all the
+      Darcs, Mercurial and Arch for source control management (also called
+      “configuration management” or “version control”). These programs keep a
+      history of all the
       revisions of all tracked files (often source code files), with all
       the changes they go through, and they can merge modifications when
       several developers work simultaneously on the same part of a
       project.</para>
 
-      <para>Most of these tools are accessible, or even managed, through
+      <para>Most of these tools can be accessed or even managed through
       a web interface, with a fine-grained permission system, and email
       notifications for some events.</para>
 
@@ -796,20 +793,19 @@
     <indexterm><primary>suite, office</primary></indexterm>
 
     <para>Office software has long been seen as lacking in the free
-    software world. Users have long asked for replacements for
+    software world. Users require replacements for
     Microsoft tools such as Word and Excel, but these are so complex
     that replacements were hard to develop. The situation changed
-    when the OpenOffice.org project started (following Sun's release
-    of the StarOffice code under a free license). Nowadays Debian
-    contains Libre Office, a fork of OpenOffice.org.
-    The GNOME and KDE projects are
-    still working on their offerings (GNOME Office and Calligra Suite), and
-    the friendly competition leads to interesting results. For
-    instance, the Gnumeric spreadsheet (part of GNOME Office) is
-    even better than OpenOffice.org/Libre Office in some domains,
-    notably the precision of its calculations. On the word
-    processing front, the OpenOffice.org and Libre Office suites
-    still lead the way.</para>
+    when Sun released the StarOffice code under a free license as OpenOffice, a
+    project which later gave birth to Libre Office, which is available on
+    Debian.
+    The KDE project also has its own office suite, called Calligra Suite
+    (previously KOffice), and GNOME, while never offering a comprehensive
+    office suite, provides AbiWord as a word processor and Gnumeric as a
+    spreadsheet. The various projects each have their strengths. For instance,
+    the Gnumeric spreadsheet is better than OpenOffice.org/Libre Office in some
+    domains, notably the precision of its calculations. On the word processing
+    front, the Libre Office suite still leads the way.</para>
     <indexterm><primary>OpenOffice.org</primary></indexterm>
     <indexterm><primary>StarOffice</primary></indexterm>
     <indexterm><primary>Libre Office</primary></indexterm>
@@ -818,29 +814,26 @@
     <indexterm><primary>Gnumeric</primary></indexterm>
 
     <para>Another important feature for users is the ability to
-    import Word and Excel documents received from contacts or found
-    in archives.  Even though all office suites have filters which
-    allow working on these formats, only the ones found in
+    import Microsoft Office documents. Even though all
+    office suites have this feature, only the ones in
     OpenOffice.org and Libre Office are functional enough for daily
     use.</para>
 
     <sidebar>
       <title><emphasis>THE BROADER VIEW</emphasis> Libre Office replaces OpenOffice.org</title>
 
-      <para>OpenOffice.org contributors have set up a foundation
-      (<emphasis>The Document Foundation</emphasis>) to foster project
+      <para>OpenOffice.org contributors set up a foundation
+      (<emphasis>The Document Foundation</emphasis>) to foster the project's
       development. The idea had been discussed for some time, but the
       actual trigger was Oracle's acquisition of Sun. The new ownership
       made the future of OpenOffice under Oracle uncertain. Since Oracle
       declined to join the foundation, the developers had to give up on
-      the OpenOffice.org name. The software is now known as
-      <emphasis>Libre Office</emphasis>.  After a period of relative
-      stagnation on the OpenOffice.org front, Oracle decided to
-      migrate the code and associated rights to the Apache Software
-      Foundation, and OpenOffice is now an Apache project.</para>
+      the OpenOffice.org name. This office suite is now known as
+      <emphasis>Libre Office</emphasis>, and is available in Debian.</para>
 
-      <para>Debian only includes Libre Office. The OpenOffice software suite as
-      published by the Apache Software Foundation is not currently
+      <para>After a period of relative stagnation on OpenOffice.org, Oracle
+      donated the code and associated rights to the Apache Software Foundation,
+      and OpenOffice is now an Apache project. This project is not currently
       available in Debian.</para>
 
     </sidebar>
@@ -849,22 +842,23 @@
     <indexterm><primary>Microsoft</primary><secondary>Word</secondary></indexterm>
     <indexterm><primary>Microsoft</primary><secondary>Excel</secondary></indexterm>
 
-    <para>Libre Office and Calligra Suite are,
-    respectively, available in the <emphasis
+    <para>Libre Office and Calligra Suite are available in the <emphasis
     role="pkg">libreoffice</emphasis> and <emphasis
-    role="pkg">calligra</emphasis> Debian packages. 
-    There is no more package for GNOME Office (it was 
-    <emphasis role="pkg">gnome-office</emphasis>).
-    Language-specific packs for Libre Office are
-    distributed in separate packages: <emphasis
+    role="pkg">calligra</emphasis> Debian packages, respectively.
+    Although the <emphasis role="pkg">gnome-office</emphasis> package was
+    previously used to install a collection of office tools such as AbiWord and
+    Gnumeric, this package is no longer part of Debian, with the individual
+    packages now standing on their own.</para>
+    <para>Language-specific packs for Libre Office are
+    distributed in separate packages, most notably <emphasis
     role="pkg">libreoffice-l10n-*</emphasis> and <emphasis
-    role="pkg">libreoffice-help-*</emphasis> most notably; some
+    role="pkg">libreoffice-help-*</emphasis>. Some
     features such as spelling dictionaries, hyphenation patterns and
     thesauri are in separate packages, such as <emphasis
-      role="pkg">myspell-*</emphasis>/<emphasis role="pkg">hunspell-*</emphasis>, <emphasis
+    role="pkg">myspell-*</emphasis>, <emphasis
+    role="pkg">hunspell-*</emphasis>, <emphasis
     role="pkg">hyphen-*</emphasis> and <emphasis
-    role="pkg">mythes-*</emphasis>. Note that Calligra Suite used
-    to be called KOffice.</para>
+    role="pkg">mythes-*</emphasis>.</para>
   </section>
   <section id="sect.windows-emulation">
     <title>Emulating Windows: Wine</title>
