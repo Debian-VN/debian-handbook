@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2016-02-01 15:32+0000\n"
+"PO-Revision-Date: 2016-02-06 16:14+0000\n"
 "Last-Translator: Walter_322 <walter1991322@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/92_short-remedial-course/ru/>\n"
 "Language: ru-RU\n"
@@ -488,37 +488,37 @@ msgid "Shared Functions"
 msgstr "Общие Функции"
 
 msgid "Since a number of the same functions are used by all software, it makes sense to centralize them in the kernel. For instance, shared filesystem handling allows any application to simply open a file by name, without needing to worry where the file is stored physically. The file can be stored in several different slices on a hard disk, or split across several hard disks, or even stored on a remote file server. Shared communication functions are used by applications to exchange data independently of the way the data is transported. For instance, transport could be over any combination of local or wireless networks, or over a telephone landline."
-msgstr ""
+msgstr "Поскольку некоторые функции используются всем программным обеспечением, имеет смысл их централизация в ядре. Например, общая файловая система позволяет любому приложению просто открыть файл по его имени, не заботясь о том, где физически находится файл. Файл может храниться, разделенным на множество частей, на одном или нескольких жёстких дисках или на уделенном сервере. Общие функции взаимодействия используются приложениями для обмена данными, независимо от способа их передачи. К примеру, пусть может проходить через комбинацию локальных или беспроводных сетей, или по телефонной линии."
 
 msgid "<primary><emphasis>pid</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>pid</emphasis></primary>"
 
 msgid "A process is a running instance of a program. This requires memory to store both the program itself and its operating data. The kernel is in charge of creating and tracking them. When a program runs, the kernel first sets aside some memory, then loads the executable code from the filesystem into it, and then starts the code running. It keeps information about this process, the most visible of which is an identification number known as <emphasis>pid</emphasis> (<emphasis>process identifier</emphasis>)."
-msgstr ""
+msgstr "Процесс - запущенный экземпляр программы. Он требует памяти для хранения как самой программы, так и ее оперативных данных. Ядро отвечает за их создание и отслеживание. Когда программа запускается, ядро выделяет некоторый объем памяти, потом загружает исполняемый код из файловой системы в эту память, а затем начинает исполнение этого кода. Оно хранит сведения об этом процессе, наиболее просматриваемое из которых - идентификационный номер, известный как <emphasis>pid</emphasis> (от англ. <emphasis>process identifier</emphasis>)."
 
 msgid "Unix-like kernels (including Linux), like most other modern operating systems, are capable of “multi-tasking”. In other words, they allow running many processes “at the same time”. There is actually only one running process at any one time, but the kernel cuts time into small slices and runs each process in turn. Since these time slices are very short (in the millisecond range), they create the illusion of processes running in parallel, although they are actually only active during some time intervals and idle the rest of the time. The kernel's job is to adjust its scheduling mechanisms to keep that illusion, while maximizing the global system performance. If the time slices are too long, the application may not appear as responsive as desired. Too short, and the system loses time switching tasks too frequently. These decisions can be tweaked with process priorities. High-priority processes will run for longer and with more frequent time slices than low-priority processes."
-msgstr ""
+msgstr "Unix-подобные ядра (включая Linux), как и большинство других современных операционных систем, поддерживают “многозадачность”. Другими словами, они позволяют запускать много процессов \"одновременно\". Хотя на самом деле только один процесс выполняется в одну единицу времени, но ядро делит время на маленькие промежутки и исполняет каждый процесс пошагово. Так как эти временные интервалы очень короткие (в диапазоне миллисекунды), создается иллюзия параллельного выполнения процессов, хотя на самом деле они активны только в течение нескольких временных промежутков и простаивают остальную часть времени. Работа ядра заключается в регулировании его механизма планирования для поддержания этой иллюзии, увеличивая производительность системы в целом. Если временные интервалы слишком большие, приложение может показаться не таким отзывчивым как хотелось бы. Если слишком короткие, то система будет терять много времени на переключение между задачами. Эти решения могут изменяться с приоритетами процессов. Процессы с высоким приоритетом будут работать дольше и с большей частотой временных промежутков нежели процессы с низким приоритетом."
 
 msgid "<emphasis>NOTE</emphasis> Multi-processor systems (and variants)"
-msgstr ""
+msgstr "<emphasis>НА ЗАМЕТКУ</emphasis> Многопроцессорные системы (и их разновидности)"
 
 msgid "The limitation described above of only one process being able to run at a time, doesn't always apply. The actual restriction is that there can only be one running process <emphasis>per processor core</emphasis> at a time. Multi-processor, multi-core or “hyper-threaded” systems allow several processes to run in parallel. The same time-slicing system is still used, though, so as to handle cases where there are more active processes than available processor cores. This is far from unusual: a basic system, even a mostly idle one, almost always has tens of running processes."
-msgstr ""
+msgstr "Описанное выше ограничение одним процессом, запущенным в единицу времени, не всегда выполняется. На самом деле идет ограничение одним запущенным процессом <emphasis>на ядро процессора</emphasis> в единицу времени. Многопроцессорные, многоядерные или “гиперпоточные” системы позволяют запускать параллельно несколько процессов. В них также используется та же система временных интервалов, однако, она используется таким образом, чтобы обрабатывать случаи, когда активных процессов больше, чем доступных процессорных ядер. Это совсем не удивительно: базовые системы, по большей части простаивающие, почти всегда имеют десятки запущенных процессов."
 
 msgid "Of course, the kernel allows running several independent instances of the same program. But each can only access its own time slices and memory. Their data thus remain independent."
-msgstr ""
+msgstr "Конечно, ядро позволяет запускать несколько независимых экземпляров одной и той же программы. Но каждый из них имеет доступ только к собственным временным интервалам и памяти. Их данные, таким образом, остаются независимыми."
 
 msgid "Rights Management"
-msgstr ""
+msgstr "Управление Правами"
 
 msgid "Unix-like systems are also multi-user. They provide a rights management system that supports separate users and groups; it also allows control over actions based on permissions. The kernel manages data for each process, allowing it to control permissions. Most of the time, a process is identified by the user who started it. That process is only permitted to take those actions available to its owner. For instance, trying to open a file requires the kernel to check the process identity against access permissions (for more details on this particular example, see <xref linkend=\"sect.rights-management\" />)."
-msgstr ""
+msgstr "Также Unix-подобные системы являются многопользовательскими. Они предоставляют систему управления правами, которая поддерживает создание отдельных пользователей и групп; она также позволяет контролировать действия на основе разрешений. Ядро управляет данными для каждого процесса, что позволяет контролировать разрешения. Большую часть времени процесс идентифицируется пользователем, запустившем его. Этот процесс имеет право на действия, доступные его владельцу. Например, попытка открыть файл, требует от ядра проверить идентификатор процесса для предоставления доступа (для более подробной информации по данному примеру, см. <xref linkend=\"sect.rights-management\" />)."
 
 msgid "<primary>user space</primary>"
-msgstr ""
+msgstr "<primary>пространство пользователя</primary>"
 
 msgid "<primary>kernel space</primary>"
-msgstr ""
+msgstr "<primary>пространство ядра</primary>"
 
 msgid "“User space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
 msgstr ""
