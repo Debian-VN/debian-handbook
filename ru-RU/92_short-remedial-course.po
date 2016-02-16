@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2016-02-06 16:14+0000\n"
+"PO-Revision-Date: 2016-02-20 12:35+0000\n"
 "Last-Translator: Walter_322 <walter1991322@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/92_short-remedial-course/ru/>\n"
 "Language: ru-RU\n"
@@ -521,121 +521,121 @@ msgid "<primary>kernel space</primary>"
 msgstr "<primary>пространство ядра</primary>"
 
 msgid "“User space” refers to the runtime environment of normal (as opposed to kernel) processes. This does not necessarily mean these processes are actually started by users because a standard system normally has several “daemon” (or background) processes running before the user even opens a session. Daemon processes are also considered user-space processes."
-msgstr ""
+msgstr "“Пространство пользователя” относится к среде выполнения нормальных (в отличии от ядра) процессов. Это не обязательно означает, что процессы были запущены пользователем, потому что стандартная система обычно имеет несколько “демонов” (фоновых процессов), запускающихся до того как пользователь даже откроет сеанс. Демоны - также считаются процессами пользовательского пространства."
 
 msgid "<primary><command>init</command></primary>"
-msgstr ""
+msgstr "<primary><command>init</command></primary>"
 
 msgid "When the kernel gets past its initialization phase, it starts the very first process, <command>init</command>. Process #1 alone is very rarely useful by itself, and Unix-like systems run with many additional processes."
-msgstr ""
+msgstr "Когда ядро находится на последней фазе его инициализации, оно запускает первый процесс - <command>init</command>. Процесс #1 очень редко полезен сам по себе, и Unix-подобные системы работают с множеством дополнительных процессов."
 
 msgid "<primary><emphasis>fork</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>fork</emphasis></primary>"
 
 msgid "First of all, a process can clone itself (this is known as a <emphasis>fork</emphasis>). The kernel allocates a new (but identical) process memory space, and another process to use it. At this time, the only difference between these two processes is their <emphasis>pid</emphasis>. The new process is usually called a child process, and the original process whose <emphasis>pid</emphasis> doesn't change, is called the parent process."
-msgstr ""
+msgstr "Прежде всего, процесс может клонировать себя (это действие называется <emphasis>fork</emphasis>). Ядро выделяет пространство в памяти (точно такое же как и для исходного процесса), и новый процесс его занимает. Единственная разница между этими двумя процессами - их <emphasis>pid</emphasis>. Новый процесс обычно зовется дочерним процессом, а оригинальный (<emphasis>pid</emphasis> которого не изменился) - родительским процессом."
 
 msgid "Sometimes, the child process continues to lead its own life independently from its parent, with its own data copied from the parent process. In many cases, though, this child process executes another program. With a few exceptions, its memory is simply replaced by that of the new program, and execution of this new program begins. This is the mechanism used by the init process (with process number 1) to start additional services and execute the whole startup sequence. At some point, one process among <command>init</command>'s offspring starts a graphical interface for users to log in to (the actual sequence of events is described in more details in <xref linkend=\"sect.system-boot\" />)."
-msgstr ""
+msgstr "Иногда, дочерний процесс продолжает жить своей собственной жизнью независимо от родителя, со своими собственными данными, скопированными у родительского процесса. Во многих случаях, однако, этот дочерний процесс выполняется другой программой. За некоторыми исключениями, его память просто замещается новой программой, и начинается выполнение новой программы. Это механизм, используемый init процессом (с процессом #1) для запуска дополнительных сервисов и выполнения последовательности всей загрузки. В определенный момент один процесс из потомства <command>init</command> запускает графический интерфейс для пользователей и входа в систему (подробно эта последовательность событий описана в <xref linkend=\"sect.system-boot\" />)."
 
 msgid "When a process finishes the task for which it was started, it terminates. The kernel then recovers the memory assigned to this process, and stops giving it slices of running time. The parent process is told about its child process being terminated, which allows a process to wait for the completion of a task it delegated to a child process. This behavior is plainly visible in command-line interpreters (known as <emphasis>shells</emphasis>). When a command is typed into a shell, the prompt only comes back when the execution of the command is over. Most shells allow for running the command in the background, it is a simple matter of adding an <userinput>&amp;</userinput> to the end of the command. The prompt is displayed again right away, which can lead to problems if the command needs to display data of its own."
-msgstr ""
+msgstr "Когда процесс выполняет задачу для которой он был запущен, он завершается. Затем ядро высвобождает память, выделенную для этого процесса и перестает предоставлять ему интервалы времени выполнения. Родительский процесс оповещается о том, что его дочерний процесс был завершен, что позволяет процессу ожидать выполнения задач, поставленных дочернему процессу. Это поведение ясно видно в интерпретаторе командной строки (известной как <emphasis>shells</emphasis>). При вводе команды в командной строке, запрос возвращается только после завершения выполнения этой команды. Большинство оболочек позволяют выполнять команды в фоновом режиме (на заднем плане), для этого надо просто добавить <userinput>&amp;</userinput> в конец команды. Запрос тут же выводится снова, что может вызвать проблемы если команде нужно выводить ее собственные данные."
 
 msgid "Daemons"
-msgstr ""
+msgstr "Демоны"
 
 msgid "<primary>daemon</primary>"
-msgstr ""
+msgstr "<primary>демон</primary>"
 
 msgid "A “daemon” is a process started automatically by the boot sequence. It keeps running (in the background) to perform maintenance tasks or provide services to other processes. This “background task” is actually arbitrary, and does not match anything particular from the system's point of view. They are simply processes, quite similar to other processes, which run in turn when their time slice comes. The distinction is only in the human language: a process that runs with no interaction with a user (in particular, without any graphical interface) is said to be running “in the background” or “as a daemon”."
-msgstr ""
+msgstr "“Демон” - это процесс, запускаемый автоматически в последовательности загрузки. Он продолжает работать (в фоновом режиме), выполняя задачи по обслуживанию или предоставлению сервисов другим процессам. Эти “фоновые задачи” на самом деле произвольны, и не соответствуют ничему конкретному, с точки зрения системы. Это просто процессы, очень похожие на другие процессы, которые выполняются в свои промежутки времени. Различие состоит только в человеческом языке: процесс, который выполняется без взаимодействия с пользователем (в частности, без графического интерфейса) называется “выполняющимся в фоновом режиме” или “демоном”."
 
 msgid "<emphasis>VOCABULARY</emphasis> Daemon, demon, a derogatory term?"
-msgstr ""
+msgstr "<emphasis>СЛОВАРЬ</emphasis> Daemon, demon, уничижительный термин?"
 
 msgid "Although <emphasis>daemon</emphasis> term shares its Greek etymology with <emphasis>demon</emphasis>, the former does not imply diabolical evil, instead, it should be understood as a kind of helper spirit. This distinction is subtle enough in English; it is even worse in other languages where the same word is used for both meanings."
-msgstr ""
+msgstr "Хотя термин <emphasis>daemon</emphasis> разделяет его Греческую этимологию с <emphasis>demon</emphasis>, первый не подразумевает дьявольское зло, вместо этого, следует воспринимать его как своего рода вспомогательного духа. Это различие достаточно тонко в английском языке; и еще хуже в других языках, где то же самое слово используется для обоих значений."
 
 msgid "Several such daemons are described in detail in <xref linkend=\"unix-services\" />."
-msgstr ""
+msgstr "Несколько таких демонов подробно описаны в <xref linkend=\"unix-services\" />."
 
 msgid "Inter-Process Communications"
-msgstr ""
+msgstr "Межпроцессное взаимодействие"
 
 msgid "<primary>IPC</primary>"
-msgstr ""
+msgstr "<primary>IPC</primary>"
 
 msgid "<primary>Inter-Process Communications</primary>"
-msgstr ""
+msgstr "<primary>Межпроцессное взаимодействие</primary>"
 
 msgid "An isolated process, whether a daemon or an interactive application, is rarely useful on its own, which is why there are several methods allowing separate processes to communicate together, either to exchange data or to control one another. The generic term referring to this is <emphasis>inter-process communication</emphasis>, or IPC for short."
-msgstr ""
+msgstr "Изолированный процесс, демон или интерактивное приложение, редко бывает полезным сам по себе, поэтому существует несколько методов, позволяющих отдельным процессам взаимодействовать друг с другом для обмена данными или управления друг другом. Общий термин обозначающий их - <emphasis>межпроцессное взаимодействие</emphasis>, или коротко IPC (от англ. Inter-Process Communication)."
 
 msgid "The simplest IPC system is to use files. The process that wishes to send data writes it into a file (with a name known in advance), while the recipient only has to open the file and read its contents."
-msgstr ""
+msgstr "Простейшая система IPC - использование файлов. Процесс, желающий передать данные, пишет их в файл (с заранее известным именем), при этом получатель только открывает файл и читает его содержимое."
 
 msgid "<primary><emphasis>pipe</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>канал</emphasis></primary>"
 
 msgid "In the case where you do not wish to store data on disk, you can use a <emphasis>pipe</emphasis>, which is simply an object with two ends; bytes written in one end are readable at the other. If the ends are controlled by separate processes, this leads to a simple and convenient inter-process communication channel. Pipes can be classified into two categories: named pipes, and anonymous pipes. A named pipe is represented by an entry on the filesystem (although the transmitted data is not stored there), so both processes can open it independently if the location of the named pipe is known beforehand. In cases where the communicating processes are related (for instance, a parent and its child process), the parent process can also create an anonymous pipe before forking, and the child inherits it. Both processes will then be able to exchange data through the pipe without needing the filesystem."
-msgstr ""
+msgstr "В случае, когда вы не хотите сохранять данные на диск, вы можете использовать <emphasis>канал</emphasis>, который является простым объектом с двумя концами; байты, написанные в одном конце, доступны для чтения на другом. Это простой и удобный способ межпроцессного взаимодействия, т.к. концы управляются отдельными процессами. Каналы могут быть разделены на две категории: именованные и анонимные. Именованный канал представляет собой запись в файловой системе (хотя передаваемые данные не хранятся там), так оба процесса могут самостоятельно открыть его, если расположение именованного канала заранее известно. В тех случаях, когда взаимодействующие процессы связаны между собой (например, родительский и дочерний процессы), родительский процесс также может создать анонимный канал перед тем как \"форкнется\", а дочерний процесс наследует его. Таким образом оба процесса могут обмениваться данными через канал без необходимости задействовать файловую систему."
 
 msgid "<emphasis>IN PRACTICE</emphasis> A concrete example"
-msgstr ""
+msgstr "<emphasis>НА ПРАКТИКЕ</emphasis> Конкретный пример"
 
 msgid "Let's describe in some detail what happens when a complex command (a <emphasis>pipeline</emphasis>) is run from a shell. We assume we have a <command>bash</command> process (the standard user shell on Debian), with <emphasis>pid</emphasis> 4374; into this shell, we type the command: <command>ls | sort</command> ."
-msgstr ""
+msgstr "Давайте опишем подробнее, что происходит когда составная команда (<emphasis>конвейер</emphasis>) запускается в оболочке. Мы предполагаем, что у нас есть процесс <command>bash</command> (стандартная оболочка в Debian), с <emphasis>pid</emphasis> 4374; в этой оболочке мы вводим команду: <command>ls | sort</command>."
 
 msgid "The shell first interprets the command typed in. In our case, it understands there are two programs (<command>ls</command> and <command>sort</command>), with a data stream flowing from one to the other (denoted by the <userinput>|</userinput> character, known as <emphasis>pipe</emphasis>). <command>bash</command> first creates an unnamed pipe (which initially exists only within the <command>bash</command> process itself)."
-msgstr ""
+msgstr "Вначале оболочка интерпретирует введенную команду. В нашем случае, он понимает, что это две программы (<command>ls</command> и <command>sort</command>) с потоком данных, идущим из одного в другой (обозначается знаком <userinput>|</userinput>, известным как <emphasis>канал</emphasis>). Сначала <command>bash</command> создает анонимный канал (который изначально существует только в рамках самого процесса <command>bash</command>)."
 
 msgid "Then the shell clones itself; this leads to a new <command>bash</command> process, with <emphasis>pid</emphasis> #4521 (<emphasis>pids</emphasis> are abstract numbers, and generally have no particular meaning). Process #4521 inherits the pipe, which means it is able to write in its “input” side; <command>bash</command> redirects its standard output stream to this pipe's input. Then it executes (and replaces itself with) the <command>ls</command> program, which lists the contents of the current directory. Since <command>ls</command> writes on its standard output, and this output has previously been redirected, the results are effectively sent into the pipe."
-msgstr ""
+msgstr "Потом оболочка клонирует себя; это создает новый процесс <command>bash</command> с <emphasis>pid</emphasis> #4521 (<emphasis>идентификаторы процессов</emphasis> - абстрактные номера, обычно не имеющие конкретного смысла). Процесс #4521 наследует канал, что означает, что он может писать в его “входную” часть; <command>bash</command> перенаправляет его стандартный поток вывода во вход этого канала. Затем он выполняет программу <command>ls</command> (и заменяет себя на нее), которая выводит список содержимого текущего каталога. Так как <command>ls</command> пишет в свой стандартный вывод, а этот вывод был заранее перенаправлен, результат эффективно отправляется в канал."
 
 msgid "A similar operation happens for the second command: <command>bash</command> clones itself again, leading to a new <command>bash</command> process with pid #4522. Since it is also a child process of #4374, it also inherits the pipe; <command>bash</command> then connects its standard input to the pipe output, then executes (and replaces itself with) the <command>sort</command> command, which sorts its input and displays the results."
-msgstr ""
+msgstr "Похожая операция происходит и со второй командой: <command>bash</command> клонирует себя снова, что создает новый процесс <command>bash</command> с pid #4522. Так как это тоже дочерний процесс #4374, он также наследует канал; затем <command>bash</command> соединяет его стандартный ввод с выходом канала, выполняет команду <command>sort</command> (и заменяет себя на нее), которая сортирует ее входные данные и выводит результат."
 
 msgid "All the pieces of the puzzle are now set up: <command>ls</command> reads the current directory and writes the list of files into the pipe; <command>sort</command> reads this list, sorts it alphabetically, and displays the results. Processes numbers #4521 and #4522 then terminate, and #4374 (which was waiting for them during the operation), resumes control and displays the prompt to allow the user to type in a new command."
-msgstr ""
+msgstr "Теперь все кусочки головоломки собраны воедино: <command>ls</command> читает текущую директорию и пишет список файлов в канал; <command>sort</command> читает этот список, сортирует его в алфавитном порядке и выводит результат. Затем процессы с номерами #4521 и #4522 завершаются, а #4374 (который ждал их во время операции) возобновляет управление и выводит приглашение, позволяющее пользователю ввести новую команду."
 
 msgid "Not all inter-process communications are used to move data around, though. In many situations, the only information that needs to be transmitted are control messages such as “pause execution” or “resume execution”. Unix (and Linux) provides a mechanism known as <emphasis>signals</emphasis>, through which a process can simply send a specific signal (chosen from a predefined list of signals) to another process. The only requirement is to know the <emphasis>pid</emphasis> of the target."
-msgstr ""
+msgstr "Однако, межпроцессное взаимодействие используется не только для передачи данных. Во многих ситуациях, единственная информация, которую нужно передать:  это управляющие сообщения такие как “приостановить выполнения” или “возобновить выполнение”. Unix (и Linux) предоставляют механизм, известный как <emphasis>сигналы</emphasis>, через которые процесс может легко отправлять другому процессу специальные сигналы, выбранные из определенного списка. Необходимо лишь знать <emphasis>pid</emphasis> целевого процесса."
 
 msgid "For more complex communications, there are also mechanisms allowing a process to open access, or share, part of its allocated memory to other processes. Memory now shared between them can be used to move data between the processes."
-msgstr ""
+msgstr "Для более сложного взаимодействия существует механизм, предоставляющий процессу возможность открыть доступ (полностью или частично) к своей выделенной памяти другому процессу. Эта память может использоваться процессами для обмена данными между ними."
 
 msgid "Finally, network connections can also help processes communicate; these processes can even be running on different computers, possibly thousands of kilometers apart."
-msgstr ""
+msgstr "Наконец, сетевое подключение может также помогать процессам взаимодействовать друг с другом; причем, эти процессы могут быть запущенны на разных компьютерах и находиться в тысячах километров друг от друга."
 
 msgid "It is quite standard for a typical Unix-like system to make use of all these mechanisms to various degrees."
-msgstr ""
+msgstr "Это нормально для Unix-подобных систем: использовать все эти механизмы в разной степени."
 
 msgid "Libraries"
-msgstr ""
+msgstr "Библиотеки"
 
 msgid "<primary>library (of functions)</primary>"
-msgstr ""
+msgstr "<primary>библиотека (функций)</primary>"
 
 msgid "Function libraries play a crucial role in a Unix-like operating system. They are not proper programs, since they cannot be executed on their own, but collections of code fragments that can be used by standard programs. Among the common libraries, you can find:"
-msgstr ""
+msgstr "Библиотеки функций играют решающую роль в Unix-подобных операционных системах. Они не являются программами (они не могут быть выполнены самостоятельно), а представляют собой фрагменты кода, которые могут быть использованы обычными программами. Среди общих библиотек вы можете найти:"
 
 msgid "the standard C library (<emphasis>glibc</emphasis>), which contains basic functions such as ones to open files or network connections, and others facilitating interactions with the kernel;"
-msgstr ""
+msgstr "стандартная библиотека C (<emphasis>glibc</emphasis>), содержащая базовые функции, такие как функции открывания файлов, сетевого соединения, и другие облегчающие взаимодействие с ядром функции;"
 
 msgid "graphical toolkits, such as Gtk+ and Qt, allowing many programs to reuse the graphical objects they provide;"
-msgstr ""
+msgstr "графические инструментарии (такие как Gtk+ и Qt) позволяют множеству программ многократно использовать поддерживаемые ими графические объекты;"
 
 msgid "the <emphasis>libpng</emphasis> library, that allows loading, interpreting and saving images in the PNG format."
-msgstr ""
+msgstr "библиотека <emphasis>libpng</emphasis>, позволяющая загружать, интерпретировать и сохранять изображения в формате PNG."
 
 msgid "Thanks to those libraries, applications can reuse existing code. Application development is simplified since many applications can reuse the same functions. With libraries often developed by different persons, the global development of the system is closer to Unix's historical philosophy."
-msgstr ""
+msgstr "Благодаря этим библиотекам, приложения могут многократно использовать уже существующий код. Разработка приложений упрощается, т.к. множество приложений может использовать одни и те же функции. С библиотеками, часто разрабатываемыми разными людьми, глобальная разработка системы становится ближе к исторической философии Unix."
 
 msgid "<emphasis>CULTURE</emphasis> The Unix Way: one thing at a time"
-msgstr ""
+msgstr "<emphasis>КУЛЬТУРА</emphasis> Путь Unix: что-то одно"
 
 msgid "One of the fundamental concepts that underlies the Unix family of operating systems is that each tool should only do one thing, and do it well; applications can then reuse these tools to build more advanced logic on top. This philosophy can be seen in many incarnations. Shell scripts may be the best example: they assemble complex sequences of very simple tools (such as <command>grep</command>, <command>wc</command>, <command>sort</command>, <command>uniq</command> and so on). Another implementation of this philosophy can be seen in code libraries: the <emphasis>libpng</emphasis> library allows reading and writing PNG images, with different options and in different ways, but it does only that; no question of including functions that display or edit images."
-msgstr ""
+msgstr "Одна из фундаментальных концепций, лежащих в основе семейства операционных систем Unix гласит: \"каждый инструмент должен делать только одну вещь, и делать её хорошо; приложения могут впоследствии использовать эти инструменты для строительства в итоге более продвинутой логики. Эта философия просматривается во множестве воплощений. Скрипты оболочки могут быть лучшим примером: они собирают сложные последовательности из очень простых инструментов (таких как <command>grep</command>, <command>wc</command>, <command>sort</command>, <command>uniq</command> и т.д.). Еще одной реализацией этой философии являются библиотеки кода: библиотека <emphasis>libpng</emphasis> позволяет считывать и записывать изображения в формате PNG с разными опциями и различными путями, но она делает только это; нет необходимости в функциях отображения или редактирования изображения."
 
 msgid "Moreover, these libraries are often referred to as “shared libraries”, since the kernel is able to only load them into memory once, even if several processes use the same library at the same time. This allows saving memory, when compared with the opposite (hypothetical) situation where the code for a library would be loaded as many times as there are processes using it."
-msgstr ""
+msgstr "Кроме того, эти библиотеки часто называют “общими библиотеками”, так как ядро может загружать их в память единожды, тогда как несколько процессов будут использовать эту библиотеку одновременно. Это позволяет экономить память, в сравнении с обратной (гипотетической) ситуацией, когда код библиотеки будет загружаться в память столько раз, сколько процессов его использует."
