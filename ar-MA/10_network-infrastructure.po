@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-01 18:01+0200\n"
-"PO-Revision-Date: 2016-02-24 20:26+0200\n"
+"PO-Revision-Date: 2016-03-03 22:03+0200\n"
 "Last-Translator: Muhammad Saied <msaied93@gmail.com>\n"
 "Language-Team: Arabic <debian-l10n-arabic@lists.debian.org>\n"
 "Language: ar\n"
@@ -143,7 +143,8 @@ msgstr "من التطبيقات العملية للـDNAT توجيه المنا�
 msgid "Enough theory, let's get practical. Turning a Debian system into a gateway is a simple matter of enabling the appropriate option in the Linux kernel, by way of the <filename>/proc/</filename> virtual filesystem:"
 msgstr "بعد الكلام النظري، لننتقل إلى التطبيق. لتحويل نظام دبيان إلى بوابة، كل ما يلزم هو تفعيل الخيار المناسب في النواة لينكس، وذلك عبر نظام الملفات الظاهري <filename>/proc/</filename>:"
 
-msgid "\n"
+msgid ""
+"\n"
 "<computeroutput># </computeroutput><userinput>echo 1 &gt; /proc/sys/net/ipv4/conf/default/forwarding</userinput>"
 msgstr ""
 "\n"
@@ -1067,14 +1068,12 @@ msgstr ""
 "proxyarp\n"
 "lock\n"
 
-#, fuzzy
 msgid "The last step involves registering the <literal>vpn</literal> user (and the associated password) in the <filename>/etc/ppp/chap-secrets</filename> file. Contrary to other instances where an asterisk (<literal>*</literal>) would work, the server name must be filled explicitly here. Furthermore, Windows PPTP clients identify themselves under the <literal><replaceable>DOMAIN</replaceable>\\\\<replaceable>USER</replaceable></literal> form, instead of only providing a user name. This explains why the file also mentions the <literal>FALCOT\\\\vpn</literal> user. It is also possible to specify individual IP addresses for users; an asterisk in this field specifies that dynamic addressing should be used."
-msgstr "الخطوة الأخيرة هي تسجيل المستخدم <literal>vpn</literal> (وكلمة سره) في الملف <filename dir=\"ltr\">/etc/ppp/chap-secrets</filename>. يجب تعبئة اسم المخدم بشكل صريح هنا، بخلاف الحالات الأخرى حيث يمكن استخدام النجمة (<literal>*</literal>) فيها. بالإضافة لذلك، تعرّف عملاء PPTP التي تعمل على ويندوز نفسها بالشكل <literal><replaceable>DOMAIN</replaceable>\\<replaceable>USER</replaceable></literal>، بدلاً من تقديم اسم المستخدم فقط. هذا يفسر وجود المستخدم <literal>FALCOT\\vpn</literal> في الملف. من الممكن أيضاً تحديد عناوين IP الخاصة بالمستخدمين؛ استخدام النجمة في هذا الحقل يدل على أننا نريد استخدام العنونة الديناميكية."
+msgstr "الخطوة الأخيرة هي تسجيل المستخدم <literal>vpn</literal> (وكلمة سره) في الملف <filename dir=\"ltr\">/etc/ppp/chap-secrets</filename>. يجب تعبئة اسم المخدم بشكل صريح هنا، بخلاف الحالات الأخرى حيث يمكن استخدام النجمة (<literal>*</literal>) فيها. بالإضافة لذلك، تعرّف عملاء PPTP التي تعمل على ويندوز نفسها بالشكل <literal><replaceable>DOMAIN</replaceable>\\\\<replaceable>USER</replaceable></literal>، بدلاً من تقديم اسم المستخدم فقط. هذا يفسر وجود المستخدم <literal>FALCOT\\\\vpn</literal> في الملف. من الممكن أيضاً تحديد عناوين IP الخاصة بالمستخدمين؛ استخدام النجمة في هذا الحقل يدل على أننا نريد استخدام العنونة الديناميكية."
 
 msgid "The <filename>/etc/ppp/chap-secrets</filename> file"
 msgstr "الملف <filename dir=\"ltr\">/etc/ppp/chap-secrets</filename>"
 
-#, fuzzy
 msgid ""
 "\n"
 "# Secrets for authentication using CHAP\n"
@@ -1086,7 +1085,7 @@ msgstr ""
 "# Secrets for authentication using CHAP\n"
 "# client        server  secret      IP addresses\n"
 "vpn             pptp    f@Lc3au     *\n"
-"FALCOT\\vpn     pptp    f@Lc3au     *"
+"FALCOT\\\\vpn     pptp    f@Lc3au     *"
 
 msgid "<emphasis>SECURITY</emphasis> PPTP vulnerabilities"
 msgstr "<emphasis>أمن</emphasis> ثغرات PPTP"
@@ -1835,7 +1834,8 @@ msgstr "من الميزات القيمة التسجيل الآلي لعملاء 
 msgid "In the <command>bind</command> case, the <literal>allow-update</literal> directive needs to be added to each of the zones that the DHCP server is to edit (the one for the <literal>internal.falcot.com</literal> domain, and the reverse zone). This directive lists the IP addresses allowed to perform these updates; it should therefore contain the possible addresses of the DHCP server (both the local address and the public address, if appropriate)."
 msgstr "في حال استخدام <command>bind</command>، يجب إضافة التعليمة التوجيهية <literal>allow-update</literal> لكل منطقة يحتاج مخدم DHCP تعديلها (منطقة النطاق <literal>internal.falcot.com</literal>، والمنطقة العكسية). هذه التعليمة تحدد عناوين IP التي يسمح لها بإجراء هذه التحديثات؛ بالتالي يجب أن تسجل فيها جميع عناوين مخدم DHCP (العناوين المحلية والعنوان العام، في حال وجوده)."
 
-msgid "\n"
+msgid ""
+"\n"
 "allow-update { 127.0.0.1 192.168.0.1 212.94.201.10 !any };"
 msgstr ""
 "\n"
@@ -2192,4 +2192,3 @@ msgstr "عندما لا يمكن تشغيل واجهة رسومية، أو عن�
 
 #~ msgid "<command>wireshark</command> seems to be relatively young; however, it is only the new name for a software application previously known as <command>ethereal</command>. When its main developer left the company where he was employed, he was not able to arrange for the transfer of the registered trademark. As an alternative he went for a name change; only the name and the icons for the software actually changed."
 #~ msgstr "يبدو <command>wireshark</command> وكأنه فتي نسبياً؛ لكن هذا ليس إلا الاسم الجديد لبرنامج كان يعرف باسم <command>ethereal</command>. عندما ترك مطور <command>ethereal</command> الرئيسي الشركة التي كان موظفاً فيها، لم يستطع نقل ملكية العلامة المسجلة. وكحل بديل انتقى للتطبيق اسماً جديداً؛ في الواقع لم يتغير في البرنامج شيء إلا الاسم والأيقونات."
-
