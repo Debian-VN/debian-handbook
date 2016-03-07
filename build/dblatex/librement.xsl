@@ -108,6 +108,30 @@
   </xsl:call-template>
   <xsl:text>}&#10;</xsl:text>
 
+  <xsl:text>% $pdf.color.scheme='</xsl:text>
+  <xsl:value-of select="$pdf.color.scheme"/>
+  <xsl:text>'&#10;</xsl:text>
+  <xsl:choose>
+    <xsl:when test="$pdf.color.scheme='gray-scale'">
+      <xsl:text>
+% pdf.color.scheme gray-scale
+\hypersetup{
+  hidelinks,
+}
+\selectcolormodel{gray}
+</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>
+% pdf.color.scheme default
+%
+%
+%
+%
+</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+
   <xsl:choose>
     <xsl:when test="/book[@lang='ja-JP']">
       <xsl:text>
