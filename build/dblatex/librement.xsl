@@ -78,12 +78,26 @@
   </xsl:call-template>
   <xsl:text>}&#10;</xsl:text>
 
+  <xsl:text>\renewcommand\seename{</xsl:text>
+  <xsl:call-template name="gentext">
+    <xsl:with-param name="key" select="'see'"/>
+  </xsl:call-template>
+  <xsl:text>}&#10;</xsl:text>
+
+  <xsl:text>\renewcommand\alsoname{</xsl:text>
+  <xsl:call-template name="gentext">
+    <xsl:with-param name="key" select="'seealso'"/>
+  </xsl:call-template>
+  <xsl:text>}&#10;</xsl:text>
+
   <xsl:choose>
     <xsl:when test="/book[@lang='ja-JP']">
       <xsl:text>
 % Japanese setting
 \renewcommand\today{\number\year\ 年 \number\month\ 月 \number\day\ 日}
 \newcommand\prechaptername{第}
+\renewcommand*\see[2]{「#1」\seename}
+\renewcommand*\seealso[2]{「#1」\alsoname}
 </xsl:text>
     </xsl:when>
     <xsl:otherwise>
