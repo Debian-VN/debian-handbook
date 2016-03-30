@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2015-10-06 16:10+0200\n"
-"PO-Revision-Date: 2016-03-29 17:11+0000\n"
-"Last-Translator: Emfox Zhou <emfox@debian.org>\n"
+"PO-Revision-Date: 2016-03-30 13:39+0000\n"
+"Last-Translator: Boyuan YANG <073plan@gmail.com>\n"
 "Language-Team: Simplified Chinese <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/zh_Hans/>\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
@@ -784,7 +784,7 @@ msgid "<emphasis>SECURITY</emphasis> <literal>setuid</literal> and <literal>setg
 msgstr "<emphasis>安全</emphasis> <literal>setgid</literal> 目录和 <emphasis>粘着位</emphasis>"
 
 msgid "Two particular rights are relevant to executable files: <literal>setuid</literal> and <literal>setgid</literal> (symbolized with the letter “s”). Note that we frequently speak of “bit”, since each of these boolean values can be represented by a 0 or a 1. These two rights allow any user to execute the program with the rights of the owner or the group, respectively. This mechanism grants access to features requiring higher level permissions than those you would usually have."
-msgstr " 两个特殊权限和执行文件相关： <literal>setuid</literal> 和 <literal>setgid</literal> （使用符号“s”代表）。代表我们常说的“位”，这种布尔值可以用0和1表示。这两种权限允许用户以相应所有者或组的身份执行程序。这种许可机制要求有更高的授权才能有权使用某些特性。"
+msgstr "两个特殊权限和可执行文件相关：<literal>setuid</literal> 和 <literal>setgid</literal>（使用字符“s”表示）。请注意，我们常常称之为“位”，因为这些布尔值可以用一个0或者一个1表示。这两种权限允许任何用户以相应文件的所有者或组的身份执行程序。这种机制可以允许用户使用那些需要更高级别的授权才能工作的特性，即使普通用户原本不具备其使用权限。"
 
 msgid "<primary><literal>setuid</literal>, right</primary>"
 msgstr "<primary><literal>setuid</literal>，权限</primary>"
@@ -807,7 +807,7 @@ msgid "<primary><literal>setgid</literal> directory</primary>"
 msgstr "<primary><literal>setgid</literal>，权限</primary>"
 
 msgid "The <literal>setgid</literal> bit also applies to directories. Any newly-created item in such directories is automatically assigned the owner group of the parent directory, instead of inheriting the creator's main group as usual. This setup avoids the user having to change its main group (with the <command>newgrp</command> command) when working in a file tree shared between several users of the same dedicated group."
-msgstr " <literal>setgid</literal> 位也适用于目录。在这种目录中新创建的条目会被自动赋予其父目录所有组的特性，而不是继承创建者的组用户特性。这样设置避免几个同组用户在共享文件树中工作时，改变其所有组特性（使用<command>newgrp</command> 命令）。"
+msgstr "<literal>setgid</literal> 位也适用于目录。在这种目录中新创建的条目会被自动赋予其父目录的所有组，而不是通常情况下那样继承创建者的主用户组。这种设置可以避免几个同组用户在共享文件树中协同工作时（为保持所创建文件的所有组的一致性）而不得不改变自身主用户组的额外工作（使用 <command>newgrp</command> 命令）。"
 
 msgid "<primary>sticky bit</primary>"
 msgstr "<primary>粘着位</primary>"
@@ -1174,8 +1174,9 @@ msgstr "将一些重要日志保存在单独的机器（可能是日志专用）
 msgid "To accept log messages sent by other machines, you must reconfigure <emphasis>rsyslog</emphasis>: in practice, it is sufficient to activate the ready-for-use entries in <filename>/etc/rsyslog.conf</filename> (<literal>$ModLoad imudp</literal> and <literal>$UDPServerRun 514</literal>)."
 msgstr "要接受其他机器发来的消息，必须配置 <emphasis>rsyslog</emphasis>：实际上，只要激活 <filename>/etc/rsyslog.conf</filename> 中已有的选项就足够了（<literal>$ModLoad imudp</literal> and <literal>$UDPServerRun 514</literal>）。"
 
+#, fuzzy
 msgid "The <command>inetd</command> Super-Server"
-msgstr " <command>inetd</command> 超级服务"
+msgstr "<command>inetd</command> 超级服务"
 
 msgid "Inetd (often called “Internet super-server”) is a server of servers. It executes rarely used servers on demand, so that they do not have to run continuously."
 msgstr "Inetd（常被称为“网络超级服务”）是一个服务器服务。它按需求运行一些不常用的服务，而且不需要连续运行。"
@@ -1186,8 +1187,9 @@ msgstr "<primary><command>inetd</command></primary>"
 msgid "<primary>super-server</primary>"
 msgstr "<primary>超级服务</primary>"
 
+#, fuzzy
 msgid "The <filename>/etc/inetd.conf</filename> file lists these servers and their usual ports. The <command>inetd</command> command listens to all of them; when it detects a connection to any such port, it executes the corresponding server program."
-msgstr " <filename>/etc/inetd.conf</filename> 文件列出这些服务和他们常用的端口。 <command>inetd</command> 命令监听列出的所有端口；当探测到任意其中端口的连接，它就运行相应的服务程序。"
+msgstr "<filename>/etc/inetd.conf</filename> 文件列出这些服务和他们常用的端口。 <command>inetd</command> 命令监听列出的所有端口；当探测到任意其中端口的连接，它就运行相应的服务程序。"
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> Register a server in <filename>inetd.conf</filename>"
 msgstr "<emphasis>DEBIAN 政策</emphasis> 在<filename>inetd.conf</filename>中注册服务"
@@ -1197,8 +1199,9 @@ msgstr "<emphasis>DEBIAN 政策</emphasis> 在<filename>inetd.conf</filename>中
 msgid "Packages frequently want to register a new server in the <filename>/etc/inetd.conf</filename> file, but Debian Policy prohibits any package from modifying a configuration file that it doesn't own. This is why the <command>update-inetd</command> script (in the package with the same name) was created: It manages the configuration file, and other packages can thus use it to register a new server to the super-server's configuration."
 msgstr "软件包通常想在 <filename>/etc/inetd.conf</filename> 文件中注册新服务，但是Debian 政策禁止软件包修改不属于它自身的配置文件。这就是创建 <command>updated-inetd</command> （该命令在同名软件包中）脚本的原因：它会管理配置文件，其他软件包可以使用它来注册新服务。"
 
+#, fuzzy
 msgid "Each significant line of the <filename>/etc/inetd.conf</filename> file describes a server through seven fields (separated by spaces):"
-msgstr " <filename>/etc/inetd.conf</filename> 文件中每行通过七个区段（有空格分开）描述一个服务："
+msgstr "<filename>/etc/inetd.conf</filename> 文件中每个有效行通过七个字段（由空格分开）描述一个服务："
 
 msgid "The TCP or UDP port number, or the service name (which is mapped to a standard port number with the information contained in the <filename>/etc/services</filename> file)."
 msgstr "TCP 或者UDP 端口号，或者服务名称（用<filename>/etc/services</filename> 文件中包含的信息映射到标准端口号）。"
@@ -1316,26 +1319,30 @@ msgid "The root user has their own <emphasis>crontab</emphasis>, but can also us
 msgstr "超级用户有自己的 <emphasis>crontab</emphasis>，但是也可以使用 <filename>/etc/crontab</filename> 文件，或者在 <filename>/etc/cron.d</filename> 目录中写入另外的<emphasis>crontab</emphasis> 文件。这两种方法可以用来指明执行命令时的用户身份。"
 
 msgid "The <emphasis>cron</emphasis> package includes by default some scheduled commands that execute:"
-msgstr " <emphasis>cron</emphasis> 软件包默认包含一些可执行的调度命令："
+msgstr "<emphasis>cron</emphasis> 软件包默认包含一些可执行的调度命令："
 
+#, fuzzy
 msgid "programs in the <filename>/etc/cron.hourly/</filename> directory once per hour;"
-msgstr " 在<filename>/etc/cron.hourly/</filename> 目录中包含每小时运行的程序；"
+msgstr "在 <filename>/etc/cron.hourly/</filename> 目录中包含每小时运行的程序；"
 
+#, fuzzy
 msgid "programs in <filename>/etc/cron.daily/</filename> once per day;"
-msgstr " 在 <filename>/etc/cron.daily/</filename> 目录中包含每天运行的程序；"
+msgstr "在 <filename>/etc/cron.daily/</filename> 目录中包含每天运行的程序；"
 
+#, fuzzy
 msgid "programs in <filename>/etc/cron.weekly/</filename> once per week;"
-msgstr " 在 <filename>/etc/cron.weekly/</filename> 目录中包含每周运行的程序；"
+msgstr "在 <filename>/etc/cron.weekly/</filename> 目录中包含每周运行的程序；"
 
+#, fuzzy
 msgid "programs in <filename>/etc/cron.monthly/</filename> once per month."
-msgstr " 在 <filename>/etc/cron.monthly/</filename> 目录中包含每月运行的程序；"
+msgstr "在 <filename>/etc/cron.monthly/</filename> 目录中包含每月运行的程序；"
 
 #, fuzzy
 msgid "Many Debian packages rely on this service: by putting maintenance scripts in these directories, they ensure optimal operation of their services."
 msgstr "许多软件包都依赖于该服务，他们把维护脚本放在这些目录中，用来优化服务运行。"
 
 msgid "Format of a <filename>crontab</filename> File"
-msgstr " <filename>crontab</filename> 文件的格式"
+msgstr "<filename>crontab</filename> 文件的格式"
 
 msgid "<primary><filename>crontab</filename></primary>"
 msgstr "<primary><filename>crontab</filename></primary>"
@@ -1372,8 +1379,9 @@ msgstr "在Debian中， <command>cron</command> 尽量考虑时间变更（夏�
 msgid "Be careful, however, if the order in which the different scheduled tasks and the delay between their respective executions matters, you should check the compatibility of these constraints with <command>cron</command>'s behavior; if necessary, you can prepare a special schedule for the two problematic nights per year."
 msgstr "要当心了，如果不同任务的调度顺序和延迟相互关联，就需要检查使用 <command>cron</command>时，是否兼容一致；如果有必要，为每年可能发生问题的夜晚准备专门的调度程序。"
 
+#, fuzzy
 msgid "Each significant line of a <emphasis>crontab</emphasis> describes a scheduled command with the six (or seven) following fields:"
-msgstr " <emphasis>crontab</emphasis> 每个单独行使用六（或７）个区段描述一个调度任务："
+msgstr "<emphasis>crontab</emphasis> 每个有效行使用六（或七）个字段描述一个调度任务："
 
 msgid "the value for the minute (number from 0 to 59);"
 msgstr "分钟值（从０到５９）；"
@@ -1530,8 +1538,9 @@ msgstr "配额系统可以限制某个用户或组能使用的磁盘空间。必
 msgid "To activate quota in a filesystem, you have to indicate the <literal>usrquota</literal> and <literal>grpquota</literal> options in <filename>/etc/fstab</filename> for the user and group quotas, respectively. Rebooting the computer will then update the quotas in the absence of disk activity (a necessary condition for proper accounting of already used disk space)."
 msgstr "想在文件系统中激活该功能，就要在文件 <filename>/etc/fstab</filename> 中对相应的用户和组指定 <literal>usrquota</literal> 和 <literal>grpquota</literal> 选项。重启计算机会在磁盘不活动的状态下（该状态下可以较为准确地计算已经使用的磁盘空间）更新配额。"
 
+#, fuzzy
 msgid "The <command>edquota <replaceable>user</replaceable></command> (or <command>edquota -g <replaceable>group</replaceable></command>) command allows you to change the limits while examining current disk space usage."
-msgstr " <command>edquota <replaceable>user</replaceable></command> （或者 <command>edquota -g <replaceable>group</replaceable></command>）命令允许在检查目前磁盘空间使用情况时，改变配额限制。"
+msgstr "<command>edquota <replaceable>user</replaceable></command>（或者 <command>edquota -g <replaceable>group</replaceable></command>）命令允许在检查目前磁盘空间使用情况时，改变配额限制。"
 
 msgid "<primary><command>edquota</command></primary>"
 msgstr "<primary><command>edquota</command></primary>"
@@ -1658,8 +1667,9 @@ msgstr "这种备份机制可以通过 <command>dirvish</command> 程序执行�
 msgid "The main configuration is in the <filename>/etc/dirvish/master.conf</filename> file. It defines the location of the backup storage space, the list of “vaults” to manage, and default values for expiration of the backups. The rest of the configuration is located in the <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename> files and contains the specific configuration for the corresponding set of files."
 msgstr "主要配置在 <filename>/etc/dirvish/master.conf</filename> 文件中。它定义了备份存储空间的位置，要管理的“vaults”，和备份超期的默认值。配置的其他部分在 <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename> 文件中，包含对应文件集的特殊配置。"
 
+#, fuzzy
 msgid "The <filename>/etc/dirvish/master.conf</filename> file"
-msgstr " <filename>/etc/dirvish/master.conf</filename> 文件"
+msgstr "<filename>/etc/dirvish/master.conf</filename> 文件"
 
 msgid ""
 "bank:\n"
@@ -1692,17 +1702,19 @@ msgstr ""
 "    *   *     1-7 *         1    +1 year\n"
 "    *   *     1-7 1,4,7,10  1\n"
 
+#, fuzzy
 msgid "The <literal>bank</literal> setting indicates the directory in which the backups are stored. The <literal>exclude</literal> setting allows you to indicate files (or file types) to exclude from the backup. The <literal>Runall</literal> is a list of file sets to backup with a time-stamp for each set, which allows you to assign the correct date to the copy, in case the backup is not triggered at precisely the assigned time. You have to indicate a time just before the actual execution time (which is, by default, 10:04 pm in Debian, according to <filename>/etc/cron.d/dirvish</filename>). Finally, the <literal>expire-default</literal> and <literal>expire-rule</literal> settings define the expiration policy for backups. The above example keeps forever backups that are generated on the first Sunday of each quarter, deletes after one year those from the first Sunday of each month, and after 3 months those from other Sundays. Other daily backups are kept for 15 days. The order of the rules does matter, Dirvish uses the last matching rule, or the <literal>expire-default</literal> one if no other <literal>expire-rule</literal> matches."
-msgstr " <literal>bank</literal> 设置备份存储的目录。<literal>exclude</literal> 设置可以指定要排除的文件（或文件类型）。 <literal>Runall</literal> 是一个带有时间戳的备份文件集列表，如果备份没有在指定的确切时间触发，可以通过它指定拷贝的日期。必须将时间设定在实际执行时间之前（在Debian 中默认按照 <filename>/etc/cron.d/dirvish</filename> 10:04 pm）。最后，<literal>expire-default</literal> 和 <literal>expire-rule</literal> 设定备份过期时间。上面的例子中，会永久保存每季度第一个周日产生的备份，一年以后删除每月第一个周日的备份，三个月之后其他周日的备份。其他备份保留１５天。规则的顺序并不重要，Dirvish 使用最后的匹配规则，如果没找到 <literal>expire-rule</literal> 匹配，会使用 <literal>expire-default</literal> 。"
+msgstr "<literal>bank</literal> 设置备份存储的目录。<literal>exclude</literal> 设置可以指定要排除的文件（或文件类型）。 <literal>Runall</literal> 是一个带有时间戳的备份文件集列表，如果备份没有在指定的确切时间触发，可以通过它指定拷贝的日期。必须将时间设定在实际执行时间之前（在Debian 中默认按照 <filename>/etc/cron.d/dirvish</filename> 10:04 pm）。最后，<literal>expire-default</literal> 和 <literal>expire-rule</literal> 设定备份过期时间。上面的例子中，会永久保存每季度第一个周日产生的备份，一年以后删除每月第一个周日的备份，三个月之后其他周日的备份。其他备份保留15天。规则的顺序并不重要，Dirvish 使用最后的匹配规则，如果没找到 <literal>expire-rule</literal> 匹配，会使用 <literal>expire-default</literal> 。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Scheduled expiration"
 msgstr "<emphasis>实践</emphasis>　使用SSH远程备份"
 
+#, fuzzy
 msgid "The expiration rules are not used by <command>dirvish-expire</command> to do its job. In reality, the expiration rules are applied when creating a new backup copy to define the expiration date associated with that copy. <command>dirvish-expire</command> simply peruses the stored copies and deletes those for which the expiration date has passed."
-msgstr " <command>dirvish-expire</command> 完成任务并不使用超期规则。实际上，当创建新备份时，超期规则用来定义与该拷贝相关联的截止日期。 <command>dirvish-expire</command> 审阅已存储的拷贝并删除已经超期的。"
+msgstr "<command>dirvish-expire</command> 完成任务并不使用超期规则。实际上，当创建新备份时，超期规则用来定义与该拷贝相关联的截止日期。 <command>dirvish-expire</command> 审阅已存储的拷贝并删除已经超期的。"
 
 msgid "The <filename>/backup/root/dirvish/default.conf</filename> file"
-msgstr " <filename>/backup/root/dirvish/default.conf</filename> 文件"
+msgstr "<filename>/backup/root/dirvish/default.conf</filename> 文件"
 
 msgid ""
 "client: rivendell.falcot.com\n"
@@ -1748,8 +1760,9 @@ msgstr "不使用备份恢复系统"
 msgid "Desktop computers, which are not backed up, will be easy to reinstall from custom DVD-ROMs prepared with <emphasis>Simple-CDD</emphasis> (see <xref linkend=\"sect.simple-cdd\" />). Since this performs an installation from scratch, it loses any customization that can have been made after the initial installation. This is fine since the systems are all hooked to a central LDAP directory for accounts and most desktop applications are preconfigured thanks to dconf (see <xref linkend=\"sect.gnome-desktop\" /> for more information about this)."
 msgstr ""
 
+#, fuzzy
 msgid "The Falcot Corp administrators are aware of the limits in their backup policy. Since they can't protect the backup server as well as a tape in a fireproof safe, they have installed it in a separate room so that a disaster such as a fire in the server room won't destroy backups along with everything else. Furthermore, they do an incremental backup on DVD-ROM once per week — only files that have been modified since the last backup are included."
-msgstr " Falcot Corp 的管理员深知他们备份策略的局限性。由于他们不能把备份服务器和磁带放入防火保险箱，因此他们把服务器部署在一个单独的房间，该房间可以免受类似着火等类型灾难，从而避免灭顶之灾。此外，他们每周在 DVD-ROM 上做增量备份—只包含上次备份之后修改的文件。"
+msgstr "Falcot Corp 的管理员深知他们备份策略的局限性。由于他们不能把备份服务器和磁带放入防火保险箱，因此他们把服务器部署在一个单独的房间，该房间可以免受类似着火等类型灾难，从而避免灭顶之灾。此外，他们每周在 DVD-ROM 上做增量备份—只包含上次备份之后修改的文件。"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Backing up SQL and LDAP services"
 msgstr "<emphasis>进阶 </emphasis> 备份SQL 和LDAP 服务"
@@ -1844,10 +1857,11 @@ msgid "This mechanism has some side effects that you should know about. Let's co
 msgstr "这种机制会引起一些边界效应。考虑只有一张PCI 网卡的情况。网卡被命名为 <literal>eth0</literal>。假如此时网卡坏了，管理员替换了它；新网卡就会有一个新的MAC 地址。由于旧网卡的名字是<literal>eth0</literal>，新网卡就会被分配为 <literal>eth1</literal>，实际上应该是 <literal>eth0</literal> （网络会不工作，因为 <filename>/etc/network/interfaces</filename> 会配置 <literal>eth0</literal> 接口）。在这种情况下，可以在重启计算机之前删除<filename>/etc/udev/rules.d/70-persistent-net.rules</filename> 来解决。然后，新网卡就会被指派预期的 <literal>eth0</literal> 名称。"
 
 msgid "How <emphasis>udev</emphasis> Works"
-msgstr " <emphasis>udev</emphasis> 如何工作"
+msgstr "<emphasis>udev</emphasis> 如何工作"
 
+#, fuzzy
 msgid "When <emphasis>udev</emphasis> is notified by the kernel of the appearance of a new device, it collects various information on the given device by consulting the corresponding entries in <filename>/sys/</filename>, especially those that uniquely identify it (MAC address for a network card, serial number for some USB devices, etc.)."
-msgstr " 当 <emphasis>udev</emphasis> 收到内核新设备出现的通知，它会通过查阅相应 <filename>/sys/</filename>中的记录收集新设备的各种信息，特别是该设备的唯一标示（对网卡来说是MAC ，对USB 设备来说是序列号，等）。"
+msgstr "当 <emphasis>udev</emphasis> 收到内核新设备出现的通知，它会通过查阅相应 <filename>/sys/</filename> 中的记录收集新设备的各种信息，特别是该设备的唯一标识（对网卡来说是 MAC ，对 USB 设备来说是序列号，等等）。"
 
 msgid "Armed with all of this information, <emphasis>udev</emphasis> then consults all of the rules contained in <filename>/etc/udev/rules.d/</filename> and <filename>/lib/udev/rules.d/</filename>. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially (except when a file uses “GOTO” directives). Thus, there may be several rules that correspond to a given event."
 msgstr "有了这些信息之后，然后 <emphasis>udev</emphasis> 会查阅<filename>/etc/udev/rules.d/</filename> 和 <filename>/lib/udev/rules.d/</filename>中包含的所有规则。在这个过程中，它会决定如何命名设备，创建什么样的符号连接（赋予设备另外的名字），执行什么命令。查询所有的文件，顺序（除非文件中使用“GOTO”指令）检查所有的规则。这样，有可能一个事件（event）对应多个规则。"
