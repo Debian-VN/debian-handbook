@@ -1,13 +1,14 @@
 ### Hướng dẫn dịch xem tại [Debian VN](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
 ### Các bài nhận dịch
-Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md
+Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
 Nhiều người một bản dịch, không sao cả =D
 
 - 00a_preface.po
- - TxGVNN
- - someone
+ - [Giáp Trần](https://github.com/orgs/Debian-VN/people/TxGVNN)
+
 
 - 00b_foreword.po
+ - [Bông Bông](https://github.com/orgs/Debian-VN/people/MathenJee)
 
 
 - 01_the-debian-project.po
