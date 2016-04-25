@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-03-24 09:00+0000\n"
-"PO-Revision-Date: 2016-04-21 02:44+0000\n"
+"PO-Revision-Date: 2016-04-25 17:29+0000\n"
 "Last-Translator: mao <mao@lins.fju.edu.tw>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/debian-handbook/04_installation/zh_Hant/>\n"
 "Language: zh-TW\n"
@@ -384,439 +384,441 @@ msgid "Partitioning, an indispensable step in installation, consists in dividing
 msgstr "分割，安裝中不可或缺的一部分，根據儲存的資料與電腦的用途，分割硬式磁碟機的可用空間 (每個次細分稱為分割區)。此步驟也包括選取檔案系統。所有的選取都對效能、資料安全、與伺服器管理有着一定的影響。"
 
 msgid "The partitioning step is traditionally difficult for new users. It is necessary to define the various portions of the disks (or “partitions”) on which the Linux filesystems and virtual memory (swap) will be stored. This task is complicated if another operating system that you want to keep is already on the machine. Indeed, you will then have to make sure that you do not alter its partitions (or that you resize them without causing damage)."
-msgstr ""
+msgstr "分割是新手的盲點。分割是把磁碟設定成多個區塊 (或 “分區”) 儲存 Linux 檔案系統與虛擬記憶體 (交換)。想要與已存在的其他作業系統併存更是複雜。本質上，需確定不改變區分表 (或不變更就不會造成損害)。"
 
 msgid "Fortunately, the partitioning software has a “guided” mode which recommends partitions for the user to make — in most cases, you can simply validate the software's suggestions."
-msgstr ""
+msgstr "幸運地，分割軟體有個 “導引”  模式可用 — 大部份情況下，祗需驗證軟體的建議。"
 
 msgid "Choice of partitioning mode"
-msgstr ""
+msgstr "選擇分割模式"
 
 msgid "The first screen in the partitioning tool offers the choice of using an entire hard drive to create various partitions. For a (new) computer which will solely use Linux, this option is clearly the simplest, and you can choose the option “Guided - use entire disk”. If the computer has two hard drives for two operating systems, setting one drive for each is also a solution that can facilitate partitioning. In both of these cases, the next screen offers to choose the disk where Linux will be installed by selecting the corresponding entry (for example, “SCSI1 (0,0,0) (sda) - 12.9 GB ATA VBOX HARDDISK”). You then start guided partitioning."
-msgstr ""
+msgstr "分割工具的第一個畫面是選擇分割整個磁碟。祗安裝 Linux 的 (新) 電腦，此選擇是最簡單的，就是它 “引導 - 使用整顆磁碟”。若有兩個磁碟分別給兩個作業系統使用，也可以選擇它。下個畫面將是選定安裝 Linux 的磁碟 (如， “SCSI1 (0,0,0) (sda) - 12.9 GB ATA VBOX HARDDISK”)。然後開始分割。"
 
 msgid "Disk to use for guided partitioning"
-msgstr ""
+msgstr "引導分割用的磁碟"
 
 msgid "Guided partitioning can also set up LVM logical volumes instead of partitions (see below). Since the remainder of the operation is the same, we will not go over the option “Guided - use entire disk and set up LVM” (encrypted or not)."
-msgstr ""
+msgstr "引導分區也可設定 LVM 邏輯捲軸管理而不是分區 (見下方)。其他的操作都相同，就不再一一說明選項 “引導 - 使用整顆磁碟並設定 LVM” (編碼或無)。"
 
 msgid "In other cases, when Linux must work alongside other already existing partitions, you need to choose manual partitioning."
-msgstr ""
+msgstr "在其他情況下，當 Linux 必須與其他作業系統併存時，必須選擇人工分割作業。"
 
 msgid "Guided partitioning"
-msgstr ""
+msgstr "引導分割"
 
 msgid "<primary>partitioning</primary><secondary>guided partitioning</secondary>"
-msgstr ""
+msgstr "<primary>分割</primary><secondary>引導分割</secondary>"
 
 msgid "The guided partitioning tool offers three partitioning methods, which correspond to different usages."
-msgstr ""
+msgstr "引導分割工具提供三種分割的方法，適用於不同的用途。"
 
 msgid "The first method is called “All files in one partition”. The entire Linux system tree is stored in a single filesystem, corresponding to the root <filename>/</filename> directory. This simple and robust partitioning fits perfectly for personal or single-user systems. In fact, two partitions will be created: the first will house the complete system, the second the virtual memory (swap)."
-msgstr ""
+msgstr "第一個方法為 “所有檔案在同一個分區”。把整個 Linux 系統樹儲在一個檔案系統，放在根 <filename>/</filename> 資料夾內。這個簡單強大的分割方式適用在個人或單一使用者系統。事實上，產生兩個分區：第一個儲存整個系統，第二個是虛擬記憶體 (交換)。"
 
 msgid "The second method, “Separate <filename>/home/</filename> partition”, is similar, but splits the file hierarchy in two: one partition contains the Linux system (<filename>/</filename>), and the second contains “home directories” (meaning user data, in files and subdirectories available under <filename>/home/</filename>)."
-msgstr ""
+msgstr "第二個方法，“獨立 <filename>/home/</filename> 分區”，很類似，但把檔案階層分為兩個：一個分區包括 Linux 系統 (<filename>/</filename>)，第二個包括 “家資料夾” (就是使用者資料，在 <filename>/home/</filename> 內的檔案與子資料夾)。"
 
 msgid "The last partitioning method, called “Separate <filename>/home</filename>, <filename>/var</filename>, and <filename>/tmp</filename> partitions”, is appropriate for servers and multi-user systems. It divides the file tree into many partitions: in addition to the root (<filename>/</filename>) and user accounts (<filename>/home/</filename>) partitions, it also has partitions for server software data (<filename>/var/</filename>), and temporary files (<filename>/tmp/</filename>). These divisions have several advantages. Users can not lock up the server by consuming all available hard drive space (they can only fill up <filename>/tmp/</filename> and <filename>/home/</filename>). The daemon data (especially logs) can no longer clog up the rest of the system."
-msgstr ""
+msgstr "最後一個分割的方法，稱為 “獨立 <filename>/home</filename>、<filename>/var</filename>、與 <filename>/tmp</filename> 分區”，適用於伺服器與多使用者系統。把檔案分為多個分區：在根 (<filename>/</filename>) 與使用者帳號 (<filename>/home/</filename>) 分區外，還有分區供伺服器軟體資料 (<filename>/var/</filename>), and temporary files (<filename>/tmp/</filename>) 使用。這種做法的優點很多。使用者無法消耗所有的磁碟空間以鎖定伺服器 (祗能填滿 <filename>/tmp/</filename> 與 <filename>/home/</filename>)。守護資料 (尤其是記錄) 不會阻塞系統的其他部份。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Choosing a filesystem"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> 選擇檔案系統"
 
 msgid "<primary>system</primary><secondary>filesystem</secondary>"
-msgstr ""
+msgstr "<primary>系統</primary><secondary>檔案系統</secondary>"
 
 msgid "<primary>file</primary><secondary>system</secondary>"
-msgstr ""
+msgstr "<primary>檔案</primary><secondary>系統</secondary>"
 
 msgid "A filesystem defines the way in which data is organized on the hard drive. Each existing filesystem has its merits and limitations. Some are more robust, others more effective: if you know your needs well, choosing the most appropriate filesystem is possible. Various comparisons have already been made; it seems that ReiserFS is particularly efficient for reading many small files; <emphasis>XFS</emphasis>, in turn, works faster with large files. <emphasis>Ext4</emphasis>, the default filesystem for Debian, is a good compromise, based on the three previous versions of filesystems historically used in Linux (<emphasis>ext</emphasis>, <emphasis>ext2</emphasis> and <emphasis>ext3</emphasis>). <emphasis>Ext4</emphasis> overcomes certain limitations of <emphasis>ext3</emphasis> and is particularly appropriate for very large capacity hard drives. Another option would be to experiment with the very promising <emphasis>btrfs</emphasis>, which includes numerous features that require, to this day, the use of LVM and/or RAID."
-msgstr ""
+msgstr "檔案系統設定在磁碟內儲存資料的方式。每個檔案系統都各有優缺點。有些較強健、有些較有效：知道您的需求，選擇最適合的。各種比較方法都可從網路上找著；看來 ReiserFS 最適合讀取很多小小的檔案；而 <emphasis>XFS</emphasis> 讀取大檔案的速度極快。Debian 預設的 <emphasis>Ext4</emphasis>，係衍生自 Linux 曾用過的檔案系統 (<emphasis>ext</emphasis>、<emphasis>ext2</emphasis> 與 <emphasis>ext3</emphasis>)，是最佳的妥協產物。<emphasis>Ext4</emphasis> 克服 <emphasis>ext3</emphasis> 的多種限制特別適合極大容量的磁碟。<emphasis>btrfs</emphasis> 是還在實驗測試中的檔案系統，包括 LVM 與 RAID 之類多種當代的功能。"
 
 msgid "A journalized filesystem (such as <emphasis>ext3</emphasis>, <emphasis>ext4</emphasis>, <emphasis>btrfs</emphasis>, <emphasis>reiserfs</emphasis>, or <emphasis>xfs</emphasis>) takes special measures to make it possible to return to a prior consistent state after an abrupt interruption without completely analyzing the entire disk (as was the case with the <emphasis>ext2</emphasis> system). This functionality is carried out by filling in a journal that describes the operations to conduct prior to actually executing them. If an operation is interrupted, it will be possible to “replay” it from the journal. Conversely, if an interruption occurs during an update of the journal, the last requested change is simply ignored; the data being written could be lost, but since the data on the disk has not changed, they have remained coherent. This is nothing more nor less than a transactional mechanism applied to the filesystem."
-msgstr ""
+msgstr "日誌文件系統 (例如 <emphasis>ext3</emphasis>、<emphasis>ext4</emphasis>、<emphasis>btrfs</emphasis>、<emphasis>reiserfs</emphasis>、或 <emphasis>xfs</emphasis>) 以自己特有的方法在不必分析整個磁碟的前提下恢復破損的檔案 (如同 <emphasis>ext2</emphasis> 系統)。其原理是在實際執行檔案作用前於日誌中描述作業的內容。若作業失敗，可以從日誌中 “恢復” 檔案。反過來說，更新日誌中發生錯誤，祗是簡單地忽略該次改變；可能遺失寫入的資料，但磁碟的資料並未改變，仍然緊密地連在一起。其實，與檔案系統的交換機制無異。"
 
 msgid "After choosing the type of partition, the software calculates a suggestion, and describes it on the screen; the user can then modify it if needed. You can, in particular, choose another filesystem if the standard choice (<emphasis>ext4</emphasis>) isn't appropriate. In most cases, however, the proposed partitioning is reasonable and it can be accepted by selecting the “Finish partitioning and write changes to disk” entry."
-msgstr ""
+msgstr "選定分區的方式後，軟體開始計算所需的空間，並顯示在螢幕上；使用者可以按著自己的需要調整它。如果不滿意預設的檔案系統 (<emphasis>ext4</emphasis>) 可以在這裡選擇其他的檔案系統。大部份情況下，建議的分區是合理的且可被接受，接著就按 “結束分割並寫入磁碟”。"
 
 msgid "Validating partitioning"
-msgstr ""
+msgstr "驗證分割"
 
 msgid "Manual Partitioning"
-msgstr ""
+msgstr "手動分割"
 
 msgid "<primary>partitioning</primary><secondary>manual partitioning</secondary>"
-msgstr ""
+msgstr "<primary>分割</primary><secondary>手動分割</secondary>"
 
 msgid "Manual partitioning allows greater flexibility, allowing the user to choose the purpose and size of each partition. Furthermore, this mode is unavoidable if you wish to use software RAID."
-msgstr ""
+msgstr "手動分割的彈性更大，使用者自行決定各分區的功用及大小。而且，使用軟體 RAID 時更不可避免地採用此模式。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Shrinking a Windows partition"
-msgstr ""
+msgstr "<emphasis>實務</emphasis> 縮小視窗系統的分區"
 
 msgid "<primary>resize a partition</primary>"
-msgstr ""
+msgstr "<primary>調整分區</primary>"
 
 msgid "<primary>shrink a partition</primary>"
-msgstr ""
+msgstr "<primary>縮小分區</primary>"
 
 msgid "To install Debian alongside an existing operating system (Windows or other), you must have some available hard drive space that is not being used by the other system in order to be able to create the partitions dedicated to Debian. In most cases, this means shrinking a Windows partition and reusing the freed space."
-msgstr ""
+msgstr "在已有的作業系統 (視窗或其他) 內安裝 Debian，必須還有尚未使用的磁碟空間才能新增給 Debian 用的分區。大部份情況下，需縮小視窗的分區並重新利用空出來的空間。"
 
 msgid "The Debian installer allows this operation when using the manual mode for partitioning. You only need to choose the Windows partition and enter its new size (this works the same with both FAT and NTFS partitions)."
-msgstr ""
+msgstr "Debian 安裝器允許在手動模式下分割磁碟。祗需選定視窗分區並鍵入新的大小 (FAT 與 NTFS 分區均適用)。"
 
 msgid "The first screen displays the available disks, their partitions, and any possible free space that has not yet been partitioned. You can select each displayed element; pressing the <keycap>Enter</keycap> key then gives a list of possible actions."
-msgstr ""
+msgstr "第一個畫面顯示可用的磁碟、其分區、與還未分割的可自由使用的空間。可自行選擇；按 <keycap>Enter</keycap> 鍵則出現可能的選項清單。"
 
 msgid "You can erase all partitions on a disk by selecting it."
-msgstr ""
+msgstr "您可選擇清除所有分區。"
 
 msgid "When selecting free space on a disk, you can manually create a new partition. You can also do this with guided partitioning, which is an interesting solution for a disk that already contains another operating system, but which you may wish to partition for Linux in a standard manner. See <xref linkend=\"sect.install-autopartman-mode\" /> for more details on guided partitioning."
-msgstr ""
+msgstr "選定未使用空間後，可以手動新增分區。也可使用適用於已有其他作業系統的導引分割，以標準方式分割出給 Linux 使用的空間。導引分割詳情見 <xref linkend=\"sect.install-autopartman-mode\" />。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Mount point"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> 掛載點"
 
 msgid "<primary>mount point</primary>"
-msgstr ""
+msgstr "<primary>掛載點</primary>"
 
 msgid "<primary>point, mount point</primary>"
-msgstr ""
+msgstr "<primary>點，掛載點</primary>"
 
 msgid "The mount point is the directory tree that will house the contents of the filesystem on the selected partition. Thus, a partition mounted at <filename>/home/</filename> is traditionally intended to contain user data."
-msgstr ""
+msgstr "掛載點是在選定分區的樹狀資料夾，放置檔案系統的內容。因此，掛在 <filename>/home/</filename> 的分區是置放使用者資料的資料夾。"
 
 msgid "When this directory is named “<filename>/</filename>”, it is known as the <emphasis>root</emphasis> of the file tree, and therefore the root of the partition that will actually host the Debian system."
-msgstr ""
+msgstr "名稱為 “<filename>/</filename>” 的資料夾，就是檔案樹的 <emphasis>根</emphasis>，其分區放置 Debian 系統。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Virtual memory, swap"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> 虛擬記憶體，交換"
 
 msgid "<primary>virtual memory</primary>"
-msgstr ""
+msgstr "<primary>虛擬記憶體</primary>"
 
 msgid "<primary>swap</primary>"
-msgstr ""
+msgstr "<primary>交換</primary>"
 
 msgid "<primary>partition</primary><secondary>swap partition</secondary>"
-msgstr ""
+msgstr "<primary>分區</primary><secondary>交換分區</secondary>"
 
 msgid "<primary>swap partition</primary>"
-msgstr ""
+msgstr "<primary>交換分區</primary>"
 
 msgid "Virtual memory allows the Linux kernel, when lacking sufficient memory (RAM), to free a bit of storage by storing the parts of the RAM that have been inactive for some time on the swap partition of the hard disk."
-msgstr ""
+msgstr "記憶體 (RAM) 不足時，虛擬記憶體容許 Linux 核心將在 RAM 內未使用的內容，儲存在磁碟的交換分區中。"
 
 msgid "To simulate the additional memory, Windows uses a swap file that is directly contained in a filesystem. Conversely, Linux uses a partition dedicated to this purpose, hence the term “swap partition”."
-msgstr ""
+msgstr "為了模擬更多的記憶體，視窗作業系統使用交換檔案。Linux 反過來做，以特定的分區做此事，因此稱為 “交換分區”。"
 
 msgid "When choosing a partition, you can indicate the manner in which you are going to use it:"
-msgstr ""
+msgstr "選擇分區時，可以指定其為："
 
 msgid "format it and include it in the file tree by choosing a mount point;"
-msgstr ""
+msgstr "格式化並納入指定的掛載點；"
 
 msgid "use it as a swap partition;"
-msgstr ""
+msgstr "做為交換分區；"
 
 msgid "make it into a “physical volume for encryption” (to protect the confidentiality of data on certain partitions, see below);"
-msgstr ""
+msgstr "做為 “加密的實體卷” (保護特定分區的隱私資料，見下文)；"
 
 msgid "make it a “physical volume for LVM” (this concept is discussed in greater detail later in this chapter);"
-msgstr ""
+msgstr "做為 “LVM 實體卷” (在此章稍後討論此概念詳情)；"
 
 msgid "use it as a RAID device (see later in this chapter);"
-msgstr ""
+msgstr "做為 RAID 設備 (參見本章下文)；"
 
 msgid "you can also choose not to use it, and therefore leave it unchanged."
-msgstr ""
+msgstr "也可選擇不用它，放著不改變它。"
 
 msgid "Configuring Multidisk Devices (Software RAID)"
-msgstr ""
+msgstr "組態多磁碟設備 (軟體式 RAID)"
 
 msgid "<primary>RAID</primary><secondary>Software RAID</secondary>"
-msgstr ""
+msgstr "<primary>RAID</primary><secondary>軟體式 RAID</secondary>"
 
 msgid "<primary>Software RAID</primary>"
-msgstr ""
+msgstr "<primary>軟體式 RAID</primary>"
 
 msgid "<primary>device</primary><secondary>multi-disk device</secondary>"
-msgstr ""
+msgstr "<primary>設備</primary><secondary>多磁碟設備</secondary>"
 
 msgid "Some types of RAID allow the duplication of information stored on hard drives to prevent data loss in the event of a hardware problem affecting one of them. Level 1 RAID keeps a simple, identical copy (mirror) of a hard drive on another drive, while level 5 RAID splits redundant data over several disks, thus allowing the complete reconstruction of a failing drive."
-msgstr ""
+msgstr "某些 RAID 類型允許在磁碟重複儲存資料，以防止磁碟故障時遺失資料。RAID 1 把磁碟資料單純地複製 (鏡射) 到另一個磁碟，RAID 5 則把重複的資料分散在多個磁碟，因此可以完整地重建故障的磁碟。"
 
 msgid "We will only describe level 1 RAID, which is the simplest to implement. The first step involves creating two partitions of identical size located on two different hard drives, and to label them “physical volume for RAID”."
-msgstr ""
+msgstr "僅在此描述最簡單的 RAID 1。第一步是在不同的磁碟建立兩個大小相同的分區，並指定為 “RAID 實體卷”。"
 
 msgid "You must then choose “Configure software RAID” in the partitioning tool to combine these two partitions into a new virtual disk and select “Create MD device” in the configuration screen. You then need to answer a series of questions about this new device. The first question asks about the RAID level to use, which in our case will be “RAID1”. The second question asks about the number of active devices — two in our case, which is the number of partitions that need to be included in this MD device. The third question is about the number of spare devices — 0; we have not planned any additional disk to take over for a possible defective disk. The last question requires you to choose the partitions for the RAID device — these would be the two that we have set aside for this purpose (make sure you only select the partitions that explicitly mention “raid”)."
-msgstr ""
+msgstr "必須在分區工具中選擇 “組態軟體式 RAID” 把兩個分區合為一個虛擬磁碟並在組態畫面選擇 “新增 MD 設備”。接著回答若干與此新設備有關的問題。第一個問題有關 RAID 的層次，現在選用 “RAID1”。第二個問題是使用的設備數量 — 本例是 2，需要被納入 MD 設備的分區數。第三個問題是備用設備數 — 0；目前沒有計畫加入其他磁碟取代可能出包的磁碟。最後一個問題是選擇 RAID 設備的分區 — 供此用途的是 2 (確認祗選擇標示為 “raid” 的分區)。"
 
 msgid "Back to the main menu, a new virtual “RAID” disk appears. This disk is presented with a single partition which can not be deleted, but whose use we can choose (just like for any other partition)."
-msgstr ""
+msgstr "回到主選單，出現新增的虛擬 “RAID” 磁碟。此磁碟祗有一個不能刪除的分區，但可選擇其用途 (如同其他的分區)。"
 
 msgid "For further details on RAID functions, please refer to <xref linkend=\"sect.raid-soft\" />."
-msgstr ""
+msgstr "RAID 其他功能的詳情，請參見 <xref linkend=\"sect.raid-soft\" />。"
 
 msgid "Configuring the Logical Volume Manager (LVM)"
-msgstr ""
+msgstr "組態邏輯捲軸管理器 (LVM)"
 
 msgid "<primary>LVM</primary><secondary>during installation</secondary>"
-msgstr ""
+msgstr "<primary>LVM</primary><secondary>於安裝時</secondary>"
 
 msgid "<primary>Logical Volume Manager</primary><secondary>during installation</secondary>"
-msgstr ""
+msgstr "<primary>邏輯捲軸管理器</primary><secondary>於安裝時</secondary>"
 
 msgid "LVM allows you to create “virtual” partitions that span over several disks. The benefits are twofold: the size of the partitions are no longer limited by individual disks but by their cumulative volume, and you can resize existing partitions at any time, possibly after adding an additional disk when needed."
-msgstr ""
+msgstr "LVM 允許您從新增合併多個磁碟的 “虛擬” 分區。其優點有二：分區的容量不受個別磁碟的限制，以及任何時間均可重組現有的分區，通常在運行一段時間後才有此需要。"
 
 msgid "LVM uses a particular terminology: a virtual partition is a “logical volume”, which is part of a “volume group”, or an association of several “physical volumes”. Each of these terms in fact corresponds to a “real” partition (or a software RAID device)."
-msgstr ""
+msgstr "LVM 使用特別的術語：虛擬分區是 “邏輯捲”，它是 “捲群組” 的一部份，或與多個 “實體捲” 相關。這些術語事實上對應於 “真實的” 分區 (或軟體 RAID 設備)。"
 
 msgid "<primary>volume</primary><secondary>logical volume</secondary>"
-msgstr ""
+msgstr "<primary>捲</primary><secondary>邏輯捲</secondary>"
 
 msgid "<primary>volume</primary><secondary>physical volume</secondary>"
-msgstr ""
+msgstr "<primary>捲</primary><secondary>實體捲</secondary>"
 
 msgid "<primary>group</primary><secondary>of volumes</secondary>"
-msgstr ""
+msgstr "<primary>群組</primary><secondary>捲</secondary>"
 
 msgid "<primary>volume</primary><secondary>group</secondary>"
-msgstr ""
+msgstr "<primary>捲</primary><secondary>群組</secondary>"
 
 msgid "This technique works in a very simple way: each volume, whether physical or logical, is split into blocks of the same size, which are made to correspond by LVM. The addition of a new disk will cause the creation of a new physical volume, and these new blocks can be associated to any volume group. All of the partitions in the volume group that is thus expanded will have additional space into which they can extend."
-msgstr ""
+msgstr "此技術工作的方式很單純：每個實體或邏輯捲分為相同容量的塊，對應至 LVM。新增磁碟就是新增實體捲，新塊關連至任意的捲群組。可以擴充捲群組內的分區以得到更多空間。"
 
 msgid "The partitioning tool configures LVM in several steps. First you must create on the existing disks the partitions that will be “physical volumes for LVM”. To activate LVM, you need to choose “Configure the Logical Volume Manager (LVM)”, then on the same configuration screen “Create a volume group”, to which you will associate the existing physical volumes. Finally, you can create logical volumes within this volume group. Note that the automatic partitioning system can perform all these steps automatically."
-msgstr ""
+msgstr "分割工具以幾個步驟組態 LVM。首先在現有磁碟新增分區 “LVM 實體捲” 分區。選擇 “組態邏輯捲管理 (LVM)” 以啟動 LVM，就能關聯至現有的實體捲。最後，在此捲群組內新增邏輯捲。自動分割系統可以自動執行這些工作。"
 
 msgid "In the partitioning menu, each physical volume will appear as a disk with a single partition which can not be deleted, but that you can use as desired."
-msgstr ""
+msgstr "在分割選單內，每個實體捲顯示為一個不能刪除的分區磁碟，但可任意使用。"
 
 msgid "The usage of LVM is described in further detail in <xref linkend=\"sect.lvm\" />."
-msgstr ""
+msgstr "LVM 的用法詳述於 <xref linkend=\"sect.lvm\" />。"
 
 msgid "Setting Up Encrypted Partitions"
-msgstr ""
+msgstr "設定加密分區"
 
 msgid "<primary>LUKS</primary>"
-msgstr ""
+msgstr "<primary>LUKS</primary>"
 
 msgid "<primary>dm-crypt</primary>"
-msgstr ""
+msgstr "<primary>dm-crypt</primary>"
 
 msgid "<primary>partition</primary><secondary>encrypted</secondary>"
-msgstr ""
+msgstr "<primary>分區</primary><secondary>加密</secondary>"
 
 msgid "<primary>partition encryption</primary>"
-msgstr ""
+msgstr "<primary>加密分區</primary>"
 
 msgid "<primary>confidentiality</primary><secondary>files</secondary>"
-msgstr ""
+msgstr "<primary>保密</primary><secondary>檔案</secondary>"
 
 msgid "<primary>file</primary><secondary>confidentiality</secondary>"
-msgstr ""
+msgstr "<primary>檔案</primary><secondary>保密</secondary>"
 
 msgid "To guarantee the confidentiality of your data, for instance in the event of the loss or theft of your computer or a hard drive, it is possible to encrypt the data on some partitions. This feature can be added underneath any filesystem, since, as for LVM, Linux (and more particularly the dm-crypt driver) uses the Device Mapper to create a virtual partition (whose content is protected) based on an underlying partition that will store the data in an encrypted form (thanks to LUKS, Linux Unified Key Setup, a standard format that enables the storage of encrypted data as well as meta-information that indicates the encryption algorithms used)."
-msgstr ""
+msgstr "為了保障資料的保密，電腦或磁碟遺失或失竊時，必須對部份分區加密。此功能係對檔案系統加密，以 LVM 為例，Linux (及特定的 dm-crypt 驅動程式) 採用 Device Mapper 新增虛擬分區 (保護其內容)，係在分區之下以加密形式儲存資料 (感謝 LUKS，即 Linux Unified Key Setup 的縮寫，它是一種標準格式，以加密方式儲存資料及加密演算法的元資訊標準格式)。"
 
 msgid "<emphasis>SECURITY</emphasis> Encrypted swap partition"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 加密交換分區"
 
 msgid "When an encrypted partition is used, the encryption key is stored in memory (RAM). Since retrieving this key allows the decryption of the data, it is of utmost importance to avoid leaving a copy of this key that would be accessible to the possible thief of the computer or hard drive, or to a maintenance technician. This is however something that can easily occur with a laptop, since when hibernating the contents of RAM is stored on the swap partition. If this partition isn't encrypted, the thief may access the key and use it to decrypt the data from the encrypted partitions. This is why, when you use encrypted partitions, it is imperative to also encrypt the swap partition!"
-msgstr ""
+msgstr "使用加密分區時，加密鑰匙儲存於記憶體 (RAM) 內。此鑰匙是解密資料的關鍵，必須避免置於可能失竊的電腦或磁碟內、也不能交給維護技師。長時間未使用，筆電進入待機狀態，其 RAM 節內容儲存在交換分區。若該分區未加密，旁人可能進入該鑰匙並用以進入加密的分區，解密其中的資料。所以，使用加密分區時，同時要加密交換分區！"
 
 msgid "The Debian installer will warn the user if they try to make an encrypted partition while the swap partition isn't encrypted."
-msgstr ""
+msgstr "使用加密分區但未加密交換分區時，Debian 安裝器將提出警示。"
 
 msgid "To create an encrypted partition, you must first assign an available partition for this purpose. To do so, select a partition and indicate that it is to be used as a “physical volume for encryption”. After partitioning the disk containing the physical volume to be made, choose “Configure encrypted volumes”. The software will then propose to initialize the physical volume with random data (making the localization of the real data more difficult), and will ask you to enter an “encryption passphrase”, which you will have to enter every time you boot your computer in order to access the content of the encrypted partition. Once this step has been completed, and you have returned to the partitioning tool menu, a new partition will be available in an “encrypted volume”, which you can then configure just like any other partition. In most cases, this partition is used as a physical volume for LVM so as to protect several partitions (LVM logical volumes) with the same encryption key, including the swap partition (see sidebar <xref linkend=\"sidebar.encrypted-swap-partition\" />)."
-msgstr ""
+msgstr "新增加密分區時，必須先指定可用的分區。就是指定一個分區，做為 “加密的實體捲”。分割有實體捲的磁碟後，選擇 “組態加密捲”。軟體將以隨機的資料起始實體捲 (讓旁人難以取得實際的資料)，並要求鍵入 “加密句子”，做為每次開機進入加密分區的鑰匙。完成此步驟後，回到分割工具選單，出現標記為 “加密捲” 的新分區，就可以像其他分區一樣組態它。大部份情況下，此分區用於 LVM 實體捲以相同的鑰匙保護其他的分區 (LVM 邏輯捲)，包括交換區 (見專欄 <xref linkend=\"sidebar.encrypted-swap-partition\" />)。"
 
 msgid "Installing the Base System"
-msgstr ""
+msgstr "安裝基本系統"
 
 msgid "<primary>system</primary><secondary>base</secondary>"
-msgstr ""
+msgstr "<primary>系統</primary><secondary>基本</secondary>"
 
 msgid "This step, which doesn't require any user interaction, installs the Debian “base system” packages. This includes the <command>dpkg</command> and <command>apt</command> tools, which manage Debian packages, as well as the utilities necessary to boot the system and start using it."
-msgstr ""
+msgstr "此步驟不需要使用者的參與，純粹安裝 Debian 的 “基本系統” 套件。包括 <command>dpkg</command> 與 <command>apt</command> 工具，用於管理 Debian 套件，以及啟動系統與起始所需的公用程式。"
 
 msgid "Installation of the base system"
-msgstr ""
+msgstr "安裝基本系統"
 
 msgid "Configuring the Package Manager (<command>apt</command>)"
-msgstr ""
+msgstr "組態套件管理器 (<command>apt</command>)"
 
 msgid "<primary>configuration</primary><secondary>initial configuration of APT</secondary>"
-msgstr ""
+msgstr "<primary>組態</primary><secondary>初始組態 APT</secondary>"
 
 msgid "<primary>APT</primary><secondary>initial configuration</secondary>"
-msgstr ""
+msgstr "<primary>APT</primary><secondary>初始組態</secondary>"
 
 msgid "In order to be able to install additional software, APT needs to be configured and told where to find Debian packages. This step is as automated as possible. It starts with a question asking if it must use a network source for packages, or if it should only look for packages on the CD-ROM."
-msgstr ""
+msgstr "為了安裝其他軟體，需先組態 APT 並告知 Debian 套件的位置。此步驟儘量自動化。先問是否可上網下載套件原始碼，或者祗從 CD-ROM 讀取套件。"
 
 msgid "<emphasis>NOTE</emphasis> Debian CD-ROM in the drive"
-msgstr ""
+msgstr "<emphasis>說明</emphasis> 光碟機內的 Debian CD-ROM"
 
 msgid "If the installer detects a Debian installation disk in the CD/DVD reader, it is not necessary to configure APT to go looking for packages on the network: APT is automatically configured to read packages from a removable media drive. If the disk is part of a set, the software will offer to “explore” other disks in order to reference all of the packages stored on them."
-msgstr ""
+msgstr "安裝器若偵測到光碟機內已放置 Debian 安裝光碟，則不需要組態 APT 去讀取網路的套件：APT 自動組態讀取該光碟。若光碟不是成套完整的，則軟體會提供  “explore” 其他光碟以便取得所有套件。"
 
 msgid "If getting packages from the network is requested, the next two questions allow to choose a server from which to download these packages, by choosing first a country, then a mirror available in that country (a mirror is a public server hosting copies of all the files of the Debian master archive)."
-msgstr ""
+msgstr "若選擇從網路取得套件，接著詢問兩個問題選定下載套件的伺服器，國家，以及鏡射站 (就是可取得 Debian 檔案的公共伺服器)。"
 
 msgid "Selecting a Debian mirror"
-msgstr ""
+msgstr "選擇 Debian 鏡射站"
 
 msgid "Finally, the program proposes to use an HTTP proxy. If there is no proxy, Internet access will be direct. If you type <literal>http://proxy.falcot.com:3128</literal>, APT will use the Falcot <foreignphrase>proxy/cache</foreignphrase>, a “Squid” program. You can find these settings by checking the configurations of a web browser on another machine connected to the same network."
-msgstr ""
+msgstr "最後，提示使用 HTTP 代理伺服器 。若無，則直接近用網際網路。若鍵入 <literal>http://proxy.falcot.com:3128</literal>，則 APT 將使用 Falcot <foreignphrase>proxy/cache</foreignphrase>，就是 “Squid” 程式。經由相同網路的另部機器檢查其瀏覽器的組態即可找到這些設定。"
 
 msgid "The files <filename>Packages.gz</filename> and <filename>Sources.gz</filename> are then automatically downloaded to update the list of packages recognized by APT."
-msgstr ""
+msgstr "然後，自動下載 <filename>Packages.gz</filename> 與 <filename>Sources.gz</filename> 被 APT 下載並更新套件清單。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> HTTP proxy"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> HTTP 代理伺服器"
 
 msgid "<primary>proxy</primary>"
-msgstr ""
+msgstr "<primary>代理伺服器</primary>"
 
 msgid "<primary>proxy cache</primary>"
-msgstr ""
+msgstr "<primary>代理伺服器快取</primary>"
 
 msgid "<primary>cache, proxy</primary>"
-msgstr ""
+msgstr "<primary>快取，代理伺服器</primary>"
 
 msgid "<primary>Squid</primary>"
-msgstr ""
+msgstr "<primary>Squid</primary>"
 
 msgid "An HTTP proxy is a server that forwards an HTTP request for network users. It sometimes helps to speed up downloads by keeping a copy of files that have been transferred through it (we then speak of proxy/cache). In some cases, it is the only means of accessing an external web server; in such cases it is essential to answer the corresponding question during installation for the program to be able to download the Debian packages through it."
-msgstr ""
+msgstr "HTTP 代理伺服器改變網路使用者的 HTTP 請求。有時加速下載檔案速度 (我們稱它為代理/快取)。有時，祗是近用外部網頁伺服器 ；在此情況下必須在安裝時回答問題才能下載 Debian 套件。"
 
 msgid "Squid is the name of the server software used by Falcot Corp to offer this service."
-msgstr ""
+msgstr "Squid 是 Falcot 公司製作的軟體用以提供該等服務。"
 
 msgid "Debian Package Popularity Contest"
-msgstr ""
+msgstr "Debian 套件流行競賽"
 
 msgid "The Debian system contains a package called <emphasis role=\"pkg\">popularity-contest</emphasis>, whose purpose is to compile package usage statistics. Each week, this program collects information on the packages installed and those used recently, and anonymously sends this information to the Debian project servers. The project can then use this information to determine the relative importance of each package, which influences the priority that will be granted to them. In particular, the most “popular” packages will be included in the installation CD-ROM, which will facilitate their access for users who do not wish to download them or to purchase a complete set."
-msgstr ""
+msgstr "Debian 系統有個稱為流行競賽 <emphasis role=\"pkg\">popularity-contest</emphasis> 的套件，其目的是計算套件的使用程度。每週，此程式蒐集被安裝與使用的套件資訊，並以匿名方式將此資訊送給 Debian 計畫伺服器。以此資訊決定各套件的相對重要性，給予權重進而影響其優先度。特別的是，把最 “流行” 的套件納入安裝 CD-ROM，供給那些不想下載也不想購買整套 CD 的使用者。"
 
 msgid "This package is only activated on demand, out of respect for the confidentiality of users' usage."
-msgstr ""
+msgstr "此套件祗是隨選啟用，尊重使用者的隱私。"
 
 msgid "Selecting Packages for Installation"
-msgstr ""
+msgstr "選擇安裝的套件"
 
 msgid "The following step allows you to choose the purpose of the machine in very broad terms; the ten suggested tasks correspond to lists of packages to be installed. The list of the packages that will actually be installed will be fine-tuned and completed later on, but this provides a good starting point in a simple manner."
-msgstr ""
+msgstr "下個步驟允許您選擇機器的用途；列出10個供安裝套件之用。實際安裝並可在稍後調校此套件的清單，現在祗是開始安裝而已。"
 
 msgid "Some packages are also automatically installed according to the hardware detected (thanks to the program <command>discover-pkginstall</command> from the <emphasis role=\"pkg\">discover</emphasis> package). For instance, if a VirtualBox virtual machine is detected, the program will install the <emphasis role=\"pkg\">virtualbox-guest-dkms</emphasis> package, allowing for better integration of the virtual machine with the host system."
-msgstr ""
+msgstr "根據硬體偵測的結果 (感謝 <command>discover-pkginstall</command> 程式，源自於 <emphasis role=\"pkg\">discover</emphasis> 套件) 自動安裝部份套件。例如，若偵測到 VirtualBox 虛擬機器，會安裝 <emphasis role=\"pkg\">virtualbox-guest-dkms</emphasis> 套件，提供較佳的整合。"
 
 msgid "Task choices"
-msgstr ""
+msgstr "安裝選擇"
 
 msgid "Installing the GRUB Bootloader"
-msgstr ""
+msgstr "安裝 GRUB 啟動程式"
 
 msgid "<primary>GRUB</primary>"
-msgstr ""
+msgstr "<primary>GRUB</primary>"
 
 msgid "The bootloader is the first program started by the BIOS. This program loads the Linux kernel into memory and then executes it. It often offers a menu that allows the user to choose the kernel to load and/or the operating system to boot."
-msgstr ""
+msgstr "啟動程式是 BIOS 啟用的第一個程式。載入 Linux 核心於記憶體並執行它。通常以選單方式允許使用者選擇載入的核心與啟動的作業系統。"
 
 msgid "<emphasis>BEWARE</emphasis> Bootloader and dual boot"
-msgstr ""
+msgstr "<emphasis>注意</emphasis> 啟動程式與雙重開機"
 
 msgid "This phase in the Debian installation process detects the operating systems that are already installed on the computer, and automatically adds corresponding entries in the boot menu, but not all installation programs do this."
-msgstr ""
+msgstr "在 Debian 的安裝過程裡此步驟偵測電腦是否已安裝其他作業系統，在啟動選單裡自動加入對應的條目，可是有些安裝程式不會這麼做。"
 
 msgid "In particular, if you install (or reinstall) Windows thereafter, the bootloader will be erased. Debian will still be on the hard drive, but will no longer be accessible from the boot menu. You would then have to boot the Debian installation system in <userinput>rescue</userinput> mode to set up a less exclusive bootloader. This operation is described in detail in the installation manual. <ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch08s07.html\" />"
-msgstr ""
+msgstr "特別注意，事後再安裝視窗作業系統的話，啟動程式將被刪除。Debian 仍在磁碟內，但不列在啟動選單內。必須從 <userinput>救援</userinput> 模式設定較不排它的啟動程式才能啟動 Debian 安裝系統。詳情見本安裝手冊。<ulink type=\"block\" url=\"http://www.debian.org/releases/stable/amd64/ch08s07.html\" />"
 
 msgid "By default, the menu proposed by GRUB contains all the installed Linux kernels, as well as any other operating systems that were detected. This is why you should accept the offer to install it in the Master Boot Record. Since keeping older kernel versions preserves the ability to boot the same system if the most recently installed kernel is defective or poorly adapted to the hardware, it often makes sense to keep a few older kernel versions installed."
-msgstr ""
+msgstr "GRUB 預設的選單，包括所有安裝的 Linux 核心，以及偵測到的其他作業系統。所以應該接受主安裝記錄的內容。若較新的核心故障或無法適用應體時，保留的舊核心就能派上用場，所以應保留舊版本的核心。"
 
 msgid "GRUB is the default bootloader installed by Debian thanks to its technical superiority: it works with most filesystems and therefore doesn't require an update after each installation of a new kernel, since it reads its configuration during boot and finds the exact position of the new kernel. Version 1 of GRUB (now known as “Grub Legacy”) couldn't handle all combinations of LVM and software RAID; version 2, installed by default, is more complete. There may still be situations where it is more recommendable to install LILO (another bootloader); the installer will suggest it automatically."
-msgstr ""
+msgstr "GRUB 是 Debian 預設的啟動程式：適用於大部份檔案系統，安裝新核心後也不需更新它，在啟動階段讀取其組態並在新核心內找到正確的位置。GRUB 第一版 (又稱為 “Grub Legacy”) 無法處理 LVM 與軟體 RAID 的組合；現在預設安裝的第二版，較為完整。建議用來取代 LILO (另個啟動程式)；安裝器會自動提示。"
 
 msgid "For more information on configuring GRUB, please refer to <xref linkend=\"sect.config-grub\" />."
-msgstr ""
+msgstr "組態 GRUB 的詳情，請參見 <xref linkend=\"sect.config-grub\" />。"
 
 msgid "<emphasis>BEWARE</emphasis> Bootloaders and architectures"
-msgstr ""
+msgstr "<emphasis>注意</emphasis> 啟動程式與架構"
 
 msgid "LILO and GRUB, which are mentioned in this chapter, are bootloaders for <emphasis>i386</emphasis> and <emphasis>amd64</emphasis> architectures. If you install Debian on another architecture, you will need to use another bootloader. Among others, we can cite <command>yaboot</command> or <command>quik</command> for <emphasis>powerpc</emphasis>, <command>silo</command> for <emphasis>sparc</emphasis>, <command>aboot</command> for <emphasis>alpha</emphasis>, <command>arcboot</command> for <emphasis>mips</emphasis>."
-msgstr ""
+msgstr "本章提到的 LILO 與 GRUB，都是 <emphasis>i386</emphasis> 和 <emphasis>amd64</emphasis> 架構的啟動程式。在其他架構安裝 Debian，需要 <command>yaboot</command> 或 <command>quik</command> 給 <emphasis>powerpc</emphasis> 使用、<command>silo</command> 給 <emphasis>sparc</emphasis> 使用、<command>aboot</command> 給 <emphasis>alpha</emphasis> 使用、<command>arcboot</command> 給 <emphasis>mips</emphasis> 使用。"
 
 msgid "Finishing the Installation and Rebooting"
-msgstr ""
+msgstr "安裝完成並重開機"
 
 msgid "The installation is now complete, the program invites you to remove the CD-ROM from the reader and to restart the computer."
-msgstr ""
+msgstr "安裝已完成，請移除 CD-ROM 並重開機。"
 
 msgid "After the First Boot"
-msgstr ""
+msgstr "首次啟動之後"
 
 msgid "If you activated the task “Debian desktop environment” without any explicit desktop choice (or with the “GNOME” choice), the computer will display the <command>gdm3</command> login manager."
-msgstr ""
+msgstr "沒有任何明確的選擇 (或使用 “GNOME” 選項) 就啟動 “Debian 桌面環境”，電腦會顯示 <command>gdm3</command> 登入管理員。"
 
 msgid "First boot"
-msgstr ""
+msgstr "首次啟動"
 
 msgid "The user that has already been created can then log in and begin working immediately."
-msgstr ""
+msgstr "已建立的使用者可以登錄並立即開始工作。"
 
 msgid "Installing Additional Software"
-msgstr ""
+msgstr "安裝其他軟體"
 
 msgid "The installed packages correspond to the profiles selected during installation, but not necessarily to the use that will actually be made of the machine. As such, you might want to use a package management tool to refine the selection of installed packages. The two most frequently used tools (which are installed if the “Debian desktop environment” profile was chosen) are <command>apt</command> (accessible from the command line) and <command>synaptic</command> (“Synaptic Package Manager” in the menus)."
-msgstr ""
+msgstr "安裝的套件符合當初選定的，但不見得符合實際的需要。在此情況下，需使用套件管理工具微調選定的安裝套件。最常用的工具 (已安裝於 “Debian 桌面環境”) 是 <command>apt</command> (從命令進入) 與 <command>synaptic</command> (位於選單內的 “Synaptic 套件管理器”)。"
 
 msgid "To facilitate the installation of coherent groups of programs, Debian creates “tasks” that are dedicated to specific uses (mail server, file server, etc.). You already had the opportunity to select them during installation, and you can access them again thanks to package management tools such as <command>aptitude</command> (the tasks are listed in a distinct section) and <command>synaptic</command> (through the menu <menuchoice> <guimenu>Edit</guimenu> <guimenuitem>Mark Packages by Task…</guimenuitem> </menuchoice>)."
-msgstr ""
+msgstr "為了保法安裝程式的一致性，Debian 新增特定用途的 “任務” (郵件伺服器、檔案伺服器等)。在安裝過程中曾經選擇過，現在還可利用套件管理工具 <command>aptitude</command> (其任務列在不同的區塊) 與 <command>synaptic</command> (經由選單 <menuchoice> <guimenu>Edit</guimenu> <guimenuitem>Mark Packages by Task…</guimenuitem> </menuchoice>)等，再選擇一次。"
 
 msgid "Aptitude is an interface to APT in full-screen text mode. It allows the user to browse the list of available packages according to various categories (installed or not-installed packages, by task, by section, etc.), and to view all of the information available on each of them (dependencies, conflicts, description, etc.). Each package can be marked “install” (to be installed, <keycap>+</keycap> key) or “remove” (to be removed, <keycap>-</keycap> key). All of these operations will be conducted simultaneously once you've confirmed them by pressing the <keycap>g</keycap> key (“g” for “go!”). If you have forgotten some programs, no worries; you will be able to run <command>aptitude</command> again once the initial installation has been completed."
-msgstr ""
+msgstr "Aptitude 是 APT 的全螢幕文字模式。允許使用者依類別瀏覽可用的套件清單 (已安裝或待安裝套件，依任務或區塊分類)，並檢視相關的資訊 (相依性、衝突、說明等)。每個套件可標示為 “安裝” (可以安裝，<keycap>+</keycap> 鍵) 或 “移除” (可移除，<keycap>-</keycap> 鍵)。按. All of these operations will be conducted simultaneously once you've confirmed them by pressing the <keycap>g</keycap> 鍵(“g” 表示 “go!”) 確認後就會同時執行該等作業。若您忘了曾安裝的套件，別擔心；祗要在安裝完成後再執行 <command>aptitude</command> 命令即可。"
 
 msgid "<primary>aptitude</primary>"
-msgstr ""
+msgstr "<primary>aptitude</primary>"
 
 msgid "<emphasis>TIP</emphasis> Debian thinks of speakers of non-English languages"
-msgstr ""
+msgstr "<emphasis>技巧</emphasis> Debian 為非英語系使用者著想"
 
 msgid "Several tasks are dedicated to the localization of the system in other languages beyond English. They include translated documentation, dictionaries, and various other packages useful for speakers of different languages. The appropriate task is automatically selected if a non-English language was chosen during installation."
-msgstr ""
+msgstr "若干任務專門用於在地化系統為英語以外的語系。包括翻譯文件、字典、與供其他語系使用的套件。安裝過程已選擇非英語的語系，則自動執行適當的任務。"
 
 msgid "<emphasis>CULTURE</emphasis> <command>dselect</command>, the old interface to install packages"
-msgstr ""
+msgstr "<emphasis>文化</emphasis> <command>dselect</command>，安裝套件的舊介面"
 
 msgid "Before <command>aptitude</command>, the standard program to select packages to be installed was <command>dselect</command>, the old graphical interface associated with <command>dpkg</command>. Being a difficult program for beginners to use, it is not recommended."
-msgstr ""
+msgstr "<command>aptitude</command> 問世前，標準的選擇套件為 <command>dselect</command>，採用 <command>dpkg</command> 安裝的舊介面。對初學者有點難度，不建議使用它。"
 
 msgid "<primary><command>dselect</command></primary>"
-msgstr ""
+msgstr "<primary><command>dselect</command></primary>"
 
 msgid "Of course, it is possible not to select any task to be installed. In this case, you can manually install the desired software with the <command>apt-get</command> or <command>aptitude</command> command (which are both accessible from the command line)."
 msgstr ""
+"當然，不能選擇已安裝的任務。在這種情況下，可以\n"
+"用 <command>apt-get</command> 或 <command>aptitude</command> 命令 (都可從命令列使用) 安裝指定的軟體。"
 
 msgid "<emphasis>VOCABULARY</emphasis> Package dependencies, conflicts"
-msgstr ""
+msgstr "<emphasis>術語</emphasis> 套件相依性、衝突"
 
 msgid "In the Debian packaging lingo, a “dependency” is another package necessary for the proper functioning of the package in question. Conversely, a “conflict” is a package that can not be installed side-by-side with another."
-msgstr ""
+msgstr "在 Debian 的套件管理中，“相依性” 係指另個套件中的某個功能恰是滿足本套件所需。反過來說，“衝突” 係指不能同時併存的兩個套件。"
 
 msgid "These concepts are discussed in greater detail in <xref linkend=\"packaging-system\" />."
-msgstr ""
+msgstr "這些概念的詳情在 <xref linkend=\"packaging-system\" />。"
 
 msgid "Upgrading the System"
-msgstr ""
+msgstr "系統升級"
 
 msgid "<primary>safe-upgrade</primary>"
-msgstr ""
+msgstr "<primary>安全升級</primary>"
 
 msgid "A first <command>aptitude safe-upgrade</command> (a command used to automatically update installed programs) is generally required, especially for possible security updates issued since the release of the latest Debian stable version. These updates may involve some additional questions through <command>debconf</command>, the standard Debian configuration tool. For further information on these updates conducted by <command>aptitude</command>, please refer to <xref linkend=\"sect.apt-upgrade\" />."
-msgstr ""
+msgstr "首先 <command>aptitude safe-upgrade</command> (自動升級安裝程式) 是必要的，特別是最新版的 Debian 穩定版釋出後的安全升級。這些升級可能涉及 Debian 標準組態工具 <command>debconf</command> 碰到的額外問題。執行 <command>aptitude</command> 命令的詳情，請參見 <xref linkend=\"sect.apt-upgrade\" />。"
