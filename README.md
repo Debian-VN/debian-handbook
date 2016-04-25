@@ -1,4 +1,4 @@
-### Hướng dẫn dịch xem tại [Debian VN](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
+﻿### Hướng dẫn dịch xem tại [Debian VN](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
 ### Các bài nhận dịch
 Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
 Nhiều người một bản dịch, không sao cả =D
@@ -16,7 +16,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 02_case-study.po
-
+ - [ManhNT](https://github.com/zer0-x)
 
 - 03_existing-setup.po
 
