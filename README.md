@@ -12,6 +12,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 01_the-debian-project.po
+ - [Mốc Meo](https://github.com/orgs/Debian-VN/people/mocmeo)
 
 
 - 02_case-study.po
