@@ -22,6 +22,7 @@ Nhiều người một bản dịch, không sao cả =D
  - [ĐẠI ĐV](https://github.com/daikk115)
 
 - 04_installation.po
+ - [ĐẠI ĐV](https://github.com/daikk115)
 
 
 - 05_packaging-system.po
