@@ -19,7 +19,7 @@ Nhiều người một bản dịch, không sao cả =D
  - [ManhNT](https://github.com/zer0-x)
 
 - 03_existing-setup.po
-
+ - [ĐẠI ĐV](https://github.com/daikk115)
 
 - 04_installation.po
 
