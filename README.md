@@ -4,16 +4,13 @@ Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa RE
 Nhiều người một bản dịch, không sao cả =D
 
 - 00a_preface.po
- - [Giáp Trần](https://github.com/orgs/Debian-VN/people/TxGVNN)
-
+ - [Giáp Trần](https://github.com/TxGVNN)
 
 - 00b_foreword.po
- - [Bông Bông](https://github.com/orgs/Debian-VN/people/MathenJee)
-
+ - [Bông Bông](https://github.com/MathenJee)
 
 - 01_the-debian-project.po
- - [Mốc Meo](https://github.com/orgs/Debian-VN/people/mocmeo)
-
+ - [Mốc Meo](https://github.com/mocmeo)
 
 - 02_case-study.po
  - [ManhNT](https://github.com/zer0-x)
@@ -24,9 +21,8 @@ Nhiều người một bản dịch, không sao cả =D
 - 04_installation.po
  - [ĐẠI ĐV](https://github.com/daikk115)
 
-
 - 05_packaging-system.po
-
+ - [Giáp Trần](https://github.com/TxGVNN)
 
 - 06_apt.po
 
@@ -80,4 +76,3 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - Revision_History.po
-
