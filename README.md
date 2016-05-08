@@ -49,6 +49,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 14_security.po
+ - [Hoàng Nghiêm](https://github.com/hoangktmm) 
 
 
 - 15_debian-packaging.po
