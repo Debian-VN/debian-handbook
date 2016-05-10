@@ -40,6 +40,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 11_network-services.po
+ - [ĐĂNG ĐỖ](https://github.com/dnhdang94)
 
 
 - 12_advanced-administration.po
