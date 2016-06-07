@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2014-01-31T10:09:32\n"
-"PO-Revision-Date: 2016-05-22 09:54+0000\n"
-"Last-Translator: Дмитрий Михирев <bizdelnick@gmail.com>\n"
+"PO-Revision-Date: 2016-06-07 09:52+0000\n"
+"Last-Translator: Dmitry Mikhirev <mikhirev@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/ru/>\n"
 "Language: ru-RU\n"
 "MIME-Version: 1.0\n"
@@ -715,9 +715,9 @@ msgid "Each time someone logs in over SSH, the remote server asks for a password
 msgstr "При каждом входе по SSH удалённый сервер запрашивает пароль, чтобы аутентифицировать пользователя. Это может создать проблему, если хочется автоматизировать соединение, или если используется некий инструмент, которому нужно часто устанавливать соединения через SSH. По этой причине в SSH предусмотрен механизм аутентификации по ключу."
 
 #. Tag: para
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "The user generates a key pair on the client machine with <command>ssh-keygen -t rsa</command>; the public key is stored in <filename>~/.ssh/id_rsa.pub</filename>, while the corresponding private key is stored in <filename>~/.ssh/id_rsa</filename>. The user then uses <command>ssh-copy-id <replaceable>server</replaceable></command> to add their public key to the <filename>~/.ssh/authorized_keys</filename> file on the server. If the private key was not protected with a “passphrase” at the time of its creation, all subsequent logins on the server will work without a password. Otherwise, the private key must be decrypted each time by entering the passphrase. Fortunately, <command>ssh-agent</command> allows us to keep private keys in memory to not have to regularly re-enter the password. For this, you simply use <command>ssh-add</command> (once per work session) provided that the session is already associated with a functional instance of <command>ssh-agent</command>. Debian activates it by default in graphical sessions, but this can be deactivated by changing <filename>/etc/X11/Xsession.options</filename>. For a console session, you can manually start it with <command>eval $(ssh-agent)</command>."
-msgstr "Пользователь создаёт на клиентской машине пару ключей с помощью <command>ssh-keygen -t rsa</command>; публичный ключ сохраняется в <filename>~/.ssh/id_rsa.pub</filename>, а соответствующий ему секретный ключ — в <filename>~/.ssh/id_rsa</filename>. Затем пользователь с помощью команды <command>ssh-copy-id <replaceable>сервер</replaceable></command> добавляет публичный ключ в файл <filename>~/.ssh/authorized_keys</filename> на сервере."
+msgstr "Пользователь создаёт на клиентской машине пару ключей с помощью <command>ssh-keygen -t rsa</command>; публичный ключ сохраняется в <filename>~/.ssh/id_rsa.pub</filename>, а соответствующий ему секретный ключ — в <filename>~/.ssh/id_rsa</filename>. Затем пользователь с помощью команды <command>ssh-copy-id <replaceable>сервер</replaceable></command> добавляет публичный ключ в файл <filename>~/.ssh/authorized_keys</filename> на сервере. Если секретный ключ не был при создании защищён «парольной фразой», все последующие входы на сервер будут работать без пароля. В противном случае потребуется расшифровывать секретный ключ  каждый раз, вводя парольную фразу. К счастью, <command>ssh-agent</command> позволяет хранить секретные ключи в памяти, чтобы не приходилось то и дело вводить пароль. Для этого ипользуется <command>ssh-add</command> (однократно за рабочую сессию) при условии, что сессия уже ассощиирована с работающим экземпляром <command>ssh-agent</command>. Debian активирует его по умолчанию в графических сессиях, но это можно отключить, изменив <filename>/etc/X11/Xsession.options</filename>. Для консольной сессии можно запустить его вручную с помощью <command>eval $(ssh-agent)</command>."
 
 #. Tag: title
 #, no-c-format
