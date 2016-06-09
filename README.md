@@ -1,4 +1,5 @@
 ﻿### Hướng dẫn dịch xem tại [Debian VN](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
+[![Build Status](https://travis-ci.org/Debian-VN/debian-handbook.svg?branch=master)](https://travis-ci.org/Debian-VN/debian-handbook)
 ### Các bài nhận dịch
 Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
 Nhiều người một bản dịch, không sao cả =D
