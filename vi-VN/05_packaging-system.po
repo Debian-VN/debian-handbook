@@ -46,7 +46,7 @@ msgid "<primary><command>ar</command></primary>"
 msgstr "<primary><command>ar</command></primary>"
 
 msgid "The Debian package format is designed so that its content may be extracted on any Unix system that has the classic commands <command>ar</command>, <command>tar</command>, and <command>gzip</command> (sometimes <command>xz</command> or <command>bzip2</command>). This seemingly trivial property is important for portability and disaster recovery."
-msgstr "Định dang gói Debian được thiết kế sao cho nội dung của nó có thể giải nén trên bất kì hệ thống Unix nào bằng câu lệnh cơ bản <command>ar</command>, <command>tar</command>, and <command>gzip</command> (sometimes <command>xz</command> or <command>bzip2</command>). Tính năng dừng như bình thường này quan trọng cho tính di động và khôi phục thảm hoạ."
+msgstr "Định dạng gói Debian được thiết kế sao cho nội dung của nó có thể giải nén trên bất kì hệ thống Unix nào bằng câu lệnh cơ bản <command>ar</command>, <command>tar</command>, and <command>gzip</command> (sometimes <command>xz</command> or <command>bzip2</command>). Tính năng dừng như bình thường này quan trọng cho tính di động và khôi phục thảm hoạ."
 
 msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice). If your system suffered some even more outrageous fortune, and even these don't work (maybe the deepest system libraries are missing?), you should try the static version of <command>busybox</command> (provided in the <emphasis role=\"pkg\">busybox-static</emphasis> package), which is even more self-contained, and provides subcommands such as <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
 msgstr "Thử tưởng tượng một ví dụ, rằng bạn đã lỡ xoá mất chương trình <command>dpkg</command>, và bạn không thể cài đặt các gói Debian.  <command>dpkg</command> trở thành gói của chính nó, nó sẽ có vẻ như hệ thống của bạn được thực hiện cho... May mắn thay, bạn hiểu về định dạng của một gói và bạn có thể tải tệp <filename>*.deb</filename> của gói <emphasis role=\"pkg\">dpkg</emphasis> và cài đặt nó bình thường (xem sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). Nếu thiếu một hoặc nhiều các chương trình <command>ar</command>, <command>tar</command> hoặc <command>gzip</command>/<command>xz</command>/<command>bzip2</command>, bạn sẽ chỉ cần sao chép chương trình thiếu từ một hệ thống khác (vì mỗi gói là một chương trình hoàn chỉnh, không phụ thuộc, một bản sao là đủ). Nếu hệ thống của bạn đã bị thiếu tài nguyên cần thiết, và thậm chí hệ thống không làm việc (có thể các thư viện sâu của hệ thống bị thiếu?), bạn có thể thử các phiên bản tĩnh của <command>busybox</command> (đã cung cấp trong gói <emphasis role=\"pkg\">busybox-static</emphasis> package), mà thậm chí còn nhiều hơn, cung cấp các câu lệnh con trên chính nó như <command>busybox ar</command>, <command>busybox tar</command> và <command>busybox gunzip</command>."
@@ -61,13 +61,13 @@ msgid "<primary>APT</primary>"
 msgstr ""
 
 msgid "<command>dpkg</command> is the program that handles <filename>.deb</filename> files, notably extracting, analyzing, and unpacking them."
-msgstr ""
+msgstr "<command>dpkg</command> là chương trình xử lý tệp tin <filename>.deb</filename>, chủ yếu cài đặt, phân tích và giải nén các tập tin."
 
 msgid "<command>APT</command> is a group of programs that allows the execution of higher-level modifications to the system: installing or removing a package (while keeping dependencies satisfied), updating the system, listing the available packages, etc."
-msgstr ""
+msgstr "<command>APT</command> là một nhóm các chương trình cho phép thực hiện các thay đổi cấp cao hơn tới hệ thống: cài đặt và xoá một gói (trong khi giữ phụ thuộc một cách tốt), cập nhật hệ thống, liệt kê các gói đã có, vân vân"
 
 msgid "As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
-msgstr ""
+msgstr "Đối với chương trình <command>ar</command>, cho phép xử lý tệp tin như: <command>ar t <replaceable>archive</replaceable></command> hiển thị danh sách các tệp tin ở trong một archive, <command>ar x <replaceable>archive</replaceable></command> giải nén các file từ archive vào thư mục đang làm việc, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> xoá một tệp tin từ archive, vân vân. Trang hướng dấn tất cả tính năng khác của lệnh này (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>). <command>ar</command> là một công cụ rất thô sơ mà một quản trị Unix sử dụng hiếm hoi. Nhưng các quản trị thường xuyên sử dụng <command>tar</command>, một chương trình quản lý và lưu trữ files phát triển hơn. Đây là lý do tịa sao nó rất dễ để khôi phục <command>dpkg</command> khi có sai sot nào đó. Bạn có thể chỉ cần tài gói Debian và giải nén nội dung từ tệp lưu trữ <filename>data.tar.gz</filename> vào thư mục gốc (<filename>/</filename>) của hệ thống."
 
 msgid ""
 "\n"
@@ -76,19 +76,19 @@ msgid ""
 msgstr ""
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Man page notation"
-msgstr ""
+msgstr "<emphasis>Trở về cơ bản</emphasis> Man page notation"
 
 msgid "It can be confusing for beginners to find references to “<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>” in the literature. This is generally a convenient means of referring to the man page entitled <literal>ar</literal> in section 1."
-msgstr ""
+msgstr "Có thể nhầm lần cho người mới bắt đầu để tham chiếu tới “<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>” trong các tài liệu. Đây là thường là một phương tiện tiện lợi để tham chiếu tới trang tài liệu <literal>ar</literal> trong nội dung 1"
 
 msgid "Sometimes this notation is also used to remove ambiguities, for example to distinguish between the <command>printf</command> command that can also be indicated by <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>1</manvolnum></citerefentry> and the <function>printf</function> function in the C programming language, which can also be referred to as <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>3</manvolnum></citerefentry>."
-msgstr ""
+msgstr "Đôi khi những ký hiệu này cũng được sử dụng để loại bỏ những mô hồ, ví dụ phân biệt giữa lệnh <command>printf</command> lệnh này có thể cũng được chỉ ra bởi <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>1</manvolnum></citerefentry> và hàm <function>printf</function> trong ngôn ngữ lập trình C, có thể được tham chiếu bằng <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>3</manvolnum></citerefentry>."
 
 msgid "<xref linkend=\"solving-problems\" /> discusses manual pages in further detail (see <xref linkend=\"sect.manual-pages\" />)."
-msgstr ""
+msgstr "<xref linkend=\"solving-problems\" /> thảo luận về trang hương dẫn chi tiết hơn (see <xref linkend=\"sect.manual-pages\" />)."
 
 msgid "Have a look at the content of a <filename>.deb</filename> file:"
-msgstr ""
+msgstr "Cái nhìn về nội dung trong tệp tin <filename>.deb</filename>"
 
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>ar t dpkg_1.17.23_amd64.deb</userinput>\n"
@@ -128,16 +128,16 @@ msgid ""
 msgstr ""
 
 msgid "As you can see, the <command>ar</command> archive of a Debian package is comprised of three files:"
-msgstr ""
+msgstr "Như bạn có thể thấy, <command>ar</command> lưu trữ của một gói Debian gồm có ba tập tin:"
 
 msgid "<filename>debian-binary</filename>. This is a text file which simply indicates the version of the <filename>.deb</filename> file used (in 2015: version 2.0)."
-msgstr ""
+msgstr "<filename>debian-binary</filename>. Đây là một tệp văn bản đơn thuần mà chỉ ra phiên bản của tệp <filename>.deb</filename> đã sử dụng (từ năm 2015: version 2.0)."
 
 msgid "<filename>control.tar.gz</filename>. This archive file contains all of the available meta-information, like the name and version of the package. Some of this meta-information allows package management tools to determine if it is possible to install or uninstall it, for example according to the list of packages already on the machine."
-msgstr ""
+msgstr "<filename>control.tar.gz</filename>. Đây là tệp nén chứa tất cả thông tin meta, giống như tên và phiên bản của gói. Một vài thông tin cho phép các công cụ quản lý gói xác định nếu nó có thể cài đặt hoặc gỡ bỏ được nó, ví dụ thể hiện danh sách các gói đã có trên máy tính."
 
 msgid "<filename>data.tar.gz</filename>. This archive contains all of the files to be extracted from the package; this is where the executable files, documentation, etc., are all stored. Some packages may use other compression formats, in which case the file will be named differently (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ)."
-msgstr ""
+msgstr "<filename>data.tar.gz</filename>. Đây là tệp nén chứa tất cả các tệp tin đã được xuất từ gói; đây là nơi các tệp thực thi, tài liệu, vân vân., được lưu trữ. Vài các gói có thể sử dụng bởi chuẩn nén khách, trong trường hợp đó tệp sẽ có tên khác (<filename>data.tar.bz2</filename> cho bzip2, <filename>data.tar.xz</filename> cho XZ)."
 
 msgid "Package Meta-Information"
 msgstr ""
