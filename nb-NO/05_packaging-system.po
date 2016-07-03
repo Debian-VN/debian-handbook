@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-04-13 14:19+0000\n"
+"PO-Revision-Date: 2016-07-18 00:51+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/05_packaging-system/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -10,85 +10,90 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "Binary package"
-msgstr ""
+msgstr "Binærpakke"
 
 msgid "Source package"
-msgstr ""
+msgstr "Kildepakke"
 
 msgid "dpkg"
-msgstr ""
+msgstr "dpkg"
 
 msgid "dependencies"
-msgstr ""
+msgstr "avhengigheter"
 
 msgid "conflict"
-msgstr ""
+msgstr "konflikt"
 
 msgid "Packaging System: Tools and Fundamental Principles"
-msgstr ""
+msgstr "Pakkesystem: Verktøy og grunnleggende prinsipper"
 
 msgid "As a Debian system administrator, you will routinely handle <filename>.deb</filename> packages, since they contain consistent functional units (applications, documentation, etc.), whose installation and maintenance they facilitate. It is therefore a good idea to know what they are and how to use them."
-msgstr ""
+msgstr "Som et Debian system administrator, vil du rutinemessig håndtere <filename>.deb</filename>-pakker, siden de inneholder konsistente funksjonelle enheter (programmer, dokumentasjon, etc.), som gjør installasjon og vedlikehold mulig. Det er derfor en god idé å vite hva de er og hvordan du bruker dem."
 
 msgid "This chapter describes the structure and contents of “binary” and “source” packages. The former are <filename>.deb</filename> files, directly usable by <command>dpkg</command>, while the latter contain the source code, as well as instructions for building binary packages."
-msgstr ""
+msgstr "Dette kapittelet beskriver strukturen og innholdet av \"binære\"- og \"kilde\"-pakker. De første er <filename>.deb</filename>-filer, som kan brukes direkte av <command>dpkg</command>, mens sistnevnte inneholder kildekoden, så vel som instruksjoner for å bygge binære pakker."
 
 msgid "Structure of a Binary Package"
-msgstr ""
+msgstr "Binær pakkestruktur"
 
 msgid "<primary>package</primary><secondary>binary package</secondary>"
 msgstr "<primary>pakke</primary><secondary>binærpakke</secondary>"
 
 msgid "<primary><command>ar</command></primary>"
-msgstr ""
+msgstr "<primary><command>ar</command></primary>"
 
 msgid "The Debian package format is designed so that its content may be extracted on any Unix system that has the classic commands <command>ar</command>, <command>tar</command>, and <command>gzip</command> (sometimes <command>xz</command> or <command>bzip2</command>). This seemingly trivial property is important for portability and disaster recovery."
-msgstr ""
+msgstr "Debian pakkeformat er utformet slik at innholdet kan pakkes ut i et Unix-system som har de klassiske kommandoer <command>ar</command>, <command>tar</command>, og <command>gzip</command> (sometimes <command>xz</command> eller <command>bzip2</command>). Denne tilsynelatende trivielle egenskapen er viktig for overførbarhet og gjenoppretting etter alvorlige uhell."
 
 msgid "Imagine, for example, that you mistakenly deleted the <command>dpkg</command> program, and that you could thus no longer install Debian packages. <command>dpkg</command> being a Debian package itself, it would seem your system would be done for... Fortunately, you know the format of a package and can therefore download the <filename>.deb</filename> file of the <emphasis role=\"pkg\">dpkg</emphasis> package and install it manually (see sidebar <xref linkend=\"sidebar.dpkg-apt-ar\" />). If by some misfortune one or more of the programs <command>ar</command>, <command>tar</command> or <command>gzip</command>/<command>xz</command>/<command>bzip2</command> have disappeared, you will only need to copy the missing program from another system (since each of these operates in a completely autonomous manner, without dependencies, a simple copy will suffice). If your system suffered some even more outrageous fortune, and even these don't work (maybe the deepest system libraries are missing?), you should try the static version of <command>busybox</command> (provided in the <emphasis role=\"pkg\">busybox-static</emphasis> package), which is even more self-contained, and provides subcommands such as <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
-msgstr ""
+msgstr "Forestill deg, for eksempel, at du ved en feil har slettet <command>dpkg</command>programmet, og at du ikkelenger kunne installere Debian pakker. Ettersom <command>dpkg</command> selv er en Debian pakke, det ville virke som om det var gjort for systemet ditt... Heldigvis vet du formatet for en pakke og kan derfor laste ned <filename>.deb</filename>-filen til <emphasis role=\"pkg\">dpkg</emphasis> pakken og installere den manuelt (se sidemeny <xref linkend=\"sidebar.dpkg-apt-ar\" />). Hvis, ved et uhell en eller flere av programmene <command>ar</command>, <command>tar</command> eller <command>gzip</command>/<command>xz</command>/<command>bzip2</command> har forsvunnet, tenger du bare å kopiere det manglende programmet fra et annet system (siden hver av disse opererer helt selvstendig, uten avhengigheter, er en enkel kopi tilstrekkelig). Hvis systemet møter en enda mer uheldig skjebne, slik at selv disse ikke fungerer (kanskje de dypeste systembiblioteker mangler?), skal du prøve den statiske versjonen av <command>busybox</command> (fremskaffet fra <emphasis role=\"pkg\">busybox-static</emphasis>-pakken), som er enda mer selvstendig, og gir delkommandoer som <command>busybox ar</command>, <command>busybox tar</command> and <command>busybox gunzip</command>."
 
 msgid "<emphasis>TOOLS</emphasis> <command>dpkg</command>, <command>APT</command> and <command>ar</command>"
-msgstr ""
+msgstr "<emphasis>TOOLS</emphasis> <command>dpkg</command>, <command>APT</command> and <command>ar</command>"
 
 msgid "<primary><command>dpkg</command></primary>"
-msgstr ""
+msgstr "<primary><command>dpkg</command></primary>"
 
 msgid "<primary>APT</primary>"
-msgstr ""
+msgstr "<primary>APT</primary>"
 
 msgid "<command>dpkg</command> is the program that handles <filename>.deb</filename> files, notably extracting, analyzing, and unpacking them."
-msgstr ""
+msgstr "<command>dpkg</command> er programmet som håndterer <filename>.deb</filename> filer, og spesielt pakker ut, analyserer og åpner dem."
 
 msgid "<command>APT</command> is a group of programs that allows the execution of higher-level modifications to the system: installing or removing a package (while keeping dependencies satisfied), updating the system, listing the available packages, etc."
-msgstr ""
+msgstr "<command>APT</command> er en gruppe av programmer som tillater utførelsen av høyere-nivå modifikasjoner i systemet: Installerer eller fjerner en pakke (mens du har kontroll på avhengighetene), oppdaterer av systemet, lister de tilgjengelige pakkene, etc."
 
 msgid "As for the <command>ar</command> program, it allows handling files of the same name: <command>ar t <replaceable>archive</replaceable></command> displays the list of files contained in such an archive, <command>ar x <replaceable>archive</replaceable></command> extracts the files from the archive into the current working directory, <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> deletes a file from the archive, etc. Its man page (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) documents all its other features. <command>ar</command> is a very rudimentary tool that a Unix administrator would only use on rare occasions, but admins routinely use <command>tar</command>, a more evolved archive and file management program. This is why it is easy to restore <command>dpkg</command> in the event of an erroneous deletion. You would only have to download the Debian package and extract the content from the <filename>data.tar.gz</filename> archive in the system's root (<filename>/</filename>):"
 msgstr ""
+"<command>ar</command> programmet, tillater håndtering av file \n"
+"med samme navn: <command>ar t <replaceable>archive</replaceable></command> viser listen over filende som er i et slikt arkiv, <command>ar x <replaceable>archive</replaceable></command> pakker ut filer fra arkivet til den katalogen som nå benyttes <command>ar d <replaceable>archive</replaceable> <replaceable>file</replaceable></command> sletter en fil fra arkivet etc. Hjelpesiden (<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>) dokumenter alle andre egenskaper.  <command>ar</command> er et svært elementert verktøy som en Unix administrator bare sjelden vil bruke, mens en admin bruker rutinemessig <command>tar</command>, et mer utviklet arkiv og filhåndteringsprogram. Dette er grunnen til at det er så enkelt å gjenopprette <command>dpkg</command> når  inntreffer en feilaktig slettinging inntreffer. Du trenger bare å laste ned Debian pakken og pakke ut innholdet fra <filename>data.tar.gz</filename>-arkivet i rotsystemet. (<filename>/</filename>):"
 
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>ar x dpkg_1.17.23_amd64.deb</userinput>\n"
 "<computeroutput># </computeroutput><userinput>tar -C / -p -xzf data.tar.gz</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>ar x dpkg_1.17.23_amd64.deb</userinput>\n"
+"<computeroutput># </computeroutput><userinput>tar -C / -p -xzf data.tar.gz</userinput>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Man page notation"
-msgstr ""
+msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> Man-side-merknad"
 
 msgid "It can be confusing for beginners to find references to “<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>” in the literature. This is generally a convenient means of referring to the man page entitled <literal>ar</literal> in section 1."
-msgstr ""
+msgstr "Det kan være forvirrende for nybegynnere å finne referanser til “<citerefentry><refentrytitle>ar</refentrytitle><manvolnum>1</manvolnum></citerefentry>” i litteraturen. Det er generelt en beleilig måte å vise til en \"man side med tittelen <literal>ar</literal> i seksjon 1."
 
 msgid "Sometimes this notation is also used to remove ambiguities, for example to distinguish between the <command>printf</command> command that can also be indicated by <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>1</manvolnum></citerefentry> and the <function>printf</function> function in the C programming language, which can also be referred to as <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>3</manvolnum></citerefentry>."
-msgstr ""
+msgstr "Noen ganger er denne merknaden også benyttet til å fjerne uklarheter, for eksmpel å skille mellom <command>printf</command>-kommandoen, som også kan indikeres av <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>1</manvolnum></citerefentry> og <function>printf</function>-fuksjonen i programspråket C, som også kan bli vist til som  <citerefentry><refentrytitle>printf</refentrytitle><manvolnum>3</manvolnum></citerefentry>."
 
 msgid "<xref linkend=\"solving-problems\" /> discusses manual pages in further detail (see <xref linkend=\"sect.manual-pages\" />)."
-msgstr ""
+msgstr "<xref linkend=\"solving-problems\" /> drøfter manuelle sider i større detalj (se <xref linkend=\"sect.manual-pages\" />)."
 
 msgid "Have a look at the content of a <filename>.deb</filename> file:"
-msgstr ""
+msgstr "Kasgt et blikk på innholdet i en <filename>.deb</filename>-fil:"
 
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>ar t dpkg_1.17.23_amd64.deb</userinput>\n"
@@ -126,39 +131,73 @@ msgid ""
 "$ </computeroutput><userinput>cat debian-binary</userinput>\n"
 "<computeroutput>2.0</computeroutput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>ar t dpkg_1.17.23_amd64.deb</userinput>\n"
+"<computeroutput>debian-binary\n"
+"control.tar.gz\n"
+"data.tar.gz\n"
+"$ </computeroutput><userinput>ar x dpkg_1.17.23_amd64.deb</userinput>\n"
+"<computeroutput>$ </computeroutput><userinput>ls</userinput>\n"
+"<computeroutput>control.tar.gz  data.tar.gz  debian-binary  dpkg_1.17.23_amd64.deb\n"
+"$ </computeroutput><userinput>tar tzf data.tar.gz | head -n 15</userinput>\n"
+"<computeroutput>./\n"
+"./var/\n"
+"./var/lib/\n"
+"./var/lib/dpkg/\n"
+"./var/lib/dpkg/parts/\n"
+"./var/lib/dpkg/info/\n"
+"./var/lib/dpkg/alternatives/\n"
+"./var/lib/dpkg/updates/\n"
+"./etc/\n"
+"./etc/logrotate.d/\n"
+"./etc/logrotate.d/dpkg\n"
+"./etc/dpkg/\n"
+"./etc/dpkg/dpkg.cfg.d/\n"
+"./etc/dpkg/dpkg.cfg\n"
+"./etc/alternatives/\n"
+"$ </computeroutput><userinput>tar tzf control.tar.gz</userinput>\n"
+"<computeroutput>./\n"
+"./conffiles\n"
+"./postinst\n"
+"./md5sums\n"
+"./prerm\n"
+"./preinst\n"
+"./control\n"
+"./postrm\n"
+"$ </computeroutput><userinput>cat debian-binary</userinput>\n"
+"<computeroutput>2.0</computeroutput>"
 
 msgid "As you can see, the <command>ar</command> archive of a Debian package is comprised of three files:"
-msgstr ""
+msgstr "Spom du kan se, <command>ar</command>-arkivet i en Debian pakke omfattes av tre filer:"
 
 msgid "<filename>debian-binary</filename>. This is a text file which simply indicates the version of the <filename>.deb</filename> file used (in 2015: version 2.0)."
-msgstr ""
+msgstr "<filename>debian-binary</filename>. Dette er en tekstfil som i enkelhet indikerer versjonen av den benyttede <filename>.deb</filename>-filen (i 2015: versjon 2.0)."
 
 msgid "<filename>control.tar.gz</filename>. This archive file contains all of the available meta-information, like the name and version of the package. Some of this meta-information allows package management tools to determine if it is possible to install or uninstall it, for example according to the list of packages already on the machine."
-msgstr ""
+msgstr "<filename>control.tar.gz</filename> Denne arkivfilen inneholder all tilgjengelig meta-informasjon, som navn og pakkens versjon. Noe av denne meta-informasjonen tillater  pakkehåndteringsverktøyene å fastslå om det er mulig å installere eller avinstallere den, for eksempel ut fra listen over pakker som allerede er på maskinen."
 
 msgid "<filename>data.tar.gz</filename>. This archive contains all of the files to be extracted from the package; this is where the executable files, documentation, etc., are all stored. Some packages may use other compression formats, in which case the file will be named differently (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ)."
-msgstr ""
+msgstr "<filename>data.tar.gz</filename>. Dette arkivet inneholder alle filene i pakken som kan pakkes ut. Dette er der kjørbare filer, dokumentasjon, etc., alle er lagret. Noen pakker kan bruke andre komprimeringsformater, og da filen vil bli navngitt annerledes (<filename>data.tar.bz2</filename> for bzip2, <filename>data.tar.xz</filename> for XZ)."
 
 msgid "Package Meta-Information"
-msgstr ""
+msgstr "Meta pakkeinformasjon"
 
 msgid "<primary>package meta-information</primary>"
-msgstr ""
+msgstr "<primary>package meta-information</primary>"
 
 msgid "<primary>package</primary><secondary>meta-information</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>meta-information</secondary>"
 
 msgid "The Debian package is not only an archive of files intended for installation. It is part of a larger whole, and it describes its relationship with other Debian packages (dependencies, conflicts, suggestions). It also provides scripts that enable the execution of commands at different stages in the package's lifecycle (installation, removal, upgrades). These data are used by the package management tools but are not part of the packaged software; they are, within the package, what is called its “meta-information” (information about other information)."
-msgstr ""
+msgstr "Debian-pakken er ikke bare et arkiv med filene skal installeres. Det er en del av en større helhet, og den beskriver forholdet til andre Debian-pakker (avhengigheter, konflikter, forslag). Den gir også skript som muliggjør kjøring av kommandoer på forskjellige stadier i pakken livssyklus (installasjon, fjerning, oppgraderinger). Disse dataene brukes av pakkens styringsverktøy, men er ikke en del av den pakkens programvare; I pakken er de det som kalles den \"meta-informasjon\" (informasjon om annen informasjon)."
 
 msgid "Description: the <filename>control</filename> File"
-msgstr ""
+msgstr "Bekrivelse; <filename>control</filename>-filen"
 
 msgid "<primary><filename>control</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>control</filename></primary>"
 
 msgid "This file uses a structure similar to email headers (as defined by RFC 2822). For example, for <emphasis role=\"pkg\">apt</emphasis>, the <filename>control</filename> file looks like the following:"
-msgstr ""
+msgstr "Denne filen bruker en struktur tilsvarende e-overskrifter (som definert av RFC 2822). For eksempel, for <emphasis role=\"pkg\">apt</emphasis>, ser <filename>control</filename>-filen ut som den følgende:"
 
 msgid ""
 "\n"
@@ -203,330 +242,373 @@ msgid ""
 "SHA1: 635d09fcb600ec12810e3136d51e696bcfa636a6\n"
 "SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>apt-cache show apt</userinput>\n"
+"<computeroutput>Package: apt\n"
+"Version: 1.0.9.6\n"
+"Installed-Size: 3788\n"
+"Maintainer: APT Development Team &lt;deity@lists.debian.org&gt;\n"
+"Architecture: amd64\n"
+"Replaces: manpages-it (&lt;&lt; 2.80-4~), manpages-pl (&lt;&lt; 20060617-3~), openjdk-6-jdk (&lt;&lt; 6b24-1.11-0ubuntu1~), sun-java5-jdk (&gt;&gt; 0), sun-java6-jdk (&gt;&gt; 0)\n"
+"Depends: libapt-pkg4.12 (&gt;= 1.0.9.6), libc6 (&gt;= 2.15), libgcc1 (&gt;= 1:4.1.1), libstdc++6 (&gt;= 4.9), debian-archive-keyring, gnupg\n"
+"Suggests: aptitude | synaptic | wajig, dpkg-dev (&gt;= 1.17.2), apt-doc, python-apt\n"
+"Conflicts: python-apt (&lt;&lt; 0.7.93.2~)\n"
+"Breaks: manpages-it (&lt;&lt; 2.80-4~), manpages-pl (&lt;&lt; 20060617-3~), openjdk-6-jdk (&lt;&lt; 6b24-1.11-0ubuntu1~), sun-java5-jdk (&gt;&gt; 0), sun-java6-jdk (&gt;&gt; 0)\n"
+"Description-en: commandline package manager\n"
+" This package provides commandline tools for searching and\n"
+" managing as well as querying information about packages\n"
+" as a low-level access to all features of the libapt-pkg library.\n"
+" .\n"
+" These include:\n"
+"  * apt-get for retrieval of packages and information about them\n"
+"    from authenticated sources and for installation, upgrade and\n"
+"    removal of packages together with their dependencies\n"
+"  * apt-cache for querying available information about installed\n"
+"    as well as installable packages\n"
+"  * apt-cdrom to use removable media as a source for packages\n"
+"  * apt-config as an interface to the configuration settings\n"
+"  * apt-key as an interface to manage authentication keys\n"
+"Description-md5: 9fb97a88cb7383934ef963352b53b4a7\n"
+"Tag: admin::package-management, devel::lang:ruby, hardware::storage,\n"
+" hardware::storage:cd, implemented-in::c++, implemented-in::perl,\n"
+" implemented-in::ruby, interface::commandline, network::client,\n"
+" protocol::ftp, protocol::http, protocol::ipv6, role::program,\n"
+" role::shared-lib, scope::application, scope::utility, sound::player,\n"
+" suite::debian, use::downloading, use::organizing, use::searching,\n"
+" works-with::audio, works-with::software:package, works-with::text\n"
+"Section: admin\n"
+"Priority: important\n"
+"Filename: pool/main/a/apt/apt_1.0.9.6_amd64.deb\n"
+"Size: 1107560\n"
+"MD5sum: a325ccb14e69fef2c50da54e035a4df4\n"
+"SHA1: 635d09fcb600ec12810e3136d51e696bcfa636a6\n"
+"SHA256: 371a559ce741394b59dbc6460470a9399be5245356a9183bbeea0f89ecaabb03</computeroutput>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RFC — Internet standards"
-msgstr ""
+msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> RFC — Internett-standarder"
 
 msgid "<primary>RFC</primary>"
-msgstr ""
+msgstr "<primary>RFC</primary>"
 
 msgid "<primary>Request For Comments</primary>"
-msgstr ""
+msgstr "<primary>Request For Comments</primary>"
 
 msgid "RFC is the abbreviation of “Request For Comments”. An RFC is generally a technical document that describes what will become an Internet standard. Before becoming standardized and frozen, these standards are submitted for public review (hence their name). The IETF (Internet Engineering Task Force) decides on the evolution of the status of these documents (proposed standard, draft standard, or standard)."
-msgstr ""
+msgstr "RFC er forkortelse for \"Request For Comments\" - Ønske om kommentarer. En RFC er generelt et teknisk dokument som beskriver hva som vil bli en Internett-standard. Før den blir standardisert og frosset, sendes disse standardene til offentlig gjennomsyn (derav navnet). IETF (Internet Engineering Task Force) avgjør utviklingen av status for disse dokumentene (foreslått standard, utkast til standard, eller standard)."
 
 msgid "RFC 2026 defines the process for standardization of Internet protocols. <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc2026.html\" />"
-msgstr ""
+msgstr "RFC 2026 definerer prosessen for standardisering av Internett-protokoller. <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc2026.html\" />"
 
 msgid "Dependencies: the <literal>Depends</literal> Field"
-msgstr ""
+msgstr "Avhengigheter: <literal>Depends</literal>-feltet"
 
 msgid "<primary>dependency</primary>"
-msgstr ""
+msgstr "<primary>dependency</primary>"
 
 msgid "<primary><literal>Depends</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Depends</literal>, header field</primary>"
 
 msgid "<primary>package</primary><secondary>dependency</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>dependency</secondary>"
 
 msgid "The dependencies are defined in the <literal>Depends</literal> field in the package header. This is a list of conditions to be met for the package to work correctly — this information is used by tools such as <command>apt</command> in order to install the required libraries, in appropriate versions fulfilling the dependencies of the package to be installed. For each dependency, it is possible to restrict the range of versions that meet that condition. In other words, it is possible to express the fact that we need the package <emphasis role=\"pkg\">libc6</emphasis> in a version equal to or greater than “2.15” (written “<command>libc6 (&gt;= 2.15)</command>”). Version comparison operators are as follows:"
-msgstr ""
+msgstr "Avhengighetene er definert i <literal>Depends</literal>-feltet i pakkens topptekst. Dette er en liste over vilkår som må oppfylles for pakken skal fungere riktig. Denne informasjonen blir brukt av verktøy som <command>apt</command> for å installere de forutsatte  biblioteker i riktige versjoner som tar hensyn til de avhengighetene i den pakken som skal installeres. For hver avhengighet, er det mulig å begrense omfanget av versjoner som oppfyller denne betingelsen. Med andre ord, er det mulig å uttrykke det faktum at vi trenger  pakken<emphasis role=\"pkg\">libc6</emphasis> i en versjon som er lik eller større enn “2.15” (skrevet “<command>libc6 (&gt;= 2.15)</command>”). For versjonssammenligning er operatørene som følger:"
 
 msgid "<command>&lt;&lt;</command>: less than;"
-msgstr ""
+msgstr "<command>&lt;&lt;</command>: mindre enn;"
 
 msgid "<command>&lt;=</command>: less than or equal to;"
-msgstr ""
+msgstr "<command>&lt;=</command>: Mindre enn eller lik;"
 
 msgid "<command>=</command>: equal to (note that “<literal>2.6.1</literal>” is not equal to “<literal>2.6.1-1</literal>”);"
-msgstr ""
+msgstr "<command>=</command>: equal to (note that “<literal>2.6.1</literal>” is not equal to “<literal>2.6.1-1</literal>”);"
 
 msgid "<command>&gt;=</command>: greater than or equal to;"
-msgstr ""
+msgstr "<command>&gt;=</command>: større enn eller lik:"
 
 msgid "<command>&gt;&gt;</command>: greater than."
-msgstr ""
+msgstr "<command>&gt;&gt;</command>: større enn."
 
 msgid "In a list of conditions to be met, the comma serves as a separator. It must be interpreted as a logical “and”. In conditions, the vertical bar (“|”) expresses a logical “or” (it is an inclusive “or”, not an exclusive “either/or”). Carrying greater priority than “and”, it can be used as many times as necessary. Thus, the dependency “(A or B) and C” is written <command>A | B, C</command>. In contrast, the expression “A or (B and C)” should be written as “(A or B) and (A or C)”, since the <literal>Depends</literal> field does not tolerate parentheses that change the order of priorities between the logical operators “or” and “and”. It would thus be written <command>A | B, A | C</command>. <ulink type=\"block\" url=\"http://www.debian.org/doc/debian-policy/ch-relationships.html\" />"
-msgstr ""
+msgstr "I en liste over vilkår som må oppfylles, brukes skilletegnet komma. Det må forstås som en logisk «og». I forhold, uttrykker vertikal strek (\"|\") en logisk \"eller\" (det er en inkluderende \"eller\", ikke en eksklusiv \"enten/eller\"). Med høyere prioritet enn \"og\", kan det brukes så mange ganger som nødvendig. Dermed er avhengigheten \"(A eller B) og C\", skrevet <command>A | B, C</command>. I kontrast skal uttrykket “A or (B and C)” skrives som “(A or B) og (A or C)”, etterspom <literal>Depends</literal>-feltet ikke tolerere parenteser som forandrer prioritetsrekkefølgen mellom de lokgiske operatorene \"eller\" og \"og\". Det skulle i tilfelle ha blitt skrevet <command>A | B, A | C</command>. <ulink type=\"block\" url=\"http://www.debian.org/doc/debian-policy/ch-relationships.html\" />"
 
 msgid "<primary>meta-package</primary>"
-msgstr ""
+msgstr "<primary>meta-package</primary>"
 
 msgid "The dependencies system is a good mechanism for guaranteeing the operation of a program, but it has another use with “meta-packages”. These are empty packages that only describe dependencies. They facilitate the installation of a consistent group of programs preselected by the meta-package maintainer; as such, <command>apt install <replaceable>meta-package</replaceable></command> will automatically install all of these programs using the meta-package's dependencies. The <emphasis role=\"pkg\">gnome</emphasis>, <emphasis role=\"pkg\">kde-full</emphasis> and <emphasis role=\"pkg\">linux-image-amd64</emphasis> packages are examples of meta-packages."
-msgstr ""
+msgstr "Avhengighetssystemet er en god mekanisme for å sikre driften av et program, men det har en annen anvendelse: \"Meta-pakker\". Dette er tomme pakker som kun beskriver avhengigheter. De muliggjør installasjon av en konsistent gruppe av programmer forhåndsvalgt av meta-pakkeutvikleren; slik at, <command>apt install <replaceable>meta-package</replaceable></command> vil automatisk installere alle disse programmene ved hjelp av meta-pakkens avhengigheter. <emphasis role=\"pkg\">gnome</emphasis>, <emphasis role=\"pkg\">kde-full</emphasis> og <emphasis role=\"pkg\">linux-image-amd64</emphasis>-pakkene er eksempler på meta-pakker."
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> <literal>Pre-Depends</literal>, a more demanding <literal>Depends</literal>"
-msgstr ""
+msgstr "<emphasis>DEBIAN POLICY</emphasis> <literal>Pre-Depends</literal>, et mer krevende <literal>Depends</literal>"
 
 msgid "<primary><literal>Pre-Depends</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Pre-Depends</literal>, header field</primary>"
 
 msgid "<primary>pre-dependency</primary>"
-msgstr ""
+msgstr "<primary>pre-dependency</primary>"
 
 msgid "“Pre-dependencies”, which are listed in the “<literal>Pre-Depends</literal>” field in the package headers, complete the normal dependencies; their syntax is identical. A normal dependency indicates that the package in question must be unpacked and configured before configuration of the package declaring the dependency. A pre-dependency stipulates that the package in question must be unpacked and configured before execution of the pre-installation script of the package declaring the pre-dependency, that is before its installation."
-msgstr ""
+msgstr "“Før-avhengigheter\" som er listet i “<literal>Pre-Depends</literal>”-feltett i pakkeoverskriftene, fullfører de normale avhengighetene;  syntaksen deres er identiske. En normal avhengighet indikerer at pakken det gjelder må pakkes ut og konfigureres før konfigurasjon av pakken sier ifra om avhengighet. En pre-avhengighet stipulerer at pakken det gjelder må pakkes ut og konfigureres før kjøring av pakkens pre-installasjonskript sier ifra om før-avhengigheten, det vil si før installasjon."
 
 msgid "A pre-dependency is very demanding for <command>apt</command>, because it adds a strict constraint on the ordering of the packages to install. As such, pre-dependencies are discouraged unless absolutely necessary. It is even recommended to consult other developers on <email>debian-devel@lists.debian.org</email> before adding a pre-dependency. It is generally possible to find another solution as a work-around."
-msgstr ""
+msgstr "En før-avhengighet er svært krevende for  <command>apt</command>, fordi den legger en streng begrensning på bestillingen av pakker for installasjon. Slik sett er pre-avhengigheter frarådet hvis ikke de er absolutt nødvendige. Det er også anbefalt å ta kontakt med andre utviklere på <email>debian-devel@lists.debian.org</email> før man legger til en før-avhengighet. Det er vanligvis mulig å finne en annen alternativ løsning."
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> <literal>Recommends</literal>, <literal>Suggests</literal>, and <literal>Enhances</literal> fields"
-msgstr ""
+msgstr "<emphasis>DEBIAN POLICY</emphasis> <literal>Recommends</literal>, <literal>Suggests</literal>, og <literal>Enhances</literal>-felter"
 
 msgid "<primary><literal>Recommends</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Recommends</literal>, header field</primary>"
 
 msgid "<primary><literal>Suggests</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Suggests</literal>, header field</primary>"
 
 msgid "The <literal>Recommends</literal> and <literal>Suggests</literal> fields describe dependencies that are not compulsory. The “recommended” dependencies, the most important, considerably improve the functionality offered by the package but are not indispensable to its operation. The “suggested” dependencies, of secondary importance, indicate that certain packages may complement and increase their respective utility, but it is perfectly reasonable to install one without the others."
-msgstr ""
+msgstr "<literal>Recommends</literal> og <literal>Suggests</literal>-felter beskriver ikke obligatoriske avhengigheter. De \"anbefalte\" avhengigheter, det viktigste, forbedrer vesentlig funksjonaliteten som tilbys av pakken, men er ikke uunnværlig for driften av dem. De \"foreslåtte\" avhengigheter av underordnet betydning, indikerer at enkelte pakker kan utfylle og øke sin respektive nytteverdi, men det er helt fornuftig å installere en av dem uten de andre."
 
 msgid "You should always install the “recommended” packages, unless you know exactly why you do not need them. Conversely, it is not necessary to install “suggested” packages unless you know why you need them."
-msgstr ""
+msgstr "Du bør alltid installere den \"anbefalte\" pakker, med mindre du vet nøyaktig hvorfor du ikke trenger dem. Motsatt er det ikke nødvendig å installere \"foreslåtte\" pakker med mindre du vet hvorfor du trenger dem."
 
 msgid "<primary><literal>Enhances</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Enhances</literal>, header field</primary>"
 
 msgid "The <literal>Enhances</literal> field also describes a suggestion, but in a different context. It is indeed located in the suggested package, and not in the package that benefits from the suggestion. Its interest lies in that it is possible to add a suggestion without having to modify the package that is concerned. Thus, all add-ons, plug-ins, and other extensions of a program can then appear in the list of suggestions related to the software. Although it has existed for several years, this last field is still largely ignored by programs such as <command>apt</command> or <command>synaptic</command>. Its purpose is for a suggestion made by the <literal>Enhances</literal> field to appear to the user in addition to the traditional suggestions — found in the <literal>Suggests</literal> field."
-msgstr ""
+msgstr "<literal>Enhances</literal>-feltet beskriver også et forslag, men i en annen sammenheng. Det ligger faktisk i den foreslåtte pakken, og ikke i den pakken som drar nytte av forslaget. Poenget ligger i at det er mulig å legge til et forslag uten å måtte modifisere den pakken det gjelder. Dermed kan alle add-ons, plug-ins og andre utvidelser av et program dukke opp i listen over forslag til programvaren. Selv om det har eksistert i flere år, er dette siste felt fremdeles i stor grad ignorert av programmer som<command>apt</command> eller <command>synaptic</command>. Formålet med et forslag fra <literal>Enhances</literal>-feltet er å vises for brukeren i tillegg til de tradisjonelle forslagene fra <literal>Suggests</literal> feltet."
 
 msgid "Conflicts: the <literal>Conflicts</literal> field"
-msgstr ""
+msgstr "Konflikter: <literal>Conflicts</literal>-feltet"
 
 msgid "<primary>conflicts</primary>"
-msgstr ""
+msgstr "<primary>conflicts</primary>"
 
 msgid "<primary><literal>Conflicts</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Conflicts</literal>, header field</primary>"
 
 msgid "<primary>package</primary><secondary>conflict</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>conflict</secondary>"
 
 msgid "The <literal>Conflicts</literal> field indicates when a package cannot be installed simultaneously with another. The most common reasons for this are that both packages include a file of the same name, or provide the same service on the same TCP port, or would hinder each other's operation."
-msgstr ""
+msgstr "<literal>Conflicts</literal> feltet indikerer når en pakke ikke kan installeres samtidig med en annen. De vanligste årsakene er at begge pakkene inkluderer en fil med samme navn, gir den samme tjenesten fra samme TCP-port, eller ville hindre hverandres drift."
 
 msgid "<command>dpkg</command> will refuse to install a package if it triggers a conflict with an already installed package, except if the new package specifies that it will “replace” the installed package, in which case <command>dpkg</command> will choose to replace the old package with the new one. <command>apt</command> always follows your instructions: if you choose to install a new package, it will automatically offer to uninstall the package that poses a problem."
-msgstr ""
+msgstr "<command>dpkg</command> vil avslå å installere en pakke hvis det utløser en konflikt med en allerede installert pakke, bortsett fra hvis den nye pakken presiserer at det vil \"erstatte\" den installerte pakken, i så fall vil <command>dpkg</command> velge å erstatte den gamle pakken med den nye. <command>apt</command> følger alltid dine instruksjoner: Hvis du velger å installere en ny pakke, vil den automatisk tilby å avinstallere pakken som utgjør et problem."
 
 msgid "Incompatibilities: the <literal>Breaks</literal> Field"
-msgstr ""
+msgstr "Manglende samsvar: <literal>Breaks</literal>-feltet"
 
 msgid "<primary>incompatibilities</primary>"
-msgstr ""
+msgstr "<primary>incompatibilities</primary>"
 
 msgid "<primary><literal>Breaks</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Breaks</literal>, header field</primary>"
 
 msgid "<primary>package</primary><secondary>incompatibility</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>incompatibility</secondary>"
 
 msgid "The <literal>Breaks</literal> field has an effect similar to that of the <literal>Conflicts</literal> field, but with a special meaning. It signals that the installation of a package will “break” another package (or particular versions of it). In general, this incompatibility between two packages is transitory, and the <literal>Breaks</literal> relationship specifically refers to the incompatible versions."
-msgstr ""
+msgstr "<literal>Breaks</literal>-feltet har en effekt lik <literal>Conflicts</literal>-feltet, men med en spesiell mening. Det signaliserer at installasjonen av en pakke vil \"bryte\" med en annen pakke (eller bestemte versjoner av den). Generelt er manglende samsvar mellom to pakker forbigående, og <literal>Breaks</literal>-forholdet refererer spesifikt til de inkompatible versjonene."
 
 msgid "<command>dpkg</command> will refuse to install a package that breaks an already installed package, and <command>apt</command> will try to resolve the problem by updating the package that would be broken to a newer version (which is assumed to be fixed and, thus, compatible again)."
-msgstr ""
+msgstr "<command>dpkg</command> vil avslå å installere en pakke som bryter med en allerede installert pakke, og <command>apt</command> vil forsøke å løse problemet ved å oppdaterte pakken som ville blitt brutt, til en nyere versjon (som forventes å være fikset og således kompatibel igjen)."
 
 msgid "This type of situation may occur in the case of updates without backwards compatibility: this is the case if the new version no longer functions with the older version, and causes a malfunction in another program without making special provisions. The <literal>Breaks</literal> field prevents the user from running into these problems."
-msgstr ""
+msgstr "Denne typen situasjoner kan oppstå ved oppdateringer uten bakoverkompatibilitet: Det er tilfelle hvis den nye versjonen ikke lenger fungerer med en eldre versjon, og fører til en feil i et annet program uten å ta spesielle forholdsregler. <literal>Breaks</literal>-feltet hindrer brukeren å komme inn i disse problemene."
 
 msgid "Provided Items: the <literal>Provides</literal> Field"
-msgstr ""
+msgstr "Leveranser: <literal>Provides</literal>-feltet"
 
 msgid "<primary><literal>Provides</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Provides</literal>, header field</primary>"
 
 msgid "This field introduces the very interesting concept of a “virtual package”. It has many roles, but two are of particular importance. The first role consists in using a virtual package to associate a generic service with it (the package “provides” the service). The second indicates that a package completely replaces another, and that for this purpose it can also satisfy the dependencies that the other would satisfy. It is thus possible to create a substitution package without having to use the same package name."
-msgstr ""
+msgstr "Dette feltet introduserer interessant konsept for en \"virtuell pakke\". Det har mange oppgaver, men to er av særlig betydning. Den første rolle består i å bruke en virtuell pakke for å knytte en generisk tjeneste til den (pakken \"gir\" tjenesten). Den andre angir at en pakke fullstendig erstatter den andre, og at for dette formål kan den også tilfredsstille de avhengigheter som den andre ville tilfredsstille. Det er således mulig å opprette en erstatningspakke uten å måtte bruke samme pakkenavn ."
 
 msgid "<emphasis>VOCABULARY</emphasis> Meta-package and virtual package"
-msgstr ""
+msgstr "<emphasis>VOCABULARY</emphasis> Metapakke og virtuell pakke"
 
 msgid "<primary>package</primary><secondary>virtual package</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>virtual package</secondary>"
 
 msgid "<primary>virtual package</primary>"
-msgstr ""
+msgstr "<primary>virtual package</primary>"
 
 msgid "It is essential to clearly distinguish meta-packages from virtual packages. The former are real packages (including real <filename>.deb</filename> files), whose only purpose is to express dependencies."
-msgstr ""
+msgstr "Det er viktig å skille klart meta-pakker fra virtuelle pakker. Den tidligere er ekte pakker (medregnet virkelige <filename>.deb</filename>-filer), hvis eneste formål er å vise avhengigheter."
 
 msgid "Virtual packages, however, do not exist physically; they are only a means of identifying real packages based on common, logical criteria (service provided, compatibility with a standard program or a pre-existing package, etc.)."
-msgstr ""
+msgstr "Imidlertid eksisterer virtuelle pakker fysisk, de er bare et hjelpemiddel til å identifisere virkelige pakker ut fra vanlige, logiske kriterier (tjeneste levert, kompatibilitet med et standard program, eller en tidligere installert pakke, etc.)."
 
 msgid "Providing a “Service”"
-msgstr ""
+msgstr "Levere en \"Tjeneste\""
 
 msgid "Let us discuss the first case in greater detail with an example: all mail servers, such as <emphasis role=\"pkg\">postfix</emphasis> or <emphasis role=\"pkg\">sendmail</emphasis> are said to “provide” the <emphasis role=\"pkg\">mail-transport-agent</emphasis> virtual package. Thus, any package that needs this service to be functional (e.g. a mailing list manager, such as <emphasis role=\"pkg\">smartlist</emphasis> or <emphasis role=\"pkg\">sympa</emphasis>) simply states in its dependencies that it requires a <emphasis role=\"pkg\">mail-transport-agent</emphasis> instead of specifying a large yet incomplete list of possible solutions (e.g. <command>postfix | sendmail | exim4 | …</command>). Furthermore, it is useless to install two mail servers on the same machine, which is why each of these packages declares a conflict with the <emphasis role=\"pkg\">mail-transport-agent</emphasis> virtual package. A conflict between a package and itself is ignored by the system, but this technique will prohibit the installation of two mail servers side by side."
-msgstr ""
+msgstr "La oss diskutere det første tilfellet i større detalj med et eksempel: Alle epost-tjenere, for eksempel <emphasis role=\"pkg\">postfix</emphasis> eller <emphasis role=\"pkg\">sendmail</emphasis> sies å “levere” den virtuelle <emphasis role=\"pkg\">mail-transport-agent</emphasis> pakken. Derfor, alle pakker som trenger denne tjenesten for å være funksjonelle (f.eks en postliste manager, som for eksempel <emphasis role=\"pkg\">smartlist</emphasis> eller <emphasis role=\"pkg\">sympa</emphasis>) oppgir bare i sine avhengigheter at det krever en <emphasis role=\"pkg\">mail-transport-agent</emphasis> i stedet for å angi en stor men fremdeles ufullstendig liste over mulige løsninger (f.eks <command>postfix | sendmail | exim4 | …</command>). Videre er det nytteløst å installere to posttjenere på samme maskin, noe som er grunnen til at begge disse pakkene viser en konflikt med den virtuelle pakken <emphasis role=\"pkg\">mail-transport-agent</emphasis>. En konflikt mellom en pakke og den selv ignoreres av systemet, men denne teknikken vil hindre installasjon av to posttjenere ved siden av hverandre."
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> List of virtual packages"
-msgstr ""
+msgstr "<emphasis>DEBIAN POLICY</emphasis> Listen over virtuelle pakker"
 
 msgid "For virtual packages to be useful, everyone must agree on their name. This is why they are standardized in the Debian Policy. The list includes among others <emphasis role=\"pkg\">mail-transport-agent</emphasis> for mail servers, <emphasis role=\"pkg\">c-compiler</emphasis> for C programming language compilers, <emphasis role=\"pkg\">www-browser</emphasis> for web browsers, <emphasis role=\"pkg\">httpd</emphasis> for web servers, <emphasis role=\"pkg\">ftp-server</emphasis> for FTP servers, <emphasis role=\"pkg\">x-terminal-emulator</emphasis> for terminal emulators in graphical mode (<command>xterm</command>), and <emphasis role=\"pkg\">x-window-manager</emphasis> for window managers."
-msgstr ""
+msgstr "Skal virtuelle pakker være nyttige, må alle være enige om navnet sitt. Dette er grunnen til at de er standardisert i Debian Policy. Listen omfatter blant annet <emphasis role=\"pkg\">mail-transport-agent</emphasis> for posttjenere, <emphasis role=\"pkg\">c-compiler</emphasis> for C-programspråkoversettere, <emphasis role=\"pkg\">www-browser</emphasis> for nettlesere, <emphasis role=\"pkg\">httpd</emphasis> for nettjenere, <emphasis role=\"pkg\">ftp-server</emphasis> for FTP-tjenere, <emphasis role=\"pkg\">x-terminal-emulator</emphasis> for programspråkoversettere (<command>xterm</command>), og <emphasis role=\"pkg\">x-window-manager</emphasis> for vindushåndterere."
 
 msgid "The full list can be found on the Web. <ulink type=\"block\" url=\"http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt\" />"
-msgstr ""
+msgstr "Hele listen kan finnes på nettet. <ulink type=\"block\" url=\"http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt\" />"
 
 msgid "Interchangeability with Another Package"
-msgstr ""
+msgstr "Utbyttbarheten med en annen pakke"
 
 msgid "The <literal>Provides</literal> field is also interesting when the content of a package is included in a larger package. For example, the <emphasis role=\"pkg\">libdigest-md5-perl</emphasis> Perl module was an optional module in Perl 5.6, and has been integrated as standard in Perl 5.8 (and later versions, such as 5.20 present in <emphasis role=\"distribution\">Jessie</emphasis>). As such, the package <emphasis role=\"pkg\">perl</emphasis> has since version 5.8 declared <literal>Provides: libdigest-md5-perl</literal> so that the dependencies on this package are met if the user has Perl 5.8 (or newer). The <emphasis role=\"pkg\">libdigest-md5-perl</emphasis> package itself has eventually been deleted, since it no longer had any purpose when old Perl versions were removed."
-msgstr ""
+msgstr "<literal>Provides</literal>-feltet er også interessant når innholdet av en pakke inngår i en større pakke. For eksempel, <emphasis role=\"pkg\">libdigest-md5-perl</emphasis> Perl modulen var en valgfri modul i Perl 5.6, og er integrert som standard i Perl 5.8 (og senere versjoner som 5.20 som ligger i <emphasis role=\"distribution\">Jessie</emphasis>). Som sådan har pakken <emphasis role=\"pkg\">perl</emphasis> siden versjon 5.8 formidlet <literal>Provides: libdigest-md5-perl</literal> slik at avhengighetene på denne pakken er imøtekommet dersom brukeren har Perl 5.8 (eller nyere). Selve <emphasis role=\"pkg\">libdigest-md5-perl</emphasis>-pakken har eventulet blitt slettet, siden den ikke lenger har noe formål etterat gamle Perl-versjoner ble fjernet."
 
 msgid "Use of a <literal>Provides</literal> field in order to not break dependencies"
-msgstr ""
+msgstr "Bruk av et <literal>Provides</literal>-felt for å ikke bryte avhengigheter"
 
 msgid "This feature is very useful, since it is never possible to anticipate the vagaries of development, and it is necessary to be able to adjust to renaming, and other automatic replacement, of obsolete software."
-msgstr ""
+msgstr "Denne funksjonen er svært nyttig, siden det aldri er mulig å forutse tilfeldigheter i utviklingsarbeid, og det er nødvendig både å kunne gi foreldet programvare nye navn, og kunne utføre automatiske utskiftinger."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Perl, a programming language"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Perl, et programmeringsspråk"
 
 msgid "<primary>Perl</primary>"
-msgstr ""
+msgstr "<primary>Perl</primary>"
 
 msgid "<primary>CPAN</primary>"
-msgstr ""
+msgstr "<primary>CPAN</primary>"
 
 msgid "Perl (Practical Extraction and Report Language) is a very popular programming language. It has many ready-to-use modules that cover a vast spectrum of applications, and that are distributed by the CPAN (Comprehensive Perl Archive Network) servers, an exhaustive network of Perl packages. <ulink type=\"block\" url=\"http://www.perl.org/\" /> <ulink type=\"block\" url=\"http://www.cpan.org/\" />"
-msgstr ""
+msgstr "Perl (Practical Extraction and Report Language) er et svært populært programmeringsspråk . Det har mange klare til bruk moduler som dekker et stort spekter av applikasjoner, og som distribueres av CPAN (Comprehensive Perl Archive Network)-tjenere, et uttømmende nettverk av Perl-pakker. <ulink type=\"block\" url=\"http://www.perl.org/\" /> <ulink type=\"block\" url=\"http://www.cpan.org/\" />"
 
 msgid "Since it is an interpreted language, a program written in Perl does not require compilation prior to execution. This is why they are called “Perl scripts”."
-msgstr ""
+msgstr "Siden det er et tolket språk, krever ikke et program skrevet i Perl kompilering før kjøpring. Det er derfor de kalles \"Perl-skript\"."
 
 msgid "Past Limitations"
-msgstr ""
+msgstr "Tidligere begrensninger"
 
 msgid "Virtual packages used to suffer from some limitations, the most significant of which was the absence of a version number. To return to the previous example, a dependency such as <literal>Depends: libdigest-md5-perl (&gt;= 1.6)</literal>, despite the presence of Perl 5.10, would never be considered as satisfied by the packaging system — while in fact it most likely is satisfied. Unaware of this, the package system chose the least risky option, assuming that the versions do not match."
-msgstr ""
+msgstr "Virtuelle pakker pleide å ha noen begrensninger, den mest betydningsfulle var mangelen på et versjonsnummer. For å gå tilbake til det forrige eksemplet, en avhengighet som <literal>Depends: libdigest-md5-perl (&gt;= 1.6)</literal>, ville, tross tilstedeværelsen av Perl 5.10, aldri bli betraktet som tilfredsstilt av pakkesystemet - mens den i virkeligheten mest sannsynlig er tilfredsstilt. Uvitende om dette, valgte pakkesystemet det minst risikable alternativet, ved å anta at versjonene ikke samsvarer."
 
 msgid "This limitation has been lifted in <emphasis role=\"pkg\">dpkg</emphasis> 1.17.11, and is no longer relevant in Jessie. Packages can assign a version to the virtual packages they provide with a dependency such as <literal>Provides: libdigest-md5-perl (= 1.8)</literal>."
-msgstr ""
+msgstr "Denne begrensningen er opphevet i <emphasis role=\"pkg\">dpkg</emphasis> 1.17.11, og er ikke lenger relevant i Jessie. Pakker kan tildele en versjon til den virtuelle pakker de leverer, med en avhengighet som <literal>Provides: libdigest-md5-perl (= 1.8)</literal>."
 
 msgid "Replacing Files: The <literal>Replaces</literal> Field"
-msgstr ""
+msgstr "Erstatte filer: <literal>Replaces</literal> felt"
 
 msgid "<primary>replacement</primary>"
-msgstr ""
+msgstr "<primary>replacement</primary>"
 
 msgid "<primary><literal>Replaces</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Replaces</literal>, header field</primary>"
 
 msgid "<primary>package</primary><secondary>replacement</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>replacement</secondary>"
 
 msgid "The <literal>Replaces</literal> field indicates that the package contains files that are also present in another package, but that the package is legitimately entitled to replace them. Without this specification, <command>dpkg</command> fails, stating that it can not overwrite the files of another package (technically, it is possible to force it to do so with the <literal>--force-overwrite</literal> option, but that is not considered standard operation). This allows identification of potential problems and requires the maintainer to study the matter prior to choosing whether to add such a field."
-msgstr ""
+msgstr "<literal>Replaces</literal>-feltet indikerer at pakken inneholder filer som også er tilstede i en annen pakke, men at pakken har lov til å erstatte dem. Uten denne spesifikasjonen, feiler <command>dpkg</command> og sier at den ikke kan overskrive filene i en annen pakke (teknisk er det mulig å tvinge den til å gjøre det med <literal>--force-overwrite</literal>-valget, men som ikke regnes som en standard operasjon). Dette gjør det mulig å identifisere potensielle problemer og krever at vedlikeholderen ser på saken før man velger om man legger inn et slikt felt."
 
 msgid "The use of this field is justified when package names change or when a package is included in another. This also happens when the maintainer decides to distribute files differently among various binary packages produced from the same source package: a replaced file no longer belongs to the old package, but only to the new one."
-msgstr ""
+msgstr "Bruken av dette felt er berettiget når pakkenavn endres eller når en pakke er inkludert i en annen. Dette skjer også når vedlikeholderen bestemmer seg for å distribuere filer ulikt mellom forskjellige binære pakker produsert fra samme kildepakke: Når en erstattet fil ikke lenger tilhører den gamle pakken, men bare til den nye."
 
 msgid "If all of the files in an installed package have been replaced, the package is considered to be removed. Finally, this field also encourages <command>dpkg</command> to remove the replaced package where there is a conflict."
-msgstr ""
+msgstr "Hvis alle filene i en installert pakke er blitt erstattet, er pakken klar til å bli fjernet. Endelig, dette feltet oppmuntrer også <command>dpkg</command> til å fjerne den erstattede pakken der det er en konflikt."
 
 msgid "<emphasis>GOING FURTHER</emphasis> The <literal>Tag</literal> field"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> The <literal>Tag</literal> field"
 
 msgid "In the <emphasis role=\"pkg\">apt</emphasis> example above, we can see the presence of a field that we have not yet described, the <literal>Tag</literal> field. This field does not describe a relationship between packages, but is simply a way of categorizing a package in a thematic taxonomy. This classification of packages according to several criteria (type of interface, programming language, domain of application, etc.) has been available for a long time. Despite this, not all packages have accurate tags and it is not yet integrated in all Debian tools; <command>aptitude</command> displays these tags, and allows them to be used as search criteria. For those who are repelled by <command>aptitude</command>'s search criteria, the following website allows navigation of the tag database: <ulink type=\"block\" url=\"http://debtags.alioth.debian.org/\" />"
-msgstr ""
+msgstr "I <emphasis role=\"pkg\">apt</emphasis>-eksemplet ovenfor, kan vi se et felt som vi ennå ikke har beskrevet, <literal>Tag</literal>-feltet. Dette feltet beskriver ikke en sammenheng mellom pakker, men er rett og slett en måte å kategorisere en pakke i en tematisk klassifisering på. Denne klassifiseringen av pakker etter flere kriterier (type grensesnitt, programmeringsspråk, applikasjonens domene, etc.) har vært tilgjengelig i lang tid. Til tross for dette, har ikke alle pakkene  nøyaktige koder og slike er ennå ikke integrert i alle Debian verktøy;  <command>aptitude</command> viser disse kodene, og gir dem mulighet til å bli brukt som søkekriterier.... For de som ikke svarer til <command>aptitude</command>s søkerkriterier, tillater den følgende nettsiden å finne frem i kodens database: <ulink type=\"block\" url=\"http://debtags.alioth.debian.org/\" />"
 
 msgid "Configuration Scripts"
-msgstr ""
+msgstr "Konfigurasjonsskript"
 
 msgid "<primary><filename>postinst</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>postinst</filename></primary>"
 
 msgid "<primary><filename>preinst</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>preinst</filename></primary>"
 
 msgid "<primary><filename>postrm</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>postrm</filename></primary>"
 
 msgid "<primary><filename>prerm</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>prerm</filename></primary>"
 
 msgid "<primary><filename>control.tar.gz</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>control.tar.gz</filename></primary>"
 
 msgid "In addition to the <filename>control</filename> file, the <filename>control.tar.gz</filename> archive for each Debian package may contain a number of scripts, called by <command>dpkg</command> at different stages in the processing of a package. The Debian Policy describes the possible cases in detail, specifying the scripts called and the arguments that they receive. These sequences may be complicated, since if one of the scripts fails, <command>dpkg</command> will try to return to a satisfactory state by canceling the installation or removal in progress (insofar as it is possible)."
-msgstr ""
+msgstr "I tillegg til <filename>control</filename>-filen, kan <filename>control.tar.gz</filename>-katalogen for hver Debian-pakke inneholde et antall skripter, hentet av  <command>dpkg</command> på ulike stadier i behandlingen av en pakke. Debian Policy beskriver de mulige tilfellene i detalj, og spesifiserer de skript det bes om og de argumentene de mottar. Disse sekvensene kan være kompliserte, fordi dersom et av skriptene svikter,vil <command>dpkg</command> prøve å gå tilbake til en tilfredsstillende tilstand ved å avslutte installasjonen eller fjerne dem underveis (i den grad det er mulig)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> <command>dpkg</command>'s database"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> <command>dpkg</command>'s database"
 
 msgid "<primary><filename>/var/lib/dpkg/</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/var/lib/dpkg/</filename></primary>"
 
 msgid "<primary>dpkg</primary><secondary>database</secondary>"
-msgstr ""
+msgstr "<primary>dpkg</primary><secondary>database</secondary>"
 
 msgid "All of the configuration scripts for installed packages are stored in the <filename>/var/lib/dpkg/info/</filename> directory, in the form of a file prefixed with the package's name. This directory also includes a file with the <filename>.list</filename> extension for each package, containing the list of files that belong to that package."
 msgstr ""
+"Alle konfigurasjonsskript for installerte pakker blir lagret i <filename>/var/lib/dpkg/info/</filename>-mappen i form av en fil med pakkenavnet lagt inn på forhånd. Denne katalogen inneholder også en fil med <filename>.list</filename>-\n"
+"utvidelse for hver pakke, med en liste med filer som hører til  den pakken."
 
 msgid "The <filename>/var/lib/dpkg/status</filename> file contains a series of data blocks (in the format of the famous mail headers, RFC 2822) describing the status of each package. The information from the <filename>control</filename> file of the installed packages is also replicated there."
-msgstr ""
+msgstr "<filename>/var/lib/dpkg/status</filename>filen inneholder en serie datablokker (med formatet til de berømte posthodene, RFC 2822) som beskriver status for hver pakke. Informasjonen fra <filename>control</filename> filen med de installerte pakkene er også gjentatt  der."
 
 msgid "In general, the <filename>preinst</filename> script is executed prior to installation of the package, while the <filename>postinst</filename> follows it. Likewise, <filename>prerm</filename> is invoked before removal of a package and <filename>postrm</filename> afterwards. An update of a package is equivalent to removal of the previous version and installation of the new one. It is not possible to describe in detail all the possible scenarios here, but we will discuss the most common two: an installation/update and a removal."
-msgstr ""
+msgstr "Generelt er <filename>preinst</filename> skriptet utført før installasjonen av pakken, mens <filename>postinst</filename> følger etter. På samme måte er <filename>prerm</filename> aktivert før en pakke fjernes og </filename>postrm</filename> etterpå. Oppdatering av en pakke tilsvarer å fjerne den tidligere versjonen og installasjon av den nye. Det er ikke mulig å beskrive i detalj alle mulige scenarier her, men vi vil diskutere den to vanligste to: En installasjon/oppdatering og en fjerning."
 
 msgid "<emphasis>CAUTION</emphasis> Symbolic names of the scripts"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Symbolske skript-navn"
 
 msgid "The sequences described in this section call configuration scripts by specific names, such as <command>old-prerm</command> or <command>new-postinst</command>. They are, respectively, the <command>prerm</command> script contained in the old version of the package (installed before the update) and the <command>postinst</command> script contained in the new version (installed by the update)."
-msgstr ""
+msgstr "Sekvensene beskrevet i denne seksjonen omtaler konfigurasjonsskript med spesifikke navn, for eksempel <command>old-prerm</command> eller <command>new-postinst</command>. De er, respektivt,   <command>prerm</command> skripter fra den gamle pakkeversjonen (installert før oppdateringen) og  <command>postinst</command>-skriptet fra den nye versjonen (installert i og med oppdateringen)."
 
 msgid "<emphasis>TIP</emphasis> State diagrams"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Statusdiagrammer"
 
 msgid "Manoj Srivastava made these diagrams explaining how the configuration scripts are called by <command>dpkg</command>. Similar diagrams have also been developed by the Debian Women project; they are a bit simpler to understand, but less complete. <ulink type=\"block\" url=\"https://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"https://wiki.debian.org/MaintainerScripts\" />"
-msgstr ""
+msgstr "Manoj Srivastava laget disse diagrammene som forklarer hvordan konfigurasjonsskripter benevnes av <command>dpkg</command>. Lignende diagrammer er også utviklet av Debian Women-prosjektet; De er litt enklere å forstå, men mindre fullstendige. <ulink type=\"block\" url=\"https://people.debian.org/~srivasta/MaintainerScripts.html\" /> <ulink type=\"block\" url=\"https://wiki.debian.org/MaintainerScripts\" />"
 
 msgid "Installation and Upgrade"
-msgstr ""
+msgstr "Installasjon og oppgradering"
 
 msgid "<primary><command>dpkg</command></primary><secondary>internal operation</secondary>"
-msgstr ""
+msgstr "<primary><command>dpkg</command></primary><secondary>internal operation</secondary>"
 
 msgid "Here is what happens during an installation (or an update):"
-msgstr ""
+msgstr "Her er hva som skjer under en installasjon (eller en oppdatering):"
 
 msgid "For an update, <command>dpkg</command> calls the <command>old-prerm upgrade <replaceable>new-version</replaceable></command>."
-msgstr ""
+msgstr "For en oppdatering, aktiverer <command>dpkg</command>  <command>old-prerm upgrade <replaceable>new-version</replaceable></command>."
 
 msgid "Still for an update, <command>dpkg</command> then executes <command>new-preinst upgrade <replaceable>old-version</replaceable></command>; for a first installation, it executes <command>new-preinst install</command>. It may add the old version in the last parameter, if the package has already been installed and removed since (but not purged, the configuration files having been retained)."
-msgstr ""
+msgstr "Fremdeles for en oppdatering, <command>dpkg</command> får så utført  <command>new-preinst upgrade <replaceable>old-version</replaceable></command>; For en første installasjon igangsetter den <command>new-preinst install</command>. Den kan legge til den gamle versjonen i den siste parameteren, hvis pakken allerede er installert og deretter frakoblet (men ikke fjernet, konfigurasjonsfilene er bevart)."
 
 msgid "The new package files are then unpacked. If a file already exists, it is replaced, but a backup copy is temporarily made."
-msgstr ""
+msgstr "De nye pakkefiler er så pakket ut. Hvis en fil allerede finnes, blir den erstattet, men en sikkerhetskopi lages midlertidig."
 
 msgid "For an update, <command>dpkg</command> executes <command>old-postrm upgrade <replaceable>new-version</replaceable></command>."
-msgstr ""
+msgstr "For en oppdatering, utfører <command>dpkg</command>  <command>old-postrm upgrade <replaceable>new-version</replaceable></command>."
 
 msgid "<command>dpkg</command> updates all of the internal data (file list, configuration scripts, etc.) and removes the backups of the replaced files. This is the point of no return: <command>dpkg</command> no longer has access to all of the elements necessary to return to the previous state."
-msgstr ""
+msgstr "<command>dpkg</command> oppdaterer alle interne data (filliste, konfigurasjonsskript, etc.) og fjerner sikkerhetskopier av de erstattede filene. Det er det ingen vei tilbake:<command>dpkg</command> har ikke lenger tilgang til alle de elementer som er nødvendige for å gå tilbake til slik det var før."
 
 msgid "<command>dpkg</command> will update the configuration files, asking the user to decide if it is unable to automatically manage this task. The details of this procedure are discussed in <xref linkend=\"sect.conffiles\" />."
-msgstr ""
+msgstr "<command>dpkg</command> vil oppdatere konfigurasjonsfilene, be brukeren om å avgjøre om den ikke kan håndtere denne oppgaven automatisk. Detaljene ved denne fremgangsmåten er omtalt i <xref linkend=\"sect.conffiles\" />."
 
 msgid "Finally, <command>dpkg</command> configures the package by executing <command>new-postinst configure <replaceable>last-version-configured</replaceable></command>."
-msgstr ""
+msgstr "Tilslutt, <command>dpkg</command> konfigurerer pakken ved å utføre <command>new-postinst configure <replaceable>last-version-configured</replaceable></command>."
 
 msgid "Package Removal"
-msgstr ""
+msgstr "Fjerning av pakke"
 
 msgid "Here is what happens during a package removal:"
-msgstr ""
+msgstr "Her er det som skjer når en pakke fjernes:"
 
 msgid "<command>dpkg</command> calls <command>prerm remove</command>."
-msgstr ""
+msgstr "<command>dpkg</command> calls <command>prerm remove</command>."
 
 msgid "<command>dpkg</command> removes all of the package's files, with the exception of the configuration files and configuration scripts."
-msgstr ""
+msgstr "<command>dpkg</command> fjerner alle filer i pakken, med unntak av konfigurasjonsfiler og konfigurasjonsskript."
 
 msgid "<command>dpkg</command> executes <command>postrm remove</command>. All of the configuration scripts, except <filename>postrm</filename>, are removed. If the user has not used the “purge” option, the process stops here."
 msgstr ""
