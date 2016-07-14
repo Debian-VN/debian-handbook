@@ -4,7 +4,7 @@
 Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
 Nhiều người một bản dịch, không sao cả =D
 
-- 00a_preface.po
+- 00a_preface.po ![finish](http://i.imgur.com/dhvg7Gd.png)
  - [Giáp Trần](https://github.com/TxGVNN)
 
 - 00b_foreword.po
@@ -13,10 +13,10 @@ Nhiều người một bản dịch, không sao cả =D
 - 01_the-debian-project.po
  - [Mốc Meo](https://github.com/mocmeo)
 
-- 02_case-study.po
+- 02_case-study.po ![finish](http://i.imgur.com/dhvg7Gd.png)
  - [ManhNT](https://github.com/zer0-x)
 
-- 03_existing-setup.po
+- 03_existing-setup.po ![finish](http://i.imgur.com/dhvg7Gd.png)
  - [ĐẠI ĐV](https://github.com/daikk115)
 
 - 04_installation.po
@@ -51,7 +51,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 14_security.po
- - [Hoàng Nghiêm](https://github.com/hoangktmm) 
+ - [Hoàng Nghiêm](https://github.com/hoangktmm)
 
 
 - 15_debian-packaging.po
