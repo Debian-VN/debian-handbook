@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-08-01 09:47+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"PO-Revision-Date: 2016-08-15 15:05+0000\n"
+"Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/08_basic-configuration/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
@@ -13,10 +13,10 @@ msgstr ""
 "X-Generator: Weblate 2.8-dev\n"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigurasjon"
 
 msgid "Localization"
-msgstr ""
+msgstr "Lokalisering"
 
 msgid "Locales"
 msgstr "Localer"
@@ -46,7 +46,7 @@ msgid "Printing"
 msgstr "Utskrift"
 
 msgid "Bootloader"
-msgstr ""
+msgstr "Oppstartslaster"
 
 msgid "Kernel compiling"
 msgstr "Kjernekompilering"
@@ -55,121 +55,123 @@ msgid "Basic Configuration: Network, Accounts, Printing..."
 msgstr "Grunnleggende oppsett: Nettverk, kontoer, utskrift..."
 
 msgid "A computer with a new installation created with <command>debian-installer</command> is intended to be as functional as possible, but many services still have to be configured. Furthermore, it is always good to know how to change certain configuration elements defined during the initial installation process."
-msgstr ""
+msgstr "En datamaskin med en ny installasjon laget med <command>debian-installer</command> er ment å være så funksjonelt som mulig, men mange tjenester må fortsatt konfigureres. Videre er det alltid godt å vite hvordan du kan endre visse konfigurasjonselementer etter den første installasjonen."
 
 msgid "This chapter reviews everything included in what we could call the “basic configuration”: networking, language and locales, users and groups, printing, mount points, etc."
-msgstr ""
+msgstr "Dette kapitlet gjennomgår alt medregnet i det vi kan kalle den \"grunnleggende konfigurasjonen\": Nettverk, språk og steder, brukere og grupper, utskrift, monteringspunkter, etc."
 
 msgid "Configuring the System for Another Language"
-msgstr ""
+msgstr "Å konfigurere systemet for et annet språk"
 
 msgid "<primary>French localization</primary>"
-msgstr ""
+msgstr "<primary>French localization</primary>"
 
 msgid "If the system was installed using French, the machine will probably already have French set as the default language. But it is good to know what the installer does to set the language, so that later, if the need arises, you can change it."
-msgstr ""
+msgstr "Hvis systemet ble installert på fransk, vil maskinen sannsynligvis allerede ha fransk satt som standardspråk. Men det er godt å vite hva den som installerer gjør for å angi språk, slik at senere, hvis behovet oppstår, du kan endre det."
 
 msgid "<emphasis>TOOL</emphasis> The <command>locale</command> command to display the current configuration"
-msgstr ""
+msgstr "<emphasis>TOOL</emphasis>  <command>locale</command>-kommandoen for å vise den gjeldende konfigurasjonen"
 
 msgid "The <command>locale</command> command lists a summary of the current configuration of various locale parameters (date format, numbers format, etc.), presented in the form of a group of standard environment variables dedicated to the dynamic modification of these settings."
-msgstr ""
+msgstr "<command>locale</command>-kommandoen lister et sammendrag av den gjeldende konfigurasjonen med ulike lokale parametere (datoformat, tallformat, etc.), presentert i form av en gruppe med standard miljøvariable dedikert til den dynamisk endringen av disse innstillingene."
 
 msgid "Setting the Default Language"
-msgstr ""
+msgstr "Sette standardspråket"
 
 msgid "<primary>locales</primary>"
-msgstr ""
+msgstr "<primary>locales</primary>"
 
 msgid "<primary>language</primary>"
-msgstr ""
+msgstr "<primary>language</primary>"
 
 msgid "<primary><command>locale-gen</command></primary>"
-msgstr ""
+msgstr "<primary><command>locale-gen</command></primary>"
 
 msgid "A locale is a group of regional settings. This includes not only the language for text, but also the format for displaying numbers, dates, times, and monetary sums, as well as the alphabetical comparison rules (to properly account for accented characters). Although each of these parameters can be specified independently from the others, we generally use a locale, which is a coherent set of values for these parameters corresponding to a “region” in the broadest sense. These locales are usually indicated under the form, <literal><replaceable>language-code</replaceable>_<replaceable>COUNTRY-CODE</replaceable></literal>, sometimes with a suffix to specify the character set and encoding to be used. This enables consideration of idiomatic or typographical differences between different regions with a common language."
-msgstr ""
+msgstr "En lokalisering er en gruppe av regionale innstillinger. Den omfatter ikke bare språket for teksten, men også hvordan tall, datoer, klokkeslett og pengesummer, samt alfabetiske sammenligningsregler (for å ta høyde for høyde for aksenttegn). Selv om hver av disse parameterne kan velges uavhengig av de andre, vi vanligvis bruker en lokalisering, som er et sammenhengende sett av verdier for disse parametrene tilsvarende en \"region\" i videste forstand. Disse steder er vanligvis angitt i form, <literal><replaceable>language-code</replaceable>_<replaceable>COUNTRY-CODE</replaceable></literal>, noen ganger med et suffiks for å angi tegnsett og koding som skal brukes. Dette muliggjør å ta hensyn til  idiomatiske eller typografiske forskjeller mellom ulike regioner med et felles språk."
 
 msgid "<emphasis>CULTURE</emphasis> Character sets"
-msgstr ""
+msgstr "<emphasis>CULTURE</emphasis> Tegnsett"
 
 msgid "<primary>character set</primary>"
-msgstr ""
+msgstr "<primary>character set</primary>"
 
 msgid "<primary>encoding</primary>"
-msgstr ""
+msgstr "<primary>encoding</primary>"
 
 msgid "<primary>ISO-8859-1</primary>"
-msgstr ""
+msgstr "<primary>ISO-8859-1</primary>"
 
 msgid "<primary>ISO-8859-15</primary>"
-msgstr ""
+msgstr "<primary>ISO-8859-15</primary>"
 
 msgid "<primary>Latin 1</primary>"
-msgstr ""
+msgstr "<primary>Latin 1</primary>"
 
 msgid "<primary>Latin 9</primary>"
-msgstr ""
+msgstr "<primary>Latin 9</primary>"
 
 msgid "Historically, each locale has an associated “character set” (group of known characters) and a preferred “encoding” (internal representation for characters within the computer)."
-msgstr ""
+msgstr "Historisk har hvert lokaltilpasning har et tilhørende \"tegnsett \" (gruppe av kjente tegn) og en foretrukket \"encoding\" (en intern representasjon for tegn i datamaskinen)."
 
 msgid "The most popular encodings for latin-based languages were limited to 256 characters because they opted to use a single byte for each character. Since 256 characters was not enough to cover all European languages, multiple encodings were needed, and that is how we ended up with <emphasis>ISO-8859-1</emphasis> (also known as “Latin 1”) up to <emphasis>ISO-8859-15</emphasis> (also known as “Latin 9”), among others."
-msgstr ""
+msgstr "De mest populære kodinger for Latin-baserte språk ble begrenset til 256 tegn, fordi de valgte å bruke en enkelt byte for hvert tegn. Siden 256 tegn var ikke nok til å dekke alle europeiske språk, ble flere kodinger nødvendig, og det er slik vi endte opp med fra <emphasis>ISO-8859-1</emphasis> (også kjent som “Latin 1”) til <emphasis>ISO-8859-15</emphasis> (også kjent som “Latin 9”), blant flere."
 
 msgid "Working with foreign languages often implied regular switches between various encodings and character sets. Furthermore, writing multilingual documents led to further, almost intractable problems. Unicode (a super-catalog of nearly all writing systems from all of the world's languages) was created to work around this problem. One of Unicode's encodings, UTF-8, retains all 128 ASCII symbols (7-bit codes), but handles other characters differently. Those are preceded by a specific escape sequence of a few bits, which implicitly defines the length of the character. This allows encoding all Unicode characters on a sequence of one or more bytes. Its use has been popularized by the fact that it is the default encoding in XML documents."
-msgstr ""
+msgstr "Å arbeide med fremmedspråk ofte medfører faste skifter mellom ulike kodinger og tegnsett . Videre å skrive flerspråklige dokumenter fører til ytterligere, nesten uløselige problemer. Unicode (en super-katalog av nesten alle skriftsystemer fra alle verdens språk) ble opprettet for å omgå dette problemet. En av Unicodes kodinger, UTF-8, beholder alle 128 ASCII symboler (7-bits koder), men håndterer andre tegn på en annen måte. De innledes med en spesifikk sekvens på noen bit, som implisitt definerer lengden på tegnet. Dette gjør det mulig å kode alle Unicode tegn på en sekvens med en eller flere byte. Bruken har blitt populært på grunn av det faktum at det er den standardkoding i XML-dokumenter."
 
 msgid "<primary>ASCII</primary>"
-msgstr ""
+msgstr "<primary>ASCII</primary>"
 
 msgid "<primary>UTF-8</primary>"
-msgstr ""
+msgstr "<primary>UTF-8</primary>"
 
 msgid "<primary>Unicode</primary>"
-msgstr ""
+msgstr "<primary>Unicode</primary>"
 
 msgid "This is the encoding that should generally be used, and is thus the default on Debian systems."
 msgstr ""
+"Dette er kodingen som i alminnelighet bør \n"
+"brukes, og er dermed standarden på Debian-systemer."
 
 msgid "The <emphasis role=\"pkg\">locales</emphasis> package includes all the elements required for proper functioning of “localization” of various applications. During installation, this package will ask to select a set of supported languages. This set can be changed at any time by running <command>dpkg-reconfigure locales</command> as root."
-msgstr ""
+msgstr "The <emphasis role=\"pkg\">locales</emphasis>-pakken inneholder alle elementene som kreves for at \"lokaltilpasning\" av ulike applikasjoner skal fungere riktig. Under installasjonen vil denne pakken be om valg av et sett med språk som støttes. Dette settet kan endres når som helst ved å kjøre <command>dpkg-reconfigure locales</command> som rot."
 
 msgid "The first question invites you to select “locales” to support. Selecting all English locales (meaning those beginning with “<literal>en_</literal>”) is a reasonable choice. Do not hesitate to also enable other locales if the machine will host foreign users. The list of locales enabled on the system is stored in the <filename>/etc/locale.gen</filename> file. It is possible to edit this file by hand, but you should run <command>locale-gen</command> after any modifications. It will generate the necessary files for the added locales to work, and remove any obsolete files."
-msgstr ""
+msgstr "Det første spørsmålet ber deg til å velge \"lokaliseringer\" som skal støttes. Å velge alle engelske lokaliseringer (som betyr de som begynner med “<literal>en_</literal>”) er et fornuftig valg. Ikke nøl med å også aktivere andre lokaliseringer hvis maskinen vil være vert for brukere fra andre land. Listen over lokaltilpasninger i systemet er lagret i <filename>/etc/locale.gen</filename>-filen. Det er mulig å redigere denne filen for hånd, men du bør kjøre <command>locale-gen</command> etter eventuelle endringer. Den vil generere de nødvendige filene til de ekstra lokaltilpasningene, og eventuelt fjerne utdaterte filer."
 
 msgid "The second question, entitled “Default locale for the system environment”, requests a default locale. The recommended choice in the U.S.A. is “<literal>en_US.UTF-8</literal>”. British English speakers will prefer “<literal>en_GB.UTF-8</literal>”, and Canadians will prefer either “<literal>en_CA.UTF-8</literal>” or, for French, “<literal>fr_CA.UTF-8</literal>”. The <filename>/etc/default/locale</filename> file will then be modified to store this choice. From there, it is picked up by all user sessions since PAM will inject its content in the <varname>LANG</varname> environment variable."
-msgstr ""
+msgstr "Det andre spørsmålet, med tittelen \"Default locale for systemmiljøet\", ber om en standard lokaltilpasning. Den anbefalte valet for USA er “<literal>en_US.UTF-8</literal>”. Britisk-engelsk-spårålige fil foretrekke “<literal>en_GB.UTF-8</literal>”, pog Canadiere vil foretrekke enten “<literal>en_CA.UTF-8</literal>” eller, for fransk, “<literal>fr_CA.UTF-8</literal>”. <filename>/etc/default/locale</filename>-filen vil da bli endret for å lagre dette valget. Derfra blir det plukket opp av alle brukersesjoner, siden PAM vil sette inn innholdet i miljøvariabelen <varname>LANG</varname>."
 
 msgid "<primary>environment</primary>"
-msgstr ""
+msgstr "<primary>environment</primary>"
 
 msgid "<primary>locale</primary>"
-msgstr ""
+msgstr "<primary>locale</primary>"
 
 msgid "<primary><varname>LANG</varname></primary>"
-msgstr ""
+msgstr "<primary><varname>LANG</varname></primary>"
 
 msgid "<emphasis>BEHIND THE SCENES</emphasis> <filename>/etc/environment</filename> and <filename>/etc/default/locale</filename>"
-msgstr ""
+msgstr "<emphasis>BEHIND THE SCENES</emphasis> <filename>/etc/environment</filename> og <filename>/etc/default/locale</filename>"
 
 msgid "The <filename>/etc/environment</filename> file provides the <command>login</command>, <command>gdm</command>, or even <command>ssh</command> programs with the correct environment variables to be created."
-msgstr ""
+msgstr "<filename>/etc/environment</filename>-filen gir  <command>login</command>, <command>gdm</command>, eller til og med <command>ssh</command>-programmer slik at de riktige miljøvariablene kan lages."
 
 msgid "These applications do not create these variables directly, but rather via a PAM (<filename>pam_env.so</filename>) module. PAM (Pluggable Authentication Module) is a modular library centralizing the mechanisms for authentication, session initialization, and password management. See <xref linkend=\"sect.config-pam\" /> for an example of PAM configuration."
-msgstr ""
+msgstr "Disse programmene lager ikke disse variablene direkte, men gjerne via en PAM (<filename>pam_env.so</filename>)-modul. PAM (Pluggable Authentication Module) er et modulbasert bibliotek som sentraliserer autentiseringsmekanismer, starter  sesjoner, og håndterer passord. Se <xref linkend=\"sect.config-pam\" /> for et eksempel på PAM-konfigurasjon."
 
 msgid "The <filename>/etc/default/locale</filename> file works in a similar manner, but contains only the <varname>LANG</varname> environment variable. Thanks to this split, some PAM users can inherit a complete environment without localization. Indeed, it is generally discouraged to run server programs with localization enabled; on the other hand, localization and regional settings are recommended for programs that open user sessions."
-msgstr ""
+msgstr "<filename>/etc/default/locale</filename>-filen arbeider på samme måte, men inneholder bare <varname>LANG</varname> miljøvariabelen. Takket være denne forskjellen, kan noen PAM-brukere arve et komplett miljø uten lokalisering. Det er imidlertid frarådet å kjøre tjenerprogrammer med lokalisering aktivert. På den annen side er lokalisering og regionale innstillinger anbefalt for programmer som åpner brukersesjoner."
 
 msgid "<primary>PAM</primary>"
-msgstr ""
+msgstr "<primary>PAM</primary>"
 
 msgid "<primary><filename>pam_env.so</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>pam_env.so</filename></primary>"
 
 msgid "Configuring the Keyboard"
-msgstr ""
+msgstr "Å sette opp tastaturet"
 
 msgid "<primary>keyboard layout</primary>"
 msgstr "<primary>tastaturutlegg</primary>"
@@ -178,59 +180,63 @@ msgid "<primary>layout, keyboard</primary>"
 msgstr "<primary>utlegg, tastatur</primary>"
 
 msgid "Even if the keyboard layout is managed differently in console and graphical mode, Debian offers a single configuration interface that works for both: it is based on debconf and is implemented in the <emphasis role=\"pkg\">keyboard-configuration</emphasis> package. Thus the <command>dpkg-reconfigure keyboard-configuration</command> command can be used at any time to reset the keyboard layout."
-msgstr ""
+msgstr "Selv om tastaturoppsett forvaltes ulikt i konsollen og i grafisk modus, tilbyr Debian ett konfigurasjonsgrensesnitt som fungerer for begge: Det bygger på debconf og er implementert i <emphasis role=\"pkg\">keyboard-configuration</emphasis>-pakken. Dermed kan  <command>dpkg-reconfigure keyboard-configuration</command>-kommandoen bli brukt når som helst til å resette tastaturoppsettet."
 
 msgid "<primary><emphasis>console-data</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>console-data</emphasis></primary>"
 
 msgid "<primary><emphasis>console-tools</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>console-tools</emphasis></primary>"
 
 msgid "<primary><emphasis>keyboard-configuration</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>keyboard-configuration</emphasis></primary>"
 
 msgid "<indexterm><primary><literal>azerty</literal></primary></indexterm>The questions are relevant to the physical keyboard layout (a standard PC keyboard in the US will be a “Generic 104 key”), then the layout to choose (generally “US”), and then the position of the AltGr key (right Alt). Finally comes the question of the key to use for the “Compose key”, which allows for entering special characters by combining keystrokes. Type successively <keycombo action=\"seq\"><keycap>Compose</keycap><keycap>'</keycap><keycap>e</keycap></keycombo> and produce an e-acute (“é”). All these combinations are described in the <filename>/usr/share/X11/locale/en_US.UTF-8/Compose</filename> file (or another file, determined according to the current locale indicated by <filename>/usr/share/X11/locale/compose.dir</filename>)."
-msgstr ""
+msgstr "<indexterm><primary><literal>azerty</literal></primary></indexterm> Spørsmålene gjelder det fysiske tastaturoppsettet (et standard PC-tastatur i USA vil være en \"Generic 104 key\"), deretter oppsettet for å velge (vanligvis \"US\"), og deretter posisjonen til altgr (høyre Alt). Til slutt kommer spørsmålet om nøkkelen som skal brukes for «Compose key\", som åpner for å legge inn spesialtegn ved å kombinere tastetrykk. Skriv i rekkefølge <keycombo action=\"seq\"><keycap>Compose</keycap><keycap>'</keycap><keycap>e</keycap></keycombo> og produce an e-acute (“é”). Alle disse kombinasjonene er beskrevet i <filename>/usr/share/X11/locale/en_US.UTF-8/Compose</filename>-filen (eller en annen fil, målt i henhold til gjeldende lokaltilpasning, angitt med <filename>/usr/share/X11/locale/compose.dir</filename>)."
 
 msgid "<primary><literal>Compose</literal>, key</primary>"
-msgstr ""
+msgstr "<primary><literal>Compose</literal>, key</primary>"
 
+#, fuzzy
 msgid "<primary><literal>Meta</literal>, key</primary>"
-msgstr ""
+msgstr "<primary><literal>Meta</literal>, key</primary>"
 
+#, fuzzy
 msgid "<primary>key</primary><secondary><literal>Meta</literal></secondary>"
-msgstr ""
+msgstr "<primary>key</primary><secondary><literal>Meta</literal></secondary>"
 
+#, fuzzy
 msgid "<primary>key</primary><secondary><literal>Compose</literal></secondary>"
-msgstr ""
+msgstr "<primary>key</primary><secondary><literal>Compose</literal></secondary>"
 
 msgid "Note that the keyboard configuration for graphical mode described here only affects the default layout; the GNOME and KDE environments, among others, provide a keyboard control panel in their preferences allowing each user to have their own configuration. Some additional options regarding the behavior of some particular keys are also available in these control panels."
-msgstr ""
+msgstr "Legg merke til at tastaturkonfigurasjonen for grafisk modus, beskrevet her, bare påvirker standardoppsettet. GNOME og KDE-miljøene, blant andre, gir et tastaturkontrollpanel i sine preferanser, slik at hver enkelt bruker får mulighet til å ha sin egen konfigurasjon. Noen flere alternativer for hvordan noen spesielle taster skal virke, er også tilgjengelige i disse kontrollpanelene."
 
 msgid "Migrating to UTF-8"
-msgstr ""
+msgstr "Å migrere til UTF-8"
 
 msgid "The generalization of UTF-8 encoding has been a long awaited solution to numerous difficulties with interoperability, since it facilitates international exchange and removes the arbitrary limits on characters that can be used in a document. The one drawback is that it had to go through a rather difficult transition phase. Since it could not be completely transparent (that is, it could not happen at the same time all over the world), two conversion operations were required: one on file contents, and the other on filenames. Fortunately, the bulk of this migration has been completed and we discuss it largely for reference."
-msgstr ""
+msgstr "Generaliseringen av UTF-8-kodingen har vært en etterlengtet løsning på flere problemer med interoperabilitet, ettersom det letter internasjonal utveksling og fjerner de vilkårlige begrensninger på tegn som kan brukes i et dokument. En ulempe er at en måtte gå gjennom en ganske vanskelig overgangsfase. Siden den ikke kan være helt gjennomsiktig (det er, det kan ikke skje samtidig over hele verden), kreves  to konverteringsoperasjoner: en for fileinnholdet, og den andre på filnavnet. Heldigvis er mesteparten av denne migreringen fullført, og vi diskuterer dette hovedsakelig for referansen."
 
 msgid "<emphasis>CULTURE</emphasis> <foreignphrase>Mojibake</foreignphrase> and interpretation errors"
-msgstr ""
+msgstr "<emphasis>CULTURE</emphasis> <foreignphrase>Mojibake</foreignphrase> og tolkningsfeil"
 
 msgid "When a text is sent (or stored) without encoding information, it is not always possible for the recipient to know with certainty what convention to use for determining the meaning of a set of bytes. You can usually get an idea by getting statistics on the distribution of values present in the text, but that doesn't always give a definite answer. When the encoding system chosen for reading differs from that used in writing the file, the bytes are mis-interpreted, and you get, at best, errors on some characters, or, at worst, something completely illegible."
-msgstr ""
+msgstr "Når en tekst blir sendt (eller lagret) uten koding av informasjon, er det ikke alltid mulig for mottakeren å vite med sikkerhet hvilken konvensjon som skal brukes for å bestemme meningen for et sett byte. Du kan vanligvis få en idé ved å få statistikk på fordelingen av verdiene i teksten, men det gir ikke alltid gi et klart svar. Når kodesystemet som er valgt for lesing skiller seg fra den som brukes for skriving til fil, bytene er feiltolket, får du i beste fall feil for enkelte tegn, eller i verste fall noe som er helt uleselig."
 
 msgid "Thus, if a French text appears normal with the exception of accented letters and certain symbols which appear to be replaced with sequences of characters like “Ã©” or Ã¨” or “Ã§”, it is probably a file encoded as UTF-8 but interpreted as ISO-8859-1 or ISO-8859-15. This is a sign of a local installation that has not yet been migrated to UTF-8. If, instead, you see question marks instead of accented letters — even if these question marks seem to also replace a character that should have followed the accented letter — it is likely that your installation is already configured for UTF-8 and that you have been sent a document encoded in Western ISO."
-msgstr ""
+msgstr "Dermed, hvis en fransk tekst synes normal med unntak av aksentbokstaver og visse symboler som ser ut til å ha blitt erstattet med sekvenser av tegn som \"Ã ©\" eller \" Â§\", er det sannsynligvis en fil kodet som UTF-8 som er tolket som ISO-8859-1 eller ISO-8859-15. Dette er et uttrykk for at en lokal installasjon ennå ikke er overført til UTF-8. Hvis du i stedet ser spørsmålstegn i stedet for bokstaver med aksenter - selv om disse spørsmålstegnene også ser ut til å erstatte en karakter som burde ha fulgt bokstaven med aksent - er det sannsynlig at installasjonen er ferdig konfigurert for UTF-8, og at du har blitt sendt et dokument som er kodet i Vest-ISO."
 
 msgid "So much for “simple” cases. These cases only appear in Western culture, since Unicode (and UTF-8) was designed to maximize the common points with historical encodings for Western languages based on the Latin alphabet, which allows recognition of parts of the text even when some characters are missing."
-msgstr ""
+msgstr "Så mye om \"enkle\" saker. Disse tilfellene kun vises i vestlig kultur, siden Unicode (og UTF-8) er designet for å maksimere felles punkter med historiske kodinger for vestlige språk basert på det latinske alfabetet, som anerkjenner deler av teksten selv når noen tegn mangler."
 
 msgid "In more complex configurations, which, for example, involve two environments corresponding to two different languages that do not use the same alphabet, you often get completely illegible results — a series of abstract symbols that have nothing to do with each other. This is especially common with Asian languages due to their numerous languages and writing systems. The Japanese word <foreignphrase>mojibake</foreignphrase> has been adopted to describe this phenomenon. When it appears, diagnosis is more complex and the simplest solution is often to simply migrate to UTF-8 on both sides."
-msgstr ""
+msgstr "I mer komplekse konfigurasjoner, som for eksempel involverer to miljøer som tilsvarer to forskjellige språk som ikke bruker det samme alfabetet, får du ofte helt uleselige resultater - en serie abstrakte symboler som ikke har noe å gjøre med hverandre. Dette er spesielt vanlig med asiatiske språk på grunn av sine mange språk og skriftsystemer. Det japanske ordet<foreignphrase>mojibake</foreignphrase> er tatt i bruk for å beskrive dette fenomenet. Når det vises er diagnosen mer kompleks og den enkleste løsningen er ofte bare å gå over til UTF-8 på begge sider."
 
 msgid "As far as file names are concerned, the migration can be relatively simple. The <command>convmv</command> tool (in the package with the same name) was created specifically for this purpose; it allows renaming files from one encoding to another. The use of this tool is relatively simple, but we recommend doing it in two steps to avoid surprises. The following example illustrates a UTF-8 environment containing directory names encoded in ISO-8859-15, and the use of <command>convmv</command> to rename them."
-msgstr ""
+msgstr "Når det gjelder filnavn, kan migrasjonen være relativt enkelt. <command>convmv</command>-verktøyet (i pakken med samme navn) ble opprettet spesielt for dette formålet. Det tillater døpe om filer fra en koding til en annen. Bruken av  verktøyet er relativt enkelt, men vi anbefaler å gjøre det i to trinn for å unngå overraskelser. Følgende eksempel illustrerer et UTF-8-miljø med katalognavn kodet i ISO-8859-15, og bruken av <command>convmv</command> for å gi nye navn."
 
+#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>ls travail/</userinput>\n"
 "<computeroutput>Ic?nes  ?l?ments graphiques  Textes\n"
@@ -246,134 +252,174 @@ msgid ""
 "$ </computeroutput><userinput>ls travail/</userinput>\n"
 "<computeroutput>Éléments graphiques  Icônes  Textes</computeroutput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>ls travail/</userinput>\n"
+"<computeroutput>Ic?nes  ?l?ments graphiques  Textes\n"
+"$ </computeroutput><userinput>convmv -r -f iso-8859-15 -t utf-8 travail/</userinput>\n"
+"<computeroutput>Starting a dry run without changes...\n"
+"mv \"travail/�l�ments graphiques\"        \"travail/Éléments graphiques\"\n"
+"mv \"travail/Ic�nes\"     \"travail/Icônes\"\n"
+"No changes to your files done. Use --notest to finally rename the files.\n"
+"$ </computeroutput><userinput>convmv -r --notest -f iso-8859-15 -t utf-8 travail/</userinput>\n"
+"<computeroutput>mv \"travail/�l�ments graphiques\"        \"travail/Éléments graphiques\"\n"
+"mv \"travail/Ic�nes\"     \"travail/Icônes\"\n"
+"Ready!\n"
+"$ </computeroutput><userinput>ls travail/</userinput>\n"
+"<computeroutput>Éléments graphiques  Icônes  Textes</computeroutput>"
 
 msgid "For the file content, conversion procedures are more complex due to the vast variety of existing file formats. Some file formats include encoding information that facilitates the tasks of the software used to treat them; it is sufficient, then, to open these files and re-save them specifying UTF-8 encoding. In other cases, you have to specify the original encoding (ISO-8859-1 or “Western”, or ISO-8859-15 or “Western (Euro)”, according to the formulations) when opening the file."
-msgstr ""
+msgstr "For filinnholdet, er  konverteringsprosedyrer mer kompliserte på grunn av det enorme utvalg av eksisterende filformater. Noen filformater inkluderer kodeinformasjon som forenkler oppgavene for programvaren som brukes til å behandle dem. Da er det tilstrekkelig for å åpne disse filene og lagre den igjen å spesifisere UTF-8-koding. I andre tilfelle må du spesifisere original kodingen (ISO-8859-1 eller \"Western\", eller ISO-8859-15 eller \"Western (Euro)\", i henhold til formuleringene) når du åpner filen."
 
 msgid "For simple text files, you can use <command>recode</command> (in the package of the same name) which allows automatic recoding. This tool has numerous options so you can play with its behavior. We recommend you consult the documentation, the <citerefentry> <refentrytitle>recode</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> man page, or the <citerefentry> <refentrytitle>recode</refentrytitle> </citerefentry> info page (more complete)."
-msgstr ""
+msgstr "For enkle tekstfiler kan du bruke <command>recode</command> (i pakken med samme navn) som registrerer automatisk. Dette verktøyet har mange alternativer, slik at du kan leke med hvordan det virker. Vi anbefaler at du ser i dokumentasjonen, den manuelle siden  <citerefentry> <refentrytitle>recode</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> eller  inforsiden <citerefentry> <refentrytitle>recode</refentrytitle> </citerefentry>."
 
 msgid "Configuring the Network"
 msgstr "Å konfigurere nettverket"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Essential network concepts (Ethernet, IP address, subnet, broadcast)"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Viktige nettverkskonsepter (Ethernet, IP address, subnet, broadcast)"
 
+#, fuzzy
 msgid "<primary>Ethernet</primary>"
-msgstr ""
+msgstr "<primary>Ethernet</primary>"
 
+#, fuzzy
 msgid "<primary>10BASE-T</primary>"
-msgstr ""
+msgstr "<primary>10BASE-T</primary>"
 
+#, fuzzy
 msgid "<primary>100BASE-T</primary>"
-msgstr ""
+msgstr "<primary>100BASE-T</primary>"
 
+#, fuzzy
 msgid "<primary>1000BASE-T</primary>"
-msgstr ""
+msgstr "<primary>1000BASE-T</primary>"
 
+#, fuzzy
 msgid "<primary>10GBASE-T</primary>"
-msgstr ""
+msgstr "<primary>10GBASE-T</primary>"
 
+#, fuzzy
 msgid "<primary>connector, RJ45</primary>"
-msgstr ""
+msgstr "<primary>connector, RJ45</primary>"
 
+#, fuzzy
 msgid "<primary>RJ45 connector</primary>"
-msgstr ""
+msgstr "<primary>RJ45 connector</primary>"
 
 msgid "Most modern local networks use the Ethernet protocol, where data is split into small blocks called frames and transmitted on the wire one frame at a time. Data speeds vary from 10 Mb/s for older Ethernet cards to 10 Gb/s in the newest cards (with the most common rate currently growing from 100 Mb/s to 1 Gb/s). The most widely used cables are called 10BASE-T, 100BASE-T, 1000BASE-T or 10GBASE-T depending on the throughput they can reliably provide (the T stands for “twisted pair”); those cables end in an RJ45 connector. There are other cable types, used mostly for speeds of 1 Gb/s and above."
-msgstr ""
+msgstr "De fleste moderne lokale nettverk bruker Ethernet-protokollen, der data deles inn i små blokker kalt rammer og sendes på ledningen ett bilde om gangen. Datahastigheten varierer fra 10 Mb/s for eldre Ethernet-kort til 10 Gb/s i de nyeste kortene (med de mest vanlige hastigheten for tiden vokser fra 100 Mb/s til 1 Gb/s). De mest brukte kabler kalles 10BASE-T, 100BASE-T, 1000BASE-T eller 10GBASE-T avhengig av gjennomstrømming de med sikkert kan gi (T står for \"twisted pair\"). Disse kablene ende i en RJ45-kontakt. Det finnes andre kabeltyper, som mest brukes for hastigheter på 1 Gb/s og oppover."
 
+#, fuzzy
 msgid "<primary>address, IP address</primary>"
-msgstr ""
+msgstr "<primary>address, IP address</primary>"
 
+#, fuzzy
 msgid "<primary>IP address</primary>"
-msgstr ""
+msgstr "<primary>IP address</primary>"
 
 msgid "An IP address is a number used to identify a network interface on a computer on a local network or the Internet. In the currently most widespread version of IP (IPv4), this number is encoded in 32 bits, and is usually represented as 4 numbers separated by periods (e.g. <literal>192.168.0.1</literal>), each number being between 0 and 255 (inclusive, which corresponds to 8 bits of data). The next version of the protocol, IPv6, extends this addressing space to 128 bits, and the addresses are generally represented as a series of hexadecimal numbers separated by colons (e.g., 2001:0db8:13bb:0002:0000:0000:0000:0020, or 2001:db8:13bb:2::20 for short)."
-msgstr ""
+msgstr "En IP-adresse er et nummer som brukes til å identifisere et nettverksgrensesnitt på en datamaskin på et lokalt nettverk, eller på Internett. I den nå mest utbredte versjonen av IP (IPv4), er dette tallet kodet i 32 bits, og er vanligvis representert som 4 tall atskilt med punktum (f.eks<literal>192.168.0.1</literal>), hvert tall er mellom 0 og 255 (inkludert, som tilsvarer 8 bit data). Den neste versjonen av protokollen, utvider dette adresseringsrommet til 128 bits, og adressene generelt er representert som en serie av heksadesimale tall atskilt med kolon (for eksempel 2001:0db8:13bb:0002:0000:0000:0000:0020, eller 2001:db8:13bb:2::20 i korthet)."
 
 msgid "<primary>subnet</primary>"
-msgstr ""
+msgstr "<primary>subnet</primary>"
 
+#, fuzzy
 msgid "<primary>mask</primary><secondary>subnet mask</secondary>"
-msgstr ""
+msgstr "<primary>mask</primary><secondary>subnet mask</secondary>"
 
+#, fuzzy
 msgid "<primary>network</primary><secondary>address</secondary>"
-msgstr ""
+msgstr "<primary>network</primary><secondary>address</secondary>"
 
 msgid "A subnet mask (netmask) defines in its binary code which portion of an IP address corresponds to the network, the remainder specifying the machine. In the example of configuring a static IPv4 address given here, the subnet mask, <literal>255.255.255.0</literal> (24 “1”s followed by 8 “0”s in binary representation) indicates that the first 24 bits of the IP address correspond to the network address, and the other 8 are specific to the machine. In IPv6, for readability, only the number of “1”s is expressed; the netmask for an IPv6 network could, thus, be <literal>64</literal>."
-msgstr ""
+msgstr "I sin binærkode definerer en nettverksmaske (nettmaske) hvilken del av en IP-adresse som samsvarer med nettverket, resten spesifiserer maskinen. I eksemplet med å konfigurere en statisk IPv4-adresse gitt her, nettverksmaske <literal>255.255.255.0</literal> (binært med 24 “1”-ere fulgt av 8 “0”-er) indikerer at de første 24 bit av IP-adressen tilsvarer nettverksadressen, og den andre 8 er spesifikke for maskinen. I IPv6, for lesbarheten, er bare antallet \"1\"-ere angitt; nettmasken for et IPv6-nettverk kan dermed være <literal>64</literal>."
 
 msgid "The network address is an IP address in which the part describing the machine's number is 0. The range of IPv4 addresses in a complete network is often indicated by the syntax, <emphasis>a.b.c.d/e</emphasis>, in which <emphasis>a.b.c.d</emphasis> is the network address and <emphasis>e</emphasis> is the number of bits affected to the network part in an IP address. The example network would thus be written: <literal>192.168.0.0/24</literal>. The syntax is similar in IPv6: <literal>2001:db8:13bb:2::/64</literal>."
-msgstr ""
+msgstr "Nettverksadressen er en IP-adresse der den delen som beskriver maskinens nummer er 0. Området for IPv4-adresser i et fullstendig nett er ofte angitt med syntaksen <emphasis>a.b.c.d/e</emphasis>, der <emphasis>a.b.c.d</emphasis> er nettverksadressen og <emphasis>e</emphasis> er det antall bits som berører  nettverksdelen i en IP-adresse. Eksempel-nettverket skal da skrives <literal>192.168.0.0/24</literal>. The syntaksen er tilsvarende i IPv6: <literal>2001:db8:13bb:2::/64</literal>."
 
 msgid "<primary>router</primary>"
 msgstr "<primary>ruter</primary>"
 
+#, fuzzy
 msgid "<primary>bridge</primary>"
-msgstr ""
+msgstr "<primary>bridge</primary>"
 
 msgid "A router is a machine that connects several networks to each other. All traffic coming through a router is guided to the correct network. To do this, the router analyzes incoming packets and redirects them according to the IP address of their destination. The router is often known as a gateway; in this configuration, it works as a machine that helps reach out beyond a local network (towards an extended network, such as the Internet)."
-msgstr ""
+msgstr "En ruter er en maskin som forbinder flere nettverk med hverandre. All trafikk som kommer via en ruter blir guidet til riktig nettverk. For å gjøre dette, analyserer ruteren innkommende pakker og viderekobler dem ut fra IP-adressen til bestemmelsesstedet. Ruteren er ofte kjent som en innfallsport; i denne konfigurasjonen fungerer den som en maskin som bidrar til å nå utover et lokalt nettverk (mot et utvidet nettverk, slik som internett)."
 
+#, fuzzy
 msgid "<primary>broadcast</primary>"
-msgstr ""
+msgstr "<primary>broadcast</primary>"
 
 msgid "The special broadcast address connects all the stations in a network. Almost never “routed”, it only functions on the network in question. Specifically, it means that a data packet addressed to the broadcast never passes through the router."
-msgstr ""
+msgstr "Den spesielle kringkastingsadressen forbinder alle stasjonene i et nettverk. Nesten aldri \"rutet\", funger den bare på nettverket det gjelder. Nærmere bestemt betyr dette at en datapakke adressert til kringkastingen aldri passerer gjennom ruteren."
 
 msgid "This chapter focuses on IPv4 addresses, since they are currently the most commonly used. The details of the IPv6 protocol are approached in <xref linkend=\"sect.ipv6\" />, but the concepts remain the same."
-msgstr ""
+msgstr "Dette kapittelet fokuserer på IPv4-adresser, siden de i dag er de mest brukte. Detaljene i IPv6-protokollen kommer nærmere i <xref linkend=\"sect.ipv6\" />, men begrepene forblir de samme."
 
 msgid "Since the network is automatically configured during the initial installation, the <filename>/etc/network/interfaces</filename> file already contains a valid configuration. A line starting with <literal>auto</literal> gives a list of interfaces to be automatically configured on boot by <emphasis role=\"pkg\">ifupdown</emphasis> and its <filename>/etc/init.d/networking</filename> init script. This will often be <literal>eth0</literal>, which refers to the first Ethernet card."
-msgstr ""
+msgstr "Siden nettverket er konfigurert automatisk under den første installasjonen, inneholder  <filename>/etc/network/interfaces</filename>-filen allerede en gyldig konfigurasjon. En linje som starter med  <literal>auto</literal> gir en liste med grensesnitt som automatisk blir konfigurert ved oppstart med <emphasis role=\"pkg\">ifupdown</emphasis> og dens  <filename>/etc/init.d/networking</filename> init skript. Dette vil ofte være <literal>eth0</literal>, som referer til det første  Ethernet-kortet."
 
+#, fuzzy
 msgid "<primary>network</primary><secondary>configuration</secondary>"
-msgstr ""
+msgstr "<primary>network</primary><secondary>configuration</secondary>"
 
+#, fuzzy
 msgid "<primary>configuration</primary><secondary>of the network</secondary>"
-msgstr ""
+msgstr "<primary>configuration</primary><secondary>of the network</secondary>"
 
+#, fuzzy
 msgid "<primary>interface</primary><secondary>network interface</secondary>"
-msgstr ""
+msgstr "<primary>interface</primary><secondary>network interface</secondary>"
 
+#, fuzzy
 msgid "<primary><literal>eth0</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>eth0</literal></primary>"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> NetworkManager"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Network Manager"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
 
 msgid "If Network Manager is particularly recommended in roaming setups (see <xref linkend=\"sect.roaming-network-config\" />), it is also perfectly usable as the default network management tool. You can create “System connections” that are used as soon as the computer boots either manually with a <filename>.ini</filename>-like file in <filename>/etc/NetworkManager/system-connections/</filename> or through a graphical tool (<command>nm-connection-editor</command>). Just remember to deactivate all entries in <filename>/etc/network/interfaces</filename> if you want Network Manager to handle them. <ulink type=\"block\" url=\"https://wiki.gnome.org/Projects/NetworkManager/SystemSettings/jessie\" /> <ulink type=\"block\" url=\"https://developer.gnome.org/NetworkManager/0.9/ref-settings.html\" />"
-msgstr ""
+msgstr "Hvis Network Manager spesielt er anbefalt i roaming-oppsettene (se <xref linkend=\"sect.roaming-network-config\" />), er den også helt brukbar som standard styringsverktøy for nettverk. Du kan lage \"systemtilkoblinger\" som brukes så snart datamaskinen starter enten manuelt med en <filename>.ini</filename>-lik fil i <filename>/etc/NetworkManager/system-connections/</filename>, eller med et grafisk verktøy (<command>nm-connection-editor</command>). Bare husk å deaktivere alle oppføringer i <filename>/etc/network/interfaces</filename> hvis du vil at Network Manager skal håndtere dem <ulink type=\"block\" url=\"https://wiki.gnome.org/Projects/NetworkManager/SystemSettings/jessie\" /> <ulink type=\"block\" url=\"https://developer.gnome.org/NetworkManager/0.9/ref-settings.html\" />"
 
 msgid "Ethernet Interface"
-msgstr ""
+msgstr "Grensesnitt for Ethernettet"
 
 msgid "If the computer has an Ethernet card, the IP network that is associated with it must be configured by choosing from one of two methods. The simplest method is dynamic configuration with DHCP, and it requires a DHCP server on the local network. It may indicate a desired hostname, corresponding to the <literal>hostname</literal> setting in the example below. The DHCP server then sends configuration settings for the appropriate network."
-msgstr ""
+msgstr "Hvis datamaskinen har et Ethernet-kort, må det IP-nettverk som er forbundet med det, bli konfigurert ved å velge blant en av to metoder. Den enkleste metoden er en dynamisk konfigurasjon med DHCP, og det krever en DHCP-tjener i det lokale nettverket. Det kan indikere et ønsket vertsnavn, tilsvarende <literal>hostname</literal>-innstillingen i eksempelet nedenfor. DHCP-tjeneren sender deretter konfigurasjonsinnstillinger for det aktuelle nettverket."
 
+#, fuzzy
 msgid "<primary>DHCP</primary>"
-msgstr ""
+msgstr "<primary>DHCP</primary>"
 
+#, fuzzy
 msgid "DHCP configuration"
-msgstr ""
+msgstr "DHCP configuration"
 
+#, fuzzy
 msgid ""
 "\n"
 "auto eth0\n"
 "iface eth0 inet dhcp\n"
 "  hostname arrakis"
 msgstr ""
+"\n"
+"auto eth0\n"
+"iface eth0 inet dhcp\n"
+"  hostname arrakis"
 
 msgid "A “static” configuration must indicate network settings in a fixed manner. This includes at least the IP address and subnet mask; network and broadcast addresses are also sometimes listed. A router connecting to the exterior will be specified as a gateway."
-msgstr ""
+msgstr "En \"statisk\" konfigurasjon må angi nettverksinnstillinger på en bestemt måte. Dette inkluderer minst IP-adressen og nettverksmasken, og noen ganger er også kringkastingsadresser oppført. En ruter som kobler til omverdenen blir spesifisert som en port."
 
+#, fuzzy
 msgid "Static configuration"
-msgstr ""
+msgstr "Static configuration"
 
+#, fuzzy
 msgid ""
 "\n"
 "auto eth0\n"
@@ -384,100 +430,126 @@ msgid ""
 "  network 192.168.0.0\n"
 "  gateway 192.168.0.1"
 msgstr ""
+"\n"
+"auto eth0\n"
+"iface eth0 inet static\n"
+"  address 192.168.0.3\n"
+"  netmask 255.255.255.0\n"
+"  broadcast 192.168.0.255\n"
+"  network 192.168.0.0\n"
+"  gateway 192.168.0.1"
 
+#, fuzzy
 msgid "<emphasis>NOTE</emphasis> Multiple addresses"
-msgstr ""
+msgstr "<emphasis>NOTE</emphasis> Multiple addresses"
 
 msgid "It is possible not only to associate several interfaces to a single, physical network card, but also several IP addresses to a single interface. Remember also that an IP address may correspond to any number of names via DNS, and that a name may also correspond to any number of numerical IP addresses."
-msgstr ""
+msgstr "Det er ikke bare muligå knytte flere grensesnitt til et enkelt, fysisk nettverkskort, men også flere IP-adresser til en enkelt grensesnitt. Merk deg også at en IP-adresse kan tilsvare til hvilket som helst antall navn via DNS, og at et navn også kan tilsvare en hvilken som helst antall numeriske IP-adresser."
 
 msgid "As you can guess, the configurations can be rather complex, but these options are only used in very special cases. The examples cited here are typical of the usual configurations."
-msgstr ""
+msgstr "Som du kan gjette, kan konfigurasjoner være nokså komplekse, men disse alternativene er kun brukt i helt spesielle tilfeller. Eksemplene nevnt her er typiske for de vanlige konfigurasjonene."
 
 msgid "Connecting with PPP through a PSTN Modem"
-msgstr ""
+msgstr "Forbinde PPP gjennom et PSTN modem"
 
+#, fuzzy
 msgid "<primary>PPP</primary>"
-msgstr ""
+msgstr "<primary>PPP</primary>"
 
+#, fuzzy
 msgid "<primary>point to point</primary>"
-msgstr ""
+msgstr "<primary>point to point</primary>"
 
+#, fuzzy
 msgid "<primary>connection</primary><secondary>by PSTN modem</secondary>"
-msgstr ""
+msgstr "<primary>connection</primary><secondary>by PSTN modem</secondary>"
 
+#, fuzzy
 msgid "<primary>modem</primary><secondary>PSTN</secondary>"
-msgstr ""
+msgstr "<primary>modem</primary><secondary>PSTN</secondary>"
 
 msgid "A point to point (PPP) connection establishes an intermittent connection; this is the most common solution for connections made with a telephone modem (“PSTN modem”, since the connection goes over the public switched telephone network)."
-msgstr ""
+msgstr "Et punkt til punkt (PPP) etablerer en periodisk forbindelse. Dette er den mest vanlige løsning for tilkoblinger med et telefonmodem (\"PSTN-modem\", ettersom forbindelsen går over det offentlige, svitsjede telefonnettet)."
 
 msgid "A connection by telephone modem requires an account with an access provider, including a telephone number, username, password, and, sometimes the authentication protocol to be used. Such a connection is configured using the <command>pppconfig</command> tool in the Debian package of the same name. By default, it sets up a connection named <literal>provider</literal> (as in Internet service provider). When in doubt about the authentication protocol, choose <emphasis>PAP</emphasis>: it is offered by the majority of Internet service providers."
-msgstr ""
+msgstr "En tilkobling via telefon modem krever en konto med en aksessleverandør, inkludert et telefonnummer, brukernavn, passord, og noen ganger skal det brukes en autentiseringsprotokoll. En slik forbindelse er konfigurert ved hjelp av <command>pppconfig</command>-verktøy i Debian-pakken med samme navn. Som standard setter det opp en forbindelse som heter <literal>provider</literal> (som i Internett-leverandør). Når du er i tvil om autentiseringsprotokollen, velge <emphasis>PAP</emphasis>: Den tilbys av de fleste Internett-leverandører."
 
+#, fuzzy
 msgid "<primary><command>pppconfig</command></primary>"
-msgstr ""
+msgstr "<primary><command>pppconfig</command></primary>"
 
+#, fuzzy
 msgid "<primary>PAP</primary>"
-msgstr ""
+msgstr "<primary>PAP</primary>"
 
 msgid "After configuration, it is possible to connect using the <command>pon</command> command (giving it the name of the connection as a parameter, when the default value of <literal>provider</literal> is not appropriate). The link is disconnected with the <command>poff</command> command. These two commands can be executed by the root user, or by any other user, provided they are in the <literal>dip</literal> group."
-msgstr ""
+msgstr "Etter konfigurasjon, er det mulig å koble til med <command>pon</command>-kommandoen (gi den navnet på tilkoblingen som et parameter, når standardverdien <literal>provider</literal> ikke er hensiktsmessig). Linken blir frakoblet med  <command>poff</command>-kommandoen. Disse to kommandoer kan utføres av rotbrukeren, eller av en annen bruker, forutsatt at de er i <literal>dip</literal>-gruppen."
 
+#, fuzzy
 msgid "<primary><command>pon</command></primary>"
-msgstr ""
+msgstr "<primary><command>pon</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>poff</command></primary>"
-msgstr ""
+msgstr "<primary><command>poff</command></primary>"
 
 msgid "Connecting through an ADSL Modem"
-msgstr ""
+msgstr "Tilkobling med et ADSL-modem"
 
+#, fuzzy
 msgid "<primary>connection</primary><secondary>by ADSL modem</secondary>"
-msgstr ""
+msgstr "<primary>connection</primary><secondary>by ADSL modem</secondary>"
 
+#, fuzzy
 msgid "<primary>modem</primary><secondary>ADSL</secondary>"
-msgstr ""
+msgstr "<primary>modem</primary><secondary>ADSL</secondary>"
 
+#, fuzzy
 msgid "<primary>ADSL, modem</primary>"
-msgstr ""
+msgstr "<primary>ADSL, modem</primary>"
 
 msgid "The generic term “ADSL modem” covers a multitude of devices with very different functions. The modems that are simplest to use with Linux are those that have an Ethernet interface (and not only a USB interface). These tend to be popular; most ADSL Internet service providers lend (or lease) a “box” with Ethernet interfaces. Depending on the type of modem, the configuration required can vary widely."
-msgstr ""
+msgstr "Fellesbetegnelsen \"ADSL-modem\" dekker en rekke enheter med svært ulike oppgaver. Enklest å bruke med Linux er modemene som har et Ethernet-grensesnitt (og ikke bare et USB-grensesnitt). Disse pleier å være populære. De fleste ADSL Internett-leverandører låner ut (eller leaser) en \"boks\" med Ethernet grensesnitt. Avhengig av typen modem, varierer den konfigurasjon som kreves mye."
 
 msgid "Modems Supporting PPPOE"
-msgstr ""
+msgstr "Modemer som støtter PPPOE"
 
+#, fuzzy
 msgid "<primary>PPPOE</primary>"
-msgstr ""
+msgstr "<primary>PPPOE</primary>"
 
+#, fuzzy
 msgid "<primary><command>pppoeconf</command></primary>"
-msgstr ""
+msgstr "<primary><command>pppoeconf</command></primary>"
 
 msgid "Some Ethernet modems work with the PPPOE protocol (Point to Point Protocol over Ethernet). The <command>pppoeconf</command> tool (from the package with the same name) will configure the connection. To do so, it modifies the <filename>/etc/ppp/peers/dsl-provider</filename> file with the settings provided and records the login information in the <filename>/etc/ppp/pap-secrets</filename> and <filename>/etc/ppp/chap-secrets</filename> files. It is recommended to accept all modifications that it proposes."
-msgstr ""
+msgstr "Noen Ethernet-modemer arbeider med PPPoE protokollen (Point to Point Protocol over Ethernet).<command>pppoeconf</command>-verktøyet (fra pakken med samme navn) vil konfigurere tilkoblingen. For å gjøre dette, endrer den <filename>/etc/ppp/peers/dsl-provider</filename>-filen med innstillingene gitt og registreret i påloggingsinformasjonen i <filename>/etc/ppp/pap-secrets</filename> og <filename>/etc/ppp/chap-secrets</filename>-filene. Det anbefales å godta alle endringer som det foreslår."
 
 msgid "Once this configuration is complete, you can open the ADSL connection with the command, <command>pon dsl-provider</command> and disconnect with <command>poff dsl-provider</command>."
-msgstr ""
+msgstr "Så snart denne konfigurasjonen er fullført, kan du åpne ADSL-tilkobling med kommandoen, <command>pon dsl-provider</command> og koble den fra med <command>poff dsl-provider</command>."
 
+#, fuzzy
 msgid "<primary><literal>dsl-provider</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>dsl-provider</literal></primary>"
 
 msgid "<emphasis>TIP</emphasis> Starting <command>ppp</command> at boot"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Som starter <command>ppp</command> ved oppstart"
 
+#, fuzzy
 msgid "<primary><command>systemd</command></primary>"
-msgstr ""
+msgstr "<primary><command>systemd</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>init</command></primary>"
-msgstr ""
+msgstr "<primary><command>init</command></primary>"
 
 msgid "PPP connections over ADSL are, by definition, intermittent. Since they are usually not billed according to time, there are few downsides to the temptation of keeping them always open. The standard means to do so is to use the init system."
-msgstr ""
+msgstr "PPP-forbindelser over ADSL er, per definisjon, periodiske. Siden de vanligvis ikke faktureres etter tidsbruk, er det få motforestillinger mot å alltid holde dem åpne. Standardmåtene å gjøre det på, er å bruke init-systemet."
 
 msgid "The default init system on <emphasis role=\"distribution\">Jessie</emphasis> is <command>systemd</command>. Adding an automatically restarting task for the ADSL connection is a simple matter of creating a “unit file” such as <filename>/etc/systemd/system/adsl-connection.service</filename>, with contents such as the following:"
-msgstr ""
+msgstr "Stanard init-system på <emphasis role=\"distribution\">Jessie</emphasis> er <command>systemd</command>. Å legge til en automatisk omstartsoppgave for ADSL-tilkoblingen er en så enkel sak som å lage en \"unit filel\", slik som <filename>/etc/systemd/system/adsl-connection.service</filename>, med innhold som det følgende:"
 
+#, fuzzy
 msgid ""
 "[Unit]\n"
 "Description=ADSL connection\n"
@@ -490,534 +562,635 @@ msgid ""
 "[Install]\n"
 "WantedBy=multi-user.target"
 msgstr ""
+"[Unit]\n"
+"Description=ADSL connection\n"
+"\n"
+"[Service]\n"
+"Type=forking\n"
+"ExecStart=/usr/sbin/pppd call dsl-provider\n"
+"Restart=always\n"
+"\n"
+"[Install]\n"
+"WantedBy=multi-user.target"
 
 msgid "Once this unit file has been defined, it needs to be enabled with <command>systemctl enable adsl-connection</command>. Then the loop can be started manually with <command>systemctl start adsl-connection</command>; it will also be started automatically on boot."
-msgstr ""
+msgstr "Så snart denne unit-filen er definert, må den aktiveres med <command>systemctl enable adsl-connection</command>. Så kan sløyfen startes manyelt med <command>systemctl start adsl-connection</command>. Den vil også bli startet automatisk ved oppstart."
 
 msgid "On systems not using <command>systemd</command> (including <emphasis role=\"distribution\">Wheezy</emphasis> and earlier versions of Debian), the standard SystemV init works differently. On such systems, all that is needed is to add a line such as the following at the end of the <filename>/etc/inittab</filename> file; then, any time the connection is disconnected, <command>init</command> will reconnect it."
-msgstr ""
+msgstr "På systemer som ikke bruker <command>systemd</command> (medregnet <emphasis role=\"distribution\">Wheezy</emphasis> og tidligere versjoner av Debian), fungerer standard SystemV init annerledes. I slike systemer, er alt som er nødvendig å legge til en linje som følgende ved slutten av <filename>/etc/inittab</filename>-filen; så, hver gang forbindelsen blir fraboblet vil <command>init</command> åpne den igjen."
 
+#, fuzzy
 msgid ""
 "\n"
 "adsl:2345:respawn:/usr/sbin/pppd call dsl-provider"
 msgstr ""
+"\n"
+"adsl:2345:respawn:/usr/sbin/pppd call dsl-provider"
 
 msgid "For ADSL connections that auto-disconnect on a daily basis, this method reduces the duration of the interruption."
-msgstr ""
+msgstr "For ADSL-forbindelser som daglig auto-frakobler, reduserer metoden varigheten av avbruddet."
 
 msgid "Modems Supporting PPTP"
-msgstr ""
+msgstr "Modeer som støtter PPTP"
 
+#, fuzzy
 msgid "<primary>PPTP</primary>"
-msgstr ""
+msgstr "<primary>PPTP</primary>"
 
 msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"sect.pptp\" />."
-msgstr ""
+msgstr "Protokollen PPTP (Point-to-Point Tunneling Protocol) ble opprettet av Microsoft. I begynnelsen utplassert av ADSL, og ble raskt erstattet av PPPoE. Hvis denne protokollen er tvunget på deg, se <xref linkend=\"sect.pptp\" />."
 
 msgid "Modems Supporting DHCP"
-msgstr ""
+msgstr "Modemer som støtter DHCP"
 
 msgid "When a modem is connected to the computer by an Ethernet cable (crossover cable) you typically configure a network connection by DHCP on the computer; the modem automatically acts as a gateway by default and takes care of routing (meaning that it manages the network traffic between the computer and the Internet)."
-msgstr ""
+msgstr "Når et modem er koblet til datamaskinen med en Ethernet-kabel (krysset kabel) du vanligvis konfigurere en nettverkstilkobling med DHCP på datamaskinen. Modemet fungerer automatisk som en systemport som standard, og tar seg av ruting (som betyr at den klarer nettverkstrafikk mellom datamaskinen og Internettet)."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Crossover cable for a direct Ethernet connection"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Krysskabel for en direkte Ethernet-forbindelse"
 
+#, fuzzy
 msgid "<primary>crossover cable</primary>"
-msgstr ""
+msgstr "<primary>crossover cable</primary>"
 
 msgid "Computer network cards expect to receive data on specific wires in the cable, and send their data on others. When you connect a computer to a local network, you usually connect a cable (straight or crossover) between the network card and a repeater or switch. However, if you want to connect two computers directly (without an intermediary switch or repeater), you must route the signal sent by one card to the receiving side of the other card, and vice-versa. This is the purpose of a crossover cable, and the reason it is used."
-msgstr ""
+msgstr "Datamaskinenes nettverkskort forventes å motta data fra bestemte ledninger i kabelen, og sende sine data på andre. Når du kobler en datamaskin til et lokalt nettverk, kobler du vanligvis en kabel (rett eller i kryss) mellom nettverkskortet og en nettverksveksler eller svitsj. Men hvis du vil koble to datamaskiner direkte (uten mellomliggende svitjs eller nettverksbryter), må du rute signalet fra ett kort til mottakersiden av det andre kortet, og vice-versa. Dette er hensikten med en krysset kabel, og grunnen til at den brukes."
 
 msgid "Note that this distinction has become almost irrelevant over time, as modern network cards are able do detect the type of cable present and adapt accordingly, so it won't be unusual that both kinds of cable will work in a given location."
-msgstr ""
+msgstr "Merk at dette skillet er blitt nesten irrelevant over tid, ettersom moderne nettverkskort er i stand til å oppdage typen kabel og tilpasse seg etter det. Så det vil ikke være uvanlig at begge typer kabel vil virke på et gitt sted."
 
 msgid "Most “ADSL routers” on the market can be used like this, as do most of the ADSL modems provided by Internet services providers."
-msgstr ""
+msgstr "De fleste \"ADSL-rutere\" på markedet kan brukes slik, som de fleste av ADSL-modemene som leveres fra Internett-leverandørene."
 
 msgid "Automatic Network Configuration for Roaming Users"
-msgstr ""
+msgstr "Automatisk nettverkoppsett for roaming-brukere"
 
+#, fuzzy
 msgid "<primary>network</primary><secondary>roaming configuration</secondary>"
-msgstr ""
+msgstr "<primary>network</primary><secondary>roaming configuration</secondary>"
 
 msgid "Many Falcot engineers have a laptop computer that, for professional purposes, they also use at home. The network configuration to use differs according to location. At home, it may be a wifi network (protected by a WPA key), while the workplace uses a wired network for greater security and more bandwidth."
-msgstr ""
+msgstr "Mange Falcot ingeniører har en bærbar datamaskin for profesjonell bruk, som de også bruke hjemme. Nettverkskonfigurasjonen avhenger av plasseringen. Hjemme, kan det være en wifi-nettverk (beskyttet av en WPA-nøkkel), mens arbeidsplassen bruker et kablet nettverk for større sikkerhet og mer båndbredde."
 
 msgid "To avoid having to manually connect or disconnect the corresponding network interfaces, administrators installed the <emphasis role=\"pkg\">network-manager</emphasis> package on these roaming machines. This software enables a user to easily switch from one network to another using a small icon displayed in the notification area of their graphical desktop. Clicking on this icon displays a list of available networks (both wired and wireless), so they can simply choose the network they wish to use. The program saves the configuration for the networks to which the user has already connected, and automatically switches to the best available network when the current connection drops."
-msgstr ""
+msgstr "For å unngå å koble manuelt til eller fra det tilhørende nettverksgrensesnittet innstalerte administratorene <emphasis role=\"pkg\">network-manager</emphasis>- pakken på disse flyttbare maskinene. Denne programvaren gjør at brukeren kan enkelt bytte fra ett nettverk til et annet ved hjelp av et lite ikon i systemstatusfeltet på det grafiske skrivebordet. Ved å klikke på dette ikonet vises en liste over tilgjengelige nettverk (både kablet og trådløst), slik at de kan rett og slett velge nettverket de ønsker å bruke. Programmet lagrer konfigurasjonen for nettverkene som brukeren allerede har koblet til, og bytter automatisk til det beste tilgjengelige nettverket når den gjeldende tilkoblingen faller ut."
 
 msgid "In order to do this, the program is structured in two parts: a daemon running as root handles activation and configuration of network interfaces and a user interface controls this daemon. PolicyKit handles the required authorizations to control this program and Debian configured PolicyKit in such a way so that members of the netdev group can add or change Network Manager connections."
-msgstr ""
+msgstr "For å gjøre dette, er programmet strukturert i to deler: En nisse som kjører som rot håndterer aktivering og konfigurering av nettverksgrensesnitt, og et brukergrensesnitt kontroller denne nissen. PolicyKit håndterer de nødvendige fullmakter til å styre dette programmet og Debian konfigurerte PolicyKit på en slik måte slik at medlemmer i netdev gruppen kan legge til eller endre Network Manager-tilkoblinger."
 
 msgid "Network Manager knows how to handle various types of connections (DHCP, manual configuration, local network), but only if the configuration is set with the program itself. This is why it will systematically ignore all network interfaces in <filename>/etc/network/interfaces</filename> for which it is not suited. Since Network Manager doesn't give details when no network connections are shown, the easy way is to delete from <filename>/etc/network/interfaces</filename> any configuration for all interfaces that must be managed by Network Manager."
-msgstr ""
+msgstr "Network Manager vet hvordan man skal håndtere ulike typer tilkoblinger (DHCP, manuell konfigurering, lokale nettverk), men bare hvis konfigureringen er stilt inn med programmet selv. Dette er grunnen til at det systematisk vil ignorere alle nettverkgrensesnitt i <filename>/etc/network/interfaces</filename> som det ikke passer for.  Ettersom Network Manager ikke gi detaljer når ingen nettverkstilkoblinger vises, er den enkle måten å slette  alle konfigurasjoner for grensesnitt som må håndteres av Network Manager fra <filename>/etc/network/interfaces</filename>."
 
 msgid "Note that this program is installed by default when the “Desktop Environment” task is chosen during initial installation."
-msgstr ""
+msgstr "Merk at dette programmet er installert som standard når \"Desktop Environment\"-oppgaven er valgt ved den første installasjonen."
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Configuration by “network profile”"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Konfigurering med “network profile”"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">guessnet</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">guessnet</emphasis></primary>"
 
 msgid "More advanced users may want to try the <emphasis role=\"pkg\">guessnet</emphasis> package for automatic network configuration. A group of test scripts determine which network profile should be activated and configure it on the fly."
-msgstr ""
+msgstr "Mer avanserte brukere kan ønske å prøve <emphasis role=\"pkg\">guessnet</emphasis>-pakken for automatisk nettverkskonfigurasjon. En gruppe testskript bestemmer hvilken nettverksprofil som skal aktiveres og konfigurerer det fortløpende."
 
 msgid "Users who prefer to manually select a network profile will prefer the <emphasis role=\"pkg\">netenv</emphasis> program, found in the package of the same name."
-msgstr ""
+msgstr "Brukere som vil velge en nettverksprofil manuelt vil foretrekke <emphasis role=\"pkg\">netenv</emphasis>-programmet, som finnes i pakken med samme navn."
 
 msgid "Setting the Hostname and Configuring the Name Service"
-msgstr ""
+msgstr "Sette vertsnavnet og konfigurere navntjenesten"
 
+#, fuzzy
 msgid "<primary>name</primary><secondary>attribution and resolution</secondary>"
-msgstr ""
+msgstr "<primary>name</primary><secondary>attribution and resolution</secondary>"
 
+#, fuzzy
 msgid "<primary>assignment of names</primary>"
-msgstr ""
+msgstr "<primary>assignment of names</primary>"
 
 msgid "The purpose of assigning names to IP numbers is to make them easier for people to remember. In reality, an IP address identifies a network interface associated with a device such as a network card. Since each machine can have several network cards, and several interfaces on each card, one single computer can have several names in the domain name system."
-msgstr ""
+msgstr "Formålet med å tildele navn til IP-numre er å gjøre dem lettere for folk å huske. I virkeligheten identifiserer en IP-adresse et nettverksgrensesnitt tilknyttet en enhet, for eksempel et nettverkskort. Siden hver maskin kan ha flere nettverkskort, og flere grensesnitt på hvert kort, kan en enkelt datamaskin ha en rekke navn i domenenavnsystemet."
 
 msgid "Each machine is, however, identified by a main (or “canonical”) name, stored in the <filename>/etc/hostname</filename> file and communicated to the Linux kernel by initialization scripts through the <command>hostname</command> command. The current value is available in a virtual filesystem, and you can get it with the <command>cat /proc/sys/kernel/hostname</command> command."
-msgstr ""
+msgstr "Hver maskin er imidlertid identifisert av et hovednavn  (eller \"kanonisk\") navn, som er lagret i<filename>/etc/hostname</filename>-filen og kommunisert til Linux-kjernen ved initialiseringsskripter med <command>hostname</command>-kommandoen. Den aktuelle verdien er tilgjengelig i et virtuelt filsystem, og du kan få det med <command>cat /proc/sys/kernel/hostname</command>-kommandoen."
 
+#, fuzzy
 msgid "<primary><command>hostname</command></primary>"
-msgstr ""
+msgstr "<primary><command>hostname</command></primary>"
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> <filename>/proc/</filename> and <filename>/sys/</filename>, virtual filesystems"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> <filename>/proc/</filename> and <filename>/sys/</filename>, virtual filesystems"
 
+#, fuzzy
 msgid "<primary><filename>/proc/</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/proc/</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>proc</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>proc</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/sys/</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/sys/</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>sys</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>sys</filename></primary>"
 
 msgid "The <filename>/proc/</filename> and <filename>/sys/</filename> file trees are generated by “virtual” filesystems. This is a practical means of recovering information from the kernel (by listing virtual files) and communicating them to it (by writing to virtual files)."
-msgstr ""
+msgstr "<filename>/proc/</filename> og <filename>/sys/</filename>-trevisninger er generert av \"virtuelle\" filsystemer. Dette er en praktisk måte å gjenopprette informasjon fra kjernen (ved å liste virtuelle filer) og kommunisere dem til den (ved å skrive til virtuelle filer)."
 
 msgid "<filename>/sys/</filename> in particular is designed to provide access to internal kernel objects, especially those representing the various devices in the system. The kernel can, thus, share various pieces of information: the status of each device (for example, if it is in energy saving mode), whether it is a removable device, etc. Note that <filename>/sys/</filename> has only existed since kernel version 2.6."
-msgstr ""
+msgstr "<filename>/sys/</filename> er spesielt utformet for å gi tilgang til interne kjerne|objekter, spesielt de som representerer de forskjellige enhetene i systemet. Kjernen kan dermed dele ulike typer informasjon: Status for hver enhet (for eksempel hvis den er i energisparemodus), enten den er en flyttbar enhet, etc. Merk at <filename>/sys/</filename> bare har eksistert siden kjerneversjon 2.6."
 
 msgid "Surprisingly, the domain name is not managed in the same way, but comes from the complete name of the machine, acquired through name resolution. You can change it in the <filename>/etc/hosts</filename> file; simply write a complete name for the machine there at the beginning of the list of names associated with the address of the machine, as in the following example:"
-msgstr ""
+msgstr "Overraskende nok, domenenavnet håndteres ikke på samme måte, men kommer fra det komplette navnet på maskinen, skaffet gjennom navneoppslag. Du kan endre det i <filename>/etc/hosts</filename>-filen, skriv bare et komplett navn på maskinen i begynnelsen av listen over navn som er knyttet til maskinens adresse, som i følgende eksempel:"
 
+#, fuzzy
 msgid ""
 "\n"
 "127.0.0.1     localhost\n"
 "192.168.0.1   arrakis.falcot.com arrakis"
 msgstr ""
+"\n"
+"127.0.0.1     localhost\n"
+"192.168.0.1   arrakis.falcot.com arrakis"
 
+#, fuzzy
 msgid "<primary><filename>hosts</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>hosts</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/hosts</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/hosts</filename></primary>"
 
+#, fuzzy
 msgid "<primary>domain</primary><secondary>name</secondary>"
-msgstr ""
+msgstr "<primary>domain</primary><secondary>name</secondary>"
 
+#, fuzzy
 msgid "<primary>name</primary><secondary>domain</secondary>"
-msgstr ""
+msgstr "<primary>name</primary><secondary>domain</secondary>"
 
+#, fuzzy
 msgid "<primary>NSS</primary>"
-msgstr ""
+msgstr "<primary>NSS</primary>"
 
 msgid "Name Resolution"
-msgstr ""
+msgstr "Navneoppslag"
 
+#, fuzzy
 msgid "<primary>resolution</primary><secondary>name</secondary>"
-msgstr ""
+msgstr "<primary>resolution</primary><secondary>name</secondary>"
 
+#, fuzzy
 msgid "<primary>name</primary><secondary>resolution</secondary>"
-msgstr ""
+msgstr "<primary>name</primary><secondary>resolution</secondary>"
 
 msgid "The mechanism for name resolution in Linux is modular and can use various sources of information declared in the <filename>/etc/nsswitch.conf</filename> file. The entry that involves host name resolution is <literal>hosts</literal>. By default, it contains <literal>files dns</literal>, which means that the system consults the <filename>/etc/hosts</filename> file first, then DNS servers. NIS/NIS+ or LDAP servers are other possible sources."
-msgstr ""
+msgstr "Mekanismen for navneoppslag i Linux er modulbasert og kan bruke ulike kilder til informasjon som vises i <filename>/etc/nsswitch.conf</filename>-filen. Oppføringen som gjelder vertsnavnoppslag er <literal>hosts</literal>. Som standard inneholder den <literal>files dns</literal>, som betyr aat systemet konsulterer <filename>/etc/hosts</filename>filen først, deretter DNS-servere. NIS/NIS+ eller LDAP-servere er andre mulige kilder."
 
+#, fuzzy
 msgid "<emphasis>NOTE</emphasis> NSS and DNS"
-msgstr ""
+msgstr "<emphasis>NOTE</emphasis> NSS and DNS"
 
 msgid "Be aware that the commands specifically intended to query DNS (especially <command>host</command>) do not use the standard name resolution mechanism (NSS). As a consequence, they do not take into consideration <filename>/etc/nsswitch.conf</filename>, and thus, not <filename>/etc/hosts</filename> either."
-msgstr ""
+msgstr "Vær oppmerksom på at kommandoene spesielt beregnet til å spørre DNS (spesielt <command>host</command>) ikke bruker den standard navnoppløsningsmekanismen (NSS). Som en konsekvens, har de ikke tar hensyn til <filename>/etc/nsswitch.conf</filename>, and dermed heller ikke <filename>/etc/hosts</filename>."
 
 msgid "Configuring DNS Servers"
-msgstr ""
+msgstr "Å konfigurere DNS-tjenere"
 
+#, fuzzy
 msgid "<primary>DNS</primary>"
-msgstr ""
+msgstr "<primary>DNS</primary>"
 
+#, fuzzy
 msgid "<primary>Domain Name Service</primary>"
-msgstr ""
+msgstr "<primary>Domain Name Service</primary>"
 
 msgid "DNS (Domain Name Service) is a distributed and hierarchical service mapping names to IP addresses, and vice-versa. Specifically, it can turn a human-friendly name such as <literal>www.eyrolles.com</literal> into the actual IP address, <literal>213.244.11.247</literal>."
-msgstr ""
+msgstr "DNS (Domain Name Service) er en distribuert og hierarkisk tjeneste som kartlegginger navn til IP-adresser, og vice-versa. Spesielt kan det forandre et menneske-vennlig navn som <literal>www.eyrolles.com</literal> til en en faktisk IP adresse, <literal>213.244.11.247</literal>."
 
 msgid "To access DNS information, a DNS server must be available to relay requests. Falcot Corp has its own, but an individual user is more likely to use the DNS servers provided by their ISP."
-msgstr ""
+msgstr "For å få tilgang til DNS-informasjon, må en DNS-server være tilgjengelig for å videresende forespørsler. Falcot Corp har sin egen, men en enkeltbruker vil sannsynligvis bruke DNS-tjenere levert av deres ISP."
 
+#, fuzzy
 msgid "<primary><filename>resolv.conf</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>resolv.conf</filename></primary>"
 
+#, fuzzy
 msgid "<primary><literal>nameserver</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>nameserver</literal></primary>"
 
 msgid "The DNS servers to be used are indicated in the <filename>/etc/resolv.conf</filename>, one per line, with the <literal>nameserver</literal> keyword preceding an IP address, as in the following example:"
-msgstr ""
+msgstr "DNS-serverne som skal brukes, er angitt i <filename>/etc/resolv.conf</filename>, en per linje, med <literal>nameserver</literal>nøkkelordet foran en IP-adresse, som i følgende eksempel:"
 
+#, fuzzy
 msgid ""
 "\n"
 "nameserver 212.27.32.176\n"
 "nameserver 212.27.32.177\n"
 "nameserver 8.8.8.8"
 msgstr ""
+"\n"
+"nameserver 212.27.32.176\n"
+"nameserver 212.27.32.177\n"
+"nameserver 8.8.8.8"
 
 msgid "Note that the <filename>/etc/resolv.conf</filename> file may be handled automatically (and overwritten) when the network is managed by NetworkManager or configured via DHCP."
-msgstr ""
+msgstr "Noter at <filename>/etc/resolv.conf</filename>-filen kan håndteres automatisk (og overskrives ) når nettverket håndteres av NetworkManager eller konfigureres via DHCP."
 
+#, fuzzy
 msgid "The <filename>/etc/hosts</filename> file"
-msgstr ""
+msgstr "The <filename>/etc/hosts</filename> file"
 
 msgid "If there is no name server on the local network, it is still possible to establish a small table mapping IP addresses and machine hostnames in the <filename>/etc/hosts</filename> file, usually reserved for local network stations. The syntax of this file is very simple: each line indicates a specific IP address followed by the list of any associated names (the first being “completely qualified”, meaning it includes the domain name)."
-msgstr ""
+msgstr "Hvis det ikke er noen navntjener i det lokale nettverket, er det fortsatt mulig å etablere et lite bord som kartlegger IP-adresser og maskinvertsnavn i <filename>/etc/hosts</filename>-filen, vanligvis reservert for lokale nettverkstasjoner. Syntaksen til denne filen er veldig enkel: Hver linje angir en bestemt IP-adresse etterfulgt av listen over eventuelle andre berørte navn (er den første \"fullstendig kvalifisert\", betyr at den inkluderer domenenavnet)."
 
 msgid "This file is available even during network outages or when DNS servers are unreachable, but will only really be useful when duplicated on all the machines on the network. The slightest alteration in correspondence will require the file to be updated everywhere. This is why <filename>/etc/hosts</filename> generally only contains the most important entries."
-msgstr ""
+msgstr "Denne filen er tilgjengelig selv under nettverksbrudd eller når DNS-servere er ikke kan nås, men vil egentlig bare være nyttig når den dupliseres på alle maskiner på nettverket. Den minste endring i samsvar vil krever at filen oppdateres overalt. Dette er grunnen til at <filename>/etc/hosts</filename> generelt bare inneholder de aller viktigste inngangene."
 
 msgid "This file will be sufficient for a small network not connected to the Internet, but with 5 machines or more, it is recommended to install a proper DNS server."
-msgstr ""
+msgstr "Denne filen vil være tilstrekkelig for et lite nettverk som ikke er koblet til Internett, men med 5 maskiner eller mer, anbefales det å installere en skikkelig DNS server."
 
 msgid "<emphasis>TIP</emphasis> Bypassing DNS"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Å komme forbi DNS"
 
 msgid "Since applications check the <filename>/etc/hosts</filename> file before querying DNS, it is possible to include information in there that is different from what the DNS would return, and therefore to bypass normal DNS-based name resolution."
-msgstr ""
+msgstr "Ettersom applikasjoner sjekker <filename>/etc/hosts</filename>-filen før DNS spørres, er det mulig å ha med informasjon her som er forskjellig fra hva DNS vil returnere, og derfor å omgå en normal DNS-basert navneoppløsning."
 
 msgid "This allows, in the event of DNS changes not yet propagated, to test access to a website with the intended name even if this name is not properly mapped to the correct IP address yet."
-msgstr ""
+msgstr "Dette gjør det mulig, i tilfelle DNS-endringer endringene ennå ikke spredt, å teste tilgangen til et nettsted med det tiltenkte navn, selv om dette navnet ikke er skikkelig formidlet til den riktige IP-adressen."
 
 msgid "Another possible use is to redirect traffic intended for a specific host to the localhost, thus preventing any communication with the given host. For example, hostnames of servers dedicated to serving ads could be diverted which would bypass these ads resulting in more fluid, less distracting, navigation."
-msgstr ""
+msgstr "En annen mulig bruk er å omdirigere trafikk beregnet for en bestemt vert til lokalverten, og dermed hindre all kommunikasjon med den gitte verten. For eksempel kan vertsnavnet til tjenere som er dedikert til annonsering omkobles, slik at disse annonsene blir omgått, noe som resulterer i en mer flytende og mindre distrahert navigasjon."
 
 msgid "User and Group Databases"
-msgstr ""
+msgstr "Bruker og gruppers databaser"
 
+#, fuzzy
 msgid "<primary>user</primary><secondary>database</secondary>"
-msgstr ""
+msgstr "<primary>user</primary><secondary>database</secondary>"
 
+#, fuzzy
 msgid "<primary>group</primary><secondary>database</secondary>"
-msgstr ""
+msgstr "<primary>group</primary><secondary>database</secondary>"
 
+#, fuzzy
 msgid "<primary>database</primary><secondary>of users</secondary>"
-msgstr ""
+msgstr "<primary>database</primary><secondary>of users</secondary>"
 
+#, fuzzy
 msgid "<primary>database</primary><secondary>of groups</secondary>"
-msgstr ""
+msgstr "<primary>database</primary><secondary>of groups</secondary>"
 
 msgid "The list of users is usually stored in the <filename>/etc/passwd</filename> file, while the <filename>/etc/shadow</filename> file stores encrypted passwords. Both are text files, in a relatively simple format, which can be read and modified with a text editor. Each user is listed there on a line with several fields separated with a colon (“<literal>:</literal>”)."
-msgstr ""
+msgstr "Listen av brukere er vanligvis lagret i  <filename>/etc/passwd</filename>-filen, mens  <filename>/etc/shadow</filename>-filen lagrer krypterte passord. Begge er tekstfiler, i et relativt enkelt format, som kan leses og modifiseres med en tekstredigerer. Der er hver bruker er oppført en linje med flere felt atskilt med et kolon (“<literal>:</literal>”)."
 
 msgid "<emphasis>NOTE</emphasis> Editing system files"
-msgstr ""
+msgstr "<emphasis>NOTE</emphasis> Redigere systemfiler"
 
 msgid "The system files mentioned in this chapter are all plain text files, and can be edited with a text editor. Considering their importance to core system functionality, it is always a good idea to take extra precautions when editing system files. First, always make a copy or backup of a system file before opening or altering it. Second, on servers or machines where more than one person could potentially access the same file at the same time, take extra steps to guard against file corruption."
-msgstr ""
+msgstr "Systemfilene, som er nevnt i dette kapitlet, er alle rene tekstfiler, og kan redigeres med en tekst redigerer. Tatt i betraktning betydningen deres for kjernesystemets funksjonalitet, er det alltid en god idé å ta ekstra forholdsregler når du redigerer systemfiler. Først, lag alltid en kopi eller backup av en system fil før du åpner eller endrer den. For det andre, på tjenere eller maskiner der mer enn én person som potensielt kan få tilgang til samme fil samtidig, ta ekstra forholdsregler for å beskytte filen mot å bli ødelagt."
 
 msgid "For this purpose, it is enough to use the <command>vipw</command> command to edit the <filename>/etc/passwd</filename> file, or <command>vigr</command> to edit <filename>/etc/group</filename>. These commands lock the file in question prior to running the text editor, (<command>vi</command> by default, unless the <varname>EDITOR</varname> environment variable has been altered). The <literal>-s</literal> option in these commands allows editing the corresponding <foreignphrase>shadow</foreignphrase> file."
-msgstr ""
+msgstr "For dette formålet, er det noå å bruke  <command>vipw</command>-kommandoen for å redigere <filename>/etc/passwd</filename>-filen, eller <command>vigr</command> for å redigere <filename>/etc/group</filename>. Disse kommandoene låser den aktuelle filen før du kjører tekstredigereren,(<command>vi</command> som standard, om ikke  <varname>EDITOR</varname> miljøvariabelen har blitt endret). <literal>-s</literal>-valget i disse kommandoene tillater redigering av den overensstemmende <foreignphrase>shadow</foreignphrase>-filen."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Crypt, a one-way function"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Crypt, en enveisfunksjon"
 
+#, fuzzy
 msgid "<primary>crypt</primary>"
-msgstr ""
+msgstr "<primary>crypt</primary>"
 
 msgid "<command>crypt</command> is a one-way function that transforms a string (<varname>A</varname>) into another string (<varname>B</varname>) in a way that <varname>A</varname> cannot be derived from <varname>B</varname>. The only way to identify <varname>A</varname> is to test all possible values, checking each one to determine if transformation by the function will produce <varname>B</varname> or not. It uses up to 8 characters as input (string <varname>A</varname>) and generates a string of 13, printable, ASCII characters (string <varname>B</varname>)."
-msgstr ""
+msgstr "<command>crypt</command> er en enveisfunksjon som endrer en streng (<varname>A</varname>) til en annen streng (<varname>B</varname>) på en måte som  <varname>A</varname> ikke kan avledes fra <varname>B</varname>. Den eneste måten til å identifisere <varname>A</varname> er å teste alle mulige verdier, og sjekke hver og en for å avgjøre om funksjonsendingen vil produsere <varname>B</varname> eller ikke. Den bruker opp til 8 karakterer som inndata (streng <varname>A</varname>) og genererer en streng på 13, utskriftsbare, ASCII karakterer (streng <varname>B</varname>)."
 
 msgid "User List: <filename>/etc/passwd</filename>"
-msgstr ""
+msgstr "Brukerliste: <filename>/etc/passwd</filename>"
 
 msgid "Here is the list of fields in the <filename>/etc/passwd</filename> file:"
-msgstr ""
+msgstr "Her er listen med feltene i  <filename>/etc/passwd</filename>-filen:"
 
+#, fuzzy
 msgid "<primary><command>passwd</command></primary>"
-msgstr ""
+msgstr "<primary><command>passwd</command></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/passwd</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/passwd</filename></primary>"
 
+#, fuzzy
 msgid "<primary><literal>uid</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>uid</literal></primary>"
 
+#, fuzzy
 msgid "<primary><literal>gid</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>gid</literal></primary>"
 
+#, fuzzy
 msgid "<primary><literal>GECOS</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>GECOS</literal></primary>"
 
+#, fuzzy
 msgid "<primary><literal>login</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>login</literal></primary>"
 
 msgid "login, for example <literal>rhertzog</literal>;"
-msgstr ""
+msgstr "login, for eksempel <literal>rhertzog</literal>;"
 
 msgid "password: this is a password encrypted by a one-way function (<command>crypt</command>), relying on <literal>DES</literal>, <literal>MD5</literal>, <literal>SHA-256</literal> or <literal>SHA-512</literal>. The special value “<literal>x</literal>” indicates that the encrypted password is stored in <filename>/etc/shadow</filename>;"
-msgstr ""
+msgstr "passord: Dette er et passord kryptert med en enveis funksjon (<command>crypt</command>), som støtter seg på <literal>DES</literal>, <literal>MD5</literal>, <literal>SHA-256</literal> eller <literal>SHA-512</literal>. Spesialverdien “<literal>x</literal>” indikerer at de krypterte passordet er lagret i <filename>/etc/shadow</filename>;"
 
 msgid "<literal>uid</literal>: unique number identifying each user;"
-msgstr ""
+msgstr "<literal>uid</literal>: unikt nummer som identifiserer hver bruker;"
 
 msgid "<literal>gid</literal>: unique number for the user's main group (Debian creates a specific group for each user by default);"
-msgstr ""
+msgstr "<literal>gid</literal>: unikt nummer for brukerens hovedgruppe (Debian lager en bestemt gruppe for hver bruker som standard);"
 
 msgid "<literal>GECOS</literal>: data field usually containing the user's full name;"
-msgstr ""
+msgstr "<literal>GECOS</literal>: datafelt som vanligvis inneholder brukerens fulle navn;"
 
 msgid "login directory, assigned to the user for storage of their personal files (the environment variable <varname>$HOME</varname> generally points here);"
-msgstr ""
+msgstr "innloggingsmappe, tildelt til brukeren for oppbevaring av sine personlige filer (miljøvariabelen <varname>$HOME</varname> peker generelt hit);"
 
 msgid "program to execute upon login. This is usually a command interpreter (shell), giving the user free rein. If you specify <command>/bin/false</command> (which does nothing and returns control immediately), the user cannot login."
-msgstr ""
+msgstr "program som skal kjøres ved pålogging. Dette er vanligvis en kommandofortolker (skall), som gir brukeren frie hender. Hvis du angir <command>/bin/false</command> (som ikke gjør noe og returnerer kontrollen umiddelbart), kan ikke brukeren  logge inn."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> Unix group"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Unix group"
 
+#, fuzzy
 msgid "<primary>group</primary>"
-msgstr ""
+msgstr "<primary>group</primary>"
 
 msgid "A Unix group is an entity including several users so that they can easily share files using the integrated permission system (by benefiting from the same rights). You can also restrict use of certain programs to a specific group."
-msgstr ""
+msgstr "En Unix-gruppe er en enhet som omfatter flere brukere slik at de enkelt kan dele filer ved hjelp av det integrerte tillatelsesystemets (ved å dra nytte av de samme rettigheter). Man kan også begrense bruken av visse programmer til en bestemt gruppe."
 
 msgid "The Hidden and Encrypted Password File: <filename>/etc/shadow</filename>"
-msgstr ""
+msgstr "Den skjulte og krypterte passordfilen: <filename>/etc/shadow</filename>"
 
+#, fuzzy
 msgid "<primary><filename>shadow</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>shadow</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/shadow</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/shadow</filename></primary>"
 
 msgid "The <filename>/etc/shadow</filename> file contains the following fields:"
-msgstr ""
+msgstr "<filename>/etc/shadow</filename>-filen inneholder de følgende feltene:"
 
+#, fuzzy
 msgid "login;"
-msgstr ""
+msgstr "login;"
 
 msgid "encrypted password;"
-msgstr ""
+msgstr "Krypterte passord;"
 
 msgid "several fields managing password expiration."
-msgstr ""
+msgstr "flere felt håndterer passordopphør."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> <filename>/etc/passwd</filename>, <filename>/etc/shadow</filename> and <filename>/etc/group</filename> file formats"
-msgstr ""
+msgstr "<emphasis>DOCUMENTATION</emphasis> <filename>/etc/passwd</filename>, <filename>/etc/shadow</filename> og <filename>/etc/group</filename>-filformater"
 
 msgid "These formats are documented in the following man pages: <citerefentry><refentrytitle>passwd</refentrytitle><manvolnum>5</manvolnum></citerefentry>, <citerefentry><refentrytitle>shadow</refentrytitle><manvolnum>5</manvolnum></citerefentry>, and <citerefentry><refentrytitle>group</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
-msgstr ""
+msgstr "Disse formatene er dokumentert i de følgende manuelle sidene: <citerefentry><refentrytitle>passwd</refentrytitle><manvolnum>5</manvolnum></citerefentry>, <citerefentry><refentrytitle>shadow</refentrytitle><manvolnum>5</manvolnum></citerefentry>, og <citerefentry><refentrytitle>group</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
 
 msgid "<emphasis>SECURITY</emphasis> <filename>/etc/shadow</filename> file security"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> <filename>/etc/shadow</filename>-filsikkerhet"
 
 msgid "<filename>/etc/shadow</filename>, unlike its alter-ego, <filename>/etc/passwd</filename>, cannot be read by regular users. Any encrypted password stored in <filename>/etc/passwd</filename> is readable by anybody; a cracker could try to “break” (or reveal) a password by one of several “brute force” methods which, simply put, guess at commonly used combinations of characters. This attack — called a \"dictionary attack\" — is no longer possible on systems using <filename>/etc/shadow</filename>."
-msgstr ""
+msgstr "<filename>/etc/shadow</filename>, ulikt dets alter-ego, <filename>/etc/passwd</filename>, kan ikke leses av vanlige brukere. Et hvilket som helst kryptert passord lagret i <filename>/etc/passwd</filename> kan leses av hvem som helst, en knekker kan forsøke å \"bryte\" (eller avsløre) et passord ved en av flere \"brutale\" metoder som, enkelt sagt, å gjette på vanlig brukte kombinasjoner av tegn. Dette angrepet - kalt \"ordbokangrep\" - er ikke lenger mulig på systemer som bruker <filename>/etc/shadow</filename>."
 
 msgid "Modifying an Existing Account or Password"
-msgstr ""
+msgstr "Å modifisere en eksisterende konto eller passord"
 
+#, fuzzy
 msgid "<primary><command>chsh</command></primary>"
-msgstr ""
+msgstr "<primary><command>chsh</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>chfn</command></primary>"
-msgstr ""
+msgstr "<primary><command>chfn</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>chage</command></primary>"
-msgstr ""
+msgstr "<primary><command>chage</command></primary>"
 
+#, fuzzy
 msgid "<primary>password</primary>"
-msgstr ""
+msgstr "<primary>password</primary>"
 
 msgid "The following commands allow modification of the information stored in specific fields of the user databases: <command>passwd</command> permits a regular user to change their password, which in turn, updates the <filename>/etc/shadow</filename> file; <command>chfn</command> (CHange Full Name), reserved for the super-user (root), modifies the <literal>GECOS</literal> field. <command>chsh</command> (CHange SHell) allows the user to change their login shell, however available choices will be limited to those listed in <filename>/etc/shells</filename>; the administrator, on the other hand, is not bound by this restriction and can set the shell to any program of their choosing."
-msgstr ""
+msgstr "Følgende kommandoer tillater endring av informasjonen som er lagret i bestemte felt i brukerdatabasen: <command>passwd</command> tillater en vanlig bruker å endre passordet sitt, som igjen oppdaterer <filename>/etc/shadow</filename>-filen; <command>chfn</command> (CHange Full Name), er reservert for superbrukeren  (rot), modifiserer <literal>GECOS</literal>-feltet. <command>chsh</command> (CHange SHell) lar brukeren endre sitt login skall, men tilgang til valgene vil være begrenset til dem som er oppført i <filename>/etc/shells</filename>; administratoren, på den annen side, er ikke bundet av denne begrensningen og kan sette skallet til et hvilket som helst program de velger."
 
 msgid "Finally, the <command>chage</command> (CHange AGE) command allows the administrator to change the password expiration settings (the <literal>-l <replaceable>user</replaceable></literal> option will list the current settings). You can also force the expiration of a password using the <command>passwd -e <replaceable>user</replaceable></command> command, which will require the user to change their password the next time they log in."
-msgstr ""
+msgstr "Til slutt, <command>chage</command> (CHange AGE)-kommandoen tillater administratoren å endre passordets utløpsinnstillinger (<literal>-l <replaceable>user</replaceable></literal>-valget vil liste de gjeldende innstillingene). Du kan også tvinge utløpet for et passord ved å bruke <command>passwd -e <replaceable>user</replaceable></command>-kommandoen, som vil kreve at brukerne endrer sitt passord neste gang de logger inn."
 
 msgid "Disabling an Account"
-msgstr ""
+msgstr "Deaktivere en konto"
 
+#, fuzzy
 msgid "<primary>Disable an account</primary>"
-msgstr ""
+msgstr "<primary>Disable an account</primary>"
 
+#, fuzzy
 msgid "<primary>account</primary><secondary>disable</secondary>"
-msgstr ""
+msgstr "<primary>account</primary><secondary>disable</secondary>"
 
 msgid "You may find yourself needing to “disable an account” (lock out a user), as a disciplinary measure, for the purposes of an investigation, or simply in the event of a prolonged or definitive absence of a user. A disabled account means the user cannot login or gain access to the machine. The account remains intact on the machine and no files or data are deleted; it is simply inaccessible. This is accomplished by using the command <command>passwd -l <replaceable>user</replaceable></command> (lock). Re-enabling the account is done in similar fashion, with the <literal>-u</literal> option (unlock)."
-msgstr ""
+msgstr "Du kan finne at du trenger å \"deaktivere en konto\" (låse ut en bruker), som disiplinærtiltak, i forbindelse med en undersøkelse, eller rett og slett i tilfelle av en langvarig eller definitivt fravær fra en bruker. En deaktivert konto betyr at brukeren ikke kan logge inn eller få tilgang til maskinen. Kontoen er fortsatt intakt på maskinen og ingen filer eller data blir slettet; Den er simpelthen utilgjengelig. Dette oppnås ved hjelp av kommandoen <command>passwd -l <replaceable>user</replaceable></command> (lock). Å reetablere kontoen er gjort på samme måte, med <literal>-u</literal>-valget (unlock)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> NSS and system databases"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> NSS og systemdatabasen"
 
+#, fuzzy
 msgid "<primary>Name Service Switch</primary>"
-msgstr ""
+msgstr "<primary>Name Service Switch</primary>"
 
 msgid "Instead of using the usual files to manage lists of users and groups, you could use other types of databases, such as LDAP or <command>db</command>, by using an appropriate NSS (Name Service Switch) module. The modules used are listed in the <filename>/etc/nsswitch.conf</filename> file, under the <literal>passwd</literal>, <literal>shadow</literal> and <literal>group</literal> entries. See <xref linkend=\"sect.config-nss\" /> for a specific example of the use of an NSS module by LDAP."
-msgstr ""
+msgstr "I stedet for å bruke de vanlige filene for å administrere lister over brukere og grupper, kan du bruke andre typer databaser, for eksempel LDAP eller <command>db</command>, ved hjelp av en passende NSS (Name Service Switch) modul. Modulene som brukes er oppført i <filename>/etc/nsswitch.conf</filename>-filen, under <literal>passwd</literal>, <literal>shadow</literal> og <literal>group</literal>-inngangene. Se <xref linkend=\"sect.config-nss\" /> for et spesifikt eksempel på at LDAP bruker en NSS-module."
 
 msgid "Group List: <filename>/etc/group</filename>"
-msgstr ""
+msgstr "Gruppeliste: <filename>/etc/group</filename>"
 
 msgid "Groups are listed in the <filename>/etc/group</filename> file, a simple textual database in a format similar to that of the <filename>/etc/passwd</filename> file, with the following fields:"
-msgstr ""
+msgstr "Grupper er listet i <filename>/etc/group</filename>-filen, en enkel tekstdatabase i et format som ligner det til <filename>/etc/passwd</filename>-filen, med de følgende feltene:"
 
 msgid "group name;"
-msgstr ""
+msgstr "gruppenavn;"
 
 msgid "password (optional): This is only used to join a group when one is not a usual member (with the <command>newgrp</command> or <command>sg</command> commands, see sidebar <xref linkend=\"sidebar.working-with-several-groups\" />);"
-msgstr ""
+msgstr "passord (valgfritt): Denne brukes bare til å bli med i en gruppe når man ikke er et vanlig medlem (med <command>newgrp</command> eller <command>sg</command>-kommandoer, se sidestolpe <xref linkend=\"sidebar.working-with-several-groups\" />);"
 
 msgid "<literal>gid</literal>: unique group identification number;"
-msgstr ""
+msgstr "<literal>gid</literal>: unikt gruppeidentifikasjonsnummer;"
 
 msgid "list of members: list of names of users who are members of the group, separated by commas."
-msgstr ""
+msgstr "medlemsliste: liste over navn på brukere som er medlemmer av gruppen, atskilt med komma."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Working with several groups"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Å arbeide med forskjellige grupper"
 
+#, fuzzy
 msgid "<primary><command>newgrp</command></primary>"
-msgstr ""
+msgstr "<primary><command>newgrp</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>sg</command></primary>"
-msgstr ""
+msgstr "<primary><command>sg</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>id</command></primary>"
-msgstr ""
+msgstr "<primary><command>id</command></primary>"
 
+#, fuzzy
 msgid "<primary>group</primary><secondary>change</secondary>"
-msgstr ""
+msgstr "<primary>group</primary><secondary>change</secondary>"
 
 msgid "Each user may be a member of many groups; one of them is their “main group”. A user's main group is, by default, created during initial user configuration. By default, each file that a user creates belongs to them, as well as to their main group. This is not always desirable; for example, when the user needs to work in a directory shared by a group other than their main group. In this case, the user needs to change their main group using one of the following commands: <command>newgrp</command>, which starts a new shell, or <command>sg</command>, which simply executes a command using the supplied alternate group. These commands also allow the user to join a group to which they do not belong. If the group is password protected, they will need to supply the appropriate password before the command is executed."
-msgstr ""
+msgstr "Hver bruker kan være medlem av mange grupper; en av dem er deres \"hovedgruppe\". En brukers hovedgruppe er, som standard, laget under den første brukerkonfigurasjon. Som standard, tilhører hver fil en bruker oppretter dem, så vel som deres hovedgruppe. Dette er ikke alltid ønskelig; for eksempel når brukeren skal jobbe i en mappe som også deles av en annen enn sin egen hovedgruppe. I dette tilfellet må brukeren endre sin viktigste gruppe ved å bruke en av følgende kommandoer: <command>newgrp</command>, som starter en nytt skall, eller  <command>sg</command>, som bare utfører en kommando ved å bruke den tilveiebrakte alternative gruppen. Disse kommandoene tillater også brukeren å delta i en gruppe som de ikke hører hjemme i. Dersom gruppen er passordbeskyttet, vil må de skaffe det riktige passordet før kommandoen blir utført."
 
 msgid "Alternatively, the user can set the <literal>setgid</literal> bit on the directory, which causes files created in that directory to automatically belong to the correct group. For more details, see sidebar <xref linkend=\"sidebar.setgid-dir\" />."
-msgstr ""
+msgstr "Alternativt kan brukeren sette <literal>setgid</literal> bit på katalogen, noe som fører til at mappen, slik at filene som er opprettet i den mappen automatisk hører til den riktige gruppen. For mer informasjon, se sidestolpe <xref linkend=\"sidebar.setgid-dir\" />."
 
 msgid "The <command>id</command> command displays the current state of a user, with their personal identifier (<varname>uid</varname> variable), current main group (<varname>gid</varname> variable), and the list of groups to which they belong (<varname>groups</varname> variable)."
-msgstr ""
+msgstr "<command>id</command>-kommandoen viser brukerens nåværende tilstand med  sin personlig identifikator (<varname>uid</varname> variable), nåværende hovedgruppe (<varname>gid</varname> variabel), og listen med grupper som de hører til (<varname>groups</varname> variable)."
 
+#, fuzzy
 msgid "<primary><filename>group</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>group</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/group</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/group</filename></primary>"
 
 msgid "The <command>addgroup</command> and <command>delgroup</command> commands add or delete a group, respectively. The <command>groupmod</command> command modifies a group's information (its <literal>gid</literal> or identifier). The command <command>passwd -g <replaceable>group</replaceable></command> changes the password for the group, while the <command>passwd -r -g <replaceable>group</replaceable></command> command deletes it."
-msgstr ""
+msgstr "Respektivt, <command>addgroup</command> og <command>delgroup</command>-kommandoene legger til eller sletter en gruppe. <command>groupmod</command>-kommandoen modifiserer en gruppes informasjon (its <literal>gid</literal> or identifier). Kommandoen <command>passwd -g <replaceable>group</replaceable></command> endrer passordet for gruppen, mens, while the <command>passwd -r -g <replaceable>group</replaceable></command>-kommandoen sletter den."
 
+#, fuzzy
 msgid "<primary><command>addgroup</command></primary>"
-msgstr ""
+msgstr "<primary><command>addgroup</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>delgroup</command></primary>"
-msgstr ""
+msgstr "<primary><command>delgroup</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>groupmod</command></primary>"
-msgstr ""
+msgstr "<primary><command>groupmod</command></primary>"
 
+#, fuzzy
 msgid "<primary>group</primary><secondary>creation</secondary>"
-msgstr ""
+msgstr "<primary>group</primary><secondary>creation</secondary>"
 
+#, fuzzy
 msgid "<primary>creation</primary><secondary>of groups</secondary>"
-msgstr ""
+msgstr "<primary>creation</primary><secondary>of groups</secondary>"
 
+#, fuzzy
 msgid "<primary>group</primary><secondary>deletion</secondary>"
-msgstr ""
+msgstr "<primary>group</primary><secondary>deletion</secondary>"
 
+#, fuzzy
 msgid "<primary>deletion of a group</primary>"
-msgstr ""
+msgstr "<primary>deletion of a group</primary>"
 
+#, fuzzy
 msgid "<emphasis>TIP</emphasis> <command>getent</command>"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> <command>getent</command>"
 
+#, fuzzy
 msgid "<primary><command>getent</command></primary>"
-msgstr ""
+msgstr "<primary><command>getent</command></primary>"
 
 msgid "The <command>getent</command> (get entries) command checks the system databases the standard way, using the appropriate library functions, which in turn call the NSS modules configured in the <filename>/etc/nsswitch.conf</filename> file. The command takes one or two arguments: the name of the database to check, and a possible search key. Thus, the command <command>getent passwd rhertzog</command> will give the information from the user database regarding the user <literal>rhertzog</literal>."
-msgstr ""
+msgstr "<command>getent</command> (få oppføringer)-kommandoen sjekker systemdatabasen på standardmåten, ved hjelp av de aktuelle bibliotekfunksjoner, som igjen kaller på NSS-moduler konfigurert i <filename>/etc/nsswitch.conf</filename>-filen. Kommandoen tar ett eller to argumenter: Navnet på databasen som skal sjekkes, og en mulig søkenøkkel. Således vil kommandoen <command>getent passwd rhertzog</command> gi informasjon fra brukerdatabasen om brukeren <literal>rhertzog</literal>."
 
 msgid "Creating Accounts"
-msgstr ""
+msgstr "Å lage kontoer"
 
+#, fuzzy
 msgid "<primary>account</primary><secondary>creation</secondary>"
-msgstr ""
+msgstr "<primary>account</primary><secondary>creation</secondary>"
 
+#, fuzzy
 msgid "<primary>creation</primary><secondary>of user accounts</secondary>"
-msgstr ""
+msgstr "<primary>creation</primary><secondary>of user accounts</secondary>"
 
 msgid "One of the first actions an administrator needs to do when setting up a new machine is to create user accounts. This is typically done using the <command>adduser</command> command which takes a user-name for the new user to be created, as an argument."
-msgstr ""
+msgstr "En av de første handlingene en administrator må gjøre når du setter opp en ny maskin, er å opprette brukerkontoer. Dette gjøres vanligvis ved hjelp av <command>adduser</command>-kommandoen som tar et brukernavn for den nye brukeren som skal lages, som et argument."
 
+#, fuzzy
 msgid "<primary><command>adduser</command></primary>"
-msgstr ""
+msgstr "<primary><command>adduser</command></primary>"
 
 msgid "The <command>adduser</command> command asks a few questions before creating the account, but its usage is fairly straightforward. Its configuration file, <filename>/etc/adduser.conf</filename>, includes all the interesting settings: it can be used to automatically set a quota for each new user by creating a user template, or to change the location of user accounts; the latter is rarely useful, but it comes in handy when you have a large number of users and want to divide their accounts over several disks, for instance. You can also choose a different default shell."
-msgstr ""
+msgstr "<command>adduser</command>-kommandoen stiller noen spørsmål før du oppretter kontoen, men bruken er ganske grei. Konfigurasjonsfilen,<filename>/etc/adduser.conf</filename>, omfatter alle de interessante innstillingene: Den kan brukes til å automatisk sette en kvote for hver nye bruker ved å opprette en brukermal, eller til å endre plasseringen av brukerkontoer. Sistnevnte er sjelden nyttig, men er hendig, for eksempel, når du har et stort antall brukere og ønsker å dele kontoene deres over flere disker. Du kan også velge et annet skall."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> Quota"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Quota"
 
+#, fuzzy
 msgid "<primary>quota</primary>"
-msgstr ""
+msgstr "<primary>quota</primary>"
 
 msgid "The term “quota” refers to a limit on machine resources that a user is allowed to use. This frequently refers to disk space."
-msgstr ""
+msgstr "Betegnelsen \"kvote\" refererer til en grense for maskinressurser som en bruker har lov til å bruke. Dette refererer ofte til diskplass."
 
 msgid "The creation of an account populates the user's home directory with the contents of the <filename>/etc/skel/</filename> template. This provides the user with a set of standard directories and configuration files."
-msgstr ""
+msgstr "Opprettelsen av en konto fyller brukerens hjemmekatalog med innholdet i <filename>/etc/skel/</filename>-malen. Dette gir brukeren et sett med standardkataloger og konfigurasjonsfiler."
 
+#, fuzzy
 msgid "<primary>group</primary><secondary>add a user</secondary>"
-msgstr ""
+msgstr "<primary>group</primary><secondary>add a user</secondary>"
 
+#, fuzzy
 msgid "<primary>add a user to a group</primary>"
-msgstr ""
+msgstr "<primary>add a user to a group</primary>"
 
 msgid "In some cases, it will be useful to add a user to a group (other than their default “main” group) in order to grant them additional permissions. For example, a user who is included in the <emphasis>audio</emphasis> group can access audio devices (see sidebar <xref linkend=\"sidebar.special-files\" />). This can be achieved with a command such as <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
-msgstr ""
+msgstr "I noen tilfeller vil det være nyttig å legge til en bruker til en gruppe (annet enn dennes standard \"hoved\"-gruppe) for å gi dem ytterligere tillatelser. For eksempel, en bruker som er inkludert i <emphasis>audio</emphasis>-gruppen kan få tilgang til lydenheter (se sidestolpe <xref linkend=\"sidebar.special-files\" />). Dette kan oppnås med en kommando som <command>adduser <replaceable>user</replaceable> <replaceable>group</replaceable></command>."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> Device access permissions"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Device access permissions"
 
+#, fuzzy
 msgid "<primary>device</primary><secondary>access permissions</secondary>"
-msgstr ""
+msgstr "<primary>device</primary><secondary>access permissions</secondary>"
 
+#, fuzzy
 msgid "<primary>file</primary><secondary>special</secondary>"
-msgstr ""
+msgstr "<primary>file</primary><secondary>special</secondary>"
 
+#, fuzzy
 msgid "<primary>mode</primary><secondary>character</secondary>"
-msgstr ""
+msgstr "<primary>mode</primary><secondary>character</secondary>"
 
+#, fuzzy
 msgid "<primary>mode</primary><secondary>block</secondary>"
-msgstr ""
+msgstr "<primary>mode</primary><secondary>block</secondary>"
 
+#, fuzzy
 msgid "<primary>block, mode</primary>"
-msgstr ""
+msgstr "<primary>block, mode</primary>"
 
+#, fuzzy
 msgid "<primary>character, mode</primary>"
-msgstr ""
+msgstr "<primary>character, mode</primary>"
 
+#, fuzzy
 msgid "<primary>special, file</primary>"
-msgstr ""
+msgstr "<primary>special, file</primary>"
 
+#, fuzzy
 msgid "<primary><command>mknod</command></primary>"
-msgstr ""
+msgstr "<primary><command>mknod</command></primary>"
 
 msgid "Each hardware peripheral device is represented under Unix with a special file, usually stored in the file tree under <filename>/dev/</filename> (DEVices). Two types of special files exist according to the nature of the device: “character mode” and “block mode” files, each mode allowing for only a limited number of operations. While character mode limits interaction with read/write operations, block mode also allows seeking within the available data. Finally, each special file is associated with two numbers (“major” and “minor”) that identify the device to the kernel in a unique manner. Such a file, created by the <command>mknod</command> command, simply contains a symbolic (and more human-friendly) name."
 msgstr ""
@@ -1041,7 +1214,7 @@ msgid "<primary>command interpreter</primary>"
 msgstr ""
 
 msgid "<primary>shell</primary>"
-msgstr ""
+msgstr "<primary>shell</primary>"
 
 msgid "<primary><command>bash</command></primary>"
 msgstr ""
@@ -1631,8 +1804,9 @@ msgstr ""
 msgid "<primary>point, mount</primary>"
 msgstr ""
 
+#, fuzzy
 msgid "<primary>mount point</primary>"
-msgstr "<primary>monteringspunkt</primary>"
+msgstr "<primary>mount point</primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Mounting and unmounting"
 msgstr ""
