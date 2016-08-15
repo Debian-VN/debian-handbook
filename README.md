@@ -10,7 +10,7 @@ Nhiều người một bản dịch, không sao cả =D
 - 00b_foreword.po
  - [Bông Bông](https://github.com/MathenJee)
 
-- 01_the-debian-project.po
+- 01_the-debian-project.po ![finish](http://i.imgur.com/dhvg7Gd.png)
  - [Mốc Meo](https://github.com/mocmeo)
 
 - 02_case-study.po ![finish](http://i.imgur.com/dhvg7Gd.png)
@@ -29,7 +29,7 @@ Nhiều người một bản dịch, không sao cả =D
 
 
 - 07_solving-problems.po
-
+ - [Mốc Meo](https://github.com/mocmeo)
 
 - 08_basic-configuration.po
 
