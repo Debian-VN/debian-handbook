@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2014-01-31T10:09:32\n"
-"PO-Revision-Date: 2016-09-01 10:07+0000\n"
+"PO-Revision-Date: 2016-09-09 10:40+0000\n"
 "Last-Translator: Maxim Ermolaev <ermakc@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/06_apt/ru/>\n"
 "Language: ru-RU\n"
@@ -50,7 +50,7 @@ msgid "The word <emphasis>source</emphasis> can be ambiguous. A source package �
 msgstr "Слово <emphasis>источник (source)</emphasis> может быть истолковано неоднозначно. Исходник пакета(source package) — пакет, содержащий исходный код программы — не стоит путать с источником пакетов (package source) — репозиторием (веб-сайтом, FTP-сервером, CD-ROM, локальным каталогом и т. д.) в котором хранятся пакеты."
 
 msgid "APT needs to be given a “list of package sources”: the file <filename>/etc/apt/sources.list</filename> will list the different repositories (or “sources”) that publish Debian packages. APT will then import the list of packages published by each of these sources. This operation is achieved by downloading <filename>Packages.xz</filename> or a variant using a different compression method (such as <filename>Packages.gz</filename> or <filename>.bz2</filename>) files (in case of a source of binary packages) and <filename>Sources.xz</filename> or a variant (in case of a source of source packages) and by analyzing their contents. When an old copy of these files is already present, APT can update it by only downloading the differences (see sidebar <xref linkend=\"sidebar.apt-pdiff\" />)."
-msgstr "APT требует “список источников пакетов”: в файле <filename>/etc/apt/sources.list</filename> представлены различные хранилища (или “источники”), на которых размещены пакеты Debian. Затем APT импортирует перечень пакетов, размещённых на каждом из этих источников. Это производится путём загрузки файла <filename>Packages.xz</filename> или файла с другим методом сжатия (такие как <filename>Packages.gz</filename> или <filename>.bz2</filename>) (в случае источника двоичного пакета), и файла <filename>Sources.xz</filename> (в случае источника пакетов с исходным кодами). После загрузки производится анализ содержания данных файлов. Если старая копия этих файлов уже имеется, APT может обновить её, загрузив только отличающиеся части (смотри <xref linkend=\"sidebar.apt-pdiff\" />)"
+msgstr "APT требует “список источников пакетов”: в файле <filename>/etc/apt/sources.list</filename> представлены различные хранилища (или “источники”), на которых размещены пакеты Debian. Затем APT импортирует перечень пакетов, размещённых на каждом из этих источников. Это производится путём загрузки файла <filename>Packages.xz</filename> или файла с другим методом сжатия (такие как <filename>Packages.gz</filename> или <filename>.bz2</filename>) (в случае источника двоичного пакета), и файла <filename>Sources.xz</filename> (в случае источника пакетов с исходным кодами). После загрузки производится анализ содержания данных файлов. Если старая копия этих файлов уже имеется, APT может обновить её, загрузив только отличающиеся части (смотри <xref linkend=\"sidebar.apt-pdiff\" />)."
 
 msgid "<primary><filename>Packages.xz</filename></primary>"
 msgstr "<primary><filename>Packages.xz</filename></primary>"
@@ -143,28 +143,28 @@ msgid "The <literal>non-free</literal> archive is different because it contains 
 msgstr "Архив <literal>non-free</literal> расположен отдельно, поскольку он содержит программное обеспечение, которое в целом не соответствует этим принципам и которое всё-таки может распространяться без ограничений. Этот архив, который не является официальной частью Debian, является услугой для пользователей, которым необходимо использование некоторых из этих программ — однако Debian всегда рекомендует отдавать предпочтение свободному ПО. Существование данного раздела создаёт существенную проблему для Ричарда Столлмана и не даёт Движению за Свободное ПО рекомендовать Debian пользователям."
 
 msgid "<literal>Contrib</literal> (contributions) is a set of open source software which cannot function without some non-free elements. These elements can be software from the <literal>non-free</literal> section, or non-free files such as game ROMs, BIOS of consoles, etc. <literal>Contrib</literal> also includes free software whose compilation requires proprietary elements. This was initially the case for the OpenOffice.org office suite, which used to require a proprietary Java environment."
-msgstr ""
+msgstr "<literal>Contrib</literal> (от contributions - взносы) - это набор ПО с открытым кодом, которое не может работать без некоторых несвободных элементов. Этими элементами может быть ПО из раздела <literal>non-free</literal>, или несвободные файлы, такие как игровые ROMs, BIOS консолей и т.д. <literal>Contrib</literal> также включает свободное программное обеспечение, компиляция которых требует элементов, имеющих собственников. Изначально это был пакет офисных программ OpenOffice.org, который требовал окружение Java (имеющее собственника) для своей работы."
 
 msgid "<emphasis>TIP</emphasis> <filename>/etc/apt/sources.list.d/*.list</filename> files"
-msgstr ""
+msgstr "<emphasis>СОВЕТ</emphasis> Файлы <filename>/etc/apt/sources.list.d/*.list</filename>"
 
 msgid "If many package sources are referenced, it can be useful to split them in multiple files. Each part is then stored in <filename>/etc/apt/sources.list.d/<replaceable>filename</replaceable>.list</filename> (see sidebar <xref linkend=\"sidebar.directory.d\" />)."
-msgstr ""
+msgstr "Если имеются ссылки на множество источников пакетов, может быть полезным разделение их на несколько файлов. Каждая часть хранится в файлах типа <filename>/etc/apt/sources.list.d/<replaceable>имя файла</replaceable>.list</filename> (смотри вставку <xref linkend=\"sidebar.directory.d\" />)."
 
 msgid "<primary><command>apt-cdrom</command></primary>"
-msgstr ""
+msgstr "<primary><command>apt-cdrom</command></primary>"
 
 msgid "The <literal>cdrom</literal> entries describe the CD/DVD-ROMs you have. Contrary to other entries, a CD-ROM is not always available since it has to be inserted into the drive and since only one disc can be read at a time. For those reasons, these sources are managed in a slightly different way, and need to be added with the <command>apt-cdrom</command> program, usually executed with the <literal>add</literal> parameter. The latter will then request the disc to be inserted in the drive and will browse its contents looking for <filename>Packages</filename> files. It will use these files to update its database of available packages (this operation is usually done by the <command>apt update</command> command). From then on, APT can require the disc to be inserted if it needs one of its packages."
-msgstr ""
+msgstr "Записи <literal>cdrom</literal> описывают CD/DVD-ROMs, которые у вас есть. В противоположность другим записям, CD-ROM не всегда доступны, поскольку диск должен быть вставлен в привод и поскольку только один диск может быть прочитан за раз. Поэтому эти источники управляются несколько другим путём и добавляются с помощью программы <command>apt-cdrom</command>, которая обычно выполняется с параметром <literal>add</literal>. После запуска данная программа просит пользователя вставить диск в привод, а затем просматривает содержимое диска, ища файлы  <filename>Packages</filename>. Затем она использует эти файлы для обновления база данных доступных пактов (подобная операция обычно выполняется с помощью команды <command>apt update</command>). После этого APT может просить вставить диск, если ей требуется один из этих пакетов."
 
 msgid "Repositories for <emphasis role=\"distribution\">Stable</emphasis> Users"
-msgstr ""
+msgstr "Хранилища для пользователей стабильных версий <emphasis role=\"distribution\">Stable</emphasis>"
 
 msgid "Here is a standard <filename>sources.list</filename> for a system running the <emphasis role=\"distribution\">Stable</emphasis> version of Debian:"
-msgstr ""
+msgstr "Здесь представлен стандартный файл <filename>sources.list</filename> для  <emphasis role=\"distribution\">Stable</emphasis> версии Debian:"
 
 msgid "<filename>/etc/apt/sources.list</filename> file for users of Debian Stable"
-msgstr ""
+msgstr "Файл <filename>/etc/apt/sources.list</filename> для пользователей Debian Stable"
 
 msgid ""
 "# Security updates\n"
@@ -185,126 +185,146 @@ msgid ""
 "deb http://ftp.debian.org/debian jessie-backports main contrib non-free\n"
 "deb-src http://ftp.debian.org/debian jessie-backports main contrib non-free"
 msgstr ""
+"# Security updates (обновления безопасности)\n"
+"deb http://security.debian.org/ jessie/updates main contrib non-free\n"
+"deb-src http://security.debian.org/ jessie/updates main contrib non-free\n"
+"\n"
+"## Debian mirror (Зеркало Debian)\n"
+"\n"
+"# Base repository (Основное хранилище)\n"
+"deb http://ftp.debian.org/debian jessie main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian jessie main contrib non-free\n"
+"\n"
+"# Stable updates (Стабильные обновления я)\n"
+"deb http://ftp.debian.org/debian jessie-updates main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian jessie-updates main contrib non-free\n"
+"\n"
+"# Stable backports (Стабильное ПО с обратной совместимостью)\n"
+"deb http://ftp.debian.org/debian jessie-backports main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian jessie-backports main contrib non-free"
 
 msgid "This file lists all sources of packages associated with the <emphasis role=\"distribution\">Jessie</emphasis> version of Debian (the current <emphasis role=\"distribution\">Stable</emphasis> as of this writing). We opted to name “jessie” explicitly instead of using the corresponding “stable“ alias (<literal>stable</literal>, <literal>stable-updates</literal>, <literal>stable-backports</literal>) because we don't want to have the underlying distribution changed outside of our control when the next stable release comes out."
-msgstr ""
+msgstr "В этом файле перечислены все источники пакетов, связанные с версией Debian  <emphasis role=\"distribution\">Jessie</emphasis> (текущей <emphasis role=\"distribution\">Stable</emphasis> в  соответствии с данной записью). Мы предпочли явное название “jessie” вместо соответствующего обозначения “stable“ (<literal>stable</literal>, <literal>stable-updates</literal>, <literal>stable-backports</literal>), потому что мы не хотим столкнуться с ситуацией изменения основного дистрибутива не под нашим управлением после выхода следующей стабильной версии."
 
 msgid "Most packages will come from the “base repository” which contains all packages but is seldom updated (about once every 2 months for a “point release”). The other repositories are partial (they do not contain all packages) and can host updates (packages with newer version) that APT might install. The following sections will explain the purpose and the rules governing each of those repositories."
-msgstr ""
+msgstr "Большинство пакетов может быть получено из \"основного хранилища”, которое содержит все пакеты, но обновляется не часто (около раза в 2 месяца в “точке выпуска”). Остальные хранилища являются частичными (они не содержат все пакеты) и могут содержать обновления (пакеты с новыми версиями), которые APT может установить. В следующих разделах будут объяснены назначение и правила управлением каждым из этих хранилищ."
 
 msgid "Note that when the desired version of a package is available on several repositories, the first one listed in the <filename>sources.list</filename> file will be used. For this reason, non-official sources are usually added at the end of the file."
-msgstr ""
+msgstr "Обратите внимание, что когда требуемая версия пакета доступна на нескольких хранилищах, первый из списка в файле  <filename>sources.list</filename> будет использован. Из-за этого неофициальные источники обычно добавляют в конец файла."
 
 msgid "As a side note, most of what this section says about <emphasis role=\"distribution\">Stable</emphasis> applies equally well to <emphasis role=\"distribution\">Oldstable</emphasis> since the latter is just an older <emphasis role=\"distribution\">Stable</emphasis> that is maintained in parallel."
-msgstr ""
+msgstr "В качестве примечания следует отметить, что большая часть сказанного в этом разделе о версии <emphasis role=\"distribution\">Stable</emphasis> также относится и к версии <emphasis role=\"distribution\">Oldstable</emphasis>, которая является просто более старой версией <emphasis role=\"distribution\">Stable</emphasis>, поддерживаемой параллельно текущей."
 
 msgid "Security Updates"
-msgstr ""
+msgstr "Обновления безопасности"
 
 msgid "<primary><literal>security.debian.org</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>security.debian.org</literal></primary>"
 
 msgid "<primary>security updates</primary>"
-msgstr ""
+msgstr "<primary>обновления безопасности</primary>"
 
 msgid "<primary>updates</primary><secondary>security updates</secondary>"
-msgstr ""
+msgstr "<primary>обновления</primary><secondary>обновления безопасности</secondary>"
 
 msgid "The security updates are not hosted on the usual network of Debian mirrors but on <literal>security.debian.org</literal> (on a small set of machines maintained by the <link linkend=\"dsa-team\">Debian System Administrators</link>). This archive contains security updates (prepared by the Debian Security Team and/or by package maintainers) for the <emphasis role=\"distribution\">Stable</emphasis> distribution."
-msgstr ""
+msgstr "Обновления безопасности размещаются не в обычной сети зеркальных сайтов Debian, а на <literal>security.debian.org</literal> (на небольшом наборе машин, управляемых <link linkend=\"dsa-team\">Системными администраторами Debian</link>). Этот архив содержит обновления безопасности  (подготовленные Командой Безопасности Debian и/или сопровождающими пакетов) для дистрибутива <emphasis role=\"distribution\">Stable</emphasis>."
 
 msgid "The server can also host security updates for <emphasis role=\"distribution\">Testing</emphasis> but this doesn't happen very often since those updates tend to reach <emphasis role=\"distribution\">Testing</emphasis> via the regular flow of updates coming from <emphasis role=\"distribution\">Unstable</emphasis>."
-msgstr ""
+msgstr "На сервере также могут быть размещены обновления безопасности для версии <emphasis role=\"distribution\">Testing</emphasis>, но это случается не очень часто, поскольку эти обновления попадают в <emphasis role=\"distribution\">Testing</emphasis> через постоянный поток обновления, приходящий от <emphasis role=\"distribution\">Unstable</emphasis>."
 
 msgid "Stable Updates"
-msgstr ""
+msgstr "Стабильные обновления"
 
 msgid "<primary>stable updates</primary>"
-msgstr ""
+msgstr "<primary>стабильные обновления</primary>"
 
 msgid "<primary><literal>stable-updates</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>стабильно-обновленный</literal></primary>"
 
 msgid "<primary>updates</primary><secondary>stable updates</secondary>"
-msgstr ""
+msgstr "<primary>обновления</primary><secondary>стабильные обновления</secondary>"
 
 msgid "Stable updates are not security sensitive but are deemed important enough to be pushed to users before the next stable point release."
-msgstr ""
+msgstr "Стабильные обновления не являются необходимыми для обеспечения безопасности, но считаются достаточно важными, чтобы довести их до пользователей до выхода следующей стабильной версии."
 
 msgid "This repository will typically contain fixes for critical bugs which could not be fixed before release or which have been introduced by subsequent updates. Depending on the urgency, it can also contain updates for packages that have to evolve over time… like <emphasis role=\"pkg\">spamassassin</emphasis>'s spam detection rules, <emphasis role=\"pkg\">clamav</emphasis>'s virus database, or the daylight-saving time rules of all timezones (<emphasis role=\"pkg\">tzdata</emphasis>)."
-msgstr ""
+msgstr "В этом хранилище обычно содержаться исправления критических ошибок, которые не были исправлены до выпуска версии или появились из-за последующих обновлений. При необходимости здесь также могут содержаться обновления для пакетов, которые постоянно изменяются … таких как правила определения спама <emphasis role=\"pkg\">spamassassin</emphasis>, база вирусов <emphasis role=\"pkg\">clamav</emphasis>, или правила перехода на летнее-зимнее время для всех часовых поясов (<emphasis role=\"pkg\">tzdata</emphasis>)."
 
 msgid "In practice, this repository is a subset of the <literal>proposed-updates</literal> repository, carefully selected by the Stable Release Managers."
-msgstr ""
+msgstr "На деле, это хранилище является частью хранилища <literal>proposed-updates</literal>, прошедшего тщательный отбор Управляющими Стабильного Выпуска."
 
 msgid "Proposed Updates"
-msgstr ""
+msgstr "Предполагаемые обновления"
 
 msgid "<primary><literal>proposed-updates</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>предполагаемые обновления</literal></primary>"
 
 msgid "<primary><literal>stable-proposed-updates</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>стабильные предполагаемые обновления</literal></primary>"
 
 msgid "Once published, the <emphasis role=\"distribution\">Stable</emphasis> distribution is only updated about once every 2 months. The <literal>proposed-updates</literal> repository is where the expected updates are prepared (under the supervision of the Stable Release Managers)."
-msgstr ""
+msgstr "После выхода дистрибутив <emphasis role=\"distribution\">Stable</emphasis> обновляется примерно раз в 2 месяца. В хранилище <literal>proposed-updates</literal> производится подготовка ожидаемых обновлений (под наблюдением Управляющих Стабильного Выпуска)."
 
 msgid "The security and stable updates documented in the former sections are always included in this repository, but there is more too, because package maintainers also have the opportunity to fix important bugs that do not deserve an immediate release."
-msgstr ""
+msgstr "Обновления безопасности и стабильные обновления, документально фиксируемые в официальном разделе, всегда включаются в состав хранилища, но здесь сопровождающие пакетов также имеют возможность исправить значимые ошибки, которые не требуют немедленного выпуска."
 
 msgid "Anyone can use this repository to test those updates before their official publication. The extract below uses the <literal>jessie-proposed-updates</literal> alias which is both more explicit and more consistent since <literal>wheezy-proposed-updates</literal> also exists (for the <emphasis role=\"distribution\">Oldstable</emphasis> updates):"
-msgstr ""
+msgstr "Каждый может использовать это хранилище для проверки обновлений перед их официальным выпуском. В следующей выписке используется обозначение <literal>jessie-proposed-updates</literal>, которое является и более ясным, и более содержательным, поскольку также существует и <literal>wheezy-proposed-updates</literal> also exists (для обновлений <emphasis role=\"distribution\">Oldstable</emphasis>):"
 
 msgid "deb http://ftp.debian.org/debian jessie-proposed-updates main contrib non-free"
-msgstr ""
+msgstr "deb http://ftp.debian.org/debian jessie-proposed-updates main contrib non-free"
 
 msgid "Stable Backports"
-msgstr ""
+msgstr "Стабильное ПО с обратной совместимостью"
 
 msgid "<primary><literal>stable-backports</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>стабильное ПО с обратной совместимостью</literal></primary>"
 
 msgid "<primary>backport</primary>"
-msgstr ""
+msgstr "<primary>ПО с обратной совместимостью</primary>"
 
 msgid "<primary>updates</primary><secondary>backports</secondary>"
-msgstr ""
+msgstr "<primary>обновления</primary><secondary>ПО с обратной совместимостью</secondary>"
 
 msgid "The <literal>stable-backports</literal> repository hosts “package backports”. The term refers to a package of some recent software which has been recompiled for an older distribution, generally for <emphasis role=\"distribution\">Stable</emphasis>."
-msgstr ""
+msgstr "В хранилище <literal>stable-backports</literal> расположены “пакеты с обратной совместимостью”. Это определение относится к пакетом какого-то существующего программного обеспечения, которые были перекомпилированы для устаревшего дистрибутива, обычно для <emphasis role=\"distribution\">Stable</emphasis>."
 
 msgid "When the distribution becomes a little dated, numerous software projects have released new versions that are not integrated into the current <emphasis role=\"distribution\">Stable</emphasis> (which is only modified to address the most critical problems, such as security problems). Since the <emphasis role=\"distribution\">Testing</emphasis> and <emphasis role=\"distribution\">Unstable</emphasis> distributions can be more risky, package maintainers sometimes offer recompilations of recent software applications for <emphasis role=\"distribution\">Stable</emphasis>, which has the advantage to limit potential instability to a small number of chosen packages. <ulink type=\"block\" url=\"http://backports.debian.org\" />"
-msgstr ""
+msgstr "Когда дистрибутив немного устаревает, множество проектов разработки ПО выпускает новые версии, которые уже не совместимы с текущей версией <emphasis role=\"distribution\">Stable</emphasis> (которая дорабатывается только чтобы решить наиболее важные проблемы, такие как проблемы безопасности ). Поскольку выпуски <emphasis role=\"distribution\">Testing</emphasis> и <emphasis role=\"distribution\">Unstable</emphasis> могут быть более опасными, сопровождающие пакетов иногда предлагают перекомпилированное для версии  <emphasis role=\"distribution\">Stable</emphasis> программное обеспечение, которое полезно тем, что ограничивает потенциальную неустойчивость при небольшом числе выбранных пакетов. <ulink type=\"block\" url=\"http://backports.debian.org\" />"
 
 msgid "The <literal>stable-backports</literal> repository is now available on the usual Debian mirrors. But backports for <emphasis role=\"distribution\">Squeeze</emphasis> are still hosted on a dedicated server (<literal>backports.debian.org</literal>), and requires the following <filename>sources.list</filename> entry:"
-msgstr ""
+msgstr "Хранилище <literal>stable-backports</literal> теперь доступно на обычных зеркалах Debian. Но ПО с обратной совместимостью для <emphasis role=\"distribution\">Squeeze</emphasis> до сих пор размещены на отдельном сервере (<literal>backports.debian.org</literal>) и требуют следующей записи в файле <filename>sources.list</filename>:"
 
 msgid "<primary><literal>backports.debian.org</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>backports.debian.org</literal></primary>"
 
 msgid "deb http://backports.debian.org/debian-backports squeeze-backports main contrib non-free"
-msgstr ""
+msgstr "deb http://backports.debian.org/debian-backports squeeze-backports main contrib non-free"
 
 msgid "Backports from <literal>stable-backports</literal> are always created from packages available in <emphasis role=\"distribution\">Testing</emphasis>. This ensures that all installed backports will be upgradable to the corresponding stable version once the next stable release of Debian is available."
-msgstr ""
+msgstr "ПО с обратной совместимостью из <literal>stable-backports</literal> всегда создаётся из пакетов, доступных в <emphasis role=\"distribution\">Testing</emphasis>. Этим обеспечивается то, что все установленное ПО с обратной совместимостью будет доступно для обновления для соответствующей стабильной версии при одновременной доступности следующего стабильного выпуска Debian."
 
 msgid "Even though this repository provides newer versions of packages, APT will not install them unless you give explicit instructions to do so (or unless you have already done so with a former version of the given backport):"
-msgstr ""
+msgstr "Несмотря на то, что данное хранилище предоставляет новые версии пакетов, APT не будет устанавливать их, пока вы не дадите для этого конкретных инструкций (или пока вы уже не сделали это с официальной версией данного ПО с обратной совместимостью):"
 
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>sudo apt-get install <replaceable>package</replaceable>/jessie-backports\n"
 "</userinput><computeroutput>$ </computeroutput><userinput>sudo apt-get install -t jessie-backports <replaceable>package</replaceable>\n"
 "</userinput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>sudo apt-get install <replaceable>package</replaceable>/jessie-backports\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo apt-get install -t jessie-backports <replaceable>package</replaceable>\n"
+"</userinput>"
 
 msgid "Repositories for <emphasis role=\"distribution\">Testing</emphasis>/<emphasis role=\"distribution\">Unstable</emphasis> Users"
-msgstr ""
+msgstr "Хранилища для пользователей версий <emphasis role=\"distribution\">Testing</emphasis>/<emphasis role=\"distribution\">Unstable</emphasis>"
 
 msgid "Here is a standard <filename>sources.list</filename> for a system running the <emphasis role=\"distribution\">Testing</emphasis> or <emphasis role=\"distribution\">Unstable</emphasis> version of Debian:"
-msgstr ""
+msgstr "Здесь представлен стандартный <filename>sources.list</filename> для системы, выполняющей версию <emphasis role=\"distribution\">Testing</emphasis> или <emphasis role=\"distribution\">Unstable</emphasis> Debian:"
 
 msgid "<filename>/etc/apt/sources.list</filename> file for users of Debian <emphasis role=\"distribution\">Testing</emphasis>/<emphasis role=\"distribution\">Unstable</emphasis>"
-msgstr ""
+msgstr "Файл <filename>/etc/apt/sources.list</filename> для пользователей Debian <emphasis role=\"distribution\">Testing</emphasis>/<emphasis role=\"distribution\">Unstable</emphasis>"
 
 msgid ""
 "\n"
@@ -326,21 +346,39 @@ msgid ""
 "deb-src http://security.debian.org/ stable/updates main contrib non-free\n"
 "deb-src http://security.debian.org/ testing/updates main contrib non-free"
 msgstr ""
+"\n"
+"# Unstable\n"
+"deb http://ftp.debian.org/debian unstable main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian unstable main contrib non-free\n"
+"\n"
+"# Testing\n"
+"deb http://ftp.debian.org/debian testing main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian testing main contrib non-free\n"
+"\n"
+"# Stable\n"
+"deb http://ftp.debian.org/debian stable main contrib non-free\n"
+"deb-src http://ftp.debian.org/debian stable main contrib non-free\n"
+"\n"
+"# Security updates\n"
+"deb http://security.debian.org/ stable/updates main contrib non-free\n"
+"deb http://security.debian.org/ testing/updates main contrib non-free\n"
+"deb-src http://security.debian.org/ stable/updates main contrib non-free\n"
+"deb-src http://security.debian.org/ testing/updates main contrib non-free"
 
 msgid "With this <filename>sources.list</filename> file APT will install packages from <emphasis role=\"distribution\">Unstable</emphasis>. If that is not desired, use the <literal>APT::Default-Release</literal> setting (see <xref linkend=\"sect.apt-upgrade\" />) to instruct APT to pick packages from another distribution (most likely <emphasis role=\"distribution\">Testing</emphasis> in this case)."
-msgstr ""
+msgstr "С таким файлом <filename>sources.list</filename> APT будет устанавливать пакеты из <emphasis role=\"distribution\">Unstable</emphasis>. Если вам это не требуется, используйте настройку <literal>APT::Default-Release</literal> (смотри <xref linkend=\"sect.apt-upgrade\" />), чтобы сообщить APT о необходимости брать пакеты из другого дистрибутива (наиболее вероятно <emphasis role=\"distribution\">Testing</emphasis> в данном случае)."
 
 msgid "There are good reasons to include all those repositories, even though a single one should be enough. <emphasis role=\"distribution\">Testing</emphasis> users will appreciate the possibility to cherry-pick a fixed package from <emphasis role=\"distribution\">Unstable</emphasis> when the version in <emphasis role=\"distribution\">Testing</emphasis> is affected by an annoying bug. On the opposite, <emphasis role=\"distribution\">Unstable</emphasis> users bitten by unexpected regressions have the possibility to downgrade packages to their (supposedly working) <emphasis role=\"distribution\">Testing</emphasis> version."
-msgstr ""
+msgstr "Совершенно обоснованным является включение всех этих хранилищ, даже когда достаточно только одного. Пользователи <emphasis role=\"distribution\">Testing</emphasis> оценят возможность выбрать хороший исправленный пакет из <emphasis role=\"distribution\">Unstable</emphasis>, в случае когда версия <emphasis role=\"distribution\">Testing</emphasis> содержит надоевшую ошибку. И наоборот, пользователи <emphasis role=\"distribution\">Unstable</emphasis>, пострадавшие от неожиданных сбоев в пакетах, имеют возможность откатить пакеты до их (предположительно рабочей) версии <emphasis role=\"distribution\">Testing</emphasis>."
 
 msgid "The inclusion of <emphasis role=\"distribution\">Stable</emphasis> is more debatable but it often gives access to some packages which have been removed from the development versions. It also ensures that you get the latest updates for packages which have not been modified since the last stable release."
-msgstr ""
+msgstr "С включением <emphasis role=\"distribution\">Stable</emphasis> имеется больше вопросов, но часто это даёт возможность доступа к некоторым пакетам, которые были удалены из разрабатываемых версий. Также это даёт уверенность. что вы получаете самые свежие обновления для пакетов, которые не изменялись с выпуска последней стабильной версии."
 
 msgid "The <emphasis role=\"distribution\">Experimental</emphasis> Repository"
 msgstr ""
 
 msgid "<primary><emphasis role=\"distribution\">Experimental</emphasis></primary>"
-msgstr "<primary><emphasis role=\"distribution\">Experimental</emphasis></primary>"
+msgstr "<primary><emphasis role=\"distribution\">Экспериментальный</emphasis></primary>"
 
 msgid "The archive of <emphasis role=\"distribution\">Experimental</emphasis> packages is present on all Debian mirrors, and contains packages which are not in the <emphasis role=\"distribution\">Unstable</emphasis> version yet because of their substandard quality — they are often software development versions or pre-versions (alpha, beta, release candidate…). A package can also be sent there after undergoing subsequent changes which can generate problems. The maintainer then tries to uncover them with help from advanced users who can handle important issues. After this first stage, the package is moved into <emphasis role=\"distribution\">Unstable</emphasis>, where it reaches a much larger audience and where it will be tested in much more detail."
 msgstr ""
