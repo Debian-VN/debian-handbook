@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-09-08 19:11+0000\n"
+"PO-Revision-Date: 2016-09-12 15:01+0000\n"
 "Last-Translator: Ingrid Yrvin <ingrid.yrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/05_packaging-system/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -873,13 +873,13 @@ msgid "<primary><command>dpkg-source</command></primary>"
 msgstr "<primary><command>dpkg-source</command></primary>"
 
 msgid "<primary>decompressing, source package</primary>"
-msgstr "<primary>decompressing, source package</primary>"
+msgstr "<primary>dekomprimering, kildepakke</primary>"
 
 msgid "<primary>uncompressing, source package</primary>"
-msgstr "<primary>uncompressing, source package</primary>"
+msgstr "<primary>pakke ut, kildepakke</primary>"
 
 msgid "<primary>unpacking</primary><secondary>source package</secondary>"
-msgstr "<primary>unpacking</primary><secondary>source package</secondary>"
+msgstr "<primary>pakke ut</primary><secondary>kildepakke</secondary>"
 
 msgid "If you have a source package, you can use the <command>dpkg-source</command> command (from the <emphasis role=\"pkg\">dpkg-dev</emphasis> package) to decompress it:"
 msgstr "Hvis du har en kildepakke, kan du bruke <command>dpkg-source</command>-kommandoen (fra <emphasis role=\"pkg\">dpkg-dev</emphasis>-pakken) for å pakke den ut:"
@@ -888,7 +888,7 @@ msgid "<computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-
 msgstr "<computeroutput>$ </computeroutput><userinput>dpkg-source -x package_0.7-1.dsc</userinput>"
 
 msgid "You can also use <command>apt-get</command> to download a source package and unpack it right away. It requires that the appropriate <literal>deb-src</literal> lines be present in the <filename>/etc/apt/sources.list</filename> file, however (for further details, see <xref linkend=\"sect.apt-sources.list\" />). These are used to list the “sources” of source packages (meaning the servers on which a group of source packages are hosted)."
-msgstr "Du kan også bruke <command>apt-get</command> for å laste ned en kildepakke og pakke den opp med en gang. Det krever at de passende <literal>deb-src</literal>-linjer er til stede i <filename>/etc/apt/sources.list</filename>-filen, (for flere detaljer se gjerne <xref linkend=\"sect.apt-sources.list\" />). Disse brukes til å liste \"kildene\" til kildepakkene (til servere der en gruppe kildepakker ligger)."
+msgstr "Du kan også bruke <command>apt-get</command> for å laste ned en kildepakke og pakke den opp med en gang. Det krever at de passende <literal>deb-src</literal>-linjer er til stede i <filename>/etc/apt/sources.list</filename>-filen, (for flere detaljer se gjerne <xref linkend=\"sect.apt-sources.list\" />). Disse brukes til å liste «kildene» til kildepakkene (til servere der en gruppe kildepakker ligger)."
 
 msgid "<computeroutput>$ </computeroutput><userinput>apt-get source <replaceable>package</replaceable></userinput>"
 msgstr "<computeroutput>$ </computeroutput><userinput>apt-get source <replaceable>package</replaceable></userinput>"
@@ -897,10 +897,10 @@ msgid "Usage within Debian"
 msgstr "Bruk i Debian"
 
 msgid "The source package is the foundation of everything in Debian. All Debian packages come from a source package, and each modification in a Debian package is the consequence of a modification made to the source package. The Debian maintainers work with the source package, knowing, however, the consequences of their actions on the binary packages. The fruits of their labors are thus found in the source packages available from Debian: you can easily go back to them and everything stems from them."
-msgstr "Kildepakken er grunnlaget for alt i Debian. Alle Debian-pakkene kommer fra en kildepakke, og hver endring i en Debian-pakke er konsekvensen av en modifikasjon i kildepakken. Når Debians vedlikeholdere arbeider med kildepakken, er de vel vitende om konsekvensene av handlingene for de binære pakkene. Resultatet av arbeidet deres gjenfinnes derfor i kildepakkene fra Debian. Du kan enkelt gå tilbake til dem og alt stammer derfra."
+msgstr "Kildepakken er grunnlaget for alt i Debian. Alle Debian-pakkene kommer fra en kildepakke, og hver endring i en Debian-pakke er konsekvensen av en modifikasjon i kildepakken. Når Debians vedlikeholdere arbeider med kildepakken, er de vel vitende om konsekvensene av handlingene for de binære pakkene. Resultatet av arbeidet deres gjenfinnes derfor i kildepakkene fra Debian. Du kan enkelt gå tilbake til dem, og alt stammer derfra."
 
 msgid "When a new version of a package (source package and one or more binary packages) arrives on the Debian server, the source package is the most important. Indeed, it will then be used by a network of machines of different architectures for compilation on the various architectures supported by Debian. The fact that the developer also sends one or more binary packages for a given architecture (usually i386 or amd64) is relatively unimportant, since these could just as well have been automatically generated."
-msgstr "Når en ny versjon av en pakke (kildepakke og en eller flere binære pakker) kommer til en Debian tjener, er kildepakken det viktigste. Faktisk vil den da bli brukt av et nettverk av maskiner med forskjellige kompileringsarkitekturer som Debian støtter. Det faktum at utvikleren også sender en eller flere binære pakker for en gitt arkitektur (vanligvis i386 eller amd64) er relativt uviktig, siden disse like godt kunne ha blitt automatisk generert."
+msgstr "Når en ny versjon av en pakke (kildepakke og en eller flere binære pakker) kommer til en Debian-tjener, er kildepakken det viktigste. Faktisk vil den da bli brukt av et nettverk av maskiner med forskjellige kompileringsarkitekturer som Debian støtter. Det faktum at utvikleren også sender en eller flere binære pakker for en gitt arkitektur (vanligvis i386 eller AMD64) er relativt uviktig, siden disse like godt kunne ha blitt automatisk generert."
 
 msgid "Manipulating Packages with <command>dpkg</command>"
 msgstr "Behandle pakker med <command>dpkg</command>"
@@ -909,7 +909,7 @@ msgid "<command>dpkg</command> is the base command for handling Debian packages 
 msgstr "<command>dpkg</command> er basiskommandoen for å behandle Debian-pakker for systemet. Hvis du har <filename>.deb</filename>-pakker, er det <command>dpkg</command> som tillater installasjon eller analyse av innholdet deres. Men dette programmet har bare en delvis oversikt over Debian-universet. Det vet hva som er installert på systemet, og hva det er gitt på kommandolinjen, men vet ingenting om andre tilgjengelige pakker. Den vil mislykkes hvis en avhengighet ikke er oppfylt. Verktøy som <command>apt</command>, vil tvert imot lage en liste over avhengigheter for å kunne installere alt så automatisk som mulig."
 
 msgid "<emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt</command>?"
-msgstr "<emphasis>NOTE</emphasis> <command>dpkg</command> or <command>apt</command>?"
+msgstr "<emphasis>NOTE</emphasis> <command>dpkg</command> eller <command>apt</command>?"
 
 msgid "<command>dpkg</command> should be seen as a system tool (backend), and <command>apt</command> as a tool closer to the user, which overcomes the limitations of the former. These tools work together, each one with its particularities, suited to specific tasks."
 msgstr "<command>dpkg</command> skal sees som et systemverktøy (bakstykke), og <command>apt</command> som et verktøy nærmere brukeren, som overvinner begrensningene av det første. Disse verktøyene fungerer sammen, hver med sine særegenheter, egnet til spesifikke oppgaver."
@@ -918,17 +918,18 @@ msgid "Installing Packages"
 msgstr "Å installere pakker"
 
 msgid "<primary>installation</primary><secondary>package installation</secondary>"
-msgstr "<primary>installation</primary><secondary>package installation</secondary>"
+msgstr "<primary>installasjon</primary><secondary>pakkeinstallasjon</secondary>"
 
 msgid "<primary>package</primary><secondary>installation</secondary>"
-msgstr "<primary>package</primary><secondary>installation</secondary>"
+msgstr "<primary>pakke</primary><secondary>installasjon</secondary>"
 
 msgid "<command>dpkg</command> is, above all, the tool for installing an already available Debian package (because it does not download anything). To do this, we use its <literal>-i</literal> or <literal>--install</literal> option."
-msgstr "<command>dpkg</command> er, fremfor alt, verktøy for å installere en allerede tilgjengelig Debian-pakke (fordi den ikke laster ned noe). For å gjøre det, velger vi <literal>-i</literal> eller <literal>--install</literal>."
+msgstr "<command>dpkg</command> er, fremfor alt, verktøy for å installere en allerede tilgjengelig Debian-pakke (fordi den ikke laster ned noe). For å gjøre det velger vi <literal>-i</literal> eller <literal>--install</literal> alternativet."
 
 msgid "Installation of a package with <command>dpkg</command>"
 msgstr "Installasjon av en pakke med <command>dpkg</command>"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>dpkg -i man-db_2.7.0.2-5_amd64.deb</userinput>\n"
@@ -949,11 +950,12 @@ msgstr ""
 "Processing triggers for mime-support (3.58) ...</computeroutput>"
 
 msgid "We can see the different steps performed by <command>dpkg</command>; we know, thus, at what point any error may have occurred. The installation can also be effected in two stages: first unpacking, then configuration. <command>apt-get</command> takes advantage of this, limiting the number of calls to <command>dpkg</command> (since each call is costly, due to loading of the database in memory, especially the list of already installed files)."
-msgstr "Vi kan se de ulike trinnene som utføres av <command>dpkg</command>; Vi vet derfor på hvilket punkt det kan ha oppstått noen feil. Installasjonen kan også påvirkes i to trinn: først utpakkingen, så konfigurasjonen.<command>apt-get</command> bruker fordelen med dette, noe som begrenser antall kontakter til <command>dpkg</command> (Siden hver kontakt er kostbar på grunn av innlasting av databasen i minnet, spesielt listen over allerede installerte filer)."
+msgstr "Vi kan se de ulike trinnene som utføres av <command>dpkg</command>; vi vet derfor på hvilket punkt det kan ha oppstått noen feil. Installasjonen kan også påvirkes i to trinn; først utpakkingen, så konfigurasjonen.<command>apt-get</command> bruker fordelen med dette, noe som begrenser antall kontakter til <command>dpkg</command> (siden hver kontakt er kostbar på grunn av innlasting av databasen i minnet, spesielt listen over allerede installerte filer)."
 
 msgid "Separate unpacking and configuration"
 msgstr "Separat utpakking og konfigurering"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>dpkg --unpack man-db_2.7.0.2-5_amd64.deb</userinput>\n"
@@ -978,14 +980,15 @@ msgstr ""
 "</computeroutput>"
 
 msgid "<primary>package</primary><secondary>unpacking</secondary>"
-msgstr "<primary>package</primary><secondary>unpacking</secondary>"
+msgstr "<primary>pakke</primary><secondary>utpakking</secondary>"
 
 msgid "<primary>unpacking</primary><secondary>binary package</secondary>"
-msgstr "<primary>unpacking</primary><secondary>binary package</secondary>"
+msgstr "<primary>utpakking</primary><secondary>binærpakke</secondary>"
 
 msgid "Sometimes <command>dpkg</command> will fail to install a package and return an error; if the user orders it to ignore this, it will only issue a warning; it is for this reason that we have the different <literal>--force-*</literal> options. The <command>dpkg --force-help</command> command, or documentation of this command, will give a complete list of these options. The most frequent error, which you are bound to encounter sooner or later, is a file collision. When a package contains a file that is already installed by another package, <command>dpkg</command> will refuse to install it. The following messages will then appear:"
-msgstr "Noen ganger vil <command>dpkg</command> mislykkes med å installere en pakke og melde om feil: Hvis brukeren beordrer den til å overse dette, vil den bare sende en advarsel. Det er derfor vi har de ulike <literal>--force-*</literal> valgmulighetene. <command>dpkg --force-help</command>-kommandoen, eller dokumentasjon for denne kommandoen, vil gi en fullstendig liste over disse alternativene. Den hyppigste feilen, som du er nødt til å treffe på før eller senere, er en filkollisjon. Når en pakke inneholder en fil som allerede er installert av en annen pakke, vil <command>dpkg</command>-kommandoen avslå å installere den. Da vil det følgende budskapet vises:"
+msgstr "Noen ganger vil <command>dpkg</command> mislykkes med å installere en pakke, og melde om feil: Hvis brukeren beordrer den til å overse dette, vil den bare sende en advarsel. Det er derfor vi har de ulike <literal>--force-*</literal> valgmulighetene. <command>dpkg --force-help</command>-kommandoen, eller dokumentasjon for denne kommandoen, vil gi en fullstendig liste over disse alternativene. Den hyppigste feilen, som du er nødt til å treffe på før eller senere, er en filkollisjon. Når en pakke inneholder en fil som allerede er installert av en annen pakke, vil <command>dpkg</command>-kommandoen avslå å installere den. Da vil det følgende budskapet vises:"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>Unpacking libgdm (from .../libgdm_3.8.3-2_amd64.deb) ...\n"
@@ -1004,14 +1007,15 @@ msgid "While there are many available <literal>--force-*</literal> options, only
 msgstr "Mens det er mange tilgjengelige <literal>--force-*</literal> valgmuligheter, er det sannsynlig at bare <literal>--force-overwrite</literal> vil bli brukt jevnlig. Disse valgmulighetene er bare laget for helt spesielle situasjoner, og det er bedre å la dem være i fred så mye som mulig for å respektere reglene som pakkemekanismen pålegger. Ikke glem, disse reglene sikrer konsistens og stabilitet i ditt system."
 
 msgid "<emphasis>CAUTION</emphasis> Effective use of <literal>--force-*</literal>"
-msgstr "<emphasis>CAUTION</emphasis> Effective use of <literal>--force-*</literal>"
+msgstr "<emphasis>FORSIKTIG</emphasis> Effektiv bruk av <literal>--force-*</literal>"
 
 msgid "<primary>broken dependency</primary>"
-msgstr "<primary>broken dependency</primary>"
+msgstr "<primary>brutt avhengighet</primary>"
 
 msgid "If you are not careful, the use of an option <literal>--force-*</literal> can lead to a system where the APT family of commands will refuse to function. In effect, some of these options allow installation of a package when a dependency is not met, or when there is a conflict. The result is an inconsistent system from the point of view of dependencies, and the APT commands will refuse to execute any action except those that will bring the system back to a consistent state (this often consists of installing the missing dependency or removing a problematic package). This often results in a message like this one, obtained after installing a new version of <emphasis role=\"pkg\">rdesktop</emphasis> while ignoring its dependency on a newer version of the <emphasis role=\"pkg\">libc6</emphasis>:"
-msgstr "Hvis du ikke er forsiktig, kan bruken av valget <literal>--force-*</literal>  føre til et system hvor APT familien av kommandoer vil avslå å virke. Faktisk vil noen av disse alternativene tillate installasjon av en pakke selv om en avhengighet ikke er oppfylt, eller når det er en konflikt. Resultatet er en inkonsekvent system sett fra et avhengighetssynspunkt, og APT-kommandoer vil nekte å utføre handlinger, med unntak av de som vil bringe systemet tilbake til en konsistent tilstand (dette ofte består av å installere den manglende avhengighet eller fjerne en problematisk pakke). Dette resulterer ofte i en melding som dette, som kom etter installasjon av en ny versjon av <emphasis role=\"pkg\">rdesktop</emphasis>, samtidig som den ser bort fra dennes avhengigheten i en nyere versjon av <emphasis role=\"pkg\">libc6</emphasis>:"
+msgstr "Hvis du ikke er forsiktig, kan bruken av valget <literal>--force-*</literal> føre til et system hvor APT-familien av kommandoer vil avslå å virke. Faktisk vil noen av disse alternativene tillate installasjon av en pakke selv om en avhengighet ikke er oppfylt, eller når det er en konflikt. Resultatet er et inkonsekvent system sett fra et avhengighetssynspunkt, og APT-kommandoer vil nekte å utføre handlinger, med unntak av de som vil bringe systemet tilbake til en konsistent tilstand (dette består ofte av å installere den manglende avhengighet, eller fjerne en problematisk pakke). Dette resulterer ofte i en melding som dette, som kom etter installasjon av en ny versjon av <emphasis role=\"pkg\">rdesktop</emphasis>, samtidig som den ser bort fra dennes avhengigheten i en nyere versjon av <emphasis role=\"pkg\">libc6</emphasis>:"
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>apt full-upgrade\n"
 "</userinput><computeroutput>[...]\n"
@@ -1028,29 +1032,30 @@ msgstr ""
 "E: Udekkede avhengigheter. Forsøk å bruke -f.</computeroutput>"
 
 msgid "A courageous administrator who is certain of the correctness of their analysis may choose to ignore a dependency or conflict and use the corresponding <literal>--force-*</literal> option. In this case, if they want to be able to continue to use <command>apt</command> or <command>aptitude</command>, they must edit <filename>/var/lib/dpkg/status</filename> to delete/modify the dependency, or conflict, that they chose to override."
-msgstr "En modig administrator, som er sikker på at sin analyse er riktig, kan velge å ignorere en avhengighet eller konflikt og bruker den tilsvarende <literal>--force-*</literal> valgmuligheten. I dette tilfellet, hvis de ønsker å kunne forutsette å bruke <command>apt</command> eller <command>aptitude</command>, må de redigere <filename>/var/lib/dpkg/status</filename> for å slette/endre avhengigheten, eller konflikten, som de valgte å overstyre."
+msgstr "En modig administrator, som er sikker på at sine analyser er riktig, kan velge å ignorere en avhengighet eller konflikt, og bruker den tilsvarende <literal>--force-*</literal> valgmuligheten. I dette tilfellet, hvis de ønsker å kunne forutsette å bruke <command>apt</command>, eller <command>aptitude</command>, må de redigere <filename>/var/lib/dpkg/status</filename> for å slette/endre avhengigheten, eller konflikten, som de valgte å overstyre."
 
 msgid "This manipulation is an ugly hack, and should never be used, except in the most extreme case of necessity. Quite frequently, a more fitting solution is to recompile the package that's causing the problem (see <xref linkend=\"sect.rebuilding-package\" />) or use a new version (potentially corrected) from a repository such as the <literal>stable-backports</literal> one (see <xref linkend=\"sect.backports\" />)."
-msgstr "Denne manipulasjon er en stygg rettelse, og bør aldri brukes, unntatt nå det absolutt kreves. Ganske ofte, er en mer passende løsning å rekompilere pakken som forårsaker problemet (se <xref linkend=\"sect.rebuilding-package\" />) eller bruk en ny versjon (som muligens er rettet) fra et kodelager som <literal>stable-backports</literal> (se <xref linkend=\"sect.backports\" />)."
+msgstr "Denne manipulasjon er en stygg rettelse, og bør aldri brukes, unntatt når det absolutt kreves. Ganske ofte er en mer passende løsning å rekompilere pakken som forårsaker problemet (se <xref linkend=\"sect.rebuilding-package\" />), eller bruk en ny versjon (som muligens er rettet) fra et kodelager som <literal>stable-backports</literal> (se <xref linkend=\"sect.backports\" />)."
 
 msgid "<primary>removing a package</primary>"
-msgstr "<primary>removing a package</primary>"
+msgstr "<primary>fjerning av en pakke</primary>"
 
 msgid "<primary>purging a package</primary>"
-msgstr "<primary>purging a package</primary>"
+msgstr "<primary>fullstendig fjerning av en pakke</primary>"
 
 msgid "<primary>package</primary><secondary>removal</secondary>"
-msgstr "<primary>package</primary><secondary>removal</secondary>"
+msgstr "<primary>pakke</primary><secondary>fjerne</secondary>"
 
 msgid "<primary>package</primary><secondary>purge</secondary>"
-msgstr "<primary>package</primary><secondary>purge</secondary>"
+msgstr "<primary>pakke</primary><secondary>slette helt</secondary>"
 
 msgid "Invoking <command>dpkg</command> with the <literal>-r</literal> or <literal>--remove</literal> option, followed by the name of a package, removes that package. This removal is, however, not complete: all of the configuration files, maintainer scripts, log files (system logs) and other user data handled by the package remain. That way disabling the program is easily done by uninstalling it, and it's still possible to quickly reinstall it with the same configuration. To completely remove everything associated with a package, use the <literal>-P</literal> or <literal>--purge</literal> option, followed by the package name."
-msgstr "Å aktivere <command>dpkg</command> med <literal>-r</literal> eller <literal>--remove</literal>-valget, etterfulgt av navnet på en pakke, fjerner denne pakken. Dette fjerningen er imidlertid ikke komplett: Alle konfigurasjonsfiler, vedlikeholderskript, loggfiler (systemlogger) og andre brukerdata håndteres av pakken forblir. Denne måten å deaktivere programmet på, gjøres enkelt ved å avinstallere det, og det er fortsatt mulig å raskt installere det på nytt med samme konfigurasjon. For å fjerne alt som er tilknyttet en pakke, kan du bruke <literal>-P</literal> eller <literal>-- purge</literal> valget, fulgt av pakkenavnet."
+msgstr "Å aktivere <command>dpkg</command> med <literal>-r</literal> eller <literal>--remove</literal>-valget, etterfulgt av navnet på en pakke, fjerner denne pakken. Denne fjerningen er imidlertid ikke komplett: Alle konfigurasjonsfiler, vedlikeholderskript, loggfiler (systemlogger) og andre brukerdata som håndteres av pakken forblir. Denne måten å deaktivere programmet på, gjøres enkelt ved å avinstallere det, og det er fortsatt mulig å raskt installere det på nytt med samme konfigurasjon. For å fjerne alt som er tilknyttet en pakke kan du bruke <literal>-P</literal> eller <literal>-- purge</literal>-valget, fulgt av pakkenavnet."
 
 msgid "Removal and purge of the <emphasis role=\"pkg\">debian-cd</emphasis> package"
 msgstr "Fjerning og frakobling av <emphasis role=\"pkg\">debian-cd</emphasis>-pakken."
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>dpkg -r debian-cd</userinput>\n"
 "<computeroutput>(Reading database ... 97747 files and directories currently installed.)\n"
@@ -1069,29 +1074,30 @@ msgstr ""
 "Purging configuration files for debian-cd (3.1.17) ...</computeroutput>"
 
 msgid "Querying <command>dpkg</command>'s Database and Inspecting <filename>.deb</filename> Files"
-msgstr "Spørre databasen til <command>dpkg</command> og inspisere <filename>.deb</filename> filer"
+msgstr "Spørre databasen til <command>dpkg</command>, og inspisere <filename>.deb</filename>-filer"
 
 msgid "<primary>package</primary><secondary>status</secondary>"
-msgstr "<primary>package</primary><secondary>status</secondary>"
+msgstr "<primary>pakke</primary><secondary>status</secondary>"
 
 msgid "<primary>package</primary><secondary>file list</secondary>"
-msgstr "<primary>package</primary><secondary>file list</secondary>"
+msgstr "<primary>pakke</primary><secondary>filliste</secondary>"
 
 msgid "<primary>package</primary><secondary>content inspection</secondary>"
-msgstr "<primary>package</primary><secondary>content inspection</secondary>"
+msgstr "<primary>pakke</primary><secondary>innholdssjekk</secondary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Option syntax"
-msgstr "<emphasis>BACK TO BASICS</emphasis> Option syntax"
+msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> Option syntax (Alternativ syntaks)"
 
 msgid "Most options are available in a “long” version (one or more relevant words, preceded by a double dash) and a “short” version (a single letter, often the initial of one word from the long version, and preceded by a single dash). This convention is so common that it is a POSIX standard."
-msgstr "De fleste alternativene er tilgjengelige i en \"lang\" versjon (en eller flere relevante ord, innledet med en dobbel bindestrek) og en \"kort\" versjon (en enkelt bokstav, ofte den første av ett ord fra den lange versjonen, og innledet med en enkelt bindestrek). Denne konvensjonen er så vanlig at den er en POSIX-standard."
+msgstr "De fleste alternativene er tilgjengelige i en «lang» versjon (en eller flere relevante ord, innledet med en dobbel bindestrek), og en «kort» versjon (en enkelt bokstav, ofte den første av ett ord fra den lange versjonen, og innledet med en enkelt bindestrek). Denne konvensjonen er så vanlig at den er en POSIX-standard."
 
 msgid "Before concluding this section, we will study <command>dpkg</command> options that query the internal database in order to obtain information. Giving first the long options and then corresponding short options (that will evidently take the same possible arguments) we cite <literal>--listfiles <replaceable>package</replaceable></literal> (or <literal>-L</literal>), which lists the files installed by this package; <literal>--search <replaceable>file</replaceable></literal> (or <literal>-S</literal>), which finds the package(s) containing the file; <literal>--status <replaceable>package</replaceable></literal> (or <literal>-s</literal>), which displays the headers of an installed package; <literal>--list</literal> (or <literal>-l</literal>), which displays the list of packages known to the system and their installation status; <literal>--contents <replaceable>file.deb</replaceable></literal> (or <literal>-c</literal>), which lists the files in the Debian package specified; <literal>--info<replaceable> file.deb </replaceable></literal> (or <literal>-I</literal>), which displays the headers of this Debian package."
-msgstr "Til slutt i denne seksjonen vil vi gjennomgå  <command>dpkg</command>-valgene som søker i den interne database for å få informasjon. Ved først å gi de lange alternativene og deretter de tilsvarende korte alternativene (som selvsagt vil ha med de samme mulige argumentene) vi siterer <literal>--listfiles <replaceable>package</replaceable></literal> (eller <literal>-L</literal>), som lister filene installert av denne pakken; <literal>--search <replaceable>file</replaceable></literal> (eller <literal>-S</literal>), som finner pakken(e) som inneholder filen; <literal>--status <replaceable>package</replaceable></literal> (or <literal>-s</literal>), som viser topptekstene til en installert pakke; <literal>--list</literal> (or <literal>-l</literal>), som viser listen med pakker som systemet kjenner og installasjonsstatusen deres; <literal>--contents <replaceable>file.deb</replaceable></literal> (or <literal>-c</literal>), som lister filene i den spesifiserte Debanpakken; <literal>--info<replaceable> file.deb </replaceable></literal> (eller <literal>-I</literal>), som viser topptekstene til denne Debian pakken."
+msgstr "Til slutt i denne seksjonen vil vi gjennomgå <command>dpkg</command>-valgene som søker i den interne database for å få informasjon. Ved først å gi de lange alternativene, og deretter de tilsvarende korte alternativene (som selvsagt vil ha med de samme mulige argumentene) siterer vi <literal>--listfiles <replaceable>pakke</replaceable></literal> (eller <literal>-L</literal>), som lister filene installert av denne pakken; <literal>--search <replaceable>fil</replaceable></literal> (eller <literal>-S</literal>), som finner pakken(e) som inneholder filen; <literal>--status <replaceable>pakke</replaceable></literal> (eller <literal>-s</literal>), som viser topptekstene til en installert pakke; <literal>--list</literal> (eller <literal>-l</literal>), som viser listen med pakker som systemet kjenner, og installasjonsstatusen deres; <literal>--contents <replaceable>file.deb</replaceable></literal> (eller <literal>-c</literal>), som lister filene i den spesifiserte Debian-pakken; <literal>--info<replaceable> file.deb </replaceable></literal> (eller <literal>-I</literal>), som viser topptekstene til denne Debian-pakken."
 
 msgid "Various queries with <command>dpkg</command>"
 msgstr "Forskjellige søk med <command>dpkg</command>"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>dpkg -L base-passwd</userinput>\n"
@@ -1354,17 +1360,18 @@ msgstr ""
 "[...]</computeroutput>"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Comparison of versions"
-msgstr "<emphasis>GOING FURTHER</emphasis> Å sammenligne versjoner"
+msgstr "<emphasis>Å GÅ VIDERE</emphasis> Å sammenligne versjoner"
 
 msgid "<primary>version, comparison</primary>"
-msgstr "<primary>version, comparison</primary>"
+msgstr "<primary>versjon, sammenligning</primary>"
 
 msgid "<primary>comparison of versions</primary>"
-msgstr "<primary>comparison of versions</primary>"
+msgstr "<primary>sammenligning av versjoner</primary>"
 
 msgid "Since <command>dpkg</command> is the program for handling Debian packages, it also provides the reference implementation of the logic of comparing version numbers. This is why it has a <literal>--compare-versions</literal> option, usable by external programs (especially configuration scripts executed by <command>dpkg</command> itself). This option requires three parameters: a version number, a comparison operator, and a second version number. The different possible operators are <literal>lt</literal> (strictly less than), <literal>le</literal> (less than or equal to), <literal>eq</literal> (equal), <literal>ne</literal> (not equal), <literal>ge</literal> (greater than or equal to), and <literal>gt</literal> (strictly greater than). If the comparison is correct, <command>dpkg</command> returns 0 (success); if not, it gives a non-zero return value (indicating failure)."
-msgstr "Ettersom <command>dpkg</command> er programmet som behandler Debian-pakker, gir det også referanseimplementeringen for logikken som skal til for å sammenligne versjonsnumre . Dette er grunnen til at det har et <literal>--compare-versions</literal>-valgmulighet, som kan brukes av eksterne programmer( spesielt konfigureringsskript som kjøres med <command>dpkg</command> selv). Denne valgmuligheten krever tre parametre: Et versjonsummer, en sammenligningsoperator, og et andre versjonsnummer. De forskjellige mulige operatorene er <literal>lt</literal> (absolutt mindre enn), <literal>le</literal> (mindre enn eller lik), <literal>eq</literal> (lik), <literal>ne</literal> (ikke lik), <literal>ge</literal> (større enn eller lik), og <literal>gt</literal> (absolutt større enn). Hvis sammenligningen er riktig, returnerer <command>dpkg</command> 0 (suksess); hvis ikke, gir den en ikke-zero verdi tilbake(som indikerer feil)."
+msgstr "Ettersom <command>dpkg</command> er programmet som behandler Debian-pakker, gir det også referanseimplementeringen for logikken som skal til for å sammenligne versjonsnumre. Dette er grunnen til at det har en <literal>--compare-versions</literal>-valgmulighet, som kan brukes av eksterne programmer (spesielt konfigureringsskript som kjøres med <command>dpkg</command> selv). Denne valgmuligheten krever tre parametre: Et versjonsummer, en sammenligningsoperatør, og et andre versjonsnummer. De forskjellige mulige operatørene er <literal>lt</literal> (absolutt mindre enn), <literal>le</literal> (mindre enn eller lik), <literal>eq</literal> (lik), <literal>ne</literal> (ikke lik), <literal>ge</literal> (større enn eller lik), og <literal>gt</literal> (absolutt større enn). Hvis sammenligningen er riktig, returnerer <command>dpkg</command> 0 (suksess); hvis ikke, gir den en ikke-zero verdi tilbake (som indikerer feil)."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>dpkg --compare-versions 1.2-3 gt 1.1-4</userinput>\n"
@@ -1389,7 +1396,7 @@ msgstr ""
 "<computeroutput>1</computeroutput>"
 
 msgid "Note the unexpected failure of the last comparison: for <command>dpkg</command>, <literal>pre</literal>, usually denoting a pre-release, has no particular meaning, and this program compares the alphabetic characters in the same way as the numbers (a &lt; b &lt; c ...), in alphabetical order. This is why it considers “<literal>0pre3</literal>” to be greater than “<literal>0</literal>”. When we want a package's version number to indicate that it is a pre-release, we use the tilde character, “<literal>~</literal>”:"
-msgstr "Legg merke til den uventede feilen i den siste sammenligningen: For <command>dpkg</command>, <literal>pre</literal>, betegner vanligvis en pre-release, og har ingen spesiell betydning, og dette programmet sammenligner bokstaver i samme måte som tallene (en &lt; b &lt; c ...), i alfabetisk rekkefølge. Dette er grunnen til at det vurderer “<literal>0pre3</literal>” til å være større enn  “<literal>0</literal>”. Når vi ønsker en pakkes versjonsnummer for å vise at det er en pre-release, bruker vi tilde-tegnet, “<literal>~</literal>”:"
+msgstr "Legg merke til den uventede feilen i den siste sammenligningen: For <command>dpkg</command>, <literal>pre</literal>, betegner vanligvis en pre-release (pre-utgivelse), og har ingen spesiell betydning, og dette programmet sammenligner bokstaver på samme måte som tallene (en &lt; b &lt; c ...), i alfabetisk rekkefølge. Dette er grunnen til at det vurderer «<literal>0pre3</literal>» til å være større enn  «<literal>0</literal>». Når vi ønsker en pakkes versjonsnummer for å vise at det er en pre-release, bruker vi tilde-tegnet, «<literal>~</literal>»:"
 
 msgid ""
 "\n"
@@ -1403,10 +1410,10 @@ msgstr ""
 "<computeroutput>0</computeroutput>"
 
 msgid "<command>dpkg</command>'s Log File"
-msgstr "<command>dpkg</command>'s Log File"
+msgstr "<command>dpkg</command>'s loggfil"
 
 msgid "<command>dpkg</command> keeps a log of all of its actions in <filename>/var/log/dpkg.log</filename>. This log is extremely verbose, since it details every one of the stages through which packages handled by <command>dpkg</command> go. In addition to offering a way to track dpkg's behavior, it helps, above all, to keep a history of the development of the system: one can find the exact moment when each package has been installed or updated, and this information can be extremely useful in understanding a recent change in behavior. Additionally, all versions being recorded, it is easy to cross-check the information with the <filename>changelog.Debian.gz</filename> for packages in question, or even with online bug reports."
-msgstr "<command>dpkg</command> tar vare på en logg med alle handlinger i  <filename>/var/log/dpkg.log</filename>. Denne loggen er ekstremt ordrik, med detaljer for hver og en av de stadier som pakker, håndtert av <command>dpkg</command>, gjennomgår. I tillegg til å gi en måte å spore dpkgs oppførsel på, hjelper den fremfor alt til med å beholde en historie om utviklingen av systemet: Man kan finne det nøyaktige øyeblikket når hver pakke er installert eller oppdatert, og denne informasjonen kan være svært nyttig i å forstå en nylig endring i oppførselen. I tillegg er alle versjoner tatt vare på, så det er lett å kryssjekke informasjonen med <filename>changelog.Debian.gz</filename> for de pakker det gjelder, eller også med online bug-rapporter."
+msgstr "<command>dpkg</command> tar vare på en logg med alle handlinger i <filename>/var/log/dpkg.log</filename>. Denne loggen er ekstremt ordrik, med detaljer for hver og en av de stadier som pakker, håndtert av <command>dpkg</command>, gjennomgår. I tillegg til å gi en måte å spore dpkgs oppførsel på, hjelper den fremfor alt til med å beholde en historie om utviklingen av systemet: Man kan finne det nøyaktige øyeblikket når hver pakke er installert eller oppdatert, og denne informasjonen kan være svært nyttig i å forstå en nylig endring i oppførselen. I tillegg er alle versjoner tatt vare på, så det er lett å kryssjekke informasjonen med <filename>changelog.Debian.gz</filename> for de pakker det gjelder, eller også med online bug-rapporter."
 
 msgid "Multi-Arch Support"
 msgstr "Støtte for multiarkitektur"
@@ -1415,20 +1422,21 @@ msgid "<primary>Multi-Arch</primary>"
 msgstr "<primary>Multi-Arch</primary>"
 
 msgid "<primary>architecture</primary><secondary>multi-arch support</secondary>"
-msgstr "<primary>architecture</primary><secondary>multi-arch support</secondary>"
+msgstr "<primary>arkitektur</primary><secondary>multi-arch støtte</secondary>"
 
 msgid "All Debian packages have an <literal>Architecture</literal> field in their control information. This field can contain either “<literal>all</literal>” (for packages that are architecture independent) or the name of the architecture that it targets (like “amd64”, “armhf”, …). In the latter case, by default, <command>dpkg</command> will only accept to install the package if its architecture matches the host's architecture as returned by <command>dpkg --print-architecture</command>."
-msgstr "Alle Debian pakker har et <literal>Architecture</literal>-felt i kontroll-informasjonen. Dette feltet kan inneholde enten  “<literal>all</literal>” (eller pakker som er arkitekturuavhengig) eller navnet på den arkitekturen som den er rettet mot (som \"amd64\", \"armhf\", ...). I det sistnevnte tilfellet vil, som standard,<command>dpkg</command> bare akseptere å installere pakken hvis arkitekturen svarer til vertmaskinens arkitektur som meldt tilbake fra <command>dpkg --print-architecture</command>."
+msgstr "Alle Debian-pakker har et <literal>Arkitektur</literal>-felt i kontrollinformasjonen. Dette feltet kan inneholde enten «<literal>all</literal>» (eller pakker som er arkitekturuavhengig), eller navnet på den arkitekturen som den er rettet mot (som «AMD64», «armhf», ...). I det sistnevnte tilfellet vil, som standard,<command>dpkg</command> bare akseptere å installere pakken hvis arkitekturen svarer til vertsmaskinens arkitektur som meldt tilbake fra <command>dpkg --print-architecture</command>."
 
 msgid "This restriction ensures that users do not end up with binaries compiled for an incorrect architecture. Everything would be perfect except that (some) computers can run binaries for multiple architectures, either natively (an “amd64“ system can run “i386” binaries) or through emulators."
-msgstr "Denne begrensningen sikrer at brukerne ikke ender opp med binærfiler kompilert for feil arkitektur. Alt ville være perfekt, bortsett fra at (noen) datamaskiner kan kjøre binærfiler for flere arkitekturer, enten innebygd (en \"amd64\" system kan kjøre \"i386\" binærfiler) eller via etterlignere."
+msgstr "Denne begrensningen sikrer at brukerne ikke ender opp med binærfiler kompilert for feil arkitektur. Alt ville være perfekt, bortsett fra at (noen) datamaskiner kan kjøre binærfiler for flere arkitekturer, enten innebygd (et «AMD64»-system kan kjøre \"i386\" binærfiler), eller via etterlignere."
 
 msgid "Enabling Multi-Arch"
 msgstr "Aktivere multi-ark"
 
 msgid "<command>dpkg</command>'s multi-arch support allows users to define “foreign architectures” that can be installed on the current system. This is simply done with <command>dpkg --add-architecture</command> like in the example below. There is a corresponding <command>dpkg --remove-architecture</command> to drop support of a foreign architecture, but it can only be used when no packages of this architecture remain."
-msgstr "<command>dpkg</command>s multi-ark støtte tillater brukere å definere \"fremmed arkitekturer\" som kan installeres på det gjeldende systemet. Dette gjøres rett og slett med <command>dpkg --add-architecture</command> som i eksemplet nedenfor. Det er en tilsvarende <command>dpkg --remove-architecture</command> til å droppe støtte til en fremmed arkitektur, men den kan bare brukes når ingen pakker med denne arkitekturen er igjen."
+msgstr "<command>dpkg</command>s multi-ark støtte tillater brukere å definere «fremmed arkitekturer» som kan installeres på det gjeldende systemet. Dette gjøres rett og slett med <command>dpkg --add-architecture</command> som i eksemplet nedenfor. Det er en tilsvarende <command>dpkg --remove-architecture</command> til å droppe støtte til en fremmed arkitektur, men den kan bare brukes når ingen pakker med denne arkitekturen er igjen."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>dpkg --print-architecture</userinput>\n"
@@ -1486,23 +1494,24 @@ msgid "<emphasis>NOTE</emphasis> APT's multi-arch support"
 msgstr "<emphasis>NOTE</emphasis> APTs multi-ark støtte"
 
 msgid "APT will automatically detect when dpkg has been configured to support foreign architectures and will start downloading the corresponding <filename>Packages</filename> files durings its update process."
-msgstr "APT vil automatisk oppdage når dpkg er konfigurert til å støtte fremmede arkitekturer og vil starte nedlastingen av samsvarende <filename>Packages</filename>-filer som ledd i oppdateringsprosessen."
+msgstr "APT vil automatisk oppdage når dpkg er konfigurert til å støtte fremmede arkitekturer, og vil starte nedlastingen av samsvarende <filename>pakke</filename>-filer som ledd i oppdateringsprosessen."
 
 msgid "Foreign packages can then be installed with <command>apt install <replaceable>package</replaceable>:<replaceable>architecture</replaceable></command>."
-msgstr "Fremmede pakker kan installeres med <command>apt install <replaceable>package</replaceable>:<replaceable>architecture</replaceable></command>."
+msgstr "Fremmede pakker kan installeres med <command>apt install <replaceable>pakke</replaceable>:<replaceable>arkitektur</replaceable></command>."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Using proprietary i386 binaries on amd64"
-msgstr "<emphasis>IN PRACTICE</emphasis> Ved hjelp av proprietære i386 binærfiler på AMD64"
+msgstr "<emphasis>I PRAKSIS</emphasis> Ved hjelp av proprietære i386 binærfiler på AMD64"
 
 msgid "There are multiple use cases for multi-arch, but the most popular one is the possibility to execute 32 bit binaries (i386) on 64 bit systems (amd64), in particular since several popular proprietary applications (like Skype) are only provided in 32 bit versions."
-msgstr "Det finnes flere bruksområder for multi-ark, men den mest populære er er muligheten til å kjøre 32-bits binærfiler (i386) på 64 bits systemer (AMD64), spesielt siden flere populære proprietære programmer (for eksempel Skype) bare leveres i 32 bits versjoner."
+msgstr "Det finnes flere bruksområder for multi-ark, men den mest populære er muligheten til å kjøre 32-bits binærfiler (i386) på 64 bits systemer (AMD64), spesielt siden flere populære proprietære programmer (for eksempel Skype) bare leveres i 32 bits versjoner."
 
 msgid "Multi-Arch Related Changes"
 msgstr "Multi-ark relaterte endringer"
 
 msgid "To make multi-arch actually useful and usable, libraries had to be repackaged and moved to an architecture-specific directory so that multiple copies (targeting different architectures) can be installed alongside. Such updated packages contain the “<literal>Multi-Arch: same</literal>” header field to tell the packaging system that the various architectures of the package can be safely co-installed (and that those packages can only satisfy dependencies of packages of the same architecture). Since multi-arch made its debut in Debian <emphasis role=\"distribution\">Wheezy</emphasis>, not all libraries have been converted yet."
-msgstr "For faktisk å gjøre multi-ark nyttig og brukbare, må biblioteker bli pakket på nytt og flyttet til en arkitektur-spesifikk katalog, slik at flere kopier (rettet mot ulike arkitekturer) kan installeres side ved side. Slike oppdaterte pakker inneholder \"<literal>Multi-Arch: same </literal>\" i topptekstfeltet for å fortelle pakkesystemet at de ulike arkitekturene i pakken trygt kan installeres side ved side (og at disse pakkene bare kan tilfredsstille avhengigheter i pakker med samme arkitektur). Siden multi-ark gjorde sin debut i Debian <emphasis role=\"distribution\">Wheezy</emphasis>, har ikke alle bibliotekene blitt konvertert ennå."
+msgstr "For faktisk å gjøre multi-ark nyttig og brukbar, må biblioteker bli pakket på nytt, og flyttet til en arkitektur-spesifikk katalog, slik at flere kopier (rettet mot ulike arkitekturer) kan installeres side ved side. Slike oppdaterte pakker inneholder «<literal>Multi-Arch: same </literal>» i topptekstfeltet for å fortelle pakkesystemet at de ulike arkitekturene i pakken trygt kan installeres side ved side (og at disse pakkene bare kan tilfredsstille avhengigheter i pakker med samme arkitektur). Siden multi-ark gjorde sin debut i Debian <emphasis role=\"distribution\">Wheezy</emphasis>, har ikke alle bibliotekene blitt konvertert ennå."
 
+#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>dpkg -s gcc-4.9-base\n"
 "</userinput><computeroutput>dpkg-query: error: --status needs a valid package name but 'gcc-4.9-base' is not: ambiguous package name 'gcc-4.9-base' with more than one installed instance\n"
@@ -1531,10 +1540,10 @@ msgstr ""
 "</computeroutput>"
 
 msgid "It is worth noting that <literal>Multi-Arch: same</literal> packages must have their names qualified with their architecture to be unambiguously identifiable. They also have the possibility to share files with other instances of the same package; <command>dpkg</command> ensures that all packages have bit-for-bit identical files when they are shared. Last but not least, all instances of a package must have the same version. They must thus be upgraded together."
-msgstr "Det er ikke verd noe at  <literal>Multi-Arch: same</literal>-pakker må kvalifisere sine navn med sin arkitektur for å være entydig identifiserbare. De har også muligheten til å dele filer med andre forekomster med den samme pakken; <command>dpkg</command> sikrer at alle pakkene har bit-for-bit-identiske filer når de deles. Sist men ikke minst, må alle forekomster av en pakke ha den samme versjonen. De må de oppgraderes sammen."
+msgstr "Det er ikke verd noe at <literal>Multi-Arch: same</literal>-pakker må kvalifisere sine navn med sin arkitektur for å være entydig identifiserbare. De har også muligheten til å dele filer med andre forekomster med den samme pakken; <command>dpkg</command> sikrer at alle pakkene har bit-for-bit-identiske filer når de deles. Sist men ikke minst, må alle forekomster av en pakke ha den samme versjonen. De må de oppgraderes sammen."
 
 msgid "Multi-Arch support also brings some interesting challenges in the way dependencies are handled. Satisfying a dependency requires either a package marked “<literal>Multi-Arch: foreign</literal>” or a package whose architecture matches the one of the package declaring the dependency (in this dependency resolution process, architecture-independent packages are assumed to be of the same architecture than the host). A dependency can also be weakened to allow any architecture to fulfill it, with the <literal><replaceable>package</replaceable>:any</literal> syntax, but foreign packages can only satisfy such a dependency if they are marked “<literal>Multi-Arch: allowed</literal>”."
-msgstr "Multi-Ark-støtte gir også noen interessante utfordringer i måten avhengigheter håndteres. Å tilfredsstille en avhengighet krever enten en pakke merket “<literal>Multi-Arch: foreign</literal>” eller en pakke hvis arkitektur samsvarer med den ene av pakken som inneholder avhengigheten (i denne prosessem med avhengighetsavklaring er arkitekturuavhengige pakker antatt å ha den samme arkitektur som verten). En avhengighet kan også bli svekket ved å tillate ulike arkitekturer å imøtekomme den, med <literal><replaceable>package</replaceable>:any</literal>-syntaks, men fremmede pakker kan bare tilfredsstille en slik avhengighet hvis de er merket “<literal>Multi-Arch: allowed</literal>”."
+msgstr "Multi-Ark-støtte gir også noen interessante utfordringer i måten avhengigheter håndteres. Å tilfredsstille en avhengighet krever enten en pakke merket «<literal>Multi-Arch: foreign</literal>», eller en pakke hvis arkitektur samsvarer med den ene av pakken som inneholder avhengigheten (i denne prosessen med avhengighetsavklaring er arkitekturuavhengige pakker antatt å ha den samme arkitektur som verten). En avhengighet kan også bli svekket ved å tillate ulike arkitekturer å imøtekomme den, med <literal><replaceable>package</replaceable>:any</literal>-syntaks, men fremmede pakker kan bare tilfredsstille en slik avhengighet hvis de er merket «<literal>Multi-Arch: allowed</literal>»."
 
 msgid "Coexistence with Other Packaging Systems"
 msgstr "Sameksistens med andre pakkesystemer"
@@ -1543,26 +1552,27 @@ msgid "<primary>RPM</primary>"
 msgstr "<primary>RPM</primary>"
 
 msgid "<primary>Red Hat Package Manager</primary>"
-msgstr "<primary>Red Hat Package Manager</primary>"
+msgstr "<primary>Red Hat pakkebehandler (Red Hat Package Manager)</primary>"
 
 msgid "<primary><command>alien</command></primary>"
 msgstr "<primary><command>alien</command></primary>"
 
 msgid "Debian packages are not the only software packages used in the free software world. The main competitor is the RPM format of the Red Hat Linux distribution and its many derivatives. Red Hat is a very popular, commercial distribution. It is thus common for software provided by third parties to be offered as RPM packages rather than Debian."
-msgstr "Debian-pakker er ikke de eneste programvarepakker som brukes i fri programvare verden. Den viktigste konkurrent er RPM formatet til Red Hat Linux-distribusjon og dens mange derivater. Red Hat er en veldig populær, kommersiell distribusjon. Det er derfor vanlig at programvare levert av tredjeparter blir tilbudt som RPM-pakker i stedet for Debian."
+msgstr "Debian-pakker er ikke de eneste programvarepakker som brukes i fri programvareverden. Den viktigste konkurrent er RPM-formatet til Red Hat Linux-distribusjon og dens mange derivater. Red Hat er en veldig populær, kommersiell distribusjon. Det er derfor vanlig at programvare levert av tredjeparter blir tilbudt som RPM-pakker i stedet for Debian."
 
 msgid "In this case, you should know that the program <command>rpm</command>, which handles RPM packages, is available as a Debian package, so it is possible to use this package format on Debian. Care should be taken, however, to limit these manipulations to extract the information from a package or to verify its integrity. It is, in truth, unreasonable to use <command>rpm</command> to install an RPM on a Debian system; RPM uses its own database, separate from those of native software (such as <command>dpkg</command>). This is why it is not possible to ensure a stable coexistence of two packaging systems."
-msgstr "I dette tilfelle, skal du vite at programmet <command>rpm</command>, som behandler RPM pakker, er tilgjengelig som en Debian-pakke, så det er mulig å bruke dette pakkeformatet på Debian. Imidlertid bør forsiktighet  utvises for å begrense disse håndteringene med å trekke ut informasjon fra en pakke eller for å få bekreftet integriteten. Det er sant nok urimelig å bruke <command>rpm</command> for å installere en RPM i et Debian system; RPM bruker sin egen database, atskilt fra lokal programvare (for eksempel <command>dpkg</command>). Dette er grunnen til at det ikke er mulig å sikre en stabil sameksistens av to pakkesystemer."
+msgstr "I dette tilfellet skal du vite at programmet <command>rpm</command>, som behandler RPM-pakker, er tilgjengelig som en Debian-pakke, så det er mulig å bruke dette pakkeformatet på Debian. Imidlertid bør forsiktighet utvises for å begrense disse håndteringene med å trekke ut informasjon fra en pakke, eller for å få bekreftet integriteten. Det er sant nok urimelig å bruke <command>rpm</command> for å installere en RPM i et Debian-system; RPM bruker sin egen database, atskilt fra lokal programvare (for eksempel <command>dpkg</command>). Dette er grunnen til at det ikke er mulig å sikre en stabil sameksistens av to pakkesystemer."
 
 msgid "On the other hand, the <emphasis role=\"pkg\">alien</emphasis> utility can convert RPM packages into Debian packages, and vice versa."
-msgstr "På den annen side <emphasis role=\"pkg\">alien</emphasis> verktøyet kan konvertere RPM pakker til Debian pakker og vice versa."
+msgstr "På den annen side, <emphasis role=\"pkg\">alien</emphasis>-verktøyet kan konvertere RPM-pakker til Debian-pakker og vice versa."
 
 msgid "<emphasis>COMMUNITY</emphasis> Encouraging the adoption of <filename>.deb</filename>"
-msgstr "<emphasis>COMMUNITY</emphasis> Encouraging the adoption of <filename>.deb</filename>"
+msgstr "<emphasis>SAMFUNNET</emphasis> Oppmuntre til å ta i bruk <filename>.deb</filename>"
 
 msgid "If you regularly use the <command>alien</command> program to install RPM packages coming from one of your providers, do not hesitate to write to them and amicably express your strong preference for the <filename>.deb</filename> format. Note that the format of the package is not everything: a <filename>.deb</filename> package built with <command>alien</command> or prepared for a version of Debian different than that which you use, or even for a derivative distribution like Ubuntu, would probably not offer the same level of quality and integration as a package specifically developed for Debian <emphasis role=\"distribution\">Jessie</emphasis>."
-msgstr "Hvis du ofte bruker <command>alien</command>-programmet til å installere RPM-pakker fra en av dine leverandører, ikke nøl med å skrive til dem og med vennlighet   gi uttrykh for din sterke preferanse for  <filename>.deb</filename>-formatet. Noter at pakkeformatet ikke er alt: En <filename>.deb</filename>-pakke bygget med  <command>alien</command> eller forberedt for en versjon av Debian ulik den du bruker, eller til og med for en avledet distribusjon som Ubuntu, vil trolig ikke tilby det samme kvalitetsnivået og integrasjonen som en pakke spesielt utviklet for Debian <emphasis role=\"distribution\">Jessie</emphasis>."
+msgstr "Hvis du ofte bruker <command>alien</command>-programmet til å installere RPM-pakker fra en av dine leverandører, ikke nøl med å skrive til dem, og med vennlighet gi uttrykk for din sterke preferanse for <filename>.deb</filename>-formatet. Noter at pakkeformatet ikke er alt: En <filename>.deb</filename>-pakke bygget med <command>alien</command>, eller forberedt for en versjon av Debian ulik den du bruker, eller til og med for en avledet distribusjon som Ubuntu, vil trolig ikke tilby det samme kvalitetsnivået og integrasjonen som en pakke spesielt utviklet for Debian <emphasis role=\"distribution\">Jessie</emphasis>."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>fakeroot alien --to-deb phpMyAdmin-2.0.5-2.noarch.rpm</userinput> \n"
@@ -1577,10 +1587,11 @@ msgstr ""
 "<computeroutput>  64 phpmyadmin_2.0.5-2_all.deb</computeroutput>"
 
 msgid "You will find that this process is extremely simple. You must know, however, that the package generated does not have any dependency information, since the dependencies in the two packaging formats don't have systematic correspondence. The administrator must thus manually ensure that the converted package will function correctly, and this is why Debian packages thus generated should be avoided as much as possible. Fortunately, Debian has the largest collection of software packages of all distributions, and it is likely that whatever you seek is already in there."
-msgstr "Du vil finne at denne prosessen er svært enkel. Du må imidlertid vite at pakken som genereres ikke har noen informasjon om avhengighet, siden avhengigheter i de to pakkeformater ikke har systematisk samsvar. Administratoren må derfor manuelt sørge for at den konverterte pakken vil fungere på riktig måte, og dette er grunnen til Debian-pakker  generert slik bør unngås så mye som mulig. Heldigvis har Debian den største samlingen av programvarepakker av alle distribusjoner, og det er sannsynlig at uansett hva du leter etter er det allerede der."
+msgstr "Du vil finne at denne prosessen er svært enkel. Du må imidlertid vite at pakken som genereres ikke har noen informasjon om avhengighet, siden avhengigheter i de to pakkeformater ikke har systematisk samsvar. Administratoren må derfor manuelt sørge for at den konverterte pakken vil fungere på riktig måte, og dette er grunnen til Debian-pakker generert slik bør unngås så mye som mulig. Heldigvis har Debian den største samlingen av programvarepakker av alle distribusjoner, og det er sannsynlig at uansett hva du leter etter, er det allerede der."
 
+#, fuzzy
 msgid "Looking at the man page for the <command>alien</command> command, you will also note that this program handles other packaging formats, especially the one used by the Slackware distribution (it is made of a simple <filename>tar.gz</filename> archive)."
-msgstr "Ser du på \"man page\" for <command>alien</command> kommandoen, vil du også se at dette programmet håndterer andre pakkeformater, spesielt de som brukes av Slackware-distribusjonen (den er laget av en enkel <filename>tar.gz</filename>-mappe)."
+msgstr "Ser du på «man page» for <command>alien</command>-kommandoen, vil du også se at dette programmet håndterer andre pakkeformater, spesielt de som brukes av Slackware-distribusjonen (den er laget av en enkel <filename>tar.gz</filename>-mappe)."
 
 msgid "The stability of the software deployed using the <command>dpkg</command> tool contributes to Debian's fame. The APT suite of tools, described in the following chapter, preserves this advantage, while relieving the administrator from managing the status of packages, a necessary but difficult task."
-msgstr "Stabiliteten til en programvare rullet ut ved å bruke  <command>dpkg</command>-verktøyet som bidrar til Debian berømmelse. APT-verktøypakken, beskrevet i neste kapittel, tar vare på fordelen, og sparer administratoren fra å håndtere pakkestatus, en nødvendig, men vanskelig oppgave."
+msgstr "Stabiliteten til en programvare rullet ut ved å bruke <command>dpkg</command>-verktøyet bidrar til Debian berømmelse. APT-verktøypakken, beskrevet i neste kapittel, tar vare på fordelen, og sparer administratoren fra å håndtere pakkestatus, en nødvendig, men vanskelig oppgave."
