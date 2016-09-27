@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-09-08 19:26+0000\n"
+"PO-Revision-Date: 2016-09-27 21:28+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 msgid "System boot"
 msgstr "Systemoppstart"
@@ -1122,262 +1122,288 @@ msgid "The Debian Policy expressly stipulates that everything should be done to 
 msgstr "Debian Policy-en fastslår uttrykkelig at alt skal gjøres for å bevare manuelle endringer i en konfigurasjonsfil, slik at flere og flere skript ta forholdsregler når du redigerer konfigurasjonsfiler. Det generelle prinsippet er enkelt: Skriptet vil bare gjøre endringer hvis den kjenner statusen til konfigurasjonsfilen, som er bekreftet ved å sammenligne kontrollsummen til filen mot den til den siste automatisk generert filen. Hvis de er de samme, er skriptet autorisert til å endre konfigurasjonsfilen. Ellers bestemmer det at filen er blitt endret, og spør hvilke tiltak det skal ta (installere den nye filen, lagre den gamle filen, eller prøve å integrere de nye endringene med den eksisterende filen). Dette føre var-prinsippet har lenge vært unikt for Debian, men andre distribusjoner har gradvis begynt å omfavne det."
 
 msgid "The <command>ucf</command> program (from the Debian package of the same name) can be used to implement such a behavior."
-msgstr ""
+msgstr "<command>ucf</command> programmet (fra Debian pakken med samme navn) kan brukes til å få til at det skjer."
 
+#, fuzzy
 msgid "<primary><command>ucf</command></primary>"
-msgstr ""
+msgstr "<primary><command>ucf</command></primary>"
 
 msgid "<command>syslog</command> System Events"
-msgstr ""
+msgstr "<command>syslog</command> Systemhendelser"
 
+#, fuzzy
 msgid "<primary><command>rsyslogd</command></primary>"
-msgstr ""
+msgstr "<primary><command>rsyslogd</command></primary>"
 
+#, fuzzy
 msgid "<primary>files</primary><secondary>log files</secondary>"
-msgstr ""
+msgstr "<primary>files</primary><secondary>log files</secondary>"
 
+#, fuzzy
 msgid "<primary>logs</primary><secondary>dispatching</secondary>"
-msgstr ""
+msgstr "<primary>logs</primary><secondary>dispatching</secondary>"
 
 msgid "Principle and Mechanism"
-msgstr ""
+msgstr "Prinsipp og mekanisme"
 
 msgid "The <command>rsyslogd</command> daemon is responsible for collecting service messages coming from applications and the kernel, then dispatching them into log files (usually stored in the <filename>/var/log/</filename> directory). It obeys the <filename>/etc/rsyslog.conf</filename> configuration file."
-msgstr ""
+msgstr "<command>rsyslogd</command>-nissen er ansvarlig for innsamling av servicemeldinger som kommer fra programmer og kjernen, og deretter ekspedere dem til loggfiler (vanligvis lagret i <filename>/var/log/</filename> mappen). Den adlyder konfigurasjonsfilen <filename>/etc/rsyslog.conf</filename>."
 
 msgid "Each log message is associated with an application subsystem (called “facility” in the documentation):"
-msgstr ""
+msgstr "Hver loggmelding er forbundet med en delsystemapplikasjon (kalt \"facility\" i dokumentasjonen):"
 
 msgid "<literal>auth</literal> and <literal>authpriv</literal>: for authentication;"
-msgstr ""
+msgstr "<literal>auth</literal> og <literal>authpriv</literal>: for autentisering;"
 
 msgid "<literal>cron</literal>: comes from task scheduling services, <command>cron</command> and <command>atd</command>;"
-msgstr ""
+msgstr "<literal>cron</literal>: kommer fra aktivitetsplanleggingstjenester,<command>cron</command> og <command>atd</command>;"
 
 msgid "<literal>daemon</literal>: affects a daemon without any special classification (DNS, NTP, etc.);"
-msgstr ""
+msgstr "<literal>daemon</literal>: påvirker en nisse uten noen spesiell klassifisering (DNS, NTP, etc.);"
 
 msgid "<literal>ftp</literal>: concerns the FTP server;"
-msgstr ""
+msgstr "<literal>ftp</literal>: gjelder FTP-tjeneren;"
 
 msgid "<literal>kern</literal>: message coming from the kernel;"
-msgstr ""
+msgstr "<literal>kern</literal>: melding kommer fra kjernen;"
 
 msgid "<literal>lpr</literal>: comes from the printing subsystem;"
-msgstr ""
+msgstr "<literal>lpr</literal>: kommer fra skriver-delsystemet;"
 
 msgid "<literal>mail</literal>: comes from the e-mail subsystem;"
-msgstr ""
+msgstr "<literal>mail</literal>: kommer fra e-post-delsystemet;"
 
 msgid "<literal>news</literal>: Usenet subsystem message (especially from an NNTP — Network News Transfer Protocol — server that manages newsgroups);"
-msgstr ""
+msgstr "<literal>news</literal>: Usenet delsystem-melding (spesielt fra en NNTP - Network News Transfer Protocol-tjener som styrer nyhetsgrupper);"
 
 msgid "<literal>syslog</literal>: messages from the <command>syslogd</command> server, itself;"
-msgstr ""
+msgstr "<literal>syslog</literal>: melding fra <command>syslogd</command>-tjeneren, seg selv;"
 
 msgid "<literal>user</literal>: user messages (generic);"
-msgstr ""
+msgstr "<literal>user</literal>: brukermeldinger (generisk);"
 
 msgid "<literal>uucp</literal>: messages from the UUCP server (Unix to Unix Copy Program, an old protocol notably used to distribute e-mail messages);"
-msgstr ""
+msgstr "<literal>uucp</literal>: meldinger fra UUCP tjeneren (Unix til Unix Copy Program, en gammel protokoll som særlig brukes til å distribuere e-postmeldinger);"
 
 msgid "<literal>local0</literal> to <literal>local7</literal>: reserved for local use."
-msgstr ""
+msgstr "<literal>local0</literal> til <literal>local7</literal>: reservert for lokal bruk."
 
 msgid "Each message is also associated with a priority level. Here is the list in decreasing order:"
-msgstr ""
+msgstr "Hver melding er også knyttet til et prioritetsnivå. Her er listen i synkende rekkefølge:"
 
 msgid "<literal>emerg</literal>: “Help!” There is an emergency, the system is probably unusable."
-msgstr ""
+msgstr "<literal>emerg</literal>: \"Hjelp!\" Det er krise, systemet er sannsynligvis ikke brukes."
 
 msgid "<literal>alert</literal>: hurry up, any delay can be dangerous, action must be taken immediately;"
-msgstr ""
+msgstr "<literal>alert</literal>: skynd deg, enhver forsinkelse kan være farlig, det må handles umiddelbart;"
 
 msgid "<literal>crit</literal>: conditions are critical;"
-msgstr ""
+msgstr "<literal>crit</literal>: forholdene er kritiske;"
 
 msgid "<literal>err</literal>: error;"
-msgstr ""
+msgstr "<literal>err</literal>: feil;"
 
 msgid "<literal>warn</literal>: warning (potential error);"
-msgstr ""
+msgstr "<literal>warn</literal>: advarsel (mulig fare);"
 
 msgid "<literal>notice</literal>: conditions are normal, but the message is important;"
-msgstr ""
+msgstr "<literal>notice</literal>: forholdene er normale, men budskapet er viktig;"
 
 msgid "<literal>info</literal>: informative message;"
-msgstr ""
+msgstr "<literal>info</literal>: informativt budskap;"
 
 msgid "<literal>debug</literal>: debugging message."
-msgstr ""
+msgstr "<literal>debug</literal>: feilsøkingsbudskap."
 
 msgid "The Configuration File"
-msgstr ""
+msgstr "Konfigurasjonsfilen"
 
 msgid "The syntax of the <filename>/etc/rsyslog.conf</filename> file is detailed in the <citerefentry><refentrytitle>rsyslog.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page, but there is also HTML documentation available in the <emphasis role=\"pkg\">rsyslog-doc</emphasis> package (<filename>/usr/share/doc/rsyslog-doc/html/index.html</filename>). The overall principle is to write “selector” and “action” pairs. The selector defines all relevant messages, and the actions describes how to deal with them."
-msgstr ""
+msgstr "Syntaksen til <filename>/etc/rsyslog.conf</filename>-file detaljeres i  <citerefentry><refentrytitle>rsyslog.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>-manualside, men det er også HTML-dokumentasjon tilgjengelig i <emphasis role=\"pkg\">rsyslog-doc</emphasis> package (<filename>/usr/share/doc/rsyslog-doc/html/index.html</filename>). Det gjennomgående prinsippet er å skrive \"selector\" og \"action\"-par. \"Selector\" definerer alle relevante meldinger, og handlingene beskriver hvordan man skal håndtere dem."
 
 msgid "Syntax of the Selector"
-msgstr ""
+msgstr "Syntaksen til Selector"
 
 msgid "The selector is a semicolon-separated list of <literal><replaceable>subsystem</replaceable>.<replaceable>priority</replaceable></literal> pairs (example: <literal>auth.notice;mail.info</literal>). An asterisk may represent all subsystems or all priorities (examples: <literal>*.alert</literal> or <literal>mail.*</literal>). Several subsystems can be grouped, by separating them with a comma (example: <literal>auth,mail.info</literal>). The priority indicated also covers messages of equal or higher priority; thus <literal>auth.alert</literal> indicates the <literal>auth</literal> subsystem messages of <literal>alert</literal> or <literal>emerg</literal> priority. Prefixed with an exclamation point (!), it indicates the opposite, in other words the strictly lower priorities; <literal>auth.!notice</literal>, thus, indicates messages issued from <literal>auth</literal>, with <literal>info</literal> or <literal>debug</literal> priority. Prefixed with an equal sign (=), it corresponds to precisely and only the priority indicated (<literal>auth.=notice</literal> only concerns messages from <literal>auth</literal> with <literal>notice</literal> priority)."
-msgstr ""
+msgstr "Selectoren er en semikolon-delt liste med <literal><replaceable>subsystem</replaceable>.<replaceable>priority</replaceable></literal>-par (for eksempel: <literal>auth.notice;mail.info</literal>). En stjerne kan representere alle delsystemer eller alle prioriteringer (eksempler:<literal>*.alert</literal> eller <literal>mail.*</literal>). En stjerne kan representere alle delsystemer eller alle prioriteringer (eksempler:<literal>auth,mail.info</literal>). Den indikerte prioriteten dekker også meldinger med tilsvarende eller høyere prioritet; på den måten  <literal>auth.alert</literal> indikerer <literal>auth</literal> subsystem-meldingene til <literal>alert</literal> eller <literal>emerg</literal> prioritet. Prefiks med et utropstegn (!), indikerer det motsatte, med andre ord de strengt tatt lavere prioriteringer; <literal>auth.!notice</literal>, og indikerer dermed meldinger utstedt fra <literal>auth</literal>, med <literal>info</literal> eller <literal>debug</literal> prioritet. Prefiks med et likhetstegn (=), tilsvarer presist og bare den angitte prioriteten (<literal>auth.=notice</literal> angår bare budskap fra <literal>auth</literal> med <literal>notice</literal> prioritet)."
 
 msgid "Each element in the list on the selector overrides previous elements. It is thus possible to restrict a set or to exclude certain elements from it. For example, <literal>kern.info;kern.!err</literal> means messages from the kernel with priority between <literal>info</literal> and <literal>warn</literal>. The <literal>none</literal> priority indicates the empty set (no priorities), and may serve to exclude a subsystem from a set of messages. Thus, <literal>*.crit;kern.none</literal> indicates all the messages of priority equal to or higher than <literal>crit</literal> not coming from the kernel."
-msgstr ""
+msgstr "Hvert element i Selector-listen overstyrer tidligere elementer. Dermed er det mulig å avgrense et sett eller å utestenge visse elementer fra den. For eksempel betyr <literal>kern.info;kern.!err</literal> meldinger fra kjernen med prioritet mellom <literal>info</literal> og <literal>warn</literal>.  <literal>none</literal>-prioritet indikerer det tomme settet (ingen prioriteringer), og kan tjene til å utelukke et delsystem fra et sett med meldinger. Dermed indikerer <literal>*.crit;kern.none</literal> alle meldingene med prioritet lik eller høyere enn <literal>crit</literal> som ikke kommer fra kjernen."
 
 msgid "Syntax of Actions"
-msgstr ""
+msgstr "Syntaks for handlinger"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> The named pipe, a persistent pipe"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Den navngitte kanalen, en vedvarende kanal"
 
+#, fuzzy
 msgid "<primary>named pipe</primary>"
-msgstr ""
+msgstr "<primary>named pipe</primary>"
 
+#, fuzzy
 msgid "<primary>pipe, named pipe</primary>"
-msgstr ""
+msgstr "<primary>pipe, named pipe</primary>"
 
 msgid "A named pipe is a particular type of file that operates like a traditional pipe (the pipe that you make with the “|” symbol on the command line), but via a file. This mechanism has the advantage of being able to relate two unrelated processes. Anything written to a named pipe blocks the process that writes until another process attempts to read the data written. This second process reads the data written by the first, which can then resume execution."
-msgstr ""
+msgstr "En navngitt kanal er en spesiell type fil som virker som en tradisjonell kanal (kanalen som du lager med \"|\" -symbolet på kommandolinjen), men via en fil. Denne mekanismen har fordelen av å kunne forholde seg til to ikke-relaterte prosesser. Alt som er skrevet til en navngitt kanal blokker prosessen som skriver frem til en annen fremgangsmåte forsøker å lese de data som er skrevet. Denne andre prosessen leser de dataene som er skrevet av den første, som så kan gjenoppta kjøringen."
 
 msgid "Such a file is created with the <command>mkfifo</command> command."
-msgstr ""
+msgstr "En slik fil er laget med <command>mkfifo</command> kommandoen."
 
 msgid "The various possible actions are:"
-msgstr ""
+msgstr "De forskjellige mulige handlinger er:"
 
 msgid "add the message to a file (example: <filename>/var/log/messages</filename>);"
-msgstr ""
+msgstr "å legge til en melding til en fil (eksempel: <filename>/var/log/messages</filename>);"
 
 msgid "send the message to a remote <command>syslog</command> server (example: <literal>@log.falcot.com</literal>);"
-msgstr ""
+msgstr "sende meldingen til en ekstern <command>syslog</command> tjener (eksempel: <literal>@log.falcot.com</literal>);"
 
 msgid "send the message to an existing named pipe (example: <literal>|/dev/xconsole</literal>);"
-msgstr ""
+msgstr "sende meldingen til en eksisterende navngitt kanal (example: <literal>|/dev/xconsole</literal>);"
 
 msgid "send the message to one or more users, if they are logged in (example: <literal>root,rhertzog</literal>);"
-msgstr ""
+msgstr "sende meldingen til en eller flere brukere, hvis de er logget inn (eksempel:<literal>root,rhertzog</literal>);"
 
 msgid "send the message to all logged in users (example: <literal>*</literal>);"
-msgstr ""
+msgstr "sende meldingen til alle innloggede brukere (eksempel: <literal>*</literal>);"
 
 msgid "write the message in a text console (example: <literal>/dev/tty8</literal>)."
-msgstr ""
+msgstr "skrive meldingen i et tekstkonsoll (eksempel: <literal>/dev/tty8</literal>)."
 
 msgid "<emphasis>SECURITY</emphasis> Forwarding logs"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> Å videresende logger"
 
+#, fuzzy
 msgid "<primary>log</primary><secondary>forwarding</secondary>"
-msgstr ""
+msgstr "<primary>log</primary><secondary>forwarding</secondary>"
 
 msgid "It is a good idea to record the most important logs on a separate machine (perhaps dedicated for this purpose), since this will prevent any possible intruder from removing traces of their intrusion (unless, of course, they also compromise this other server). Furthermore, in the event of a major problem (such as a kernel crash), you have the logs available on another machine, which increases your chances of determining the sequence of events that caused the crash."
-msgstr ""
+msgstr "Det er en god idé å spille inn de viktigste loggene på en annen maskin (kanskje avsatt til dette formålet), siden dette vil hindre eventuell inntrenger fra å fjerne inntrengningsspor (med mindre, selvfølgelig, de også kompromitterer denne andre tjeneren). Videre har du, ved et stort problem (for eksempel et kjernekrasj), logger tilgjengelig på en annen maskin, noe som øker dine sjanser til å bestemme rekkefølgen av hendelser som forårsaket ulykken."
 
 msgid "To accept log messages sent by other machines, you must reconfigure <emphasis>rsyslog</emphasis>: in practice, it is sufficient to activate the ready-for-use entries in <filename>/etc/rsyslog.conf</filename> (<literal>$ModLoad imudp</literal> and <literal>$UDPServerRun 514</literal>)."
-msgstr ""
+msgstr "For å godta loggmeldinger sendt fra andre maskiner, må du konfigurere  <emphasis>rsyslog</emphasis>: I praksis, er det tilstrekkelig å aktivere de ferdig-til-bruk oppføringene i <filename>/etc/rsyslog.conf</filename> (<literal>$ModLoad imudp</literal> og <literal>$UDPServerRun 514</literal>)."
 
+#, fuzzy
 msgid "The <command>inetd</command> Super-Server"
-msgstr ""
+msgstr "The <command>inetd</command> Super-Server"
 
 msgid "Inetd (often called “Internet super-server”) is a server of servers. It executes rarely used servers on demand, so that they do not have to run continuously."
-msgstr ""
+msgstr "Inetd (ofte kalt \"Internet super-tjener\") er en tjener for tjenere. Den kjører sjelden brukte tjenere etter behov, slik at de slipper å kjøre kontinuerlig."
 
+#, fuzzy
 msgid "<primary><command>inetd</command></primary>"
-msgstr ""
+msgstr "<primary><command>inetd</command></primary>"
 
+#, fuzzy
 msgid "<primary>super-server</primary>"
-msgstr ""
+msgstr "<primary>super-server</primary>"
 
 msgid "The <filename>/etc/inetd.conf</filename> file lists these servers and their usual ports. The <command>inetd</command> command listens to all of them; when it detects a connection to any such port, it executes the corresponding server program."
-msgstr ""
+msgstr "<filename>/etc/inetd.conf</filename>-filen lister disse tjenerne og deres vanlige porter. <command>inetd</command>kommandoen lytter til dem alle; Når den oppdager en forbindelse til en slik port, kjører den det  tjenesteprogrammet som hører til."
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> Register a server in <filename>inetd.conf</filename>"
-msgstr ""
+msgstr "<emphasis>DEBIAN POLICY</emphasis> Å registrere en tjener i  <filename>inetd.conf</filename>"
 
 msgid "Packages frequently want to register a new server in the <filename>/etc/inetd.conf</filename> file, but Debian Policy prohibits any package from modifying a configuration file that it doesn't own. This is why the <command>update-inetd</command> script (in the package with the same name) was created: It manages the configuration file, and other packages can thus use it to register a new server to the super-server's configuration."
-msgstr ""
+msgstr "Pakker ønsker ofte å registrere en ny tjener i <filename>/etc/inetd.conf</filename> filen, men Debian Policy forhindrer alle  pakker fra å modifisere en konfigurasjonsfil som den ikke eier. Dette er grunnen til at <command>update-inetd</command> skriptet (i pakken med samme navn) ble opprettet: Den håndterer konfigurasjonsfilen, og andre pakker kan dermed bruke den til å registrere en ny tjener i super-tjenerens konfigurasjon."
 
 msgid "Each significant line of the <filename>/etc/inetd.conf</filename> file describes a server through seven fields (separated by spaces):"
-msgstr ""
+msgstr "Hver viktige linje i <filename>/etc/inetd.conf</filename>filen beskriver en tjener med syv felt (atskilt med mellomrom):"
 
 msgid "The TCP or UDP port number, or the service name (which is mapped to a standard port number with the information contained in the <filename>/etc/services</filename> file)."
-msgstr ""
+msgstr "TCP eller UDP portnummer, eller tjenestenavnet (som er koblet til et standard portnummer med den informasjonen som finnes i <filename>/etc/services</filename> file)."
 
 msgid "The socket type: <literal>stream</literal> for a TCP connection, <literal>dgram</literal> for UDP datagrams."
-msgstr ""
+msgstr "Type socket: <literal>stream</literal> for en TCP-forbindelse, <literal>dgram</literal> for UDP datagrammer."
 
 msgid "The protocol: <literal>tcp</literal> or <literal>udp</literal>."
-msgstr ""
+msgstr "Protokollen: <literal>tcp</literal> eller <literal>udp</literal>."
 
 msgid "The options: two possible values: <literal>wait</literal> or <literal>nowait</literal>, to tell <command>inetd</command> whether it should wait or not for the end of the launched process before accepting another connection. For TCP connections, easily multiplexable, you can usually use <literal>nowait</literal>. For programs responding over UDP, you should use <literal>nowait</literal> only if the server is capable of managing several connections in parallel. You can suffix this field with a period, followed by the maximum number of connections authorized per minute (the default limit is 256)."
 msgstr ""
+"Valgene: To mulige verdier: <literal>wait</literal> eller <literal>nowait</literal>, for å formidle til <command>inetd</command> \n"
+"om det skal vente eller ikke til slutten av den startede prosessen før du godtar en annen forbindelse. For TCP-forbindelser, enkelt multiplexbare, kan du vanligvis bruke <literal>nowait</literal>. For programmer som svarer over UDP, skal du bruke <literal>nowait</literal> bare hvis tjeneren kan håndtere flere tilkoblinger i parallell. Du kan ende dette feltet med et punktum, fulgt av det maksimale antall forbindelser autorisert per minutt (standardgrensen er 256)."
 
 msgid "The user name of the user under whose identity the server will run."
-msgstr ""
+msgstr "Brukernavnet til brukeren under hvilken identitet tjeneren vil kjøre."
 
 msgid "The full path to the server program to execute."
-msgstr ""
+msgstr "Den fullstendige banen til det tjenerprogrammet som skal kjøres."
 
 msgid "The arguments: this is a complete list of the program's arguments, including its own name (<literal>argv[0]</literal> in C)."
-msgstr ""
+msgstr "Argumentene: Dette er en oversikt over programmets argumenter, inkludert dets egne navn (<literal>argv[0]</literal> in C)."
 
 msgid "The following example illustrates the most common cases:"
-msgstr ""
+msgstr "Følgende eksempel illustrerer de mest vanlige tilfellene:"
 
 msgid "Excerpt from <filename>/etc/inetd.conf</filename>"
-msgstr ""
+msgstr "Utdrag fra <filename>/etc/inetd.conf</filename>"
 
+#, fuzzy
 msgid ""
 "talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
 "finger stream tcp nowait  nobody     /usr/sbin/tcpd     in.fingerd\n"
 "ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i"
 msgstr ""
+"talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
+"finger stream tcp nowait  nobody     /usr/sbin/tcpd     in.fingerd\n"
+"ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i"
 
+#, fuzzy
 msgid "<primary><command>tcpd</command></primary>"
-msgstr ""
+msgstr "<primary><command>tcpd</command></primary>"
 
 msgid "The <command>tcpd</command> program is frequently used in the <filename>/etc/inetd.conf</filename> file. It allows limiting incoming connections by applying access control rules, documented in the <citerefentry><refentrytitle>hosts_access</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page, and which are configured in the <filename>/etc/hosts.allow</filename> and <filename>/etc/hosts.deny</filename> files. Once it has been determined that the connection is authorized, <command>tcpd</command> executes the real server (like <command>in.fingerd</command> in our example). It is worth noting that <command>tcpd</command> relies on the name under which it was invoked (that is the first argument, <literal>argv[0]</literal>) to identify the real program to run. So you should not start the arguments list with <literal>tcpd</literal> but with the program that must be wrapped."
-msgstr ""
+msgstr "<command>tcpd</command>-programmet er ofte brukt i <filename>/etc/inetd.conf</filename>-filen. Det lar deg begrense innkommende tilkoblinger ved å bruke regler for adgangskontroll, dokumentert på manualsiden <citerefentry><refentrytitle>hosts_access</refentrytitle><manvolnum>5</manvolnum></citerefentry>, og som er konfigurert i <filename>/etc/hosts.allow</filename> og <filename>/etc/hosts.deny</filename>-filene. Når det er fastslått at tilkoblingen er autorisert,<command>tcpd</command> kjøres den virkelige tjeneren (som <command>in.fingerd</command> i vårt eksempel). Det er ikke verd noe at <command>tcpd</command> støtter seg til det navnet det ble aktivert med (som er det første argumentet, <literal>argv[0]</literal>) for å identifisere det virkelige programmet skal kjøres. Så du bør ikke starte  arguments liste med <literal>tcpd</literal> men med det omgivende programmet."
 
+#, fuzzy
 msgid "<emphasis>COMMUNITY</emphasis> Wietse Venema"
-msgstr ""
+msgstr "<emphasis>COMMUNITY</emphasis> Wietse Venema"
 
+#, fuzzy
 msgid "<primary>Wietse Venema</primary>"
-msgstr ""
+msgstr "<primary>Wietse Venema</primary>"
 
+#, fuzzy
 msgid "<primary>Venema, Wietse</primary>"
-msgstr ""
+msgstr "<primary>Venema, Wietse</primary>"
 
 msgid "Wietse Venema, whose expertise in security has made him a renowned programmer, is the author of the <command>tcpd</command> program. He is also the main creator of Postfix, the modular e-mail server (SMTP, Simple Mail Transfer Protocol), designed to be safer and more reliable than <command>sendmail</command>, which features a long history of security vulnerabilities."
-msgstr ""
+msgstr "Wietse Venema, hvis ekspertise innen sikkerhet har gjort ham til en kjent programmerer, er forfatter av <command>tcpd</command> programmet. Han er også den viktigste skaperen av Postfix, den modulære e-post (SMTP, Simple Mail Transfer Protocol), designet for å være tryggere og mer pålitelig enn <command>sendmail</command>, som har en lang historie med sikkerhetsproblemer."
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other <command>inetd</command> commands"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Other <command>inetd</command>-kommandoer"
 
 msgid "While Debian installs <emphasis role=\"pkg\">openbsd-inetd</emphasis> by default, there is no lack of alternatives: we can mention <emphasis role=\"pkg\">inetutils-inetd</emphasis>, <emphasis role=\"pkg\">micro-inetd</emphasis>, <emphasis role=\"pkg\">rlinetd</emphasis> and <emphasis role=\"pkg\">xinetd</emphasis>."
-msgstr ""
+msgstr "Mens Debian installerer <emphasis role=\"pkg\">openbsd-inetd</emphasis> ved oppstart, mangler det ikke alternativer. Vi kan nevne <emphasis role=\"pkg\">inetutils-inetd</emphasis>, <emphasis role=\"pkg\">micro-inetd</emphasis>, <emphasis role=\"pkg\">rlinetd</emphasis> og <emphasis role=\"pkg\">xinetd</emphasis>."
 
 msgid "This last incarnation of a super-server offers very interesting possibilities. Most notably, its configuration can be split into several files (stored, of course, in the <filename>/etc/xinetd.d/</filename> directory), which can make an administrator's life easier."
-msgstr ""
+msgstr "Denne siste utgaven av en super-tjener tilbyr svært interessante muligheter. Først og fremst kan konfigurasjonen deles opp i flere filer (lagret, selvfølgelig, i <filename>/etc/xinetd.d/</filename>-mappen), noe som kan gjøre en administrators liv lettere."
 
 msgid "Last but not least, it is even possible to emulate <command>inetd</command>'s behaviour with <command>systemd</command>'s socket-activation mechanism (see <xref linkend=\"sect.systemd\" />)."
-msgstr ""
+msgstr "Sist men ikke minst, er det også mulig å etterligne <command>inetd</command>s virke med  <command>systemd</command>s socket-akiveringsmekanisme (se <xref linkend=\"sect.systemd\" />)."
 
 msgid "Scheduling Tasks with <command>cron</command> and <command>atd</command>"
 msgstr ""
+"Tidfeste oppgaver med <command>cron</command> og\n"
+"<command>atd</command>"
 
+#, fuzzy
 msgid "<primary><command>cron</command></primary>"
-msgstr ""
+msgstr "<primary><command>cron</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>atd</command></primary>"
-msgstr ""
+msgstr "<primary><command>atd</command></primary>"
 
+#, fuzzy
 msgid "<primary>scheduled commands</primary>"
-msgstr ""
+msgstr "<primary>scheduled commands</primary>"
 
+#, fuzzy
 msgid "<primary>command scheduling</primary>"
-msgstr ""
+msgstr "<primary>command scheduling</primary>"
 
 msgid "<command>cron</command> is the daemon responsible for executing scheduled and recurring commands (every day, every week, etc.); <command>atd</command> is that which deals with commands to be executed a single time, but at a specific moment in the future."
 msgstr ""
