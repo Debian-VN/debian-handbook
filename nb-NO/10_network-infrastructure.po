@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-10-04 16:00+0000\n"
-"Last-Translator: Ingrid Yrvin <ingrid.yrvin@gmail.com>\n"
+"PO-Revision-Date: 2016-10-05 20:53+0000\n"
+"Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/10_network-infrastructure/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgid "Network"
 msgstr "Nettverk"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Innfallsport (gateway)"
 
 msgid "TCP/IP"
 msgstr "TCP/IP"
@@ -43,19 +43,21 @@ msgid "Linux sports the whole Unix heritage for networking, and Debian provides 
 msgstr "Linux innehar hele Unixarven når det gjelder nettverk, og Debian tilbyr hele samlingen av verktøy for å opprette og styre dem.  Dette kapittelet tar en titt på disse verktøyene."
 
 msgid "A gateway is a system linking several networks. This term often refers to a local network's “exit point” on the mandatory path to all external IP addresses. The gateway is connected to each of the networks it links together, and acts as a router to convey IP packets between its various interfaces."
-msgstr ""
+msgstr "En innfallsport (gateway) er et system som forbinder flere nettverk. Dette begrepet refererer ofte til et lokalt nettverks \"exit point\" på obligatorisk veien til alle eksterne IP-adresser. Inngangsporten er koblet til hver av de nettverkene den binder sammen, og fungerer som en ruter for å formidle IP-pakker mellom dens ulike grensesnitt."
 
+#, fuzzy
 msgid "<primary>gateway</primary>"
-msgstr ""
+msgstr "<primary>gateway</primary>"
 
+#, fuzzy
 msgid "<primary>network</primary><secondary>gateway</secondary>"
-msgstr ""
+msgstr "<primary>network</primary><secondary>gateway</secondary>"
 
 msgid "<primary>router</primary>"
 msgstr "<primary>ruter</primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> IP packet"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> IP pakke"
 
 msgid "<primary>packet</primary><secondary>IP</secondary>"
 msgstr "<primary>pakke</primary><secondary>IP</secondary>"
@@ -63,8 +65,9 @@ msgstr "<primary>pakke</primary><secondary>IP</secondary>"
 msgid "Most networks nowadays use the IP protocol (<emphasis>Internet Protocol</emphasis>). This protocol segments the transmitted data into limited-size packets. Each packet contains, in addition to its payload data, a number of details required for its proper routing."
 msgstr "De fleste nettverk nå for tiden bruker IP-protokollen (<emphasis>Internettprotokoll</emphasis>).  Denne protokollen deler opp de overført dataene i pakker med begrenset størrelse.  Hver pakke inneholder, i tillegg til nyttedata, en rekke detaljer som trengs for å sende den riktig vei."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> TCP/UDP"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> TCP/UDP"
 
 msgid "<primary>port</primary><secondary>TCP</secondary>"
 msgstr "<primary>port</primary><secondary>TCP</secondary>"
@@ -80,121 +83,144 @@ msgstr "<primary>UDP, port</primary>"
 
 msgid "Many programs do not handle the individual packets themselves, even though the data they transmit does travel over IP; they often use TCP (<emphasis>Transmission Control Protocol</emphasis>). TCP is a layer over IP allowing the establishment of connections dedicated to data streams between two points. The programs then only see an entry point into which data can be fed with the guarantee that the same data exits without loss (and in the same sequence) at the exit point at the other end of the connection. Although many kinds of errors can happen in the lower layers, they are compensated by TCP: lost packets are retransmitted, and packets arriving out of order (for example, if they used different paths) are re-ordered appropriately."
 msgstr ""
+"Mange programmer håndterer ikke de enkelte pakker selv, selv om dataene de sender ikke går over IP; ofte bruker de TCP (<emphasis>Transmission Control Protocol</emphasis>). \n"
+"TCP er et lag over IP som tillater etablering av øremerkede forbindelser til datastrømmer mellom to punkter. Programmene ser da bare en inngangsport som data kan mates til med garanti for at de samme dataene kommer ut uten tap (og i samme rekkefølge) ved utgangspunktet i den andre enden av forbindelsen. Selv om mange typer feil kan skje i de lavere lagene, er de kompensert av TCP: tapte pakker er sendt igjen, og pakker som kommer i uorden (for eksempel hvis de bruker ulike baner) er reordnet på riktig måte."
 
 msgid "Another protocol relying on IP is UDP (<emphasis>User Datagram Protocol</emphasis>). In contrast to TCP, it is packet-oriented. Its goals are different: the purpose of UDP is only to transmit one packet from an application to another. The protocol does not try to compensate for possible packet loss on the way, nor does it ensure that packets are received in the same order as were sent. The main advantage to this protocol is that the latency is greatly improved, since the loss of a single packet does not delay the receiving of all following packets until the lost one is retransmitted."
-msgstr ""
+msgstr "En annen protokoll som setter sin lit til IP er UD (<emphasis>User Datagram Protocol</emphasis>). I motsetning til TCP, er den pakkeorientert. Mål er forskjellige: Formålet med UDP er bare å sende en pakke fra en applikasjon til en annen. Protokollen prøver ikke å kompensere for mulige pakketap underveis, heller ikke at pakker mottas i samme rekkefølge som ble sendt. Den viktigste fordelen til denne protokollen er at tidsforsinkelsen er kraftig redusert, fordi tapet av en enkelt pakke ikke forsinker mottaket av alle påfølgende pakker inntil den tapte blir sendt på nytt."
 
 msgid "TCP and UDP both involve ports, which are “extension numbers” for establishing communication with a given application on a machine. This concept allows keeping several different communications in parallel with the same correspondent, since these communications can be distinguished by the port number."
-msgstr ""
+msgstr "TCP og UDP involverer begge porter, som er \"forlengelses tall\" for å etablere kommunikasjon med en gitt applikasjon på en maskin. Dette konseptet gjør det mulig å uføre flere forskjellige overføringer parallelt i samme korrespondanse, siden denne kommunikasjonen kan kjennetegnes av portnummeret."
 
 msgid "Some of these port numbers — standardized by the IANA (<emphasis>Internet Assigned Numbers Authority</emphasis>) — are “well-known” for being associated with network services. For instance, TCP port 25 is generally used by the email server. <ulink type=\"block\" url=\"http://www.iana.org/assignments/port-numbers\" />"
-msgstr ""
+msgstr "Noen av disse portnumrene  — standardisert av IANA-en (<emphasis>Internet Assigned Numbers Authority</emphasis>) — er \"velkjente\" for å være knyttet til nettverkstjenester. For eksempel blir TCP-port 25 generelt brukt av e-posttjeneren. <ulink type=\"block\" url=\"http://www.iana.org/assignments/port-numbers\" />"
 
 msgid "When a local network uses a private address range (not routable on the Internet), the gateway needs to implement <emphasis>address masquerading</emphasis> so that the machines on the network can communicate with the outside world. The masquerading operation is a kind of proxy operating on the network level: each outgoing connection from an internal machine is replaced with a connection from the gateway itself (since the gateway does have an external, routable address), the data going through the masqueraded connection is sent to the new one, and the data coming back in reply is sent through to the masqueraded connection to the internal machine. The gateway uses a range of dedicated TCP ports for this purpose, usually with very high numbers (over 60000). Each connection coming from an internal machine then appears to the outside world as a connection coming from one of these reserved ports."
-msgstr ""
+msgstr "Når et lokalt nettverk bruker et privat adresseområde (ikke rutbare på Internettet), trenger inngangsporten å gjennomføre <emphasis>address masquerading</emphasis> slik at maskinene i nettverket kan kommunisere med omverdenen. Den maskerte operasjon er en slags mellomtjener som opererer på nettverksnivå: hver utgående tilkobling fra en intern maskin er erstattet med en forbindelse fra inngangsporten selv (siden porten har en ekstern, rutbar adresse), dataene går gjennom den maskerte tilkoblingen blir sendt til den nye, og  dataene som kommer tilbake som svar sendes gjennom til den maskerte forbindelsen til den interne maskinen. Inngangsporten bruker en rekke øremerkede TCP-porter til dette formål, vanligvis med meget høye tall (over 60000). Hver tilkobling som kommer fra en intern maskin vises deretter til omverdenen som en forbindelse som kommer fra en av disse reserverte portene."
 
+#, fuzzy
 msgid "<primary>masquerading</primary>"
-msgstr ""
+msgstr "<primary>masquerading</primary>"
 
 msgid "<emphasis>CULTURE</emphasis> Private address range"
-msgstr ""
+msgstr "<emphasis>CULTURE</emphasis> Privat adresseområde"
 
+#, fuzzy
 msgid "<primary>IP address</primary><secondary>private</secondary>"
-msgstr ""
+msgstr "<primary>IP address</primary><secondary>private</secondary>"
 
+#, fuzzy
 msgid "<primary>private IP address</primary>"
-msgstr ""
+msgstr "<primary>private IP address</primary>"
 
 msgid "RFC 1918 defines three ranges of IPv4 addresses not meant to be routed on the Internet but only used in local networks. The first one, <literal>10.0.0.0/8</literal> (see sidebar <xref linkend=\"sidebar.networking-basics\" />), is a class-A range (with 2<superscript>24</superscript> IP addresses). The second one, <literal>172.16.0.0/12</literal>, gathers 16 class-B ranges (<literal>172.16.0.0/16</literal> to <literal>172.31.0.0/16</literal>), each containing 2<superscript>16</superscript> IP addresses. Finally, <literal>192.168.0.0/16</literal> is a class-B range (grouping 256 class-C ranges, <literal>192.168.0.0/24</literal> to <literal>192.168.255.0/24</literal>, with 256 IP addresses each). <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc1918.html\" />"
-msgstr ""
+msgstr "RFC 1918 definerer tre områder for IPv4-adresser som ikke er ment for å bli rutet på Internettet, men bare til bruk i lokale nettverk. Den første, <literal>10.0.0.0/8</literal> (se sidestolpe <xref linkend=\"sidebar.networking-basics\" />), is et A-klasse område (med 2 <superscript>24</superscript>-IP-adresser). Den andre, <literal>172.16.0.0/12</literal>, samler 16 B-klasse områder (<literal>172.16.0.0/16</literal> til <literal>172.31.0.0/16</literal>), hver med 2 <superscript>16</superscript> IP-adresser. Til slutt, <literal>192.168.0.0/16</literal> er et B-klasse-område (som grupperer 256 C-klasse områder, <literal>192.168.0.0/24</literal> til <literal>192.168.255.0/24</literal>, med 256 IP-adresser hver). <ulink type=\"block\" url=\"http://www.faqs.org/rfcs/rfc1918.html\" />"
 
 msgid "The gateway can also perform two kinds of <emphasis>network address translation</emphasis> (or NAT for short). The first kind, <emphasis>Destination NAT</emphasis> (DNAT) is a technique to alter the destination IP address (and/or the TCP or UDP port) for a (generally) incoming connection. The connection tracking mechanism also alters the following packets in the same connection to ensure continuity in the communication. The second kind of NAT is <emphasis>Source NAT</emphasis> (SNAT), of which <emphasis>masquerading</emphasis> is a particular case; SNAT alters the source IP address (and/or the TCP or UDP port) of a (generally) outgoing connection. As for DNAT, all the packets in the connection are appropriately handled by the connection tracking mechanism. Note that NAT is only relevant for IPv4 and its limited address space; in IPv6, the wide availability of addresses greatly reduces the usefulness of NAT by allowing all “internal” addresses to be directly routable on the Internet (this does not imply that internal machines are accessible, since intermediary firewalls can filter traffic)."
-msgstr ""
+msgstr "Inngangsporten kan også utføre to typer <emphasis>network address translation</emphasis> (eller i korthet NAT). Den første typen, <emphasis>Destination NAT</emphasis> (DNAT) er en teknikk for å endre IP-adresse-destinasjonen (og/eller TCP eller UDP-porten) til en (vanligvis) innkommende tilkobling. Forbindelsens sporingsmekanisme endrer også følgende pakkene i samme tilknytning for å sikre kontinuitet i kommunikasjonen. Den andre typen NAT er <emphasis>Source NAT</emphasis> (SNAT), der <emphasis>masquerading</emphasis> er et spesielt tilfelle; SNAT endrer kildens IP-adresse (og / eller TCP eller UDP porten) til en (vanligvis) utgående tilkobling. Som for DNAT, er alle pakkene i forbindelsen hensiktsmessig håndtert av forbindelsens sporingsmekanisme. Merk at NAT er kun relevant for IPv4 og dens begrensede adresseområde; i IPv6, reduserer den store tilgjengeligheten av adresser nytten av NAT ved å la alle \"interne\" adresser være direkte SNAT endrer kilden IP-adresse (og / eller TCP eller UDP port) av en (vanligvis) utgående tilkobling. Som for DNAT, er alle pakkene i den forbindelse hensiktsmessig håndtert av forbindelsen sporingsmekanisme. Merk at NAT er kun relevant for IPv4 og dens begrensede adresseområdet; i IPv6, den store tilgjengeligheten av adresser reduserer nytten av NAT ved å la alle \"interne\" tar for å være direkte rutes på Internett (dette betyr ikke at interne maskiner er tilgjengelig, siden formidler brannmurer kan filtrere trafikk). på Internettet (dette betyr ikke at interne maskiner er tilgjengelige, siden mellomliggende brannmurer kan filtrere trafikk)."
 
 msgid "<primary>NAT</primary>"
 msgstr ""
 
+#, fuzzy
 msgid "<primary>Network</primary><secondary>Address Translation</secondary>"
-msgstr ""
+msgstr "<primary>Network</primary><secondary>Address Translation</secondary>"
 
+#, fuzzy
 msgid "<primary>SNAT</primary>"
-msgstr ""
+msgstr "<primary>SNAT</primary>"
 
+#, fuzzy
 msgid "<primary>DNAT</primary>"
-msgstr ""
+msgstr "<primary>DNAT</primary>"
 
+#, fuzzy
 msgid "<primary>Destination NAT</primary>"
-msgstr ""
+msgstr "<primary>Destination NAT</primary>"
 
+#, fuzzy
 msgid "<primary>Source NAT</primary>"
-msgstr ""
+msgstr "<primary>Source NAT</primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Port forwarding"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Videresendelse av porter"
 
 #, fuzzy
 msgid "<primary>port forwarding</primary>"
 msgstr "<primary>port forwarding</primary>"
 
 msgid "A concrete application of DNAT is <emphasis>port forwarding</emphasis>. Incoming connections to a given port of a machine are forwarded to a port on another machine. Other solutions may exist for achieving a similar effect, though, especially at the application level with <command>ssh</command> (see <xref linkend=\"sect.ssh-port-forwarding\" />) or <command>redir</command>."
-msgstr ""
+msgstr "En konkret applikasjon hos DNAT er <emphasis>port forwarding</emphasis>. Innkommende tilkoblinger til en gitt port hos en maskin blir videresendt til en port på en annen maskin. Andre løsninger kan oppnå en lignende virkning, men særlig på applikasjonsnivå med <command>ssh</command> (se <xref linkend=\"sect.ssh-port-forwarding\" />) eller <command>redir</command>."
 
 msgid "Enough theory, let's get practical. Turning a Debian system into a gateway is a simple matter of enabling the appropriate option in the Linux kernel, by way of the <filename>/proc/</filename> virtual filesystem:"
-msgstr ""
+msgstr "Nok teori, la oss være praktiske. Å snu et Debian-system til en port en så enkel sak som å aktivere det aktuelle valget i Linux-kjernen ved hjelp av <filename>/proc/</filename> virtuelle filsystemet:"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>echo 1 &gt; /proc/sys/net/ipv4/conf/default/forwarding</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>echo 1 &gt; /proc/sys/net/ipv4/conf/default/forwarding</userinput>"
 
 msgid "This option can also be automatically enabled on boot if <filename>/etc/sysctl.conf</filename> sets the <literal>net.ipv4.conf.default.forwarding</literal> option to <literal>1</literal>."
-msgstr ""
+msgstr "Dette alternativet kan også aktiveres automatisk ved oppstart hvis <filename>/etc/sysctl.conf</filename> setter  <literal>net.ipv4.conf.default.forwarding</literal>-valget til <literal>1</literal>."
 
 msgid "The <filename>/etc/sysctl.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/sysctl.conf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "net.ipv4.conf.default.forwarding = 1\n"
 "net.ipv4.conf.default.rp_filter = 1\n"
 "net.ipv4.tcp_syncookies = 1"
 msgstr ""
+"\n"
+"net.ipv4.conf.default.forwarding = 1\n"
+"net.ipv4.conf.default.rp_filter = 1\n"
+"net.ipv4.tcp_syncookies = 1"
 
 msgid "The same effect can be obtained for IPv6 by simply replacing <literal>ipv4</literal> with <literal>ipv6</literal> in the manual command and using the <literal>net.ipv6.conf.all.forwarding</literal> line in <filename>/etc/sysctl.conf</filename>."
-msgstr ""
+msgstr "Den samme effekten kan oppnås for IPv6 ved å bytte <literal>ipv4</literal> med <literal>ipv6</literal> i den manuelle kommandoen og bruke <literal>net.ipv6.conf.all.forwarding</literal>-linjen i <filename>/etc/sysctl.conf</filename>."
 
 msgid "Enabling IPv4 masquerading is a slightly more complex operation that involves configuring the <emphasis>netfilter</emphasis> firewall."
-msgstr ""
+msgstr "Å aktivere IPv4-maskering er en litt mer komplisert operasjon som involverer å konfigurere <emphasis>netfilter</emphasis>-brannmuren."
 
 msgid "Similarly, using NAT (for IPv4) requires configuring <emphasis>netfilter</emphasis>. Since the primary purpose of this component is packet filtering, the details are listed in <xref linkend=\"security\" xrefstyle=\"select: label quotedtitle nopage\" /> (see <xref linkend=\"sect.firewall-packet-filtering\" />)."
-msgstr ""
+msgstr "Tilsvarende, å bruke NAT (for IPv4), krever konfigureering av <emphasis>netfilter</emphasis>. Siden det primære formålet med denne komponenten er pakkefiltrering, er detaljene oppført i <xref linkend=\"security\" xrefstyle=\"select: label quotedtitle nopage\" /> (se <xref linkend=\"sect.firewall-packet-filtering\" />)."
 
 msgid "Virtual Private Network"
-msgstr ""
+msgstr "Virtuelt Privat Nettverk"
 
 msgid "A <emphasis>Virtual Private Network</emphasis> (VPN for short) is a way to link two different local networks through the Internet by way of a tunnel; the tunnel is usually encrypted for confidentiality. VPNs are often used to integrate a remote machine within a company's local network."
-msgstr ""
+msgstr "Et <emphasis>Virtual Private Network</emphasis> (VPN for kort) er en måte å koble to forskjellige lokale nettverk via Internett ved hjelp av en tunnel; tunnelen er vanligvis kryptert for konfidensialitet. VPN brukes ofte for å integrere en ekstern maskin i et selskaps lokale nettverk."
 
+#, fuzzy
 msgid "<primary>network</primary><secondary>virtual private</secondary>"
-msgstr ""
+msgstr "<primary>network</primary><secondary>virtual private</secondary>"
 
+#, fuzzy
 msgid "<primary>VPN</primary>"
-msgstr ""
+msgstr "<primary>VPN</primary>"
 
+#, fuzzy
 msgid "<primary>virtual private network</primary>"
-msgstr ""
+msgstr "<primary>virtual private network</primary>"
 
 msgid "Several tools provide this. OpenVPN is an efficient solution, easy to deploy and maintain, based on SSL/TLS. Another possibility is using IPsec to encrypt IP traffic between two machines; this encryption is transparent, which means that applications running on these hosts need not be modified to take the VPN into account. SSH can also be used to provide a VPN, in addition to its more conventional features. Finally, a VPN can be established using Microsoft's PPTP protocol. Other solutions exist, but are beyond the focus of this book."
-msgstr ""
+msgstr "Flere verktøy har dette. OpenVPN er en effektiv løsning, enkel å implementere og vedlikeholde, basert på SSL/TLS. En annen mulighet er å bruke IPsec for å kryptere IP-trafikk mellom to maskiner; denne krypteringen er gjennomsiktig, hvilket betyr at applikasjoner som kjører på disse vertene ikke behøver modifiseres for å ta hensyn til VPN. SSH kan også brukes for å tilveiebringe en VPN, i tillegg til mer konvensjonelle egenskaper. Endelig kan en VPN etableres ved hjelp av Microsofts PPTP-protokollen. Andre løsninger finnes, men er utenfor siktemålet med denne boken."
 
+#, fuzzy
 msgid "OpenVPN"
-msgstr ""
+msgstr "OpenVPN"
 
+#, fuzzy
 msgid "<primary>OpenVPN</primary>"
-msgstr ""
+msgstr "<primary>OpenVPN</primary>"
 
 msgid "OpenVPN is a piece of software dedicated to creating virtual private networks. Its setup involves creating virtual network interfaces on the VPN server and on the client(s); both <literal>tun</literal> (for IP-level tunnels) and <literal>tap</literal> (for Ethernet-level tunnels) interfaces are supported. In practice, <literal>tun</literal> interfaces will most often be used except when the VPN clients are meant to be integrated into the server's local network by way of an Ethernet bridge."
-msgstr ""
+msgstr "OpenVPN er et stykke programvare med formål å lage virtuelle private nettverk. Oppsettet innebærer å skape virtuelle nettverksgrensesnitt på VPN-tjeneren og på klienten(e); både <literal>tun</literal> (for IP-nivå tunneller) og <literal>tap</literal> (for Ethernet-nivå tunneller) grensesnitt er støttet. I praksis, skal <literal>tun</literal>-grensesnitt oftest brukes unntatt når VPN-klienter er ment til å bli integrert i tjenerens lokale nettverk ved hjelp av en Ethernet-bro."
 
 msgid "OpenVPN relies on OpenSSL for all the SSL/TLS cryptography and associated features (confidentiality, authentication, integrity, non-repudiation). It can be configured either with a shared private key or using X.509 certificates based on a public key infrastructure. The latter configuration is strongly preferred since it allows greater flexibility when faced with a growing number of roaming users accessing the VPN."
 msgstr ""

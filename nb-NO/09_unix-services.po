@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-09-27 21:28+0000\n"
+"PO-Revision-Date: 2016-10-05 00:37+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -1406,122 +1406,125 @@ msgid "<primary>command scheduling</primary>"
 msgstr "<primary>command scheduling</primary>"
 
 msgid "<command>cron</command> is the daemon responsible for executing scheduled and recurring commands (every day, every week, etc.); <command>atd</command> is that which deals with commands to be executed a single time, but at a specific moment in the future."
-msgstr ""
+msgstr "<command>cron</command> er nissen som kjører planlagte og gjentatte kommandoer (hver dag, hver uke, etc.); <command>atd</command> håndterer kommandoer som skal utføres en eneste gang, på et bestemt tidspunkt i fremtiden."
 
 msgid "In a Unix system, many tasks are scheduled for regular execution:"
-msgstr ""
+msgstr "I et Unix-system, er mange oppgaver planlagt for regelmessig gjennomføring:"
 
 msgid "rotating the logs;"
-msgstr ""
+msgstr "å rotere loggene;"
 
 msgid "updating the database for the <command>locate</command> program;"
-msgstr ""
+msgstr "å oppdatere databasen for <command>locate</command>-programmet;"
 
 msgid "back-ups;"
-msgstr ""
+msgstr "sikkerhetskopieringer;"
 
 msgid "maintenance scripts (such as cleaning out temporary files)."
-msgstr ""
+msgstr "vedlikeholdsskript (for eksempel opprydding i midlertidige filer)."
 
 msgid "By default, all users can schedule the execution of tasks. Each user has thus their own <emphasis>crontab</emphasis> in which they can record scheduled commands. It can be edited by running <command>crontab -e</command> (its content is stored in the <filename>/var/spool/cron/crontabs/<replaceable>user</replaceable></filename> file)."
-msgstr ""
+msgstr "Som standard kan alle brukere planlegge kjøring av oppgaver. Hver bruker har da sin egen <emphasis>crontab</emphasis> der de kan ta legge planlagte kommandoer. Den kan redigeres ved å kjøre <command>crontab -e</command> (innholdet er lagret i <filename>/var/spool/cron/crontabs/<replaceable>user</replaceable></filename> filen)."
 
+#, fuzzy
 msgid "<emphasis>SECURITY</emphasis> Restricting <command>cron</command> or <command>atd</command>"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> Restricting <command>cron</command> or <command>atd</command>"
 
 msgid "You can restrict access to <command>cron</command> by creating an explicit authorization file (whitelist) in <filename>/etc/cron.allow</filename>, in which you indicate the only users authorized to schedule commands. All others will automatically be deprived of this feature. Conversely, to only block one or two troublemakers, you could write their username in the explicit prohibition file (blacklist), <filename>/etc/cron.deny</filename>. This same feature is available for <command>atd</command>, with the <filename>/etc/at.allow</filename> and <filename>/etc/at.deny</filename> files."
-msgstr ""
+msgstr "Du kan begrense adgangen til <command>cron</command> ved å lage en eksplisitt tillatelsesfil (hvitlisting) i <filename>/etc/cron.allow</filename>, der du angir de eneste brukerne med tillatelse til å planlegge kommandoer. Alle andre vil automatisk bli fratatt denne funksjonen. Motsatt, å bare blokkere én eller to bråkmakere, kan du skrive deres brukernavn i en eksplisitt forbudsfil (svarteliste),<filename>/etc/cron.deny</filename>. Denne samme egenskapen er tilgjengelig for <command>atd</command>, med  <filename>/etc/at.allow</filename> og <filename>/etc/at.deny</filename>-filene."
 
 msgid "The root user has their own <emphasis>crontab</emphasis>, but can also use the <filename>/etc/crontab</filename> file, or write additional <emphasis>crontab</emphasis> files in the <filename>/etc/cron.d</filename> directory. These last two solutions have the advantage of being able to specify the user identity to use when executing the command."
-msgstr ""
+msgstr "Rotbrukerne har sine egne <emphasis>crontab</emphasis>, men kan også bruke <filename>/etc/crontab</filename>-filen, eller skrive i tillegg  <emphasis>crontab</emphasis>-filer i <filename>/etc/cron.d</filename>-mappen. Disse to siste løsningene har fordelen av å kunne spesifisere brukerens identitet når kommandoen utføres."
 
 msgid "The <emphasis>cron</emphasis> package includes by default some scheduled commands that execute:"
-msgstr ""
+msgstr "<emphasis>cron</emphasis>-pakken inkluderer som standard enkelte planlagte kommandoer som kjører:"
 
 msgid "programs in the <filename>/etc/cron.hourly/</filename> directory once per hour;"
-msgstr ""
+msgstr "programmer i <filename>/etc/cron.hourly/</filename>-mappen en gang i timen;"
 
 msgid "programs in <filename>/etc/cron.daily/</filename> once per day;"
-msgstr ""
+msgstr "programmer i <filename>/etc/cron.daily/</filename> en gang om dagen;"
 
 msgid "programs in <filename>/etc/cron.weekly/</filename> once per week;"
-msgstr ""
+msgstr "programmer i <filename>/etc/cron.weekly/</filename> en gang per uke;"
 
 msgid "programs in <filename>/etc/cron.monthly/</filename> once per month."
-msgstr ""
+msgstr "programmer i <filename>/etc/cron.monthly/</filename> en gang per måned."
 
 msgid "Many Debian packages rely on this service: by putting maintenance scripts in these directories, they ensure optimal operation of their services."
-msgstr ""
+msgstr "Mange Debian-pakker er avhengige av denne tjenesten: Ved å sette vedlikeholdsskript i disse katalogene, sikrer de optimal drift av sine tjenester."
 
 msgid "Format of a <filename>crontab</filename> File"
-msgstr ""
+msgstr "Format for en <filename>crontab</filename>-fil"
 
+#, fuzzy
 msgid "<primary><filename>crontab</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>crontab</filename></primary>"
 
 msgid "<emphasis>TIP</emphasis> Text shortcuts for <command>cron</command>"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Tekstsnarveier for <command>cron</command>"
 
 msgid "<command>cron</command> recognizes some abbreviations which replace the first five fields in a <filename>crontab</filename> entry. They correspond to the most classic scheduling options:"
-msgstr ""
+msgstr "<command>cron</command> gjenkjenner noen forkortelser som erstatter de første fem feltene i en <filename>crontab</filename>-inngang. De svarer til de klassiske planleggingsalternativene:"
 
 msgid "<literal>@yearly</literal>: once per year (January 1, at 00:00);"
-msgstr ""
+msgstr "<literal>@yearly</literal>: en gang i året (1. januar klokken 00:00);"
 
 msgid "<literal>@monthly</literal>: once per month (the 1st of the month, at 00:00);"
-msgstr ""
+msgstr "<literal>@monthly</literal>: en gang per måned (den første i måneden, kl.  00:00);"
 
 msgid "<literal>@weekly</literal>: once per week (Sunday at 00:00);"
-msgstr ""
+msgstr "<literal>@weekly</literal>: en gang i uken (søndag kl 00:00);"
 
 msgid "<literal>@daily</literal>: once per day (at 00:00);"
-msgstr ""
+msgstr "<literal>@daily</literal>: en gang hver dag (kl 00:00);"
 
 msgid "<literal>@hourly</literal>: once per hour (at the beginning of each hour)."
-msgstr ""
+msgstr "<literal>@hourly</literal>: en gang i timen (ved begynnelsen av hver time)."
 
 msgid "<emphasis>SPECIAL CASE</emphasis> <command>cron</command> and daylight savings time"
-msgstr ""
+msgstr "<emphasis>SPECIAL CASE</emphasis> <command>cron</command> og sommertid"
 
 msgid "In Debian, <command>cron</command> takes the time change (for Daylight Savings Time, or in fact for any significant change in the local time) into account as best as it can. Thus, the commands that should have been executed during an hour that never existed (for example, tasks scheduled at 2:30 am during the Spring time change in France, since at 2:00 am the clock jumps directly to 3:00 am) are executed shortly after the time change (thus around 3:00 am DST). On the other hand, in autumn, when commands would be executed several times (2:30 am DST, then an hour later at 2:30 am standard time, since at 3:00 am DST the clock turns back to 2:00 am) are only executed once."
-msgstr ""
+msgstr "I Debian, <command>cron</command> tar hensyn til tidsendringen (for sommertid, eller faktisk for alle vesentlige endringer i lokal tid) som best den kan. Dermed kjøres kommandoene som burde vært utført i løpet av en time som aldri har eksistert (for eksempel oppgaver planlagt til 0230 under vårens tidsendring i Frankrike, ettersom klokken 0200  hopper direkte til 0300) kort tid etter den tidsendringen (altså rundt 0300 sommertid). På den andre siden, om høsten, når kommandoer ville bli kjørt flere ganger (0230 sommertid, så en time senere på 0230 normert tid, så på 0300 sommertid for klokken går tilbake til 0200) blir bare kjørt én gang."
 
 msgid "Be careful, however, if the order in which the different scheduled tasks and the delay between their respective executions matters, you should check the compatibility of these constraints with <command>cron</command>'s behavior; if necessary, you can prepare a special schedule for the two problematic nights per year."
-msgstr ""
+msgstr "Vær forsiktig, for hvis rekkefølgen for når ulike tidfestede oppgavene og forsinkelsen mellom de respektive kjøringene betyr noe, bør du sjekke kompatibiliteten til disse begrensningene opp mot hvordan <command>cron</command> virker; Hvis det er nødvendig, kan du forberede en spesiell tidsplan for de to årlige, problematiske nettene."
 
 msgid "Each significant line of a <emphasis>crontab</emphasis> describes a scheduled command with the six (or seven) following fields:"
-msgstr ""
+msgstr "Hver signifikante linje i en <emphasis>crontab</emphasis> beskriver en planlagt kommando med de seks (eller syv) følgende felter:"
 
 msgid "the value for the minute (number from 0 to 59);"
-msgstr ""
+msgstr "verdien for minuttet (tall fra 0-59);"
 
 msgid "the value for the hour (from 0 to 23);"
-msgstr ""
+msgstr "verdien for timen (nummer 0-23);"
 
 msgid "the value for the day of the month (from 1 to 31);"
-msgstr ""
+msgstr "verdien for dagen i måneden (fra 1 til 31);"
 
 msgid "the value for the month (from 1 to 12);"
-msgstr ""
+msgstr "verdien for måneden (fra 1 til 12);"
 
 msgid "the value for the day of the week (from 0 to 7, 1 corresponding to Monday, Sunday being represented by both 0 and 7; it is also possible to use the first three letters of the name of the day of the week in English, such as <literal>Sun</literal>, <literal>Mon</literal>, etc.);"
-msgstr ""
+msgstr "verdien for den dagen i uken (0-7, 1 tilsvarer mandag, søndag korresponderer med både 0 og 7; Det  er også mulig å bruke de tre første bokstavene i navnet på ukedagen på engelsk, som for eksempel <literal>Sun</literal>, <literal>Mon</literal>, etc.);"
 
 msgid "the user name under whose identity the command must be executed (in the <filename>/etc/crontab</filename> file and in the fragments located in <filename>/etc/cron.d/</filename>, but not in the users' own crontab files);"
-msgstr ""
+msgstr "brukernavnet hvis identitet kommandoen må kjøres i (i <filename>/etc/crontab</filename>-filen og i fragmentene som ligger i <filename>/etc/cron.d/</filename>, men ikke i brukerens egne crontab-filer);"
 
 msgid "the command to execute (when the conditions defined by the first five columns are met)."
-msgstr ""
+msgstr "kommandoen kjøres (når vilkårene som er definert i de fem første kolonnene er oppfylt)."
 
 msgid "All these details are documented in the <citerefentry><refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> man page."
-msgstr ""
+msgstr "Alle disse detaljene er dokumentert i manualsiden <citerefentry><refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
 
 msgid "Each value can be expressed in the form of a list of possible values (separated by commas). The syntax <literal>a-b</literal> describes the interval of all the values between <literal>a</literal> and <literal>b</literal>. The syntax <literal>a-b/c</literal> describes the interval with an increment of <literal>c</literal> (example: <literal>0-10/2</literal> means <literal>0,2,4,6,8,10</literal>). An asterisk <literal>*</literal> is a wildcard, representing all possible values."
-msgstr ""
+msgstr "Hver verdi kan uttrykkes i form av en liste over mulige verdier (atskilt med kommaer). Syntaksen <literal>a-b</literal> beskriver intervallet for alle verdiene mellom <literal>a</literal> og <literal>b</literal>. Syntaksen <literal>a-b/c</literal> beskriver intervallet med økningen til <literal>c</literal> (eksempel: <literal>0-10/2</literal> betyr <literal>0,2,4,6,8,10</literal>). En asterisk <literal>*</literal> er en joker som representerer alle mulige verdier."
 
 msgid "Sample <filename>crontab</filename> file"
-msgstr ""
+msgstr "Utvalgt <filename>crontab</filename> file"
 
+#, fuzzy
 msgid ""
 "#Format\n"
 "#min hour day mon dow  command\n"
@@ -1535,28 +1538,41 @@ msgid ""
 "# Restart the IRC proxy after each reboot\n"
 "@reboot /usr/bin/dircproxy"
 msgstr ""
+"#Format\n"
+"#min hour day mon dow  command\n"
+"\n"
+"# Download data every night at 7:25 pm\n"
+" 25  19   *   *   *    $HOME/bin/get.pl\n"
+"\n"
+"# 8:00 am, on weekdays (Monday through Friday)\n"
+" 00  08   *   *   1-5  $HOME/bin/dosomething\n"
+"\n"
+"# Restart the IRC proxy after each reboot\n"
+"@reboot /usr/bin/dircproxy"
 
 msgid "<emphasis>TIP</emphasis> Executing a command on boot"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Kjøre en kommando ved oppstart"
 
 msgid "To execute a command a single time, just after booting the computer, you can use the <literal>@reboot</literal> macro (a simple restart of <command>cron</command> does not trigger a command scheduled with <literal>@reboot</literal>). This macro replaces the first five fields of an entry in the <emphasis>crontab</emphasis>."
-msgstr ""
+msgstr "For å kjøre en kommando en eneste gang, like etter oppstart av datamaskinen, kan du bruke  <literal>@reboot</literal> makro (en enkelt omstart av <command>cron</command> utløser ikke en kommando planlagt med <literal>@reboot</literal>). Denne makroen erstatter de første fem feltene i en oppføring i <emphasis>crontab</emphasis>."
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Emulating <command>cron</command> with <command>systemd</command>"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Å etterligne <command>cron</command> med <command>systemd</command>"
 
 msgid "It is possible to emulate part of <command>cron</command>'s behaviour with <command>systemd</command>'s timer mechanism (see <xref linkend=\"sect.systemd\" />)."
-msgstr ""
+msgstr "Det er mulig å etterligne en del av <command>cron</command>s oppgaver med  <command>systemd</command>s timermekanisme (se <xref linkend=\"sect.systemd\" />)."
 
 msgid "Using the <command>at</command> Command"
-msgstr ""
+msgstr "Å bruke <command>at</command>-kommandoen"
 
+#, fuzzy
 msgid "<primary><command>at</command></primary>"
-msgstr ""
+msgstr "<primary><command>at</command></primary>"
 
 msgid "The <command>at</command> executes a command at a specified moment in the future. It takes the desired time and date as command-line parameters, and the command to be executed in its standard input. The command will be executed as if it had been entered in the current shell. <command>at</command> even takes care to retain the current environment, in order to reproduce the same conditions when it executes the command. The time is indicated by following the usual conventions: <literal>16:12</literal> or <literal>4:12pm</literal> represents 4:12 pm. The date can be specified in several European and Western formats, including <literal>DD.MM.YY</literal> (<literal>27.07.15</literal> thus representing 27 July 2015), <literal>YYYY-MM-DD</literal> (this same date being expressed as <literal>2015-07-27</literal>), <literal>MM/DD/[CC]YY</literal> (ie., <literal>12/25/15</literal> or <literal>12/25/2015</literal> will be December 25, 2015), or simple <literal>MMDD[CC]YY</literal> (so that <literal>122515</literal> or <literal>12252015</literal> will, likewise, represent December 25, 2015). Without it, the command will be executed as soon as the clock reaches the time indicated (the same day, or tomorrow if that time has already passed on the same day). You can also simply write “today” or “tomorrow”, which is self-explanatory."
-msgstr ""
+msgstr "<command>at</command> utfører en kommando på et angitt tidspunkt i fremtiden. Det tar ønsket tid og dato som kommandolinjeparametere, og kommandoen som skal utføres i sin standard inndata. Kommandoen vil bli utført som om den hadde blitt lagt inn i det gjeldende skallet. <command>at</command> sørger selv for å beholde det aktuelle miljøet, for å  reprodusere de samme betingelser når det utfører kommandoen. Tiden er indikert ved å følge de vanlige konvensjonene: <literal>16:12</literal> eller <literal>4:12pm</literal> representerer 4:12 pm. Datoen kan spesifiseres i flere europeiske og vestlige formater, inkludert <literal>DD.MM.YY</literal> (<literal>27.07.15</literal> som da representerer 27 juli 2015), <literal>YYYY-MM-DD</literal> (samme dato blir uttrykt som <literal>2015-07-27</literal>), <literal>MM/DD/[CC]YY</literal> (dvs., <literal>12/25/15</literal> eller <literal>12/25/2015</literal> vil bli 25 desember w015), eller ganske enkelt <literal>MMDD[CC]YY</literal> (slik at <literal>122515</literal> eller <literal>12252015</literal> vil på samme måte representere 25 desember 2015). Uten det, vil kommandoen bli utført så snart klokken når tiden er angitt (samme dag, eller i morgen hvis det tidspunktet allerede er passert på samme dag). Du kan også bare skrive \"to day\" eller \"tomorrow\", som er selvforklarende."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.15 &lt;&lt;END</userinput>\n"
@@ -1566,185 +1582,218 @@ msgid ""
 "<computeroutput>warning: commands will be executed using /bin/sh\n"
 "job 31 at Mon Jul 27 09:00:00 2015</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.15 &lt;&lt;END</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>echo \"Don't forget to wish a Happy Birthday to Raphaël!\" \\</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>  | mail lolando@debian.org</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>END</userinput>\n"
+"<computeroutput>warning: commands will be executed using /bin/sh\n"
+"job 31 at Mon Jul 27 09:00:00 2015</computeroutput>"
 
 msgid "An alternative syntax postpones the execution for a given duration: <command>at now + <replaceable>number</replaceable> <replaceable>period</replaceable></command>. The <replaceable>period</replaceable> can be <literal>minutes</literal>, <literal>hours</literal>, <literal>days</literal>, or <literal>weeks</literal>. The <replaceable>number</replaceable> simply indicates the number of said units that must elapse before execution of the command."
-msgstr ""
+msgstr "En alternativ syntaks utsetter gjennomføringen med en bestemt varighet:<command>at now + <replaceable>number</replaceable> <replaceable>period</replaceable></command>. <replaceable>period</replaceable> kan være <literal>minutes</literal>, <literal>hours</literal>, <literal>days</literal>, eller <literal>weeks</literal>.  <replaceable>number</replaceable> indikerer rett og slett antallet av de nevnte enheter som må ha passert før kommandoen utføres."
 
 msgid "To cancel a task scheduled by <command>cron</command>, simply run <command>crontab -e</command> and delete the corresponding line in the <emphasis>crontab</emphasis> file. For <command>at</command> tasks, it is almost as easy: run <command>atrm <replaceable>task-number</replaceable></command>. The task number is indicated by the <command>at</command> command when you scheduled it, but you can find it again with the <command>atq</command> command, which gives the current list of scheduled tasks."
-msgstr ""
+msgstr "For å avbrute en tidfestet oppgave med <command>cron</command>, kjør gangske enkelt <command>crontab -e</command> og slett den tilsvarende linjen i  <emphasis>crontab</emphasis>-filen. For <command>at</command>-oppgaver, er det nesten like lett: kjør <command>atrm <replaceable>task-number</replaceable></command>. Oppgavenummeret er indikert av <command>at</command>-kommandoen når du har tidfestet den, men du kan finne det igjen med <command>atq</command>-kommandoen, som gir den gjeldende listen over tidfestede oppgaver."
 
+#, fuzzy
 msgid "<primary><command>atrm</command></primary>"
-msgstr ""
+msgstr "<primary><command>atrm</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>atq</command></primary>"
-msgstr ""
+msgstr "<primary><command>atq</command></primary>"
 
 msgid "Scheduling Asynchronous Tasks: <command>anacron</command>"
-msgstr ""
+msgstr "Å tidfeste asynkrone oppgaver: <command>anacron</command>"
 
 msgid "<command>anacron</command> is the daemon that completes <command>cron</command> for computers that are not on at all times. Since regular tasks are usually scheduled for the middle of the night, they will never be executed if the computer is off at that time. The purpose of <command>anacron</command> is to execute them, taking into account periods in which the computer is not working."
-msgstr ""
+msgstr "<command>anacron</command> er nissen som fullfører <command>cron</command> for datamaskiner som ikke er på hele tiden. Siden vanlige oppgaver vanligvis er planlagt midt på natten, vil de aldri bli kjørt hvis maskinen er slått av på den tiden. Meningen med <command>anacron</command> er å utføre dem, når det tas hensyn til perioder når datamaskinen ikke er på."
 
+#, fuzzy
 msgid "<primary><command>anacron</command></primary>"
-msgstr ""
+msgstr "<primary><command>anacron</command></primary>"
 
 msgid "Please note that <command>anacron</command> will frequently execute such activity a few minutes after booting the machine, which can render the computer less responsive. This is why the tasks in the <filename>/etc/anacrontab</filename> file are started with the <command>nice</command> command, which reduces their execution priority and thus limits their impact on the rest of the system. Beware, the format of this file is not the same as that of <filename>/etc/crontab</filename>; if you have particular needs for <command>anacron</command>, see the <citerefentry><refentrytitle>anacrontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
-msgstr ""
+msgstr "Noter gjerne at <command>anacron</command> vil ofte utføre slik aktivitet noen få minutter etter oppstart av maskinen, noe som kan gjøre datamaskinen mindre tilgjengelig. Dette er grunnen til at oppgavene i <filename>/etc/anacrontab</filename>-filen er startet med  <command>nice</command>-kommandoen, noe som reduserer kjøreprioriteten deres og dermed begrenser innvirkningen deres på resten av systemet. Vær klar over at formatet på denne filen er ikke det samme som for <filename>/etc/crontab</filename>. Har du bestemte behof for <command>anacron</command>, se manualsiden <citerefentry><refentrytitle>anacrontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Priorities and <command>nice</command>"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Prioriteter og <command>nice</command>"
 
 msgid "Unix systems (and thus Linux) are multi-tasking and multi-user systems. Indeed, several processes can run in parallel, and be owned by different users: the kernel mediates access to the resources between the different processes. As a part of this task, it has a concept of priority, which allows it to favor certain processes over others, as needed. When you know that a process can run in low priority, you can indicate so by running it with <command>nice <replaceable>program</replaceable></command>. The program will then have a smaller share of the CPU, and will have a smaller impact on other running processes. Of course, if no other processes needs to run, the program will not be artificially held back."
-msgstr ""
+msgstr "Unix-systemer (og dermed Linux) er fleroppgavekjøring og flerbrukersystemer. Faktisk kan flere prosesser kjøres parallelt, og være eid av forskjellige brukere: kjernen formidler tilgang til ressursene mellom de ulike prosessene. Som en del av denne oppgaven, har den et prioritetskonsept som etter behov gjør det mulig å favorisere visse prosesser fremfor andre.  Når du vet at en prosess kan kjøre i lav prioritet, kan du angi det ved å kjøre den med <command>nice <replaceable>program</replaceable></command>. Programmet vil da få en mindre andel av CPU, og vil ha en mindre innvirkning på andre prosesser som kjører. Selvfølgelig, hvis ingen andre prosesser trenger å kjøre, vil programmet ikke bli holdt kunstig tilbake."
 
 msgid "<command>nice</command> works with levels of “niceness”: the positive levels (from 1 to 19) progressively lower the priority, while the negative levels (from -1 to -20) will increase it — but only root can use these negative levels. Unless otherwise indicated (see the <citerefentry><refentrytitle>nice</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page), <command>nice</command> increases the current level by 10."
-msgstr ""
+msgstr "<command>nice</command> arbeider med nivåer av \"snillhet\": De positive nivåene (fra 1 til 19) senker prioriteten progressivt, mens de negative nivåer (fra -1 til -20) vil øke det - men bare rot kan bruke disse negative nivåer. Dersom ikke annet er angitt (se <citerefentry><refentrytitle>nice</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page), <command>nice</command> øker det gjeldende nivået med 10."
 
 msgid "If you discover that an already running task should have been started with <command>nice</command> it is not too late to fix it; the <command>renice</command> command changes the priority of an already running process, in either direction (but reducing the “niceness” of a process is reserved for the root user)."
-msgstr ""
+msgstr "Hvis du oppdager at en allerede kjørende oppgave skulle vært i gang med <command>nice</command> det er ikke for sent å ordne det;  <command>renice</command>-kommandoen endrer prioritet for en prosess som allerede kjører, i begge retninger (men å redusere \"snillheten\" for en prosess er forbeholdt rotbrukeren)."
 
 msgid "Installation of the <emphasis role=\"pkg\">anacron</emphasis> package deactivates execution by <command>cron</command> of the scripts in the <filename>/etc/cron.hourly/</filename>, <filename>/etc/cron.daily/</filename>, <filename>/etc/cron.weekly/</filename>, and <filename>/etc/cron.monthly/</filename> directories. This avoids their double execution by <command>anacron</command> and <command>cron</command>. The <command>cron</command> command remains active and will continue to handle the other scheduled tasks (especially those scheduled by users)."
 msgstr ""
+"Installasjon av <emphasis role=\"pkg\">anacron</emphasis>-pakken deaktiverer kjøring med <command>cron</command> av skriptene i <filename>/etc/cron.hourly/</filename>, <filename>/etc/cron.daily/</filename>, <filename>/etc/cron.weekly/</filename>, og\n"
+"<filename>/etc/cron.monthly/</filename>-mappene. Dette hindrer dobbel kjøring av <command>anacron</command> og <command>cron</command>.  <command>cron</command>-kommandoen er fortsatt aktiv, og vil fortsette å håndtere de andre planlagte oppgavene (spesielt de planlagt av brukere)."
 
+#, fuzzy
 msgid "Quotas"
-msgstr ""
+msgstr "Quotas"
 
 #, fuzzy
 msgid "<primary>quota</primary>"
 msgstr "<primary>quota</primary>"
 
 msgid "The quota system allows limiting disk space allocated to a user or group of users. To set it up, you must have a kernel that supports it (compiled with the <varname>CONFIG_QUOTA</varname> option) — as is the case with Debian kernels. The quota management software is found in the <emphasis role=\"pkg\">quota</emphasis> Debian package."
-msgstr ""
+msgstr "Kvotesystemet kan begrense diskplass avsatt til en bruker eller gruppe av brukere. For å sette det opp, må du ha en kjerne som støtter det (utarbeidet med <varname>CONFIG_QUOTA</varname> option) — som er tilfellet med Debian kjernene. Kvotehåndteringsprogrammet finnes i <emphasis role=\"pkg\">quota</emphasis> Debian pakken."
 
 msgid "To activate quota in a filesystem, you have to indicate the <literal>usrquota</literal> and <literal>grpquota</literal> options in <filename>/etc/fstab</filename> for the user and group quotas, respectively. Rebooting the computer will then update the quotas in the absence of disk activity (a necessary condition for proper accounting of already used disk space)."
-msgstr ""
+msgstr "For å aktivere kvoter i et filsystem, må du angi <literal>usrquota</literal> og <literal>grpquota</literal>-valgene i <filename>/etc/fstab</filename> for henholdsvis bruker- og gruppekvotene. Deretter vil restarting av maskinen oppdatere kvotene i fravær av diskaktivitet (en nødvendig betingelse for riktig bokføring av allerede brukt diskplass)."
 
 msgid "The <command>edquota <replaceable>user</replaceable></command> (or <command>edquota -g <replaceable>group</replaceable></command>) command allows you to change the limits while examining current disk space usage."
-msgstr ""
+msgstr "<command>edquota <replaceable>user</replaceable></command> (eller <command>edquota -g <replaceable>group</replaceable></command>)-kommandoene tillater deg å endre grensene mens bruken av gjeldende diskplass undersøkes."
 
+#, fuzzy
 msgid "<primary><command>edquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>edquota</command></primary>"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Defining quotas with a script"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Å definere kvoter med et skript"
 
+#, fuzzy
 msgid "<primary><command>setquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>setquota</command></primary>"
 
 msgid "The <command>setquota</command> program can be used in a script to automatically change many quotas. Its <citerefentry><refentrytitle>setquota</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page details the syntax to use."
-msgstr ""
+msgstr "<command>setquota</command>-programmet kan bli brukt i et skript for automatisk å forandre mange kvoter. Dets <citerefentry><refentrytitle>setquota</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manualside gir detaljer om syntaksen som kan brukes."
 
 msgid "The quota system allows you to set four limits:"
-msgstr ""
+msgstr "Kvotesystemet lar deg sette fire grenser:"
 
 msgid "two limits (called “soft” and “hard”) refer to the number of blocks consumed. If the filesystem was created with a block-size of 1 kibibyte, a block contains 1024 bytes from the same file. Unsaturated blocks thus induce losses of disk space. A quota of 100 blocks, which theoretically allows storage of 102,400 bytes, will however be saturated with just 100 files of 500 bytes each, only representing 50,000 bytes in total."
-msgstr ""
+msgstr "to grenser (kalt \"myk\" og \"hard\") refererer til det antall blokker som brukes. Hvis filsystemet ble opprettet med en blokk-størrelse på 1 kibibyte, inneholder en blokk 1024 bytes fra den samme filen. Ikke fylte blokker forårsaker dermed tap av diskplass . En kvote på 100 blokker, som teoretisk tillater lagring av 102,400 bytes, vil imidlertid være fylt med bare 100 filer på 500 byte hver, og bare representere 50.000 bytes totalt."
 
 msgid "two limits (soft and hard) refer to the number of inodes used. Each file occupies at least one inode to store information about it (permissions, owner, timestamp of last access, etc.). It is thus a limit on the number of user files."
-msgstr ""
+msgstr "to grenser (myke og harde) refererer til antall brukte inoder. Hver fil opptar minst en inode for å lagre informasjon om den (tillatelser, eier, tidsstempel for siste tilgang, etc.). Det er derfor en grense på antallet brukerfiler ."
 
 msgid "A “soft” limit can be temporarily exceeded; the user will simply be warned that they are exceeding the quota by the <command>warnquota</command> command, which is usually invoked by <command>cron</command>. A “hard” limit can never be exceeded: the system will refuse any operation that will cause a hard quota to be exceeded."
-msgstr ""
+msgstr "En \"myk\" grense kan overskrides midlertidig; Brukeren vil bare bli advart om at de overstiger kvoten fra <command>warnquota</command>-kommandoen, som vanligvis er utløst av <command>cron</command>. En \"hard\" grense kan aldri bli overskredet: Systemet vil nekte enhver operasjon som vil føre til at en hard kvote blir overskredet."
 
 msgid "<emphasis>VOCABULARY</emphasis> Blocks and inodes"
-msgstr ""
+msgstr "<emphasis>VOCABULARY</emphasis> Blokker og inoder"
 
+#, fuzzy
 msgid "<primary>block (disk)</primary>"
-msgstr ""
+msgstr "<primary>block (disk)</primary>"
 
+#, fuzzy
 msgid "<primary>inode</primary>"
-msgstr ""
+msgstr "<primary>inode</primary>"
 
 msgid "The filesystem divides the hard drive into blocks — small contiguous areas. The size of these blocks is defined during creation of the filesystem, and generally varies between 1 and 8 kibibytes."
-msgstr ""
+msgstr "Filsystemet deler harddisken inn i blokker - små tilgrensende områder. Størrelsen på disse blokkene er definert ved etableringen av filsystemet, og varierer vanligvis mellom 1 og 8 kibibytes."
 
 msgid "A block can be used either to store the real data of a file, or for meta-data used by the filesystem. Among this meta-data, you will especially find the inodes. An inode uses a block on the hard drive (but this block is not taken into consideration in the block quota, only in the inode quota), and contains both the information on the file to which it corresponds (name, owner, permissions, etc.) and the pointers to the data blocks that are actually used. For very large files that occupy more blocks than it is possible to reference in a single inode, there is an indirect block system; the inode references a list of blocks that do not directly contain data, but another list of blocks."
-msgstr ""
+msgstr "En blokk kan enten brukes til å lagre de virkelige dataene fra en fil, eller til meta-data som brukes av filsystemet. Blant disse meta-dataene, vil du særlig finne inoder. En inode bruker en blokk på harddisken (men denne blokken er det ikke tatt hensyn til i blokkkvoten, bare i inode kvoten), og inneholder både informasjon om filen som den tilsvarer (navn, eier, tillatelser, etc .) og pekere til datablokker som faktisk brukes. For meget store filer som opptar flere blokker enn det er mulig å referere til i en enkelt inode, er det et indirekte blokkeringssystem; Inoden refererer til en liste med blokker som ikke direkte inneholder data, men en annen liste med blokker."
 
+#, fuzzy
 msgid "<primary><command>warnquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>warnquota</command></primary>"
 
 msgid "With the <command>edquota -t</command> command, you can define a maximum authorized “grace period” within which a soft limit may be exceeded. After this period, the soft limit will be treated like a hard limit, and the user will have to reduce their disk space usage to within this limit in order to be able to write anything to the hard drive."
-msgstr ""
+msgstr "Med <command>edquota -t</command>-kommandoen, kan du definere en maksimal tillatt \"nådeperiode\" innenfor hvilken en myk grense kan overskrides. Etter denne perioden, vil den myke grensen bli behandlet som en hard grense, og brukeren vil måtte redusere sin bruk av diskplass til denne grensen, for å kunne skrive noe på harddisken."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Setting up a default quota for new users"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Å sette en oppstartkvote for nye brukere."
 
 msgid "To automatically setup a quota for new users, you have to configure a template user (with <command>edquota</command> or <command>setquota</command>) and indicate their user name in the <varname>QUOTAUSER</varname> variable in the <filename>/etc/adduser.conf</filename> file. This quota configuration will then be automatically applied to each new user created with the <command>adduser</command> command."
-msgstr ""
+msgstr "For å sette opp en kvote til nye brukere automatisk, må du konfigurere en brukermal (med <command>edquota</command> ellerr <command>setquota</command>) og indikere brukernavnet deres i <varname>QUOTAUSER</varname>-variabelen i  <filename>/etc/adduser.conf</filename>-filen. Denne kvotekonfigurasjonen vil da automatisk bli bruket på hver nye bruker som opprettes med <command>adduser</command>-kommandoen."
 
 msgid "Making backups is one of the main responsibilities of any administrator, but it is a complex subject, involving powerful tools which are often difficult to master."
-msgstr ""
+msgstr "Sikkerhetskopiering er en av hovedoppgavene for en administrator, men det er et komplekst tema, som involverer kraftige verktøy som det ofte er vanskelig å mestre."
 
+#, fuzzy
 msgid "<primary>backup</primary>"
-msgstr ""
+msgstr "<primary>backup</primary>"
 
+#, fuzzy
 msgid "<primary>restoration</primary>"
-msgstr ""
+msgstr "<primary>restoration</primary>"
 
 msgid "Many programs exist, such as <command>amanda</command>, <command>bacula</command>, <command>BackupPC</command>. Those are client/server system featuring many options, whose configuration is rather difficult. Some of them provide user-friendly web interfaces to mitigate this. But Debian contains dozens of other backup software covering all possible use cases, as you can easily confirm with <command>apt-cache search backup</command>."
-msgstr ""
+msgstr "Mange programmer finnes, slike som <command>amanda</command>, <command>bacula</command>, <command>BackupPC</command>. De er klient/server systemer med mange muligheter, men konfigurasjonen er ganske vanskelig. Noen av dem har brukervennlige nett-grensesnitt for å redusere denne. Men Debian inneholder dusinvis av andre backup-programvarer som dekker alle mulige bruksmåter, som du enkelt kan bekrefte med<command>apt-cache search backup</command>."
 
+#, fuzzy
 msgid "<primary><command>amanda</command></primary>"
-msgstr ""
+msgstr "<primary><command>amanda</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>bacula</command></primary>"
-msgstr ""
+msgstr "<primary><command>bacula</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>BackupPC</command></primary>"
-msgstr ""
+msgstr "<primary><command>BackupPC</command></primary>"
 
 msgid "Rather than detailing some of them, this section will present the thoughts of the Falcot Corp administrators when they defined their backup strategy."
-msgstr ""
+msgstr "Snarere enn en detaljert gjennomgang av noen av dem, vil dette avsnittet presentere de tanker Falcot Corp-administratorene har når de definerer sin strategi for sikkerhetskopiering."
 
 msgid "At Falcot Corp, backups have two goals: recovering erroneously deleted files, and quickly restoring any computer (server or desktop) whose hard drive has failed."
-msgstr ""
+msgstr "Hos Falcot Corp, har sikkerhetskopiering to mål: Å gjenopprette feilaktig slettede filer, og raskt gjenopprette en datamaskin (tjener eller desktop) hvis harddisken har feilet."
 
 msgid "Backing Up with <command>rsync</command>"
-msgstr ""
+msgstr "Sikkerhetskopiering med <command>rsync</command>"
 
 msgid "Backups on tape having been deemed too slow and costly, data will be backed up on hard drives on a dedicated server, on which the use of software RAID (see <xref linkend=\"sect.raid-soft\" />) will protect the data from hard drive failure. Desktop computers are not backed up individually, but users are advised that their personal account on their department's file server will be backed up. The <command>rsync</command> command (from the package of the same name) is used daily to back up these different servers."
-msgstr ""
+msgstr "Sikkerhetskopier på tape har blitt ansett for å våre tregt og dyrt, data sikkerhetskopies på harddisker på en øremerket tjener, der bruk av programvare-RAID (se <xref linkend=\"sect.raid-soft\" />) vil beskytte data fra harddisk-feil. Stasjonære datamaskiner støttes ikke opp individuelt, men brukerne gjøres oppmerksom på at deres personlige konto på deres avdelings filtjener blir sikkerhetskopieret. <command>rsync</command>-kommando (fra pakken med samme navn) brukes daglig for å sikkerhetskopiere disse forskjellige tjenerne."
 
+#, fuzzy
 msgid "<primary><command>rsync</command></primary>"
-msgstr ""
+msgstr "<primary><command>rsync</command></primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> The hard link, a second name for the file"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Den harde linken, ett andre navn for filen"
 
+#, fuzzy
 msgid "<primary>link</primary><secondary>hard link</secondary>"
-msgstr ""
+msgstr "<primary>link</primary><secondary>hard link</secondary>"
 
+#, fuzzy
 msgid "<primary>hard link</primary>"
-msgstr ""
+msgstr "<primary>hard link</primary>"
 
 msgid "A hard link, as opposed to a symbolic link, cannot be differentiated from the linked file. Creating a hard link is essentially the same as giving an existing file a second name. This is why the deletion of a hard link only removes one of the names associated with the file. As long as another name is still assigned to the file, the data therein remain present on the filesystem. It is interesting to note that, unlike a copy, the hard link does not take up additional space on the hard drive."
 msgstr ""
+"En hard kobling, i motsetning til en symbolsk kobling, kan ikke differensieres fra den linkede\n"
+"filen. Å lage en hard link er egentlig det samme som å gi en eksisterende fil et annet navn. Dette er grunnen til sletting av en hard link bare fjerner ett av navnene forbundet med filen. Så lenge et annet navn er fortsatt tildelt filen, er dataene der fortsatt til stede i filsystemet. Det er interessant å merke seg at, i motsetning til en kopi, tar ikke hard linken opp tilleggsplass på harddisken."
 
 msgid "A hard link is created with the <command>ln <replaceable>target</replaceable> <replaceable>link</replaceable></command> command. The <replaceable>link</replaceable> file is then a new name for the <replaceable>target</replaceable> file. Hard links can only be created on the same filesystem, while symbolic links are not subject to this limitation."
-msgstr ""
+msgstr "En hard link laget med <command>ln <replaceable>target</replaceable> <replaceable>link</replaceable></command>-kommandoen. <replaceable>link</replaceable>-filen er så det nye navnet for  <replaceable>target</replaceable>-filen. Harde lenker kan bare opprettes på samme filsystem, mens symbolske lenker er ikke underlagt denne begrensningen."
 
 msgid "The available hard drive space prohibits implementation of a complete daily backup. As such, the <command>rsync</command> command is preceded by a duplication of the content of the previous backup with hard links, which prevents usage of too much hard drive space. The <command>rsync</command> process then only replaces files that have been modified since the last backup. With this mechanism a great number of backups can be kept in a small amount of space. Since all backups are immediately available and accessible (for example, in different directories of a given share on the network), you can quickly make comparisons between two given dates."
-msgstr ""
+msgstr "Den tilgjengelige harddiskplassen forbyr gjennomføring av en komplett daglig sikkerhetskopiering. Som sådan, <command>rsync</command>-kommandoen innledes med en duplisering av innholdet i den forrige sikkerhetskopien med harde lenker, som forhindrer bruk av for mye plass på harddisken. <command>rsync</command>-prosessen erstatter da bare filer som har blitt endret siden siste backup. Med denne mekanismen kan et stort antall sikkerhetskopier holdes på en liten mengde plass. Ettersom alle sikkerhetskopier er umiddelbart tilgjengelige og med adgang (for eksempel i ulike kataloger av en gitt andel på nettverket), kan du raskt gjøre sammenligninger mellom to gitte datoer."
 
+#, fuzzy
 msgid "<primary>copy, backup copy</primary>"
-msgstr ""
+msgstr "<primary>copy, backup copy</primary>"
 
+#, fuzzy
 msgid "<primary>backup</primary><secondary>copy</secondary>"
-msgstr ""
+msgstr "<primary>backup</primary><secondary>copy</secondary>"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">dirvish</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">dirvish</emphasis></primary>"
 
 msgid "This backup mechanism is easily implemented with the <command>dirvish</command> program. It uses a backup storage space (“bank” in its vocabulary) in which it places timestamped copies of sets of backup files (these sets are called “vaults” in the dirvish documentation)."
-msgstr ""
+msgstr "Denne sikkerhetskopi-mekanismen kan lett implementeres med <command>dirvish</command>-programmet. Den bruker en sikkerhetskopi-lagringsplass (\"bank\" i sitt vokabular) hvor det plasserer tidsmerkede kopier av settene med sikkerhetskopi-filer (disse settene er kalt \"vaults\" i dirvish-dokumentasjon)."
 
 msgid "The main configuration is in the <filename>/etc/dirvish/master.conf</filename> file. It defines the location of the backup storage space, the list of “vaults” to manage, and default values for expiration of the backups. The rest of the configuration is located in the <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename> files and contains the specific configuration for the corresponding set of files."
-msgstr ""
+msgstr "Hovedoppsettet er i <filename>/etc/dirvish/master.conf</filename>-filen. Den definerer plasseringen av lagringsplassen for sikkerhetskopien, listen over \"vaults\" for å administere, og standardverdier for utløpstidspunktet for sikkerhetskopier. Resten av konfigurasjonen er plassert i <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename>-filer og inneholder det spesifikke oppsettet for det tilsvarende settet med filer."
 
+#, fuzzy
 msgid "The <filename>/etc/dirvish/master.conf</filename> file"
-msgstr ""
+msgstr "The <filename>/etc/dirvish/master.conf</filename> file"
 
+#, fuzzy
 msgid ""
 "bank:\n"
 "    /backup\n"
@@ -1761,19 +1810,37 @@ msgid ""
 "    *   *     1-7 *         1    +1 year\n"
 "    *   *     1-7 1,4,7,10  1"
 msgstr ""
+"bank:\n"
+"    /backup\n"
+"exclude:\n"
+"    lost+found/\n"
+"    core\n"
+"    *~\n"
+"Runall:\n"
+"    root    22:00\n"
+"expire-default: +15 days\n"
+"expire-rule:\n"
+"#   MIN HR    DOM MON       DOW  STRFTIME_FMT\n"
+"    *   *     *   *         1    +3 months\n"
+"    *   *     1-7 *         1    +1 year\n"
+"    *   *     1-7 1,4,7,10  1"
 
 msgid "The <literal>bank</literal> setting indicates the directory in which the backups are stored. The <literal>exclude</literal> setting allows you to indicate files (or file types) to exclude from the backup. The <literal>Runall</literal> is a list of file sets to backup with a time-stamp for each set, which allows you to assign the correct date to the copy, in case the backup is not triggered at precisely the assigned time. You have to indicate a time just before the actual execution time (which is, by default, 10:04 pm in Debian, according to <filename>/etc/cron.d/dirvish</filename>). Finally, the <literal>expire-default</literal> and <literal>expire-rule</literal> settings define the expiration policy for backups. The above example keeps forever backups that are generated on the first Sunday of each quarter, deletes after one year those from the first Sunday of each month, and after 3 months those from other Sundays. Other daily backups are kept for 15 days. The order of the rules does matter, Dirvish uses the last matching rule, or the <literal>expire-default</literal> one if no other <literal>expire-rule</literal> matches."
-msgstr ""
+msgstr "<literal>bank</literal>-innstillingen angir katalogen hvor sikkerhetskopiene er lagret. Med <literal>exclude</literal>-innstillingen kan du angi filer (eller filtyper) som kan utelukkes fra  sikkerhetskopieringen. <literal>Runall</literal> er en liste med filsett som kan sikkerhetskopieres med et tidsstempel for hvert sett, noe som gjør det mulig å tildele riktig dato til kopien, i tilfelle sikkerhetskopiering ikke er utløst på nøyaktig den tildelte tiden. Du må angi et tidspunkt like før selve utføringstidspunktet (som er, som standard, 10:04 pm i Debian, ifølge <filename>/etc/cron.d/dirvish</filename>). Til slutt, <literal>expire-default</literal> og <literal>expire-rule</literal>-settingene definerer opplegget for når tiden for sikkerhetskopier utløper. Eksempelet ovenfor beholder for alltid sikkerhetskopier som er generert på den første søndagen i hvert kvartal, sletter etter ett år de fra den første søndagen i hver måned, og etter 3 måneder de fra andre søndager. Andre daglige sikkerhetskopier er beholdt i 15 dager. Rekkefølgen av reglene spiller en rolle, Dirvish bruker siste samsvarende regel, eller <literal>expire-default</literal> hvis ingen andre <literal>expire-rule</literal> samsvarer."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Scheduled expiration"
-msgstr ""
+msgstr "<emphasis>IN PRACTICE</emphasis> Planlagt utløp"
 
 msgid "The expiration rules are not used by <command>dirvish-expire</command> to do its job. In reality, the expiration rules are applied when creating a new backup copy to define the expiration date associated with that copy. <command>dirvish-expire</command> simply peruses the stored copies and deletes those for which the expiration date has passed."
 msgstr ""
+"Utløpsreglene blir ikke brukt av <command>dirvish-expire</command> for å gjøre sin jobb\n"
+"sin. I realiteten blir utløpsregler brukt når du oppretter en ny sikkerhetskopi for å definere den utløpsdatoen som er knyttet til denne kopien <command>dirvish-expire</command> leser ganske enkelt igjennom de lagrede kopiene og sletter dem om utløpsdatoen har passert."
 
+#, fuzzy
 msgid "The <filename>/backup/root/dirvish/default.conf</filename> file"
-msgstr ""
+msgstr "The <filename>/backup/root/dirvish/default.conf</filename> file"
 
+#, fuzzy
 msgid ""
 "client: rivendell.falcot.com\n"
 "tree: /\n"
@@ -1787,205 +1854,230 @@ msgid ""
 "    /var/tmp/**\n"
 "    *.bak"
 msgstr ""
+"client: rivendell.falcot.com\n"
+"tree: /\n"
+"xdev: 1\n"
+"index: gzip\n"
+"image-default: %Y%m%d\n"
+"exclude:\n"
+"    /var/cache/apt/archives/*.deb\n"
+"    /var/cache/man/**\n"
+"    /tmp/**\n"
+"    /var/tmp/**\n"
+"    *.bak"
 
 msgid "The above example specifies the set of files to back up: these are files on the machine <emphasis>rivendell.falcot.com</emphasis> (for local data backup, simply specify the name of the local machine as indicated by <command>hostname</command>), especially those in the root tree (<literal>tree: /</literal>), except those listed in <literal>exclude</literal>. The backup will be limited to the contents of one filesystem (<literal>xdev: 1</literal>). It will not include files from other mount points. An index of saved files will be generated (<literal>index: gzip</literal>), and the image will be named according to the current date (<literal>image-default: %Y%m%d</literal>)."
-msgstr ""
+msgstr "Eksempelet ovenfor spesifiserer settet med filer som skal sikkerhetskopieres: Dette er filer på maskinen <emphasis>rivendell.falcot.com</emphasis> (for lokal sikkerhetskopiering av data, ganske enkelt angi navnet på den lokale maskinen som angitt av <command>hostname</command>), særlig de i rot-treet (<literal>tree: /</literal>), untatt de som er listet i <literal>exclude</literal>. Sikkerhetskopien vil være avgrenset til innholdet i ett filsystem (<literal>xdev: 1</literal>). Den vil ikke inkludere filer fra andre monteringspunkter. En indeks over lagrede filer vil generes (<literal>index: gzip</literal>), og bildet blir navngitt med dagens dato (<literal>image-default: %Y%m%d</literal>)."
 
 msgid "There are many options available, all documented in the <citerefentry><refentrytitle>dirvish.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page. Once these configuration files are setup, you have to initialize each file set with the <command>dirvish --vault <replaceable>vault</replaceable> --init</command> command. From there on the daily invocation of <command>dirvish-runall</command> will automatically create a new backup copy just after having deleted those that expired."
-msgstr ""
+msgstr "Det er mange alternativer tilgjengelig, alle dokumentert i manualsiden <citerefentry><refentrytitle>dirvish.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>. Når disse konfigurasjonsfiler er oppsatt, må du starte hvert filsett med <command>dirvish --vault <replaceable>vault</replaceable> --init</command>-kommandoen. Fra da vil den daglige påkallelsen fra <command>dirvish-runall</command> automatisk opprette en ny sikkerhetskopi like etter å ha slettet de som er utløpt."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Remote backup over SSH"
-msgstr ""
+msgstr "<emphasis>IN PRACTICE</emphasis> Ekstern sikkerhetskopiering via SSH"
 
 msgid "When dirvish needs to save data to a remote machine, it will use <command>ssh</command> to connect to it, and will start <command>rsync</command> as a server. This requires the root user to be able to automatically connect to it. The use of an SSH authentication key allows precisely that (see <xref linkend=\"sect.ssh-key-based-auth\" />)."
-msgstr ""
+msgstr "Når dirvish trenger å lagre data hos en ekstern maskin, vil den bruke <command>ssh</command> for å koble seg til den, og vil starte <command>rsync</command> som en tjener. Dette krever at rotbrukeren automatisk kan koble seg til den. Å bruke en SSH autentiseringsnøkkel tillater nettopp det (se <xref linkend=\"sect.ssh-key-based-auth\" />)."
 
 msgid "Restoring Machines without Backups"
-msgstr ""
+msgstr "Å gjenopprette maskiner uten sikkerhetskopier."
 
 msgid "Desktop computers, which are not backed up, will be easy to reinstall from custom DVD-ROMs prepared with <emphasis>Simple-CDD</emphasis> (see <xref linkend=\"sect.simple-cdd\" />). Since this performs an installation from scratch, it loses any customization that can have been made after the initial installation. This is fine since the systems are all hooked to a central LDAP directory for accounts and most desktop applications are preconfigured thanks to dconf (see <xref linkend=\"sect.gnome-desktop\" /> for more information about this)."
-msgstr ""
+msgstr "Stasjonære datamaskiner, som ikke er sikkerhetskopiert, kan enkelt installeres fra tilpassede  DVD-ROM-er klargjort med <emphasis>Simple-CDD</emphasis> (se <xref linkend=\"sect.simple-cdd\" />). Siden dette lager en installasjon fra bunnen av, mistes noe tilpasning som kan ha blitt gjort etter den første installasjonen. Dette er greit, siden systemene alle er koblet til en sentral LDAP katalog for kontoer og de fleste skrivebordsprogrammer er forhåndskonfigurert takket være dconf (se <xref linkend=\"sect.gnome-desktop\" /> for mer informasjon om dette)."
 
 msgid "The Falcot Corp administrators are aware of the limits in their backup policy. Since they can't protect the backup server as well as a tape in a fireproof safe, they have installed it in a separate room so that a disaster such as a fire in the server room won't destroy backups along with everything else. Furthermore, they do an incremental backup on DVD-ROM once per week — only files that have been modified since the last backup are included."
-msgstr ""
+msgstr "Falcot Corp administratorer er klar over begrensningene i sin sikkerhetskopi-politikk. Siden de ikke kan beskytte sikkerhetskopi-tjeneren samt et bånd i en brannsikker safe, har de  installert det i et eget rom, slik at hendelser, for eksempel en brann i tjenerrommet, ikke  ødelegger sikkerhetskopier sammen med alt annet. Videre lager de en trinnvis sikkerhetskopiering på DVD-ROM en gang per uke - kun de filer som er endret siden siste sikkerhetskopiering er inkludert."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Backing up SQL and LDAP services"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Sikerhetskopiere SQL og LDAP-tjenester"
 
 msgid "Many services (such as SQL or LDAP databases) cannot be backed up by simply copying their files (unless they are properly interrupted during creation of the backups, which is frequently problematic, since they are intended to be available at all times). As such, it is necessary to use an “export” mechanism to create a “data dump” that can be safely backed up. These are often quite large, but they compress well. To reduce the storage space required, you will only store a complete text file per week, and a <command>diff</command> each day, which is created with a command of the type <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command>. The <command>xdelta</command> program produces incremental differences from binary dumps."
-msgstr ""
+msgstr "Mange tjenester (som for eksempel SQL- eller LDAP-databaser) kan ikke sikkerhetskopieres bare ved å kopiere filer deres (med mindre de er riktig avbrutt når sikkerhetskopiene lages, noe som er ofte problematisk, siden de er ment å være tilgjengelig til enhver tid). Dermed er det nødvendig å bruke en \"eksport\"-mekanisme for å lage en \"data dump\" som trygt kan sikkerhetskopieres. Disse er ofte ganske store, men de komprimeres godt. For å redusere plassbehovet som trengs, kan du bare lagre komplett tekstfil per uke, og en <command>diff</command> hver dag, som lages med en kommando av typen <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command>. <command>xdelta</command> programmet lager økende forskjeller fra binære dumper."
 
+#, fuzzy
 msgid "<primary><command>xdelta</command></primary>"
-msgstr ""
+msgstr "<primary><command>xdelta</command></primary>"
 
 msgid "<primary><command>diff</command></primary>"
 msgstr "<primary><command>diff</command></primary>"
 
+#, fuzzy
 msgid "<primary>dump</primary>"
-msgstr ""
+msgstr "<primary>dump</primary>"
 
 msgid "<emphasis>CULTURE</emphasis> <emphasis>TAR</emphasis>, the standard for tape backups"
-msgstr ""
+msgstr "<emphasis>CULTURE</emphasis> <emphasis>TAR</emphasis>, Standarden for sikkerhetskopiering på bånd."
 
+#, fuzzy
 msgid "<primary>backup</primary><secondary>on tape</secondary>"
-msgstr ""
+msgstr "<primary>backup</primary><secondary>on tape</secondary>"
 
+#, fuzzy
 msgid "<primary>tape, backup</primary>"
-msgstr ""
+msgstr "<primary>tape, backup</primary>"
 
+#, fuzzy
 msgid "<primary>TAR</primary>"
-msgstr ""
+msgstr "<primary>TAR</primary>"
 
 msgid "Historically, the simplest means of making a backup on Unix was to store a <emphasis>TAR</emphasis> archive on a tape. The <command>tar</command> command even got its name from “Tape ARchive”."
-msgstr ""
+msgstr "De enkleste måtene for å lage en sikkerhetskopi på Unix var, historisk sett, å lagre et <emphasis>TAR</emphasis>-arkiv på et bånd. <command>tar</command>-kommandoen fikk til og med sitt navn fra \"Tape ARchive”."
 
 msgid "Hot Plugging: <emphasis>hotplug</emphasis>"
-msgstr ""
+msgstr "Varm tilkobling: <emphasis>hotplug</emphasis>"
 
 msgid "Introduction"
-msgstr ""
+msgstr "Introduksjon"
 
 msgid "The <emphasis>hotplug</emphasis> kernel subsystem dynamically handles the addition and removal of devices, by loading the appropriate drivers and by creating the corresponding device files (with the help of <command>udevd</command>). With modern hardware and virtualization, almost everything can be hotplugged: from the usual USB/PCMCIA/IEEE 1394 peripherals to SATA hard drives, but also the CPU and the memory."
-msgstr ""
+msgstr "<emphasis>hotplug</emphasis>-kjerne-delsystemet håndterer å legge til og fjerne enheter ved å laste de riktige driverne og ved å lage passende enhets-filer (med hjelp av <command>udevd</command>). Med moderne maskinvare og visualisering, kan nesten alt bli varmtilkoblet: fra den vanlige USB/PCMCIA/IEEE 1394 enheter til SATA-harddisker, men også CPU-en og minnet."
 
 msgid "The kernel has a database that associates each device ID with the required driver. This database is used during boot to load all the drivers for the peripheral devices detected on the different buses, but also when an additional hotplug device is connected. Once the device is ready for use, a message is sent to <command>udevd</command> so it will be able to create the corresponding entry in <filename>/dev/</filename>."
-msgstr ""
+msgstr "Kjernen har en database som knytter hver enhets-ID med den nødvendige driveren. Denne databasen brukes under oppstart for å laste alle driverne til eksterne enheter som oppdages på forskjellige busser, men også når en ekstra varmtilkoblings-enhet blir koblet til. Når enheten er klar til bruk, sendes en melding til  <command>udevd</command> slik at den kan lage den tilsvarende oppføringen i <filename>/dev/</filename>."
 
+#, fuzzy
 msgid "<primary><emphasis>hotplug</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>hotplug</emphasis></primary>"
 
+#, fuzzy
 msgid "<primary>hotplug</primary>"
-msgstr ""
+msgstr "<primary>hotplug</primary>"
 
+#, fuzzy
 msgid "<primary>USB</primary>"
-msgstr ""
+msgstr "<primary>USB</primary>"
 
+#, fuzzy
 msgid "<primary>IEEE 1394</primary>"
-msgstr ""
+msgstr "<primary>IEEE 1394</primary>"
 
+#, fuzzy
 msgid "<primary>PCMCIA</primary>"
-msgstr ""
+msgstr "<primary>PCMCIA</primary>"
 
+#, fuzzy
 msgid "<primary>SATA</primary>"
-msgstr ""
+msgstr "<primary>SATA</primary>"
 
 msgid "The Naming Problem"
-msgstr ""
+msgstr "Navneproblemet"
 
 msgid "Before the appearance of hotplug connections, it was easy to assign a fixed name to a device. It was based simply on the position of the devices on their respective bus. But this is not possible when such devices can come and go on the bus. The typical case is the use of a digital camera and a USB key, both of which appear to the computer as disk drives. The first one connected may be <filename>/dev/sdb</filename> and the second <filename>/dev/sdc</filename> (with <filename>/dev/sda</filename> representing the computer's own hard drive). The device name is not fixed; it depends on the order in which devices are connected."
-msgstr ""
+msgstr "Før varm-tilkoblingene, var det enkelt å tilordne et fast navn til en enhet. Det var enkelt basert på enhetenes posisjonen på sine respektive busser. Men dette er ikke mulig når slike enheter kan komme og gå på bussen. Det typiske tilfellet er bruk av et digitalt kamera og en USB-minnepenn, som begge for datamaskinen ser ut som harddisker . Den første tilkoblede kan være <filename>/dev/sdb</filename> og den andre <filename>/dev/sdc</filename> (med <filename>/dev/sda</filename> som representerer datamaskinens egen harddisk). Enhetsnavnet er ikke fast; det er avhengig av rekkefølge enheter er koblet til."
 
 msgid "Additionally, more and more drivers use dynamic values for devices' major/minor numbers, which makes it impossible to have static entries for the given devices, since these essential characteristics may vary after a reboot."
-msgstr ""
+msgstr "I tillegg bruker flere og flere drivere dynamiske verdier for enhetens store/små nummer, noe som gjør det umulig å ha statiske oppføringer for de gitte enhetene, siden deres grunnleggende egenskapene kan variere etter en omstart."
 
 msgid "<emphasis>udev</emphasis> was created precisely to solve this problem."
-msgstr ""
+msgstr "<emphasis>udev</emphasis> ble laget nettopp for å løse dette problemet."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Network card management"
-msgstr ""
+msgstr "<emphasis>IN PRACTICE</emphasis> Håndtering av nettverkskort"
 
 msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the Linux kernel does not guarantee fixed naming of network interfaces. But users who want to configure their network in <filename>/etc/network/interfaces</filename> need a fixed name!"
-msgstr ""
+msgstr "Mange datamaskiner har flere nettverkskort (noen ganger to kablede grensesnitt og et wifi-grensesnitt), og med <emphasis>hotplug</emphasis>-støtte til de fleste busstyper, Linux-kjernen garanterer ikke fast navngiving av nettverksgrensesnitt . Men brukere som ønsker å konfigurere sine nettverk i  <filename>/etc/network/interfaces</filename> trenger et fast navn!"
 
 msgid "It would be difficult to ask every user to create their own <emphasis>udev</emphasis> rules to address this problem. This is why <emphasis>udev</emphasis> was configured in a rather peculiar manner; on first boot (and, more generally, each time that a new network card appears) it uses the name of the network interface and its MAC address to create new rules that will reassign the same name on subsequent boots. These rules are stored in <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
-msgstr ""
+msgstr "Det ville være vanskelig å be hver bruker for å lage sine egne <emphasis>udev</emphasis>-regler for å løse dette problemet. Dette er grunnen til at <emphasis>udev</emphasis> ble konfigurert på en heller spesiell måte. Ved første oppstart (og, mer generelt, hver gang et nytt nettverkskortet vises) bruker den navnet på nettverksgrensesnittet og dets MAC-adresse for å lage nye regler som vil tilordne samme navn på de påfølgende oppstartene. Disse reglene er lagret i <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
 
 msgid "This mechanism has some side effects that you should know about. Let's consider the case of a computer that has only one PCI network card. The network interface is named <literal>eth0</literal>, logically. Now say the card breaks down, and the administrator replaces it; the new card will have a new MAC address. Since the old card was assigned the name, <literal>eth0</literal>, the new one will be assigned <literal>eth1</literal>, even though the <literal>eth0</literal> card is gone for good (and the network will not be functional because <filename>/etc/network/interfaces</filename> likely configures an <literal>eth0</literal> interface). In this case, it is enough to simply delete the <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> file before rebooting the computer. The new card will then be given the expected <literal>eth0</literal> name."
-msgstr ""
+msgstr "Denne mekanismen har noen sidevirkninger som du bør vite om. La oss vurdere hvordan på en datamaskin som bare har ett PCI nettverkskort. Nettverkets grensesnitt heter <literal>eth0</literal>, logisk. Nå, si at kortet bryter sammen, og administratoren erstatter det; vil det nye kortet ha en ny MAC-adresse. Siden det gamle kortet ble gitt navnet, <literal>eth0</literal>, vil det nye bli tildelt <literal>eth1</literal>, selv om <literal>eth0</literal>-kortet er borte for godt (og nettverket vil ikke være funksjonelt fordi <filename>/etc/network/interfaces</filename> sannsynligvis konfigurerer et <literal>eth0</literal>-grensesnitt). I dette tilfellet er det nok å bare slette <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>-filen før maskinen restartes. Det nye kortet vil da bli gitt det forventede <literal>eth0</literal>-navnet."
 
 msgid "How <emphasis>udev</emphasis> Works"
-msgstr ""
+msgstr "Hvordan <emphasis>udev</emphasis> virker."
 
 msgid "When <emphasis>udev</emphasis> is notified by the kernel of the appearance of a new device, it collects various information on the given device by consulting the corresponding entries in <filename>/sys/</filename>, especially those that uniquely identify it (MAC address for a network card, serial number for some USB devices, etc.)."
-msgstr ""
+msgstr "Når <emphasis>udev</emphasis> varsles av kjernen når en ny enhet dukker opp, samler den ulike opplysninger om den gitte enheten ved å konsultere de tilsvarende oppføringene i  <filename>/sys/</filename>, spesielt de som klart identifiserer den (MAC-adressen til et nettverkskort, serienummer for enkelte USB-enheter, etc.)."
 
 msgid "Armed with all of this information, <emphasis>udev</emphasis> then consults all of the rules contained in <filename>/etc/udev/rules.d/</filename> and <filename>/lib/udev/rules.d/</filename>. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially (except when a file uses “GOTO” directives). Thus, there may be several rules that correspond to a given event."
-msgstr ""
+msgstr "Bevæpnet med all denne informasjonen, <emphasis>udev</emphasis> konsulterer så alle regler som ligger i <filename>/etc/udev/rules.d/</filename> og <filename>/lib/udev/rules.d/</filename>. I denne prosessen bestemmer den hvordan enheten skal navnes, hvilke symbolske lenker som skal lages (for å gi den alternative navn), og hvilke kommandoer som skal kjøres. Alle disse filene er konsultert , og reglene er alle vurdert sekvensielt (bortsett fra når en fil bruker \"GOTO\"-direktiver). Således kan det være flere regler som svarer til en gitt hendelse."
 
 msgid "The syntax of rules files is quite simple: each row contains selection criteria and variable assignments. The former are used to select events for which there is a need to react, and the latter defines the action to take. They are all simply separated with commas, and the operator implicitly differentiates between a selection criterion (with comparison operators, such as <literal>==</literal> or <literal>!=</literal>) or an assignment directive (with operators such as <literal>=</literal>, <literal>+=</literal> or <literal>:=</literal>)."
-msgstr ""
+msgstr "Regelfilenes syntaks er ganske enkel: Hver rad inneholder utvalgskriterier og variable oppdrag. Den første er brukt til å velge hendelser der det er behov for å reagere, og sistnevnte definerer handlingen som skal utføres. De er alle enkelt atskilt med komma, og operatøren skiller implisitt mellom et utvalgskriterium (med sammenlignings-operatorer, for eksempel <literal>==</literal> eller <literal>!=</literal>) eller et oppdrags-direktiv (med operatorer som <literal>=</literal>, <literal>+=</literal> or <literal>:=</literal>)."
 
 msgid "Comparison operators are used on the following variables:"
-msgstr ""
+msgstr "Sammenligningsoperatorer brukes på følgende variable:"
 
 msgid "<literal>KERNEL</literal>: the name that the kernel assigns to the device;"
-msgstr ""
+msgstr "<literal>KERNEL</literal>: navnet som kjernen tilordner til enheten;"
 
 msgid "<literal>ACTION</literal>: the action corresponding to the event (“add” when a device has been added, “remove” when it has been removed);"
-msgstr ""
+msgstr "<literal>ACTION</literal>: handlingen som tilsvarer hendelsen (\"add\" når en enhet er lagt til, \"remove\" når den er fjernet);"
 
 msgid "<literal>DEVPATH</literal>: the path of the device's <filename>/sys/</filename> entry;"
-msgstr ""
+msgstr "<literal>DEVPATH</literal>: Stien til enhetens <filename>/sys/</filename> inngang;"
 
 msgid "<literal>SUBSYSTEM</literal>: the kernel subsystem which generated the request (there are many, but a few examples are “usb”, “ide”, “net”, “firmware”, etc.);"
-msgstr ""
+msgstr "<literal>SUBSYSTEM</literal>: kjerne-delsystem som genererer forespørselen (det er mange, men noen eksempler er \"usb\", \"ide\", \"net\", \"firmware\", etc.);"
 
 msgid "<literal>ATTR{<replaceable>attribute</replaceable>}</literal>: file contents of the <replaceable>attribute</replaceable> file in the <filename>/sys/<replaceable>$devpath</replaceable>/</filename> directory of the device. This is where you find the MAC address and other bus specific identifiers;"
-msgstr ""
+msgstr "<literal>ATTR{<replaceable>attribute</replaceable>}</literal>: filinnholdet til <replaceable>attribute</replaceable>-filen i <filename>/sys/<replaceable>$devpath</replaceable>/</filename>-mappen til enheten. Det er her du finner MAC-adressen og andre buss-spesifikke identifikatorer;"
 
 msgid "<literal>KERNELS</literal>, <literal>SUBSYSTEMS</literal> and <literal>ATTRS{<replaceable>attributes</replaceable>}</literal> are variations that will try to match the different options on one of the parent devices of the current device;"
-msgstr ""
+msgstr "<literal>KERNELS</literal>, <literal>SUBSYSTEMS</literal> og <literal>ATTRS{<replaceable>attributes</replaceable>}</literal> er variasjoner som vil prøve å treffe de ulike valgene hos en av de overordnede enhetene til den aktuelle enheten;"
 
 msgid "<literal>PROGRAM</literal>: delegates the test to the indicated program (true if it returns 0, false if not). The content of the program's standard output is stored so that it can be reused by the <literal>RESULT</literal> test;"
-msgstr ""
+msgstr "<literal>PROGRAM</literal>: delegerer testen til det angitte programmet (sant hvis den returnerer 0, falsk hvis ikke). Innholdet av programmmets standard resultat blir lagret slik at det kan brukes om igjen av  <literal>RESULT</literal>-testen;"
 
 msgid "<literal>RESULT</literal>: execute tests on the standard output stored during the last call to <literal>PROGRAM</literal>."
-msgstr ""
+msgstr "<literal>RESULT</literal>: utfører tester på standardresultatet lagret under siste kontakt til <literal>PROGRAM</literal>."
 
 msgid "The right operands can use pattern expressions to match several values at the same time. For instance, <literal>*</literal> matches any string (even an empty one); <literal>?</literal> matches any character, and <literal>[]</literal> matches the set of characters listed between the square brackets (or the opposite thereof if the first character is an exclamation point, and contiguous ranges of characters are indicated like <literal>a-z</literal>)."
-msgstr ""
+msgstr "De riktige operander kan bruke mønsteruttrykk for å finne flere verdier som passer samtidig. For eksempel, <literal>*</literal> matcher alle strenger (selv en tom en); <literal>?</literal> treffer hvilken som helst tegn, og <literal>[]</literal> matcher settet med tegn som er listet mellom hakeparenteser (eller det motsatte hvis det første tegnet er et utropstegn, og sammenhengende rekker med tegn er angitt som <literal>a-z</literal>)."
 
 msgid "Regarding the assignment operators, <literal>=</literal> assigns a value (and replaces the current value); in the case of a list, it is emptied and contains only the value assigned. <literal>:=</literal> does the same, but prevents later changes to the same variable. As for <literal>+=</literal>, it adds an item to a list. The following variables can be changed:"
-msgstr ""
+msgstr "Når det gjelder tildelingsoperatørene,  <literal>=</literal> tildeler en verdi (og erstatter gjeldende verdi); i tilfelle av en liste, blir den tømt og inneholder bare den tildelte verdien. <literal>:=</literal> gjør det samme, men hindrer senere endringer i samme variabel. Når det gjelder <literal>+=</literal>, legger den til et element i en liste. Følgende variabler kan endres:"
 
 msgid "<literal>NAME</literal>: the device filename to be created in <filename>/dev/</filename>. Only the first assignment counts; the others are ignored;"
-msgstr ""
+msgstr "<literal>NAME</literal>: Filnavnet til enheten som skal opprettes i <filename>/dev/</filename>. Bare den første oppgaven teller; de andre blir ignorert;"
 
 msgid "<literal>SYMLINK</literal>: the list of symbolic links that will point to the same device;"
-msgstr ""
+msgstr "<literal>SYMLINK</literal>: listen med symbolske lenker som vil peke til den samme enheten;"
 
 msgid "<literal>OWNER</literal>, <literal>GROUP</literal> and <literal>MODE</literal> define the user and group that owns the device, as well as the associated permission;"
-msgstr ""
+msgstr "<literal>OWNER</literal>, <literal>GROUP</literal> og <literal>MODE</literal> definerer brukeren og gruppen som eier enheten, samt tilhørende tillatelse;"
 
 msgid "<literal>RUN</literal>: the list of programs to execute in response to this event."
-msgstr ""
+msgstr "<literal>RUN</literal>: listen over programmer som må kjøres som reaksjon på denne hendelsen."
 
 msgid "The values assigned to these variables may use a number of substitutions:"
-msgstr ""
+msgstr "Verdiene tilordnet disse variablene kan bruke en rekke erstatninger:"
 
 msgid "<literal>$kernel</literal> or <literal>%k</literal>: equivalent to <literal>KERNEL</literal>;"
-msgstr ""
+msgstr "<literal>$kernel</literal> or <literal>%k</literal>: som tilsvarer <literal>KERNEL</literal>;"
 
 msgid "<literal>$number</literal> or <literal>%n</literal>: the order number of the device, for example, for <literal>sda3</literal>, it would be “3”;"
-msgstr ""
+msgstr "<literal>$number</literal> eller <literal>%n</literal>: rekkefølgenummeret til enheten, for eksempel for <literal>sda3</literal>, ville det være “3”;"
 
 msgid "<literal>$devpath</literal> or <literal>%p</literal>: equivalent to <literal>DEVPATH</literal>;"
-msgstr ""
+msgstr "<literal>$devpath</literal> eller <literal>%p</literal>: som tilsvarerer  <literal>DEVPATH</literal>;"
 
 msgid "<literal>$attr{<replaceable>attribute</replaceable>}</literal> or <literal>%s{<replaceable>attribute</replaceable>}</literal>: equivalent to <literal>ATTRS{<replaceable>attribute</replaceable>}</literal>;"
-msgstr ""
+msgstr "<literal>$attr{<replaceable>attribute</replaceable>}</literal> eller <literal>%s{<replaceable>attribute</replaceable>}</literal>: som tilsvarer <literal>ATTRS{<replaceable>attribute</replaceable>}</literal>;"
 
+#, fuzzy
 msgid "<literal>$major</literal> or <literal>%M</literal>: the kernel major number of the device;"
-msgstr ""
+msgstr "<literal>$major</literal> eller <literal>%M</literal>: \"kernel major number\" for enheten;"
 
+#, fuzzy
 msgid "<literal>$minor</literal> or <literal>%m</literal>: the kernel minor number of the device;"
-msgstr ""
+msgstr "<literal>$minor</literal> or <literal>%m</literal>: \"kernel minor number\" for enheten;"
 
 msgid "<literal>$result</literal> or <literal>%c</literal>: the string output by the last program invoked by <literal>PROGRAM</literal>;"
-msgstr ""
+msgstr "<literal>$result</literal> eller <literal>%c</literal>: resultatstrengen fra det siste programmet aktivert av <literal>PROGRAM</literal>;"
 
 msgid "and, finally, <literal>%%</literal> and <literal>$$</literal> for the percent and dollar sign, respectively."
-msgstr ""
+msgstr "og, til slutt, <literal>%%</literal> og <literal>$$</literal> for henholdsvis prosent og dollartegnet."
 
 msgid "The above lists are not complete (they include only the most important parameters), but the <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> manual page should be exhaustive."
-msgstr ""
+msgstr "De ovennevnte listene er ikke komplette (de inneholder kun de viktigste parametrene), men <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> manualside skulle være uttømmende."
 
 msgid "A concrete example"
-msgstr ""
+msgstr "Et konkret eksempel"
 
 msgid "Let us consider the case of a simple USB key and try to assign it a fixed name. First, you must find the elements that will identify it in a unique manner. For this, plug it in and run <command>udevadm info -a -n /dev/sdc</command> (replacing <replaceable>/dev/sdc</replaceable> with the actual name assigned to the key)."
-msgstr ""
+msgstr "La oss vurdere tillfellet med en enkel USB-minnepenn og prøve å tilordne et fast navn til den. Først må du finne de elementene som unikt vil identifisere den. For å få til dette, plugg den inn og kjør <command>udevadm info -a -n /dev/sdc</command> (for å erstatte <replaceable>/dev/sdc</replaceable> med det faktiske navnet minnepennen har)."
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>udevadm info -a -n /dev/sdc</userinput>\n"
 "<computeroutput>[...]\n"
@@ -2037,53 +2129,110 @@ msgid ""
 "[...]\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>udevadm info -a -n /dev/sdc</userinput>\n"
+"<computeroutput>[...]\n"
+"  looking at device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2/1-2.2:1.0/host9/target9:0:0/9:0:0:0/block/sdc':\n"
+"    KERNEL==\"sdc\"\n"
+"    SUBSYSTEM==\"block\"\n"
+"    DRIVER==\"\"\n"
+"    ATTR{range}==\"16\"\n"
+"    ATTR{ext_range}==\"256\"\n"
+"    ATTR{removable}==\"1\"\n"
+"    ATTR{ro}==\"0\"\n"
+"    ATTR{size}==\"126976\"\n"
+"    ATTR{alignment_offset}==\"0\"\n"
+"    ATTR{capability}==\"53\"\n"
+"    ATTR{stat}==\"      51      100     1208      256        0        0        0        0        0      192      25        6\"\n"
+"    ATTR{inflight}==\"       0        0\"\n"
+"[...]\n"
+"  looking at parent device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2/1-2.2:1.0/host9/target9:0:0/9:0:0:0':\n"
+"    KERNELS==\"9:0:0:0\"\n"
+"    SUBSYSTEMS==\"scsi\"\n"
+"    DRIVERS==\"sd\"\n"
+"    ATTRS{device_blocked}==\"0\"\n"
+"    ATTRS{type}==\"0\"\n"
+"    ATTRS{scsi_level}==\"3\"\n"
+"    ATTRS{vendor}==\"I0MEGA  \"\n"
+"    ATTRS{model}==\"UMni64MB*IOM2C4 \"\n"
+"    ATTRS{rev}==\"    \"\n"
+"    ATTRS{state}==\"running\"\n"
+"[...]\n"
+"    ATTRS{max_sectors}==\"240\"\n"
+"[...]\n"
+"  looking at parent device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2':\n"
+"    KERNELS==\"9:0:0:0\"\n"
+"    SUBSYSTEMS==\"usb\"\n"
+"    DRIVERS==\"usb\"\n"
+"    ATTRS{configuration}==\"iCfg\"\n"
+"    ATTRS{bNumInterfaces}==\" 1\"\n"
+"    ATTRS{bConfigurationValue}==\"1\"\n"
+"    ATTRS{bmAttributes}==\"80\"\n"
+"    ATTRS{bMaxPower}==\"100mA\"\n"
+"    ATTRS{urbnum}==\"398\"\n"
+"    ATTRS{idVendor}==\"4146\"\n"
+"    ATTRS{idProduct}==\"4146\"\n"
+"    ATTRS{bcdDevice}==\"0100\"\n"
+"[...]\n"
+"    ATTRS{manufacturer}==\"USB Disk\"\n"
+"    ATTRS{product}==\"USB Mass Storage Device\"\n"
+"    ATTRS{serial}==\"M004021000001\"\n"
+"[...]\n"
+"</computeroutput>"
 
 msgid "To create a new rule, you can use tests on the device's variables, as well as those of one of the parent devices. The above case allows us to create two rules like these:"
-msgstr ""
+msgstr "For å opprette en ny regel, kan du bruke tester på enhetens variabler, så vel som de fra en av de overordnede enhetene. Det ovennevnte tilfelle tillater oss å lage to regler som disse:"
 
+#, fuzzy
 msgid ""
 "KERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/disk\"\n"
 "KERNEL==\"sd?[0-9]\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/part%n\""
 msgstr ""
+"KERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/disk\"\n"
+"KERNEL==\"sd?[0-9]\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/part%n\""
 
 msgid "Once these rules are set in a file, named for example <filename>/etc/udev/rules.d/010_local.rules</filename>, you can simply remove and reconnect the USB key. You can then see that <filename>/dev/usb_key/disk</filename> represents the disk associated with the USB key, and <filename>/dev/usb_key/part1</filename> is its first partition."
-msgstr ""
+msgstr "Når disse reglene er satt i en fil, som for eksempel er døpt <filename>/etc/udev/rules.d/010_local.rules</filename>, kan du enkelt fjerne og koble til USB-minnepennen. Deretter kan du se att <filename>/dev/usb_key/disk</filename> representerer disken knyttet til USB-minnepennen, og <filename>/dev/usb_key/part1</filename> er dens første partisjon."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Debugging <emphasis>udev</emphasis>'s configuration"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Feilsøking i <emphasis>udev</emphasis> sin konfigurasjon"
 
 msgid "Like many daemons, <command>udevd</command> stores logs in <filename>/var/log/daemon.log</filename>. But it is not very verbose by default, and it is usually not enough to understand what is happening. The <command>udevadm control --log-priority=info</command> command increases the verbosity level and solves this problem. <command>udevadm control --log-priority=err</command> returns to the default verbosity level."
-msgstr ""
+msgstr "Som for mange nisse, lagrer <command>udevd</command> logger i  <filename>/var/log/daemon.log</filename>. Men det er ikke veldig detaljert som standard, og det er som regel ikke nok til å forstå hva som skjer. <command>udevadm control --log-priority=info</command>-kommandoen øker detaljeringsnivået og løser dette problemet. <command>udevadm control --log-priority=err</command> returnerer til standard detaljeringsnivå."
 
 msgid "Power Management: Advanced Configuration and Power Interface (ACPI)"
-msgstr ""
+msgstr "Strømstyring: Advanced Configuration and Power Interface (ACPI)"
 
+#, fuzzy
 msgid "<primary>power management</primary>"
-msgstr ""
+msgstr "<primary>power management</primary>"
 
+#, fuzzy
 msgid "<primary>management, power management</primary>"
-msgstr ""
+msgstr "<primary>management, power management</primary>"
 
 msgid "The topic of power management is often problematic. Indeed, properly suspending the computer requires that all the computer's device drivers know how to put them to standby, and that they properly reconfigure the devices upon waking. Unfortunately, there are still a few devices unable to sleep well under Linux, because their manufacturers have not provided the required specifications."
-msgstr ""
+msgstr "Emnet strømstyring er ofte problematisk. Faktisk, riktig hvilemodus for maskinen krever at alle datamaskinens enhetsdrivere vet hvordan å sette dem til ventemodus, og at de skal konfigurere enhetene ved oppvåkning. Dessverre er det fortsatt noen få enheter som ikke kan sove godt under Linux, fordi produsentene deres ikke har gitt de nødvendige spesifikasjonene."
 
 msgid "Linux supports ACPI (Advanced Configuration and Power Interface) — the most recent standard in power management. The <emphasis role=\"pkg\">acpid</emphasis> package provides a daemon that looks for power management related events (switching between AC and battery power on a laptop, etc.) and that can execute various commands in response."
-msgstr ""
+msgstr "Linux støtter ACPI (Advanced Configuration and Power Interface) — den nyeste standarden for strømstyring. <emphasis role=\"pkg\">acpid</emphasis>-pakken har en nisse som ser etter strømstyringsrelaterte hendelser (veksling mellom AC og batteristrøm på en bærbar PC, etc.) og som kan utføre ulike kommandoer som svar."
 
+#, fuzzy
 msgid "<primary>ACPI</primary>"
-msgstr ""
+msgstr "<primary>ACPI</primary>"
 
+#, fuzzy
 msgid "<primary>Advanced Configuration and Power Interface</primary>"
-msgstr ""
+msgstr "<primary>Advanced Configuration and Power Interface</primary>"
 
+#, fuzzy
 msgid "<primary><command>acpid</command></primary>"
-msgstr ""
+msgstr "<primary><command>acpid</command></primary>"
 
 msgid "<emphasis>BEWARE</emphasis> Graphics card and standby"
-msgstr ""
+msgstr "<emphasis>BEWARE</emphasis> Grafikkort og ventemodus"
 
 msgid "The graphics card driver is often the culprit when standby doesn't work properly. In that case, it is a good idea to test the latest version of the X.org graphics server."
-msgstr ""
+msgstr "Grafikkort-driveren er ofte den skyldige når ventemodus ikke fungerer ordentlig. I så fall er det en god idé å teste den nyeste versjonen av X.org grafikkserver."
 
 msgid "After this overview of basic services common to many Unix systems, we will focus on the environment of the administered machines: the network. Many services are required for the network to work properly. They will be discussed in the next chapter."
-msgstr ""
+msgstr "Etter denne oversikten over grunnleggende tjenester felles for mange Unix-systemer, vil vi fokusere på miljøet for de administrerte maskinene: Nettverket. Mange tjenester er nødvendige for at nettverket skal fungere ordentlig. De blir diskutert i neste kapittel."
