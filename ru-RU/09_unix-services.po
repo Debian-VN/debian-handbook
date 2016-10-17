@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2014-01-31T10:09:32\n"
-"PO-Revision-Date: 2016-10-08 10:20+0000\n"
+"PO-Revision-Date: 2016-10-17 09:47+0000\n"
 "Last-Translator: Alex <alex.burns@inbox.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/ru/>\n"
 "Language: ru-RU\n"
@@ -483,7 +483,7 @@ msgid "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 
 msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose names start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started, but nowadays the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm3</command>)."
-msgstr ""
+msgstr "Следом, <command>init</command> запускает программы уровня запуска по умолчанию (обычно runlevel 2). Запускается сценарий <command>/etc/init.d/rc 2</command>, который, в свою очередь, запускает сервисы, перечисленные в <filename>/etc/rc2.d/</filename>. Названия файлов в каталоге начинаются с буквы «S», за которой идут две цифры, что определяет очерёдность запуска. В настоящее время, загрузочная система по умолчанию использует программу <command>insserv</command>, которая автоматически всё организовывает, основываясь на зависимостях сценариев. Каждый сценарий объявляет условия, необходимые для его запуска и остановки (например, очерёдность по отношению к другим сценариям), <command>init</command> запускает сценарии в соответствующей последовательности для удовлетворения зависимостей. Поэтому наименование сценариев больше не учитывается (хотя они всё еще должны начинаться с «S» и далее продолжаться двумя цифрами и названием сервиса, которое и используется для организации зависимостей). В общем, основные сервисы (как журналирование с <command>rsyslog</command> или назначение портов с <command>portmap</command>) запускаются в первую очередь, затем следуют стандартные сервисы и графический интерфейс (<command>gdm3</command>)."
 
 #. Tag: para
 #, no-c-format
@@ -572,7 +572,7 @@ msgid "<primary>restarting services</primary>"
 msgstr "<primary>перезапуск сервисов</primary>"
 
 msgid "The maintainer scripts for Debian packages will sometimes restart certain services to ensure their availability or get them to take certain options into account. The command that controls a service — <command>service <replaceable>service</replaceable> <replaceable>operation</replaceable></command> — doesn't take runlevel into consideration, assumes (wrongly) that the service is currently being used, and may thus initiate incorrect operations (starting a service that was deliberately stopped, or stopping a service that is already stopped, etc.). Debian therefore introduced the <command>invoke-rc.d</command> program: this program must be used by maintainer scripts to run services initialization scripts and it will only execute the necessary commands. Note that, contrary to common usage, the <filename>.d</filename> suffix is used here in a program name, and not in a directory."
-msgstr ""
+msgstr "Сценарии сопровождающего пакет Debian иногда перезапускают сервисы для того, чтобы убедиться в их доступности или для применения изменений. Команда для контроля за сервисами <command>service <replaceable>service</replaceable> <replaceable>operation</replaceable></command> не учитывает уровень запуска, подразумевает (ошибочно) что сервис уже используется и может выполнить неправильные операции (запуск сервиса, намеренно остановленного или остановку сервиса, который уже остановлен и т. п.). Поэтому Debian представляет программу <command>invoke-rc.d</command>, которая должна использоваться сопровождающим для запуска сценариев, в свою очередь, предназначенных для запуска сервисов. Она будет запускать только необходимые команды. Заметьте что здесь, по сравнению с традиционным использованием суффикса <filename>.d</filename>, он используется как часть названия программы, а не каталога."
 
 #. Tag: para
 #, no-c-format
@@ -795,12 +795,13 @@ msgstr "У библиотеки OpenSSL в том виде, в каком она
 msgid "Specifically, whenever OpenSSL was used to generate a key, it always produced a key within a known set of hundreds of thousands of keys (32,000 multiplied by a small number of key lengths). This affected SSH keys, SSL keys, and X.509 certificates used by numerous applications, such as OpenVPN. A cracker had only to try all of the keys to gain unauthorized access. To reduce the impact of the problem, the SSH daemon was modified to refuse problematic keys that are listed in the <emphasis role=\"pkg\">openssh-blacklist</emphasis> and <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> packages. Additionally, the <command>ssh-vulnkey</command> command allows identification of possibly compromised keys in the system."
 msgstr "В частности, когда OpenSSL использовалась для генерации ключа, она всегда создавала ключ из известного набора нескольких сотен тысяч ключей (32.000, помноженные на небольшое число длин ключей). Это затронуло ключи SSH и SSL, а также сертификаты X.509, используемые многочисленными приложениями, такими как OpenVPN. Взломщику оставалось только перепробовать все ключи, чтобы получить неавторизованный доступ. Чтобы уменьшить последствия этой проблемы, демон SSH был модифицирован таким образом, чтобы отклонять проблемные ключи, перечисленные в пакетах <emphasis role=\"pkg\">openssh-blacklist</emphasis> и <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis>. Кроме того, команда <command>ssh-vulnkey</command> позволяет обнаружить возможно скомпроментированные ключи в системе."
 
-#, fuzzy
 msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both within the OpenSSL project and with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. On Debian's side, the maintainer wanted to validate the modifications with the OpenSSL developers, but simply explained the modifications without providing the corresponding patch to review and failed to mention his role within Debian. Finally, the maintenance choices were sub-optimal: the changes made to the original code were not clearly documented; all the modifications were effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
-msgstr "Более детальный анализ выявил, что это результат нескольких (небольших) проблем и в проекте OpenSSL и у сопровождающего пакет Debian. Такие широко используемые библиотеки как OpenSSL должны без изменений проходить тест valgrind без предупреждений. Более того, код (особенно чувствительные части, как RNG) должен быть лучше сопровождён комментариями для предотвращения таких ошибок. Сопровождающий Debian пакет хотел утвердить изменения вместе с разработчиками OpenSSL, но просто объяснил их, не предоставив соответствующий патч для проверки и не уведомил о своей роли в Debian. Наконец, выбор не был оптимальным: изменения в исходном коде не были отчётливо сопровождены комментариями. Они были сохранены в Subversion репозитории, но свалены в один патч во время создания пакета с исходным кодом."
+msgstr "Более детальный анализ выявил, что это результат нескольких (небольших) проблем и в проекте OpenSSL и у сопровождающего пакет Debian. Такие широко используемые библиотеки как OpenSSL должны без изменений проходить тест <command>valgrind</command> без предупреждений. Более того, код (особенно чувствительные части, как RNG) должен быть лучше сопровождён комментариями для предотвращения таких ошибок. Сопровождающий пакета Debian хотел согласовать изменения вместе с разработчиками OpenSSL, но просто объяснил их, не предоставив соответствующий патч для проверки и не уведомил о своей роли в Debian. Наконец, его выбор не был оптимальным: изменения в исходном коде не были отчётливо сопровождены комментариями. Они были сохранены в репозитории Subversion, затем свалены в один патч во время создания пакета с исходным кодом."
 
 msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian sources webservice were developed. <ulink type=\"block\" url=\"http://sources.debian.net\" />"
 msgstr ""
+"При таких условиях трудно найти средства для предотвращения подобных инцидентов в будущем. Урок, который можно вынести из этого — каждое изменение, внесённое Debian в апстрим программное обеспечение, должно быть подтверждено, документировано, внесено в проект и широко оглашено. В соответствии с этим разработан новый формат для исходников («3.0 (quilt)») и веб-сервис.\n"
+"<ulink type=\"block\" url=\"http://sources.debian.net\" />"
 
 #. Tag: title
 #, no-c-format
@@ -933,7 +934,7 @@ msgid "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
 
 msgid "First, the user must authorize sharing their session. The GNOME graphical desktop environment in <emphasis role=\"distribution\">Jessie</emphasis> includes that option in its configuration panel (contrary to previous versions of Debian, where the user had to install and run <command>vino</command>). KDE still requires using <command>krfb</command> to allow sharing an existing session over VNC. For other graphical desktop environments, the <command>x11vnc</command> command (from the Debian package of the same name) serves the same purpose; you can make it available to the user with an explicit icon."
-msgstr ""
+msgstr "Для начала, пользователь должен разрешить доступ к сессии. Графическая среда GNOME в <emphasis role=\"distribution\">Jessie</emphasis> включает эту возможность (на конфигурационной панели, хотя в предыдущих выпусках Debian пользователь должен был устанавливать и запускать <command>vino</command>). В KDE нужно использовать <command>krfb</command> для предоставления доступа к существующей сессии через VNC. Для остальных сред следует использовать команду (пакет имеет аналогичное название) <command>x11vnc</command>; для пользователя, вы можете создать значок для запуска."
 
 #. Tag: indexterm
 #, no-c-format
@@ -956,7 +957,7 @@ msgid "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
 
 msgid "When the graphical session is made available by VNC, the administrator must connect to it with a VNC client. GNOME has <command>vinagre</command> and <command>remmina</command> for that, while KDE includes <command>krdc</command> (in the menu at <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There are other VNC clients that use the command line, such as <command>xvnc4viewer</command> in the Debian package of the same name. Once connected, the administrator can see what is going on, work on the machine remotely, and show the user how to proceed."
-msgstr ""
+msgstr "Когда всё готово для VNC, администратор должен использовать VNC-клиент для соединения. GNOME использует <command>vinagre</command> и <command>remmina</command>, KDE использует <command>krdc</command> (в меню <menuchoice> <guimenu>K</guimenu> <guisubmenu>Интернет</guisubmenu> <guimenuitem>Клиент удалённого рабочего стола</guimenuitem></menuchoice>). Существуют другие VNC-клиенты, использующие консоль, например <command>xvnc4viewer</command> — пакет Debian имеет такое же название. После подключения, администратор может видеть что происходит, работать на машине удалённо и показать пользователю как действовать."
 
 #. Tag: title
 #, no-c-format
@@ -1013,7 +1014,7 @@ msgid "<primary>display manager</primary>"
 msgstr "<primary>дисплейный менеджер</primary>"
 
 msgid "<command>gdm3</command>, <command>kdm</command>, <command>lightdm</command>, and <command>xdm</command> are Display Managers. They take control of the graphical interface shortly after boot in order to provide the user a login screen. Once the user has logged in, they execute the programs needed to start a graphical work session."
-msgstr ""
+msgstr "<command>gdm3</command>, <command>kdm</command>, <command>lightdm</command>, и <command>xdm</command> — менеджеры рабочего стола. Они используются для регистрации пользователей, запускаются после загрузки системы и используют графический интерфейс. После регистрации пользователя, они запускают программы, необходимые для запуска рабочей графической сессии."
 
 #. Tag: para
 #, no-c-format
@@ -1024,7 +1025,7 @@ msgid "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query l
 msgstr "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query localhost -once -geometry 1024x768 -depth 16 securitytypes=none"
 
 msgid "Redirecting incoming connections to the display manager solves the problem of authentication, because only users with local accounts will pass the <command>gdm3</command> login screen (or equivalent <command>kdm</command>, <command>xdm</command>, etc.). As this operation allows multiple simultaneous logins without any problem (provided the server is powerful enough), it can even be used to provide complete desktops for mobile users (or for less powerful desktop systems, configured as thin clients). Users simply login to the server's screen with <command>vncviewer <replaceable>server</replaceable>:50</command>, because the port used is 5950."
-msgstr ""
+msgstr "Перенаправление входящих соединений к менеджеру рабочего стола решает проблему идентификации, т. к. только пользователи с локальными учётными записями могут быть зарегистрированы через <command>gdm3</command> (или эквиваленты <command>kdm</command>, <command>xdm</command>, и прочие). Так как возможны одновременные многочисленные регистрации (сервер должен быть достаточно мощным для этого), удалённые пользователи (или менее мощные системы, сконфигурированные как тонкие клиенты) могут использовать машину как полноценную систему. Пользователи должны регистрироваться с <command>vncviewer <replaceable>server</replaceable>:50</command>, т. к. используется порт 5950."
 
 #. Tag: indexterm
 #, no-c-format
@@ -1132,7 +1133,7 @@ msgid "<primary>execution, right</primary>"
 msgstr "<primary>исполнение, право</primary>"
 
 msgid "In the case of a file, these rights are easily understood: read access allows reading the content (including copying), write access allows changing it, and execute access allows you to run it (which will only work if it is a program)."
-msgstr ""
+msgstr "По отношению к файлу, такие права хорошо понятны: доступ для чтения позволяет читать содержимое (включая копирование), доступ для записи позволяет менять содержимое, доступ для исполнения позволяет запускать (работает для программ)."
 
 #. Tag: title
 #, no-c-format
@@ -1255,7 +1256,7 @@ msgid "To represent special rights, you can prefix a fourth digit to this number
 msgstr "Для представления в таком виде специальных прав можно указать в начале четвёртую цифру в соответствии с тем же принципом, где битам <literal>setuid</literal>, <literal>setgid</literal> <literal>sticky</literal> соответствуют 4, 2 и 1. <command>chmod 4754</command> установит бит <literal>setuid</literal> наравне с вышеописанными правами."
 
 msgid "Note that the use of octal notation only allows to set all the rights at once on a file; you cannot use it to simply add a new right, such as read access for the group owner, since you must take into account the existing rights and compute the new corresponding numerical value."
-msgstr ""
+msgstr "Заметьте, что для восьмеричного представления возможна только установка всех прав сразу, нельзя добавить новое правило, как например, доступ для чтения для владельца группы — пользователь должен, учитывая существующие права, вычислить новое соответствующее значение."
 
 #. Tag: title
 #, no-c-format
