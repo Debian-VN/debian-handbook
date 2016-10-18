@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-10-11 15:25+0000\n"
+"PO-Revision-Date: 2016-10-18 01:35+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/11_network-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -12,154 +12,181 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.9-dev\n"
 
+#, fuzzy
 msgid "Postfix"
-msgstr ""
+msgstr "Postfix"
 
+#, fuzzy
 msgid "Apache"
-msgstr ""
+msgstr "Apache"
 
+#, fuzzy
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
+#, fuzzy
 msgid "Samba"
-msgstr ""
+msgstr "Samba"
 
+#, fuzzy
 msgid "Squid"
-msgstr ""
+msgstr "Squid"
 
+#, fuzzy
 msgid "OpenLDAP"
-msgstr ""
+msgstr "OpenLDAP"
 
+#, fuzzy
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
-msgstr ""
+msgstr "Nettverkstjenester: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
-msgstr ""
+msgstr "Nettjenester er de programmene som brukerne direkte samhandler med i sitt daglige arbeid. De er toppen av informasjonssystemets isfjellet, og dette kapittelet fokuserer på dem - de skjulte delene de er avhengige av er den infrastrukturen vi allerede har beskrevet."
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
-msgstr ""
+msgstr "Mange moderne nettverkstjenester krever krypteringsteknologi for å fungere på en pålitelig og sikker måte, spesielt når de brukes på det offentlige Internettet. X.509 sertifikater (som også kan refereres til som SSLCertificates eller TLS-sertifikater) brukes ofte til dette formålet. Et sertifikat for et bestemt domene, kan ofte deles mellom mer enn en av tjenestene som er omtalt i dette kapittelet."
 
 #, fuzzy
 msgid "<primary>TLS</primary>"
 msgstr "<primary>TLS</primary>"
 
+#, fuzzy
 msgid "<primary>X.509</primary>"
-msgstr ""
+msgstr "<primary>X.509</primary>"
 
+#, fuzzy
 msgid "<primary>Certificates</primary>"
-msgstr ""
+msgstr "<primary>Certificates</primary>"
 
 msgid "Mail Server"
-msgstr ""
+msgstr "Posttjener"
 
 msgid "The Falcot Corp administrators selected Postfix for the electronic mail server, due to its reliability and its ease of configuration. Indeed, its design enforces that each task is implemented in a process with the minimum set of required permissions, which is a great mitigation measure against security problems."
-msgstr ""
+msgstr "Falcot Corp administratorer valgte ut Postfix som elektronisk post-tjener, på grunn av påliteligheten og en enkel konfigurasjon. Faktisk, designet sikrer at hver oppgave blir gjennomført i en prosess med et minimumsett av nødvendige tillatelser, noe som gir en stor minsking i sikkerhetsproblemer."
 
+#, fuzzy
 msgid "<primary>email</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>server</secondary>"
 
+#, fuzzy
 msgid "<primary>mail server</primary>"
-msgstr ""
+msgstr "<primary>mail server</primary>"
 
+#, fuzzy
 msgid "<primary>Postfix</primary>"
-msgstr ""
+msgstr "<primary>Postfix</primary>"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> The Exim4 server"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Exim4 tjeneren"
 
+#, fuzzy
 msgid "<primary>Exim</primary>"
-msgstr ""
+msgstr "<primary>Exim</primary>"
 
 msgid "Debian uses Exim4 as the default email server (which is why the initial installation includes Exim4). The configuration is provided by a separate package, <emphasis role=\"pkg\">exim4-config</emphasis>, and automatically customized based on the answers to a set of Debconf questions very similar to the questions asked by the <emphasis role=\"pkg\">postfix</emphasis> package."
-msgstr ""
+msgstr "Debian bruker Exim4 som standard e-posttjener (som er grunnen til at den første installasjonen inkluderer Exim4). Konfigurasjonen er levert av en egen pakke, <emphasis role=\"pkg\">exim4-config</emphasis>, og tilpasses automatisk basert på svar på et sett med Debconf-spørsmål svært lik spørsmålene fra <emphasis role=\"pkg\">postfix</emphasis>-pakken."
 
 msgid "The configuration can be either in one single file (<filename>/etc/exim4/exim4.conf.template</filename>) or split across a number of configuration snippets stored under <filename>/etc/exim4/conf.d/</filename>. In both cases, the files are used by <command>update-exim4.conf</command> as templates to generate <filename>/var/lib/exim4/config.autogenerated</filename>. The latter is the file used by Exim4. Thanks to this mechanism, values obtained through Exim's debconf configuration — which are stored in <filename>/etc/exim4/update-exim4.conf.conf</filename> — can be injected in Exim's configuration file, even when the administrator or another package has altered the default Exim configuration."
-msgstr ""
+msgstr "Konfigurasjonen kan enten være i en enkelt fil (<filename>/etc/exim4/exim4.conf.template</filename>) eller delt på tvers av en rekke konfigurasjonssnutter lagret under <filename>/etc/exim4/conf.d/</filename>. I begge tilfelle, brukes filene av <command>update-exim4.conf</command> som maler for å generere <filename>/var/lib/exim4/config.autogenerated</filename>. Den sistnevnte er filen som brukes av Exim4. Takket være denne mekanismen, kan verdier som fås gjennom Exims debconf-konfigurasjon - som er lagret i <filename>/etc/exim4/update-exim4.conf.conf</filename> - legges inn  i Exims konfigurasjonsfil, selv når administratoren eller en annen pakke har endret Exims standardoppsett."
 
 msgid "The Exim4 configuration file syntax has its peculiarities and its learning curve; however, once these peculiarities are understood, Exim4 is a very complete and powerful email server, as evidenced by the tens of pages of documentation. <ulink type=\"block\" url=\"http://www.exim.org/docs.html\" />"
-msgstr ""
+msgstr "Exim4s konfigurasjonsfil-syntaks har sine særegenheter og sin læringskurve; Men når disse særegenheter blir forstått, er Exim4 en svært komplett og kraftig e-posttjener, noe som gjenspeiles av de titalls sidene  med dokumentation. <ulink type=\"block\" url=\"http://www.exim.org/docs.html\" />"
 
 msgid "Installing Postfix"
-msgstr ""
+msgstr "Å installere Postfix"
 
 msgid "The <emphasis role=\"pkg\">postfix</emphasis> package includes the main SMTP daemon. Other packages (such as <emphasis role=\"pkg\">postfix-ldap</emphasis> and <emphasis role=\"pkg\">postfix-pgsql</emphasis>) add extra functionality to Postfix, including access to mapping databases. You should only install them if you know that you need them."
 msgstr ""
+"<emphasis role=\"pkg\">postfix</emphasis>-pakken omfatter den viktigste SMTP-nissen. Andre pakker (slik som <emphasis role=\"pkg\">postfix-ldap</emphasis> og <emphasis role=\"pkg\">postfix-pgsql</emphasis>) \n"
+"legger til ekstra funksjonalitet til Postfix, medregnet tilgang til kartdatabaser. Du bør bare installere dem hvis du vet at du trenger dem."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> SMTP"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> SMTP"
 
+#, fuzzy
 msgid "<primary>SMTP</primary>"
-msgstr ""
+msgstr "<primary>SMTP</primary>"
 
+#, fuzzy
 msgid "<primary>Simple Mail Transfer Protocol</primary>"
-msgstr ""
+msgstr "<primary>Simple Mail Transfer Protocol</primary>"
 
+#, fuzzy
 msgid "<primary>server</primary><secondary>SMTP</secondary>"
-msgstr ""
+msgstr "<primary>server</primary><secondary>SMTP</secondary>"
 
 msgid "SMTP (<emphasis>Simple Mail Transfer Protocol</emphasis>) is the protocol used by mail servers to exchange and route emails."
-msgstr ""
+msgstr "SMTP (<emphasis>Simple Mail Transfer Protocol</emphasis>) er protokollen som brukes av e-posttjenere for å utveksle og rute e-poster."
 
 msgid "Several Debconf questions are asked during the installation of the package. The answers allow generating a first version of the <filename>/etc/postfix/main.cf</filename> configuration file."
-msgstr ""
+msgstr "Flere Debconf-spørsmål stilles under installasjonen av pakken. Svarene tillater å generere en første versjon av <filename>/etc/postfix/main.cf</filename>-konfigureringsfil."
 
 msgid "The first question deals with the type of setup. Only two of the proposed answers are relevant in case of an Internet-connected server, “Internet site” and “Internet with smarthost”. The former is appropriate for a server that receives incoming email and sends outgoing email directly to its recipients, and is therefore well-adapted to the Falcot Corp case. The latter is appropriate for a server receiving incoming email normally, but that sends outgoing email through an intermediate SMTP server — the “smarthost” — rather than directly to the recipient's server. This is mostly useful for individuals with a dynamic IP address, since many email servers reject messages coming straight from such an IP address. In this case, the smarthost will usually be the ISP's SMTP server, which is always configured to accept email coming from the ISP's customers and forward it appropriately. This setup (with a smarthost) is also relevant for servers that are not permanently connected to the internet, since it avoids having to manage a queue of undeliverable messages that need to be retried later."
-msgstr ""
+msgstr "Det første spørsmålet håndterer typen oppsett. Bare to av de foreslåtte svarene passer for en Internett-tilkoblet tjener, \"Internet site\" og \"Internet with smartvert\". Førstnevnte passer for en tjener som mottar innkommende e-post og sender utgående e-post direkte til sine mottakere, og er derfor godt tilpasset i Falcot Corps tilfelle. Sistnevnte passer for en tjener som å mottar innkommende e-post som normalt, men som sender utgående e-post via en mellomliggende SMTP-tjener - en \"smartvert\" - i stedet for direkte til mottakerens tjener. Dette er mest nyttig for personer med en dynamisk IP-adresse, siden mange e-posttjenere avviser meldinger som kommer rett fra en slik IP-adresse. I dette tilfellet vil en smartvert vanligvis være ISPs SMTP-tjener, som alltid er konfigurert til å godta e-post som kommer fra ISPs brukere og videresende den på riktig måte. Dette oppsettet (med smartvert) passer også for tjenere som ikke er permanent koblet til Internett, da det unngår å måtte håndtere en kø med ikke-leverbare meldinger som ikke kan leveres og som må prøves igjen senere."
 
+#, fuzzy
 msgid "<emphasis>VOCABULARY</emphasis> ISP"
-msgstr ""
+msgstr "<emphasis>VOCABULARY</emphasis> ISP"
 
+#, fuzzy
 msgid "<primary>ISP, Internet Service Provider</primary>"
-msgstr ""
+msgstr "<primary>ISP, Internet Service Provider</primary>"
 
 msgid "ISP is the acronym for “Internet Service Provider”. It covers an entity, often a commercial company, that provides Internet connections and the associated basic services (email, news and so on)."
-msgstr ""
+msgstr "ISP er en forkortelse for \"Internet Service Provider\". Den dekker en enhet, ofte et kommersielt selskap, som leverer Internett-tilkoblinger og tilhørende basistjenester (e-post, nyheter og så videre)."
 
 msgid "The second question deals with the full name of the machine, used to generate email addresses from a local user name; the full name of the machine ends up as the part after the at-sign (“@”). In the case of Falcot, the answer should be <literal>mail.falcot.com</literal>. This is the only question asked by default, but the configuration it leads to is not complete enough for the needs of Falcot, which is why the administrators run <command>dpkg-reconfigure postfix</command> so as to be able to customize more parameters."
-msgstr ""
+msgstr "Det andre spørsmålet omfatter det fulle navnet på maskinen, som brukes til å generere e-postadresser fra en lokal brukernavn; hele navnet på maskinen kommer opp som en del etter at-skiltet (\"@\"). For Falcots del, bør svaret være <literal>mail.falcot.com</literal>. Dette er det eneste spørsmålet ved oppstart, men oppsettet den fører til er ikke komplett nok for behovene til Falcot, noe som er grunnen til at administratorene kjører <command>dpkg-reconfigure postfix</command> slik at man er i stand til å tilpasse flere parametre."
 
 msgid "One of the extra questions asks for all the domain names related to this machine. The default list includes its full name as well as a few synonyms for <literal>localhost</literal>, but the main <literal>falcot.com</literal> domain needs to be added by hand. More generally, this question should usually be answered with all the domain names for which this machine should serve as an MX server; in other words, all the domain names for which the DNS says that this machine will accept email. This information ends up in the <literal>mydestination</literal> variable of the main Postfix configuration file — <filename>/etc/postfix/main.cf</filename>."
-msgstr ""
+msgstr "Ett av de ekstra spørsmålene gjelder å få alle domenenavn knyttet til denne maskinen. Stanardlisten inneholder dets fulle navn, samt noen få synonymer for <literal>localhost</literal>, men hoved-domenet <literal>falcot.com</literal> må legges for hånd. Mer generelt bør dette spørsmålet vanligvis besvares med alle domene-navnene som denne maskinen skal tjene som MX-tjener for; med andre ord, alle domene-navnene for hvem DNS sier at denne maskinen vil akseptere e-post. Denne informasjonen ender opp i <literal>mydestination</literal>-variabelen i Postfixs hovedoppsettsfil - <filename>/etc/postfix/main.cf</filename>."
 
+#, fuzzy
 msgid "<primary>server</primary><secondary>MX</secondary>"
-msgstr ""
+msgstr "<primary>server</primary><secondary>MX</secondary>"
 
+#, fuzzy
 msgid "<primary>MX</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>MX</primary><secondary>server</secondary>"
 
 msgid "Role of the DNS <emphasis>MX</emphasis> record while sending a mail"
-msgstr ""
+msgstr "Rollen til DNS <emphasis>MX</emphasis>-registering ved sending av en e-post"
 
 msgid "<emphasis>EXTRA</emphasis> Querying the MX records"
-msgstr ""
+msgstr "<emphasis>EXTRA</emphasis> Å spørre MX-registreringene"
 
 msgid "When the DNS does not have an MX record for a domain, the email server will try sending the messages to the host itself, by using the matching A record (or AAAA in IPv6)."
-msgstr ""
+msgstr "Når DNS ikke har en MX-registrering for et domene, vil e-posttjeneren prøve å sende meldingene til verten selv ved hjelp av matchende A-posten (eller AAAA i IPv6)."
 
 msgid "In some cases, the installation can also ask what networks should be allowed to send email via the machine. In its default configuration, Postfix only accepts emails coming from the machine itself; the local network will usually be added. The Falcot Corp administrators added <literal>192.168.0.0/16</literal> to the default answer. If the question is not asked, the relevant variable in the configuration file is <literal>mynetworks</literal>, as seen in the example below."
-msgstr ""
+msgstr "I noen tilfeller kan installasjonen også spørre hvilke nettverk som skal få lov til å sende e-post via maskinen. I standardkonfigurasjonen, aksepterer Postfix kun e-postmeldinger som kommer fra selve maskinen; det lokale nettverket vil vanligvis bli lagt til. Falcot Corp-administratorene la til <literal>192.168.0.0/16</literal> til standardsvaret. Hvis spørsmålet ikke er spurt, er den relevant variabel i konfigurasjonsfilen <literal>mynetworks</literal>, slik som i eksemplet nedenfor."
 
 msgid "Local email can also be delivered through <command>procmail</command>. This tool allows users to sort their incoming email according to rules stored in their <filename>~/.procmailrc</filename> file."
-msgstr ""
+msgstr "Lokal e-post kan også leveres via <command>procmail</command>. Dette verktøyet tillater brukere å sortere sin innkommende e-post etter regler som er lagret i deres <filename>~/.procmailrc</filename>-fil."
 
+#, fuzzy
 msgid "<primary><command>procmail</command></primary>"
-msgstr ""
+msgstr "<primary><command>procmail</command></primary>"
 
+#, fuzzy
 msgid "<primary>email</primary><secondary>filtering</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>filtering</secondary>"
 
+#, fuzzy
 msgid "<primary>filtering email</primary>"
-msgstr ""
+msgstr "<primary>filtering email</primary>"
 
 msgid "After this first step, the administrators got the following configuration file; it will be used as a starting point for adding some extra functionality in the next sections."
-msgstr ""
+msgstr "Etter dette første trinnet, får administratorene den etterfølgende konfigurasjonsfil; den vil bli brukt som et utgangspunkt for å legge til noe ekstra funksjonalitet i de neste seksjonene."
 
 msgid "Initial <filename>/etc/postfix/main.cf</filename> file"
-msgstr ""
+msgstr "Innledende <filename>/etc/postfix/main.cf</filename>-fil"
 
+#, fuzzy
 msgid ""
 "\n"
 "# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
@@ -205,64 +232,117 @@ msgid ""
 "inet_interfaces = all\n"
 "inet_protocols = all"
 msgstr ""
+"\n"
+"# See /usr/share/postfix/main.cf.dist for a commented, more complete version\n"
+"\n"
+"\n"
+"# Debian specific:  Specifying a file name will cause the first\n"
+"# line of that file to be used as the name.  The Debian default\n"
+"# is /etc/mailname.\n"
+"#myorigin = /etc/mailname\n"
+"\n"
+"smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)\n"
+"biff = no\n"
+"\n"
+"# appending .domain is the MUA's job.\n"
+"append_dot_mydomain = no\n"
+"\n"
+"# Uncomment the next line to generate \"delayed mail\" warnings\n"
+"#delay_warning_time = 4h\n"
+"\n"
+"readme_directory = no\n"
+"\n"
+"# TLS parameters\n"
+"smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem\n"
+"smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key\n"
+"smtpd_use_tls=yes\n"
+"smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache\n"
+"smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache\n"
+"\n"
+"# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for\n"
+"# information on enabling SSL in the smtp client.\n"
+"\n"
+"smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination\n"
+"myhostname = mail.falcot.com\n"
+"alias_maps = hash:/etc/aliases\n"
+"alias_database = hash:/etc/aliases\n"
+"myorigin = /etc/mailname\n"
+"mydestination = mail.falcot.com, falcot.com, localhost.localdomain, localhost\n"
+"relayhost = \n"
+"mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.0.0/16\n"
+"mailbox_command = procmail -a \"$EXTENSION\"\n"
+"mailbox_size_limit = 0\n"
+"recipient_delimiter = +\n"
+"inet_interfaces = all\n"
+"inet_protocols = all"
 
+#, fuzzy
 msgid "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certificates"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> <emphasis>Snake oil</emphasis> SSL certificates"
 
 msgid "The <emphasis>snake oil</emphasis> certificates, like the <emphasis>snake oil</emphasis> “medicine” sold by unscrupulous quacks in old times, have absolutely no value: you cannot rely on them to authenticate the server since they are automatically generated self-signed certificates. However they are useful to improve the privacy of the exchanges."
-msgstr ""
+msgstr "<emphasis>snake oil</emphasis>-sertifikatene, som ble solgt som <emphasis>snake oil</emphasis>-“medisin” av skruppelløse kvakksalvere i gamle dager, har absolutt ingen verdi Du kan ikke stole på dem til å godkjenne tjeneren, for de automatisk blir generert med selvsignerte sertifikater. Men de er nyttige for å bedre personvernet ved utvekslingene."
 
 msgid "In general they should only be used for testing purposes, and normal service must use real certificates; these can be generated with the procedure described in <xref linkend=\"sect.easy-rsa\" />."
-msgstr ""
+msgstr "Generelt bør de bare brukes til testformål, og i vanlig drift må en bruke ekte sertifikater., Disse kan genereres med fremgangsmåten beskrevet i <xref linkend=\"sect.easy-rsa\" />."
 
 msgid "Configuring Virtual Domains"
-msgstr ""
+msgstr "Å sette opp virtuelle domener"
 
+#, fuzzy
 msgid "<primary>domain</primary><secondary>virtual</secondary>"
-msgstr ""
+msgstr "<primary>domain</primary><secondary>virtual</secondary>"
 
+#, fuzzy
 msgid "<primary>virtual domain</primary>"
-msgstr ""
+msgstr "<primary>virtual domain</primary>"
 
 msgid "The mail server can receive emails addressed to other domains besides the main domain; these are then known as virtual domains. In most cases where this happens, the emails are not ultimately destined to local users. Postfix provides two interesting features for handling virtual domains."
-msgstr ""
+msgstr "E-posttjeneren kan motta e-post adressert til andre domener i tillegg til hoveddomenet. Disse er da kjent som virtuelle domener. I de fleste tilfeller der dette skjer, blir e-postene i siste instans ikke destinert til lokale brukere. Postfix gir to interessante funksjoner for håndtering av virtuelle domener."
 
 msgid "<emphasis>CAUTION</emphasis> Virtual domains and canonical domains"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Virtuelle domener og \"kanoniske\" domener"
 
 msgid "None of the virtual domains must be referenced in the <literal>mydestination</literal> variable; this variable only contains the names of the “canonical” domains directly associated to the machine and its local users."
-msgstr ""
+msgstr "Ingen av de virtuelle domener må være referert i <literal>mydestination</literal>-variabelen. Denne variabelen inneholder kun navnene på \"kanoniske\" domener direkte knyttet til maskinen og dens lokale brukere."
 
 msgid "Virtual Alias Domains"
-msgstr ""
+msgstr "Vituelle alias-domener"
 
+#, fuzzy
 msgid "<primary>alias</primary><secondary>virtual alias domain</secondary>"
-msgstr ""
+msgstr "<primary>alias</primary><secondary>virtual alias domain</secondary>"
 
+#, fuzzy
 msgid "<primary>virtual domain</primary><secondary>virtual alias domain</secondary>"
-msgstr ""
+msgstr "<primary>virtual domain</primary><secondary>virtual alias domain</secondary>"
 
 msgid "A virtual alias domain only contains aliases, i.e. addresses that only forward emails to other addresses."
-msgstr ""
+msgstr "Et virtuell alias-domene inneholder kun aliaser, dvs. adresser som bare videresender e-post til andre adresser."
 
 msgid "Such a domain is enabled by adding its name to the <literal>virtual_alias_domains</literal> variable, and referencing an address mapping file in the <literal>virtual_alias_maps</literal> variable."
-msgstr ""
+msgstr "Et slikt domene aktiveres ved å legge navnet sitt til <literal>virtual_alias_domains</literal>-variabelen, og vise til en adressekartleggingsfil i <literal>virtual_alias_maps</literal>-variabelen."
 
 msgid "Directives to add in the <filename>/etc/postfix/main.cf</filename> file"
-msgstr ""
+msgstr "Direktiver til å legge i <filename>/etc/postfix/main.cf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "virtual_alias_domains = falcotsbrand.com\n"
 "virtual_alias_maps = hash:/etc/postfix/virtual"
 msgstr ""
+"\n"
+"virtual_alias_domains = falcotsbrand.com\n"
+"virtual_alias_maps = hash:/etc/postfix/virtual"
 
 msgid "The <filename>/etc/postfix/virtual</filename> file describes a mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
-msgstr ""
+msgstr "<filename>/etc/postfix/virtual</filename>-filen beskriver en kartlegging med en ganske grei syntaks: Hver linje inneholder to felt adskilt med mellomrom; Det første feltet er alias-navnet, det andre feltet er en liste over e-postadresser der det omdirigeres. Den spesielle <literal>@domain.com</literal>-syntaksen dekker alle gjenstående aliaser i et domene."
 
 msgid "Example <filename>/etc/postfix/virtual</filename> file"
-msgstr ""
+msgstr "Eksempel <filename>/etc/postfix/virtual</filename>-fil"
 
+#, fuzzy
 msgid ""
 "\n"
 "webmaster@falcotsbrand.com  jean@falcot.com\n"
@@ -273,44 +353,60 @@ msgid ""
 "# falcot.com domain.\n"
 "@falcotsbrand.com           @falcot.com"
 msgstr ""
+"\n"
+"webmaster@falcotsbrand.com  jean@falcot.com\n"
+"contact@falcotsbrand.com    laure@falcot.com, sophie@falcot.com\n"
+"# The alias below is generic and covers all addresses within \n"
+"# the falcotsbrand.com domain not otherwise covered by this file.\n"
+"# These addresses forward email to the same user name in the\n"
+"# falcot.com domain.\n"
+"@falcotsbrand.com           @falcot.com"
 
 msgid "Virtual Mailbox Domains"
-msgstr ""
+msgstr "Virtuelle postboksdomener"
 
 msgid "<emphasis>CAUTION</emphasis> Combined virtual domain?"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Kombinert virtuelt domene?"
 
 msgid "Postfix does not allow using the same domain in both <literal>virtual_alias_domains</literal> and <literal>virtual_mailbox_domains</literal>. However, every domain of <literal>virtual_mailbox_domains</literal> is implicitly included in <literal>virtual_alias_domains</literal>, which makes it possible to mix aliases and mailboxes within a virtual domain."
-msgstr ""
+msgstr "Postfix tillater ikke bruk av det samme domenet i både <literal>virtual_alias_domains</literal> og <literal>virtual_mailbox_domains</literal>. Imidlertid, alle domener hos  <literal>virtual_mailbox_domains</literal> er implisitt inkludert i  <literal>virtual_alias_domains</literal>, som gjør det mulig å blande aliaser og postkasser i et virtuelt domene."
 
+#, fuzzy
 msgid "<primary>mailbox, virtual domain</primary>"
-msgstr ""
+msgstr "<primary>mailbox, virtual domain</primary>"
 
+#, fuzzy
 msgid "<primary>virtual domain</primary><secondary>virtual mailbox domain</secondary>"
-msgstr ""
+msgstr "<primary>virtual domain</primary><secondary>virtual mailbox domain</secondary>"
 
 msgid "Messages addressed to a virtual mailbox domain are stored in mailboxes not assigned to a local system user."
-msgstr ""
+msgstr "Meldinger adressert til et virtuell postboksdomene er lagret i postkasser som ikke er lagt til en lokal systembruker."
 
 msgid "Enabling a virtual mailbox domain requires naming this domain in the <literal>virtual_mailbox_domains</literal> variable, and referencing a mailbox mapping file in <literal>virtual_mailbox_maps</literal>. The <literal>virtual_mailbox_base</literal> parameter contains the directory under which the mailboxes will be stored."
-msgstr ""
+msgstr "Aktivering av et virtuell postboks domene krever navngiving av dette domenet i <literal>virtual_mailbox_domains</literal>-variabelen, og refererer til en postkassekartleggingsfil i <literal>virtual_mailbox_maps</literal>.  <literal>virtual_mailbox_base</literal>-parameteren inneholder katalogen der postkasser vil bli lagret."
 
 msgid "The <literal>virtual_uid_maps</literal> parameter (respectively <literal>virtual_gid_maps</literal>) references the file containing the mapping between the email address and the system user (respectively group) that “owns” the corresponding mailbox. To get all mailboxes owned by the same owner/group, the <literal>static:5000</literal> syntax assigns a fixed UID/GID (of value 5000 here)."
-msgstr ""
+msgstr "<literal>virtual_uid_maps</literal>-parameteret (respektivt <literal>virtual_gid_maps</literal>) refererer til filen som inneholder kartleggingen mellom e-postadressen og system-brukeren (henholdsvis -gruppen) som \"eier\" den tilsvarende postkassen. For å få alle postkasser som eies av samme eier/gruppe, tilordner <literal>static:5000</literal> syntaksen en fast UID/GID (med verdien 5000 her)."
 
+#, fuzzy
 msgid ""
 "\n"
 "virtual_mailbox_domains = falcot.org\n"
 "virtual_mailbox_maps = hash:/etc/postfix/vmailbox\n"
 "virtual_mailbox_base = /var/mail/vhosts"
 msgstr ""
+"\n"
+"virtual_mailbox_domains = falcot.org\n"
+"virtual_mailbox_maps = hash:/etc/postfix/vmailbox\n"
+"virtual_mailbox_base = /var/mail/vhosts"
 
 msgid "Again, the syntax of the <filename>/etc/postfix/vmailbox</filename> file is quite straightforward: two fields separated with whitespace. The first field is an email address within one of the virtual domains, and the second field is the location of the associated mailbox (relative to the directory specified in <emphasis>virtual_mailbox_base</emphasis>). If the mailbox name ends with a slash (<literal>/</literal>), the emails will be stored in the <emphasis>maildir</emphasis> format; otherwise, the traditional <emphasis>mbox</emphasis> format will be used. The <emphasis>maildir</emphasis> format uses a whole directory to store a mailbox, each individual message being stored in a separate file. In the <emphasis>mbox</emphasis> format, on the other hand, the whole mailbox is stored in one file, and each line starting with “<literal>From </literal>” (<literal>From</literal> followed by a space) signals the start of a new message."
-msgstr ""
+msgstr "Igjen, syntaksen til <filename>/etc/postfix/vmailbox</filename>-filen er ganske enkel: To felt adskilt med mellomrom. Det første feltet er en e-postadresse i et av de virtuelle domene, og det andre feltet er plasseringen av den tilhørende postkasse (relativt til katalogen spesifisert i <emphasis>virtual_mailbox_base</emphasis>). Hvis postboksen ender med en skråstrek (<literal>/</literal>), blir e-postene lagret i  <emphasis>maildir</emphasis>-formatet; ellers blir det tradisjonelle <emphasis>mbox</emphasis>-formatet brukt.  <emphasis>maildir</emphasis>-formatet bruker en hel katalog for å lagre en postkasse, hver enkelt melding blir lagret i en egen fil. I <emphasis>mbox</emphasis>-formatet, på den andre siden, er hele postboksen lagret i en fil, og hver linje som starter med “<literal>From </literal>” (<literal>From</literal> fulgt av et mellomrom) signaliserer starten på en ny e-post."
 
 msgid "The <filename>/etc/postfix/vmailbox</filename> file"
-msgstr ""
+msgstr "<filename>/etc/postfix/vmailbox</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "# Jean's email is stored as maildir, with\n"
@@ -320,34 +416,43 @@ msgid ""
 "# with all mails concatenated into one single file\n"
 "sophie@falcot.org falcot.org/sophie"
 msgstr ""
+"\n"
+"# Jean's email is stored as maildir, with\n"
+"# one file per email in a dedicated directory\n"
+"jean@falcot.org falcot.org/jean/\n"
+"# Sophie's email is stored in a traditional \"mbox\" file,\n"
+"# with all mails concatenated into one single file\n"
+"sophie@falcot.org falcot.org/sophie"
 
 msgid "Restrictions for Receiving and Sending"
-msgstr ""
+msgstr "Restriksjoner for å motta og sende"
 
 msgid "The growing number of unsolicited bulk emails (<emphasis>spam</emphasis>) requires being increasingly strict when deciding which emails a server should accept. This section presents some of the strategies included in Postfix."
-msgstr ""
+msgstr "Det økende antall uønsket e-post (<emphasis>spam</emphasis>) krever større strenghet når man bestemmer hvilke e-postmeldinger en tjener bør akseptere. Denne seksjonen presenterer noen av de strategiene som inngår i Postfix."
 
 msgid "<emphasis>CULTURE</emphasis> The spam problem"
-msgstr ""
+msgstr "<emphasis>CULTURE</emphasis> Spamproblemet"
 
+#, fuzzy
 msgid "<primary>spam</primary>"
-msgstr ""
+msgstr "<primary>spam</primary>"
 
 msgid "“Spam” is a generic term used to designate all the unsolicited commercial emails (also known as UCEs) that flood our electronic mailboxes; the unscrupulous individuals sending them are known as spammers. They care little about the nuisance they cause, since sending an email costs very little, and only a very small percentage of recipients need to be attracted by the offers for the spamming operation to make more money than it costs. The process is mostly automated, and any email address made public (for instance, on a web forum, or on the archives of a mailing list, or on a blog, and so on) will be discovered by the spammers' robots, and subjected to a never-ending stream of unsolicited messages."
-msgstr ""
+msgstr "\"Spam\" er et generelt begrep som brukes for å betegne alle uønskede kommersielle e-poster (også kjent som UCES) som oversvømmer våre elektroniske postkasser. De skruppelløse individer, som sender dem, er kjent som spammere. De bryr seg lite om de ordensforstyrrelser de forårsaker, siden det å sende en e-post koster svært lite, og bare en svært liten andel av mottakerne må være tiltrukket av tilbudene for at spamming-operasjon tjener mer penger enn det koster. Prosessen er for det meste automatisert, og en offentliggjort e-postadresse (for eksempel på et nettforum, registrert på en adresseliste, eller på en blogg, og så videre) vil bli oppdaget av spammeroboter, og utssatt for en endeløs strøm av uønskede meldinger."
 
 msgid "All system administrators try to face this nuisance with spam filters, but of course spammers keep adjusting to try to work around these filters. Some even rent networks of machines compromised by a worm from various crime syndicates. Recent statistics estimate that up to 95% of all emails circulating on the Internet are spam!"
-msgstr ""
+msgstr "Alle systemadministratorer prøver å møte denne ordensforstyrrelser med spam-filtre, men selvfølgelig vil spammere holde seg oppdatert for å prøve å omgå disse filtrene. Noen leier til og med nettverk av maskiner kompromittert med en orm fra ulike kriminelle organisasjoner. Nyere statistikk anslår at opptil 95% av all e-post som sirkulerer på Internett er spam!"
 
 msgid "IP-Based Access Restrictions"
-msgstr ""
+msgstr "IP-baserte adgangsrestriksjoner"
 
 msgid "The <literal>smtpd_client_restrictions</literal> directive controls which machines are allowed to communicate with the email server."
-msgstr ""
+msgstr "<literal>smtpd_client_restrictions</literal>-direktivet styrer hvilke maskiner som får lov til å kommunisere med e-posttjeneren."
 
 msgid "Restrictions Based on Client Address"
-msgstr ""
+msgstr "Restriksjoner basert på klientadresse"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_client_restrictions = permit_mynetworks,\n"
@@ -356,6 +461,12 @@ msgid ""
 "    reject_rbl_client sbl-xbl.spamhaus.org,\n"
 "    reject_rbl_client list.dsbl.org"
 msgstr ""
+"\n"
+"smtpd_client_restrictions = permit_mynetworks,\n"
+"    warn_if_reject reject_unknown_client,\n"
+"    check_client_access hash:/etc/postfix/access_clientip,\n"
+"    reject_rbl_client sbl-xbl.spamhaus.org,\n"
+"    reject_rbl_client list.dsbl.org"
 
 msgid "When a variable contains a list of rules, as in the example above, these rules are evaluated in order, from the first to the last. Each rule can accept the message, reject it, or leave the decision to a following rule. As a consequence, order matters, and simply switching two rules can lead to a widely different behavior."
 msgstr ""
