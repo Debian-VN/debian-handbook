@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-10-17 17:02+0000\n"
+"PO-Revision-Date: 2016-10-24 11:42+0000\n"
 "Last-Translator: Ingrid Yrvin <ingrid.yrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/08_basic-configuration/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -144,7 +144,6 @@ msgstr "Det andre spørsmålet, med tittelen «Default locale for systemmiljøet
 msgid "<primary>environment</primary>"
 msgstr "<primary>miljø</primary>"
 
-#, fuzzy
 msgid "<primary>locale</primary>"
 msgstr "<primary>locale (omgivelser)</primary>"
 
@@ -262,9 +261,8 @@ msgstr ""
 "$ </computeroutput><userinput>ls travail/</userinput>\n"
 "<computeroutput>Éléments graphiques  Icônes  Textes</computeroutput>"
 
-#, fuzzy
 msgid "For the file content, conversion procedures are more complex due to the vast variety of existing file formats. Some file formats include encoding information that facilitates the tasks of the software used to treat them; it is sufficient, then, to open these files and re-save them specifying UTF-8 encoding. In other cases, you have to specify the original encoding (ISO-8859-1 or “Western”, or ISO-8859-15 or “Western (Euro)”, according to the formulations) when opening the file."
-msgstr "For filinnholdet er konverteringsprosedyrer mer kompliserte på grunn av det enorme utvalg av eksisterende filformater. Noen filformater inkluderer kodeinformasjon som forenkler oppgavene for programvaren som brukes til å behandle dem. Da er det tilstrekkelig å åpne disse filene, og lagre dem igjen, og spesifisere UTF-8-koding. I andre tilfelle må du spesifisere den originale kodingen (ISO-8859-1 eller «Western», eller ISO-8859-15, eller «Western (Euro)», i henhold til formuleringene) når du åpner filen."
+msgstr "For filinnholdet er konverteringsprosedyrer mer kompliserte på grunn av det enorme utvalg av eksisterende filformater. Noen filformater inkluderer kodeinformasjon som forenkler oppgavene for programvaren som brukes til å behandle dem. Da er det tilstrekkelig å åpne disse filene, og lagre dem igjen, og spesifisere UTF-8-koding. I andre tilfelle må du spesifisere den originale kodingen (ISO-8859-1, eller «Western», eller ISO-8859-15, eller «Western (Euro)», i henhold til formuleringene) når du åpner filen."
 
 msgid "For simple text files, you can use <command>recode</command> (in the package of the same name) which allows automatic recoding. This tool has numerous options so you can play with its behavior. We recommend you consult the documentation, the <citerefentry> <refentrytitle>recode</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> man page, or the <citerefentry> <refentrytitle>recode</refentrytitle> </citerefentry> info page (more complete)."
 msgstr "For enkle tekstfiler kan du bruke <command>recode</command> (i pakken med samme navn) som registrerer automatisk. Dette verktøyet har mange alternativer, slik at du kan leke med hvordan det virker. Vi anbefaler at du ser i dokumentasjonen, den manuelle siden <citerefentry> <refentrytitle>recode</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, eller  infosiden <citerefentry> <refentrytitle>recode</refentrytitle> </citerefentry>."
@@ -332,12 +330,11 @@ msgstr "<primary>bro (bridge)</primary>"
 msgid "A router is a machine that connects several networks to each other. All traffic coming through a router is guided to the correct network. To do this, the router analyzes incoming packets and redirects them according to the IP address of their destination. The router is often known as a gateway; in this configuration, it works as a machine that helps reach out beyond a local network (towards an extended network, such as the Internet)."
 msgstr "En ruter er en maskin som forbinder flere nettverk med hverandre. All trafikk som kommer via en ruter blir guidet til riktig nettverk. For å gjøre dette analyserer ruteren innkommende pakker, og viderekobler dem ut fra IP-adressen til bestemmelsesstedet. Ruteren er ofte kjent som en innfallsport; i denne konfigurasjonen fungerer den som en maskin som bidrar til å nå utover et lokalt nettverk (mot et utvidet nettverk, slik som Internett)."
 
-#, fuzzy
 msgid "<primary>broadcast</primary>"
-msgstr "<primary>kringkast (broadcast)</primary>"
+msgstr "<primary>kringkast /sending(broadcast)</primary>"
 
 msgid "The special broadcast address connects all the stations in a network. Almost never “routed”, it only functions on the network in question. Specifically, it means that a data packet addressed to the broadcast never passes through the router."
-msgstr "Den spesielle kringkastingsadressen forbinder alle stasjonene i et nettverk. Nesten aldri «rutet», funger den bare på nettverket det gjelder. Nærmere bestemt betyr dette at en datapakke adressert til kringkastingen aldri passerer gjennom ruteren."
+msgstr "Den spesielle kringkastingsadressen forbinder alle stasjonene i et nettverk. Nesten aldri «rutet», funger den bare på nettverket det gjelder. Nærmere bestemt betyr dette at en datapakke adressert til kringkastingen/sendingen aldri passerer gjennom ruteren."
 
 msgid "This chapter focuses on IPv4 addresses, since they are currently the most commonly used. The details of the IPv6 protocol are approached in <xref linkend=\"sect.ipv6\" />, but the concepts remain the same."
 msgstr "Dette kapitlet fokuserer på IPv4-adresser, siden de i dag er de mest brukte. Detaljene i IPv6-protokollen kommer nærmere i <xref linkend=\"sect.ipv6\" />, men begrepene forblir de samme."
@@ -345,26 +342,21 @@ msgstr "Dette kapitlet fokuserer på IPv4-adresser, siden de i dag er de mest br
 msgid "Since the network is automatically configured during the initial installation, the <filename>/etc/network/interfaces</filename> file already contains a valid configuration. A line starting with <literal>auto</literal> gives a list of interfaces to be automatically configured on boot by <emphasis role=\"pkg\">ifupdown</emphasis> and its <filename>/etc/init.d/networking</filename> init script. This will often be <literal>eth0</literal>, which refers to the first Ethernet card."
 msgstr "Siden nettverket er konfigurert automatisk under den første installasjonen, inneholder <filename>/etc/network/interfaces</filename>-filen allerede en gyldig konfigurasjon. En linje som starter med <literal>auto</literal> gir en liste med grensesnitt som automatisk blir konfigurert ved oppstart med <emphasis role=\"pkg\">ifupdown</emphasis> og dens <filename>/etc/init.d/networking</filename> init skript. Dette vil ofte være <literal>eth0</literal>, som referer til det første Ethernet-kortet."
 
-#, fuzzy
 msgid "<primary>network</primary><secondary>configuration</secondary>"
 msgstr "<primary>nettverk</primary><secondary>konfigurasjon</secondary>"
 
-#, fuzzy
 msgid "<primary>configuration</primary><secondary>of the network</secondary>"
 msgstr "<primary>konfigurasjon</primary><secondary>av nettverket</secondary>"
 
 msgid "<primary>interface</primary><secondary>network interface</secondary>"
 msgstr "<primary>grensesnitt</primary><secondary>nettverksgrensesnitt interface</secondary>"
 
-#, fuzzy
 msgid "<primary><literal>eth0</literal></primary>"
 msgstr "<primary><literal>eth0</literal></primary>"
 
-#, fuzzy
 msgid "<emphasis>ALTERNATIVE</emphasis> NetworkManager"
 msgstr "<emphasis>ALTERNATIV</emphasis> NetworkManager"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">network-manager</emphasis></primary>"
 
@@ -377,14 +369,12 @@ msgstr "Ethernet-grensesnitt"
 msgid "If the computer has an Ethernet card, the IP network that is associated with it must be configured by choosing from one of two methods. The simplest method is dynamic configuration with DHCP, and it requires a DHCP server on the local network. It may indicate a desired hostname, corresponding to the <literal>hostname</literal> setting in the example below. The DHCP server then sends configuration settings for the appropriate network."
 msgstr "Hvis datamaskinen har et Ethernet-kort, må det IP-nettverk som er forbundet med det, bli konfigurert ved å velge blant en av to metoder. Den enkleste metoden er en dynamisk konfigurasjon med DHCP, og det krever en DHCP-tjener i det lokale nettverket. Det kan indikere et ønsket vertsnavn, tilsvarende <literal>hostname</literal>-innstillingen i eksempelet nedenfor. DHCP-tjeneren sender deretter konfigurasjonsinnstillinger for det aktuelle nettverket."
 
-#, fuzzy
 msgid "<primary>DHCP</primary>"
 msgstr "<primary>DHCP</primary>"
 
 msgid "DHCP configuration"
 msgstr "DHCP-konfigurasjon"
 
-#, fuzzy
 msgid ""
 "\n"
 "auto eth0\n"
@@ -500,21 +490,18 @@ msgstr "Så snart denne konfigurasjonen er fullført, kan du åpne ADSL-tilkobli
 msgid "<primary><literal>dsl-provider</literal></primary>"
 msgstr "<primary><literal>dsl-provider</literal></primary>"
 
-#, fuzzy
 msgid "<emphasis>TIP</emphasis> Starting <command>ppp</command> at boot"
 msgstr "<emphasis>TIP</emphasis> som starter <command>ppp</command> ved oppstart"
 
 msgid "<primary><command>systemd</command></primary>"
 msgstr "<primary><command>systemd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>init</command></primary>"
 msgstr "<primary><command>init</command></primary>"
 
 msgid "PPP connections over ADSL are, by definition, intermittent. Since they are usually not billed according to time, there are few downsides to the temptation of keeping them always open. The standard means to do so is to use the init system."
 msgstr "PPP-forbindelser over ADSL er, per definisjon, periodiske. Siden de vanligvis ikke faktureres etter tidsbruk, er det få motforestillinger mot å alltid holde dem åpne. Standardmåtene å gjøre det på, er å bruke init-systemet."
 
-#, fuzzy
 msgid "The default init system on <emphasis role=\"distribution\">Jessie</emphasis> is <command>systemd</command>. Adding an automatically restarting task for the ADSL connection is a simple matter of creating a “unit file” such as <filename>/etc/systemd/system/adsl-connection.service</filename>, with contents such as the following:"
 msgstr "Standard init-systemet på <emphasis role=\"distribution\">Jessie</emphasis> er <command>systemd</command>. Å legge til en automatisk omstartsoppgave for ADSL-tilkoblingen er en så enkel sak som å lage en «unit file» (enhetsfil), slik som <filename>/etc/systemd/system/adsl-connection.service</filename>, med innhold som det følgende:"
 
@@ -548,7 +535,6 @@ msgstr "Så snart denne unit-filen er definert, må den aktiveres med <command>s
 msgid "On systems not using <command>systemd</command> (including <emphasis role=\"distribution\">Wheezy</emphasis> and earlier versions of Debian), the standard SystemV init works differently. On such systems, all that is needed is to add a line such as the following at the end of the <filename>/etc/inittab</filename> file; then, any time the connection is disconnected, <command>init</command> will reconnect it."
 msgstr "På systemer som ikke bruker <command>systemd</command> (medregnet <emphasis role=\"distribution\">Wheezy</emphasis> og tidligere versjoner av Debian), fungerer standard SystemV init annerledes. I slike systemer er alt som er nødvendig å legge til en linje som følgende ved slutten av <filename>/etc/inittab</filename>-filen; så, hver gang forbindelsen blir frakoblet, vil <command>init</command> åpne den igjen."
 
-#, fuzzy
 msgid ""
 "\n"
 "adsl:2345:respawn:/usr/sbin/pppd call dsl-provider"
@@ -562,25 +548,21 @@ msgstr "For ADSL-forbindelser som daglig auto-frakobler, reduserer metoden varig
 msgid "Modems Supporting PPTP"
 msgstr "Modemer som støtter PPTP"
 
-#, fuzzy
 msgid "<primary>PPTP</primary>"
 msgstr "<primary>PPTP</primary>"
 
-#, fuzzy
 msgid "The PPTP (Point-to-Point Tunneling Protocol) protocol was created by Microsoft. Deployed at the beginning of ADSL, it was quickly replaced by PPPOE. If this protocol is forced on you, see <xref linkend=\"sect.pptp\" />."
-msgstr "Protokollen PPTP (Point-to-Point Tunneling Protocol) ble opprettet av Microsoft. I begynnelsen utplassert av ADSL, og ble raskt erstattet av PPPoE. Hvis denne protokollen er tvunget på deg, se <xref linkend=\"sect.pptp\" />."
+msgstr "Protokollen PPTP (Point-to-Point Tunneling Protocol) ble opprettet av Microsoft. I begynnelsen utplassert av ADSL, og ble raskt erstattet av PPPOE. Hvis denne protokollen er tvunget på deg, se <xref linkend=\"sect.pptp\" />."
 
 msgid "Modems Supporting DHCP"
 msgstr "Modemer som støtter DHCP"
 
-#, fuzzy
 msgid "When a modem is connected to the computer by an Ethernet cable (crossover cable) you typically configure a network connection by DHCP on the computer; the modem automatically acts as a gateway by default and takes care of routing (meaning that it manages the network traffic between the computer and the Internet)."
 msgstr "Når et modem er koblet til datamaskinen med en Ethernet-kabel (krysset kabel), konfigurerer du vanligvis en nettverkstilkobling med DHCP på datamaskinen. Modemet fungerer automatisk som en systemport som standard, og tar seg av ruting (som betyr at den klarer nettverkstrafikk mellom datamaskinen og Internett)."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Crossover cable for a direct Ethernet connection"
 msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> Krysskabel for en direkte Ethernet-forbindelse"
 
-#, fuzzy
 msgid "<primary>crossover cable</primary>"
 msgstr "<primary>crossover kabel (krysskabel)</primary>"
 
@@ -596,7 +578,6 @@ msgstr "De fleste «ADSL-rutere» på markedet kan brukes slik, som de fleste av
 msgid "Automatic Network Configuration for Roaming Users"
 msgstr "Automatisk nettverksoppsett for roaming-brukere"
 
-#, fuzzy
 msgid "<primary>network</primary><secondary>roaming configuration</secondary>"
 msgstr "<primary>nettverk</primary><secondary>roamingkonfigurasjon</secondary>"
 
@@ -630,7 +611,6 @@ msgstr "Brukere som vil velge en nettverksprofil manuelt vil foretrekke <emphasi
 msgid "Setting the Hostname and Configuring the Name Service"
 msgstr "Sette vertsnavnet, og konfigurere navntjenesten"
 
-#, fuzzy
 msgid "<primary>name</primary><secondary>attribution and resolution</secondary>"
 msgstr "<primary>navn</primary><secondary>attribusjon og oppløsning</secondary>"
 
@@ -643,14 +623,12 @@ msgstr "Formålet med å tildele navn til IP-numre er å gjøre dem lettere for 
 msgid "Each machine is, however, identified by a main (or “canonical”) name, stored in the <filename>/etc/hostname</filename> file and communicated to the Linux kernel by initialization scripts through the <command>hostname</command> command. The current value is available in a virtual filesystem, and you can get it with the <command>cat /proc/sys/kernel/hostname</command> command."
 msgstr "Hver maskin er imidlertid identifisert av et hovednavn (eller «kanonisk») navn, som er lagret i<filename>/etc/hostname</filename>-filen, og kommunisert til Linux-kjernen ved initialiseringsskripter med <command>hostname</command>-kommandoen. Den aktuelle verdien er tilgjengelig i et virtuelt filsystem, og du kan få det med <command>cat /proc/sys/kernel/hostname</command>-kommandoen."
 
-#, fuzzy
 msgid "<primary><command>hostname</command></primary>"
 msgstr "<primary><command>hostname</command></primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> <filename>/proc/</filename> and <filename>/sys/</filename>, virtual filesystems"
 msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> <filename>/proc/</filename> og <filename>/sys/</filename>, virtuelle filsystemer"
 
-#, fuzzy
 msgid "<primary><filename>/proc/</filename></primary>"
 msgstr "<primary><filename>/proc/</filename></primary>"
 
@@ -660,7 +638,6 @@ msgstr "<primary><filename>proc</filename></primary>"
 msgid "<primary><filename>/sys/</filename></primary>"
 msgstr "<primary><filename>/sys/</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>sys</filename></primary>"
 msgstr "<primary><filename>sys</filename></primary>"
 
@@ -673,7 +650,6 @@ msgstr "<filename>/sys/</filename> er spesielt utformet for å gi tilgang til in
 msgid "Surprisingly, the domain name is not managed in the same way, but comes from the complete name of the machine, acquired through name resolution. You can change it in the <filename>/etc/hosts</filename> file; simply write a complete name for the machine there at the beginning of the list of names associated with the address of the machine, as in the following example:"
 msgstr "Overraskende nok, domenenavnet håndteres ikke på samme måte, men kommer fra det komplette navnet på maskinen, skaffet gjennom navneoppslag. Du kan endre det i <filename>/etc/hosts</filename>-filen, skriv bare et komplett navn på maskinen i begynnelsen av listen over navn som er knyttet til maskinens adresse, som i følgende eksempel:"
 
-#, fuzzy
 msgid ""
 "\n"
 "127.0.0.1     localhost\n"
@@ -683,11 +659,9 @@ msgstr ""
 "127.0.0.1     localhost\n"
 "192.168.0.1   arrakis.falcot.com arrakis"
 
-#, fuzzy
 msgid "<primary><filename>hosts</filename></primary>"
 msgstr "<primary><filename>hosts</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>/etc/hosts</filename></primary>"
 msgstr "<primary><filename>/etc/hosts</filename></primary>"
 
@@ -697,23 +671,18 @@ msgstr "<primary>domene</primary><secondary>navn</secondary>"
 msgid "<primary>name</primary><secondary>domain</secondary>"
 msgstr "<primary>navn</primary><secondary>domene</secondary>"
 
-#, fuzzy
 msgid "<primary>NSS</primary>"
 msgstr "<primary>NSS</primary>"
 
-#, fuzzy
 msgid "Name Resolution"
 msgstr "Navneoppløsning"
 
-#, fuzzy
 msgid "<primary>resolution</primary><secondary>name</secondary>"
 msgstr "<primary>oppløsning</primary><secondary>navn</secondary>"
 
-#, fuzzy
 msgid "<primary>name</primary><secondary>resolution</secondary>"
 msgstr "<primary>navn</primary><secondary>oppløsning</secondary>"
 
-#, fuzzy
 msgid "The mechanism for name resolution in Linux is modular and can use various sources of information declared in the <filename>/etc/nsswitch.conf</filename> file. The entry that involves host name resolution is <literal>hosts</literal>. By default, it contains <literal>files dns</literal>, which means that the system consults the <filename>/etc/hosts</filename> file first, then DNS servers. NIS/NIS+ or LDAP servers are other possible sources."
 msgstr "Mekanismen for navneoppløsning i Linux er modulbasert, og kan bruke ulike kilder til informasjon som vises i <filename>/etc/nsswitch.conf</filename>-filen. Oppføringen som gjelder vertsnavnoppløsning er <literal>hosts</literal>. Som standard inneholder den <literal>files dns</literal>, som betyr at systemet konsulterer <filename>/etc/hosts</filename>-filen først, deretter DNS-servere. NIS/NIS+ eller LDAP-servere er andre mulige kilder."
 
@@ -729,9 +698,8 @@ msgstr "Å konfigurere DNS-tjenere"
 msgid "<primary>DNS</primary>"
 msgstr "<primary>DNS</primary>"
 
-#, fuzzy
 msgid "<primary>Domain Name Service</primary>"
-msgstr "<primary>Domain Name Service</primary>"
+msgstr "<primary>Domene navneservice (Domain Name Service)</primary>"
 
 msgid "DNS (Domain Name Service) is a distributed and hierarchical service mapping names to IP addresses, and vice-versa. Specifically, it can turn a human-friendly name such as <literal>www.eyrolles.com</literal> into the actual IP address, <literal>213.244.11.247</literal>."
 msgstr "DNS (Domain Name Service) er en distribuert og hierarkisk tjeneste som kartlegging av navn til IP-adresser, og vice versa. Spesielt kan det forandre et menneskevennlig navn som <literal>www.eyrolles.com</literal> til en en faktisk IP-adresse, <literal>213.244.11.247</literal>."
@@ -746,11 +714,9 @@ msgstr "<primary><filename>resolv.conf</filename></primary>"
 msgid "<primary><literal>nameserver</literal></primary>"
 msgstr "<primary><literal>nameserver</literal></primary>"
 
-#, fuzzy
 msgid "The DNS servers to be used are indicated in the <filename>/etc/resolv.conf</filename>, one per line, with the <literal>nameserver</literal> keyword preceding an IP address, as in the following example:"
 msgstr "DNS-serverne som skal brukes, er angitt i <filename>/etc/resolv.conf</filename>, en per linje, med <literal>nameserver</literal> nøkkelordet foran en IP-adresse, som i følgende eksempel:"
 
-#, fuzzy
 msgid ""
 "\n"
 "nameserver 212.27.32.176\n"
@@ -771,7 +737,6 @@ msgstr "Filen <filename>/etc/hosts</filename>"
 msgid "If there is no name server on the local network, it is still possible to establish a small table mapping IP addresses and machine hostnames in the <filename>/etc/hosts</filename> file, usually reserved for local network stations. The syntax of this file is very simple: each line indicates a specific IP address followed by the list of any associated names (the first being “completely qualified”, meaning it includes the domain name)."
 msgstr "Hvis det ikke er noen navnetjener i det lokale nettverket, er det fortsatt mulig å etablere et lite bord som kartlegger IP-adresser og maskinvertsnavn i <filename>/etc/hosts</filename>-filen, vanligvis reservert for lokale nettverkstasjoner. Syntaksen til denne filen er veldig enkel: Hver linje angir en bestemt IP-adresse etterfulgt av listen over eventuelle andre berørte navn (er den første «fullstendig kvalifisert», betyr at den inkluderer domenenavnet)."
 
-#, fuzzy
 msgid "This file is available even during network outages or when DNS servers are unreachable, but will only really be useful when duplicated on all the machines on the network. The slightest alteration in correspondence will require the file to be updated everywhere. This is why <filename>/etc/hosts</filename> generally only contains the most important entries."
 msgstr "Denne filen er tilgjengelig selv under nettverksbrudd, eller når DNS-servere ikke kan nås, men vil egentlig bare være nyttig når den dupliseres på alle maskiner på nettverket. Den minste endring i korrespondansene vil krever at filen oppdateres overalt. Dette er grunnen til at <filename>/etc/hosts</filename> generelt bare inneholder de aller viktigste inngangene."
 
@@ -820,7 +785,6 @@ msgstr "For dette formålet er det nok å bruke <command>vipw</command>-kommando
 msgid "<emphasis>BACK TO BASICS</emphasis> Crypt, a one-way function"
 msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> Crypt, en enveisfunksjon"
 
-#, fuzzy
 msgid "<primary>crypt</primary>"
 msgstr "<primary>crypt</primary>"
 
@@ -995,9 +959,8 @@ msgstr "Hver bruker kan være medlem av mange grupper; en av dem er deres «hove
 msgid "Alternatively, the user can set the <literal>setgid</literal> bit on the directory, which causes files created in that directory to automatically belong to the correct group. For more details, see sidebar <xref linkend=\"sidebar.setgid-dir\" />."
 msgstr "Alternativt kan brukeren sette <literal>setgid</literal>-bit på katalogen, noe som fører til at filene som er opprettet i den mappen automatisk hører til den riktige gruppen. For mer informasjon, se sidestolpe <xref linkend=\"sidebar.setgid-dir\" />."
 
-#, fuzzy
 msgid "The <command>id</command> command displays the current state of a user, with their personal identifier (<varname>uid</varname> variable), current main group (<varname>gid</varname> variable), and the list of groups to which they belong (<varname>groups</varname> variable)."
-msgstr "<command>id</command>-kommandoen viser brukerens nåværende tilstand med sin personlig identifikator (<varname>uid</varname>-variabel), nåværende hovedgruppe (<varname>gid</varname>-variabel), og listen med grupper som de hører til (<varname>groups</varname>-variabel)."
+msgstr "<command>id</command>-kommandoen viser brukerens nåværende tilstand med sin personlige identifikator (<varname>uid</varname>-variabel), nåværende hovedgruppe (<varname>gid</varname>-variabel), og listen med grupper som de hører til (<varname>groups</varname>-variabel)."
 
 msgid "<primary><filename>group</filename></primary>"
 msgstr "<primary><filename>group</filename></primary>"
@@ -1005,9 +968,8 @@ msgstr "<primary><filename>group</filename></primary>"
 msgid "<primary><filename>/etc/group</filename></primary>"
 msgstr "<primary><filename>/etc/group</filename></primary>"
 
-#, fuzzy
 msgid "The <command>addgroup</command> and <command>delgroup</command> commands add or delete a group, respectively. The <command>groupmod</command> command modifies a group's information (its <literal>gid</literal> or identifier). The command <command>passwd -g <replaceable>group</replaceable></command> changes the password for the group, while the <command>passwd -r -g <replaceable>group</replaceable></command> command deletes it."
-msgstr "Henholdsvis <command>addgroup</command> og <command>delgroup</command>-kommandoene legger til eller sletter en gruppe. <command>groupmod</command>-kommandoen modifiserer en gruppes informasjon (its <literal>gid</literal>, eller identifier). Kommandoen <command>passwd -g <replaceable>group</replaceable></command> endrer passordet for gruppen, mens <command>passwd -r -g <replaceable>group</replaceable></command>-kommandoen sletter den."
+msgstr "Henholdsvis <command>addgroup</command> og <command>delgroup</command>-kommandoene legger til eller sletter en gruppe. <command>groupmod</command>-kommandoen modifiserer en gruppes informasjon (its <literal>gid</literal>, eller identifikator). Kommandoen <command>passwd -g <replaceable>group</replaceable></command> endrer passordet for gruppen, mens <command>passwd -r -g <replaceable>group</replaceable></command>-kommandoen sletter den."
 
 msgid "<primary><command>addgroup</command></primary>"
 msgstr "<primary><command>addgroup</command></primary>"
@@ -1087,11 +1049,9 @@ msgstr "<primary>enhet</primary><secondary>tilgangstillatelser </secondary>"
 msgid "<primary>file</primary><secondary>special</secondary>"
 msgstr "<primary>fil</primary><secondary>spesiell</secondary>"
 
-#, fuzzy
 msgid "<primary>mode</primary><secondary>character</secondary>"
 msgstr "<primary>modus</primary><secondary>tegn</secondary>"
 
-#, fuzzy
 msgid "<primary>mode</primary><secondary>block</secondary>"
 msgstr "<primary>modus</primary><secondary>blokk</secondary>"
 
@@ -1222,12 +1182,11 @@ msgstr "<primary>utskrift</primary><secondary>configuration</secondary>"
 msgid "Printer configuration used to cause a great many headaches for administrators and users alike. These headaches are now mostly a thing of the past, thanks to <emphasis role=\"pkg\">cups</emphasis>, the free print server using the IPP protocol (Internet Printing Protocol)."
 msgstr "Skriveroppsettet bruker å forårsake mye hodepine for administratorer og brukere. Denne hodepinen er nå stort sett en ting fra fortiden, takket være  <emphasis role=\"pkg\">cups</emphasis>, den frie printertjeneren som bruker IPP-protokollen (Internet Printing Protocol)."
 
-#, fuzzy
 msgid "<primary>IPP</primary>"
 msgstr "<primary>IPP</primary>"
 
 msgid "<primary>Internet Printing Protocol</primary>"
-msgstr "<primary>Internet Printing Protocol</primary>"
+msgstr "<primary>Internett skriverprotokoll (Internet Printing Protocol)</primary>"
 
 msgid "<primary><command>cups</command></primary>"
 msgstr "<primary><command>cups</command></primary>"
@@ -1649,7 +1608,6 @@ msgstr "<primary><filename>/etc/timezone</filename></primary>"
 msgid "<primary><filename>zoneinfo</filename></primary>"
 msgstr "<primary><filename>zoneinfo</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>/usr/share/zoneinfo/</filename></primary>"
 msgstr "<primary><filename>/usr/share/zoneinfo/</filename></primary>"
 
@@ -1712,9 +1670,8 @@ msgstr "<primary>NTP</primary>"
 msgid "<primary>Network</primary><secondary>Time Protocol</secondary>"
 msgstr "<primary>nettverk</primary><secondary>tidsprotokoll</secondary>"
 
-#, fuzzy
 msgid "NTP (Network Time Protocol) allows a machine to synchronize with others fairly accurately, taking into consideration the delays induced by the transfer of information over the network and other possible offsets."
-msgstr "NTP (Network Time Protocol / Nettverk tidsprotokoll) gjør det mulig for en maskin å synkronisere seg med andre ganske nøyaktig, tatt i betraktning forsinkelser forårsaket av overføring av informasjon over nettverket og andre mulige forskyvninger."
+msgstr "NTP (Network Time Protocol / Nettverk tidsprotokoll) gjør det mulig for en maskin å synkronisere seg med andre ganske nøyaktig, tatt i betraktning forsinkelser forårsaket av overføring av informasjon over nettverket, og andre mulige forskyvninger."
 
 msgid "While there are numerous NTP servers on the Internet, the more popular ones may be overloaded. This is why we recommend using the <emphasis>pool.ntp.org</emphasis> NTP server, which is, in reality, a group of machines that have agreed to serve as public NTP servers. You could even limit use to a sub-group specific to a country, with, for example, <emphasis>us.pool.ntp.org</emphasis> for the United States, or <emphasis>ca.pool.ntp.org</emphasis> for Canada, etc."
 msgstr "Mens det er mange NTP-servere på Internett, kan de mer populære bli overbelastet . Det er derfor anbefaler vi å bruke <emphasis>pool.ntp.org</emphasis>-NTP-tjener, som i realiteten er en gruppe maskiner som har blitt enige om å tjene som offentlige NTP-tjenere. Du kan til og med begrense bruken til en under-gruppe som er spesifikk for et land, for eksempel med <emphasis>us.pool.ntp.org</emphasis> for United States, eller <emphasis>ca.pool.ntp.org</emphasis> for Canada, etc."
@@ -1728,7 +1685,6 @@ msgstr "For arbeidsstasjoner"
 msgid "Since work stations are regularly rebooted (even if only to save energy), synchronizing them by NTP at boot is enough. To do so, simply install the <emphasis role=\"pkg\">ntpdate</emphasis> package. You can change the NTP server used if needed by modifying the <filename>/etc/default/ntpdate</filename> file."
 msgstr "Ettersom arbeidsstasjonene regelmessig blir omstartet (selv om det bare er for å spare energi), er det nok å synkronisere dem med NTP ved oppstart. For å gjøre dette, kan du installere <emphasis role=\"pkg\">ntpdate</emphasis>-pakken. Du kan om nødvendig endre NTP-tjeneren som brukes ved å endre <filename>/etc/default/ntpdate</filename>-filen."
 
-#, fuzzy
 msgid "<primary><filename>ntpdate</filename></primary>"
 msgstr "<primary><filename>ntpdate</filename></primary>"
 
@@ -1741,7 +1697,6 @@ msgstr "For tjenere"
 msgid "Servers are only rarely rebooted, and it is very important for their system time to be correct. To permanently maintain correct time, you would install a local NTP server, a service offered in the <emphasis role=\"pkg\">ntp</emphasis> package. In its default configuration, the server will synchronize with <emphasis>pool.ntp.org</emphasis> and provide time in response to requests coming from the local network. You can configure it by editing the <filename>/etc/ntp.conf</filename> file, the most significant alteration being the NTP server to which it refers. If the network has a lot of servers, it may be interesting to have one local time server which synchronizes with the public servers and is used as a time source by the other servers of the network."
 msgstr "Tjenere er bare sjelden restartet, og det er svært viktig at tidssystemet deres er korrekt. For å opprettholde riktig klokkeslett permanent må du installere en lokal NTP-tjener, en tjeneste som tilbys i <emphasis role=\"pkg\">ntp</emphasis>-pakken. I standardkonfigurasjonen vil serveren synkroniseres med <emphasis>pool.ntp.org</emphasis>, og gi tid som svar på forespørsler som kommer fra det lokale nettverket. Du kan konfigurere den ved å redigere <filename>/etc/ntp.conf</filename>-filen. Den viktigste endringen er NTP-tjeneren som den viser til. Hvis nettverket har mange tjenere, kan det være nyttig å ha en lokal tidstjener som synkroniseres med offentlige tjenere, og brukes som en tidskilde av de andre tjenerne i nettverket."
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">ntp</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">ntp</emphasis></primary>"
 
@@ -1775,7 +1730,6 @@ msgstr "<primary>logger</primary><secondary>filer, rotasjon</secondary>"
 msgid "<primary>rotation of log files</primary>"
 msgstr "<primary>rotasjon av loggfiler</primary>"
 
-#, fuzzy
 msgid "<primary><command>logrotate</command></primary>"
 msgstr "<primary><command>logrotate</command></primary>"
 
@@ -1989,7 +1943,7 @@ msgstr "Rekompilering av kjernen er også nødvendig hvis du ønsker å bruke be
 
 #, fuzzy
 msgid "<emphasis>GOING FURTHER</emphasis> The Debian Kernel Handbook"
-msgstr "<emphasis>GOING FURTHER</emphasis> The Debian Kernel Handbook"
+msgstr "<emphasis>GÅR VIDERE</emphasis> Debian Kernel Håndbok"
 
 #, fuzzy
 msgid "<primary><emphasis role=\"pkg\">debian-kernel-handbook</emphasis></primary>"
@@ -2062,7 +2016,6 @@ msgstr "<primary>kjerne</primary><secondary>konfigurasjon</secondary>"
 msgid "<primary>configuration</primary><secondary>of the kernel</secondary>"
 msgstr "<primary>konfigurasjon</primary><secondary>av kjernen</secondary>"
 
-#, fuzzy
 msgid "<primary><filename>.config</filename></primary>"
 msgstr "<primary><filename>.config</filename></primary>"
 
@@ -2079,7 +2032,6 @@ msgstr ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>cp /boot/config-3.16.0-4-amd64 ~/kernel/linux-source-3.16/.config</userinput>"
 
-#, fuzzy
 msgid "Unless you need to change the configuration, you can stop here and skip to <xref linkend=\"sect.kernel-build\" />. If you need to change it, on the other hand, or if you decide to reconfigure everything from scratch, you must take the time to configure your kernel. There are various dedicated interfaces in the kernel source directory that can be used by calling the <command>make <replaceable>target</replaceable></command> command, where <replaceable>target</replaceable> is one of the values described below."
 msgstr "Hvis du ikke trenger å endre konfigurasjonen, kan du stoppe her og gå til <xref linkend=\"sect.kernel-build\" />.  Hvis du på den andre siden trenger å endre den, eller hvis du bestemmer deg for å rekonfigurere alt fra bunnen av, må du ta deg tid til å konfigurere kjernen. Det finnes ulike egne grensesnitt i kjernens kildekatalog som kan brukes med <command>make <replaceable>target</replaceable></command>-kommandoen, der <replaceable>mål</replaceable> er en av verdiene beskrevet nedenfor."
 
@@ -2278,7 +2230,6 @@ msgstr "Egenskapene til en Debian kjernepakke"
 msgid "<primary><filename>vmlinuz</filename></primary>"
 msgstr "<primary><filename>vmlinuz</filename></primary>"
 
-#, fuzzy
 msgid "A Debian kernel package installs the kernel image (<filename>vmlinuz-<replaceable>version</replaceable></filename>), its configuration (<filename>config-<replaceable>version</replaceable></filename>) and its symbols table (<filename>System.map-<replaceable>version</replaceable></filename>) in <filename>/boot/</filename>. The symbols table helps developers understand the meaning of a kernel error message; without it, kernel “oopses” (an “oops” is the kernel equivalent of a segmentation fault for user-space programs, in other words messages generated following an invalid pointer dereference) only contain numeric memory addresses, which is useless information without the table mapping these addresses to symbols and function names. The modules are installed in the <filename>/lib/modules/<replaceable>version</replaceable>/</filename> directory."
 msgstr "En Debian kjernepakke installerer kjernebildet (<filename>vmlinuz-<replaceable>versjon</replaceable></filename>), konfigureringen (<filename>config-<replaceable>versjon</replaceable></filename>), og kjernes symboltabell (<filename>System.map-<replaceable>versjon</replaceable></filename>) i <filename>/boot/</filename>. Symboloversikten hjelper utviklere å forstå betydningen av en melding om kjernefeil. Uten det, ville kjerne-«oopser» (en «oops» i en kjerne er tilsvarerende en segmenteringsfeil på brukernivå, med andre ord meldinger generert etter en ugyldig peker-deferanseoperasjon) bare inneholde numeriske minneadresser som er unyttig informasjon uten at tabellen viser disse adressene videre til symboler og funksjonsnavn. Modulene er installert i <filename>/lib/modules/<replaceable>versjon</replaceable>/</filename>s-mappen."
 
