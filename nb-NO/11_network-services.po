@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-10-18 01:35+0000\n"
+"PO-Revision-Date: 2016-10-27 00:56+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/11_network-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -44,7 +44,7 @@ msgid "Network Services: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TU
 msgstr "Nettverkstjenester: Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN"
 
 msgid "Network services are the programs that users interact with directly in their daily work. They are the tip of the information system iceberg, and this chapter focuses on them; the hidden parts they rely on are the infrastructure we already described."
-msgstr "Nettjenester er de programmene som brukerne direkte samhandler med i sitt daglige arbeid. De er toppen av informasjonssystemets isfjellet, og dette kapittelet fokuserer på dem - de skjulte delene de er avhengige av er den infrastrukturen vi allerede har beskrevet."
+msgstr "Nettjenester er de programmene som brukerne direkte samhandler med i sitt daglige arbeid. De er toppen av informasjonssystemets isfjell, og dette kapittelet fokuserer på dem - de skjulte delene de er avhengige av er den infrastrukturen vi allerede har beskrevet."
 
 msgid "Many modern network services require encryption technology to operate reliably and securely, especially when used on the public Internet. X.509 Certificates (which may also be referred to as SSL Certificates or TLS Certificates) are frequently used for this purpose. A certificate for a specific domain can often be shared between more than one of the services discussed in this chapter."
 msgstr "Mange moderne nettverkstjenester krever krypteringsteknologi for å fungere på en pålitelig og sikker måte, spesielt når de brukes på det offentlige Internettet. X.509 sertifikater (som også kan refereres til som SSLCertificates eller TLS-sertifikater) brukes ofte til dette formålet. Et sertifikat for et bestemt domene, kan ofte deles mellom mer enn en av tjenestene som er omtalt i dette kapittelet."
@@ -469,59 +469,64 @@ msgstr ""
 "    reject_rbl_client list.dsbl.org"
 
 msgid "When a variable contains a list of rules, as in the example above, these rules are evaluated in order, from the first to the last. Each rule can accept the message, reject it, or leave the decision to a following rule. As a consequence, order matters, and simply switching two rules can lead to a widely different behavior."
-msgstr ""
+msgstr "Når en variabel inneholder en liste med regler, som i eksempelet ovenfor, er disse reglene evaluert i rekkefølge fra den første til den siste. Hver regel kan akseptere meldingen, avvise den, eller overlate avgjørelsen til en følgende regel. Som en konsekvens, relkefølge betyr noe, og ganske enkelt å bytte om på to regler kan føre til et vidt forskjellig resultat."
 
 msgid "The <literal>permit_mynetworks</literal> directive, used as the first rule, accepts all emails coming from a machine in the local network (as defined by the <emphasis>mynetworks</emphasis> configuration variable)."
-msgstr ""
+msgstr "<literal>permit_mynetworks</literal>-direktivet, brukt som den første regelen, godtar alle e-poster som kommer fra en maskin i det lokale nettverket (som definert av konfigureringsvariabelen <emphasis>mynetworks</emphasis>)."
 
 msgid "The second directive would normally reject emails coming from machines without a completely valid DNS configuration. Such a valid configuration means that the IP address can be resolved to a name, and that this name, in turn, resolves to the IP address. This restriction is often too strict, since many email servers do not have a reverse DNS for their IP address. This explains why the Falcot administrators prepended the <literal>warn_if_reject</literal> modifier to the <literal>reject_unknown_client</literal> directive: this modifier turns the rejection into a simple warning recorded in the logs. The administrators can then keep an eye on the number of messages that would be rejected if the rule were actually enforced, and make an informed decision later if they wish to enable such enforcement."
-msgstr ""
+msgstr "Den andre direktivet vil normalt avvise e-post fra maskiner uten en helt gyldig DNS-konfigurasjon. En slik gyldig konfigurasjon betyr at IP-adressen kan løses til et navn, og at dette navnet i sin tur løser til IP-adressen. Denne begrensningen er ofte altfor streng, siden mange e-posttjenere vil ikke ha en omvendt DNS for deres IP-adresse. Dette forklarer hvorfor Falcot administratorer forvalgte <literal>warn_if_reject</literal>modifikatoren til <literal>reject_unknown_client</literal>-direktivet: Denne modifikatoren gjør om avvisningen til en enkel varsling registrert i loggene. Administratorene kan deretter holde et øye med antall meldinger som ville bli avvist hvis regelen ble faktisk ble håndhevet, og ta en avgjørelse senere hvis de ønsker å muliggjøre slik håndheving."
 
 msgid "<emphasis>TIP</emphasis> <emphasis>access</emphasis> tables"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> <emphasis>access</emphasis> tabeller"
 
 msgid "The restriction criteria include administrator-modifiable tables listing combinations of senders, IP addresses, and allowed or forbidden hostnames. These tables can be created from an uncompressed copy of the <filename>/usr/share/doc/postfix-doc/examples/access.gz</filename> file. This model is self-documented in its comments, which means each table describes its own syntax."
-msgstr ""
+msgstr "Restriksjonskriteriet omfatter administrator-modifiserbare tabeller som lister  kombinasjoner av avsendere, IP-adresser, og tillatte eller forbudte vertsnavn. Disse tabellene kan opprettes fra en ukomprimert kopi av <filename>/usr/share/doc/postfix-doc/examples/access.gz</filename>-filen. Denne modellen er selv dokumentert i sine kommentarer, noe som betyr hver tabell beskriver sin egen syntaks."
 
 msgid "The <filename>/etc/postfix/access_clientip</filename> table lists IP addresses and networks; <filename>/etc/postfix/access_helo</filename> lists domain names; <filename>/etc/postfix/access_sender</filename> contains sender email addresses. All these files need to be turned into hash-tables (a format optimized for fast access) after each change, with the <command>postmap /etc/postfix/<replaceable>file</replaceable></command> command."
-msgstr ""
+msgstr "<filename>/etc/postfix/access_clientip</filename>-tabellen viser IP-adresser og nettverk; <filename>/etc/postfix/access_helo</filename> lister domenenavn; <filename>/etc/postfix/access_sender</filename> inneholder avsender e-postadresser. Alle disse filene må bli omgjort til nøkkel-tabeller (et format som er optimalisert for rask tilgang) etter hver endring med <command>postmap /etc/postfix/<replaceable>file</replaceable></command>-kommandoen."
 
 msgid "The third directive allows the administrator to set up a blacklist and a whitelist of email servers, stored in the <filename>/etc/postfix/access_clientip</filename> file. Servers in the whitelist are considered as trusted, and the emails coming from there therefore do not go through the following filtering rules."
-msgstr ""
+msgstr "Den tredje direktivet lar administratoren å sette opp en svarteliste og en hviteliste med e-postservere, lagret i <filename>/etc/postfix/access_clientip</filename>-filen. Tjenere i hvitelisten anses som klarert, og e-poster som kommer fra det derfor ikke gå gjennom følgende filtreringsregler."
 
 msgid "The last two rules reject any message coming from a server listed in one of the indicated blacklists. RBL is an acronym for <emphasis>Remote Black List</emphasis>; there are several such lists, but they all list badly configured servers that spammers use to relay their emails, as well as unexpected mail relays such as machines infected with worms or viruses."
-msgstr ""
+msgstr "De to siste regler avviser enhver melding som kommer fra en tjener oppført i en av de angitte i svartelisten. RBL er en forkortelse for <emphasis>Remote Black List</emphasis>. Det er flere slike lister, men alle lister dårlig konfigurerte tjenere som spammere bruker for å videresende sin e-post, samt uventede post-formidlere, for eksempel maskiner infisert med ormer eller virus."
 
+#, fuzzy
 msgid "<primary>RBL</primary>"
-msgstr ""
+msgstr "<primary>RBL</primary>"
 
+#, fuzzy
 msgid "<primary>Remote Black List</primary>"
-msgstr ""
+msgstr "<primary>Remote Black List</primary>"
 
 msgid "<emphasis>TIP</emphasis> White list and RBLs"
-msgstr ""
+msgstr "<emphasis>TIP</emphasis> Hvitliste og RBL-er"
 
 msgid "Blacklists sometimes include a legitimate server that has been suffering an incident. In these situations, all emails coming from one of these servers would be rejected unless the server is listed in a whitelist defined by <filename>/etc/postfix/access_clientip</filename>."
-msgstr ""
+msgstr "Svartelister omfatter noen ganger en legitim tjener som har vært offer en hendelse. I slike situasjoner vil alle e-poster som kommer fra en av disse tjenerne bli avvist dersom tjeneren er oppført i en hviteliste definert av <filename>/etc/postfix/access_clientip</filename>."
 
 msgid "Prudence therefore recommends including in the whitelist all the trusted servers from which many emails are usually received."
-msgstr ""
+msgstr "Ut fra forsiktighetshensyn anbefales derfor å hviteliste alle klarerte tjenere som mange e-poster vanligvis kommer fra."
 
 msgid "Checking the Validity of the <literal>EHLO</literal> or <literal>HELO</literal> Commands"
-msgstr ""
+msgstr "Sjekke validiteten til <literal>EHLO</literal> eller <literal>HELO</literal>-kommandoer"
 
 msgid "Each SMTP exchange starts with a <literal>HELO</literal> (or <literal>EHLO</literal>) command, followed by the name of the sending email server; checking the validity of this name can be interesting."
-msgstr ""
+msgstr "Hver SMTP-utveksling starter med en <literal>HELO</literal> (eller <literal>EHLO</literal>)-kommando, etterfulgt av navnet på e-posttjeneren som sender; Det kan være interessant å kontrollere gyldigheten av dette navnet."
 
+#, fuzzy
 msgid "<primary><literal>HELO</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>HELO</literal></primary>"
 
+#, fuzzy
 msgid "<primary><literal>EHLO</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>EHLO</literal></primary>"
 
 msgid "Restrictions on the name announced in <literal>EHLO</literal>"
-msgstr ""
+msgstr "Restriksjoner på navnet som er meldt i <literal>EHLO</literal>"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_helo_restrictions = permit_mynetworks,\n"
@@ -530,31 +535,40 @@ msgid ""
 "    reject_non_fqdn_hostname,\n"
 "    warn_if_reject reject_unknown_hostname"
 msgstr ""
+"\n"
+"smtpd_helo_restrictions = permit_mynetworks,\n"
+"    reject_invalid_hostname,\n"
+"    check_helo_access hash:/etc/postfix/access_helo,\n"
+"    reject_non_fqdn_hostname,\n"
+"    warn_if_reject reject_unknown_hostname"
 
 msgid "The first <literal>permit_mynetworks</literal> directive allows all machines on the local network to introduce themselves freely. This is important, because some email programs do not respect this part of the SMTP protocol adequately enough, and they can introduce themselves with nonsensical names."
-msgstr ""
+msgstr "Det første <literal>permit_mynetworks</literal>-direktivet tillater at alle maskiner på det lokale nettverket fritt å legge seg til. Dette er viktig, fordi noen e-postprogrammer ikke respekterer denne delen av SMTP-protokollen godt nok, og de kan legge seg til med meningsløse navn."
 
 msgid "The <literal>reject_invalid_hostname</literal> rule rejects emails when the <literal>EHLO</literal> announce lists a syntactically incorrect hostname. The <literal>reject_non_fqdn_hostname</literal> rule rejects messages when the announced hostname is not a fully-qualified domain name (including a domain name as well as a host name). The <literal>reject_unknown_hostname</literal> rule rejects messages if the announced name does not exist in the DNS. Since this last rule unfortunately leads to too many rejections, the administrators turned its effect to a simple warning with the <literal>warn_if_reject</literal> modifier as a first step; they may decide to remove this modifier at a later stage, after auditing the results of this rule."
-msgstr ""
+msgstr "<literal>reject_invalid_hostname</literal>-regelen avviser e-poster når  <literal>EHLO</literal>-visningen lister et vertsnavn med feilaktig syntaks.  <literal>reject_non_fqdn_hostname</literal>-regelen avviser meldinger når annonserte vertsnavn er ikke et fullt kvalifisert domenenavn (inkludert et domenenavn så vel som et vertsnavn). <literal>reject_unknown_hostname</literal> regelen avviser meldinger hvis det annonserte navnet ikke finnes i DNS. Siden denne siste regelen dessverre fører til altfor mange avslag, snudde administratorene denne virkningen med en enkel advarsel ved hjelp av <literal>warn_if_reject</literal>-modifikatoren som et første skritt; de kan fjerne denne modifikatoren på et senere tidspunkt, etter å ha gjennomgått resultatene av å bruke av regelen."
 
 msgid "Using <literal>permit_mynetworks</literal> as the first rule has an interesting side effect: the following rules only apply to hosts outside the local network. This allows blacklisting all hosts that announce themselves as part of the <literal>falcot.com</literal>, for instance by adding a <literal>falcot.com REJECT You are not in our network!</literal> line to the <filename>/etc/postfix/access_helo</filename> file."
-msgstr ""
+msgstr "Å bruke <literal>permit_mynetworks</literal> som den første regelen har en interessant bieffekt: De følgende regler gjelder kun verter utenfor det lokale nettverket. Dette tillater svartelisting av alle verter som varsler seg selv som en del av <literal>falcot.com</literal>, for eksempel for å legge til en <literal>falcot.com REJECT You are not in our network!</literal>-linje til <filename>/etc/postfix/access_helo</filename>-filen."
 
 msgid "Accepting or Refusing Based on the Announced Sender"
-msgstr ""
+msgstr "Godta eller nekte basert på annonsert avsender"
 
 msgid "Every message has a sender, announced by the <literal>MAIL FROM</literal> command of the SMTP protocol; again, this information can be validated in several different ways."
-msgstr ""
+msgstr "Hver melding har en avsender, annonsert av <literal>MAIL FROM</literal>-kommandoen fra SMTP-protokollen; Igjen, kan denne informasjonen bli validert på flere forskjellige måter."
 
+#, fuzzy
 msgid "<primary><literal>MAIL FROM</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>MAIL FROM</literal></primary>"
 
+#, fuzzy
 msgid "<primary>email</primary><secondary>filtering on the sender</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>filtering on the sender</secondary>"
 
 msgid "Sender checks"
-msgstr ""
+msgstr "Sjekking av sender"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_sender_restrictions = \n"
@@ -562,157 +576,189 @@ msgid ""
 "    reject_unknown_sender_domain, reject_unlisted_sender,\n"
 "    reject_non_fqdn_sender"
 msgstr ""
+"\n"
+"smtpd_sender_restrictions = \n"
+"    check_sender_access hash:/etc/postfix/access_sender,\n"
+"    reject_unknown_sender_domain, reject_unlisted_sender,\n"
+"    reject_non_fqdn_sender"
 
 msgid "The <filename>/etc/postfix/access_sender</filename> table maps some special treatment to some senders. This usually means listing some senders into a white list or a black list."
-msgstr ""
+msgstr "<filename>/etc/postfix/access_sender</filename>-tabellen gir en noe spesiell behandling for noen avsendere. Dette betyr vanligvis å liste noen av avsendere i en hvitliste eller en svartliste."
 
 msgid "The <literal>reject_unknown_sender_domain</literal> rule requires a valid sender domain, since it is needed for a valid address. The <literal>reject_unlisted_sender</literal> rule rejects local senders if the address does not exist; this prevents emails from being sent from an invalid address in the <literal>falcot.com</literal> domain, and messages emanating from <literal>joe.bloggs@falcot.com</literal> are only accepted if such an address really exists."
-msgstr ""
+msgstr "<literal>reject_unknown_sender_domain</literal>-regelen krever et gyldig avsenderdomene, siden det er nødvendig for en gyldig adresse. <literal>reject_unlisted_sender</literal>-regel avviser lokale sendere hvis adressen ikke eksisterer; Dette forhindrer e-poster å blir sendt fra en ugyldig adresse i <literal>falcot.com</literal>-domenet, og meldinger som skriver seg fra <literal>joe.bloggs@falcot.com</literal> aksepteres kun dersom en slik adresse virkelig eksisterer."
 
 msgid "Finally, the <literal>reject_non_fqdn_sender</literal> rule rejects emails purporting to come from addresses without a fully-qualified domain name. In practice, this means rejecting emails coming from <literal>user@machine</literal>: the address must be announced as either <literal>user@machine.example.com</literal> or <literal>user@example.com</literal>."
-msgstr ""
+msgstr "Til slutt, avviser <literal>reject_non_fqdn_sender</literal>-regelen e-post som angivelig kommer fra adresser uten et fullt kvalifisert domenenavn. I praksis betyr dette å avvise e-postmeldinger som kommer fra <literal>user@machine</literal>: Adressen må bli annonsert som enten <literal>user@machine.example.com</literal> eller <literal>user@example.com</literal>."
 
 msgid "Accepting or Refusing Based on the Recipient"
-msgstr ""
+msgstr "Akesept eller avvising basert på mottaker"
 
 msgid "Each email has at least one recipient, announced with the <literal>RCPT TO</literal> command in the SMTP protocol. These addresses also warrant validation, even if that may be less relevant than the checks made on the sender address."
-msgstr ""
+msgstr "Hver e-post har minst én mottaker, kunngjort med <literal>RCPT TO</literal>-kommandoen i SMTP-protokollen. Disse adressene garanterer også validering, selv om det kan være mindre relevant enn sjekkene av avsenderadressen."
 
+#, fuzzy
 msgid "<primary>RCPT TO</primary>"
-msgstr ""
+msgstr "<primary>RCPT TO</primary>"
 
+#, fuzzy
 msgid "<primary>email</primary><secondary>filtering on the recipient</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>filtering on the recipient</secondary>"
 
 msgid "Recipient checks"
-msgstr ""
+msgstr "Sjekk av mottaker"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_recipient_restrictions = permit_mynetworks, \n"
 "    reject_unauth_destination, reject_unlisted_recipient, \n"
 "    reject_non_fqdn_recipient"
 msgstr ""
+"\n"
+"smtpd_recipient_restrictions = permit_mynetworks, \n"
+"    reject_unauth_destination, reject_unlisted_recipient, \n"
+"    reject_non_fqdn_recipient"
 
 msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to send unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
-msgstr ""
+msgstr "<literal>reject_unauth_destination</literal> er den grunnleggende regelen som krever at meldinger utenfra som adresseres til oss; men til en adresse som ikke er betjent med denne tjeneren, blir avvist. Uten denne regelen, blir tjeneren et åpent relé som tillater spammere å sende uønsket e-post. Denne regelen er derfor obligatorisk, og den er tas best inn nær begynnelsen av listen, slik at ingen andre regler kan autorisere meldingen før destinasjonen er kontrollert."
 
 msgid "The <literal>reject_unlisted_recipient</literal> rule rejects messages sent to non-existing local users, which makes sense. Finally, the <literal>reject_non_fqdn_recipient</literal> rule rejects non-fully-qualified addresses; this makes it impossible to send an email to <literal>jean</literal> or <literal>jean@machine</literal>, and requires using the full address instead, such as <literal>jean@machine.falcot.com</literal> or <literal>jean@falcot.com</literal>."
-msgstr ""
+msgstr "<literal>reject_unlisted_recipient</literal>-regelen avviser meldinger som sendes til ikke-eksisterende lokale brukere, noe som gir mening. Endelig avslår <literal>reject_non_fqdn_recipient</literal>-regelen ikke-fullt-kvalifiserte adresser; Dette gjør det umulig å sende en e-post til <literal>jean</literal> eller <literal>jean@machine</literal>, og kreve bruk av hele adressen i stedet, som for eksempel <literal>jean@machine.falcot.com</literal> eller <literal>jean@falcot.com</literal>."
 
 msgid "Restrictions Associated with the <literal>DATA</literal> Command"
-msgstr ""
+msgstr "Restriksjoner knyttet til <literal>DATA</literal>-kommandoen"
 
 msgid "The <literal>DATA</literal> command of SMTP is emitted before the contents of the message. It doesn't provide any information per se, apart from announcing what comes next. It can still be subjected to checks."
-msgstr ""
+msgstr "<literal>DATA</literal>-kommandoen til SMTP avgis før innholdet i meldingen. Den gir ikke noen informasjon per se, bortsett fra annonsere hva som kommer etterpå. Det kan fortsatt være underlagt sjekk."
 
+#, fuzzy
 msgid "<primary><literal>DATA</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>DATA</literal></primary>"
 
 msgid "<literal>DATA</literal> checks"
-msgstr ""
+msgstr "<literal>DATA</literal>-sjekk"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_data_restrictions = reject_unauth_pipelining"
 msgstr ""
+"\n"
+"smtpd_data_restrictions = reject_unauth_pipelining"
 
 msgid "The <literal>reject_unauth_pipelining</literal> directives causes the message to be rejected if the sending party sends a command before the reply to the previous command has been sent. This guards against a common optimization used by spammer robots, since they usually don't care a fig about replies and only focus on sending as many emails as possible in as short a time as possible."
-msgstr ""
+msgstr "<literal>reject_unauth_pipelining</literal>-direktivene fører til at meldingen blir avvist hvis avsender sender en kommando før svaret på den forrige kommando er blitt sendt. Dette beskytter mot en vanlig optimalisering som brukes av spammeroboter, siden de vanligvis ikke bryr seg det grann om svar og bare fokuserer på å sende så mange e-poster som mulig på så kort tid som mulig."
 
 msgid "Applying Restrictions"
-msgstr ""
+msgstr "Å bruke restriksjoner"
 
 msgid "Although the above commands validate information at various stages of the SMTP exchange, Postfix only sends the actual rejection as a reply to the <literal>RCPT TO</literal> command."
-msgstr ""
+msgstr "Selv om de ovennevnte kommandoene validerer informasjon på ulike stadier av SMTP-utvekslingen, sender Postfix bare selve avslaget som et svar på <literal>RCPT TO</literal>-kommandoen."
 
 msgid "This means that even if the message is rejected due to an invalid <literal>EHLO</literal> command, Postfix knows the sender and the recipient when announcing the rejection. It can then log a more explicit message than it could if the transaction had been interrupted from the start. In addition, a number of SMTP clients do not expect failures on the early SMTP commands, and these clients will be less disturbed by this late rejection."
-msgstr ""
+msgstr "Dette betyr at selv om meldingen blir avvist på grunn av en ugyldig <literal>EHLO</literal>-kommando. Postfix kjenner avsenderen og mottakeren da avvisningen ble varslet. Den kan da logge et mer eksplisitt budskap enn om transaksjonen hadde blitt avbrutt fra starten. I tillegg, en rekke SMTP-klienter trenger ikke forvente feil med de tidlige SMTP-kommandoene, og disse klientene blir mindre forstyrret av dette ved denne senere avvisningen."
 
 msgid "A final advantage to this choice is that the rules can accumulate information during the various stages of the SMTP exchange; this allows defining more fine-grained permissions, such as rejecting a non-local connection if it announces itself with a local sender."
-msgstr ""
+msgstr "En siste fordel ved dette valget er at reglene kan akkumulere informasjon fra de ulike stadier i SMTP-utvekslingen. Dette tillater å definere mer finkornede tillatelser, som for eksempel avvise en ikke-lokal tilkobling hvis den melder seg med en lokal avsender."
 
 msgid "Filtering Based on the Message Contents"
-msgstr ""
+msgstr "Filtrering basert på meldingsinneholdet"
 
 msgid "The validation and restriction system would not be complete without a way to apply checks to the message contents. Postfix differentiates the checks applying to the email headers from those applying to the email body."
-msgstr ""
+msgstr "Validerings- og begrensningsystemet ville ikke være komplett uten å kunne sjekke meldingsinnholdet. Postfix skiller mellom sjekking av topptekster i e-postene - fra den som gjelder selve meldingskroppen."
 
 msgid "Enabling content-based filters"
-msgstr ""
+msgstr "Å aktivere innholdsbaserte filtre"
 
+#, fuzzy
 msgid ""
 "\n"
 "header_checks = regexp:/etc/postfix/header_checks\n"
 "body_checks = regexp:/etc/postfix/body_checks"
 msgstr ""
+"\n"
+"header_checks = regexp:/etc/postfix/header_checks\n"
+"body_checks = regexp:/etc/postfix/body_checks"
 
+#, fuzzy
 msgid "<primary>email</primary><secondary>filtering on contents</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>filtering on contents</secondary>"
 
 msgid "Both files contain a list of regular expressions (commonly known as <emphasis>regexps</emphasis> or <emphasis>regexes</emphasis>) and associated actions to be triggered when the email headers (or body) match the expression."
-msgstr ""
+msgstr "Begge filer inneholder en liste med vanlige uttrykk (kjent som <emphasis>regexps</emphasis> eller <emphasis>regexes</emphasis>) og tilhørende tiltak som skal utløses når e-posthoder (eller kroppen) samsvarer med uttrykket."
 
 msgid "<emphasis>QUICK LOOK</emphasis> Regexp tables"
-msgstr ""
+msgstr "<emphasis>QUICK LOOK</emphasis> Regexp tabeller"
 
 msgid "The <filename>/usr/share/doc/postfix-doc/examples/header_checks.gz</filename> file contains many explanatory comments and can be used as a starting point for creating the <filename>/etc/postfix/header_checks</filename> and <filename>/etc/postfix/body_checks</filename> files."
-msgstr ""
+msgstr "<filename>/usr/share/doc/postfix-doc/examples/header_checks.gz</filename>-filen inneholder mange forklaringer og kan brukes som et utgangspunkt for å lage <filename>/etc/postfix/header_checks</filename> og <filename>/etc/postfix/body_checks</filename>-filer."
 
 msgid "Example <filename>/etc/postfix/header_checks</filename> file"
-msgstr ""
+msgstr "Eksempelfil <filename>/etc/postfix/header_checks</filename>"
 
+#, fuzzy
 msgid ""
 "\n"
 "/^X-Mailer: GOTO Sarbacane/ REJECT I fight spam (GOTO Sarbacane)\n"
 "/^Subject: *Your email contains VIRUSES/ DISCARD virus notification"
 msgstr ""
+"\n"
+"/^X-Mailer: GOTO Sarbacane/ REJECT I fight spam (GOTO Sarbacane)\n"
+"/^Subject: *Your email contains VIRUSES/ DISCARD virus notification"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Regular expression"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> Regulært utrykk"
 
 msgid "The <emphasis>regular expression</emphasis> term (shortened to <emphasis>regexp</emphasis> or <emphasis>regex</emphasis>) references a generic notation for expressing a description of the contents and/or structure of a string of characters. Certain special characters allow defining alternatives (for instance, <literal>foo|bar</literal> matches either “foo” or “bar”), sets of allowed characters (for instance, <literal>[0-9]</literal> means any digit, and <literal>.</literal> — a dot — means any character), quantifications (<literal>s?</literal> matches either <literal>s</literal> or the empty string, in other words 0 or 1 occurrence of <literal>s</literal>; <literal>s+</literal> matches one or more consecutive <literal>s</literal> characters; and so on). Parentheses allow grouping search results."
-msgstr ""
+msgstr "<emphasis>regular expression</emphasis>-betegnelsen (forkortet til  <emphasis>regexp</emphasis> eller <emphasis>regex</emphasis>) refererer til et felles tegnsystem for å gi en beskrivelse av innholdet og/eller strukturen til en streng med tegn. Visse spesialtegn tillater å definere alternativer (for eksempel  <literal>foo|bar</literal> samsvarer med enten “foo” eller “bar”), setter tillate tegn (for eksempel betyr, <literal>[0-9]</literal> hvilket som helst tall, og <literal>.</literal> — et punktum — betyr hvilket som helst tegn), Kvantifiseringer (<literal>s?</literal> samsvarer enten med <literal>s</literal> eller den tomme strengen, med andre ord 0 eller 1 forekomsten av  <literal>s</literal>; <literal>s+</literal> samsvarer med en eller flere påfølgende <literal>s</literal> tegn; og så videre). Parenteser tillater gruppering av søkeresultater."
 
 msgid "The precise syntax of these expressions varies across the tools using them, but the basic features are similar. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Regular_expression\" />"
-msgstr ""
+msgstr "Den presise syntaksen til disse uttrykkene varierer mellom de verktøyene som bruker dem, men de grunnleggende funksjonene er like. <ulink type=\"block\" url=\"http://en.wikipedia.org/wiki/Regular_expression\" />"
 
 msgid "The first one checks the header mentioning the email software; if <literal>GOTO Sarbacane</literal> (a bulk email software) is found, the message is rejected. The second expression controls the message subject; if it mentions a virus notification, we can decide not to reject the message but to discard it immediately instead."
-msgstr ""
+msgstr "Den første sjekker toppteksten som viser til programvaren for e-mail;  hvis <literal>GOTO Sarbacane</literal> (en samling e-post-programvare) blir funnet, blir meldingen avvist. Det andre uttrykket styrer meldingens subjekt; hvis det nevner et virusvarsel, kan vi bestemme oss for ikke å avvise meldingen, men straks å forkaste den i stedet."
 
 msgid "Using these filters is a double-edged sword, because it is easy to make the rules too generic and to lose legitimate emails as a consequence. In these cases, not only the messages will be lost, but their senders will get unwanted (and annoying) error messages."
-msgstr ""
+msgstr "Bruk av disse filtrene er et tveegget sverd, fordi det er lett å gjøre reglene for allmenne og som resultat miste legitim e-post. I disse tilfellene vil ikke bare meldingene gå tapt, men avsenderne får uønskede (og irriterende) feilmeldinger."
 
 msgid "Setting Up <foreignphrase>greylisting</foreignphrase>"
-msgstr ""
+msgstr "Å sette opp <foreignphrase>greylisting</foreignphrase>"
 
+#, fuzzy
 msgid "<primary>greylisting</primary>"
-msgstr ""
+msgstr "<primary>greylisting</primary>"
 
 msgid "“Greylisting” is a filtering technique according to which a message is initially rejected with a temporary error code, and only accepted on a further try after some delay. This filtering is particularly efficient against spam sent by the many machines infected by worms and viruses, since this software rarely acts as a full SMTP agent (by checking the error code and retrying failed messages later), especially since many of the harvested addresses are really invalid and retrying would only mean losing time."
-msgstr ""
+msgstr "\"Grålisting\" er en filtreringsteknikk der en melding som i utgangspunktet er avvist med en midlertidig feilkode, og bare aksepteres etter et ytterligere forsøk etter noen tid. Denne filtreringen er spesielt effektiv mot spam som sendes av de mange maskinene som er infisert av ormer og virus, fordi denne programvaren sjelden fungerer som en full SMTP-agent (ved å kontrollere feilkode og prøve meldinger som har feilet på nytt senere), spesielt fordi mange av de oppsamlede adressene virkelig er ugyldige og prøve dem på nytt bare bare ville bety å miste tid."
 
 msgid "Postfix doesn't provide greylisting natively, but there is a feature by which the decision to accept or reject a given message can be delegated to an external program. The <emphasis role=\"pkg\">postgrey</emphasis> package contains just such a program, designed to interface with this access policy delegation service."
-msgstr ""
+msgstr "Postfix leverer ikke -pakken inneholder akkurat et slikt program, laget for å levere grensesnittet til denne delegerte adgangspolitikk-tjenesten. problemfritt, men det er en funksjon, der beslutningen om å godta eller forkaste en gitt melding, kan delegeres til et eksternt program. <emphasis role=\"pkg\">postgrey</emphasis>-pakken inneholder akkurat et slikt program, laget for å være bindeleddet til denne delegerte adgangspolitikk-tjenesten."
 
 msgid "Once <emphasis role=\"pkg\">postgrey</emphasis> is installed, it runs as a daemon and listens on port 10023. Postfix can then be configured to use it, by adding the <literal>check_policy_service</literal> parameter as an extra restriction:"
-msgstr ""
+msgstr "Så snart <emphasis role=\"pkg\">postgrey</emphasis> er installert, kjører den som en nisse og lytter på port 10023. Postfix kan så konfigureres til å bruke den ved å legge til <literal>check_policy_service</literal>-parameteret som en ekstra begrensning:"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtpd_recipient_restrictions = permit_mynetworks,\n"
 "    [...]\n"
 "    check_policy_service inet:127.0.0.1:10023"
 msgstr ""
+"\n"
+"smtpd_recipient_restrictions = permit_mynetworks,\n"
+"    [...]\n"
+"    check_policy_service inet:127.0.0.1:10023"
 
 msgid "Each time Postfix reaches this rule in the ruleset, it will connect to the <command>postgrey</command> daemon and send it information concerning the relevant message. On its side, Postgrey considers the IP address/sender/recipient triplet and checks in its database whether that same triplet has been seen recently. If so, Postgrey replies that the message should be accepted; if not, the reply indicates that the message should be temporarily rejected, and the triplet gets recorded in the database."
-msgstr ""
+msgstr "Hver gang Postfix treffer denne regelen i regelsettet, vil den koble til <command>postgrey</command>-nissen og sende den informasjon om den aktuelle meldingen. På sin side, vurderer Postgrey trillingen IP-\"adresse/avsende/mottaker\" og sjekker i sin database om det samme trillingen er sett i det siste. Hvis ja, svarer Postgrey at meldingen skal godtas; hvis ikke, indikerer svaret at meldingen skal avvises midlertidig, og trillingen blir registrert i databasen."
 
 msgid "The main disadvantage of greylisting is that legitimate messages get delayed, which is not always acceptable. It also increases the burden on servers that send many legitimate emails."
-msgstr ""
+msgstr "Den største ulempen med grålisting er at legitime meldinger bli forsinket, noe som ikke alltid er akseptabelt. Det øker også belastningen på tjenerne som sender mange legitime e-poster."
 
+#, fuzzy
 msgid "<emphasis>IN PRACTICE</emphasis> Shortcomings of greylisting"
-msgstr ""
+msgstr "<emphasis>IN PRACTICE</emphasis> Shortcomings of greylisting"
 
 msgid "Theoretically, greylisting should only delay the first mail from a given sender to a given recipient, and the typical delay is in the order of minutes. Reality, however, can differ slightly. Some large ISPs use clusters of SMTP servers, and when a message is initially rejected, the server that retries the transmission may not be the same as the initial one. When that happens, the second server gets a temporary error message due to greylisting too, and so on; it may take several hours until transmission is attempted by a server that has already been involved, since SMTP servers usually increase the delay between retries at each failure."
 msgstr ""
