@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-10-27 00:56+0000\n"
+"PO-Revision-Date: 2016-11-02 01:48+0000\n"
 "Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/11_network-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -761,38 +761,39 @@ msgid "<emphasis>IN PRACTICE</emphasis> Shortcomings of greylisting"
 msgstr "<emphasis>IN PRACTICE</emphasis> Shortcomings of greylisting"
 
 msgid "Theoretically, greylisting should only delay the first mail from a given sender to a given recipient, and the typical delay is in the order of minutes. Reality, however, can differ slightly. Some large ISPs use clusters of SMTP servers, and when a message is initially rejected, the server that retries the transmission may not be the same as the initial one. When that happens, the second server gets a temporary error message due to greylisting too, and so on; it may take several hours until transmission is attempted by a server that has already been involved, since SMTP servers usually increase the delay between retries at each failure."
-msgstr ""
+msgstr "Teoretisk bør grålisting bare forsinke den første posten fra en gitt sender til en gitt mottaker, og den typiske forsinkelsen er i størrelsesorden minutter. Virkeligheten kan, imidlertid, avvike noe. Noen store ISP-er bruker klynger av SMTP-tjenere, og når en melding innledningsvis er avslått, er kanskje den tjeneren som prøver å gjenoppta overføringen, ikke den samme som den opprinnelige. Når det skjer, får den andre tjeneren også en midlertidig feilmelding på grunn av grålisting, og så videre. Det kan ta flere timer før overføringen er forsøkt av en tjener som allerede har vært involvert, ettersom SMTP-tjenere ved hver feil vanligvis øke forsinkelsen."
 
 msgid "As a consequence, the incoming IP address may vary in time even for a single sender. But it goes further: even the sender address can change. For instance, many mailing-list servers encode extra information in the sender address so as to be able to handle error messages (known as <emphasis>bounces</emphasis>). Each new message sent to a mailing-list may then need to go through greylisting, which means it has to be stored (temporarily) on the sender's server. For very large mailing-lists (with tens of thousands of subscribers), this can soon become a problem."
-msgstr ""
+msgstr "Som en konsekvens kan den innkommende IP-adressen variere i tid, selv for en enkelt sender. Men det går videre: Selv avsenderadressen kan endres. For eksempel, mange postliste-tjenere koder inn ekstra informasjon i avsenderadressen, for å være i stand til å håndtere feilmeldinger (kjent som <emphasis>bounces</emphasis>). Hver ny melding sendt til en adresseliste kan så trenge å gå gjennom grålisting, noe som betyr at den må lagres (midlertidig) på senderens tjener. For svært store e-postlister (med titusenvis av abonnenter), kan dette fort bli et problem."
 
 msgid "To mitigate these drawbacks, Postgrey manages a whitelist of such sites, and messages emanating from them are immediately accepted without going through greylisting. This list can easily be adapted to local needs, since it is stored in the <filename>/etc/postgrey/whitelist_clients</filename> file."
-msgstr ""
+msgstr "For å redusere disse ulempene, administrerer Postgrey en hviteliste med slike steder, og meldinger som kommer fra dem, blir umiddelbart akseptert uten å gå gjennom grålisting. Denne listen kan lett tilpasses de lokale behov, ettersom det er lagret i <filename>/etc/postgrey/whitelist_clients</filename>-filen."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Selective greylisting with <emphasis role=\"pkg\">milter-greylist</emphasis>"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Selektiv grålisting med <emphasis role=\"pkg\">milter-greylist</emphasis>"
 
 msgid "The drawbacks of greylisting can be mitigated by only using greylisting on the subset of clients that are already considered as probable sources of spam (because they are listed in a DNS blacklist). This is not possible with <emphasis role=\"pkg\">postgrey</emphasis> but <emphasis role=\"pkg\">milter-greylist</emphasis> can be used in such a way."
-msgstr ""
+msgstr "Ulempene med grålisting kan reduseres ved å bruke grålisting bare på undergruppen av klienter som allerede regnes som sannsynlige kilder til spam (fordi de er oppført i en DNS svarteliste). Dette er ikke mulig med <emphasis role=\"pkg\">postgrey</emphasis> men <emphasis role=\"pkg\">milter-greylist</emphasis> kan anvendes på en slik måte."
 
 msgid "In that scenario, since DNS blacklists never triggers a definitive rejection, it becomes reasonable to use aggressive blacklists, including those listing all dynamic IP addresses from ISP clients (such as <literal>pbl.spamhaus.org</literal> or <literal>dul.dnsbl.sorbs.net</literal>)."
-msgstr ""
+msgstr "I dette scenariet, ettersom DNS svartelister aldri utløser en endelig avvisning, blir det naturlig å bruke aggressive svartelister, medregnet de som viser alle dynamiske IP-adresser fra ISP klienter (for eksempel<literal>pbl.spamhaus.org</literal> eller <literal>dul.dnsbl.sorbs.net</literal>)."
 
 msgid "Since milter-greylist uses Sendmail's milter interface, the postfix side of its configuration is limited to “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. The <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page documents <filename>/etc/milter-greylist/greylist.conf</filename> and the numerous ways to configure milter-greylist. You will also have to edit <filename>/etc/default/milter-greylist</filename> to actually enable the service."
-msgstr ""
+msgstr "Siden milter-grålisting bruker Sendmails milter grensesnitt, er postfix siden av konfigurasjonen begrenset til “<literal>smtpd_milters = unix:/var/run/milter-greylist/milter-greylist.sock</literal>”. <citerefentry><refentrytitle>greylist.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>-manualside dokumenterer <filename>/etc/milter-greylist/greylist.conf</filename> og de utallige måter å konfigurere milter-grålisting på. Du vil også måtte redigere <filename>/etc/default/milter-greylist</filename> for faktisk å aktivere tjenesten."
 
 msgid "Customizing Filters Based On the Recipient"
-msgstr ""
+msgstr "Å tilpasse filtre basert på mottakeren"
 
 msgid "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> and <xref linkend=\"sect.setting-up-greylisting\" /> reviewed many of the possible restrictions. They all have their use in limiting the amount of received spam, but they also all have their drawbacks. It is therefore more and more common to customize the set of filters depending on the recipient. At Falcot Corp, greylisting is interesting for most users, but it hinders the work of some users who need low latency in their emails (such as the technical support service). Similarly, the commercial service sometimes has problems receiving emails from some Asian providers who may be listed in blacklists; this service asked for a non-filtered address so as to be able to correspond."
-msgstr ""
+msgstr "<xref linkend=\"sect.restrictions-for-receiving-and-sending\" /> og <xref linkend=\"sect.setting-up-greylisting\" /> gjennomgikk mange av de mulige restriksjonene. De har alle sin nytte ved å begrense mengden mottatt spam, men har alle også sine ulemper. Det er derfor mer og mer vanlig å tilpasse filtrene til mottakeren. På Falcot Corp, er grålisting interessant for de fleste brukere, men det hindrer arbeidet til noen brukere som har behov for korte forsinkelser på sine e-poster (som for eksempel teknisk support-tjenesten). Tilsvarende, den kommersielle tjenesten har noen ganger problemer med å motta e-post fra noen asiatiske leverandører som kan være oppført i svartelister; trenger denne tjenesten en ikke-filtrert adresse for å kunne utveksle e-poster."
 
 msgid "Postfix provides such a customization of filters with a “restriction class” concept. The classes are declared in the <literal>smtpd_restriction_classes</literal> parameter, and defined the same way as <literal>smtpd_recipient_restrictions</literal>. The <literal>check_recipient_access</literal> directive then defines a table mapping a given recipient to the appropriate set of restrictions."
-msgstr ""
+msgstr "Postfix gir en slik filter-tilpasning med \"restriction class\"-konseptet. Klassene er deklarert i <literal>smtpd_restriction_classes</literal>-parameteret, og definert på den samme måten som <literal>smtpd_recipient_restrictions</literal>.  <literal>check_recipient_access</literal>-direktivet definerer deretter en tabell som legger en gitt mottaker til det riktige settet med restriksjoner."
 
 msgid "Defining restriction classes in <filename>main.cf</filename>"
-msgstr ""
+msgstr "Definere begrensningsklasser i <filename>main.cf</filename>"
 
+#, fuzzy
 msgid ""
 "smtpd_restriction_classes = greylisting, aggressive, permissive\n"
 "\n"
@@ -805,10 +806,21 @@ msgid ""
 "        reject_unauth_destination,\n"
 "        check_recipient_access hash:/etc/postfix/recipient_access"
 msgstr ""
+"smtpd_restriction_classes = greylisting, aggressive, permissive\n"
+"\n"
+"greylisting = check_policy_service inet:127.0.0.1:10023\n"
+"aggressive = reject_rbl_client sbl-xbl.spamhaus.org,\n"
+"        check_policy_service inet:127.0.0.1:10023\n"
+"permissive = permit\n"
+"\n"
+"smtpd_recipient_restrictions = permit_mynetworks,\n"
+"        reject_unauth_destination,\n"
+"        check_recipient_access hash:/etc/postfix/recipient_access"
 
 msgid "The <filename>/etc/postfix/recipient_access</filename> file"
-msgstr ""
+msgstr "<filename>/etc/postfix/recipient_access</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "# Unfiltered addresses\n"
@@ -825,97 +837,125 @@ msgid ""
 "# Greylisting by default\n"
 "falcot.com             greylisting"
 msgstr ""
+"\n"
+"# Unfiltered addresses\n"
+"postmaster@falcot.com  permissive\n"
+"support@falcot.com     permissive\n"
+"sales-asia@falcot.com  permissive\n"
+"\n"
+"# Aggressive filtering for some privileged users\n"
+"joe@falcot.com         aggressive\n"
+"\n"
+"# Special rule for the mailing-list manager\n"
+"sympa@falcot.com       reject_unverified_sender\n"
+"\n"
+"# Greylisting by default\n"
+"falcot.com             greylisting"
 
 msgid "Integrating an Antivirus"
-msgstr ""
+msgstr "Å integrere en antivirus"
 
+#, fuzzy
 msgid "<primary>antivirus</primary>"
-msgstr ""
+msgstr "<primary>antivirus</primary>"
 
 msgid "The many viruses circulating as attachments to emails make it important to set up an antivirus at the entry point of the company network, since despite an awareness campaign, some users will still open attachments from obviously shady messages."
-msgstr ""
+msgstr "Med mange virus som sirkulerer som e-post-vedlegg, blir det viktig å sette opp et antivirus på inngangspunktet til bedriftens nettverk, da, til tross for en holdningskampanje, vil noen brukere fortsatt åpne vedlegg i åpenbart frynsete meldinger."
 
 msgid "The Falcot administrators selected <command>clamav</command> for their free antivirus. The main package is <emphasis role=\"pkg\">clamav</emphasis>, but they also installed a few extra packages such as <emphasis role=\"pkg\">arj</emphasis>, <emphasis role=\"pkg\">unzoo</emphasis>, <emphasis role=\"pkg\">unrar</emphasis> and <emphasis role=\"pkg\">lha</emphasis>, since they are required for the antivirus to analyze attachments archived in one of these formats."
-msgstr ""
+msgstr "Falcot administrators valgte <command>clamav</command> som sin frie antivirus. Hovedpakken er <emphasis role=\"pkg\">clamav</emphasis>, men de installerte også noen få ekstra pakker, som <emphasis role=\"pkg\">arj</emphasis>, <emphasis role=\"pkg\">unzoo</emphasis>, <emphasis role=\"pkg\">unrar</emphasis> og <emphasis role=\"pkg\">lha</emphasis>, siden de er nødvendige for at antiviruset skal analysere vedlegg arkiveres i ett av disse formatene."
 
+#, fuzzy
 msgid "<primary><command>clamav</command></primary>"
-msgstr ""
+msgstr "<primary><command>clamav</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>clamav-milter</command></primary>"
-msgstr ""
+msgstr "<primary><command>clamav-milter</command></primary>"
 
 msgid "The task of interfacing between antivirus and the email server goes to <command>clamav-milter</command>. A <emphasis>milter</emphasis> (short for <emphasis>mail filter</emphasis>) is a filtering program specially designed to interface with email servers. A milter uses a standard application programming interface (API) that provides much better performance than filters external to the email servers. Milters were initially introduced by <emphasis>Sendmail</emphasis>, but <emphasis>Postfix</emphasis> soon followed suit."
-msgstr ""
+msgstr "Oppgaven med å koble sammen antivirus og e-postserveren legges til <command>clamav-milter</command>. <emphasis>milter</emphasis> (kort for <emphasis>mail filter</emphasis>) er et filterprogram spesielt utviklet for å kommunisere med e-posttjenere. Et milter bruker et standard programmeringsgrensesnitt (API) som gir mye bedre ytelse enn eksterne  e-posttjener-filtre. Milters ble først introdusert av <emphasis>Sendmail</emphasis>, men <emphasis>Postfix</emphasis> kom snart etter."
 
 msgid "<emphasis>QUICK LOOK</emphasis> A milter for Spamassassin"
-msgstr ""
+msgstr "<emphasis>QUICK LOOK</emphasis> Et milter for Spamassassin"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
 
 msgid "The <emphasis role=\"pkg\">spamass-milter</emphasis> package provides a milter based on <emphasis>SpamAssassin</emphasis>, the famous unsolicited email detector. It can be used to flag messages as probable spams (by adding an extra header) and/or to reject the messages altogether if their “spamminess” score goes beyond a given threshold."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">spamass-milter</emphasis>-pakken gir et milter basert på <emphasis> Spamassassin </emphasis>, den berømte detektoren for uønsket e-post. Den kan brukes til å flagge meldinger som er mulige spam (ved å legge til en ekstra topptekst) og/eller for helt å avvise meldinger hvis spam-poengene går utover en gitt terskel."
 
 msgid "Once the <emphasis role=\"pkg\">clamav-milter</emphasis> package is installed, the milter should be reconfigured to run on a TCP port rather than on the default named socket. This can be achieved with <command>dpkg-reconfigure clamav-milter</command>. When prompted for the “Communication interface with Sendmail”, answer “<literal>inet:10002@127.0.0.1</literal>”."
-msgstr ""
+msgstr "Så snart <emphasis role=\"pkg\">clamav-milter</emphasis>-pakken er installert, skal milter konfigureres til å kjøre på en TCP-port i stedet for på standarden som heter socket. Dette kan oppnås med <command>dpkg-reconfigure clamav-milter</command>. Når du blir bedt om “Communication interface with Sendmail”, svar “<literal>inet:10002@127.0.0.1</literal>”."
 
+#, fuzzy
 msgid "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
-msgstr ""
+msgstr "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
 
 msgid "The reason why we use a real TCP port rather than the named socket is that the postfix daemons often run chrooted and do not have access to the directory hosting the named socket. You could also decide to keep using a named socket and pick a location within the chroot (<filename>/var/spool/postfix/</filename>)."
-msgstr ""
+msgstr "Grunnen til at vi bruker en ekte TCP-port i stedet for den navngitte socket-en er at postfix-nisser ofte kjører chroot-et og ikke har tilgang til katalogen som er vertskap for den navngitte socket-en. Du kan også velge å fortsette å bruke en navngitt socket og velge et sted i chroot-et (<filename>/var/spool/postfix/</filename>)."
 
 msgid "The standard ClamAV configuration fits most situations, but some important parameters can still be customized with <command>dpkg-reconfigure clamav-base</command>."
-msgstr ""
+msgstr "Standard ClamAV-konfigurasjon passer til de fleste situasjoner, men noen viktige parametere kan fortsatt tilpasses med <command>dpkg-reconfigure clamav-base</command>."
 
 msgid "The last step involves telling Postfix to use the recently-configured filter. This is a simple matter of adding the following directive to <filename>/etc/postfix/main.cf</filename>:"
-msgstr ""
+msgstr "Det siste trinnet er å be Postfix å bruke det nettopp konfigurerte filteret. Det er en enkel sak å legge følgende direktiv til <filename>/etc/postfix/main.cf</filename>:"
 
+#, fuzzy
 msgid ""
 "\n"
 "# Virus check with clamav-milter\n"
 "smtpd_milters = inet:[127.0.0.1]:10002"
 msgstr ""
+"\n"
+"# Virus check with clamav-milter\n"
+"smtpd_milters = inet:[127.0.0.1]:10002"
 
 msgid "If the antivirus causes problems, this line can be commented out, and <command>service postfix reload</command> should be run so that this change is taken into account."
-msgstr ""
+msgstr "Hvis antivirus skaper problemer, kan denne linjen kommenteres ut, og <command>service postfix reload</command> skal kjøres slik at denne endringen er tatt hensyn til."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
-msgstr ""
+msgstr "<emphasis>IN PRACTICE</emphasis> Testing antivirus"
 
 msgid "Once the antivirus is set up, its correct behavior should be tested. The simplest way to do that is to send a test email with an attachment containing the <filename>eicar.com</filename> (or <filename>eicar.com.zip</filename>) file, which can be downloaded online: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
-msgstr ""
+msgstr "Når antivirus er satt opp, skal det testes om oppførselen er korrekt. Den enkleste måten å gjøre det på, er å sende en test e-post med et vedlegg som inneholder <filename>eicar.com</filename> (eller <filename>eicar.com.zip</filename>)-filen, som kan lastes ned fra nettet: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
 
 msgid "This file is not a true virus, but a test file that all antivirus software on the market diagnose as a virus to allow checking installations."
-msgstr ""
+msgstr "Denne filen er ikke en ekte virus, men en test-fil som all antivirusprogramvare på markedet diagnostiserer som et virus, for å tillate sjekking av installasjoner."
 
 msgid "All messages handled by Postfix now go through the antivirus filter."
-msgstr ""
+msgstr "Alle meldinger som Postfix håndterer, går nå igjennom antivirusfilteret."
 
 msgid "Authenticated SMTP"
-msgstr ""
+msgstr "Godkjent SMTP"
 
 msgid "Being able to send emails requires an SMTP server to be reachable; it also requires said SMTP server to send emails through it. For roaming users, this may need regularly changing the configuration of the SMTP client, since Falcot's SMTP server rejects messages coming from IP addresses apparently not belonging to the company. Two solutions exist: either the roaming user installs an SMTP server on their computer, or they still use the company server with some means of authenticating as an employee. The former solution is not recommended since the computer won't be permanently connected, and it won't be able to retry sending messages in case of problems; we will focus on the latter solution."
-msgstr ""
+msgstr "Å kunne sende e-poster krever tilgang på en SMTP-tjener; Det krever også nevnte SMTP-tjener for å sende e-post igjennom den. For flyttbare enheter, kan det trenges jevnlig endring av konfigurasjonen til SMTP-klienten, ettersom Falcots SMTP-tjener avviser meldinger som kommer fra IP-adresser som tilsynelatende ikke tilhører selskapet. To løsninger finnes: Enten installerer brukeren en SMTP-tjener på datamaskinen sin, eller de fortsetter å bruke selskapets tjener med noen metoder for å autentisere seg som en ansatt. Den første løsningen er ikke anbefalt siden maskinen ikke vil være permanent tilkoblet, og ikke være i stand til igjen å prøve å sende meldinger i tilfelle problemer. Vi vil fokusere på sistnevnte løsning."
 
 msgid "SMTP authentication in Postfix relies on SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). It requires installing the <emphasis role=\"pkg\">libsasl2-modules</emphasis> and <emphasis role=\"pkg\">sasl2-bin</emphasis> packages, then registering a password in the SASL database for each user that needs authenticating on the SMTP server. This is done with the <command>saslpasswd2</command> command, which takes several parameters. The <literal>-u</literal> option defines the authentication domain, which must match the <literal>smtpd_sasl_local_domain</literal> parameter in the Postfix configuration. The <literal>-c</literal> option allows creating a user, and <literal>-f</literal> allows specifying the file to use if the SASL database needs to be stored at a different location than the default (<filename>/etc/sasldb2</filename>)."
-msgstr ""
+msgstr "SMTP-autentisering i Postfix hviler på SASL (<emphasis>Simple Authentication and Security Layer</emphasis>). Det krever installasjon av   <emphasis role=\"pkg\">libsasl2-modules</emphasis> og <emphasis role=\"pkg\">sasl2-bin</emphasis>-pakker, deretter å registrere et passord i SASL-databasen for hver bruker som trenger autentisering på SMTP-tjeneren. Dette gjøres med <command>saslpasswd2</command>-kommandoen, som krever flere parametre. <literal>-u</literal>-valget  definerer godkjenningsdomenet, som må samsvare med <literal>smtpd_sasl_local_domain</literal>-parameteret i Postfix-oppsettet. <literal>-c</literal>-valget tillater å lage en bruker, og <literal>-f</literal> kan spesifisere filen som skal brukes hvis SASL-databasen må lagres på et annet sted enn opprinnelig (<filename>/etc/sasldb2</filename>)."
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>saslpasswd2 -u `postconf -h myhostname` -f /var/spool/postfix/etc/sasldb2 -c jean</userinput>\n"
 "<computeroutput>[... type jean's password twice ...]</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>saslpasswd2 -u `postconf -h myhostname` -f /var/spool/postfix/etc/sasldb2 -c jean</userinput>\n"
+"<computeroutput>[... type jean's password twice ...]</computeroutput>"
 
 msgid "Note that the SASL database was created in Postfix's directory. In order to ensure consistency, we also turn <filename>/etc/sasldb2</filename> into a symbolic link pointing at the database used by Postfix, with the <command>ln -sf /var/spool/postfix/etc/sasldb2 /etc/sasldb2</command> command."
-msgstr ""
+msgstr "Merk at SASL-databasen ble opprettet i Postfix katalogen. For å sikre sammenhengen, omgjør vi også <filename>/etc/sasldb2</filename> til en  symbolsk lenke som peker på databasen som brukes av Postfix, med <command>ln -sf /var/spool/postfix/etc/sasldb2 /etc/sasldb2</command>-kommandoen."
 
 msgid "Now we need to configure Postfix to use SASL. First the <literal>postfix</literal> user needs to be added to the <literal>sasl</literal> group, so that it can access the SASL account database. A few new parameters are also needed to enable SASL, and the <literal>smtpd_recipient_restrictions</literal> parameter needs to be configured to allow SASL-authenticated clients to send emails freely."
-msgstr ""
+msgstr "Nå trenger vi å sette opp Postfix til å bruke SASL. Flrst, må  <literal>postfix</literal>-brukeren legges til <literal>sasl</literal>-gruppen, slik at den kan få tilgang til SASL-kontoens database. Et par nye parametere må også til for å aktivere SASL, og <literal>smtpd_recipient_restrictions</literal>-parameteret må konfigureres til å tillate at SASL-godkjente klienter fritt kan sende e-post."
 
 msgid "Enabling SASL in <filename>/etc/postfix/main.cf</filename>"
-msgstr ""
+msgstr "Å sette opp SASL i <filename>/etc/postfix/main.cf</filename>"
 
+#, fuzzy
 msgid ""
 "\n"
 "# Enable SASL authentication\n"
@@ -930,87 +970,116 @@ msgid ""
 "    reject_unauth_destination,\n"
 "[...]"
 msgstr ""
+"\n"
+"# Enable SASL authentication\n"
+"smtpd_sasl_auth_enable = yes\n"
+"# Define the SASL authentication domain to use\n"
+"smtpd_sasl_local_domain = $myhostname\n"
+"[...]\n"
+"# Adding permit_sasl_authenticated before reject_unauth_destination\n"
+"# allows relaying mail sent by SASL-authenticated users\n"
+"smtpd_recipient_restrictions = permit_mynetworks,\n"
+"    permit_sasl_authenticated,\n"
+"    reject_unauth_destination,\n"
+"[...]"
 
 msgid "<emphasis>EXTRA</emphasis> Authenticated SMTP client"
-msgstr ""
+msgstr "<emphasis>EXTRA</emphasis> Autentisert SMTP-klient"
 
 msgid "Most email clients are able to authenticate to an SMTP server before sending outgoing messages, and using that feature is a simple matter of configuring the appropriate parameters. If the client in use does not provide that feature, the workaround is to use a local Postfix server and configure it to relay email via the remote SMTP server. In this case, the local Postfix itself will be the client that authenticates with SASL. Here are the required parameters:"
-msgstr ""
+msgstr "De fleste e-postklienter er i stand til å autentisere til en SMTP-tjener før den sender utgående meldinger, og ved hjelp av denne funksjonen er en enkel sak å konfigurere de riktige parameterne. Dersom klienten som brukes ikke leverer den funksjonen, er den midlertidige løsningen å bruke en lokal Postfix-tjener og konfigurere den til å videresende e-post via den eksterne SMTP-tjeneren. I dette tilfelle, vil den lokale Postfixen selv være klienten som autentiserer med SASL. Her er de nødvendige parameterne:"
 
+#, fuzzy
 msgid ""
 "\n"
 "smtp_sasl_auth_enable = yes\n"
 "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd\n"
 "relay_host = [mail.falcot.com]"
 msgstr ""
+"\n"
+"smtp_sasl_auth_enable = yes\n"
+"smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd\n"
+"relay_host = [mail.falcot.com]"
 
 msgid "The <filename>/etc/postfix/sasl_passwd</filename> file needs to contain the username and password to use for authenticating on the <literal>mail.falcot.com</literal> server. Here is an example:"
-msgstr ""
+msgstr "<filename>/etc/postfix/sasl_passwd</filename>-filen må inneholde brukernavnet og passordet  for å autentiseres på <literal>mail.falcot.com</literal>-tjeneren. Her er et eksempel:"
 
+#, fuzzy
 msgid ""
 "\n"
 "[mail.falcot.com]   joe:LyinIsji"
 msgstr ""
+"\n"
+"[mail.falcot.com]   joe:LyinIsji"
 
 msgid "As for all Postfix maps, this file must be turned into <filename>/etc/postfix/sasl_passwd.db</filename> with the <command>postmap</command> command."
-msgstr ""
+msgstr "Som for alle Postfix funksjoner, må denne filen bli omgjort til <filename>/etc/postfix/sasl_passwd.db</filename> med <command>postmap</command>-kommandoen."
 
 msgid "Web Server (HTTP)"
-msgstr ""
+msgstr "Nett-tjener (HTTP)"
 
 msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Jessie</emphasis> at version 2.4.10."
-msgstr ""
+msgstr "Falcot Corp-administrtatorene besluttet å bruke Apache HTTP-tjeneren, inkludert i Debian <emphasis role=\"distribution\">Jessie</emphasis> med versjon 2.4.10."
 
+#, fuzzy
 msgid "<primary><command>apache</command></primary>"
-msgstr ""
+msgstr "<primary><command>apache</command></primary>"
 
+#, fuzzy
 msgid "<primary>server</primary><secondary>web</secondary>"
-msgstr ""
+msgstr "<primary>server</primary><secondary>web</secondary>"
 
+#, fuzzy
 msgid "<primary>web server</primary>"
-msgstr ""
+msgstr "<primary>web server</primary>"
 
+#, fuzzy
 msgid "<primary>server</primary><secondary>HTTP</secondary>"
-msgstr ""
+msgstr "<primary>server</primary><secondary>HTTP</secondary>"
 
+#, fuzzy
 msgid "<primary>HTTP</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>HTTP</primary><secondary>server</secondary>"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other web servers"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Andre nett-tjenere"
 
 msgid "Apache is merely the most widely-known (and widely-used) web server, but there are others; they can offer better performance under certain workloads, but this has its counterpart in the smaller number of available features and modules. However, when the prospective web server is built to serve static files or to act as a proxy, the alternatives, such as <emphasis role=\"pkg\">nginx</emphasis> and <emphasis role=\"pkg\">lighttpd</emphasis>, are worth investigating."
-msgstr ""
+msgstr "Apache er rett og slett den mest kjente (og mye brukt) nett-tjeneren, men det finnes andre. De kan tilby bedre ytelse under visse arbeidsbelastninger, men dette har sitt motstykke i færre, tilgjengelige funksjoner og moduler. Men når den potensielle nett-tjeneren bygges for å betjene statiske filer eller å fungere som mellomtjener, er alternativene, for eksempel <emphasis role=\"pkg\">nginx</emphasis> og <emphasis role=\"pkg\">lighttpd</emphasis>, verdt å se nærmere på."
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
 
 msgid "Installing Apache"
-msgstr ""
+msgstr "Å installere Apache"
 
 msgid "Installing the <emphasis role=\"pkg\">apache2</emphasis> package is all that is needed. It contains all the modules, including the <emphasis>Multi-Processing Modules</emphasis> (MPMs) that affect how Apache handles parallel processing of many requests (those used to be provided in separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis> packages). It will also pull <emphasis role=\"pkg\">apache2-utils</emphasis> containing the command line utilities that we will discover later."
-msgstr ""
+msgstr "Å installere <emphasis role=\"pkg\">apache2</emphasis>-pakken er alt som trenges. Den inneholder alle modulene, inkludert <emphasis>Multi-Processing Modules</emphasis> (MPM-er) som påvirker hvordan Apache håndterer parallell behandling av mange forespørsler (de som bruker å bli levert i separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis>-pakker). Den vil også trekke på <emphasis role=\"pkg\">apache2-utils</emphasis> som inneholder kommandolinje-verktøy som vi vil oppdage senere."
 
 msgid "The MPM in use affects significantly the way Apache will handle concurrent requests. With the <emphasis>worker</emphasis> MPM, it uses <emphasis>threads</emphasis> (lightweight processes), whereas with the <emphasis>prefork</emphasis> MPM it uses a pool of processes created in advance. With the <emphasis>event</emphasis> MPM it also uses threads, but the inactive connections (notably those kept open by the HTTP <emphasis>keep-alive</emphasis> feature) are handed back to a dedicated management thread."
-msgstr ""
+msgstr "Når MPM brukes påvirkes måten Apache vil håndtere samtidige forespørsler på betydelig. Med <emphasis>worker</emphasis>-MPM, bruker den <emphasis>threads</emphasis> (lettvektprosesser), mens med <emphasis>prefork</emphasis>-MPM bruker den en samling prosesser som er laget på forhånd. Med <emphasis>event</emphasis>-MPM vil den også bruke tråder, men de inaktive tilkoblingene (spesielt de som holdes åpne av HTTP <emphasis>keep-alive</emphasis>-funksjonen) blir levert tilbake til en øremerket management-tråd."
 
 msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the default <emphasis>event</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
-msgstr ""
+msgstr "Falcot administratorene installerer også <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> for å inkludere PHP-støtte i Apache. Dette fører til at standard <emphasis>event</emphasis>-MPM-en blir deaktivert, og at <emphasis>prefork</emphasis> blir brukt istedet, ettersom PHP bare virker under denne bestemte MPM-en."
 
 msgid "<emphasis>SECURITY</emphasis> Execution under the <literal>www-data</literal> user"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> Kjøring under <literal>www-data</literal>-brukeren"
 
+#, fuzzy
 msgid "<primary><literal>www-data</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>www-data</literal></primary>"
 
+#, fuzzy
 msgid "<primary>suexec</primary>"
-msgstr ""
+msgstr "<primary>suexec</primary>"
 
 msgid "By default, Apache handles incoming requests under the identity of the <literal>www-data</literal> user. This means that a security vulnerability in a CGI script executed by Apache (for a dynamic page) won't compromise the whole system, but only the files owned by this particular user."
-msgstr ""
+msgstr "Som standard håndterer Apache innkommende forespørsler under identiteten til <literal>www-data</literal>-brukeren. Dette betyr at en sikkerhetssårbarhet i et CGI-skript, utført av Apache (for en dynamisk side), ikke vil kompromittere hele systemet, men bare de filer som eies av denne bestemte brukeren."
 
 msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule so that some CGI scripts are executed under the identity of another user. This is configured with a <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> directive in the Apache configuration."
 msgstr ""
