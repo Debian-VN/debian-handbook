@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-11-02 01:48+0000\n"
-"Last-Translator: Ole-Erik <oeyrvin@gmail.com>\n"
+"PO-Revision-Date: 2016-11-17 14:42+0000\n"
+"Last-Translator: Ole-Erik Yrvin <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/11_network-services/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.10-dev\n"
 
 #, fuzzy
 msgid "Postfix"
@@ -1082,92 +1082,100 @@ msgid "By default, Apache handles incoming requests under the identity of the <l
 msgstr "Som standard håndterer Apache innkommende forespørsler under identiteten til <literal>www-data</literal>-brukeren. Dette betyr at en sikkerhetssårbarhet i et CGI-skript, utført av Apache (for en dynamisk side), ikke vil kompromittere hele systemet, men bare de filer som eies av denne bestemte brukeren."
 
 msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule so that some CGI scripts are executed under the identity of another user. This is configured with a <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> directive in the Apache configuration."
-msgstr ""
+msgstr "Ved å bruke <emphasis>suexec</emphasis>-moduler kan en omgå denne regelen slik at noen CGI-skript kjøres med identiteten til en annen bruker. Dette konfigureres med et <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal>-direktiv i Apache-oppsettet."
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
 
 msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts (actually, sets of pages) so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
-msgstr ""
+msgstr "En annen mulighet er å bruke en dedikert MPM, slik som den som tilbys i <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. Akkurat denne  har en litt annen oppførsel: Den tillater å \"isolere\" virtuelle verter (faktisk, sett med sider), slik at de hver av dem kjører som en ulik bruker. En sårbarhet i en nettside kan derfor ikke kompromittere filer som tilhører eieren av et annet nettsted."
 
+#, fuzzy
 msgid "<emphasis>QUICK LOOK</emphasis> List of modules"
-msgstr ""
+msgstr "<emphasis>QUICK LOOK</emphasis> List of modules"
 
 msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
-msgstr ""
+msgstr "Den fullstendige listen med Apache standardmoduler finnes på nettet. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
 
 msgid "Apache is a modular server, and many features are implemented by external modules that the main program loads during its initialization. The default configuration only enables the most common modules, but enabling new modules is a simple matter of running <command>a2enmod <replaceable>module</replaceable></command>; to disable a module, the command is <command>a2dismod <replaceable>module</replaceable></command>. These programs actually only create (or delete) symbolic links in <filename>/etc/apache2/mods-enabled/</filename>, pointing at the actual files (stored in <filename>/etc/apache2/mods-available/</filename>)."
-msgstr ""
+msgstr "Apache er en modulbasert tjener, og mange funksjoner legges inn av eksterne moduler som hovedprogrammet laster inn under under sin initialisering. Standard konfigurasjonen kan bare aktivere de mest vanlige moduler, men å tillate nye moduler skjer ved ganske enkelt å kjøre <command>a2enmod <replaceable>module</replaceable></command>; For å koble fra en modul, er kommandoen <command>a2dismod <replaceable>module</replaceable></command>. Disse programmene oppretter (eller sletter) bare symbolske lenker i <filename>/etc/apache2/mods-enabled/</filename>, som peker på de aktuelle filene (lagret i <filename>/etc/apache2/mods-available/</filename>)."
 
 msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/html/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
-msgstr ""
+msgstr "Med sin standardkonfigurasjon, lytter nettjeneren på port 80 (som konfigurert i <filename>/etc/apache2/ports.conf</filename>), og betjener sider fra <filename>/var/www/html/</filename>-mappen (som konfigurert i <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Adding support for SSL"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Å legge til støtte for SSL"
 
+#, fuzzy
 msgid "<primary>HTTPS</primary>"
-msgstr ""
+msgstr "<primary>HTTPS</primary>"
 
+#, fuzzy
 msgid "<primary>HTTP</primary><secondary>secure</secondary>"
-msgstr ""
+msgstr "<primary>HTTP</primary><secondary>secure</secondary>"
 
 msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
-msgstr ""
+msgstr "Apache 2.4 inkluderer SSL-modulen som kreves for sikker HTTP (HTTPS) ut av boksen. Den må bare være aktivert med <command>a2enmod ssl</command>, deretter må de nødvendige direktiver legges til konfigurasjonsfilene. En konfigurasjonseksempel er gitt i <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
 
 msgid "Some extra care must be taken if you want to favor SSL connections with <emphasis>Perfect Forward Secrecy</emphasis> (those connections use ephemeral session keys ensuring that a compromission of the server's secret key does not result in the compromission of old encrypted traffic that could have been stored while sniffing on the network). Have a look at Mozilla's recommandations in particular: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
-msgstr ""
+msgstr "Det kreves noe ekstra forsiktighet hvis du ønsker å favorisere SSL-tilkoblinger med <emphasis>Perfect Forward Secrecy</emphasis> (disse tilkoblingene bruker flyktige øktnøkler som sikrer at  kompromittering av tjenerens hemmelige nøkkelen ikke resulterer i kompromittering av gammel kryptert trafikk som kan ha blitt lagret under sniffing på nettverket). Se på Mozillas anbefalinger, spesielt: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
 
+#, fuzzy
 msgid "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
 
 msgid "Configuring Virtual Hosts"
-msgstr ""
+msgstr "Å konfigurere virtuelle verter"
 
 msgid "A virtual host is an extra identity for the web server."
-msgstr ""
+msgstr "En virtuell vert er en ekstra identitet for nettjeneren."
 
+#, fuzzy
 msgid "<primary>virtual host</primary>"
-msgstr ""
+msgstr "<primary>virtual host</primary>"
 
 msgid "Apache considers two different kinds of virtual hosts: those that are based on the IP address (or the port), and those that rely on the domain name of the web server. The first method requires allocating a different IP address (or port) for each site, whereas the second one can work on a single IP address (and port), and the sites are differentiated by the hostname sent by the HTTP client (which only works in version 1.1 of the HTTP protocol — fortunately that version is old enough that all clients use it already)."
-msgstr ""
+msgstr "Apache vurderer to forskjellige typer virtuelle verter: De som er basert på IP-adressen (eller porten), og de som er avhengige av domenenavnet til nettjeneren. Den første metoden krever tildeling av en annen IP-adresse (eller port) for hvert område, mens den andre kan arbeide på en enkelt IP-adresse (og port), og nettstedene er differensiert etter vertsnavnet sendt av HTTP-klienten (som bare fungerer i versjon 1.1 av HTTP-protokollen - heldigvis at versjonen er gammel nok til at alle kunder bruker den allerede)."
 
 msgid "The (increasing) scarcity of IPv4 addresses usually favors the second method; however, it is made more complex if the virtual hosts need to provide HTTPS too, since the SSL protocol hasn't always provided for name-based virtual hosting; the SNI extension (<emphasis>Server Name Indication</emphasis>) that allows such a combination is not handled by all browsers. When several HTTPS sites need to run on the same server, they will usually be differentiated either by running on a different port or on a different IP address (IPv6 can help there)."
-msgstr ""
+msgstr "Den (økende) knapphet på IPv4-adresser favoriserer vanligvis den andre metoden; Imidlertid er det gjort mer komplisert om de virtuelle verter må levere HTTPS også, ettersom SSL-protokollen ikke alltid har levert navn-basert virtuell hosting; Ikke alle nettlesere håndterer SNI-forlengelsen (<emphasis>Server Name Indication</emphasis>). Når flere HTTPS-nettsteder må kjøre på samme tjener, vil de vanligvis bli differensiert enten ved å kjøre på en annen port eller på en annen IP-adresse (IPv6 kan hjelpe til der)."
 
 msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
-msgstr ""
+msgstr "Standardkonfigurasjonen for Apache 2 gir navn-baserte virtuelle verter. I tillegg er en standard virtuell vert definert i <literal>/etc/apache2/sites-enabled/000-default.conf</literal>-filen; Denne virtuelle verten vil bli brukt hvis det ikke finnes en vert som matcher anmodningen fra klienten."
 
 msgid "<emphasis>CAUTION</emphasis> First virtual host"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Første virtuelle vert"
 
 msgid "Requests concerning unknown virtual hosts will always be served by the first defined virtual host, which is why we defined <literal>www.falcot.com</literal> first here."
-msgstr ""
+msgstr "Forespørsler om ukjente virtuelle verter vil alltid bli betjent med den først definerte virtuelle verten. Det er derfor vi her har definert <literal>www.falcot.com</literal> først."
 
 msgid "<emphasis>QUICK LOOK</emphasis> Apache supports SNI"
-msgstr ""
+msgstr "<emphasis>QUICK LOOK</emphasis> Apache støtter SNI"
 
+#, fuzzy
 msgid "<primary>Server Name Indication</primary>"
-msgstr ""
+msgstr "<primary>Server Name Indication</primary>"
 
 msgid "The Apache server supports an SSL protocol extension called <emphasis>Server Name Indication</emphasis> (SNI). This extension allows the browser to send the hostname of the web server during the establishment of the SSL connection, much earlier than the HTTP request itself, which was previously used to identify the requested virtual host among those hosted on the same server (with the same IP address and port). This allows Apache to select the most appropriate SSL certificate for the transaction to proceed."
-msgstr ""
+msgstr "Apache-tjeneren støtter en SSL-protokoll-forlengelse kalt <emphasis>Server Name Indication</emphasis> (SNI). Denne utvidelsen lar nettleseren sende vertsnavnet til nettjeneren, ved etableringen av SSL-tilkoblingen, mye tidligere enn HTTP-forespørselen selv, som tidligere ble brukt til å identifisere den forespurte virtuelle verten blant dem som ligger på samme tjener (med samme IP-adresse og port). Dette gjør Apache ved å velge det mest passende SSL-sertifikatet slik at transaksjonen kan fortsette."
 
 msgid "Before SNI, Apache would always use the certificate defined in the default virtual host. Clients trying to access another virtual host would then display warnings, since the certificate they received didn't match the website they were trying to access. Fortunately, most browsers now work with SNI; this includes Microsoft Internet Explorer starting with version 7.0 (starting on Vista), Mozilla Firefox starting with version 2.0, Apple Safari since version 3.2.1, and all versions of Google Chrome."
-msgstr ""
+msgstr "Før SNI, ville Apache alltid bruke sertifikatet i den virtuelle standard-verten. Klienter som prøver å få tilgang til en annen virtuell vert vil da vise advarsler, siden sertifikatet de mottok ikke samsvarte med nettstedet de prøvde å få tilgang til. Heldigvis jobber de fleste nettlesere sammen med SNI. Dette inkluderer Microsoft Internet Explorer fra og med versjon 7.0 (som starter med Vista), Mozilla Firefox fra og med versjon 2.0, Apple Safari fra versjon 3.2.1, og alle versjoner av Google Chrome."
 
 msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed."
-msgstr ""
+msgstr "Apache pakken, levert med Debian, er bygget med støtte for SNI. Ingen spesiell konfigurasjon er derfor nødvendig."
 
 msgid "Care should also be taken to ensure that the configuration for the first virtual host (the one used by default) does enable TLSv1, since Apache uses the parameters of this first virtual host to establish secure connections, and they had better allow them!"
-msgstr ""
+msgstr "En bør også utvise forsiktighet for å sikre at konfigurasjonen for den første virtuelle verten (den som brukes som standard) aktiverer TLSv1, ettersom Apache bruker parametrene fra denne første virtuelle verten til å etablere sikre forbindelser, og de hadde bare å tillate dem!"
 
 msgid "Each extra virtual host is then described by a file stored in <filename>/etc/apache2/sites-available/</filename>. Setting up a website for the <literal>falcot.org</literal> domain is therefore a simple matter of creating the following file, then enabling the virtual host with <command>a2ensite www.falcot.org</command>."
-msgstr ""
+msgstr "Hver ekstra virtuelle vert er deretter beskrevet av en fil lagret i <filename>/etc/apache2/sites-available/</filename>. Å sette opp et nettsted for  <literal>falcot.org</literal>-domenet blir derfor en enkel sak ved å lage den følgende filen, og så aktivere den virtuelle verten med <command>a2ensite www.falcot.org</command>."
 
 msgid "The <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/apache2/sites-available/www.falcot.org.conf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "&lt;VirtualHost *:80&gt;\n"
@@ -1176,13 +1184,20 @@ msgid ""
 "DocumentRoot /srv/www/www.falcot.org\n"
 "&lt;/VirtualHost&gt;"
 msgstr ""
+"\n"
+"&lt;VirtualHost *:80&gt;\n"
+"ServerName www.falcot.org\n"
+"ServerAlias falcot.org\n"
+"DocumentRoot /srv/www/www.falcot.org\n"
+"&lt;/VirtualHost&gt;"
 
 msgid "The Apache server, as configured so far, uses the same log files for all virtual hosts (although this could be changed by adding <literal>CustomLog</literal> directives in the definitions of the virtual hosts). It therefore makes good sense to customize the format of this log file to have it include the name of the virtual host. This can be done by creating a <filename>/etc/apache2/conf-available/customlog.conf</filename> file that defines a new format for all log files (with the <literal>LogFormat</literal> directive) and by enabling it with <command>a2enconf customlog</command>. The <literal>CustomLog</literal> line must also be removed (or commented out) from the <filename>/etc/apache2/sites-available/000-default.conf</filename> file."
-msgstr ""
+msgstr "Apache-tjeneren, konfigurert så langt, bruker de samme loggfiler for alle virtuelle verter (selv om dette kan endres ved å legge til <literal>CustomLog</literal>-direktiver i definisjonene til de virtuelle vertene). Det er derfor klokt å tilpasse formatet på denne loggfilen slik at den inneholder navnet på den virtuelle verten. Dette kan gjøres ved å opprette en <filename>/etc/apache2/conf-available/customlog.conf</filename>-fil som fastsetter et nytt format for alle loggfiler (med <literal>LogFormat</literal>-direktivet) og ved å aktivere den med <command>a2enconf customlog</command>.  <literal>CustomLog</literal>-linjen må også fjernes (eller kommenteres ut) fra <filename>/etc/apache2/sites-available/000-default.conf</filename>-filen."
 
 msgid "The <filename>/etc/apache2/conf.d/customlog.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/apache2/conf.d/customlog.conf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "# New log format including (virtual) host name\n"
@@ -1191,31 +1206,42 @@ msgid ""
 "# Now let's use this \"vhost\" format by default\n"
 "CustomLog /var/log/apache2/access.log vhost"
 msgstr ""
+"\n"
+"# New log format including (virtual) host name\n"
+"LogFormat \"%v %h %l %u %t \\\"%r\\\" %&gt;s %b \\\"%{Referer}i\\\" \\\"%{User-Agent}i\\\"\" vhost\n"
+"\n"
+"# Now let's use this \"vhost\" format by default\n"
+"CustomLog /var/log/apache2/access.log vhost"
 
 msgid "Common Directives"
-msgstr ""
+msgstr "Vanlige direktiver"
 
 msgid "This section briefly reviews some of the commonly-used Apache configuration directives."
-msgstr ""
+msgstr "Dette avsnittet gir en kort gjennomgang av noen av de oftest brukte Apache-konfigurasjonsdirektivene."
 
+#, fuzzy
 msgid "<primary>Apache directives</primary>"
-msgstr ""
+msgstr "<primary>Apache directives</primary>"
 
+#, fuzzy
 msgid "<primary>directives, Apache</primary>"
-msgstr ""
+msgstr "<primary>directives, Apache</primary>"
 
 msgid "The main configuration file usually includes several <literal>Directory</literal> blocks; they allow specifying different behaviors for the server depending on the location of the file being served. Such a block commonly includes <literal>Options</literal> and <literal>AllowOverride</literal> directives."
-msgstr ""
+msgstr "Den viktigste konfigurasjonsfilen inneholder vanligvis flere <literal>Directory</literal>-blokker. De åpner for å spesifisere ulike virkemåter for tjeneren, avhengig av plasseringen av filen som blir betjent. En slik blokk omfatter vanligvis <literal>Options</literal> og <literal>AllowOverride</literal>-direktiver."
 
+#, fuzzy
 msgid "<primary><literal>Options</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Options</literal>, Apache directive</primary>"
 
+#, fuzzy
 msgid "<primary><literal>AllowOverride</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>AllowOverride</literal>, Apache directive</primary>"
 
 msgid "Directory block"
-msgstr ""
+msgstr "Katalogblokk"
 
+#, fuzzy
 msgid ""
 "\n"
 "&lt;Directory /var/www&gt;\n"
@@ -1224,61 +1250,72 @@ msgid ""
 "DirectoryIndex index.php index.html index.htm\n"
 "&lt;/Directory&gt;"
 msgstr ""
+"\n"
+"&lt;Directory /var/www&gt;\n"
+"Options Includes FollowSymlinks\n"
+"AllowOverride All\n"
+"DirectoryIndex index.php index.html index.htm\n"
+"&lt;/Directory&gt;"
 
 msgid "The <literal>DirectoryIndex</literal> directive contains a list of files to try when the client request matches a directory. The first existing file in the list is used and sent as a response."
-msgstr ""
+msgstr "<literal>DirectoryIndex</literal>-direktivet inneholder en liste over filer som kan prøves når klientens forespørsel matcher en katalog. Den første filen som forekommer i listen brukes og er sendt som en respons."
 
+#, fuzzy
 msgid "<primary><literal>DirectoryIndex</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>DirectoryIndex</literal>, Apache directive</primary>"
 
 msgid "The <literal>Options</literal> directive is followed by a list of options to enable. The <literal>None</literal> value disables all options; correspondingly, <literal>All</literal> enables them all except <literal>MultiViews</literal>. Available options include:"
-msgstr ""
+msgstr "<literal>Options</literal>-direktivet er etterfulgt av en liste av alternativer som kan aktiveres. <literal>None</literal>-verdien slår av alle valg; tilsvarende, aktiverer <literal>All</literal> alle sammen for uten <literal>MultiViews</literal>. Tilgjengelige valg inkluderer:"
 
 msgid "<literal>ExecCGI</literal> indicates that CGI scripts can be executed. <indexterm><primary><literal>ExecCGI</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>ExecCGI</literal> indikerer at CGI-skript kan utføres. <indexterm><primary><literal>ExecCGI</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>FollowSymlinks</literal> tells the server that symbolic links can be followed, and that the response should contain the contents of the target of such links. <indexterm><primary><literal>FollowSymlinks</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>FollowSymlinks</literal> forteller tjeneren at symbolske lenker kan bli fulgt, og at responsen skal inneholde mål-innholdet for slike koblinger. <indexterm><primary><literal>FollowSymlinks</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>SymlinksIfOwnerMatch</literal> also tells the server to follow symbolic links, but only when the link and the its target have the same owner. <indexterm><primary><literal>SymlinksIfOwnerMatch</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>SymlinksIfOwnerMatch</literal> forteller også at tjeneren skal følge symbolske lenker, men bare når koblingen og målet har samme eier.<indexterm><primary><literal>SymlinksIfOwnerMatch</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>Includes</literal> enables <emphasis>Server Side Includes</emphasis> (<emphasis>SSI</emphasis> for short). These are directives embedded in HTML pages and executed on the fly for each request. <indexterm><primary><literal>Includes</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>Includes</literal> aktiverer <emphasis>Server Side Includes</emphasis> (<emphasis>SSI</emphasis> i korthet). Dette er direktiver som er innebygd i HTML-sider og utført underveis for hver forespørsel. <indexterm><primary><literal>Includes</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>Indexes</literal> tells the server to list the contents of a directory if the HTTP request sent by the client points at a directory without an index file (ie, when no files mentioned by the <literal>DirectoryIndex</literal> directive exists in this directory). <indexterm><primary><literal>Indexes</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>Indexes</literal> forteller at tjeneren skal vise innholdet i en katalog hvis HTTP-forespørselen sendt av klienten peker på en katalog uten en indeksfil (dvs. når ingen filer nevnt av <literal>DirectoryIndex</literal>-direktivet finnes i denne mappen). <indexterm><primary><literal>Indexes</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>MultiViews</literal> enables content negotiation; this can be used by the server to return a web page matching the preferred language as configured in the browser. <indexterm><primary><literal>MultiViews</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>MultiViews</literal> muliggjør forhandlinger om innholdet. Denne kan brukes av tjeneren for å returnere en nettside som matcher det foretrukne språket som er konfigurert i nettleseren. <indexterm><primary><literal>MultiViews</literal>, Apache directive</primary></indexterm>"
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> <filename>.htaccess</filename> file"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> <filename>.htaccess</filename> file"
 
 msgid "The <filename>.htaccess</filename> file contains Apache configuration directives enforced each time a request concerns an element of the directory where it is stored. The scope of these directives also recurses to all the subdirectories within."
-msgstr ""
+msgstr "<filename>.htaccess</filename>-filen inneholder konfigurasjonsdirektiver for Apache som utføres hver gang en forespørsel om et element i katalogen der den er lagret. Definisisjonsområdet for disse direktivene gjentas også for alle underkatalogene."
 
+#, fuzzy
 msgid "<primary><filename>.htaccess</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>.htaccess</filename></primary>"
 
 msgid "Most of the directives that can occur in a <literal>Directory</literal> block are also legal in a <filename>.htaccess</filename> file."
-msgstr ""
+msgstr "De fleste direktiver som kan forekomme i en <literal>Directory</literal>-blokk gjelder også for en <filename>.htaccess</filename>-file."
 
 msgid "The <literal>AllowOverride</literal> directive lists all the options that can be enabled or disabled by way of a <filename>.htaccess</filename> file. A common use of this option is to restrict <literal>ExecCGI</literal>, so that the administrator chooses which users are allowed to run programs under the web server's identity (the <literal>www-data</literal> user)."
-msgstr ""
+msgstr "<literal>AllowOverride</literal>-direktivet lister opp alle alternativer som kan aktiveres eller deaktiveres ved hjelp av en <filename>.htaccess</filename>-fil. En vanlig bruk av dette valget er til å begrense <literal>ExecCGI</literal>, slik at administratoren velger hvilke brukere som har lov til å kjøre programmer under nettjenerens identitet (<literal>www-data</literal>-brukeren)."
 
 msgid "Requiring Authentication"
-msgstr ""
+msgstr "Å rekvirere autentisering"
 
+#, fuzzy
 msgid "<primary>web authentication</primary>"
-msgstr ""
+msgstr "<primary>web authentication</primary>"
 
 msgid "In some circumstances, access to part of a website needs to be restricted, so only legitimate users who provide a username and a password are granted access to the contents."
-msgstr ""
+msgstr "I noen tilfeller trenges det begrenset tilgang til en del av et nettsted, slik at bare legitime brukere som gir et brukernavn og et passord får tilgang til innholdet."
 
 msgid "<filename>.htaccess</filename> file requiring authentication"
-msgstr ""
+msgstr "<filename>.htaccess</filename>-fil som krever autentisering"
 
+#, fuzzy
 msgid ""
 "\n"
 "Require valid-user\n"
@@ -1286,16 +1323,24 @@ msgid ""
 "AuthType Basic\n"
 "AuthUserFile /etc/apache2/authfiles/htpasswd-private"
 msgstr ""
+"\n"
+"Require valid-user\n"
+"AuthName \"Private directory\"\n"
+"AuthType Basic\n"
+"AuthUserFile /etc/apache2/authfiles/htpasswd-private"
 
 msgid "<emphasis>SECURITY</emphasis> No security"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> Ingen sikkerhet"
 
 msgid "The authentication system used in the above example (<literal>Basic</literal>) has minimal security as the password is sent in clear text (it is only encoded as <emphasis>base64</emphasis>, which is a simple encoding rather than an encryption method). It should also be noted that the documents “protected” by this mechanism also go over the network in the clear. If security is important, the whole HTTP connection should be encrypted with SSL."
-msgstr ""
+msgstr "Autentiseringssystemet som brukes i eksempelet ovenfor (<literal>Basic</literal>) har minimal sikkerhet når passordet sendes i klartekst (det er bare kodet som <emphasis>base64</emphasis>, som er en enkel innkoding snarere enn en krypteringsmetode). Det bør også bemerkes at de dokumenter som \"beskyttet\" av denne mekanismen også går over nettverket i klartekst. Hvis sikkerhet er viktig, bør hele HTTP-tilkobling krypteres med SSL."
 
 msgid "The <filename>/etc/apache2/authfiles/htpasswd-private</filename> file contains a list of users and passwords; it is commonly manipulated with the <command>htpasswd</command> command. For example, the following command is used to add a user or change their password: <indexterm><primary><command>htpasswd</command></primary></indexterm>"
 msgstr ""
+"The <filename>/etc/apache2/authfiles/htpasswd-private</filename>-filen inneholder en liste over brukere og passord. Den er ofte håndtert med <command>htpasswd</command>-kommandoen. For eksempel brukes\n"
+"følgende kommando til å legge til en bruker eller endre passordet deres: <indexterm><primary><command>htpasswd</command></primary></indexterm>"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>htpasswd /etc/apache2/authfiles/htpasswd-private <replaceable>user</replaceable>\n"
@@ -1304,86 +1349,112 @@ msgid ""
 "Adding password for user <replaceable>user</replaceable>\n"
 "</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>htpasswd /etc/apache2/authfiles/htpasswd-private <replaceable>user</replaceable>\n"
+"</userinput><computeroutput>New password:\n"
+"Re-type new password:\n"
+"Adding password for user <replaceable>user</replaceable>\n"
+"</computeroutput>"
 
 msgid "Restricting Access"
-msgstr ""
+msgstr "Adgangsbegrensning"
 
+#, fuzzy
 msgid "<primary>web access restriction</primary>"
-msgstr ""
+msgstr "<primary>web access restriction</primary>"
 
 msgid "The <literal>Require</literal> directive controls access restrictions for a directory (and its subdirectories, recursively)."
-msgstr ""
+msgstr "<literal>Require</literal>-direktivet regulerer adgangsbegrensninger for en katalog (og gjentatt for katalogens undermapper)."
 
+#, fuzzy
 msgid "<primary><literal>Require</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Require</literal>, Apache directive</primary>"
 
 msgid "It can be used to restrict access based on many criteria; we will stop at describing access restriction based on the IP address of the client, but it can be made much more powerful than that, especially when several <literal>Require</literal> directives are combined within a <literal>RequireAll</literal> block."
-msgstr ""
+msgstr "Den kan brukes til å begrense adgangen basert på flere kriterier: Vi vil stoppe med å beskrive adgangsbegrensning basert på klientens IP-adresse, men det kan gjøres mye kraftigere enn det, særlig når flere <literal>Require</literal>-direktiver kombineres i en  <literal>RequireAll</literal>-blokk."
 
 msgid "Only allow from the local network"
-msgstr ""
+msgstr "Tillat bare fra det lokale nettverket"
 
+#, fuzzy
 msgid "Require ip 192.168.0.0/16"
-msgstr ""
+msgstr "Require ip 192.168.0.0/16"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Old syntax"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Gammel syntaks"
 
 msgid "The <literal>Require</literal> syntax is only available in Apache 2.4 (the version in <emphasis role=\"distribution\">Jessie</emphasis>). For users of <emphasis role=\"distribution\">Wheezy</emphasis>, the Apache 2.2 syntax is different, and we describe it here mainly for reference, although it can also be made available in Apache 2.4 using the <literal>mod_access_compat</literal> module."
 msgstr ""
+"<literal>Require</literal>-syntaksen er bare tilgjengelig i Apache 2.4 (versjonen i <emphasis role=\"distribution\">Jessie</emphasis>). For brukere av <emphasis role=\"distribution\">Wheezy</emphasis> er\n"
+"Apache 2,2-syntaksen forskjellig, og her beskriver vi den hovedsakelig som referanse, selv om den også kan gjøres tilgjengelig i Apache 2,4 ved hjelp av <literal>mod_access_compat</literal>-modulen."
 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives control access restrictions for a directory (and its subdirectories, recursively)."
-msgstr ""
+msgstr "<literal>Allow from</literal> og <literal>Deny from</literal>-direktivene  kontrollerer adgangsbegrensninger for en katalog (og gjentatt for katalogens undermapper)."
 
+#, fuzzy
 msgid "<primary><literal>Allow from</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Allow from</literal>, Apache directive</primary>"
 
+#, fuzzy
 msgid "<primary><literal>Deny from</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Deny from</literal>, Apache directive</primary>"
 
+#, fuzzy
 msgid "<primary><literal>Order</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Order</literal>, Apache directive</primary>"
 
 msgid "The <literal>Order</literal> directive tells the server of the order in which the <literal>Allow from</literal> and <literal>Deny from</literal> directives are applied; the last one that matches takes precedence. In concrete terms, <literal>Order deny,allow</literal> allows access if no <literal>Deny from</literal> applies, or if an <literal>Allow from</literal> directive does. Conversely, <literal>Order allow,deny</literal> rejects access if no <literal>Allow from</literal> directive matches (or if a <literal>Deny from</literal> directive applies)."
-msgstr ""
+msgstr "<literal>Order</literal>-direktivet forteller tjeneren om rekkefølgen på <literal>Allow from</literal> og <literal>Deny from</literal>-direktivene: den siste som matcher har forrang. Konkret tillater <literal>Order deny,allow</literal> adgang hvis ingen <literal>Deny from</literal> passer, eller hvis et <literal>Allow from</literal>-direktiv gjør det. Omvendt, stanser <literal>Order allow,deny</literal> adgang hvis intet <literal>Allow from</literal>-direktiv matcher (eller hvis et <literal>Deny from</literal>-direktiv tillater)."
 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives can be followed by an IP address, a network (such as <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> or even <literal>192.168.0</literal>), a hostname or a domain name, or the <literal>all</literal> keyword, designating everyone."
-msgstr ""
+msgstr "<literal>Allow from</literal> og <literal>Deny from</literal>-direktivene kan etterfølges av en IP-adresse, et nettverk (slik som <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> eller til og med <literal>192.168.0</literal>), et vertsnavn eller domenenavn, eller  <literal>all</literal>-nøkkelen som peker ut alle."
 
 msgid "For instance, to reject connections by default but allow them from the local network, you could use this:"
-msgstr ""
+msgstr "For eksempel, for å avvise forbindelser som standard, men tillate dem fra det lokale nettverket, kan du bruke denne:"
 
+#, fuzzy
 msgid ""
 "\n"
 "Order deny,allow\n"
 "Allow from 192.168.0.0/16\n"
 "Deny from all"
 msgstr ""
+"\n"
+"Order deny,allow\n"
+"Allow from 192.168.0.0/16\n"
+"Deny from all"
 
 msgid "Log Analyzers"
-msgstr ""
+msgstr "Logg-analysatorer"
 
 msgid "A log analyzer is frequently installed on a web server; since the former provides the administrators with a precise idea of the usage patterns of the latter."
-msgstr ""
+msgstr "En logg-analysator er ofte installert på en nettjener; siden det første gir administratorer en presis idé om bruksmønstre på sistnevnte."
 
 msgid "The Falcot Corp administrators selected <emphasis>AWStats</emphasis> (<emphasis>Advanced Web Statistics</emphasis>) to analyze their Apache log files."
 msgstr ""
+"Falcot Corp-administratorene valgte <emphasis>AWStats</emphasis> (<emphasis>Advanced Web Statistics</emphasis>) \n"
+"til å analysere sine Apache loggfiler."
 
+#, fuzzy
 msgid "<primary><emphasis>AWStats</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>AWStats</emphasis></primary>"
 
+#, fuzzy
 msgid "<primary>web logs analyzer</primary>"
-msgstr ""
+msgstr "<primary>web logs analyzer</primary>"
 
+#, fuzzy
 msgid "<primary>logs</primary><secondary>web logs analyzer</secondary>"
-msgstr ""
+msgstr "<primary>logs</primary><secondary>web logs analyzer</secondary>"
 
+#, fuzzy
 msgid "<primary>analyzer of web logs</primary>"
-msgstr ""
+msgstr "<primary>analyzer of web logs</primary>"
 
 msgid "The first configuration step is the customization of the <filename>/etc/awstats/awstats.conf</filename> file. The Falcot administrators keep it unchanged apart from the following parameters:"
-msgstr ""
+msgstr "Det første konfigurasjonstrinnet er å tilpasse <filename>/etc/awstats/awstats.conf</filename>-filen. Falcot-administratorene holdt den uendret, bortsett fra følgende parametre:"
 
+#, fuzzy
 msgid ""
 "\n"
 "LogFile=\"/var/log/apache2/access.log\"\n"
@@ -1393,49 +1464,68 @@ msgid ""
 "DNSLookup=1\n"
 "LoadPlugin=\"tooltips\""
 msgstr ""
+"\n"
+"LogFile=\"/var/log/apache2/access.log\"\n"
+"LogFormat = \"%virtualname %host %other %logname %time1 %methodurl %code %bytesd %refererquot %uaquot\"\n"
+"SiteDomain=\"www.falcot.com\"\n"
+"HostAliases=\"falcot.com REGEX[^.*\\.falcot\\.com$]\"\n"
+"DNSLookup=1\n"
+"LoadPlugin=\"tooltips\""
 
 msgid "All these parameters are documented by comments in the template file. In particular, the <varname>LogFile</varname> and <varname>LogFormat</varname> parameters describe the location and format of the log file and the information it contains; <varname>SiteDomain</varname> and <varname>HostAliases</varname> list the various names under which the main web site is known."
 msgstr ""
+"Alle disse parametrene er dokumentert av kommentarer i male-filen. Spesielt beskriver <varname>LogFile</varname> og\n"
+"<varname>LogFormat</varname>-parameterene plasseringen og formatet på loggfilen og informasjonen den inneholder;<varname>SiteDomain</varname> og <varname>HostAliases</varname> lister de ulike navnene som hoved-nettstedet er kjent under."
 
 msgid "For high traffic sites, <varname>DNSLookup</varname> should usually not be set to <literal>1</literal>; for smaller sites, such as the Falcot one described above, this setting allows getting more readable reports that include full machine names instead of raw IP addresses."
-msgstr ""
+msgstr "For områder med stor trafikk, skal <varname>DNSLookup</varname> vanligvis ikke settes til <literal>1</literal>. For mindre nettsteder, som for eksempel Falcot-eksemplet beskrevet ovenfor, tillater denne innstillingen mer lesbare rapporter med komplette maskinnavn i stedet for rå IP-adresser."
 
+#, fuzzy
 msgid "<emphasis>SECURITY</emphasis> Access to statistics"
-msgstr ""
+msgstr "<emphasis>SECURITY</emphasis> Access to statistics"
 
 msgid "AWStats makes its statistics available on the website with no restrictions by default, but restrictions can be set up so that only a few (probably internal) IP addresses can access them; the list of allowed IP addresses needs to be defined in the <varname>AllowAccessFromWebToFollowingIPAddresses</varname> parameter"
-msgstr ""
+msgstr "AWStats gjør statistikk tilgjengelig på nettstedet uten restriksjoner som standard. Men restriksjoner kan settes opp slik at bare noen få (sannsynligvis interne) IP-adresser kan få tilgang til dem. Listen over tillatte IP-adresser må være definert i <varname>AllowAccessFromWebToFollowingIPAddresses</varname> parameteret"
 
 msgid "AWStats will also be enabled for other virtual hosts; each virtual host needs its own configuration file, such as <filename>/etc/awstats/awstats.www.falcot.org.conf</filename>."
-msgstr ""
+msgstr "AWStats er også aktivert for andre virtuelle verter; hver virtuell vert må ha en egen konfigurasjonsfil, som for eksempel <filename>/etc/awstats/awstats.www.falcot.org.conf</filename>."
 
 msgid "AWStats configuration file for a virtual host"
-msgstr ""
+msgstr "AWStats konfigurasjonsfil for en virtuell vert"
 
+#, fuzzy
 msgid ""
 "\n"
 "Include \"/etc/awstats/awstats.conf\"\n"
 "SiteDomain=\"www.falcot.org\"\n"
 "HostAliases=\"falcot.org\""
 msgstr ""
+"\n"
+"Include \"/etc/awstats/awstats.conf\"\n"
+"SiteDomain=\"www.falcot.org\"\n"
+"HostAliases=\"falcot.org\""
 
 msgid "AWStats uses many icons stored in the <filename>/usr/share/awstats/icon/</filename> directory. In order for these icons to be available on the web site, the Apache configuration needs to be adapted to include the following directive:"
-msgstr ""
+msgstr "AWStats bruker mange ikoner lagret i <filename>/usr/share/awstats/icon/</filename>-mappen. For at disse ikonene skal være tilgjengelige på nettsiden, må Apache-konfigurasjonen tilpasses ved å inkludere følgende direktiv:"
 
+#, fuzzy
 msgid ""
 "\n"
 "Alias /awstats-icon/ /usr/share/awstats/icon/"
 msgstr ""
+"\n"
+"Alias /awstats-icon/ /usr/share/awstats/icon/"
 
 msgid "After a few minutes (and once the script has been run a few times), the results are available online: <ulink type=\"block\" url=\"http://www.falcot.com/cgi-bin/awstats.pl\" /><ulink type=\"block\" url=\"http://www.falcot.org/cgi-bin/awstats.pl\" />"
-msgstr ""
+msgstr "Etter noen minutter (og så snart skriptet er kjørt et par ganger), er resultatene tilgjengelig på nettet: <ulink type=\"block\" url=\"http://www.falcot.com/cgi-bin/awstats.pl\" /><ulink type=\"block\" url=\"http://www.falcot.org/cgi-bin/awstats.pl\" />"
 
 msgid "<emphasis>CAUTION</emphasis> Log file rotation"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Loggfil-rotasjon"
 
 msgid "In order for the statistics to take all the logs into account, <emphasis>AWStats</emphasis> needs to be run right before the Apache log files are rotated. Looking at the <literal>prerotate</literal> directive of <filename>/etc/logrotate.d/apache2</filename> file, this can be solved by putting a symlink to <filename>/usr/share/awstats/tools/update.sh</filename> in <filename>/etc/logrotate.d/httpd-prerotate</filename>:"
-msgstr ""
+msgstr "For at statistikken skal ta alle loggene med i betraktningen, trenger <emphasis>AWStats</emphasis> å kjøres rett før Apache loggfilene blir  rotert. Se på <literal>prerotate</literal>-direktivet til <filename>/etc/logrotate.d/apache2</filename>-filen. Dette kan løses ved å sette en symlink til <filename>/usr/share/awstats/tools/update.sh</filename> i <filename>/etc/logrotate.d/httpd-prerotate</filename>:"
 
+#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
 "</userinput><computeroutput>/var/log/apache2/*.log {\n"
@@ -1463,267 +1553,336 @@ msgid ""
 "  /etc/logrotate.d/httpd-prerotate/awstats\n"
 "</userinput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>cat /etc/logrotate.d/apache2\n"
+"</userinput><computeroutput>/var/log/apache2/*.log {\n"
+"  daily\n"
+"  missingok\n"
+"  rotate 14\n"
+"  compress\n"
+"  delaycompress\n"
+"  notifempty\n"
+"  create 644 root adm\n"
+"  sharedscripts\n"
+"  postrotate\n"
+"    if /etc/init.d/apache2 status &gt; /dev/null ; then \\\n"
+"      /etc/init.d/apache2 reload &gt; /dev/null; \\\n"
+"    fi;\n"
+"  endscript\n"
+"  prerotate\n"
+"    if [ -d /etc/logrotate.d/httpd-prerotate ]; then \\\n"
+"      run-parts /etc/logrotate.d/httpd-prerotate; \\\n"
+"    fi; \\\n"
+"  endscript\n"
+"}\n"
+"$ </computeroutput><userinput>sudo mkdir -p /etc/logrotate.d/httpd-prerotate\n"
+"</userinput><computeroutput>$ </computeroutput><userinput>sudo ln -sf /usr/share/awstats/tools/update.sh \\\n"
+"  /etc/logrotate.d/httpd-prerotate/awstats\n"
+"</userinput>"
 
 msgid "Note also that the log files created by <command>logrotate</command> need to be readable by everyone, especially AWStats. In the above example, this is ensured by the <literal>create 644 root adm</literal> line (instead of the default <literal>640</literal> permissions)."
-msgstr ""
+msgstr "Merk også at loggfilene som ble opprettet av <command>logrotate</command> må kunne leses av alle, spesielt AWStats. I eksempelet ovenfor, er dette sikret av <literal>create 644 root adm</literal>-linjen (i stedet for de standard <literal>640</literal>- tillatelsene)."
 
 msgid "FTP File Server"
-msgstr ""
+msgstr "FTP Filtjener"
 
+#, fuzzy
 msgid "<primary>FTP (<emphasis>File Transfer Protocol</emphasis>)</primary>"
-msgstr ""
+msgstr "<primary>FTP (<emphasis>File Transfer Protocol</emphasis>)</primary>"
 
 msgid "FTP (<emphasis>File Transfer Protocol</emphasis>) is one of the first protocols of the Internet (RFC 959 was issued in 1985!). It was used to distribute files before the Web was even born (the HTTP protocol was created in 1990, and formally defined in its 1.0 version by RFC 1945, issued in 1996)."
-msgstr ""
+msgstr "FTP (<emphasis>File Transfer Protocol</emphasis>) er en av de første protokollene for Internett (RFC 959 ble utstedt i 1985!). Den ble brukt til å distribuere filer før nettet til og mer var født (HTTP-protokollen ble laget  i 1990, og formelt definert i sin 1.0-versjon av RFC 1945, utgitt i 1996)."
 
 msgid "This protocol allows both file uploads and file downloads; for this reason, it is still widely used to deploy updates to a website hosted by one's Internet service provider (or any other entity hosting websites). In these cases, secure access is enforced with a user identifier and password; on successful authentication, the FTP server grants read-write access to that user's home directory."
-msgstr ""
+msgstr "Denne protokollen tillater både filopplasting og -nedlasting av filer. Derfor er den fortsatt mye brukt til å distribuere oppdateringer et nettsted som drives av en internettleverandør (eller andre som er vert for nettsteder). I disse tilfellene håndheves sikker adgang med en brukeridentifikasjon og passord. Ved vellykket autentisering, gir FTP-tjeneren lese-og skrivetilgang til brukerens hjemmekatalog."
 
 msgid "Other FTP servers are mainly used to distribute files for public downloading; Debian packages are a good example. The contents of these servers is fetched from other, geographically remote, servers; it is then made available to less distant users. This means that client authentication is not required; as a consequence, this operating mode is known as “anonymous FTP”. To be perfectly correct, the clients do authenticate with the <literal>anonymous</literal> username; the password is often, by convention, the user's email address, but the server ignores it."
-msgstr ""
+msgstr "Andre FTP-tjenere brukes i hovedsak til å distribuere filer for offentlig nedlasting; Debian-pakker er et godt eksempel. Innholdet i disse tjenerne er hentet fra andre, geografisk fjerntliggende tjenere, og gjøres da  tilgjengelige for mindre fjerntliggende brukere. Dette betyr at klientautentisering ikke er nødvendig. Som et resultat er denne driftsmodus kjent som \"anonymus FTP\". For å være helt korrekt, autentiseres klientene med brukernavnet <literal>anonymous</literal>; passordet er ofte, i følge vanlig praksis, brukerens e-postadresse, men det ignorerer tjeneren."
 
 msgid "Many FTP servers are available in Debian (<emphasis role=\"pkg\">ftpd</emphasis>, <emphasis role=\"pkg\">proftpd-basic</emphasis>, <emphasis role=\"pkg\">pyftpd</emphasis> and so on). The Falcot Corp administrators picked <emphasis role=\"pkg\">vsftpd</emphasis> because they only use the FTP server to distribute a few files (including a Debian package repository); since they don't need advanced features, they chose to focus on the security aspects."
-msgstr ""
+msgstr "Mange FTP-tjenere er tilgjengelige i Debian (<emphasis role=\"pkg\">ftpd</emphasis>, <emphasis role=\"pkg\">proftpd-basic</emphasis>, <emphasis role=\"pkg\">pyftpd</emphasis> og så videre). Falcot Corp-administratorene valgte ut <emphasis role=\"pkg\">vsftpd</emphasis> fordi de bare bruker FTP-tjeneren for å distribuere noen få filer (inkludert en Debian-pakkebrønn). Ettersom de ikke trenger avanserte funksjoner, valgte de å fokusere på de sikkerhetsmessige aspektene."
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">vsftpd</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">vsftpd</emphasis></primary>"
 
 msgid "Installing the package creates an <literal>ftp</literal> system user. This account is always used for anonymous FTP connections, and its home directory (<filename>/srv/ftp/</filename>) is the root of the tree made available to users connecting to this service. The default configuration (in <filename>/etc/vsftpd.conf</filename>) requires some changes to cater to the simple need of making big files available for public downloads: anonymous access needs to be enabled (<literal>anonymous_enable=YES</literal>) and read-only access of local users needs to be disabled (<literal>local_enable=NO</literal>). The latter is particularly important since the FTP protocol doesn't use any form of encryption and the user password could be intercepted over the wire."
-msgstr ""
+msgstr "Å installere pakken skaper en <literal>ftp</literal> systembruker. Denne kontoen brukes alltid for anonyme FTP-tilkoblinger, og hjemmekatalogen dens (<filename>/srv/ftp/</filename>) er roten til treet som brukerne kan  benytte for å knytte seg til denne tjenesten. Standardoppsettet (i <filename>/etc/vsftpd.conf</filename>) krever noen endringer for å imøtekomme enkle behov for å gjøre store filer tilgjengelig for offentlige nedlastinger: Anonym tilgang må være aktivert (<literal>anonymous_enable=YES</literal>) og lesetilgang fra lokale brukere må være deaktivert (<literal>local_enable=NO</literal>). Det siste er spesielt viktig ettersom FTP-protokollen ikke bruker noen form for kryptering og brukerpassord som kan snappes opp underveis."
 
 msgid "NFS File Server"
-msgstr ""
+msgstr "NFS Filtjener"
 
 msgid "NFS (<emphasis>Network File System</emphasis>) is a protocol allowing remote access to a filesystem through the network. All Unix systems can work with this protocol; when Windows systems are involved, Samba must be used instead."
-msgstr ""
+msgstr "NFS (<emphasis>Network File System</emphasis>) er en protokoll som tillater ekstern tilgang til et filsystem gjennom nettverket. Alle Unix-systemer kan arbeide med denne protokollen, Når Windows-systemer er involvert, må Samba brukes i stedet."
 
+#, fuzzy
 msgid "<primary>NFS</primary>"
-msgstr ""
+msgstr "<primary>NFS</primary>"
 
+#, fuzzy
 msgid "<primary><emphasis>Network</emphasis></primary><secondary><emphasis>File System</emphasis></secondary>"
-msgstr ""
+msgstr "<primary><emphasis>Network</emphasis></primary><secondary><emphasis>File System</emphasis></secondary>"
 
+#, fuzzy
 msgid "<primary>filesystem</primary><secondary>network</secondary>"
-msgstr ""
+msgstr "<primary>filesystem</primary><secondary>network</secondary>"
 
+#, fuzzy
 msgid "<primary>file</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>file</primary><secondary>server</secondary>"
 
+#, fuzzy
 msgid "<primary>server</primary><secondary>file</secondary>"
-msgstr ""
+msgstr "<primary>server</primary><secondary>file</secondary>"
 
 msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
-msgstr ""
+msgstr "NFS er et svært nyttig verktøy, men har tidligere har lidd av mange begrensninger, som det er tatt hensyn til i versjon 4 av protokollen. Ulempen er at den nyeste versjonen av NFS er at den er vanskeligere å sette opp når du ønsker å bruke grunnleggende sikkerhetsfunksjoner som autentisering og kryptering, da den trenger Kerberos for dette. Og uten disse må NFS-protokollen begrenses til et klarert lokalt nettverk når data ukryptert går over nettverket (en <emphasis>sniffer</emphasis> kan fange den opp) og adgangsrettighetene er gitt med utgangspunkt i klientens IP-adresse (som kan etterlignes)."
 
+#, fuzzy
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
-msgstr ""
+msgstr "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
 
 msgid "Good documentation to deploy NFSv4 is rather scarce. Here are some pointers with content of varying quality but that should at least give some hints on what should be done. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
-msgstr ""
+msgstr "Det er ganske knapt med god dokumentasjon om å distribuere NFSv4. Her er noen tips med innhold av varierende kvalitet, men det bør i det minste gi noen hint om hva som bør gjøres. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
 
 msgid "Securing NFS"
-msgstr ""
+msgstr "Å sikre NFS"
 
+#, fuzzy
 msgid "<primary>NFS</primary><secondary>security</secondary>"
-msgstr ""
+msgstr "<primary>NFS</primary><secondary>security</secondary>"
 
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr ""
+msgstr "Hvis du ikke bruker Kerberos-baserte sikkerhetsfunksjoner, er det viktig å sikre at bare de maskinene som har lov til å bruke NFS kan koble til de ulike nødvendige RPC-tjenerne, fordi den grunnleggende protokollen har tillit til data som mottas fra nettverket. Brannmuren må også blokkere <emphasis>IP spoofing</emphasis> for å hindre at en utenforstående maskin opptrer som en på innsiden, og at tilgangen til de riktige portene blir begrenset til maskinene som er ment å skulle ha tilgang til NFS delinger."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> RPC"
 
 msgid "RPC (<emphasis>Remote Procedure Call</emphasis>) is a Unix standard for remote services. NFS is one such service."
-msgstr ""
+msgstr "RPC (<emphasis>Remote Procedure Call</emphasis>) er et Unix-standard for eksterne tjenester. NFS er en slik tjeneste."
 
+#, fuzzy
 msgid "<primary>RPC</primary>"
-msgstr ""
+msgstr "<primary>RPC</primary>"
 
+#, fuzzy
 msgid "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
 
 msgid "RPC services register to a directory known as the <emphasis>portmapper</emphasis>. A client wishing to perform an NFS query first addresses the <emphasis>portmapper</emphasis> (on port 111, either TCP or UDP), and asks for the NFS server; the reply usually mentions port 2049 (the default for NFS). Not all RPC services necessarily use a fixed port."
-msgstr ""
+msgstr "RPC-tjenester registrerer til en katalog kjent som <emphasis>portmapper</emphasis>. En klient som ønsker NFS forespørsel, adresserer først til <emphasis>portmapper</emphasis> (på port 111, enten TCP eller UDP), og ber om NFS-tjeneren; svaret nevner vanligvis port 2049 (standard for NFS). Ikke alle RPC-tjenester bruker nødvendigvis en fast port."
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
-msgstr ""
+msgstr "Eldre versjoner av protokollen krevde andre RPC-tjenester som brukte dynamisk tildelte porter. Heldigvis, med NFS versjon 4, er bare port 2049 (for NFS) og 111 (for portmapper) nødvendig, og de er dermed lette å sikre med brannmur."
 
+#, fuzzy
 msgid "<primary><command>portmapper</command></primary>"
-msgstr ""
+msgstr "<primary><command>portmapper</command></primary>"
 
 msgid "NFS Server"
-msgstr ""
+msgstr "NFS-tjener"
 
 msgid "The NFS server is part of the Linux kernel; in kernels provided by Debian it is built as a kernel module. If the NFS server is to be run automatically on boot, the <emphasis role=\"pkg\">nfs-kernel-server</emphasis> package should be installed; it contains the relevant start-up scripts."
-msgstr ""
+msgstr "NFS er en del av Linux-kjernen; i kjerner som leveres av Debian er den med som en kjernemodul. Hvis NFS-tjeneren skal kjøres automatisk ved oppstart, skal <emphasis role=\"pkg\">nfs-kernel-server</emphasis>-pakken installeres; Den inneholder de relevante oppstartskriptene."
 
 msgid "The NFS server configuration file, <filename>/etc/exports</filename>, lists the directories that are made available over the network (<emphasis>exported</emphasis>). For each NFS share, only the given list of machines is granted access. More fine-grained access control can be obtained with a few options. The syntax for this file is quite simple:"
-msgstr ""
+msgstr "NFS-tjenerens konfigurasjonsfil, <filename>/etc/exports</filename>, viser kataloger som er gjort tilgjengelig via nettverket (<emphasis>exported</emphasis>). For hver NFS deling, er det bare den gitte listen over maskiner som får tilgang. Mer finkornet adgangskontroll kan oppnås med et par alternativer. Syntaksen for denne filen er ganske enkel:"
 
+#, fuzzy
 msgid "<primary><filename>exports</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>exports</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/exports</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/exports</filename></primary>"
 
+#, fuzzy
 msgid ""
 "\n"
 "/directory/to/share machine1(option1,option2,...) machine2(...) ..."
 msgstr ""
+"\n"
+"/directory/to/share machine1(option1,option2,...) machine2(...) ..."
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identified with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
 msgstr ""
+"Merk at med NFSv4 må alle eksporterte kataloger være del av et enkelt hierarki og at rotkatalogen i dette hierarkiet må eksporteres og identifiseres med alternativet <literal>fsid=0</literal> eller\n"
+"<literal>fsid=root</literal>."
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
-msgstr ""
+msgstr "Hver maskin kan identifiseres enten ved sitt DNS-navn eller sin IP-adresse. Hele sett med maskiner kan også angis ved hjelp av enten en syntaks som <literal>*.falcot.com</literal> eller et IP-adresseområde som <literal>192.168.0.0/255.255.255.0</literal> eller <literal>192.168.0.0/24</literal>."
 
 msgid "Directories are made available as read-only by default (or with the <literal>ro</literal> option). The <literal>rw</literal> option allows read-write access. NFS clients typically connect from a port restricted to root (in other words, below 1024); this restriction can be lifted by the <literal>insecure</literal> option (the <literal>secure</literal> option is implicit, but it can be made explicit if needed for clarity)."
-msgstr ""
+msgstr "Kataloger er som standard gjort tilgjengelig som skrivebeskyttet (eller med <literal>rw</literal>-valget). <literal>rw</literal>-valget tillater lese- og skriveadgang. NFS-klienten kobler vanligvis til fra en port forbeholdt rot (med andre ord, under 1024). Denne begrensningen kan oppheves av <literal>insecure</literal>-valget, (<literal>secure</literal>-alternativet er implisitt, men kan gjøres eksplisitt hvis det er nødvendig for klarhetens skyld)."
 
+#, fuzzy
 msgid "<primary>NFS</primary><secondary>options</secondary>"
-msgstr ""
+msgstr "<primary>NFS</primary><secondary>options</secondary>"
 
 msgid "By default, the server only answers an NFS query when the current disk operation is complete (<literal>sync</literal> option); this can be disabled with the <literal>async</literal> option. Asynchronous writes increase performance a bit, but they decrease reliability since there is a data loss risk in case of the server crashing between the acknowledgment of the write and the actual write on disk. Since the default value changed recently (as compared to the historical value of NFS), an explicit setting is recommended."
-msgstr ""
+msgstr "Som standard svarer tjeneren bare på en NFS-spørring når den igangværende disk-operasjonen er fullført (<literal>sync</literal>-valget); Dette kan oppheves med <literal>async</literal>-valget. Asynchronous  innskriving øker ytelsen litt, men de reduserer påliteligheten siden det er en risiko for tap av data i tilfelle tjeneren krasjer mellom godkjenningen av innskrivingen og den faktiske innskrivingen på disken. Siden standardverdien nettopp ble endret (i forhold til den historiske verdien av NFS), er en eksplisitt innstilling å anbefale."
 
 msgid "In order to not give root access to the filesystem to any NFS client, all queries appearing to come from a root user are considered by the server as coming from the <literal>nobody</literal> user. This behavior corresponds to the <literal>root_squash</literal> option, and is enabled by default. The <literal>no_root_squash</literal> option, which disables this behavior, is risky and should only be used in controlled environments. The <literal>anonuid=<replaceable>uid</replaceable></literal> and <literal>anongid=<replaceable>gid</replaceable></literal> options allow specifying another fake user to be used instead of UID/GID 65534 (which corresponds to user <literal>nobody</literal> and group <literal>nogroup</literal>)."
-msgstr ""
+msgstr "For å ikke gi rot-tilgang til filsystemet til noen NFS-klient, er alle spørsmål som tilsynelatende kommer fra en rotbruker vurdert av tjeneren som å komme fra <literal>nobody</literal>-brukeren. Dette samsvarer med  <literal>root_squash</literal>-alternativet, og er aktivert som standard.  <literal>no_root_squash</literal>-alternativet, som deaktiverer denne atferden, er risikabel og bør bare brukes i kontrollerte omgivelser. <literal>anonuid=<replaceable>uid</replaceable></literal> og <literal>anongid=<replaceable>gid</replaceable></literal>-alternativene tillater å spesifisere en annen falsk bruker til å bli brukt i stedet for UID/GID 65534 (som tilsvarer bruker <literal>nobody</literal> and group <literal>nogroup</literal>)."
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
-msgstr ""
+msgstr "Med NFSv4, kan du legge til et <literal>sec</literal>-valg for å indikere det sikkerhetsnivået du ønsker: <literal>sec=sys</literal> er som standard uten noen sikkerhetsegenskaper, <literal>sec=krb5</literal> aktiverer bare autentisering, <literal>sec=krb5i</literal> legger til integritetsbeskyttelse, og <literal>sec=krb5p</literal> er det mest komplette nivået, og inkluderer personvern (med datakryptering). For at dette skal virke, trenger du et Kerberos oppsett som virker (den  tjenesten er ikke dekket i denne boken)."
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
-msgstr ""
+msgstr "Det er også andre valgmuligheter. De er dokumentert i manualsiden <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry>."
 
 msgid "<emphasis>CAUTION</emphasis> First installation"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Første innstallasjon"
 
 msgid "The <filename>/etc/init.d/nfs-kernel-server</filename> boot script only starts the server if the <filename>/etc/exports</filename> lists one or more valid NFS shares. On initial configuration, once this file has been edited to contain valid entries, the NFS server must therefore be started with the following command:"
-msgstr ""
+msgstr "<filename>/etc/init.d/nfs-kernel-server</filename>-oppstart-skriptet starter bare tjeneren hvis <filename>/etc/exports</filename> lister en eller flere gyldige NFS-deler. Ved første gangs konfigurering, når denne filen er redigert for å inneholde gyldige oppføringer, må NFS-tjeneren derfor sstartes med følgende kommando:"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 
 msgid "NFS Client"
-msgstr ""
+msgstr "NFS-klient"
 
+#, fuzzy
 msgid "<primary>client</primary><secondary>NFS</secondary>"
-msgstr ""
+msgstr "<primary>client</primary><secondary>NFS</secondary>"
 
+#, fuzzy
 msgid "<primary>NFS</primary><secondary>client</secondary>"
-msgstr ""
+msgstr "<primary>NFS</primary><secondary>client</secondary>"
 
 msgid "As with other filesystems, integrating an NFS share into the system hierarchy requires mounting. Since this filesystem has its peculiarities, a few adjustments were required in the syntaxes of the <command>mount</command> command and the <filename>/etc/fstab</filename> file."
-msgstr ""
+msgstr "Som med andre filsystemer, å integrere en NFS-del inn i systemhierarkiet krever montering. Siden dette filsystemet har sine særegenheter, kreves  noen justeringer i syntaksen til <command>mount</command>-kommandoen og i <filename>/etc/fstab</filename>-filen."
 
 msgid "Manually mounting with the <command>mount</command> command"
-msgstr ""
+msgstr "Å montore manuelt med <command>mount</command>-kommandoen"
 
+#, fuzzy
 msgid ""
 "\n"
 "          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 msgstr ""
+"\n"
+"          <computeroutput># </computeroutput><userinput>mount -t nfs4 -o rw,nosuid arrakis.internal.falcot.com:/shared /srv/shared</userinput>"
 
 msgid "NFS entry in the <filename>/etc/fstab</filename> file"
-msgstr ""
+msgstr "NFS inngang i <filename>/etc/fstab</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 msgstr ""
+"\n"
+"arrakis.internal.falcot.com:/shared /srv/shared nfs4 rw,nosuid 0 0"
 
 msgid "The entry described above mounts, at system startup, the <filename>/shared/</filename> NFS directory from the <literal>arrakis</literal> server into the local <filename>/srv/shared/</filename> directory. Read-write access is requested (hence the <literal>rw</literal> parameter). The <literal>nosuid</literal> option is a protection measure that wipes any <literal>setuid</literal> or <literal>setgid</literal> bit from programs stored on the share. If the NFS share is only meant to store documents, another recommended option is <literal>noexec</literal>, which prevents executing programs stored on the share. Note that on the server, the <filename>shared</filename> directory is below the NFSv4 root export (for example <filename>/export/shared</filename>), it is not a top-level directory."
-msgstr ""
+msgstr "Inngangen ovenfor monterer, ved systemoppstart, <filename>/shared/</filename> NFS-mappen fra <literal>arrakis</literal>-tjeneren til den lokale <filename>/srv/shared/</filename>-mappen. Lese-skriveadgang kreves (derav <literal>rw</literal>parameteret).  <literal>nosuid</literal>-valget er et beskyttelsestiltak som sletter alle <literal>setuid</literal> eller <literal>setgid</literal>-bit fra programmer lagret i delingen. Hvis NFS-delingen kun er ment til å lagre dokumenter, er et annet anbefalt alternativ <literal>noexec</literal>, som hindrer kjøring av programmer som er lagret i delingen. Legg merke til at på tjeneren, er ikke <filename>shared</filename>-mappen under NFSv4 root export (for eksempel <filename>/export/shared</filename>), en toppnivå-mappe."
 
 msgid "The <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the options in some detail."
-msgstr ""
+msgstr "Manualsiden <citerefentry><refentrytitle>nfs</refentrytitle> <manvolnum>5</manvolnum></citerefentry> beskriver alle valgmulighetene noe mer detaljert."
 
 msgid "Setting Up Windows Shares with Samba"
-msgstr ""
+msgstr "Å sette opp Windows Shares med Samba"
 
 msgid "Samba is a suite of tools handling the SMB protocol (also known as “CIFS”) on Linux. This protocol is used by Windows for network shares and shared printers."
-msgstr ""
+msgstr "Samba er en pakke med verktøy som håndterer SMB-protokollen (også kjent som \"CIFS\") på Linux. Denne protokollen brukes av Windows for nettverksressurser og delte skrivere."
 
+#, fuzzy
 msgid "<primary>Windows share</primary>"
-msgstr ""
+msgstr "<primary>Windows share</primary>"
 
 msgid "<primary>Samba</primary>"
 msgstr "<primary>Samba</primary>"
 
+#, fuzzy
 msgid "<primary>SMB</primary>"
-msgstr ""
+msgstr "<primary>SMB</primary>"
 
+#, fuzzy
 msgid "<primary>CIFS</primary>"
-msgstr ""
+msgstr "<primary>CIFS</primary>"
 
 msgid "Samba can also act as an Windows domain controller. This is an outstanding tool for ensuring seamless integration of Linux servers and the office desktop machines still running Windows."
-msgstr ""
+msgstr "Samba kan også virke som en Windows domenekontrollør  Denne er et enestående verktøy for å sikre sømløs integrasjon av Linux-tjenere og stasjonære kontormaskiner som fortsatt kjører Windows."
 
 msgid "Samba Server"
-msgstr ""
+msgstr "Samba tjener"
 
 msgid "The <emphasis role=\"pkg\">samba</emphasis> package contains the main two servers of Samba 4, <command>smbd</command> and <command>nmbd</command>."
 msgstr ""
+"<emphasis role=\"pkg\">samba</emphasis>-pakken inneholder Samba 4s to hovedtjenere, <command>smbd</command> og\n"
+"<command>nmbd</command>."
 
+#, fuzzy
 msgid "<primary><command>smbd</command></primary>"
-msgstr ""
+msgstr "<primary><command>smbd</command></primary>"
 
+#, fuzzy
 msgid "<primary><command>nmbd</command></primary>"
-msgstr ""
+msgstr "<primary><command>nmbd</command></primary>"
 
 msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
-msgstr ""
+msgstr "<emphasis>DOCUMENTATION</emphasis> Å gå videre"
 
 msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
-msgstr ""
+msgstr "Samba-tjeneren er ekstremt konfigurerbar og allsidig, og kan håndtere svært mange forskjellige bruksmåter som imøtekommer svært ulike krav og nettverks-arkitekturer. Denne boken fokuserer bare på bruken der Samba brukes som en frittstående tjener, men det kan også være en NT4 Domain Controller, en full Active Directory Domain Controller, eller et enkel medlem av et eksisterende domene (som kan være en styrt av en Windows tjener)."
 
+#, fuzzy
 msgid "<primary>domain controller</primary>"
-msgstr ""
+msgstr "<primary>domain controller</primary>"
 
+#, fuzzy
 msgid "<primary>Windows domain</primary>"
-msgstr ""
+msgstr "<primary>Windows domain</primary>"
 
 msgid "The <emphasis role=\"pkg\">samba-doc</emphasis> package contains a wealth of commented example files in <filename>/usr/share/doc/samba-doc/examples/</filename>."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">samba-doc</emphasis>-pakken inneholder et stort utvalg av kommenterte eksempelfiler i  <filename>/usr/share/doc/samba-doc/examples/</filename>."
 
 msgid "<emphasis>TOOL</emphasis> Authenticating with a Windows Server"
-msgstr ""
+msgstr "<emphasis>TOOL</emphasis> Autentisering med en Windows-tjener"
 
 msgid "Winbind gives system administrators the option of using a Windows server as an authentication server. Winbind also integrates cleanly with PAM and NSS. This allows setting up Linux machines where all users of a Windows domain automatically get an account."
-msgstr ""
+msgstr "Winbind gir systemadministratorer muligheten til å bruke en Windows-server som en godkjenningstjener. Winbind integrerer også rent med PAM og NSS. Dette gjør det mulig å sette opp Linux-maskiner der alle brukere av et Windows-domene automatisk få en konto."
 
+#, fuzzy
 msgid "<primary>Winbind</primary>"
-msgstr ""
+msgstr "<primary>Winbind</primary>"
 
 msgid "More information can be found in the <filename>/usr/share/doc/samba-doc/examples/pam_winbind/</filename> directory."
-msgstr ""
+msgstr "Mer informasjon kan finnes i <filename>/usr/share/doc/samba-doc/examples/pam_winbind/</filename>-mappen."
 
 msgid "Configuring with <command>debconf</command>"
-msgstr ""
+msgstr "Å konfigurere med <command>debconf</command>"
 
 msgid "The package sets up a minimal configuration during the initial installation but you should really run <command>dpkg-reconfigure samba-common</command> to adapt it:"
-msgstr ""
+msgstr "Pakken setter opp en minimal konfigurasjon under den første installasjonen, men du skulle virkelig kjøre <command>dpkg-reconfigure samba-common</command> for tilpasning til:"
 
 msgid "The first piece of required information is the name of the workgroup where the Samba server will belong (the answer is <literal>FALCOTNET</literal> in our case)."
-msgstr ""
+msgstr "Den første delen med nødvendig informasjon er navnet på arbeidsgruppen som Samba-tjeneren vil tilhøre (svaret er <literal>FALCOTNET</literal> i vårt tilfelle)."
 
 msgid "The package also proposes identifying the WINS server from the information provided by the DHCP daemon. The Falcot Corp administrators rejected this option, since they intend to use the Samba server itself as the WINS server."
-msgstr ""
+msgstr "Pakken foreslår også å identifisere WINS-tjeneren ut fra opplysninger gitt av DHCP-nissen. Falcot Corp administratorene forkastet dette alternativet, siden de har tenkt å bruke Samba-tjeneren som WINS-tjener."
 
+#, fuzzy
 msgid "<primary>WINS</primary>"
-msgstr ""
+msgstr "<primary>WINS</primary>"
 
 msgid "Configuring Manually"
-msgstr ""
+msgstr "Å konfigurere manuelt"
 
 msgid "Changes to <filename>smb.conf</filename>"
-msgstr ""
+msgstr "Forandringer i <filename>smb.conf</filename>"
 
 msgid "The requirements at Falcot require other options to be modified in the <filename>/etc/samba/smb.conf</filename> configuration file. The following excerpts summarize the changes that were effected in the <literal>[global]</literal> section."
-msgstr ""
+msgstr "Kravene hos Falcot forutsetter også endringer i  andre valg i <filename>/etc/samba/smb.conf</filename>. Følgende utdrag oppsummerer de endringene som ble berørt i <literal>[global]</literal>-seksjonen."
 
+#, fuzzy
 msgid ""
 "\n"
 "[global]\n"
@@ -1758,165 +1917,216 @@ msgid ""
 "\n"
 "[...]"
 msgstr ""
+"\n"
+"[global]\n"
+"\n"
+"## Browsing/Identification ###\n"
+"\n"
+"# Change this to the workgroup/NT-domain name your Samba server will part of\n"
+"   workgroup = FALCOTNET\n"
+"\n"
+"# Windows Internet Name Serving Support Section:\n"
+"# WINS Support - Tells the NMBD component of Samba to enable its WINS Server\n"
+"   wins support = yes <co id=\"smb.conf.wins\"></co>\n"
+"\n"
+"[...]\n"
+"\n"
+"####### Authentication #######\n"
+"\n"
+"# Server role. Defines in which mode Samba will operate. Possible\n"
+"# values are \"standalone server\", \"member server\", \"classic primary\n"
+"# domain controller\", \"classic backup domain controller\", \"active\n"
+"# directory domain controller\". \n"
+"#\n"
+"# Most people will want \"standalone sever\" or \"member server\".\n"
+"# Running as \"active directory domain controller\" will require first\n"
+"# running \"samba-tool domain provision\" to wipe databases and create a\n"
+"# new domain.\n"
+"   server role = standalone server\n"
+"\n"
+"# \"security = user\" is always a good idea. This will require a Unix account\n"
+"# in this server for every user accessing the server.\n"
+"   security = user <co id=\"smb.conf.security\"></co>\n"
+"\n"
+"[...]"
 
 msgid "Indicates that Samba should act as a Netbios name server (WINS) for the local network."
-msgstr ""
+msgstr "Viser at Samba skal fungere som en NetBIOS-navneserver (WINS) for det lokale nettverket."
 
 msgid "This is the default value for this parameter; however, since it is central to the Samba configuration, filling it explicitly is recommended. Each user must authenticate before accessing any share."
-msgstr ""
+msgstr "Dette er standardverdien for denne parameteren; men siden den er sentral i Samba-konfigurasjon, anbefales det å fylle den inn eksplisitt. Hver bruker må godkjennes før noen deling."
 
 msgid "Adding Users"
-msgstr ""
+msgstr "Å legge til brukere"
 
 msgid "Each Samba user needs an account on the server; the Unix accounts must be created first, then the user needs to be registered in Samba's database. The Unix step is done quite normally (using <command>adduser</command> for instance)."
-msgstr ""
+msgstr "Hver Samba-bruker trenger en konto på tjeneren, Unix-kontoer må opprettes først, deretter må brukeren bli registrert i Sambas database. Unix-trinnet utføres ganske vanlig (ved hjelp <command>adduser</command> for eksempel)."
 
 msgid "Adding an existing user to the Samba database is a matter of running the <command>smbpasswd -a <replaceable>user</replaceable></command> command; this command asks for the password interactively."
-msgstr ""
+msgstr "Å legge til en eksisterende bruker til Samba-databasen er et spørsmål om å kjøre <command>smbpasswd -a <replaceable>user</replaceable></command>-kommandoen; denne kommandoen ber interaktivt om passordet."
 
 msgid "A user can be deleted with the <command>smbpasswd -x <replaceable>user</replaceable></command> command. A Samba account can also be temporarily disabled (with <command>smbpasswd -d <replaceable>user</replaceable></command>) and re-enabled later (with <command>smbpasswd -e <replaceable>user</replaceable></command>)."
-msgstr ""
+msgstr "En bruker kan bli slettet med <command>smbpasswd -x <replaceable>user</replaceable></command>-lkommandoen. En  Samba-konto kan også midlertidig bli deaktivert (med <command>smbpasswd -d <replaceable>user</replaceable></command>) og reaktivert senere (med <command>smbpasswd -e <replaceable>user</replaceable></command>)."
 
 msgid "Samba Client"
-msgstr ""
+msgstr "Samba-klient"
 
 msgid "The client features in Samba allow a Linux machine to access Windows shares and shared printers. The required programs are available in the <emphasis role=\"pkg\">cifs-utils</emphasis> and <emphasis role=\"pkg\">smbclient</emphasis> packages."
-msgstr ""
+msgstr "Klient-funksjonene i Sambas tillater en Linux-maskin å få tilgang til Windows-delinger og delte skrivere. De nødvendige programmene er tilgjengelig i <emphasis role=\"pkg\">cifs-utils</emphasis> and <emphasis role=\"pkg\">smbclient</emphasis>-pakkene."
 
+#, fuzzy
 msgid "<primary><emphasis>smbclient</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>smbclient</emphasis></primary>"
 
+#, fuzzy
 msgid "<primary><emphasis>cifs-utils</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>cifs-utils</emphasis></primary>"
 
 msgid "The <command>smbclient</command> Program"
-msgstr ""
+msgstr "<command>smbclient</command>-programmet"
 
 msgid "The <command>smbclient</command> program queries SMB servers. It accepts a <literal>-U <replaceable>user</replaceable></literal> option, for connecting to the server under a specific identity. <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> accesses the share in an interactive way similar to the command-line FTP client. <command>smbclient -L <replaceable>server</replaceable></command> lists all available (and visible) shares on a server."
-msgstr ""
+msgstr "<command>smbclient</command>-programmet forespørr SMB-tjenere. Det aksepterer et <literal>-U <replaceable>user</replaceable></literal>-alternativ. for å koble til tjeneren med en bestemt identitet. <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> åpner for delingen interaktivt på en måte lik kommandolinje FTP-klienten. <command>smbclient -L <replaceable>server</replaceable></command> lister opp alle tilgjengelige (og synlige) delinger på en tjener."
 
 msgid "Mounting Windows Shares"
-msgstr ""
+msgstr "Montere Windows-delinger"
 
 msgid "The <command>mount</command> command allows mounting a Windows share into the Linux filesystem hierarchy (with the help of <command>mount.cifs</command> provided by <emphasis role=\"pkg\">cifs-utils</emphasis>)."
-msgstr ""
+msgstr "The <command>mount</command> kommandoen tillater montering av en Windows-deling inn i Linux filsystem-hierarki (ved hjelp av <command>mount.cifs</command> levert av <emphasis role=\"pkg\">cifs-utils</emphasis>)."
 
+#, fuzzy
 msgid "<primary><command>mount.cifs</command></primary>"
-msgstr ""
+msgstr "<primary><command>mount.cifs</command></primary>"
 
+#, fuzzy
 msgid "<primary>Windows share, mounting</primary>"
-msgstr ""
+msgstr "<primary>Windows share, mounting</primary>"
 
 msgid "Mounting a Windows share"
-msgstr ""
+msgstr "Å montere en Windows deling"
 
+#, fuzzy
 msgid ""
 "\n"
 "mount -t cifs //arrakis/shared /shared \\\n"
 "      -o credentials=/etc/smb-credentials"
 msgstr ""
+"\n"
+"mount -t cifs //arrakis/shared /shared \\\n"
+"      -o credentials=/etc/smb-credentials"
 
 msgid "The <filename>/etc/smb-credentials</filename> file (which must not be readable by users) has the following format:"
-msgstr ""
+msgstr "<filename>/etc/smb-credentials</filename>-fil (som ikke må være lesbar  av brukere) har følgende format:"
 
+#, fuzzy
 msgid ""
 "\n"
 "username = <replaceable>user</replaceable>\n"
 "password = <replaceable>password</replaceable>"
 msgstr ""
+"\n"
+"username = <replaceable>user</replaceable>\n"
+"password = <replaceable>password</replaceable>"
 
 msgid "Other options can be specified on the command-line; their full list is available in the <citerefentry><refentrytitle>mount.cifs</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page. Two options in particular can be interesting: <literal>uid</literal> and <literal>gid</literal> allow forcing the owner and group of files available on the mount, so as not to restrict access to root."
-msgstr ""
+msgstr "Andre alternativer kan spesifiseres på kommandolinjen; den fullstendige listen er tilgjengelig i <citerefentry><refentrytitle>mount.cifs</refentrytitle> <manvolnum>1</manvolnum></citerefentry>-manulaside.  Spesielt to alternativer kan være interessante: <literal>uid</literal> og <literal>gid</literal> som tillater å tvinge eieren og gruppen filer som er tilgjengelig i monteringen, for ikke å begrense adgangen til rot."
 
 msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab</filename>:"
-msgstr ""
+msgstr "En montering av en Windows-deling kan også konfigureres i <filename>/etc/fstab</filename>:"
 
+#, fuzzy
 msgid ""
 "\n"
 "//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
 msgstr ""
+"\n"
+"//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
 
 msgid "Unmounting a SMB/CIFS share is done with the standard <command>umount</command> command."
-msgstr ""
+msgstr "Å avmontere en SMB/CIFS-deling er gjort med den standard <command>umount</command>-kommandoen."
 
 msgid "Printing on a Shared Printer"
-msgstr ""
+msgstr "Å skrive ut på en delt skriver"
 
 msgid "CUPS is an elegant solution for printing from a Linux workstation to a printer shared by a Windows machine. When the <emphasis role=\"pkg\">smbclient</emphasis> is installed, CUPS allows installing Windows shared printers automatically."
-msgstr ""
+msgstr "CUPS er en elegant løsning for utskrift fra en Linux arbeidsstasjon til en skriver som deles av en Windows-maskin. Når <emphasis role=\"pkg\">smbclient</emphasis> er installert, tillater CUPS automatisk installasjon av Windows-delte skrivere."
 
+#, fuzzy
 msgid "<primary>printing</primary><secondary>network</secondary>"
-msgstr ""
+msgstr "<primary>printing</primary><secondary>network</secondary>"
 
 msgid "Here are the required steps:"
-msgstr ""
+msgstr "Her er skrittene som kreves:"
 
 msgid "Enter the CUPS configuration interface: <literal>http://localhost:631/admin</literal>"
-msgstr ""
+msgstr "Bruk CUPS konfigurasjonsgrensesnittet:<literal>http://localhost:631/admin</literal>"
 
 msgid "Click on “Add Printer”."
-msgstr ""
+msgstr "Kllipp på \"Add Printer\"."
 
 msgid "Choose the printer device, pick “Windows Printer via SAMBA”."
-msgstr ""
+msgstr "Velg skriverenheten, plukk ut \"Windows Printer via SAMBA\"."
 
 msgid "Enter the connection URI for the network printer. It should look like the following:"
-msgstr ""
+msgstr "Bruk tilkoblings-URI-en for nettverksskriveren . Den skal se ut som følger:"
 
+#, fuzzy
 msgid "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
-msgstr ""
+msgstr "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
 
 msgid "Enter the name that will uniquely identify this printer. Then enter the description and location of the printer. Those are the strings that will be shown to end users to help them identify the printers."
-msgstr ""
+msgstr "Skriv inn navnet som unikt identifiserer denne skriveren. Deretter skriver du inn beskrivelsen og plasseringen av skriveren. De er strengene som skal vises til sluttbrukere for å hjelpe dem med å identifisere skriverne."
 
 msgid "Indicate the manufacturer/model of the printer, or directly provide a working printer description file (PPD)."
-msgstr ""
+msgstr "Indiker produsenten/skrivermodellen, eller lever direkte en skriverbeskrivelsesfil(PPD) som virker."
 
 msgid "Voilà, the printer is operational!"
-msgstr ""
+msgstr "Voilà, printeren er operativ!"
 
 msgid "HTTP/FTP Proxy"
-msgstr ""
+msgstr "HTTP/FTP mellomtjener"
 
 msgid "An HTTP/FTP proxy acts as an intermediary for HTTP and/or FTP connections. Its role is twofold:"
-msgstr ""
+msgstr "En HTTP/FTP mellomtjener fungerer som et mellomledd for HTTP- og/eller FTP-tilkoblinger. Dens rolle er todelt:"
 
 msgid "Caching: recently downloaded documents are copied locally, which avoids multiple downloads."
-msgstr ""
+msgstr "Hurtiglager: Nylig nedlastede dokumenter kopieres lokalt, noe som hindrer multiple nedlastinger."
 
 msgid "Filtering server: if use of the proxy is mandated (and outgoing connections are blocked unless they go through the proxy), then the proxy can determine whether or not the request is to be granted."
-msgstr ""
+msgstr "Filtreringstjener: Kreves bruk av mellomtjeneren (og utgående tilkoblinger blokkeres med mindre de går gjennom mellomtjeneren), da kan mellomtjeneren avgjøre om forespørselen skal imøtekommes."
 
+#, fuzzy
 msgid "<primary>HTTP/FTP proxy</primary>"
-msgstr ""
+msgstr "<primary>HTTP/FTP proxy</primary>"
 
 msgid "<primary>proxy cache</primary>"
 msgstr "<primary>mellomtjener lager</primary>"
 
 msgid "Falcot Corp selected Squid as their proxy server."
-msgstr ""
+msgstr "Falcot Corp valgte Squid som sin mellomtjener."
 
 msgid "<primary>Squid</primary>"
 msgstr "<primary>Squid</primary>"
 
 msgid "Installing"
-msgstr ""
+msgstr "Installasjon"
 
 msgid "The <emphasis role=\"pkg\">squid3</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
-msgstr ""
+msgstr "The <emphasis role=\"pkg\">squid3</emphasis> Debian-pakken inneholder bare den modulære (mellomlagrings-) tjener. Å snu den til en filtreringstjener krever installering av tilleggspakken <emphasis role=\"pkg\">squidguard</emphasis>. I tillegg gir , <emphasis role=\"pkg\">squid-cgi</emphasis> et forespørsels- og administrasjonsgrensesnitt for en Squid mellomtjener."
 
 msgid "Prior to installing, care should be taken to check that the system can identify its own complete name: the <command>hostname -f</command> must return a fully-qualified name (including a domain). If it does not, then the <filename>/etc/hosts</filename> file should be edited to contain the full name of the system (for instance, <literal>arrakis.falcot.com</literal>). The official computer name should be validated with the network administrator in order to avoid potential name conflicts."
-msgstr ""
+msgstr "Før du installerer, er det viktig å ta hensyn til at systemet kan identifisere sitt eget fullstendige navn: <command>hostname -f</command> må returnere et fullt kvalifisert navn (inkludert et domene). Hvis den ikke gjør det, så skal <filename>/etc/hosts</filename>-filen redigeres til å inneholde fullt navn på systemet (for eksempel <literal>arrakis.falcot.com</literal>). Det offisielle navnet på datamaskinen skal godkjennes av nettverksadministratoren for å unngå potensielle navnekonflikter ."
 
 msgid "Configuring a Cache"
-msgstr ""
+msgstr "Å konfigurere et hurtiglager"
 
 msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid3/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
-msgstr ""
+msgstr "Å aktivere funksjonen til hurtiglags-tjener er så enkelt som å redigere <filename>/etc/squid3/squid.conf</filename>-konfigurasjonsfilen og la maskinene fra det lokale nettverket kjøre forespørsler gjennom mellomtjeneren. Det følgende eksemplet viser modifikasjonene Falcot Corp administratorene har gjort:"
 
 msgid "The <filename>/etc/squid3/squid.conf</filename> file (excerpts)"
-msgstr ""
+msgstr "<filename>/etc/squid3/squid.conf</filename>-filen (utdrag)"
 
+#, fuzzy
 msgid ""
 "\n"
 "# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS\n"
@@ -1930,108 +2140,134 @@ msgid ""
 "# And finally deny all other access to this proxy\n"
 "http_access deny all"
 msgstr ""
+"\n"
+"# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS\n"
+"\n"
+"# Example rule allowing access from your local networks. Adapt\n"
+"# to list your (internal) IP networks from where browsing should\n"
+"# be allowed\n"
+"acl our_networks src 192.168.1.0/24 192.168.2.0/24\n"
+"http_access allow our_networks\n"
+"http_access allow localhost\n"
+"# And finally deny all other access to this proxy\n"
+"http_access deny all"
 
 msgid "Configuring a Filter"
-msgstr ""
+msgstr "Å sette opp et filter"
 
 msgid "<command>squid</command> itself does not perform the filtering; this action is delegated to <command>squidGuard</command>. The former must then be configured to interact with the latter. This involves adding the following directive to the <filename>/etc/squid3/squid.conf</filename> file:"
-msgstr ""
+msgstr "<command>squid</command> utfører ikke filtreringen selv; Den er delegert til <command>squidGuard</command>. Den førstnevnte må da være konfigurert til å samvirke med den sistnevnte. Dette innebærer å legge følgende direktiv til <filename>/etc/squid3/squid.conf</filename>-filen:"
 
+#, fuzzy
 msgid "<primary><command>squidGuard</command></primary>"
-msgstr ""
+msgstr "<primary><command>squidGuard</command></primary>"
 
+#, fuzzy
 msgid ""
 "\n"
 "url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf "
 msgstr ""
+"\n"
+"url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf "
 
 msgid "The <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> CGI program also needs to be installed, using <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> as a starting point. Required modifications to this script are the <varname>$proxy</varname> and <varname>$proxymaster</varname> variables (the name of the proxy and the administrator's contact e-mail, respectively). The <varname>$image</varname> and <varname>$redirect</varname> variables should point to existing images representing the rejection of a query."
-msgstr ""
+msgstr "CGI-programmet <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> trenger også å bli installert, ved å bruke <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> som startpunkt. Nødvendige endringer i dette skriptet er <varname>$proxy</varname> og <varname>$proxymaster</varname>-variablene (navnet på henholdsvis mellomtjener og administratorens kontakt-e-post.)<varname>$image</varname> og <varname>$redirect</varname>-variablene skal peke til eksisterende bilder som viser avvisning av en forespørsel."
 
 msgid "The filter is enabled with the <command>service squid3 reload</command> command. However, since the <emphasis role=\"pkg\">squidguard</emphasis> package does no filtering by default, it is the administrator's task to define the policy. This can be done by creating the <filename>/etc/squid3/squidGuard.conf</filename> file (using <filename>/etc/squidguard/squidGuard.conf.default</filename> as template if required)."
-msgstr ""
+msgstr "Filteret er aktivert med <command>service squid3 reload</command>-kommandoen. Imidertid, ettersom <emphasis role=\"pkg\">squidguard</emphasis>-pakken utfører ikke filtrering som standard; Det er administratorens oppgave å definere oppgaven. Dette kan gjøres ved å lage <filename>/etc/squid3/squidGuard.conf</filename>-filen (som bruker  <filename>/etc/squidguard/squidGuard.conf.default</filename> som mal hvis det kreves)."
 
 msgid "The working database must be regenerated with <command>update-squidguard</command> after each change of the <command>squidGuard</command> configuration file (or one of the lists of domains or URLs it mentions). The configuration file syntax is documented on the following website: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
-msgstr ""
+msgstr "Den gjeldende databasen må regenereres med <command>update-squidguard</command> etter hver forandring i  <command>squidGuard</command>-konfigurasjonsfilen (eller en av de lister over domener eller nettadresser den nevner). Konfigurasjonsfil-syntaksen er dokumentert på den følgende nettsiden: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
 
+#, fuzzy
 msgid "<primary><command>update-squidguard</command></primary>"
-msgstr ""
+msgstr "<primary><command>update-squidguard</command></primary>"
 
+#, fuzzy
 msgid "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
 
+#, fuzzy
 msgid "<primary>PICS</primary>"
-msgstr ""
+msgstr "<primary>PICS</primary>"
 
 msgid "The <emphasis role=\"pkg\">dansguardian</emphasis> package is an alternative to <emphasis>squidguard</emphasis>. This software does not simply handle a blacklist of forbidden URLs, but it can take advantage of the PICS system (<emphasis>Platform for Internet Content Selection</emphasis>) to decide whether a page is acceptable by dynamic analysis of its contents."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">dansguardian</emphasis>-pakken er et alternativ til  <emphasis>squidguard</emphasis>. Denne programvaren håndterer ikke bare en svarteliste med forbudte URL-er, men den kan nyttiggjøre seg PICS-systemet (<emphasis>Platform for Internet Content Selection</emphasis>) for å avgjøre om en side er akseptabel ved en  dynamisk analyse av innholdet."
 
 msgid "LDAP Directory"
-msgstr ""
+msgstr "LDAP-mappe"
 
+#, fuzzy
 msgid "<primary>LDAP</primary>"
-msgstr ""
+msgstr "<primary>LDAP</primary>"
 
+#, fuzzy
 msgid "<primary>OpenLDAP</primary>"
-msgstr ""
+msgstr "<primary>OpenLDAP</primary>"
 
+#, fuzzy
 msgid "<primary>directory, LDAP</primary>"
-msgstr ""
+msgstr "<primary>directory, LDAP</primary>"
 
 msgid "OpenLDAP is an implementation of the LDAP protocol; in other words, it is a special-purpose database designed for storing directories. In the most common use case, using an LDAP server allows centralizing management of user accounts and the related permissions. Moreover, an LDAP database is easily replicated, which allows setting up multiple synchronized LDAP servers. When the network and the user base grows quickly, the load can then be balanced across several servers."
-msgstr ""
+msgstr "OpenLDAP er en implementering av LDAP-protokollen; med andre ord, den er en database med spesialformål å lagre kataloger. I det mest vanlige brukertilfellet, tillater bruk av en LDAP-tjener sentral forvaltning av brukerkontoer og de tilhørende rettighetene. Dessuten er det lett å kopiere LDAP-databasen, som tillater oppsett av flere synkroniserte LDAP-tjenere. Når nettverket og brukerbasen vokser raskt, kan lasten så bli balansert over flere tjenere."
 
 msgid "LDAP data is structured and hierarchical. The structure is defined by “schemas” which describe the kind of objects that the database can store, with a list of all their possible attributes. The syntax used to refer to a particular object in the database is based on this structure, which explains its complexity."
-msgstr ""
+msgstr "LDAP-data er strukturert og hierarkisk. Strukturen er definert av \"skjemaer\", som beskriver den type objekter at databasen kan lagre, med en liste over alle de mulige egenskapene deres. Syntaksen brukes for å referere til et bestemt objekt i databasen basert på denne strukturen, noe som forklarer kompleksiten."
 
 msgid "The <emphasis role=\"pkg\">slapd</emphasis> package contains the OpenLDAP server. The <emphasis role=\"pkg\">ldap-utils</emphasis> package includes command-line tools for interacting with LDAP servers."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">slapd</emphasis>-pakken inneholder den åpne OpenLDAP-tjeneren. <emphasis role=\"pkg\">ldap-utils</emphasis>-pakken inneholder kommandolinje-verktøy for samhandling med LDAP-tjenere."
 
+#, fuzzy
 msgid "<primary><emphasis>slapd</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
 msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions and the resulting database is unlikely to suit your needs. Fortunately a simple <command>dpkg-reconfigure slapd</command> will let you reconfigure the LDAP database with more details:"
-msgstr ""
+msgstr "Å installere <emphasis role=\"pkg\">slapd</emphasis> stiller vanligvis få spørsmål og det er usannsynlig at den resulterende databasen dekker dine behov. Heldigvis, en enkel <command>dpkg-reconfigure slapd</command> vil la deg konfigurere LDAP-databasen med flere detaljer:"
 
 msgid "Omit OpenLDAP server configuration? No, of course, we want to configure this service."
-msgstr ""
+msgstr "Utelate OpenLDAP-tjeneroppsettet? Nei, selvfølgelig ønsker vi å konfigurere denne tjenesten."
 
 msgid "DNS domain name: “<literal>falcot.com</literal>”."
-msgstr ""
+msgstr "DNS-domenenavn: “<literal>falcot.com</literal>”."
 
 msgid "Organization name: “Falcot Corp”."
-msgstr ""
+msgstr "Organisasjonsnavn: “Falcot Corp”."
 
 msgid "An administrative passwords needs to be typed in."
-msgstr ""
+msgstr "Et administrativt passord må skrives inn."
 
 msgid "Database backend to use: “MDB”."
-msgstr ""
+msgstr "Database-bakstykke å bruke: “MDB”."
 
 msgid "Do you want the database to be removed when <emphasis role=\"pkg\">slapd</emphasis> is purged? No. No point in risking losing the database in case of a mistake."
-msgstr ""
+msgstr "Ønsker du at databasen skal fjernes når <emphasis role=\"pkg\">slapd</emphasis> tvinges? Nei. Det er ingen vits i å risikere å miste databasen på grunn av en feil."
 
 msgid "Move old database? This question is only asked when the configuration is attempted while a database already exists. Only answer “yes” if you actually want to start again from a clean database, for instance if you run <command>dpkg-reconfigure slapd</command> right after the initial installation."
-msgstr ""
+msgstr "Flytte den gamle databasen? Dette spørsmålet blir bare spurt når konfigurasjonen er forsøkt log en database allerede eksisterer. Bare svar \"ja\" hvis du faktisk ønsker å starte på nytt med en ren database; For eksempel hvis du kjører <command>dpkg-reconfigure slapd</command> rett etter den første installasjonen."
 
 msgid "Allow LDAPv2 protocol? No, there is no point in that. All the tools we are going to use understand the LDAPv3 protocol."
-msgstr ""
+msgstr "Tillate LDAPv2 protokoll? Nei, det er ingen vits i det. Alle verktøyene vi skal bruke forstår LDAPv3-protokollen."
 
+#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> LDIF format"
-msgstr ""
+msgstr "<emphasis>BACK TO BASICS</emphasis> LDIF format"
 
 msgid "An LDIF file (<emphasis>LDAP Data Interchange Format</emphasis>) is a portable text file describing the contents of an LDAP database (or a portion thereof); this can then be used to inject the data into any other LDAP server."
-msgstr ""
+msgstr "En LDIF-file (<emphasis>LDAP Data Interchange Format</emphasis>) er en flyttbar tekstfil som beskriver innholdet i en LDAP-database (eller en del av den); Denne kan så brukes til å injisere data inn i en hvilken som helst annen LDAP-tjener."
 
+#, fuzzy
 msgid "<primary>LDIF</primary>"
-msgstr ""
+msgstr "<primary>LDIF</primary>"
 
 msgid "A minimal database is now configured, as demonstrated by the following query:"
-msgstr ""
+msgstr "Nå er en minimal database konfigurert, som demonstrert fra følgende spørring:"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>ldapsearch -x -b dc=falcot,dc=com</userinput>\n"
@@ -2066,148 +2302,194 @@ msgid ""
 "# numEntries: 2\n"
 "</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>ldapsearch -x -b dc=falcot,dc=com</userinput>\n"
+"<computeroutput># extended LDIF\n"
+"#\n"
+"# LDAPv3\n"
+"# base &lt;dc=falcot,dc=com&gt; with scope sub\n"
+"# filter: (objectclass=*)\n"
+"# requesting: ALL\n"
+"#\n"
+"\n"
+"# falcot.com\n"
+"dn: dc=falcot,dc=com\n"
+"objectClass: top\n"
+"objectClass: dcObject\n"
+"objectClass: organization\n"
+"o: Falcot Corp\n"
+"dc: falcot\n"
+"\n"
+"# admin, falcot.com\n"
+"dn: cn=admin,dc=falcot,dc=com\n"
+"objectClass: simpleSecurityObject\n"
+"objectClass: organizationalRole\n"
+"cn: admin\n"
+"description: LDAP administrator\n"
+"\n"
+"# search result\n"
+"search: 2\n"
+"result: 0 Success\n"
+"\n"
+"# numResponses: 3\n"
+"# numEntries: 2\n"
+"</computeroutput>"
 
 msgid "The query returned two objects: the organization itself, and the administrative user."
-msgstr ""
+msgstr "Spørringen returnerte to objekter: Organisasjonen selv, og den administrative brukeren."
 
 msgid "Filling in the Directory"
-msgstr ""
+msgstr "Å fylle ut mappen"
 
 msgid "Since an empty database is not particularly useful, we are going to inject into it all the existing directories; this includes the users, groups, services and hosts databases."
-msgstr ""
+msgstr "Ettersom en tom database er ikke spesielt nyttig, har vi tenkt å injisere i den i alle de eksisterende katalogene; Dette inkluderer brukerne, gruppene, tjenestene og vert-databasene."
 
 msgid "The <emphasis role=\"pkg\">migrationtools</emphasis> package provides a set of scripts dedicated to extract data from the standard Unix directories (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> and so on), convert this data, and inject it into the LDAP database."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">migrationtools</emphasis>-pakken inneholder et sett skript øremerket til å hente ut data fra standard Unix kataloger (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> og så videre), konvertere disse dataene, og sette den inn i LDAP-databasen."
 
+#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 
 msgid "Once the package is installed, the <filename>/etc/migrationtools/migrate_common.ph</filename> must be edited; the <varname>IGNORE_UID_BELOW</varname> and <varname>IGNORE_GID_BELOW</varname> options need to be enabled (uncommenting them is enough), and <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> need to be updated."
-msgstr ""
+msgstr "Så snart pakken er installert. må <filename>/etc/migrationtools/migrate_common.ph</filename> redigeres; <varname>IGNORE_UID_BELOW</varname> og <varname>IGNORE_GID_BELOW</varname>-valgene må aktiveres (å avkommentere dem er nok), og <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> trenger oppdatering."
 
 msgid "The actual migration operation is handled by the <command>migrate_all_online.sh</command> command, as follows:"
-msgstr ""
+msgstr "Selve overføringsoperasjonen håndteres av <command>migrate_all_online.sh</command>-kommandoen, som følger:"
 
+#, fuzzy
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>cd /usr/share/migrationtools</userinput>\n"
 "<computeroutput># </computeroutput><userinput>LDAPADD=\"/usr/bin/ldapadd -c\" ETC_ALIASES=/dev/null ./migrate_all_online.sh</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>cd /usr/share/migrationtools</userinput>\n"
+"<computeroutput># </computeroutput><userinput>LDAPADD=\"/usr/bin/ldapadd -c\" ETC_ALIASES=/dev/null ./migrate_all_online.sh</userinput>"
 
 msgid "The <command>migrate_all_online.sh</command> asks a few questions about the LDAP database into which the data is to be migrated. <xref linkend=\"tab-migrate-all\" xrefstyle=\"select: label nopage\" /> summarizes the answers given in the Falcot use-case."
-msgstr ""
+msgstr "<command>migrate_all_online.sh</command> stiller noen få spørsmål om LDAP-databasen som dataene skal overføres til. <xref linkend=\"tab-migrate-all\" xrefstyle=\"select: label nopage\" /> oppsummerer svarene fra Falcots brukereksempel."
 
 msgid "Answers to questions asked by the <command>migrate_all_online.sh</command> script"
-msgstr ""
+msgstr "Svar på spørsmål forespurt av <command>migrate_all_online.sh</command>-skriptet"
 
 msgid "Question"
-msgstr ""
+msgstr "Spørsmål"
 
 msgid "Answer"
-msgstr ""
+msgstr "Svar"
 
 msgid "X.500 naming context"
-msgstr ""
+msgstr "X.500 navnekontekst"
 
+#, fuzzy
 msgid "<literal>dc=falcot,dc=com</literal>"
-msgstr ""
+msgstr "<literal>dc=falcot,dc=com</literal>"
 
 msgid "LDAP server hostname"
-msgstr ""
+msgstr "LDAP tjener-vertsnavn"
 
+#, fuzzy
 msgid "<literal>localhost</literal>"
-msgstr ""
+msgstr "<literal>localhost</literal>"
 
+#, fuzzy
 msgid "Manager DN"
-msgstr ""
+msgstr "Manager DN"
 
+#, fuzzy
 msgid "<literal>cn=admin,dc=falcot,dc=com</literal>"
-msgstr ""
+msgstr "<literal>cn=admin,dc=falcot,dc=com</literal>"
 
 msgid "Bind credentials"
-msgstr ""
+msgstr "Tiilknyttingsreferanser"
 
 msgid "the administrative password"
-msgstr ""
+msgstr "det administrative passordet"
 
 msgid "Create DUAConfigProfile"
-msgstr ""
+msgstr "Å lage DUAConfigProfile"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "We deliberately ignore migration of the <filename>/etc/aliases</filename> file, since the standard schema as provided by Debian does not include the structures that this script uses to describe email aliases. Should we want to integrate this data into the directory, the <filename>/etc/ldap/schema/misc.schema</filename> file should be added to the standard schema."
-msgstr ""
+msgstr "Vi lar bevisst være å flytte <filename>/etc/aliases</filename>-filen, siden standard-skjemaet som leveres av Debian ikke inkluderer strukturer som dette skriptet bruker til å beskrive e-post-aliaser. Skulle vi ønske å integrere disse dataene i katalogen, skal <filename>/etc/ldap/schema/misc.schema</filename>-filen legges til standard-skjemaet ."
 
 msgid "<emphasis>TOOL</emphasis> Browsing an LDAP directory"
-msgstr ""
+msgstr "<emphasis>TOOL</emphasis> Søke i en LDAP-mappe"
 
 msgid "The <command>jxplorer</command> command (in the package of the same name) is a graphical tool allowing to browse and edit an LDAP database. It is an interesting tool that provides an administrator with a good overview of the hierarchical structure of the LDAP data."
-msgstr ""
+msgstr "<command>jxplorer</command>-kommandoen (i pakken med samme navn) er et grafisk verktøy som tillater å bla gjennom og redigere en LDAP-database. Dette er et interessant verktøy som gir en administrator en god oversikt over den hierarkiske strukturen i LDAP-dataene."
 
+#, fuzzy
 msgid "<primary><command>jxplorer</command></primary>"
-msgstr ""
+msgstr "<primary><command>jxplorer</command></primary>"
 
 msgid "Also note the use of the <literal>-c</literal> option to the <command>ldapadd</command> command; this option requests that processing doesn't stop in case of error. Using this option is required because converting the <filename>/etc/services</filename> often generates a few errors that can safely be ignored."
-msgstr ""
+msgstr "Legg også merke til bruken av <literal>-c</literal>-valget til <command>ldapadd</command>-kommandoen; Dette alternativet ber om at prosessen ikke stopper i tilfelle feil. Å bruke dette alternativet kreves fordi å konvertere <filename>/etc/services</filename> ofte generer noen få feil som trygt kan ignoreres."
 
 msgid "Managing Accounts with LDAP"
-msgstr ""
+msgstr "Å håndtere kontoer med LDAP"
 
 msgid "Now the LDAP database contains some useful information, the time has come to make use of this data. This section focuses on how to configure a Linux system so that the various system directories use the LDAP database."
-msgstr ""
+msgstr "Nå når LDAP-databasen inneholder en del nyttig informasjon, er tiden kommet for å gjøre bruk av disse dataene. I denne seksjonen skal vi se på hvordan du konfigurerer et Linux-system, slik at de ulike system-mappene bruker LDAP-databasen."
 
 msgid "Configuring NSS"
-msgstr ""
+msgstr "Å sette opp NSS"
 
 msgid "The NSS system (Name Service Switch, see sidebar <xref linkend=\"sidebar.intro-nss\" />) is a modular system designed to define or fetch information for system directories. Using LDAP as a source of data for NSS requires installing the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Its installation asks a few questions; the answers are summarized in <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr ""
+msgstr "NSS-systemet (Name Service Switch, se sidestolpe <xref linkend=\"sidebar.intro-nss\" />) er et modulært system utformet for å definere eller hente informasjon for system-mapper. Med LDAP som datakilde krever NSS installasjon av <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken. Installasjonen av den stiller noen få spørsmål; svarene er oppsummert i <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
 
+#, fuzzy
 msgid "<primary><emphasis>libnss-ldap</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>libnss-ldap</emphasis></primary>"
 
 msgid "Configuring the <emphasis role=\"pkg\">libnss-ldap</emphasis> package"
-msgstr ""
+msgstr "Å sette opp <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken"
 
 msgid "LDAP server Uniform Resource Identifier"
-msgstr ""
+msgstr "LDAP-tjener Uniform Resource Identifier"
 
+#, fuzzy
 msgid "<literal>ldap://ldap.falcot.com</literal>"
-msgstr ""
+msgstr "<literal>ldap://ldap.falcot.com</literal>"
 
 msgid "Distinguished name of the search base"
-msgstr ""
+msgstr "Øremerket navn for søkerbasen"
 
 msgid "LDAP version to use"
-msgstr ""
+msgstr "LDAP-versjon som skal brukes"
 
+#, fuzzy
 msgid "<literal>3</literal>"
-msgstr ""
+msgstr "<literal>3</literal>"
 
 msgid "Does the LDAP database require login?"
-msgstr ""
+msgstr "Krever LDAP-databasen innlogging?"
 
 msgid "Special LDAP privileges for root"
-msgstr ""
+msgstr "Spesielle LDAP rotprivilegier"
 
 msgid "yes"
-msgstr ""
+msgstr "ja"
 
 msgid "Make the configuration file readable/writeable by its owner only"
-msgstr ""
+msgstr "Gjør konfigurasjonsfilen lesbar/skrivbar bare for sin eier"
 
 msgid "LDAP account for root"
-msgstr ""
+msgstr "LDAP-konto for rot"
 
 msgid "LDAP root account password"
-msgstr ""
+msgstr "LDAP passord for rotkonto"
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file then needs to be modified, so as to configure NSS to use the freshly-installed <command>ldap</command> module."
-msgstr ""
+msgstr "<filename>/etc/nsswitch.conf</filename>-filen må deretter endres, for å konfigurere NSS til å bruke den nettopp installerte <command>ldap</command>-modulen."
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/nsswitch.conf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "# /etc/nsswitch.conf\n"
@@ -2230,107 +2512,139 @@ msgid ""
 "\n"
 "netgroup: ldap files"
 msgstr ""
+"\n"
+"# /etc/nsswitch.conf\n"
+"#\n"
+"# Example configuration of GNU Name Service Switch functionality.\n"
+"# If you have the `glibc-doc' and `info' packages installed, try:\n"
+"# `info libc \"Name Service Switch\"' for information about this file.\n"
+"\n"
+"passwd: ldap compat\n"
+"group: ldap compat\n"
+"shadow: ldap compat\n"
+"\n"
+"hosts: files dns ldap\n"
+"networks: ldap files\n"
+"\n"
+"protocols: ldap db files\n"
+"services: ldap db files\n"
+"ethers: ldap db files\n"
+"rpc: ldap db files\n"
+"\n"
+"netgroup: ldap files"
 
 msgid "The <command>ldap</command> module is usually inserted before others, and it will therefore be queried first. The notable exception is the <literal>hosts</literal> service since contacting the LDAP server requires consulting DNS first (to resolve <literal>ldap.falcot.com</literal>). Without this exception, a hostname query would try to ask the LDAP server; this would trigger a name resolution for the LDAP server, and so on in an infinite loop."
-msgstr ""
+msgstr "<command>ldap</command>-modulen er vanligvis satt inn før de andre, og den vil derfor spørres først. Unntaket å merke seg er <literal>hosts</literal>-tjenesten siden å kontakte LDAP-tjeneren krever å kontakte DNS først (for å løse <literal>ldap.falcot.com</literal>). Uten dette unntaket, ville en forespørsel om vertsnavn prøve å spørre LDAP-tjeneren; dette ville utløse et navneoppslag for LDAP-tjeneren, og så videre i en uendelig sløyfe."
 
 msgid "If the LDAP server should be considered authoritative (and the local files used by the <command>files</command> module disregarded), services can be configured with the following syntax:"
-msgstr ""
+msgstr "Hvis LDAP-tjeneren skal vurderes som autoritative (og de lokale filene som brukes av <command>filer</command>-modulen ignoreres), kan tjenester konfigureres med følgende syntaks:"
 
+#, fuzzy
 msgid "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
-msgstr ""
+msgstr "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
 
 msgid "If the requested entry does not exist in the LDAP database, the query will return a “not existing” reply even if the resource does exist in one of the local files; these local files will only be used when the LDAP service is down."
-msgstr ""
+msgstr "Hvis den forespurte oppføringen ikke finnes i LDAP-databasen, vil søket returnere et \"ikke eksisterende\" svar, selv om ressursen eksisterer i en av de lokale filene. Disse lokale filene vil bare bli brukt når LDAP-tjenesten er nede."
 
 msgid "Configuring PAM"
-msgstr ""
+msgstr "Å sette opp PAM"
 
 msgid "This section describes a PAM configuration (see sidebar <xref linkend=\"sidebar.intro-pam\" />) that will allow applications to perform the required authentications against the LDAP database."
-msgstr ""
+msgstr "Denne delen beskriver en PAM-konfigurasjon (se sidestolpe <xref linkend=\"sidebar.intro-pam\" />) som vil tillate programmer å utføre de nødvendige godkjenninger mot LDAP-databasen."
 
 msgid "<emphasis>CAUTION</emphasis> Broken authentication"
-msgstr ""
+msgstr "<emphasis>CAUTION</emphasis> Brutt godkjenning"
 
 msgid "Changing the standard PAM configuration used by various programs is a sensitive operation. A mistake can lead to broken authentication, which could prevent logging in. Keeping a root shell open is therefore a good precaution. If configuration errors occur, they can be then fixed and the services restarted with minimal effort."
-msgstr ""
+msgstr "Det er en følsom operasjon å endre den standard PAM-konfigurasjonen som brukes av ulike programmer. En feil kan føre til ødelagt godkjenning, noe som kan hindre innlogging. Holde et rotskall åpent, er derfor en god forholdsregel. Hvis konfigurasjonsfeil oppstår, kan de fikses og tjenesten startes igjen med minimal innsats."
 
 msgid "The LDAP module for PAM is provided by the <emphasis role=\"pkg\">libpam-ldap</emphasis> package. Installing this package asks a few questions very similar to those in <emphasis role=\"pkg\">libnss-ldap</emphasis>; some configuration parameters (such as the URI for the LDAP server) are even actually shared with the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Answers are summarized in <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr ""
+msgstr "LDAP-modulen for PAM leveres av <emphasis role=\"pkg\">libpam-ldap</emphasis>-pakken. Å installere denne pakken stiller noen spørsmål som er svært lik dem i <emphasis role=\"pkg\">libnss-ldap</emphasis>. Noen konfigurasjonsparametere (for eksempel URI for LDAP-tjeneren) er faktisk delt med <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken. Svarene er er oppsummert i <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
 
+#, fuzzy
 msgid "<primary><emphasis>libpam-ldap</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>libpam-ldap</emphasis></primary>"
 
 msgid "Configuration of <emphasis>libpam-ldap</emphasis>"
-msgstr ""
+msgstr "Å sette opp <emphasis>libpam-ldap</emphasis>"
 
 msgid "Allow LDAP admin account to behave like local root?"
-msgstr ""
+msgstr "Tillate LDAP admin-kontoen å oppføre seg som lokal rot?"
 
 msgid "Yes. This allows using the usual <command>passwd</command> command for changing passwords stored in the LDAP database."
-msgstr ""
+msgstr "Ja. Dette tilllater å bruke den vanlige <command>passwd</command>-kommandoen for å endre passord lagret i LDAP-databasen."
 
 msgid "Does the LDAP database require logging in?"
-msgstr ""
+msgstr "Krever lDAP-databasen innlogging?"
 
 msgid "the LDAP database administrative password"
-msgstr ""
+msgstr "LDAP-databasens administrative passord"
 
 msgid "Local encryption algorithm to use for passwords"
-msgstr ""
+msgstr "Å bruke lokal krypteringsalgoritme for passord"
 
+#, fuzzy
 msgid "crypt"
-msgstr ""
+msgstr "crypt"
 
 msgid "Installing <emphasis role=\"pkg\">libpam-ldap</emphasis> automatically adapts the default PAM configuration defined in the <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> and <filename>/etc/pam.d/common-account</filename> files. This mechanism uses the dedicated <command>pam-auth-update</command> tool (provided by the <emphasis role=\"pkg\">libpam-runtime</emphasis> package). This tool can also be run by the administrator should they wish to enable or disable PAM modules."
-msgstr ""
+msgstr "Installering av <emphasis role=\"pkg\">libpam-ldap</emphasis> tilpasser automatisk standard POAM-konfigurasjonen som er definert i <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> og <filename>/etc/pam.d/common-account</filename>-filene. Denne mekanisme bruker det øremerkede <command>pam-auth-update</command>-verktøyet (levert av <emphasis role=\"pkg\">libpam-runtime</emphasis> pakken). Dette verktøyet kan også kjøres av administratoren dersom de ønsker å aktivere eller deaktivere PAM moduler."
 
+#, fuzzy
 msgid "<primary><filename>common-auth</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>common-auth</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-auth</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/pam.d/common-auth</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>common-password</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>common-password</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-password</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/pam.d/common-password</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>common-account</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>common-account</filename></primary>"
 
+#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-account</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/pam.d/common-account</filename></primary>"
 
 msgid "Securing LDAP Data Exchanges"
-msgstr ""
+msgstr "Å sikre LDAP datautveksling"
 
+#, fuzzy
 msgid "<primary>LDAP</primary><secondary>secure</secondary>"
-msgstr ""
+msgstr "<primary>LDAP</primary><secondary>secure</secondary>"
 
 msgid "By default, the LDAP protocol transits on the network as cleartext; this includes the (encrypted) passwords. Since the encrypted passwords can be extracted from the network, they can be vulnerable to dictionary-type attacks. This can be avoided by using an extra encryption layer; enabling this layer is the topic of this section."
-msgstr ""
+msgstr "Som standard transporterer LDAP-protokollen på nettverket i klartekst. Dette inkluderer (krypterte) passord. Ettersom de krypterte passordene kan være hentet fra nettverket, kan de være sårbare for ordbok-type angrep. Dette kan unngås ved hjelp av et ekstra krypteringslag; Å aktivere dette laget er tema for denne seksjonen."
 
 msgid "Configuring the Server"
 msgstr "Å sette opp tjeneren"
 
+#, fuzzy
 msgid "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
-msgstr ""
+msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
 
 #, fuzzy
 msgid "<primary>key pair</primary>"
 msgstr "<primary>key pair</primary>"
 
 msgid "The first step is to create a key pair (comprising a public key and a private key) for the LDAP server. The Falcot administrators reuse <emphasis>easy-rsa</emphasis> to generate it (see <xref linkend=\"sect.easy-rsa\" />). Running <command>./build-server-key ldap.falcot.com</command> asks a few mundane questions (location, organization name and so on). The answer to the “common name” question <emphasis>must</emphasis> be the fully-qualified hostname for the LDAP server; in our case, <literal>ldap.falcot.com</literal>."
-msgstr ""
+msgstr "Det første trinnet er å opprette et nøkkelpar (bestående av en offentlig nøkkel og en privat nøkkel) for LDAP-serveren. Falcot-administratorene gjenbruker <emphasis>easy-rsa</emphasis> for å genere det (se <xref linkend=\"sect.easy-rsa\" />). Kjøring av <command>./build-server-key ldap.falcot.com</command> medfører noen dagligdagse spørsmål (plassering, organisasjonsnavn og så videre). Svaret på deet \"vanlig navn\"-spørsmålet <emphasis>must</emphasis> er det fullstendige vertsnavnet for LDAP-tjeneren; i vårt tilfelle, <literal>ldap.falcot.com</literal>."
 
 msgid "This command creates a certificate in the <filename>keys/ldap.falcot.com.crt</filename> file; the corresponding private key is stored in <filename>keys/ldap.falcot.com.key</filename>."
-msgstr ""
+msgstr "Denne kommandoen oppretter et sertifikat i <filename>keys/ldap.falcot.com.crt</filename>-filen; den samsvarende private nøkkelen er lagret i <filename>keys/ldap.falcot.com.key</filename>."
 
 msgid "Now these keys have to be installed in their standard location, and we must make sure that the private file is readable by the LDAP server which runs under the <literal>openldap</literal> user identity:"
-msgstr ""
+msgstr "Nå må disse nøklene være installert med sin standard plassering, og vi må sørge for at den private filen er lesbar av LDAP-tjeneren, som kjører med <literal>openldap</literal>-brukerindentiteten:"
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
 "</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
@@ -2342,13 +2656,23 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
 "</userinput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>adduser openldap ssl-cert\n"
+"</userinput><computeroutput>Adding user `openldap' to group `ssl-cert' ...\n"
+"Adding user openldap to group ssl-cert\n"
+"Done.\n"
+"# </computeroutput><userinput>mv keys/ldap.falcot.com.key /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chown root:ssl-cert /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>chmod 0640 /etc/ssl/private/ldap.falcot.com.key\n"
+"</userinput><computeroutput># </computeroutput><userinput>mv newcert.pem /etc/ssl/certs/ldap.falcot.com.pem\n"
+"</userinput>"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
-msgstr ""
+msgstr "<command>slapd</command>-nissen må også få beskjed om å bruke disse nøklene tastene til kryptering. LDAP-tjenerkonfigurasjon styres dynamisk: konfigurasjonen kan oppdateres med normale LDAP operasjoner på <literal>cn=config</literal>-objekthierarki, og tjeneroppdateringer på <filename>/etc/ldap/slapd.d</filename> i sann tid for å gjøre konfigurasjonen persistent. <command>ldapmodify</command> er dermed det riktige verktøyet for å oppdatere konfigurasjonen:"
 
 msgid "Configuring <command>slapd</command> for encryption"
-msgstr ""
+msgstr "Konfigurering <command>slapd</command> for kryptifisering."
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
 "dn: cn=config\n"
@@ -2367,30 +2691,51 @@ msgid ""
 "modifying entry \"cn=config\"\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>cat &gt;ssl.ldif &lt;&lt;END\n"
+"dn: cn=config\n"
+"changetype: modify\n"
+"add: olcTLSCertificateFile\n"
+"olcTLSCertificateFile: /etc/ssl/certs/ldap.falcot.com.pem\n"
+"-\n"
+"add: olcTLSCertificateKeyFile\n"
+"olcTLSCertificateKeyFile: /etc/ssl/private/ldap.falcot.com.key\n"
+"-\n"
+"END\n"
+"</userinput><computeroutput># </computeroutput><userinput>ldapmodify -Y EXTERNAL -H ldapi:/// -f ssl.ldif\n"
+"</userinput><computeroutput>SASL/EXTERNAL authentication started\n"
+"SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth\n"
+"SASL SSF: 0\n"
+"modifying entry \"cn=config\"\n"
+"</computeroutput>"
 
 msgid "<emphasis>TOOL</emphasis> <command>ldapvi</command> to edit an LDAP directory"
-msgstr ""
+msgstr "<emphasis>TOOL</emphasis> <command>ldapvi</command> for å redigere en  LDAP-mappe"
 
+#, fuzzy
 msgid "<primary><command>ldapvi</command></primary>"
-msgstr ""
+msgstr "<primary><command>ldapvi</command></primary>"
 
 msgid "With <command>ldapvi</command>, you can display an LDIF output of any part of the LDAP directory, make some changes in the text editor, and let the tool do the corresponding LDAP operations for you."
-msgstr ""
+msgstr "Med <command>ldapvi</command>, kan du vise en LDIF-utskrift for enhver del av LDAP-katalogen, gjøre endringer i tekstredigereren, og la verktøyet gjøre de overensstemmende LDAP-operasjoner for deg."
 
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
-msgstr ""
+msgstr "Dette er derfor en praktisk måte å oppdatere LDAP-tjenerens oppsett, ganske enkelt ved å redigere <literal>cn=config</literal>-hierarkiet."
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
 "</userinput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
+"</userinput>"
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
-msgstr ""
+msgstr "Det siste trinnet for å aktivere kryptering innebærer å endre <varname>SLAPD_SERVICES</varname>-variabelen i <filename>/etc/default/slapd</filename>-filen. Vi skal gjøre det trygt og helt deaktivere usikret LDAP."
 
 msgid "The <filename>/etc/default/slapd</filename> file"
-msgstr ""
+msgstr "<filename>/etc/default/slapd</filename>-filen"
 
+#, fuzzy
 msgid ""
 "\n"
 "# Default location of the slapd.conf file or slapd.d cn=config directory. If\n"
@@ -2439,16 +2784,63 @@ msgid ""
 "# Additional options to pass to slapd\n"
 "SLAPD_OPTIONS=\"\""
 msgstr ""
+"\n"
+"# Default location of the slapd.conf file or slapd.d cn=config directory. If\n"
+"# empty, use the compiled-in default (/etc/ldap/slapd.d with a fallback to\n"
+"# /etc/ldap/slapd.conf).\n"
+"SLAPD_CONF=\n"
+"\n"
+"# System account to run the slapd server under. If empty the server\n"
+"# will run as root.\n"
+"SLAPD_USER=\"openldap\"\n"
+"\n"
+"# System group to run the slapd server under. If empty the server will\n"
+"# run in the primary group of its user.\n"
+"SLAPD_GROUP=\"openldap\"\n"
+"\n"
+"# Path to the pid file of the slapd server. If not set the init.d script\n"
+"# will try to figure it out from $SLAPD_CONF (/etc/ldap/slapd.conf by\n"
+"# default)\n"
+"SLAPD_PIDFILE=\n"
+"\n"
+"# slapd normally serves ldap only on all TCP-ports 389. slapd can also\n"
+"# service requests on TCP-port 636 (ldaps) and requests via unix\n"
+"# sockets.\n"
+"# Example usage:\n"
+"# SLAPD_SERVICES=\"ldap://127.0.0.1:389/ ldaps:/// ldapi:///\"\n"
+"SLAPD_SERVICES=\"ldaps:/// ldapi:///\"\n"
+"\n"
+"# If SLAPD_NO_START is set, the init script will not start or restart\n"
+"# slapd (but stop will still work).  Uncomment this if you are\n"
+"# starting slapd via some other means or if you don't want slapd normally\n"
+"# started at boot.\n"
+"#SLAPD_NO_START=1\n"
+"\n"
+"# If SLAPD_SENTINEL_FILE is set to path to a file and that file exists,\n"
+"# the init script will not start or restart slapd (but stop will still\n"
+"# work).  Use this for temporarily disabling startup of slapd (when doing\n"
+"# maintenance, for example, or through a configuration management system)\n"
+"# when you don't want to edit a configuration file.\n"
+"SLAPD_SENTINEL_FILE=/etc/ldap/noslapd\n"
+"\n"
+"# For Kerberos authentication (via SASL), slapd by default uses the system\n"
+"# keytab file (/etc/krb5.keytab).  To use a different keytab file,\n"
+"# uncomment this line and change the path.\n"
+"#export KRB5_KTNAME=/etc/krb5.keytab\n"
+"\n"
+"# Additional options to pass to slapd\n"
+"SLAPD_OPTIONS=\"\""
 
 msgid "Configuring the Client"
 msgstr "Å sette opp klienten"
 
 msgid "On the client side, the configuration for the <emphasis>libpam-ldap</emphasis> and <emphasis>libnss-ldap</emphasis> modules needs to be modified to use an <literal>ldaps://</literal> URI."
-msgstr ""
+msgstr "På klientsiden, trenger oppsettet for <emphasis>libpam-ldap</emphasis> og <emphasis>libnss-ldap</emphasis>-modulene å bli modifisert til å bruke en <literal>ldaps://</literal>-URI."
 
 msgid "LDAP clients also need to be able to authenticate the server. In a X.509 public key infrastructure, public certificates are signed by the key of a certificate authority (CA). With <emphasis>easy-rsa</emphasis>, the Falcot administrators have created their own CA and they now need to configure the system to trust the signatures of Falcot's CA. This can be done by putting the CA certificate in <filename>/usr/local/share/ca-certificates</filename> and running <command>update-ca-certificates</command>."
-msgstr ""
+msgstr "LDAP-klienter må også kunne godkjenne serveren. I en X.509 offentlig nøkkel infrastruktur, er offentlige sertifikater signert av nøkkelen til en sertifiseringsinstans (CA). Med <emphasis>easy-rsa</emphasis>, har Falcot-administratorene laget sin egen CA, og nå trenger de å konfigurere systemet til å stole på underskriftene til Falcots CA. Dette kan gjøres ved å sette CA-sertifikatet inn i <filename>/usr/local/share/ca-certificates</filename> og kjøre <command>update-ca-certificates</command>."
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
 "</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
@@ -2459,13 +2851,22 @@ msgid ""
 "done.\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>cp keys/ca.crt /usr/local/share/ca-certificates/falcot.crt\n"
+"</userinput><computeroutput># </computeroutput><userinput>update-ca-certificates\n"
+"</userinput><computeroutput>Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done.\n"
+"Running hooks in /etc/ca-certificates/update.d....\n"
+"Adding debian:falcot.pem\n"
+"done.\n"
+"done.\n"
+"</computeroutput>"
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
-msgstr ""
+msgstr "Sist men ikke minst, kan standard LDAP URI og standard base DN, brukt av de ulike kommandolinje-verktøyene, endres i <filename>/etc/ldap/ldap.conf</filename>. Dette vil spare ganske lang skrive."
 
 msgid "The <filename>/etc/ldap/ldap.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/ldap/ldap.conf</filename>-filen"
 
+#, fuzzy
 msgid ""
 "#\n"
 "# LDAP Defaults\n"
@@ -2484,49 +2885,74 @@ msgid ""
 "# TLS certificates (needed for GnuTLS)\n"
 "TLS_CACERT      /etc/ssl/certs/ca-certificates.crt"
 msgstr ""
+"#\n"
+"# LDAP Defaults\n"
+"#\n"
+"\n"
+"# See ldap.conf(5) for details\n"
+"# This file should be world readable but not world writable.\n"
+"\n"
+"BASE   dc=falcot,dc=com\n"
+"URI    ldaps://ldap.falcot.com\n"
+"\n"
+"#SIZELIMIT      12\n"
+"#TIMELIMIT      15\n"
+"#DEREF          never\n"
+"\n"
+"# TLS certificates (needed for GnuTLS)\n"
+"TLS_CACERT      /etc/ssl/certs/ca-certificates.crt"
 
 msgid "Real-Time Communication Services"
-msgstr ""
+msgstr "Sanntids kommunikasjonstjenester"
 
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
-msgstr ""
+msgstr "Real-Time Communication (RTC)-tjenester inkluderer tale, video/nettkamera, lynmelding(IM) og skrivebordsdeling. Dette kapitlet gir en kort innføring i tre av de tjenester som kreves for å drive RTC, omfattende en TURN-tjener, SIP-tjener og XMPP-tjener. Omfattende detaljinformasjon om hvordan planlegge, installere og administrere disse tjenestene er tilgjengelige i Real-Time Communications Quick Start Guide som inneholder eksempler som er spesifikke for Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 
+#, fuzzy
 msgid "<primary>VoIP</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>VoIP</primary><secondary>server</secondary>"
 
+#, fuzzy
 msgid "<primary>RTC</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>RTC</primary><secondary>server</secondary>"
 
+#, fuzzy
 msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>Instant Messaging</primary><secondary>server</secondary>"
 
+#, fuzzy
 msgid "<primary>Chat</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>Chat</primary><secondary>server</secondary>"
 
 msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
-msgstr ""
+msgstr "Både SIP og XMPP kan gi den samme funksjonaliteten. SIP er litt mer kjent for tale og video, mens XMPP er tradisjonelt ansett som en IM-protokoll. Faktisk kan begge anvendes for hvilke som helst av disse formålene. For å maksimere tilkoblingsmuligheter, anbefales det å kjøre begge parallelt."
 
+#, fuzzy
 msgid "<primary>SIP</primary>"
-msgstr ""
+msgstr "<primary>SIP</primary>"
 
+#, fuzzy
 msgid "<primary>XMPP</primary>"
-msgstr ""
+msgstr "<primary>XMPP</primary>"
 
 msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
-msgstr ""
+msgstr "Disse tjenestene er avhengige av X.509-sertifikater både for autentiserings- og konfidensialitets-formål. Se <xref linkend=\"sect.easy-rsa\" /> for mer informasjon om hvordan du oppretter dem. Alternativt har også <emphasis>Real-Time Communications Quick Start Guide</emphasis> noen nyttige forklaringer: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
 
 msgid "DNS settings for RTC services"
-msgstr ""
+msgstr "DNS-settinger for RTC-tjenester"
 
 msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
-msgstr ""
+msgstr "RTC-tjenester krever DNS SRV- og NAPTR-registrering. Ett eksempel på oppsett som kan plasseres i sonefilen for <literal>falcot.com</literal>:"
 
+#, fuzzy
 msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
-msgstr ""
+msgstr "<primary>DNS</primary><secondary>SRV record</secondary>"
 
+#, fuzzy
 msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
-msgstr ""
+msgstr "<primary>DNS</primary><secondary>NAPTR record</secondary>"
 
+#, fuzzy
 msgid ""
 "\n"
 "; the server where everything will run\n"
@@ -2557,34 +2983,65 @@ msgid ""
 "_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
 "_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 msgstr ""
+"\n"
+"; the server where everything will run\n"
+"server1            IN     A      198.51.100.19\n"
+"server1            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; IPv4 only for TURN for now, some clients are buggy with IPv6\n"
+"turn-server        IN     A      198.51.100.19\n"
+"\n"
+"; IPv4 and IPv6 addresses for SIP\n"
+"sip-proxy          IN     A      198.51.100.19\n"
+"sip-proxy          IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; IPv4 and IPv6 addresses for XMPP\n"
+"xmpp-gw            IN     A      198.51.100.19\n"
+"xmpp-gw            IN     AAAA   2001:DB8:1000:2000::19\n"
+"\n"
+"; DNS SRV and NAPTR for STUN / TURN\n"
+"_stun._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"_turn._udp  IN SRV    0 1 3467 turn-server.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"RELAY:turn.udp\" \"\" _turn._udp.falcot.com.\n"
+"\n"
+"; DNS SRV and NAPTR records for SIP\n"
+"_sips._tcp  IN SRV    0 1 5061 sip-proxy.falcot.com.\n"
+"@           IN NAPTR  10 0 \"s\" \"SIPS+D2T\" \"\" _sips._tcp.falcot.com.\n"
+"\n"
+"; DNS SRV records for XMPP Server and Client modes:\n"
+"_xmpp-client._tcp  IN     SRV    5 0 5222 xmpp-gw.falcot.com.\n"
+"_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 
 msgid "TURN Server"
-msgstr ""
+msgstr "TURN-tjener"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
-msgstr ""
+msgstr "TURN er en tjeneste som hjelper klientene bak NAT-rutere og brannmurer med å finne den mest effektive måten å kommunisere med andre klienter på og for å formidle mediestrømmer hvis ingen direkte mediabane blir funnet. Det anbefales sterkt at TURN-tjeneren installeres før noen av de andre RTC-tjenestene tilbys til sluttbrukere."
 
+#, fuzzy
 msgid "<primary>TURN</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>TURN</primary><secondary>server</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
-msgstr ""
+msgstr "TURN og den tilhørende ICE-protokollen er åpne standarder. For å dra nytte av disse protokollene, maksimere tilkoblingsmuligheter, og minimere brukerfrustrasjon, er det viktig å sikre at alle klientprogramvarene støtter ICE og TURN."
 
+#, fuzzy
 msgid "<primary>ICE</primary>"
-msgstr ""
+msgstr "<primary>ICE</primary>"
 
 msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
-msgstr ""
+msgstr "For å få ICE-algoritmene til å fungere effektivt, må tjeneren ha to offentlige IPv4-adresser."
 
 msgid "Install the TURN server"
-msgstr ""
+msgstr "Å installere TURN-tjeneren"
 
 msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> package."
-msgstr ""
+msgstr "Å installere <emphasis role=\"pkg\">resiprocate-turn-server</emphasis>-pakken."
 
 msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
-msgstr ""
+msgstr "Rediger konfigurasjonsfilen <filename>/etc/reTurn/reTurnServer.config</filename>. Det viktigste er å sette inn IP-adressene til tjeneren."
 
+#, fuzzy
 msgid ""
 "\n"
 "# your IP addresses go here:\n"
@@ -2599,18 +3056,31 @@ msgid ""
 "UserDatabaseFile = /etc/reTurn/users.txt\n"
 "UserDatabaseHashedPasswords = true"
 msgstr ""
+"\n"
+"# your IP addresses go here:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# your domain goes here, it must match the value used\n"
+"# to hash your passwords if they are already hashed\n"
+"# using the HA1 algorithm:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
 
 msgid "Restart the service."
-msgstr ""
+msgstr "Restart tjenesten."
 
 msgid "Managing the TURN users"
-msgstr ""
+msgstr "Å håndtere TURN-brukerne"
 
 msgid "Use the htdigest utility to manage the TURN server user list."
-msgstr ""
+msgstr "Bruk htdigest-verktøyet for å håndtere TURN-tjenestens brukerliste."
 
+#, fuzzy
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
-msgstr ""
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
 msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
 msgstr ""
