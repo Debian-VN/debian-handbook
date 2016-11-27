@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-11-23 13:09+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"PO-Revision-Date: 2016-11-27 23:10+0000\n"
+"Last-Translator: Andreas Nordal <andreas.nordal@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/14_security/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 2.10-dev\n"
 
 msgid "Firewall"
-msgstr ""
+msgstr "Brannmur"
 
 msgid "Netfilter"
 msgstr ""
@@ -25,73 +25,79 @@ msgid "Security"
 msgstr ""
 
 msgid "An information system can have a varying level of importance depending on the environment. In some cases, it is vital to a company's survival. It must therefore be protected from various kinds of risks. The process of evaluating these risks, defining and implementing the protection is collectively known as the “security process”."
-msgstr ""
+msgstr "Et informasjonssystem kan ha en varierende viktighet som følge av miljøfaktorer. Noen ganger kan det være livsviktig for bedriftens overlevelse, og må derfor beskyttes mot forskjellige former for risiko. Prosessen med å evaluere disse risikoene, definere og implementere beskyttelsesmekanismer kalles med et fellesord «sikkerhetsprosessen»."
 
+#, fuzzy
 msgid "Defining a Security Policy"
-msgstr ""
+msgstr "Etablering av en sikkerhetspolitikk"
 
 msgid "<emphasis>CAUTION</emphasis> Scope of this chapter"
-msgstr ""
+msgstr "<emphasis>FORSIKTIG</emphasis> Dette kapittelets omfang"
 
+#, fuzzy
 msgid "Security is a vast and very sensitive subject, so we cannot claim to describe it in any kind of comprehensive manner in the course of a single chapter. We will only delineate a few important points and describe some of the tools and methods that can be of use in the security domain. For further reading, literature abounds, and entire books have been devoted to the subject. An excellent starting point would be <citetitle>Linux Server Security</citetitle> by Michael D. Bauer (published by O'Reilly)."
-msgstr ""
+msgstr "Datasikkerhet (eng: security) er et stort og følsomt tema, som ikke på langt nær kan beskrives fullstendig i bare ett kapittel. Vi vil bare framheve noen få viktige punkter og beskrive noen av verktøyene og metodene som kan nyttes i på dette feltet. For videre lesning, mangler det ikke på bøker dedikert til dette temaet. Et godt sted å starte kan være <citetitle>Linux Server Security</citetitle> av Michael D. Bauer (publisert av O'Reilly)."
 
+#, fuzzy
 msgid "The word “security” itself covers a vast range of concepts, tools and procedures, none of which apply universally. Choosing among them requires a precise idea of what your goals are. Securing a system starts with answering a few questions. Rushing headlong into implementing an arbitrary set of tools runs the risk of focusing on the wrong aspects of security."
-msgstr ""
+msgstr "Ordet «sikkerhet» dekker et vidt spekter av konsepter, verktøy, og prosedyrer; ingen av dem dekker alle aspekter. Å velge mellom dem krever en presis ide om hvilke mål man vil oppnå. Å sikre et system starter med å svare på noen få spørsmål. Raser man avgårde og implementerer et vilkårlig sett av tiltak, risikerer man å fokusere på feil ting."
 
 msgid "The very first thing to determine is therefore the goal. A good approach to help with that determination starts with the following questions:"
-msgstr ""
+msgstr "Den absolutt første tingen å avgjøre er derfor målet. En god tilnærming til å hjelpe denne avgjørelsen er å starte med disse spørsmålene:"
 
 msgid "<emphasis>What</emphasis> are we trying to protect? The security policy will be different depending on whether we want to protect computers or data. In the latter case, we also need to know which data."
-msgstr ""
+msgstr "<emphasis>Hva</emphasis> prøver man å beskytte? Sikkerhetspolitikken vil være forskjellig avhengig om man vil beskytte maskiner eller data. I sistnevnte tilfelle må vi også vite hvilke data."
 
 msgid "What are we trying to protect <emphasis>against</emphasis>? Is it leakage of confidential data? Accidental data loss? Revenue loss caused by disruption of service?"
-msgstr ""
+msgstr "Hva prøver vi å beskytte <emphasis>mot</emphasis>? Er det lekkasje av sensitive data? Tap av data? Tap av inntekt som følge av brudd i tjenesten?"
 
 msgid "Also, <emphasis>who</emphasis> are we trying to protect against? Security measures will be quite different for guarding against a typo by a regular user of the system than they would be when protecting against a determined attacker group."
-msgstr ""
+msgstr "Dessuten, <emphasis>hvem</emphasis> prøver vi vi å beskytte mot? Sikkerhetstiltakene vil variere stort mellom det å beskytte mot skrivefeil fra brukeren av systemet, og angrep fra motiverte grupper utenfra."
 
 msgid "The term “risk” is customarily used to refer collectively to these three factors: what to protect, what needs to be prevented from happening, and who will try to make it happen. Modeling the risk requires answers to these three questions. From this risk model, a security policy can be constructed, and the policy can be implemented with concrete actions."
-msgstr ""
+msgstr "Ordet «risiko», i sikkerhetsøyemed, brukes gjerne som samlebegrep for disse tre hensynene: hva som må beskyttes, hva som må hindres fra å skje, og hvem som må beskyttes mot. Å modellere risikoen krever svar på disse tre spørsmålene. Utfra en slik risikomodell kan en sikkerhetspolitikk trekkes, og denne kan implementeres gjennom konkrete tiltak."
 
 msgid "<emphasis>NOTE</emphasis> Permanent questioning"
-msgstr ""
+msgstr "<emphasis>NB</emphasis> Fortløpende spørsmålsstilling"
 
 msgid "Bruce Schneier, a world expert in security matters (not only computer security) tries to counter one of security's most important myths with a motto: “Security is a process, not a product”. Assets to be protected change in time, and so do threats and the means available to potential attackers. Even if a security policy has initially been perfectly designed and implemented, one should never rest on one's laurels. The risk components evolve, and the response to that risk must evolve accordingly."
-msgstr ""
+msgstr "Bruce Schneier, en verdenskjent sikkerhetsekspert (ikke bare på datasikkerhet), prøver å avlive en av de største mytene innen sikkerhet ved å si: «Sikkerhet er en prosess, ikke et produkt». Verdier som må beskyttes endrer seg over tid; det samme gjør truslene og ressursene tilgjengelige for mulige angripere. Selv om en sikkerhetspolitikk opprinnelig er perfekt konstruert og implementert, kan man ikke hvile på sine laurbær. Risikomomentene endrer seg, og da må tiltakene henge med."
 
 msgid "Extra constraints are also worth taking into account, as they can restrict the range of available policies. How far are we willing to go to secure a system? This question has a major impact on the policy to implement. The answer is too often only defined in terms of monetary costs, but the other elements should also be considered, such as the amount of inconvenience imposed on system users or performance degradation."
-msgstr ""
+msgstr "Andre begrensninger er også verdt å tenke på, ettersom de kan sette grenser for realistisk sikkerhetspolitikk. Hvor langt er man villig til å gå for å sikre systemet? Dette spørsmålet har store konsekvenser for mulig implementering. Det besvares altfor ofte kun utfra økonomi, selv om andre kriterier også bør tas i betraktning, som ulemper som påføres brukeren og tap av ytelse."
 
 msgid "Once the risk has been modeled, one can start thinking about designing an actual security policy."
-msgstr ""
+msgstr "Når risikoen først er modellert, kan man begynne å tenke på å konstruere en faktisk sikkerhetspolitikk."
 
 msgid "<emphasis>NOTE</emphasis> Extreme policies"
-msgstr ""
+msgstr "<emphasis>NB</emphasis> Ekstrem politikk"
 
 msgid "There are cases where the choice of actions required to secure a system is extremely simple."
-msgstr ""
+msgstr "Det er tilfeller hvor valget av tiltak som kreves for å sikre et system er ekstremt enkle."
 
 msgid "For instance, if the system to be protected only comprises a second-hand computer, the sole use of which is to add a few numbers at the end of the day, deciding not to do anything special to protect it would be quite reasonable. The intrinsic value of the system is low. The value of the data is zero since they are not stored on the computer. A potential attacker infiltrating this “system” would only gain an unwieldy calculator. The cost of securing such a system would probably be greater than the cost of a breach."
-msgstr ""
+msgstr "For eksempel, hvis systemet som skal sikres bare består av en gammel brukt maskin, med sitt ene formål å legge sammen noen tall på slutten av dagen, ville det antakelig være helt legitimt å ikke gjøre noen ting – verdien som ligger i systemet er lav, og det er ingen verdi i dataene, ettersom de ikke lagres på maskinen. En potensiell angriper ville bare få tilgang til en uhåndterlig kalkulator. Kostnaden ved å sikre et slikt system ville sannsynligvis oppveie kostnaden av et eventuelt tap."
 
+#, fuzzy
 msgid "At the other end of the spectrum, we might want to protect the confidentiality of secret data in the most comprehensive way possible, trumping any other consideration. In this case, an appropriate response would be the total destruction of these data (securely erasing the files, shredding of the hard disks to bits, then dissolving these bits in acid, and so on). If there is an additional requirement that data must be kept in store for future use (although not necessarily readily available), and if cost still isn't a factor, then a starting point would be storing the data on iridium–platinum alloy plates stored in bomb-proof bunkers under various mountains in the world, each of which being (of course) both entirely secret and guarded by entire armies…"
-msgstr ""
+msgstr "I motsatt ende av spekteret, hvis konfidensialitet av hemmelige data trumfer alle andre hensyn, vil en riktig respons kunne være å destruere dataene så grundig som mulig (overskriving av dataene mange ganger, for så å løse harddisken opp i syrebad, osv). Hvis det i tillegg kreves at dataene skal oppbevares for framtidig bruk (ikke nødvendigvis på kort varsel), og kostnad fortsatt ikke er en faktor, vil et hensiktsmessig startpunkt være å lagre dataene på plater av en iridium-platinum-legering i bombesikre bunkere under forskjellige fjell omkring i verden, alle selvsagt både hemmelige og bevoktede med hver sin hær…"
 
+#, fuzzy
 msgid "Extreme though these examples may seem, they would nevertheless be an adequate response to defined risks, insofar as they are the outcome of a thought process that takes into account the goals to reach and the constraints to fulfill. When coming from a reasoned decision, no security policy is less respectable than any other."
-msgstr ""
+msgstr "Ekstreme som de er, disse eksemplene ville være adekvate responser for sine definerte risikoer, i den grad de er produktet av en tankeprosess som har tatt hensyn til målene som skal oppnås og begrensningene som må oppfylles. Så lenge den kommer fra en velinformert rasjonell beslutning, er ingen sikkerhetspolitikk mindre respektabel enn en annen."
 
+#, fuzzy
 msgid "In most cases, the information system can be segmented in consistent and mostly independent subsets. Each subsystem will have its own requirements and constraints, and so the risk assessment and the design of the security policy should be undertaken separately for each. A good principle to keep in mind is that a short and well-defined perimeter is easier to defend than a long and winding frontier. The network organization should also be designed accordingly: the sensitive services should be concentrated on a small number of machines, and these machines should only be accessible via a minimal number of check-points; securing these check-points will be easier than securing all the sensitive machines against the entirety of the outside world. It is at this point that the usefulness of network filtering (including by firewalls) becomes apparent. This filtering can be implemented with dedicated hardware, but a possibly simpler and more flexible solution is to use a software firewall such as the one integrated in the Linux kernel."
-msgstr ""
+msgstr "I de fleste tilfeller kan informasjonssystemet segmenteres i konsistente og stort sett uavhengige subsett. Hvert subsystem vil ha sine egne krav og begrensninger, så risikovurderingen og utformingen av sikkerhetspolitikken bør gjøres separat for hvert. Et godt prinsipp å huske på er at en kort og veldefinert forsvarslinje er enklere å forsvare enn en lang og buktende en. Nettverksorganisasjonen bør også utformes tilsvarende: sensitive tjenester bør konsentreres på et lite antall maskiner, og disse maskinene bør bare være tilgjengelige via et minimalt antall innfallsporter; beskytting av disse innfallsportene vil være enklere enn å beskytte alle de sensitive maskinene mot den store utenomverdenen. Det er her nettverksfiltrering (inkludert brannmurer) kommer inn. Denne filtreringen kan implementeres med dedikert maskinvare, men en mulig enklere og mer fleksibel løsning er å bruke en programvarebrannmur, som den som er integrert i Linux-kjernen."
 
 msgid "Firewall or Packet Filtering"
-msgstr ""
+msgstr "Brannmur eller pakkefiltrering"
 
 msgid "<primary>firewall</primary>"
-msgstr ""
+msgstr "<primary>brannmur</primary>"
 
 msgid "<primary>packet filter</primary>"
-msgstr ""
+msgstr "<primary>pakkefilter</primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Firewall"
 msgstr ""
@@ -100,52 +106,59 @@ msgid "<primary>packet</primary><secondary>IP</secondary>"
 msgstr "<primary>pakke</primary><secondary>IP</secondary>"
 
 msgid "A <emphasis>firewall</emphasis> is a piece of computer equipment with hardware and/or software that sorts the incoming or outgoing network packets (coming to or from a local network) and only lets through those matching certain predefined conditions."
-msgstr ""
+msgstr "En <emphasis>brannmur</emphasis> er et stykke datautstyr med maskinvare og/eller programvare som sorterer innkommende og utgående nettverkspakker (som kommer til eller fra et lokalt nettverk) og bare slipper gjennom de som samsvarer med visse predefinerte betingelser."
 
 msgid "A firewall is a filtering network gateway and is only effective on packets that must go through it. Therefore, it can only be effective when going through the firewall is the only route for these packets."
 msgstr ""
 
 msgid "The lack of a standard configuration (and the “process, not product” motto) explains the lack of a turn-key solution. There are, however, tools that make it simpler to configure the <emphasis>netfilter</emphasis> firewall, with a graphical representation of the filtering rules. <command>fwbuilder</command> is undoubtedly among the best of them."
-msgstr ""
+msgstr "Mangelen på en standard konfigurasjon (og «prosess, ikke produkt»-mottoet) forklarer mangelen av en nøkkelferdig løsning. Det fins derimot verktøy som gjør det enklere å konfigurere <emphasis>netfilter</emphasis>-brannmuren, med en grafisk representasjon av filter-reglene. <command>fwbuilder</command> er utvilsomt blant de beste av dem."
 
 msgid "<primary><emphasis>netfilter</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>netfilter</emphasis></primary>"
 
+#, fuzzy
 msgid "<emphasis>SPECIFIC CASE</emphasis> Local Firewall"
-msgstr ""
+msgstr "<emphasis>SPESIFIKT TILFELLE</emphasis> Lokal brannmur"
 
+#, fuzzy
 msgid "A firewall can be restricted to one particular machine (as opposed to a complete network), in which case its role is to filter or limit access to some services, or possibly to prevent outgoing connections by rogue software that a user could, willingly or not, have installed."
-msgstr ""
+msgstr "En brannmur kan begrenses til en bestemt maskin (til forskjell fra et helt nettverk), i så fall for å filtrere eller begrense adgang til noen tjenester, eller muligens hindre utgående forbindelser fra ondsinnede programmer som brukeren kunne, med vilje eller ei, ha installert."
 
 msgid "The Linux kernel embeds the <emphasis>netfilter</emphasis> firewall. It can be controlled from user space with the <command>iptables</command> and <command>ip6tables</command> commands. The difference between these two commands is that the former acts on the IPv4 network, whereas the latter acts on IPv6. Since both network protocol stacks will probably be around for many years, both tools will need to be used in parallel."
-msgstr ""
+msgstr "Linux-kjernen inneholder <emphasis>netfilter</emphasis>-brannmuren. Den kan kontrolleres fra brukerrommet med kommandoen <command>iptables</command>- og <command>ip6tables</command>-kommandoene. Forskjellen mellom disse er at den første betjener IPv4-nettverket, mens den siste betjener IPv6. Siden begge nettverksprotokollene sannsynligvis vil fortsette å eksistere i årevis, vil begge verktøyene måtte brukes i parallel."
 
 msgid "<primary><command>iptables</command></primary>"
-msgstr ""
+msgstr "<primary><command>iptables</command></primary>"
 
 msgid "<primary><command>ip6tables</command></primary>"
 msgstr "<primary><command>ip6tables</command></primary>"
 
+#, fuzzy
 msgid "Netfilter Behavior"
-msgstr ""
+msgstr "Netfilters virkemåte"
 
 msgid "<emphasis>netfilter</emphasis> uses four distinct tables which store rules regulating three kinds of operations on packets:"
-msgstr ""
+msgstr "<emphasis>netfilter</emphasis> bruker fire forskjellige tabeller for regler om tre typer operasjoner på pakker:"
 
+#, fuzzy
 msgid "<literal>filter</literal> concerns filtering rules (accepting, refusing or ignoring a packet);"
-msgstr ""
+msgstr "<literal>filter</literal> for filterregler (akseptere, nekte, ignorere en pakke)"
 
 msgid "<literal>nat</literal> concerns translation of source or destination addresses and ports of packages;"
-msgstr ""
+msgstr "<literal>nat</literal> for oversetting av kilde- eller destinasjonsadresser og porter på pakker;"
 
+#, fuzzy
 msgid "<literal>mangle</literal> concerns other changes to the IP packets (including the ToS — <emphasis>Type of Service</emphasis> — field and options);"
-msgstr ""
+msgstr "<literal>mangle</literal> for andre endringer av IP-pakker (inkludert ToS-felt og -opsjoner (Type of Service));"
 
+#, fuzzy
 msgid "<literal>raw</literal> allows other manual modifications on packets before they reach the connection tracking system."
-msgstr ""
+msgstr "<literal>raw</literal> tillater andre manuelle modifikasjoner av pakker før de når forbindelsessporingssystemet."
 
+#, fuzzy
 msgid "Each table contains lists of rules called <emphasis>chains</emphasis>. The firewall uses standard chains to handle packets based on predefined circumstances. The administrator can create other chains, which will only be used when referred to by one of the standard chains (either directly or indirectly)."
-msgstr ""
+msgstr "Hver tabell inneholder en liste av regler kalt <emphasis>kjeder</emphasis>. Brannmuren bruker standardkjeder til å håndtere pakker basert på predefinerte betingelser. Administratoren kan lage andre kjeder, som bare vil bli brukt når den refereres til av noen av standardkjedene (direkte eller indirekte)."
 
 msgid "<primary>chain</primary>"
 msgstr ""
