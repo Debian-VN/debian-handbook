@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-11-23 13:09+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"PO-Revision-Date: 2016-11-27 17:48+0000\n"
+"Last-Translator: Ingrid Yrvin <ingrid.yrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/10_network-infrastructure/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
@@ -1047,19 +1047,17 @@ msgstr "Hovedformålet til <command>wondershaper</command> (i pakken med tilsvar
 msgid "<primary><command>wondershaper</command></primary>"
 msgstr "<primary><command>wondershaper</command></primary>"
 
-#, fuzzy
 msgid "<primary>limitation of traffic</primary>"
-msgstr "<primary>limitation of traffic</primary>"
+msgstr "<primary>begrensning av datatrafikken</primary>"
 
-#, fuzzy
 msgid "<primary>traffic</primary><secondary>limitation</secondary>"
-msgstr "<primary>traffic</primary><secondary>limitation</secondary>"
+msgstr "<primary>trafikk</primary><secondary>begrensning</secondary>"
 
 msgid "Once a network interface is configured, setting up this traffic limitation is achieved by running <command>wondershaper <replaceable>interface</replaceable> <replaceable>download_rate</replaceable> <replaceable>upload_rate</replaceable></command>. The interface can be <literal>eth0</literal> or <literal>ppp0</literal> for example, and both rates are expressed in kilobits per second. The <command>wondershaper remove <replaceable>interface</replaceable></command> command disables traffic control on the specified interface."
-msgstr "Når et nettverkskort er konfigurert, settes denne trafikkbegrensning opp ved å kjøre <command>wondershaper <replaceable>interface</replaceable> <replaceable>download_rate</replaceable> <replaceable>upload_rate</replaceable></command>. Grensesnittet kan for eksempel være <literal>eth0</literal> eller <literal>ppp0</literal>, og begge hastighetene er uttrykt i kilobit per sekund. <command>wondershaper remove <replaceable>interface</replaceable></command>-kommandoen  deaktiverer trafikk-kontroll for det angitte grensesnittet."
+msgstr "Når et nettverkskort er konfigurert, settes denne trafikkbegrensning opp ved å kjøre <command>wondershaper <replaceable>grensesnitt</replaceable> <replaceable>download_rate</replaceable> <replaceable>upload_rate</replaceable></command>. Grensesnittet kan for eksempel være <literal>eth0</literal> eller <literal>ppp0</literal>, og begge hastighetene er uttrykt i kilobit per sekund. Kommandoen <command>wondershaper remove <replaceable>grensesnitt</replaceable></command> deaktiverer trafikk-kontroll for det angitte grensesnittet."
 
 msgid "For an Ethernet connection, this script is best called right after the interface is configured. This is done by adding <literal>up</literal> and <literal>down</literal> directives to the <filename>/etc/network/interfaces</filename> file allowing declared commands to be run, respectively, after the interface is configured and before it is deconfigured. For example:"
-msgstr "For en Ethernet-forbindelse, er dette skriptet best påkalt rett etter at grensesnittet er konfigurert. Dette gjøres ved å legge til  <literal>up</literal> and <literal>down</literal>-direktiver til <filename>/etc/network/interfaces</filename>-filen som tillater at de meldte kommandoer kan kjøres, respektivt, etter at grensesnittet er konfigurert og før det er dekonfigurert. For eksempel:"
+msgstr "For en Ethernet-forbindelse, er dette skriptet best tilgjengelig rett etter at grensesnittet er konfigurert. Dette gjøres ved å legge til <literal>up</literal> og <literal>down</literal>-direktiver til <filename>/etc/network/interfaces</filename>-filen som tillater at de meldte kommandoer kan kjøres, respektivt, etter at grensesnittet er konfigurert, og før det er dekonfigurert. For eksempel:"
 
 msgid "Changes in the <filename>/etc/network/interfaces</filename> file"
 msgstr "Forandringer i <filename>/etc/network/interfaces</filename>-filen"
@@ -1080,47 +1078,41 @@ msgid "In the PPP case, creating a script that calls <command>wondershaper</comm
 msgstr "I PPPs tilfelle, å lage skript som påkaller <command>wondershaper</command> i <filename>/etc/ppp/ip-up.d/</filename> vil slå på trafikkontroll så snart forbindelsen er aktivert."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Optimal configuration"
-msgstr "<emphasis>FOR VIDEREKOMMENDE</emphasis> Optimalt oppsett"
+msgstr "<emphasis>GÅR VIDERE</emphasis> Optimalt oppsett"
 
 msgid "The <filename>/usr/share/doc/wondershaper/README.Debian.gz</filename> file describes, in some detail, the configuration method recommended by the package maintainer. In particular, it advises measuring the download and upload speeds so as to best evaluate real limits."
-msgstr "<filename>/usr/share/doc/wondershaper/README.Debian.gz</filename>-filen beskriver i detalj pakkeutviklerens anbefalte konfigurasjonsmetode. Spesielt råder det til å måle nedlastings- og opplastingshastigheter for best å kunne bedømme reelle grenser."
+msgstr "Filen <filename>/usr/share/doc/wondershaper/README.Debian.gz</filename> beskriver i detalj pakkeutviklerens anbefalte konfigurasjonsmetode. Spesielt rådes det til å måle nedlastings- og opplastingshastigheter for best å kunne bedømme reelle grenser."
 
 msgid "Standard Configuration"
 msgstr "Standardkonfigurasjon"
 
 msgid "Barring a specific QoS configuration, the Linux kernel uses the <literal>pfifo_fast</literal> queue scheduler, which provides a few interesting features by itself. The priority of each processed IP packet is based on the ToS field (<emphasis>Type of Service</emphasis>) of this packet; modifying this field is enough to take advantage of the scheduling features. There are five possible values:"
-msgstr "For å sperre en bestemt QoS konfigurasjon, bruker Linux-kjernen  <literal>pfifo_fast</literal>-tidsplanlegger, som i seg selv gir noen interessante funksjoner. Prioritering av hver behandlede IP-pakke er basert på ToS-feltet (<emphasis>Type of Service</emphasis>) i denne pakken; Å endre dette feltet er nok til å dra nytte av tidsplanleggingsfunksjonene. Det er fem mulige verdier:"
+msgstr "For å sperre en bestemt QoS-konfigurasjon bruker Linux-kjernen <literal>pfifo_fast</literal>-tidsplanlegger, som i seg selv gir noen interessante funksjoner. Prioritering av hver behandlede IP-pakke er basert på ToS-feltet (<emphasis>Type of Service</emphasis>) i denne pakken; å endre dette feltet er nok til å dra nytte av tidsplanleggingsfunksjonene. Det er fem mulige verdier:"
 
 #, fuzzy
 msgid "Normal-Service (0);"
 msgstr "Normal-Service (0);"
 
-#, fuzzy
 msgid "Minimize-Cost (2);"
 msgstr "Minimize-Cost (2);"
 
-#, fuzzy
 msgid "Maximize-Reliability (4);"
 msgstr "Maximize-Reliability (4);"
 
-#, fuzzy
 msgid "Maximize-Throughput (8);"
 msgstr "Maximize-Throughput (8);"
 
-#, fuzzy
 msgid "Minimize-Delay (16)."
 msgstr "Minimize-Delay (16)."
 
-#, fuzzy
 msgid "<primary>ToS</primary>"
 msgstr "<primary>ToS</primary>"
 
-#, fuzzy
 msgid "<primary>Type of Service</primary>"
-msgstr "<primary>Type of Service</primary>"
+msgstr "<primary>Type of Service (type tjeneste)</primary>"
 
 msgid "The ToS field can be set by applications that generate IP packets, or modified on the fly by <emphasis>netfilter</emphasis>. The following rules are sufficient to increase responsiveness for a server's SSH service:"
-msgstr "TOS-feltet kan settes med programmer som genererer IP-pakker, eller modereres underveis med <emphasis>netfilter</emphasis>. Følgende regler er tilstrekkelige til å øke reaksjonsevne for en tjeners SSH-tjeneste:"
+msgstr "ToS-feltet kan settes med programmer som genererer IP-pakker, eller modereres underveis med <emphasis>netfilter</emphasis>. Følgende regler er tilstrekkelige til å øke reaksjonsevne for en tjeners SSH-tjeneste:"
 
 #, fuzzy
 msgid ""
@@ -1135,116 +1127,97 @@ msgstr ""
 msgid "Dynamic Routing"
 msgstr "Dynamisk ruting"
 
-#, fuzzy
 msgid "<primary>routing</primary><secondary>dynamic</secondary>"
-msgstr "<primary>routing</primary><secondary>dynamic</secondary>"
+msgstr "<primary>ruting</primary><secondary>dynamisk</secondary>"
 
-#, fuzzy
 msgid "<primary><command>quagga</command></primary>"
 msgstr "<primary><command>quagga</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>zebra</command></primary>"
 msgstr "<primary><command>zebra</command></primary>"
 
 msgid "The reference tool for dynamic routing is currently <command>quagga</command>, from the similarly-named package; it used to be <command>zebra</command> until development of the latter stopped. However, <command>quagga</command> kept the names of the programs for compatibility reasons which explains the <command>zebra</command> commands below."
-msgstr "Referanseverktøyet for dynamisk ruting er for tiden <command>quagga</command>, fra pakken med tilsvarende navn; Det pleide å være <command>zebra</command> til utviklingen av sistnevnte stoppet. Men <command>quagga</command> beholdt navnene på programmene av kompatibilitetsgrunner, som forklarer <command>zebra</command>-kommandoene nedenfor."
+msgstr "Referanseverktøyet for dynamisk ruting er for tiden <command>quagga</command>, fra pakken med tilsvarende navn; det pleide å være <command>zebra</command> til utviklingen av sistnevnte stoppet. Men <command>quagga</command> beholdt navnene på programmene av kompatibilitetsgrunner, som forklarer <command>zebra</command>-kommandoene nedenfor."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Dynamic routing"
-msgstr "<emphasis>BACK TO BASICS</emphasis> Dynamisk ruting"
+msgstr "<emphasis>TILBAKE TIL BASIS</emphasis> Dynamisk ruting"
 
 msgid "Dynamic routing allows routers to adjust, in real time, the paths used for transmitting IP packets. Each protocol involves its own method of defining routes (shortest path, use routes advertised by peers, and so on)."
-msgstr "Dynamisk ruting tillater rutere å justere, i sanntid, de banene som brukes til overføring av IP-pakker. Hver protokoll involverer sin egen metode til å definere ruter (korteste veien, bruke ruter varslet av tjenere, og så videre)."
+msgstr "Dynamisk ruting tillater rutere å justere, i sanntid, de banene som brukes til overføring av IP-pakker. Hver protokoll involverer sin egen metode til å definere ruter (korteste veien, bruke ruter varslet av andre brukere/tjenere, og så videre)."
 
 msgid "In the Linux kernel, a route links a network device to a set of machines that can be reached through this device. The <command>route</command> command defines new routes and displays existing ones."
-msgstr "I Linux-kjernen, knytter en rute en nettverksenhet til et sett av maskiner som kan nås via denne enheten. <command>route</command>-kommandoen definerer nye ruter og viser de eksisterende."
+msgstr "I Linux-kjernen knytter en rute en nettverksenhet til et sett av maskiner som kan nås via denne enheten. Kommandoen <command>route</command> definerer nye ruter, og viser de eksisterende."
 
 #, fuzzy
 msgid "<primary><command>route</command></primary>"
-msgstr "<primary><command>route</command></primary>"
+msgstr "<primary><command>route (rute)</command></primary>"
 
 msgid "Quagga is a set of daemons cooperating to define the routing tables to be used by the Linux kernel; each routing protocol (most notably BGP, OSPF and RIP) provides its own daemon. The <command>zebra</command> daemon collects information from other daemons and handles static routing tables accordingly. The other daemons are known as <command>bgpd</command>, <command>ospfd</command>, <command>ospf6d</command>, <command>ripd</command>, <command>ripngd</command>, <command>isisd</command>, and <command>babeld</command>."
-msgstr "Kvagga er et sett av nisser som samarbeider om å definere rutetabeller som skal brukes av Linux-kjernen; Hver ruting protokoll (særlig BGP, OSPF og RIP) leverer sin egen nisse. <command>zebra</command>-nissen samler inn informasjon fra andre nisser og håndterer statiske rutingtabeller tilsvarende. De andre nissene er kjent som <command>bgpd</command>, <command>ospfd</command>, <command>ospf6d</command>, <command>ripd</command>, <command>ripngd</command>, <command>isisd</command>, og <command>babeld</command>."
+msgstr "Quagga er et sett av nisser som samarbeider om å definere rutetabeller som skal brukes av Linux-kjernen; hver rutingprotokoll (særlig BGP, OSPF og RIP) leverer sin egen nisse. <command>zebra</command>-nissen samler inn informasjon fra andre nisser, og håndterer statiske rutingtabeller tilsvarende. De andre nissene er kjent som <command>bgpd</command>, <command>ospfd</command>, <command>ospf6d</command>, <command>ripd</command>, <command>ripngd</command>, <command>isisd</command>, og <command>babeld</command>."
 
-#, fuzzy
 msgid "<primary>OSPF</primary>"
 msgstr "<primary>OSPF</primary>"
 
-#, fuzzy
 msgid "<primary>BGP</primary>"
 msgstr "<primary>BGP</primary>"
 
-#, fuzzy
 msgid "<primary>RIP</primary>"
 msgstr "<primary>RIP</primary>"
 
-#, fuzzy
 msgid "<primary>IS-IS</primary>"
 msgstr "<primary>IS-IS</primary>"
 
-#, fuzzy
 msgid "<primary>BABEL wireless mesh routing</primary>"
-msgstr "<primary>BABEL wireless mesh routing</primary>"
+msgstr "<primary>BABEL trådløs meshruting</primary>"
 
-#, fuzzy
 msgid "<primary><command>bgpd</command></primary>"
 msgstr "<primary><command>bgpd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>ospfd</command></primary>"
 msgstr "<primary><command>ospfd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>ospf6d</command></primary>"
 msgstr "<primary><command>ospf6d</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>ripd</command></primary>"
 msgstr "<primary><command>ripd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>ripngd</command></primary>"
 msgstr "<primary><command>ripngd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>isisd</command></primary>"
 msgstr "<primary><command>isisd</command></primary>"
 
-#, fuzzy
 msgid "<primary><command>babeld</command></primary>"
 msgstr "<primary><command>babeld</command></primary>"
 
 msgid "Daemons are enabled by editing the <filename>/etc/quagga/daemons</filename> file and creating the appropriate configuration file in <filename>/etc/quagga/</filename>; this configuration file must be named after the daemon, with a <filename>.conf</filename> extension, and belong to the <literal>quagga</literal> user and the <literal>quaggavty</literal> group, in order for the <filename>/etc/init.d/quagga</filename> script to invoke the daemon."
-msgstr "Nisser aktiveres ved å redigere <filename>/etc/quagga/daemons</filename>-filen og skape den riktige konfigurasjonsfilen i <filename>/etc/quagga/</filename>; denne konfigurasjonsfilen må være oppkalt etter nissen, med en <filename>.conf</filename>-forlengelse, og høre til <literal>quagga</literal>-brukeren og <literal>quaggavty</literal>-gruppen, for å få <filename>/etc/init.d/quagga</filename>-skriptet til å kalle på nissen."
+msgstr "Nisser aktiveres ved å redigere <filename>/etc/quagga/daemons</filename>-filen, og skape den riktige konfigurasjonsfilen i <filename>/etc/quagga/</filename>; denne konfigurasjonsfilen må være oppkalt etter nissen, med en <filename>.conf</filename>-forlengelse, og høre til <literal>quagga</literal>-brukeren og <literal>quaggavty</literal>-gruppen, for å få <filename>/etc/init.d/quagga</filename>-skriptet til å kalle på nissen."
 
 msgid "The configuration of each of these daemons requires knowledge of the routing protocol in question. These protocols cannot be described in detail here, but the <emphasis role=\"pkg\">quagga-doc</emphasis> provides ample explanation in the form of an <command>info</command> file. The same contents may be more easily browsed as HTML on the Quagga website: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
-msgstr "Konfigurasjonen til hver av disse nissene krever kunnskap om den ruting-protokollen det gjelder. Disse protokollene kan ikke beskrives i detalj her, men <emphasis role=\"pkg\">quagga-doc</emphasis> gir en god forklaring i form av en <command>info</command>-fil. Det samme innholdet kan lettere søkes opp som HTML på Quaggas nettside: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
+msgstr "Konfigurasjonen til hver av disse nissene krever kunnskap om den rutingprotokollen det gjelder. Disse protokollene kan ikke beskrives i detalj her, men <emphasis role=\"pkg\">quagga-doc</emphasis> gir en god forklaring i form av en <command>info</command>-fil. Det samme innholdet kan lettere søkes opp som HTML på Quaggas nettside: <ulink type=\"block\" url=\"http://www.nongnu.org/quagga/docs/docs-info.html\" />"
 
 msgid "In addition, the syntax is very close to a standard router's configuration interface, and network administrators will adapt quickly to <command>quagga</command>."
-msgstr "I tillegg er syntaksen svært nær et standard ruter-konfigurasjon grensesnitt og nettverksadministratorer vil raskt tilpasse seg til <command>quagga</command>."
+msgstr "I tillegg er syntaksen svært nær et standard ruterkonfigurasjons grensesnitt, og nettverksadministratorer vil raskt tilpasse seg til <command>quagga</command>."
 
-#, fuzzy
 msgid "<emphasis>IN PRACTICE</emphasis> OSPF, BGP or RIP?"
-msgstr "<emphasis>IN PRACTICE</emphasis> OSPF, BGP or RIP?"
+msgstr "<emphasis>I PRAKSIS</emphasis> OSPF, BGP eller RIP?"
 
 msgid "OSPF is generally the best protocol to use for dynamic routing on private networks, but BGP is more common for Internet-wide routing. RIP is rather ancient, and hardly used anymore."
 msgstr "OSPF er normalt den beste protokollen for dynamisk ruting i private nettverk, men BGP er mer vanlig for Internett-ruting. RIP er ganske gammelt, og nesten ikke i bruk lenger."
 
 msgid "IPv6, successor to IPv4, is a new version of the IP protocol designed to fix its flaws, most notably the scarcity of available IP addresses. This protocol handles the network layer; its purpose is to provide a way to address machines, to convey data to their intended destination, and to handle data fragmentation if needed (in other words, to split packets into chunks with a size that depends on the network links to be used on the path and to reassemble the chunks in their proper order on arrival)."
-msgstr "IPv6, etterfølgeren til IPv4, er en ny versjon av IP-protokollen laget for å fikse tidligere feil, og særlig mangelen på tilgjengelige IP-adresser. Denne protokollen håndterer nettverkslaget; og protokollens formål er å gi en adresseringsmåte til maskiner, for å formidle data til det tiltenkte målet, og for å håndtere datafragmentering hvis nødvendig (med andre ord, å dele pakker i biter med en størrelse som avhenger av de nettverkskoblingene som skal brukes til stien og sette sammen bitene i riktig rekkefølge ved ankomst)."
+msgstr "IPv6, etterfølgeren til IPv4, er en ny versjon av IP-protokollen laget for å fikse tidligere feil, og særlig mangelen på tilgjengelige IP-adresser. Denne protokollen håndterer nettverkslaget; og protokollens formål er å gi en adresseringsmåte til maskiner, for å formidle data til det tiltenkte målet, og for å håndtere datafragmentering hvis nødvendig (med andre ord, å dele pakker i biter med en størrelse som avhenger av de nettverkskoblingene som skal brukes til stien, og sette sammen bitene i riktig rekkefølge ved ankomst)."
 
 msgid "Debian kernels include IPv6 handling in the core kernel (with the exception of some architectures that have it compiled as a module named <literal>ipv6</literal>). Basic tools such as <command>ping</command> and <command>traceroute</command> have their IPv6 equivalents in <command>ping6</command> and <command>traceroute6</command>, available respectively in the <emphasis role=\"pkg\">iputils-ping</emphasis> and <emphasis role=\"pkg\">iputils-tracepath</emphasis> packages."
-msgstr "Debian kjerner inkluderer IPv6 håndtering i kjernen (med unntak av noen arkitekturer som har den samlet som en modul som heter <literal>ipv6</literal>). Basisverktøy som <command>ping</command> og <command>traceroute</command> har sine IPv6-ekvivalenter i <command>ping6</command> og <command>traceroute6</command>, respektivt tilgjengelig i <emphasis role=\"pkg\">iputils-ping</emphasis> og <emphasis role=\"pkg\">iputils-tracepath</emphasis>-pakkene."
+msgstr "Debian kjerner inkluderer IPv6-håndtering i kjernen (med unntak av noen arkitekturer som har den samlet som en modul som heter <literal>ipv6</literal>). Basisverktøy som <command>ping</command> og <command>traceroute</command> har sine IPv6-ekvivalenter i <command>ping6</command> og <command>traceroute6</command>, respektivt tilgjengelig i <emphasis role=\"pkg\">iputils-ping</emphasis>- og <emphasis role=\"pkg\">iputils-tracepath</emphasis>-pakkene."
 
-#, fuzzy
 msgid "<primary>IPv6</primary>"
 msgstr "<primary>IPv6</primary>"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">iputils-ping</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">iputils-ping</emphasis></primary>"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">iputils-tracepath</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">iputils-tracepath</emphasis></primary>"
 
@@ -1277,13 +1250,13 @@ msgstr ""
 "    # gateway 2001:db8:1234:5::1"
 
 msgid "IPv6 subnets usually have a netmask of 64 bits. This means that 2<superscript>64</superscript> distinct addresses exist within the subnet. This allows Stateless Address Autoconfiguration (<acronym>SLAAC</acronym>) to pick an address based on the network interface's MAC address. By default, if <acronym>SLAAC</acronym> is activated in your network and IPv6 on your computer, the kernel will automatically find IPv6 routers and configure the network interfaces."
-msgstr "IPv6 subnett har vanligvis en nettmaske på 64 bits. Dette betyr at 2<superscript>64</superscript> distinkte adresser eksistere innenfor subnettet. Dette tillater Stateless Address Autoconfigurasjon (<acronym>SLAAC</acronym>) for å velge en adresse basert på nettverksgrensesnittets MAC-adresse. Som standard, dersom <acronym>SLAAC</acronym> er aktivert i nettverket, og IPv6 på din datamaskin, vil kjernen automatisk finne IPv6 rutere og konfigurere nettverksgrensesnittet."
+msgstr "IPv6 subnett har vanligvis en nettmaske på 64 bits. Dette betyr at 2<superscript>64</superscript> distinkte adresser eksisterer innenfor subnettet. Dette tillater Stateless Address Autoconfigurasjon (<acronym>SLAAC</acronym>) å velge en adresse basert på nettverksgrensesnittets MAC-adresse. Som standard, dersom <acronym>SLAAC</acronym> er aktivert i nettverket, og IPv6 på din datamaskin, vil kjernen automatisk finne IPv6 rutere og konfigurere nettverksgrensesnittet."
 
 msgid "This behavior may have privacy implications. If you switch networks frequently, e.g. with a laptop, you might not want your <acronym>MAC</acronym> address being a part of your public IPv6 address. This makes it easy to identify the same device across networks. A solution to this are IPv6 privacy extensions (which Debian enables by default if IPv6 connectivity is detected during initial installation), which will assign an additional randomly generated address to the interface, periodically change them and prefer them for outgoing connections. Incoming connections can still use the address generated by SLAAC. The following example, for use in <filename>/etc/network/interfaces</filename>, activates these privacy extensions."
-msgstr "Dette kan ha personvernimplikasjoner. Hvis du bytter nett ofte, f.eks med en bærbar PC, ønsker du kanskje ikke at din <acronym>MAC</acronym> -adresse er en del av din offentlige IPv6-adresse. Dette gjør det lett å identifisere den samme enheten på tvers av nettverk. En løsning på dette er IPv6 personvernutvidelser (som Debian gjør som standard hvis IPv6-tilkobling oppdages ved den første installasjonen), som vil tildele en ekstra tilfeldig generert adresse til grensesnittet, periodevis endre dem og foretrekke dem til utgående tilkoblinger. Innkommende tilkoblinger kan fortsatt bruke adressen som genereres av SLAAC. Følgende eksempel, til bruk i <filename>/etc/network/interfaces</filename>, aktiverer disse personvern-utvidelser."
+msgstr "Dette kan ha personvernimplikasjoner. Hvis du bytter nett ofte, f.eks med en bærbar PC, ønsker du kanskje ikke at din <acronym>MAC</acronym> -adresse er en del av din offentlige IPv6-adresse. Dette gjør det lett å identifisere den samme enheten på tvers av nettverk. En løsning på dette er IPv6-personvernutvidelser (som Debian gjør som standard hvis IPv6-tilkobling oppdages ved den første installasjonen), som vil tildele en ekstra tilfeldig generert adresse til grensesnittet, periodevis endre dem, og foretrekke dem til utgående tilkoblinger. Innkommende tilkoblinger kan fortsatt bruke adressen som genereres av SLAAC. Følgende eksempel til bruk i <filename>/etc/network/interfaces</filename>, aktiverer disse personvernutvidelser."
 
 msgid "IPv6 privacy extensions"
-msgstr "IPv6 persoinvernutvidelser"
+msgstr "IPv6-personvernutvidelser"
 
 #, fuzzy
 msgid ""
@@ -1298,16 +1271,14 @@ msgstr ""
 "    privext 2"
 
 msgid "<emphasis>TIP</emphasis> Programs built with IPv6"
-msgstr "<emphasis>TIP</emphasis> Programmer bygd med IPv6"
+msgstr "<emphasis>TIPS</emphasis> Programmer bygd med IPv6"
 
 msgid "Many pieces of software need to be adapted to handle IPv6. Most of the packages in Debian have been adapted already, but not all. If your favorite package does not work with IPv6 yet, you can ask for help on the <emphasis>debian-ipv6</emphasis> mailing-list. They might know about an IPv6-aware replacement and could file a bug to get the issue properly tracked. <ulink type=\"block\" url=\"http://lists.debian.org/debian-ipv6/\" />"
-msgstr "Mange deler av programvaren må tilpasses for å håndtere IPv6. De fleste av pakkene i Debian er tilpasset allerede, men ikke alle. Hvis din favorittpakke ikke fungerer med IPv6 ennå, kan du be om hjelp på <emphasis>debian-ipv6</emphasis> postliste. Kanskje vet de om en IPv6-klar erstatning, og kan sende inn en feilmelding å få spørsmålet ordentlig sporet.<ulink type=\"block\" url=\"http://lists.debian.org/debian-ipv6/\" />"
+msgstr "Mange deler av programvaren må tilpasses for å håndtere IPv6. De fleste av pakkene i Debian er tilpasset allerede, men ikke alle. Hvis din favorittpakke ikke fungerer med IPv6 ennå, kan du be om hjelp på <emphasis>debian-ipv6</emphasis> postliste. Kanskje vet de om en IPv6-klar erstatning, og kan sende inn en feilmelding og få spørsmålet ordentlig sporet. <ulink type=\"block\" url=\"http://lists.debian.org/debian-ipv6/\" />"
 
-#, fuzzy
 msgid "<primary>IPv6 firewall</primary>"
 msgstr "<primary>IPv6 firewall</primary>"
 
-#, fuzzy
 msgid "<primary>firewall</primary><secondary>IPv6</secondary>"
 msgstr "<primary>firewall</primary><secondary>IPv6</secondary>"
 
@@ -1315,33 +1286,28 @@ msgid "<primary><command>ip6tables</command></primary>"
 msgstr "<primary><command>ip6tables</command></primary>"
 
 msgid "IPv6 connections can be restricted, in the same fashion as for IPv4: the standard Debian kernels include an adaptation of <emphasis>netfilter</emphasis> for IPv6. This IPv6-enabled <emphasis>netfilter</emphasis> is configured in a similar fashion to its IPv4 counterpart, except the program to use is <command>ip6tables</command> instead of <command>iptables</command>."
-msgstr ""
-"IPv6-tilkoblinger kan være begrenset, på samme måte som for IPv4: Standard Debian kjernen inkluderer en tilpasning av <emphasis>netfilter</emphasis> for IPv6. Det IPv6-aktiverte <emphasis>netfilter</emphasis> er konfigurert på en lignende måte som sitt IPv4 motstykke, bortsett fra at programmet som skal brukes er <command>ip6tables</command> istedet for \n"
-"<command>iptables</command>."
+msgstr "IPv6-tilkoblinger kan være begrenset, på samme måte som for IPv4: Standard Debian-kjernen inkluderer en tilpasning av <emphasis>netfilter</emphasis> for IPv6. Det IPv6-aktiverte <emphasis>netfilter</emphasis> er konfigurert på en lignende måte som dens IPv4-motstykke, bortsett fra at programmet som skal brukes er <command>ip6tables</command> i stedet for <command>iptables</command>."
 
-#, fuzzy
 msgid "Tunneling"
 msgstr "Tunneling"
 
 msgid "<emphasis>CAUTION</emphasis> IPv6 tunneling and firewalls"
-msgstr "<emphasis>CAUTION</emphasis> IPv6 tunneling og brannmurer"
+msgstr "<emphasis>FORSIKTIG</emphasis> IPv6-tunneling og brannmurer"
 
 msgid "IPv6 tunneling over IPv4 (as opposed to native IPv6) requires the firewall to accept the traffic, which uses IPv4 protocol number 41."
-msgstr "IPv6 tunneling over IPv4 (i motsetning til den innebygde IPv6) forutsetter brannmuren for å godta trafikk, som bruker IPv4-protokoll nummer 41."
+msgstr "IPv6-tunneling over IPv4 (i motsetning til den innebygde IPv6) krever brannmuren til å godta trafikk som bruker IPv4-protokoll nummer 41."
 
 msgid "If a native IPv6 connection is not available, the fallback method is to use a tunnel over IPv4. Gogo6 is one (free) provider of such tunnels: <ulink type=\"block\" url=\"http://www.gogo6.com/freenet6/tunnelbroker\" />"
 msgstr "Hvis en lokal IPv6-tilkobling ikke er tilgjengelig, er den alternative metoden å bruke en tunnel over IPv4. Gogo6 er en (gratis) leverandør av slike tunneler: <ulink type=\"block\" url=\"http://www.gogo6.com/freenet6/tunnelbroker\" />"
 
-#, fuzzy
 msgid "<primary>Freenet6</primary>"
 msgstr "<primary>Freenet6</primary>"
 
-#, fuzzy
 msgid "<primary>Gogo6</primary>"
 msgstr "<primary>Gogo6</primary>"
 
 msgid "To use a Freenet6 tunnel, you need to register for a Freenet6 Pro account on the website, then install the <emphasis role=\"pkg\">gogoc</emphasis> package and configure the tunnel. This requires editing the <filename>/etc/gogoc/gogoc.conf</filename> file: <literal>userid</literal> and <literal>password</literal> lines received by e-mail should be added, and <literal>server</literal> should be replaced with <literal>authenticated.freenet6.net</literal>."
-msgstr "For å bruke en Freenet6 tunnel, må du registrere deg med en Freenet6 Pro-konto på nettsiden, deretter installere <emphasis role=\"pkg\">gogoc</emphasis>-pakken og konfigurere tunnelen. Dette krever å redigere <filename>/etc/gogoc/gogoc.conf</filename>-filen: Mottatte <literal>userid</literal> og <literal>password</literal>-linjer per e-post skal legges til, og <literal>server</literal> skal erstattes med  <literal>authenticated.freenet6.net</literal>."
+msgstr "For å bruke en Freenet6-tunnel må du registrere deg med en Freenet6 Pro-konto på nettsiden, deretter installere <emphasis role=\"pkg\">gogoc</emphasis>-pakken og konfigurere tunnelen. Dette krever å redigere <filename>/etc/gogoc/gogoc.conf</filename>-filen: Mottatte <literal>userid</literal> og <literal>password</literal>-linjer per e-post skal legges til, og <literal>server</literal> skal erstattes med  <literal>authenticated.freenet6.net</literal>."
 
 msgid "IPv6 connectivity is proposed to all machines on a local network by adding the three following directives to the <filename>/etc/gogoc/gogoc.conf</filename> file (assuming the local network is connected to the eth0 interface):"
 msgstr "IPv6-tilkobling er foreslått til alle maskiner i et lokalt nettverk ved å legge de tre følgende direktiver til <filename>/etc/gogoc/gogoc.conf</filename>-filen (forutsatt at det lokale nettverket er koblet til nettverkskortet eth0):"
@@ -1359,19 +1325,17 @@ msgstr ""
 "if_prefix=eth0"
 
 msgid "The machine then becomes the access router for a subnet with a 56-bit prefix. Once the tunnel is aware of this change, the local network must be told about it; this implies installing the <command>radvd</command> daemon (from the similarly-named package). This IPv6 configuration daemon has a role similar to <command>dhcpd</command> in the IPv4 world."
-msgstr "Maskinen blir da inngangsruteren for et subnett med et 56-bit prefiks. Når tunnelen er klar over denne endringen, må det lokale nettverket bli fortalt om det; Det innebærer å installere <command>radvd</command>-nissen (fra pakken med det tilsvarende navnet). Denne IPv6-konfigurasjonsnissen har en tilsvarende rolle som <command>dhcpd</command> i IPv4 verdenen."
+msgstr "Maskinen blir da inngangsruteren for et subnett med et 56-bit prefiks. Når tunnelen er klar over denne endringen, må det lokale nettverket bli fortalt om det; Det innebærer å installere <command>radvd</command>-nissen (fra pakken med det tilsvarende navnet). Denne IPv6-konfigurasjonsnissen har en tilsvarende rolle som <command>dhcpd</command> i IPv4-verdenen."
 
 msgid "The <filename>/etc/radvd.conf</filename> configuration file must then be created (see <filename>/usr/share/doc/radvd/examples/simple-radvd.conf</filename> as a starting point). In our case, the only required change is the prefix, which needs to be replaced with the one provided by Freenet6; it can be found in the output of the <command>ifconfig</command> command, in the block concerning the <literal>tun</literal> interface."
-msgstr "<filename>/etc/radvd.conf</filename>-konfigurasjonsfilen må så lages (se <filename>/usr/share/doc/radvd/examples/simple-radvd.conf</filename> som et startpunkt). I vårt tilfelle er det bare nødvendig å endre prefikset, som må erstattes med det som levers av Freenet6; Det finnes i utdata fra  <command>ifconfig</command>-kommandoen, i the blokken som gjelder  <literal>tun</literal>-brukergrensesnittet."
+msgstr "<filename>/etc/radvd.conf</filename>-konfigurasjonsfilen må så lages (se <filename>/usr/share/doc/radvd/examples/simple-radvd.conf</filename> som et startpunkt). I vårt tilfelle er det bare nødvendig å endre prefikset, som må erstattes med det som leveres av Freenet6; det finnes i utdata fra  <command>ifconfig</command>-kommandoen, i blokken som gjelder <literal>tun</literal>-brukergrensesnittet."
 
-#, fuzzy
 msgid "<primary><command>radvd</command></primary>"
 msgstr "<primary><command>radvd</command></primary>"
 
 msgid "Then run <command>service gogoc restart</command> and <command>service radvd start</command>, and the IPv6 network should work."
 msgstr "Kjør så <command>service gogoc restart</command> og <command>service radvd start</command>, og IPv6-nettverket skulle virke."
 
-#, fuzzy
 msgid "Domain Name Servers (DNS)"
 msgstr "Domain Name Servers (DNS)"
 
@@ -1383,74 +1347,62 @@ msgid "<primary>server</primary><secondary>name</secondary>"
 msgstr "<primary>server</primary><secondary>name</secondary>"
 
 msgid "The <emphasis>Domain Name Service</emphasis> (DNS) is a fundamental component of the Internet: it maps host names to IP addresses (and vice-versa), which allows the use of <literal>www.debian.org</literal> instead of <literal>5.153.231.4</literal> or <literal>2001:41c8:1000:21::21:4</literal>."
-msgstr "<emphasis>Domain Name Service</emphasis> (DNS) er en fundamental del av Internettet: den kartlegger vertsnavn til IP-adresser (og vice-versa), som tillater bruk av <literal>www.debian.org</literal> i stedete for <literal>5.153.231.4</literal> eller <literal>2001:41c8:1000:21::21:4</literal>."
+msgstr "<emphasis>Domain Name Service</emphasis> (DNS) er en fundamental del av Internettet: den kartlegger vertsnavn til IP-adresser (og vice versa), som tillater bruk av <literal>www.debian.org</literal> i stedet for <literal>5.153.231.4</literal> eller <literal>2001:41c8:1000:21::21:4</literal>."
 
 msgid "DNS records are organized in zones; each zone matches either a domain (or a subdomain) or an IP address range (since IP addresses are generally allocated in consecutive ranges). A primary server is authoritative on the contents of a zone; secondary servers, usually hosted on separate machines, provide regularly refreshed copies of the primary zone."
-msgstr "DNS oppføringer er organisert i soner; Hver sone svarer enten til et domene (eller et underdomene), eller et IP-adresseområde (siden IP-adresser  generelt tildeles fortløpende i rekkefølge). En primærtjener er autoritativ når det gjelder innholdet i en sone; Sekundære tjenere, som vanligvis ligger på separate maskiner, gir jevnlig oppdaterte kopier av primærsonen."
+msgstr "DNS-oppføringer er organisert i soner; hver sone svarer enten til et domene (eller et underdomene), eller et IP-adresseområde (siden IP-adresser generelt tildeles fortløpende i rekkefølge). En primærtjener er autoritativ når det gjelder innholdet i en sone; sekundære tjenere, som vanligvis ligger på separate maskiner, gir jevnlig oppdaterte kopier av primærsonen."
 
-#, fuzzy
 msgid "<primary>zone</primary><secondary>DNS</secondary>"
-msgstr "<primary>zone</primary><secondary>DNS</secondary>"
+msgstr "<primary>sone</primary><secondary>DNS</secondary>"
 
-#, fuzzy
 msgid "<primary>DNS</primary><secondary>zone</secondary>"
-msgstr "<primary>DNS</primary><secondary>zone</secondary>"
+msgstr "<primary>DNS</primary><secondary>sone</secondary>"
 
 msgid "Each zone can contain records of various kinds (<emphasis>Resource Records</emphasis>):"
 msgstr "Hver sone kan inneholde registreringer av ulike slag (<emphasis>Resource Records</emphasis>):"
 
-#, fuzzy
 msgid "<literal>A</literal>: IPv4 address. <indexterm><primary>A, DNS record</primary></indexterm>"
-msgstr "<literal>A</literal>: IPv4 address. <indexterm><primary>A, DNS record</primary></indexterm>"
+msgstr "<literal>A</literal>: IPv4-addresse. <indexterm><primary>A, DNS-post</primary></indexterm>"
 
-#, fuzzy
 msgid "<literal>CNAME</literal>: alias (<emphasis>canonical name</emphasis>). <indexterm><primary>CNAME, DNS record</primary></indexterm>"
-msgstr "<literal>CNAME</literal>: alias (<emphasis>canonical name</emphasis>). <indexterm><primary>CNAME, DNS record</primary></indexterm>"
+msgstr "<literal>CNAME</literal>: alias (<emphasis>canonical navn</emphasis>). <indexterm><primary>CNAME, DNS-post</primary></indexterm>"
 
 msgid "<literal>MX</literal>: <emphasis>mail exchange</emphasis>, an email server. This information is used by other email servers to find where to send email addressed to a given address. Each MX record has a priority. The highest-priority server (with the lowest number) is tried first (see sidebar <xref linkend=\"sidebar.smtp\" />); other servers are contacted in order of decreasing priority if the first one does not reply. <indexterm><primary>MX</primary><secondary>DNS record</secondary></indexterm>"
-msgstr "<literal>MX</literal>: <emphasis>mail exchange</emphasis>, en e-post tjener. Denne informasjonen blir brukt av andre e-posttjenere for å finne hvor  e-poster adressert til en gitt adresse skal sendes. Hver MX-posten har en prioritet. Tjeneren med høyeste prioritet (med lavest nummer) blir prøvd først (se sidefelt <xref linkend=\"sidebar.smtp\" />); Andre tjenere blir kontaktet  etter synkende prioritet hvis den første ikke svarer. <indexterm><primary>MX</primary><secondary>DNS record</secondary></indexterm>"
+msgstr "<literal>MX</literal>: <emphasis>mail exchange</emphasis>, en e-posttjener. Denne informasjonen blir brukt av andre e-posttjenere for å finne hvor  e-poster adressert til en gitt adresse skal sendes. Hver MX-posten har en prioritet. Tjeneren med høyeste prioritet (med lavest nummer) blir prøvd først (se sidefelt <xref linkend=\"sidebar.smtp\" />); andre tjenere blir kontaktet etter synkende prioritet hvis den første ikke svarer. <indexterm><primary>MX</primary><secondary>DNS-post</secondary></indexterm>"
 
 msgid "<literal>PTR</literal>: mapping of an IP address to a name. Such a record is stored in a “reverse DNS” zone named after the IP address range. For example, <literal>1.168.192.in-addr.arpa</literal> is the zone containing the reverse mapping for all addresses in the <literal>192.168.1.0/24</literal> range. <indexterm><primary>PTR, DNS record</primary></indexterm>"
-msgstr "<literal>PTR</literal>: Kartlegging av en IP-adresse for et navn. En slik post blir lagret i en \"reversert DNS\"-sone oppkalt etter IP-adresseområdet. For eksempel er <literal>1.168.192.in-addr.arpa</literal> sonen med den reverserte kartleggingen av alle adresser i <literal>192.168.1.0/24</literal> -rekkefølgen. <indexterm><primary>PTR, DNS record</primary></indexterm>"
+msgstr "<literal>PTR</literal>: Kartlegging av en IP-adresse for et navn. En slik post blir lagret i en «reversert DNS»-sone oppkalt etter IP-adresseområdet. For eksempel er <literal>1.168.192.in-addr.arpa</literal> sonen med den reverserte kartleggingen av alle adresser i <literal>192.168.1.0/24</literal>-rekkefølgen. <indexterm><primary>PTR, DNS-post</primary></indexterm>"
 
-#, fuzzy
 msgid "<literal>AAAA</literal>: IPv6 address. <indexterm><primary>AAAA, DNS record</primary></indexterm>"
-msgstr "<literal>AAAA</literal>: IPv6 address. <indexterm><primary>AAAA, DNS record</primary></indexterm>"
+msgstr "<literal>AAAA</literal>: IPv6-addresse. <indexterm><primary>AAAA, DNS-post</primary></indexterm>"
 
 msgid "<literal>NS</literal>: maps a name to a name server. Each domain must have at least one NS record. These records point at a DNS server that can answer queries concerning this domain; they usually point at the primary and secondary servers for the domain. These records also allow DNS delegation; for instance, the <literal>falcot.com</literal> zone can include an NS record for <literal>internal.falcot.com</literal>, which means that the <literal>internal.falcot.com</literal> zone is handled by another server. Of course, this server must declare an <literal>internal.falcot.com</literal> zone. <indexterm><primary>NS, DNS record</primary></indexterm>"
-msgstr "<literal>NS</literal>: kartlegger et navn til en navnetjener. Hvert domene må ha minst et NS-opptak. Disse opptakene peker på en DNS-tjener som kan svare på spørsmål om dette domenet; De peker vanligvis på de primære og sekundære tjenere for domenet. Disse opptakene tillater også DNS delegasjon; for eksempel kan <literal>falcot.com</literal>-sonen inkludere et NS-opptak for <literal>internal.falcot.com</literal>, som betyr at <literal>internal.falcot.com</literal>-sonen håndteres av annen tjener. Selvfølgelig må denne tjeneren melde en <literal>internal.falcot.com</literal>-sone. <indexterm><primary>NS, DNS record</primary></indexterm>"
+msgstr "<literal>NS</literal>: kartlegger et navn til en navnetjener. Hvert domene må ha minst et NS-opptak. Disse opptakene peker på en DNS-tjener som kan svare på spørsmål om dette domenet; de peker vanligvis på de primære og sekundære tjenere for domenet. Disse opptakene tillater også DNS-delegasjon; for eksempel kan <literal>falcot.com</literal>-sonen inkludere et NS-opptak for <literal>internal.falcot.com</literal>, som betyr at <literal>internal.falcot.com</literal>-sonen håndteres av annen tjener. Selvfølgelig må denne tjeneren melde en <literal>internal.falcot.com</literal>-sone. <indexterm><primary>NS, DNS-post</primary></indexterm>"
 
-#, fuzzy
 msgid "<primary>record</primary><secondary>DNS</secondary>"
-msgstr "<primary>record</primary><secondary>DNS</secondary>"
+msgstr "<primary>post</primary><secondary>DNS</secondary>"
 
-#, fuzzy
 msgid "<primary>DNS record</primary>"
-msgstr "<primary>DNS record</primary>"
+msgstr "<primary>DNS-post</primary>"
 
 msgid "The reference name server, Bind, was developed and is maintained by ISC (<emphasis>Internet Software Consortium</emphasis>). It is provided in Debian by the <emphasis role=\"pkg\">bind9</emphasis> package. Version 9 brings two major changes compared to previous versions. First, the DNS server can now run under an unprivileged user, so that a security vulnerability in the server does not grant root privileges to the attacker (as was seen repeatedly with versions 8.x)."
-msgstr "Referansenavnetjeneren, Bind, ble utviklet og vedlikeholdt av ISC (<emphasis>Internet Software Consortium</emphasis>). I Debian er den tilgjengelig i <emphasis role=\"pkg\">bind9</emphasis>-pakken. Versjon 9 bringer to store endringer i forhold til tidligere versjoner. Først, nå kan DNS-tjeneren kjøre under en ikke-privilegert bruker, slik at et sikkerhetsproblem i tjeneren ikke gir rot-tilgang til angriperen (som forekom gjentatte ganger med versjoner 8.x)."
+msgstr "Referansenavnetjeneren, Bind, ble utviklet og vedlikeholdt av ISC (<emphasis>Internet Software Consortium</emphasis>). I Debian er den tilgjengelig i <emphasis role=\"pkg\">bind9</emphasis>-pakken. Versjon 9 bringer to store endringer i forhold til tidligere versjoner. Først nå kan DNS-tjeneren kjøre under en ikke-privilegert bruker, slik at et sikkerhetsproblem i tjeneren ikke gir rot-tilgang til angriperen (som forekom gjentatte ganger med versjoner 8.x)."
 
 msgid "Furthermore, Bind supports the DNSSEC standard for signing (and therefore authenticating) DNS records, which allows blocking any spoofing of this data during man-in-the-middle attacks."
 msgstr "Videre støtter Bind DNSSEC-standarden for signering (og dermed autentisering) av DNS-opptak, som tillater blokkering av all forfalskning av data under man-in-the-middle angrep."
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">bind9</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">bind9</emphasis></primary>"
 
-#, fuzzy
 msgid "<primary>ISC</primary>"
 msgstr "<primary>ISC</primary>"
 
-#, fuzzy
 msgid "<primary>Internet Software Consortium</primary>"
 msgstr "<primary>Internet Software Consortium</primary>"
 
-#, fuzzy
 msgid "<emphasis>CULTURE</emphasis> DNSSEC"
-msgstr "<emphasis>CULTURE</emphasis> DNSSEC"
+msgstr "<emphasis>KULTUR</emphasis> DNSSEC"
 
-#, fuzzy
 msgid "<primary>DNSSEC</primary>"
 msgstr "<primary>DNSSEC</primary>"
 
