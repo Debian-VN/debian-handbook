@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-12-11 10:27+0000\n"
+"PO-Revision-Date: 2016-12-16 21:10+0000\n"
 "Last-Translator: Ole-Erik Yrvin <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/12_advanced-administration/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 msgid "RAID"
 msgstr "RAID"
@@ -22,7 +22,7 @@ msgid "FAI"
 msgstr "FAI"
 
 msgid "Preseeding"
-msgstr "Å komme foran"
+msgstr "Forhåndsutfylling (preseed.cfg)"
 
 msgid "Monitoring"
 msgstr "Overvåking"
@@ -2250,7 +2250,7 @@ msgid "The Falcot Corp administrators, like many administrators of large IT serv
 msgstr "Falcot Corps administratorer, som mange administratorer av store IT-tjenester, trenger verktøy for å installere sine nye maskiner (eller installere på nytt) raskt, og automatisk hvis mulig."
 
 msgid "These requirements can be met by a wide range of solutions. On the one hand, generic tools such as SystemImager handle this by creating an image based on a template machine, then deploy that image to the target systems; at the other end of the spectrum, the standard Debian installer can be preseeded with a configuration file giving the answers to the questions asked during the installation process. As a sort of middle ground, a hybrid tool such as FAI (<emphasis>Fully Automatic Installer</emphasis>) installs machines using the packaging system, but it also uses its own infrastructure for tasks that are more specific to massive deployments (such as starting, partitioning, configuration and so on)."
-msgstr "Disse kravene kan bli møtt av et bredt spekter av løsninger. På den ene siden, generiske verktøy som SystemImager håndtere dette ved å skape et bilde med en maskin som mal, deretter distribuere bildet dit det skal hos systemene. I den andre enden av spekteret, kan standard Debian installeren bli innledet med en konfigurasjonsfil som gir svarene på spørsmålene under installasjonsprosessen. Som en slags middelvei, installerer et hybridverktøy, som FAI (<emphasis>Fully Automatic Installer</emphasis>) maskiner ved hjelp av pakkesystemet, men det bruker også sin egen infrastruktur for oppgaver som er mer spesifikke for massive distribusjoner (som å starte, partisjonering, konfigurasjon og så videre)."
+msgstr "Disse kravene kan bli møtt av et bredt spekter av løsninger. På den ene siden, generiske verktøy som SystemImager håndtere dette ved å skape et bilde med en maskin som mal, deretter distribuere bildet dit det skal hos systemene. I den andre enden av spekteret, kan standard Debian installeren bli forhåndsutfyllt med en konfigurasjonsfil som gir svarene på spørsmålene under installasjonsprosessen. Som en slags middelvei, installerer et hybridverktøy, som FAI (<emphasis>Fully Automatic Installer</emphasis>) maskiner ved hjelp av pakkesystemet, men det bruker også sin egen infrastruktur for oppgaver som er mer spesifikke for massive distribusjoner (som å starte, partisjonering, konfigurasjon og så videre)."
 
 msgid "Each of these solutions has its pros and cons: SystemImager works independently from any particular packaging system, which allows it to manage large sets of machines using several distinct Linux distributions. It also includes an update system that doesn't require a reinstallation, but this update system can only be reliable if the machines are not modified independently; in other words, the user must not update any software on their own, or install any other software. Similarly, security updates must not be automated, because they have to go through the centralized reference image maintained by SystemImager. This solution also requires the target machines to be homogeneous, otherwise many different images would have to be kept and managed (an i386 image won't fit on a powerpc machine, and so on)."
 msgstr "Hver av disse løsningene har sine fordeler og ulemper: SystemImager fungerer uavhengig av et bestemt pakkesystem, som gjør det mulig å håndtere store sett med maskiner ved hjelp av flere forskjellige Linux-distribusjoner. Det inkluderer også et oppdateringsystem som ikke krever en reinstallasjon, men denne oppdateringen kan systemet bare være pålitelig hvis maskinene ikke endres her for seg; Med andre ord, må brukeren ikke oppdatere programvare på egen hånd, eller installere noen annen programvare. Tilsvarende sikkerhetsoppdateringer må ikke være automatisert, fordi de må gå gjennom det sentraliserte referansebildet som vedlikeholdes av SystemImager. Denne løsningen krever også at maskinene det gjelder er homogene, ellers må mange forskjellige bilder må tas vare på og håndteres (en i386 bilde vil ikke passe på en PowerPC maskin, og så videre)."
@@ -2312,7 +2312,7 @@ msgid "installing the base system;"
 msgstr "å installere basesystemet;"
 
 msgid "preseeding the Debconf database with <command>fai-debconf</command>;"
-msgstr "å gi forrang til Debconf database med <command>fai-debconf</command>;"
+msgstr "å forhåndsutfylle Debconf-databasen med <command>fai-debconf</command>;"
 
 msgid "fetching the list of available packages for APT;"
 msgstr "å hente listen over tilgjengelige pakker for APT;"
@@ -2327,7 +2327,7 @@ msgid "recording the installation logs, unmounting the partitions, and rebooting
 msgstr "å registrere installasjonsloggene, avmontere partisjonene, og omstart."
 
 msgid "Preseeding Debian-Installer"
-msgstr "Å gi fortrinn til Debian-Installer"
+msgstr "Å forhåndsutfylle Debian-Installer"
 
 #, fuzzy
 msgid "<primary>preseed</primary>"
@@ -2338,7 +2338,7 @@ msgid "<primary>preconfiguration</primary>"
 msgstr "<primary>preconfiguration</primary>"
 
 msgid "At the end of the day, the best tool to install Debian systems should logically be the official Debian installer. This is why, right from its inception, debian-installer has been designed for automated use, taking advantage of the infrastructure provided by <emphasis role=\"pkg\">debconf</emphasis>. The latter allows, on the one hand, to reduce the number of questions asked (hidden questions will use the provided default answer), and on the other hand, to provide the default answers separately, so that installation can be non-interactive. This last feature is known as <emphasis>preseeding</emphasis>."
-msgstr "Alt i alt, bør det beste verktøyet til å installere Debian-systemer skulle logisk være den offisielle Debian installereren. Dette er grunnen, helt fra begynnelsen,for  at Debian-installereren er konstruert for automatisert bruk, og drar nytte av infrastrukturen levert av <emphasis role=\"pkg\">debconf</emphasis>. Sistnevnte gjør det mulig, på den ene siden, - å redusere antall spørsmål (skjulte spørsmål vil bruke de medfølgende standardsvar), og - på den annen siden, - å gi standard svar separat, slik at installasjonen kan være ikke-interaktiv. Dette siste trekk er kjent som <emphasis>preseeding</emphasis>."
+msgstr "Alt i alt, skulle det beste verktøyet til å installere Debian-systemer logisk være den offisielle Debian-installereren. Dette er grunnen, helt fra begynnelsen, til at Debian-installereren er konstruert for automatisert bruk, og drar nytte av infrastrukturen levert av <emphasis role=\"pkg\">debconf</emphasis>. Sistnevnte gjør det mulig, på den ene siden, - å redusere antall spørsmål (skjulte spørsmål vil bruke de medfølgende standardsvar), og - på den anden siden, - å gi standard svar separat, slik at installasjonen kan være ikke-interaktiv. Dette siste trekk er kjent som <emphasis>preseeding</emphasis>."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Debconf with a centralized database"
 msgstr "<emphasis>GOING FURTHER</emphasis> Debconf med en sentralisert database"
@@ -2347,31 +2347,31 @@ msgid "<primary><command>debconf</command></primary>"
 msgstr "<primary><command>debconf</command></primary>"
 
 msgid "Preseeding allows to provide a set of answers to Debconf questions at installation time, but these answers are static and do not evolve as time passes. Since already-installed machines may need upgrading, and new answers may become required, the <filename>/etc/debconf.conf</filename> configuration file can be set up so that Debconf uses external data sources (such as an LDAP directory server, or a remote file accessed via NFS or Samba). Several external data sources can be defined at the same time, and they complement one another. The local database is still used (for read-write access), but the remote databases are usually restricted to reading. The <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page describes all the possibilities in detail (you need the <emphasis role=\"pkg\">debconf-doc</emphasis> package)."
-msgstr "Bruk av de foregående gjør det mulig å gi et sett av svar på Debconf spørsmål på installasjonstidspunktet, men disse svarene er statiske og ikke utvikle seg som tiden går. Siden  allerede installerte maskiner kan trenge oppgradering, og nye svar kan bli nødvendige, kan <filename>/etc/debconf.conf</filename>-konfigurasjonsfilen settes opp slik at Debconf bruker eksterne datakilder (som en LDAP-katalogtjener, eller en ekstern fil som nås via NFS eller Samba). Flere eksterne datakilder kan defineres på samme tid, og de utfyller hverandre. Den lokale databasen brukes fortsatt (for lese- og skrivetilgang), men de eksterne databasene vanligvis er begrenset til lesing. Manualsiden <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> beskriver i detalj alle mulighetene (du trenger  <emphasis role=\"pkg\">debconf-doc</emphasis>-pakken)."
+msgstr "Forhåndsutfylling, preseed.cfg, gjør det mulig å gi et sett av svar på Debconf spørsmål på installasjonstidspunktet, men disse svarene er statiske og utvikles ikke som tiden går. Siden allerede installerte maskiner kan trenge oppgradering, og nye svar kan bli nødvendige, kan <filename>/etc/debconf.conf</filename>-konfigurasjonsfilen settes opp slik at Debconf bruker eksterne datakilder (som en LDAP-katalogtjener, eller en ekstern fil som nås via NFS eller Samba). Flere eksterne datakilder kan defineres på samme tid, og de utfyller hverandre. Den lokale databasen brukes fortsatt (for lese- og skrivetilgang), men de eksterne databasene vanligvis er begrenset til lesing. Manualsiden <citerefentry><refentrytitle>debconf.conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> beskriver i detalj alle mulighetene (du trenger  <emphasis role=\"pkg\">debconf-doc</emphasis>-pakken)."
 
 msgid "Using a Preseed File"
-msgstr "Å bruke en foregående fil"
+msgstr "Å bruke en forhåndsutfyllt fil"
 
 msgid "There are several places where the installer can get a preseeding file:"
-msgstr "Det er flere steder hvor installereren kan få en foregående fil:"
+msgstr "Det er flere steder hvor installereren kan få en forhåndsutfylling:"
 
 msgid "in the initrd used to start the machine; in this case, preseeding happens at the very beginning of the installation, and all questions can be avoided. The file just needs to be called <filename>preseed.cfg</filename> and stored in the initrd root."
-msgstr "i initrd som brukes til å starte maskinen; I dette tilfelle bestemmes rekkefølgen helt i begynnelsen av installeringen, og alle spørsmålene kan unngås. Filen trenger bare å bli kalt <filename>preseed.cfg</filename> og bli lagret i initrd-roten."
+msgstr "i initrd som brukes til å starte maskinen; I dette tilfellet, skjer forhåndsutfyllingen helt i begynnelsen av installeringen, og alle spørsmålene kan unngås. Filen trenger bare å bli kalt <filename>preseed.cfg</filename> og bli lagret i initrd-roten."
 
 msgid "on the boot media (CD or USB key); preseeding then happens as soon as the media is mounted, which means right after the questions about language and keyboard layout. The <literal>preseed/file</literal> boot parameter can be used to indicate the location of the preseeding file (for instance, <filename>/cdrom/preseed.cfg</filename> when the installation is done off a CD-ROM, or <filename>/hd-media/preseed.cfg</filename> in the USB-key case)."
-msgstr "på oppstartmedia (CD eller USB-nøkkel); Å sette rekkefølgen skjer så snart media er montert, noe som betyr rett etter spørsmålene om språk og tastaturoppsett. <literal>preseed/file</literal>-oppstarts-parameteren kan brukes til å indikere plasseringen av den foregående filen (f.eks <filename>/cdrom/preseed.cfg</filename> når installasjonen er gjort fra en CD-ROM, eller <filename>/hd-media/preseed.cfg</filename> hvis fra en USB-minnepinne."
+msgstr "på oppstartmedia (CD eller USB-nøkkel); Forhåndutfylling skjer så snart media er montert, noe som betyr rett etter spørsmålene om språk og tastaturoppsett. <literal>preseed/file</literal>-oppstarts-parameteren kan brukes til å indikere plasseringen av filen for forhåndsutfylling (f.eks <filename>/cdrom/preseed.cfg</filename> når installasjonen er gjort fra en CD-ROM, eller <filename>/hd-media/preseed.cfg</filename> hvis fra en USB-minnepinne."
 
 msgid "from the network; preseeding then only happens after the network is (automatically) configured; the relevant boot parameter is then <literal>preseed/url=http://<replaceable>server</replaceable>/preseed.cfg</literal>."
-msgstr "fra nettverket; settes rekkefølgen da bare etter at nettverket er (automatisk) konfigurert; det relevante oppstartsparameteret er <literal>preseed/url=http://<replaceable>server</replaceable>/preseed.cfg</literal>."
+msgstr "fra nettverket; Forhåndsutfylling skjer da bare etter at nettverket er (automatisk) konfigurert; Det relevante oppstartsparameteret er <literal>preseed/url=http://<replaceable>server</replaceable>/preseed.cfg</literal>."
 
 msgid "At a glance, including the preseeding file in the initrd looks like the most interesting solution; however, it is rarely used in practice, because generating an installer initrd is rather complex. The other two solutions are much more common, especially since boot parameters provide another way to preseed the answers to the first questions of the installation process. The usual way to save the bother of typing these boot parameters by hand at each installation is to save them into the configuration for <command>isolinux</command> (in the CD-ROM case) or <command>syslinux</command> (USB key)."
-msgstr "I et raskt øyekast, inkludert den foregående filen i initrd, ser den ut som den mest interessante løsningen; men den er imidlertid sjelden brukt i praksis. Fordi å generere et installasjons-initrd er ganske komplisert. De to andre løsninger er mye mer vanlige, spesielt siden oppstartsparametere gir en annen måte å bruke foregående svar til de første spørsmålene i installasjonsprosessen. Den vanlige måten å spare bryet med å skrive disse oppstartsparametere for hånd på hver installasjon er å lagre dem inn i oppsettet for <command>isolinux</command> (i CD-ROM tilfellet eller  <command>syslinux</command> (ved USB key)."
+msgstr "Med et raskt øyekast, inkludert filen for forhåndsutfylling i initrd, ser den ut som den mest interessante løsningen; men den er imidlertid sjelden brukt i praksis. Fordi å generere et installasjons-initrd er ganske komplisert. De to andre løsninger er mye mer vanlige, spesielt siden oppstartsparametre gir en annen måte til å forhåndsutfylle de første spørsmålene i installasjonsprosessen. Den vanlige måten å spare bryet med å skrive disse oppstartsparametere for hånd på hver installasjon er å lagre dem inn i oppsettet for <command>isolinux</command> (i CD-ROM tilfellet eller  <command>syslinux</command> (ved USB key)."
 
 msgid "Creating a Preseed File"
-msgstr "Å lage en rekkefølgefil"
+msgstr "Å lage en forhåndsutfyllingsfil"
 
 msgid "A preseed file is a plain text file, where each line contains the answer to one Debconf question. A line is split across four fields separated by whitespace (spaces or tabs), as in, for instance, <literal>d-i mirror/suite string stable</literal>:"
-msgstr "En foregående fil er en ren tekstfil, der hver linje inneholder svaret på et Debconf spørsmål. En linje er delt i fire felt, atskilt med mellomrom (mellomrom eller tabulatorer), som i, for eksempel,<literal>d-i mirror/suite string stable</literal>:"
+msgstr "En forhåndsutfyllingsfil, preseed.cfg, er en ren tekstfil, der hver linje inneholder svaret på et Debconf spørsmål. En linje er delt i fire felt, atskilt med mellomrom (mellomrom eller tabulatorer), som i, for eksempel,<literal>d-i mirror/suite string stable</literal>:"
 
 msgid "the first field is the “owner” of the question; “d-i” is used for questions relevant to the installer, but it can also be a package name for questions coming from Debian packages;"
 msgstr "det første feltet er \"eieren\" av spørsmålet. \"D-i\" brukes for spørsmål som er relevante for installasjonsprogrammet, men det kan også være et pakkenavn for spørsmål som kommer fra Debian-pakker;"
@@ -2386,19 +2386,19 @@ msgid "the fourth and last field contains the value for the answer. Note that it
 msgstr "det fjerde og siste feltet inneholder verdien for svaret. Legg merke til at det må være atskilt fra det tredje felt med et mellomrom; hvis det er mer enn ett, regnes følgende mellomrom som en del av verdien."
 
 msgid "The simplest way to write a preseed file is to install a system by hand. Then <command>debconf-get-selections --installer</command> will provide the answers concerning the installer. Answers about other packages can be obtained with <command>debconf-get-selections</command>. However, a cleaner solution is to write the preseed file by hand, starting from an example and the reference documentation: with such an approach, only questions where the default answer needs to be overridden can be preseeded; using the <literal>priority=critical</literal> boot parameter will instruct Debconf to only ask critical questions, and use the default answer for others."
-msgstr "Den enkleste måte å skrive en foregående fil på er å installere et system for hånd. Deretter vil <command>debconf-get-selections --installer</command> gi svar om installasjonsprogrammet. Svar om andre pakker kan oppnås med <command>debconf-get-selections</command>. Men det er en renere løsning å skrive den foregående filen for hånd, med start fra et eksempel og referansedokumentasjonen. Med en slik tilnærming, kan bare spørsmål om hvor standardsvaret trenger å bli overskrevet. bli foregrepet ved å bruke <literal>priority=critical</literal>-oppstartsparameter vil instruere Debconf om å bare å stille kritiske spørsmål, og bruke standardsvarene for andre."
+msgstr "Den enkleste måte å skrive en forhåndsutfyllingsfil på, er å installere et system for hånd. Deretter vil <command>debconf-get-selections --installer</command> gi svar om installasjonsprogrammet. Svar om andre pakker kan oppnås med <command>debconf-get-selections</command>. Men det er en renere løsning å skrive forhåndsutfyllingsfilen for hånd, med start fra et eksempel og referansedokumentasjonen. Med en slik tilnærming, trenger bare spørsmål der standardsvaret trenger å bli overstyrt å bli forhåndsutfylt; å bruke <literal>priority=critical</literal>-oppstartsparameter vil instruere Debconf om å bare å stille kritiske spørsmål, og bruke standardsvarene for andre."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> Installation guide appendix"
 msgstr "<emphasis>DOCUMENTATION</emphasis> Tillegg til installasjonsveiledningen"
 
 msgid "The installation guide, available online, includes detailed documentation on the use of a preseed file in an appendix. It also includes a detailed and commented sample file, which can serve as a base for local customizations. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
-msgstr "Installasjonsveiledningen, som er tilgjengelig på nettet, inneholder detaljert dokumentasjon om bruken av en foregående fil i et Appendix. Det har også med en detaljert og kommentert eksempelfil som kan tjene som basis for lokale tilpasninger. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
+msgstr "Installasjonsveiledningen, som er tilgjengelig på nettet, inneholder i et appendiks en detaljert dokumentasjon om bruken av en forhåndsutfylt fil. Det har også med en detaljert og kommentert eksempelfil som kan tjene som basis for lokale tilpasninger. <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/amd64/apb.html\" /> <ulink type=\"block\" url=\"https://www.debian.org/releases/jessie/example-preseed.txt\" />"
 
 msgid "Creating a Customized Boot Media"
 msgstr "Å lage et skreddersydd oppstartsmedium"
 
 msgid "Knowing where to store the preseed file is all very well, but the location isn't everything: one must, one way or another, alter the installation boot media to change the boot parameters and add the preseed file."
-msgstr "Å vite hvor foregående filen skal lagres er vel og bra, men plasseringen er ikke alt. På en eller annen måte må man få installasjonens oppstartsmedia til å endre oppstartsparametre og legge til den foregående filen."
+msgstr "Å vite hvor den forhåndsutfylte filen skal lagres er vel og bra, men plasseringen er ikke alt. På en eller annen måte må man få installasjonens oppstartsmedia til å endre oppstartsparametre og legge til den forhåndsutfylte filen."
 
 msgid "Booting From the Network"
 msgstr "Å starte opp fra nettverket"
@@ -2413,13 +2413,13 @@ msgid "Once a bootable key has been prepared (see <xref linkend=\"sect.install-u
 msgstr "Så snart en oppstartbar minnepenn er forberedt (se <xref linkend=\"sect.install-usb\" />), er noen ekstra operasjoner nødvendige. Anta at inneholdet er tilgjengelig under <filename>/media/usbdisk/</filename>:"
 
 msgid "copy the preseed file to <filename>/media/usbdisk/preseed.cfg</filename>"
-msgstr "kopier den tidligere filen til <filename>/media/usbdisk/preseed.cfg</filename>"
+msgstr "kopier den forhåndsutfylte filen til <filename>/media/usbdisk/preseed.cfg</filename>"
 
 msgid "edit <filename>/media/usbdisk/syslinux.cfg</filename> and add required boot parameters (see example below)."
 msgstr "rediger <filename>/media/usbdisk/syslinux.cfg</filename> og legg til de nødvendige oppstartsparametre (se eksempel nedenfor)."
 
 msgid "syslinux.cfg file and preseeding parameters"
-msgstr "syslinux.cfg-file og foregående parametre"
+msgstr "syslinux.cfg-file og forhåndsutfyllings-parametre"
 
 #, fuzzy
 msgid ""
@@ -2441,7 +2441,7 @@ msgstr "En USB-minnepenn er et lese-skrive medium, så det var lett for oss å l
 
 msgid "Having said that, debian-cd always operates in a similar way: an “image” directory with the exact contents of the CD-ROM is generated, then converted to an ISO file with a tool such as <command>genisoimage</command>, <command>mkisofs</command> or <command>xorriso</command>. The image directory is finalized after debian-cd's <command>make image-trees</command> step. At that point, we insert the preseed file into the appropriate directory (usually <filename>$TDIR/$CODENAME/CD1/</filename>, $TDIR and $CODENAME being parameters defined by the <filename>CONF.sh</filename> configuration file). The CD-ROM uses <command>isolinux</command> as its bootloader, and its configuration file must be adapted from what debian-cd generated, in order to insert the required boot parameters (the specific file is <filename>$TDIR/$CODENAME/boot1/isolinux/isolinux.cfg</filename>). Then the “normal” process can be resumed, and we can go on to generating the ISO image with <command>make image CD=1</command> (or <command>make images</command> if several CD-ROMs are generated)."
 msgstr ""
-"Når det er sagt, fungerer Debian-cd alltid på en lignende måte: et \"bilde\"-katalog med det eksakte innholdet på CD-ROM blir generert, og deretter konvertert til en ISO-fil med et verktøy som <command>genisoimage</command>, <command>mkisofs</command> eller <command>xorriso</command>. Bildekatalogen er ferdig etter debian-cds <command>make image-trees</command> skritt. På dette tidspunktet, setter vi inn den foreliggende filen i den aktuelle mappen (vanligvis <filename>$TDIR/$CODENAME/CD1/</filename>, $TDIR og $CODENAME er parametre definert av konfigurasjonsfilen <filename>CONF.sh</filename>). CD-ROM-en bruker <command>isolinux</command> som sin oppstartslaster, og konfigurasjonsfilen dens må tilpasses fra hva debian-cd-en genererte, for å sette inn de nødvendige oppstartsparametere (den spesifikke filen er <filename>$TDIR/$CODENAME/boot1/isolinux/isolinux.cfg</filename>). Så kan \"normal\" prosessen fortsette, og vi kan gå videre med å generere ISO-bildet med <command>make image CD=1</command> (eller <command>make images</command> hvis flere CD-ROM-er blir\n"
+"Når det er sagt, fungerer Debian-cd alltid på en lignende måte: et \"bilde\"-katalog med det eksakte innholdet på CD-ROM blir generert, og deretter konvertert til en ISO-fil med et verktøy som <command>genisoimage</command>, <command>mkisofs</command> eller <command>xorriso</command>. Bildekatalogen er ferdig etter debian-cds <command>make image-trees</command> skritt. På dette tidspunktet, setter vi inn den forhåndsutfylte filen i den aktuelle mappen (vanligvis <filename>$TDIR/$CODENAME/CD1/</filename>, $TDIR og $CODENAME er parametre definert av konfigurasjonsfilen <filename>CONF.sh</filename>). CD-ROM-en bruker <command>isolinux</command> som sin oppstartslaster, og konfigurasjonsfilen dens må tilpasses fra hva debian-cd-en genererte, for å sette inn de nødvendige oppstartsparametere (den spesifikke filen er <filename>$TDIR/$CODENAME/boot1/isolinux/isolinux.cfg</filename>). Så kan \"normal\" prosessen fortsette, og vi kan gå videre med å generere ISO-bildet med <command>make image CD=1</command> (eller <command>make images</command> hvis flere CD-ROM-er blir\n"
 "generert)."
 
 msgid "Simple-CDD: The All-In-One Solution"
@@ -2476,7 +2476,7 @@ msgid "the <filename>.downloads</filename> file lists packages that will be stor
 msgstr "<filename>.downloads</filename>-filen lister pakker som skal lagres på installasjonsmediet, men ikke nødvendigvis installeres;"
 
 msgid "the <filename>.preseed</filename> file contains preseeding information for Debconf questions (for the installer and/or for packages);"
-msgstr "the <filename>.preseed</filename>-filen inneholder foreliggende informasjon til Debconf spørsmål (for installereren og/eller for pakker);"
+msgstr "<filename>.preseed</filename>-filen inneholder forhåndsutfyllings-informasjon til Debconf-spørsmål (for installereren og/eller for pakker);"
 
 msgid "the <filename>.postinst</filename> file contains a script that will be run at the end of the installation process;"
 msgstr "<filename>.postinst</filename>-filen inneholder et skript som blir kjørt ved slutten av installasjonen;"
@@ -2485,7 +2485,7 @@ msgid "lastly, the <filename>.conf</filename> file allows changing some Simple-C
 msgstr "lastly, the <filename>.conf</filename>-filen lar deg endre noen Simple-CDD-parametere basert på profilene som skal inngå i et bilde."
 
 msgid "The <literal>default</literal> profile has a particular role, since it is always selected; it contains the bare minimum required for Simple-CDD to work. The only thing that is usually customized in this profile is the <literal>simple-cdd/profiles</literal> preseed parameter: this allows avoiding the question, introduced by Simple-CDD, about what profiles to install."
-msgstr "<literal>default</literal>- profilen har en spesiell rolle, da den alltid er valgt; den inneholder det rene minimum som kreves for at Simple-CDD skal fungere. Det eneste som vanligvis blir tilpasset i denne profilen er det foreliggende <literal>simple-cdd/profiles</literal>-parameter: Dette gjør at du unngår spørsmålet, introdusert av Simple-CDD, om hvilke profiler som skal installeres."
+msgstr "<literal>default</literal>- profilen har en spesiell rolle, da den alltid er valgt; den inneholder det rene minimum som kreves for at Simple-CDD skal fungere. Det eneste som vanligvis blir tilpasset i denne profilen er det forhåndsutfylte <literal>simple-cdd/profiles</literal>-parameteret: Dette gjør at du unngår spørsmålet, introdusert av Simple-CDD, om hvilke profiler som skal installeres."
 
 msgid "Note also that the commands will need to be invoked from the parent directory of the <filename>profiles</filename> directory."
 msgstr "Merk også at kommandoene må startes fra den overordnede katalogen til <filename>profiles</filename>-mappen."
@@ -2528,7 +2528,7 @@ msgid "other files listed in the <literal>all_extras</literal> parameter are als
 msgstr "andre filer som er listet i <literal>all_extras</literal>-parameteret blir også lagt til;"
 
 msgid "the boot parameters are adjusted so as to enable the preseeding. Questions concerning language and country can be avoided if the required information is stored in the <literal>language</literal> and <literal>country</literal> variables."
-msgstr "oppstarts parametrene er justert slik at det er mulig aktivere tidligere filinformasjon. Spørsmål om språk og land kan unngås hvis den aktuelle informasjonen er lagret i <literal>language</literal> og <literal>country</literal>-variablene."
+msgstr "oppstartsparametrene er justert slik at det er mulig aktivere forhåndsutfyllingen. Spørsmål om språk og land kan unngås hvis den aktuelle informasjonen er lagret i <literal>language</literal> og <literal>country</literal>-variablene."
 
 msgid "debian-cd then generates the final ISO image."
 msgstr "Deretter genererer debian-cd det endelige ISO-bildet."
@@ -2540,62 +2540,66 @@ msgid "Once we have written a configuration file and defined our profiles, the r
 msgstr "Når vi har skrevet en konfigurasjonsfil og definert våre profiler, er det resterende skritt å påkalle <command>build-simple-cdd --conf simple-cdd.conf</command>. Etter et par minutter, får vi det ønskede bildet i <filename>images/debian-8.0-amd64-CD-1.iso</filename>."
 
 msgid "Monitoring is a generic term, and the various involved activities have several goals: on the one hand, following usage of the resources provided by a machine allows anticipating saturation and the subsequent required upgrades; on the other hand, alerting the administrator as soon as a service is unavailable or not working properly means that the problems that do happen can be fixed sooner."
-msgstr ""
+msgstr "Overvåking er en fellesbetegnelse, og de ulike involverte aktiviteter har flere mål: På den ene siden, som følge av ressursene maskinen gir, kan metning forutsees, med de påfølgende oppgraderinger som kreves. På den annen side varsles administrator så snart en tjeneste ikke er tilgjengelig eller ikke fungerer, som betyr at oppståtte problemer kan fikses tidligere."
 
 msgid "<emphasis>Munin</emphasis> covers the first area, by displaying graphical charts for historical values of a number of parameters (used RAM, occupied disk space, processor load, network traffic, Apache/MySQL load, and so on). <emphasis>Nagios</emphasis> covers the second area, by regularly checking that the services are working and available, and sending alerts through the appropriate channels (e-mails, text messages, and so on). Both have a modular design, which makes it easy to create new plug-ins to monitor specific parameters or services."
-msgstr ""
+msgstr "<emphasis>Munin</emphasis> dekker det første området, ved å vise grafiske diagrammer for historiske verdier for en rekke parametere (benyttet RAM, anvendt diskplass, prosessorbelastning, nettverkstrafikk, Apache/MySQL-last, og så videre). <emphasis>Nagios</emphasis> dekker det andre området, ved å regelmessig kontrollere at tjenestene fungerer og er tilgjengelig, og sende varsler gjennom de riktige kanaler (e-post, tekstmeldinger, og så videre). Begge har et modulær design, som gjør det enkelt å lage nye programtillegg for å overvåke bestemte parametere eller tjenester."
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Zabbix, an integrated monitoring tool"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Zabbix, et integrert overvåkningsverktøy"
 
+#, fuzzy
 msgid "<primary>Zabbix</primary>"
-msgstr ""
+msgstr "<primary>Zabbix</primary>"
 
 msgid "Although Munin and Nagios are in very common use, they are not the only players in the monitoring field, and each of them only handles half of the task (graphing on one side, alerting on the other). Zabbix, on the other hand, integrates both parts of monitoring; it also has a web interface for configuring the most common aspects. It has grown by leaps and bounds during the last few years, and can now be considered a viable contender. On the monitoring server, you would install <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (or <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>), possibly together with <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> to have a web interface. On the hosts to monitor you would install <emphasis role=\"pkg\">zabbix-agent</emphasis> feeding data back to the server. <ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
-msgstr ""
+msgstr "Selv Munin og Nagios er i svært mye brukt, er de ikke de eneste på  overvåkingsområdet, og hver av dem behandler kun halvparten av oppgaven (grafer på den ene side, varsling på den andre). Zabbix, derimot, integrerer begge sider ved overvåkingen; den har også et nettgrensesnitt for å sette opp de vanligste aspektene. Den har vokst med stormskritt løpet av de siste årene, og kan nå betraktes som en levedyktig konkurrent. På overvåkingstjeneren, vil du installere <emphasis role=\"pkg\">zabbix-server-pgsql</emphasis> (eller <emphasis role=\"pkg\">zabbix-server-mysql</emphasis>), muligens sammen med <emphasis role=\"pkg\">zabbix-frontend-php</emphasis> for å få et nettgrensesnitt. Hos verten, for å overvåke, vil du installere <emphasis role=\"pkg\">zabbix-agent</emphasis> for å sende data tilbake til tjeneren. <ulink type=\"block\" url=\"http://www.zabbix.com/\" />"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Icinga, a Nagios fork"
-msgstr ""
+msgstr "<emphasis>ALTERNATIVE</emphasis> Icinga, en forgrening fra Nagios"
 
+#, fuzzy
 msgid "<primary>Icinga</primary>"
-msgstr ""
+msgstr "<primary>Icinga</primary>"
 
 msgid "Spurred by divergences in opinions concerning the development model for Nagios (which is controlled by a company), a number of developers forked Nagios and use Icinga as their new name. Icinga is still compatible — so far — with Nagios configurations and plugins, but it also adds extra features. <ulink type=\"block\" url=\"http://www.icinga.org/\" />"
-msgstr ""
+msgstr "Ansporet av meningsforskjeller om utviklingsmodellen for Nagios (som er kontrollert av et selskap), laget et antall utviklere av Nagios en forgrening og brukte Icinga som det nye navnet. Icinga er fortsatt kompatibel - så langt - med Nagios konfigurasjoner og plugins, men den legger også til ekstra funksjoner. <ulink type=\"block\" url=\"http://www.icinga.org/\" />"
 
 msgid "Setting Up Munin"
-msgstr ""
+msgstr "Å sette opp Munin"
 
+#, fuzzy
 msgid "<primary>Munin</primary>"
-msgstr ""
+msgstr "<primary>Munin</primary>"
 
 msgid "The purpose of Munin is to monitor many machines; therefore, it quite naturally uses a client/server architecture. The central host — the grapher — collects data from all the monitored hosts, and generates historical graphs."
-msgstr ""
+msgstr "Hensikten med Munin er å overvåke mange maskiner. Derfor bruker den ganske naturlig en klient/tjener-arkitektur. Den sentrale verten - grapher - samler data fra alle de overvåkede vertene, og genererer historiske grafer."
 
 msgid "Configuring Hosts To Monitor"
-msgstr ""
+msgstr "Konfigurere verter til monitor"
 
 msgid "The first step is to install the <emphasis role=\"pkg\">munin-node</emphasis> package. The daemon installed by this package listens on port 4949 and sends back the data collected by all the active plugins. Each plugin is a simple program returning a description of the collected data as well as the latest measured value. Plugins are stored in <filename>/usr/share/munin/plugins/</filename>, but only those with a symbolic link in <filename>/etc/munin/plugins/</filename> are really used."
-msgstr ""
+msgstr "Det første trinnet er å installere <emphasis role=\"pkg\">munin-node</emphasis>-pakken. Nissen denne pakken installerer lytter på port 4949, og sender tilbake data samlet inn av alle de aktive programtilleggene. Hvert programtillegg er et enkelt program som returnerer en beskrivelse av de innsamlede data, samt den siste målte verdi. Programtilleggene er lagret i <filename>/usr/share/munin/plugins/</filename>, men bare di med en symbolsk lenke i <filename>/etc/munin/plugins/</filename> er virkelig i bruk."
 
 msgid "When the package is installed, a set of active plugins is determined based on the available software and the current configuration of the host. However, this autoconfiguration depends on a feature that each plugin must provide, and it is usually a good idea to review and tweak the results by hand. Browsing the <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> can be interesting even though not all plugins have comprehensive documentation. However, all plugins are scripts and most are rather simple and well-commented. Browsing <filename>/etc/munin/plugins/</filename> is therefore a good way of getting an idea of what each plugin is about and determining which should be removed. Similarly, enabling an interesting plugin found in <filename>/usr/share/munin/plugins/</filename> is a simple matter of setting up a symbolic link with <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Note that when a plugin name ends with an underscore “_”, the plugin requires a parameter. This parameter must be stored in the name of the symbolic link; for instance, the “if_” plugin must be enabled with a <filename>if_eth0</filename> symbolic link, and it will monitor network traffic on the eth0 interface."
-msgstr ""
+msgstr "Når pakken er installert, er et sett med aktive programtillegge fastsettes basert på tilgjengelig programvare og gjeldende konfigurasjon av verten. Imidlertid avhenger dette autoppsettet av en funksjon som hvert programtillegg må levere, og det er vanligvis en god idé å gå gjennom og justere resultatene for hånd. Å surfe på <ulink url=\"http://gallery.munin-monitoring.org\">Plugin Gallery</ulink> kan være interessant, selv om ikke alle programtillegg har omfattende dokumentasjon. Men alle programtillegg er skript og de fleste er ganske enkle og godt kommentert. Å surfe <filename>/etc/munin/plugins/</filename> er derfor en god måte å få en idé om hva hvert programtillegg handler om og å avgjøre hvilke bør fjernes. Tilsvarende, å aktivere et interessant programtillegg som finnes i <filename>/usr/share/munin/plugins/</filename> er så enkelt som å sette opp en symbolsk lenke med <command>ln -sf /usr/share/munin/plugins/<replaceable>plugin</replaceable> /etc/munin/plugins/</command>. Merk at når  navnet på et programtillegg ender med en understrekning \"_\", krever programtillegg et parameter. Denne parameteren må lagres i navnet på den symbolske lenken; for eksempel, må \"if_\" programtillegg bli aktivert med en <filename>if_eth0</filename>-symbolsk lenke, og den vil overvåke nettverkstrafikk på eth0 grensesnittet."
 
 msgid "Once all plugins are correctly set up, the daemon configuration must be updated to describe access control for the collected data. This involves <literal>allow</literal> directives in the <filename>/etc/munin/munin-node.conf</filename> file. The default configuration is <literal>allow ^127\\.0\\.0\\.1$</literal>, and only allows access to the local host. An administrator will usually add a similar line containing the IP address of the grapher host, then restart the daemon with <command>service munin-node restart</command>."
-msgstr ""
+msgstr "Når alle programtilleggene er satt opp riktig, må nisseoppsettet oppdateres til å beskrive adgangskontrollen for de innsamlede dataene. Dette inkluderer<literal>allow</literal>-direktiver i <filename>/etc/munin/munin-node.conf</filename>-filen. Standardkonfigurasjonen er <literal>allow ^127\\.0\\.0\\.1$</literal>, og gir bare gir tilgang til den lokale verten. En administrator vil vanligvis legg til en lignende linje med IP-adressen til grapher-verten, og deretter restarte nissen med <command>service munin-node restart</command>."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Creating local plugins"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Å lage lokale programtillegg"
 
 msgid "Munin does include detailed documentation on how plugins should behave, and how to develop new plugins. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
-msgstr ""
+msgstr "Munin inkluderer detaljert dokumentasjon om hvordan programtilleggene skal fungere, og hvordan man kan utvikle nye programtillegg. <ulink type=\"block\" url=\"http://munin-monitoring.org/wiki/plugins\" />"
 
 msgid "A plugin is best tested when run in the same conditions as it would be when triggered by munin-node; this can be simulated by running <command>munin-run <replaceable>plugin</replaceable></command> as root. A potential second parameter given to this command (such as <literal>config</literal>) is passed to the plugin as a parameter."
-msgstr ""
+msgstr "Et programtillegg kan best testes når det kjøres under samme forhold som det ville blitt når den utløses av munin-node. Dette kan simuleres ved å kjøre <command>munin-run <replaceable>plugin</replaceable></command> som rot. Et potensielt andre parameter som gis til denne kommandoen (slik som <literal>config</literal>) formidles til programtillegget som et parameter."
 
 msgid "When a plugin is invoked with the <literal>config</literal> parameter, it must describe itself by returning a set of fields:"
-msgstr ""
+msgstr "Når et programtillegg brukes med med <literal>config</literal>-parameteret, må det må beskrive seg selv ved å returnere et sett med felt:"
 
+#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>sudo munin-run load config\n"
 "</userinput><computeroutput>graph_title Load average\n"
@@ -2608,58 +2612,74 @@ msgid ""
 "load.info 5 minute load average\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput>$ </computeroutput><userinput>sudo munin-run load config\n"
+"</userinput><computeroutput>graph_title Load average\n"
+"graph_args --base 1000 -l 0\n"
+"graph_vlabel load\n"
+"graph_scale no\n"
+"graph_category system\n"
+"load.label load\n"
+"graph_info The load average of the machine describes how many processes are in the run-queue (scheduled to run \"immediately\").\n"
+"load.info 5 minute load average\n"
+"</computeroutput>"
 
 msgid "The various available fields are described by the “Plugin reference” available as part of the “Munin guide”. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
-msgstr ""
+msgstr "De forskjellige tilgjengelige feltene er beskrevet av \"Plugin reference\" som er tilgjengelig som en del av \"Munin guide\"-en. <ulink type=\"block\" url=\"http://munin.readthedocs.org/en/latest/reference/plugin.html\" />"
 
 msgid "When invoked without a parameter, the plugin simply returns the last measured values; for instance, executing <command>sudo munin-run load</command> could return <literal>load.value 0.12</literal>."
-msgstr ""
+msgstr "Starten uten et parameter, vil programtillegget bare returner de siste måleverdiene: For eksempel, å kjøre <command>sudo munin-run load</command> kunne returnere <literal>load.value 0.12</literal>."
 
 msgid "Finally, when a plugin is invoked with the <literal>autoconf</literal> parameter, it should return “yes” (and a 0 exit status) or “no” (with a 1 exit status) according to whether the plugin should be enabled on this host."
-msgstr ""
+msgstr "Til slutt, når et programtillegg startes med <literal>autoconf</literal> parameteret, skal det returnere \"yes\" (og et 0 exit status) eller \"no\" (med en 1 exit status) etter om programtillegget bør være aktivert på denne verten."
 
 msgid "Configuring the Grapher"
-msgstr ""
+msgstr "Å sette opp Grapher"
 
 msgid "The “grapher” is simply the computer that aggregates the data and generates the corresponding graphs. The required software is in the <emphasis role=\"pkg\">munin</emphasis> package. The standard configuration runs <command>munin-cron</command> (once every 5 minutes), which gathers data from all the hosts listed in <filename>/etc/munin/munin.conf</filename> (only the local host is listed by default), saves the historical data in RRD files (<emphasis>Round Robin Database</emphasis>, a file format designed to store data varying in time) stored under <filename>/var/lib/munin/</filename> and generates an HTML page with the graphs in <filename>/var/cache/munin/www/</filename>."
-msgstr ""
+msgstr "\"Grapher\" aggregerer rett og slett dataene og genererer de tilhørende grafer. Den nødvendige programvaren er i <emphasis role=\"pkg\">munin</emphasis>-pakken. Standardoppsettet kjører <command>munin-cron</command> (en gang hvert 5. minutt) Den samler data fra alle verter som er oppført i <filename>/etc/munin/munin.conf</filename> (kun den lokale verten er oppført som standard), lagrer historiske data i RRD-filer (<emphasis>Round Robin Database</emphasis>, et filformat utviklet for å lagre data som varierer i tid) lagret under <filename>/var/lib/munin/</filename> og genererer en HTML-side med grafene i <filename>/var/cache/munin/www/</filename>."
 
 msgid "All monitored machines must therefore be listed in the <filename>/etc/munin/munin.conf</filename> configuration file. Each machine is listed as a full section with a name matching the machine and at least an <literal>address</literal> entry giving the corresponding IP address."
-msgstr ""
+msgstr "Alle overvåkede maskinene må derfor være oppført i konfigurasjonsfilen <filename>/etc/munin/munin.conf</filename>. Hver maskin er oppført som en full seksjon med et navn som passer til maskinen og minst en <literal>address</literal>-inngang som gir den tilsvarende IP-adressen."
 
+#, fuzzy
 msgid ""
 "[ftp.falcot.com]\n"
 "    address 192.168.0.12\n"
 "    use_node_name yes"
 msgstr ""
+"[ftp.falcot.com]\n"
+"    address 192.168.0.12\n"
+"    use_node_name yes"
 
 msgid "Sections can be more complex, and describe extra graphs that could be created by combining data coming from several machines. The samples provided in the configuration file are good starting points for customization."
-msgstr ""
+msgstr "Seksjoner kan være mer komplekse, og beskrive ekstra grafer laget ved å kombinere data fra flere maskiner. Prøvene som er gitt i konfigurasjonsfilen er gode utgangspunkter for tilpasninger."
 
 msgid "The last step is to publish the generated pages; this involves configuring a web server so that the contents of <filename>/var/cache/munin/www/</filename> are made available on a website. Access to this website will often be restricted, using either an authentication mechanism or IP-based access control. See <xref linkend=\"sect.http-web-server\" /> for the relevant details."
-msgstr ""
+msgstr "Det siste trinnet er å publisere de genererte sidene. Dette innebærer å konfigurere en nett-tjener, slik at innholdet i <filename>/var/cache/munin/www/</filename> blir tilgjengelig på et nettsted. Tilgang til denne nettsiden vil ofte være begrenset, enten ved hjelp av en autentiseringsmekanisme eller IP-basert adgangskontroll. Se <xref linkend=\"sect.http-web-server\" /> for de relevante detaljene."
 
 msgid "Setting Up Nagios"
-msgstr ""
+msgstr "Å sette opp Nagios"
 
+#, fuzzy
 msgid "<primary>Nagios</primary>"
-msgstr ""
+msgstr "<primary>Nagios</primary>"
 
 msgid "Unlike Munin, Nagios does not necessarily require installing anything on the monitored hosts; most of the time, Nagios is used to check the availability of network services. For instance, Nagios can connect to a web server and check that a given web page can be obtained within a given time."
-msgstr ""
+msgstr "I motsetning til Munin, installerer ikke Nagios nødvendigvis noe på de overvåkede vertene. Mesteparten av tiden, brukes Nagios til å kontrollere tilgjengeligheten for nettverkstjenester. For eksempel kan Nagios koble til en nett-tjener og sjekke at en gitt nettside kan nås innen et gitt tid."
 
 msgid "Installing"
 msgstr "Å installere"
 
 msgid "The first step in setting up Nagios is to install the <emphasis role=\"pkg\">nagios3</emphasis>, <emphasis role=\"pkg\">nagios-plugins</emphasis> and <emphasis role=\"pkg\">nagios3-doc</emphasis> packages. Installing the packages configures the web interface and creates a first <literal>nagiosadmin</literal> user (for which it asks for a password). Adding other users is a simple matter of inserting them in the <filename>/etc/nagios3/htpasswd.users</filename> file with Apache's <command>htpasswd</command> command. If no Debconf question was displayed during installation, <command>dpkg-reconfigure nagios3-cgi</command> can be used to define the <literal>nagiosadmin</literal> password."
-msgstr ""
+msgstr "Det første skrittet for å sette opp Nagios er å installere <emphasis role=\"pkg\">nagios3</emphasis>, <emphasis role=\"pkg\">nagios-plugins</emphasis> og <emphasis role=\"pkg\">nagios3-doc</emphasis> -pakkene. Pakkeinstallasjonen konfigurerer nett-grensesnittete og lager en første <literal>nagiosadmin</literal>-bruker (som den ber om et passord for). Å legge til andre brukere er så enkelt som å sette dem inn i  <filename>/etc/nagios3/htpasswd.users</filename>-filen med Apaches <command>htpasswd</command>kommando. Hvis ikke noe Debconf spørsmål vises under installasjonen, kan <command>dpkg-reconfigure nagios3-cgi</command> bli brukt til å definere  <literal>nagiosadmin</literal>-passordet."
 
 msgid "Pointing a browser at <literal>http://<replaceable>server</replaceable>/nagios3/</literal> displays the web interface; in particular, note that Nagios already monitors some parameters of the machine where it runs. However, some interactive features such as adding comments to a host do not work. These features are disabled in the default configuration for Nagios, which is very restrictive for security reasons."
-msgstr ""
+msgstr "Grensesnittet vises ved å la nettleseren gå til <literal>http://<replaceable>server</replaceable>/nagios3/</literal>. Vær spesielt oppmerksom på at Nagios allerede overvåker noen parametere på maskinen der den kjører. Men noen interaktive funksjoner, som å legge til kommentarer til en vert, virker ikke. Disse funksjonene er deaktivert under Nagios standardkonfigurasjon, som av sikkerhetsgrunner er svært restriktiv."
 
 msgid "As documented in <filename>/usr/share/doc/nagios3/README.Debian</filename>, enabling some features involves editing <filename>/etc/nagios3/nagios.cfg</filename> and setting its <literal>check_external_commands</literal> parameter to “1”. We also need to set up write permissions for the directory used by Nagios, with commands such as the following:"
-msgstr ""
+msgstr "Som dokumenter i <filename>/usr/share/doc/nagios3/README.Debian</filename>, aktivering av noen egenskaper innebærer å redigere <filename>/etc/nagios3/nagios.cfg</filename> å at parameteret  <literal>check_external_commands</literal> settes til “1”. Vi må også sette opp skrivetilgang til katalogen som Nagios bruker, med kommandoer som de følgende:"
 
+#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
 "<computeroutput>[...]\n"
@@ -2668,55 +2688,62 @@ msgid ""
 "</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
 "<computeroutput>[...]</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>service nagios3 stop</userinput>\n"
+"<computeroutput>[...]\n"
+"# </computeroutput><userinput>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw\n"
+"</userinput><computeroutput># </computeroutput><userinput>dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3\n"
+"</userinput><computeroutput># </computeroutput><userinput>service nagios3 start</userinput>\n"
+"<computeroutput>[...]</computeroutput>"
 
 msgid "Configuring"
 msgstr "Konfigurering"
 
 msgid "The Nagios web interface is rather nice, but it does not allow configuration, nor can it be used to add monitored hosts and services. The whole configuration is managed via files referenced in the central configuration file, <filename>/etc/nagios3/nagios.cfg</filename>."
-msgstr ""
+msgstr "Nagios nettgrensesnitt er ganske fint, men det tillater ikke konfigurasjon, heller ikke kan det brukes til å legge til overvåkede verter og tjenester. Hele konfigurasjonen styres via filer som det er referert til i den sentrale konfigurasjonsfilen,<filename>/etc/nagios3/nagios.cfg</filename>."
 
 msgid "These files should not be dived into without some understanding of the Nagios concepts. The configuration lists objects of the following types:"
-msgstr ""
+msgstr "Disse filene skal det ikke dykkes ned i uten noe forståelse av Nagios konsepter. Konfigurasjonen lister objekter av følgende typer:"
 
 msgid "a <emphasis>host</emphasis> is a machine to be monitored;"
-msgstr ""
+msgstr "a <emphasis>host</emphasis> er en maskin som skal overvåkes;"
 
 msgid "a <emphasis>hostgroup</emphasis> is a set of hosts that should be grouped together for display, or to factor some common configuration elements;"
-msgstr ""
+msgstr "<emphasis>hostgroup</emphasis> er et sett av verter som bør grupperes sammen for visning, eller for å faktorere noe vanlige konfigurasjonselementer;"
 
 msgid "a <emphasis>service</emphasis> is a testable element related to a host or a host group. It will most often be a check for a network service, but it can also involve checking that some parameters are within an acceptable range (for instance, free disk space or processor load);"
-msgstr ""
+msgstr "<emphasis>service</emphasis> er et testbart element knyttet til en vert eller en gruppe verter. Det vil som oftest være en sjekk for en nettverkstjeneste, men det kan også innebære å sjekke om noen parametere er innenfor et akseptabelt spenn (for eksempel ledig diskplass eller prosessorbelastning);"
 
 msgid "a <emphasis>servicegroup</emphasis> is a set of services that should be grouped together for display;"
-msgstr ""
+msgstr "<emphasis>servicegroup</emphasis> er et sett av tjenester som skal grupperes sammen for visning;"
 
 msgid "a <emphasis>contact</emphasis> is a person who can receive alerts;"
-msgstr ""
+msgstr "<emphasis>contact</emphasis> er en person som kan motta varsler;"
 
 msgid "a <emphasis>contactgroup</emphasis> is a set of such contacts;"
-msgstr ""
+msgstr "a <emphasis>contactgroup</emphasis> er et sett med slike kontakter;"
 
 msgid "a <emphasis>timeperiod</emphasis> is a range of time during which some services have to be checked;"
-msgstr ""
+msgstr "<emphasis>timeperiod</emphasis> er et tidsspenn innenfor hvilket enkelte tjenester må kontrolleres;"
 
 msgid "a <emphasis>command</emphasis> is the command line invoked to check a given service."
-msgstr ""
+msgstr "a <emphasis>command</emphasis> er kommandolinjen som brukes for å sjekke en gitt tjeneste."
 
 msgid "According to its type, each object has a number of properties that can be customized. A full list would be too long to include, but the most important properties are the relations between the objects."
-msgstr ""
+msgstr "Alt etter typen, har hvert objekt en rekke egenskaper som kan tilpasses. En fullstendig liste ville bli for lang til å ta med her, men de viktigste egenskapene er forholdet mellom objektene."
 
 msgid "A <emphasis>service</emphasis> uses a <emphasis>command</emphasis> to check the state of a feature on a <emphasis>host</emphasis> (or a <emphasis>hostgroup</emphasis>) within a <emphasis>timeperiod</emphasis>. In case of a problem, Nagios sends an alert to all members of the <emphasis>contactgroup</emphasis> linked to the service. Each member is sent the alert according to the channel described in the matching <emphasis>contact</emphasis> object."
-msgstr ""
+msgstr "<emphasis>service</emphasis> bruker en <emphasis>command</emphasis> til å sjeke stusen til en egenskap på en <emphasis>host</emphasis> (eller en <emphasis>hostgroup</emphasis>) innenfor en <emphasis>timeperiod</emphasis>. Om det oppstår et problem, sender Nagios et varsel til alle medlemmer av <emphasis>contactgroup</emphasis> knyttet til tjenesten. Hvert medlem får sendt varselet i følge den kanalen som er beskrevet i det samsvarende <emphasis>contact</emphasis>-objektet."
 
 msgid "An inheritance system allows easy sharing of a set of properties across many objects without duplicating information. Moreover, the initial configuration includes a number of standard objects; in many cases, defining new hosts, services and contacts is a simple matter of deriving from the provided generic objects. The files in <filename>/etc/nagios3/conf.d/</filename> are a good source of information on how they work."
-msgstr ""
+msgstr "Et arvesystem tillater enkel deling av et sett med egenskaper på tvers av mange objekter uten å duplisere informasjon. Videre har den opprinnelige konfigurasjonen en rekke standardobjekter; i mange tilfelle, er det å definere nye verter, tjenester og kontakter en enkel sak å utlede fra de angitte generiske objektene. Filene i <filename>/etc/nagios3/conf.d/</filename> er en god kilde til informasjon om hvordan de fungerer."
 
 msgid "The Falcot Corp administrators use the following configuration:"
-msgstr ""
+msgstr "Falcot Corp-administratorene bruker følgende oppsett:"
 
 msgid "<filename>/etc/nagios3/conf.d/falcot.cfg</filename> file"
-msgstr ""
+msgstr "<filename>/etc/nagios3/conf.d/falcot.cfg</filename>-fil"
 
+#, fuzzy
 msgid ""
 "define contact{\n"
 "    name                            generic-contact\n"
@@ -2806,21 +2833,108 @@ msgid ""
 "    check_command         check_ftp2\n"
 "}"
 msgstr ""
+"define contact{\n"
+"    name                            generic-contact\n"
+"    service_notification_period     24x7\n"
+"    host_notification_period        24x7\n"
+"    service_notification_options    w,u,c,r\n"
+"    host_notification_options       d,u,r\n"
+"    service_notification_commands   notify-service-by-email\n"
+"    host_notification_commands      notify-host-by-email\n"
+"    register                        0 ; Template only\n"
+"}\n"
+"define contact{\n"
+"    use             generic-contact\n"
+"    contact_name    rhertzog\n"
+"    alias           Raphael Hertzog\n"
+"    email           hertzog@debian.org\n"
+"}\n"
+"define contact{\n"
+"    use             generic-contact\n"
+"    contact_name    rmas\n"
+"    alias           Roland Mas\n"
+"    email           lolando@debian.org\n"
+"}\n"
+"\n"
+"define contactgroup{\n"
+"    contactgroup_name     falcot-admins\n"
+"    alias                 Falcot Administrators\n"
+"    members               rhertzog,rmas\n"
+"}\n"
+"\n"
+"define host{\n"
+"    use                   generic-host ; Name of host template to use\n"
+"    host_name             www-host\n"
+"    alias                 www.falcot.com\n"
+"    address               192.168.0.5\n"
+"    contact_groups        falcot-admins\n"
+"    hostgroups            debian-servers,ssh-servers\n"
+"}\n"
+"define host{\n"
+"    use                   generic-host ; Name of host template to use\n"
+"    host_name             ftp-host\n"
+"    alias                 ftp.falcot.com\n"
+"    address               192.168.0.6\n"
+"    contact_groups        falcot-admins\n"
+"    hostgroups            debian-servers,ssh-servers\n"
+"}\n"
+"\n"
+"# 'check_ftp' command with custom parameters\n"
+"define command{\n"
+"    command_name          check_ftp2\n"
+"    command_line          /usr/lib/nagios/plugins/check_ftp -H $HOSTADDRESS$ -w 20 -c 30 -t 35\n"
+"}\n"
+"\n"
+"# Generic Falcot service\n"
+"define service{\n"
+"    name                  falcot-service\n"
+"    use                   generic-service\n"
+"    contact_groups        falcot-admins\n"
+"    register              0\n"
+"}\n"
+"\n"
+"# Services to check on www-host\n"
+"define service{\n"
+"    use                   falcot-service\n"
+"    host_name             www-host\n"
+"    service_description   HTTP\n"
+"    check_command         check_http\n"
+"}\n"
+"define service{\n"
+"    use                   falcot-service\n"
+"    host_name             www-host\n"
+"    service_description   HTTPS\n"
+"    check_command         check_https\n"
+"}\n"
+"define service{\n"
+"    use                   falcot-service\n"
+"    host_name             www-host\n"
+"    service_description   SMTP\n"
+"    check_command         check_smtp\n"
+"}\n"
+"\n"
+"# Services to check on ftp-host\n"
+"define service{\n"
+"    use                   falcot-service\n"
+"    host_name             ftp-host\n"
+"    service_description   FTP\n"
+"    check_command         check_ftp2\n"
+"}"
 
 msgid "This configuration file describes two monitored hosts. The first one is the web server, and the checks are made on the HTTP (80) and secure-HTTP (443) ports. Nagios also checks that an SMTP server runs on port 25. The second host is the FTP server, and the check includes making sure that a reply comes within 20 seconds. Beyond this delay, a <emphasis>warning</emphasis> is emitted; beyond 30 seconds, the alert is deemed critical. The Nagios web interface also shows that the SSH service is monitored: this comes from the hosts belonging to the <literal>ssh-servers</literal> hostgroup. The matching standard service is defined in <filename>/etc/nagios3/conf.d/services_nagios2.cfg</filename>."
-msgstr ""
+msgstr "Denne konfigurasjonsfilen beskriver to overvåkede verter. Den første er nett-tjeneren, og kontrollene er gjort på HTTP (80) og sikre-HTTP (443) porter. Nagios sjekker også at en SMTP-tjener kjører på port 25. Den andre verten er FTP-tjeneren, og sjekken inkluderer å sørge for at svar kommer innen 20 sekunder. Utover denne forsinkelsen, blir et <emphasis>warning</emphasis> sendt ut; Med mer enn 30 sekunder, ansees varslingen som kritisk. Nagios nettgrensesnitt viser også at SSH-tjenesten er overvåket: dette kommer fra vertene som tilhører vertsgruppen <literal>ssh-servers</literal>. Den samsvarende standardtjenesten er definert i <filename>/etc/nagios3/conf.d/services_nagios2.cfg</filename>."
 
 msgid "Note the use of inheritance: an object is made to inherit from another object with the “use <replaceable>parent-name</replaceable>”. The parent object must be identifiable, which requires giving it a “name <replaceable>identifier</replaceable>” property. If the parent object is not meant to be a real object, but only to serve as a parent, giving it a “register 0” property tells Nagios not to consider it, and therefore to ignore the lack of some parameters that would otherwise be required."
-msgstr ""
+msgstr "Legg merke til bruken av arve: Et objekt er satt til å arve fra et annet objekt med \"bruk <replaceable>parent-name</replaceable>”. Foreldre-objektet må kunne identifiseres, som krever å gi det en \"navn <replaceable>identifier</replaceable>”-egenskap. Hvis det overordnede objektet ikke er ment å være et reelt objekt, men bare skal tjene som en forelder, å gir det en \"register 0\"-egenskap sier til Nagios å ikke vurdere det, og derfor å ignorere mangelen på noen parametre som ellers ville vært nødvendig."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> List of object properties"
-msgstr ""
+msgstr "<emphasis>DOCUMENTATION</emphasis> List med objektegenskaper"
 
 msgid "A more in-depth understanding of the various ways in which Nagios can be configured can be obtained from the documentation provided by the <emphasis role=\"pkg\">nagios3-doc</emphasis> package. This documentation is directly accessible from the web interface, with the “Documentation” link in the top left corner. It includes a list of all object types, with all the properties they can have. It also explains how to create new plugins."
-msgstr ""
+msgstr "En mer inngående forståelse av de ulike måtene som Nagios kan konfigureres på,  kan fås fra dokumentasjonen fra <emphasis role=\"pkg\">nagios3-doc</emphasis>-pakken. Denne dokumentasjonen er direkte tilgjengelig fra nettgrensesnittet, med \"Dokumentasjon\"-linken øverst i venstre hjørne. Den inkluderer en liste over alle objekttyper, med alle de egenskapene de kan ha. Den forklarer også hvordan du oppretter nye programtillegg."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Remote tests with NRPE"
-msgstr ""
+msgstr "<emphasis>GOING FURTHER</emphasis> Eksterne tester med NRPE"
 
 msgid "Many Nagios plugins allow checking some parameters local to a host; if many machines need these checks while a central installation gathers them, the NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>) plugin needs to be deployed. The <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis> package needs to be installed on the Nagios server, and <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> on the hosts where local tests need to run. The latter gets its configuration from <filename>/etc/nagios/nrpe.cfg</filename>. This file should list the tests that can be started remotely, and the IP addresses of the machines allowed to trigger them. On the Nagios side, enabling these remote tests is a simple matter of adding matching services using the new <emphasis>check_nrpe</emphasis> command."
-msgstr ""
+msgstr "Mange av Nagios programtillegg tillater å sjekke noen parametere lokalt hos en vert; hvis mange maskiner trenger disse kontrollene, mens en sentral installasjon samler dem, trenges NRPE (<emphasis>Nagios Remote Plugin Executor</emphasis>)-programtillegg å bli lagt inn. <emphasis role=\"pkg\">nagios-nrpe-plugin</emphasis>-pakken må bli installert på Nagios tjeneren, og <emphasis role=\"pkg\">nagios-nrpe-server</emphasis> på vertene der lokale tester trenger bli kjørt. Sistnevnte får sin konfigurasjon fra <filename>/etc/nagios/nrpe.cfg</filename>. Denne filen skal inneholde de testene som kan startes eksternt, og maskinenes IP-adresser må tillates å utløse dem. På Nagios side, å aktivere disse eksterne testene er så enkelt som å legge til samsvarende tjenester ved hjelp av den nye <emphasis>check_nrpe</emphasis>-kommandoen."
