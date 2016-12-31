@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-12-23 12:44+0000\n"
+"PO-Revision-Date: 2017-01-25 09:33+0100\n"
 "Last-Translator: Ingrid Yrvin <ingrid.yrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/11_network-services/nb_NO/>\n"
 "Language: nb-NO\n"
@@ -1712,27 +1712,25 @@ msgstr "<primary><command>nmbd</command></primary>"
 msgid "<emphasis>DOCUMENTATION</emphasis> Going further"
 msgstr "<emphasis>DOKUMENTASJON</emphasis> For viderekomne"
 
+#, fuzzy
 msgid "The Samba server is extremely configurable and versatile, and can address a great many different use cases matching very different requirements and network architectures. This book only focuses on the use case where Samba is used as a standalone server, but it can also be a NT4 Domain Controller or a full Active Directory Domain Controller, or a simple member of an existing domain (which could be a managed by a Windows server)."
-msgstr "Samba-tjeneren er ekstremt konfigurerbar og allsidig, og kan håndtere svært mange forskjellige bruksmåter som imøtekommer svært ulike krav og nettverks-arkitekturer. Denne boken fokuserer bare på bruken der Samba brukes som en frittstående tjener, men det kan også være en NT4 Domain Controller, en full Active Directory Domain Controller, eller et enkel medlem av et eksisterende domene (som kan være en styrt av en Windows tjener)."
+msgstr "Samba-tjeneren er ekstremt konfigurerbar og allsidig, og kan håndtere svært mange forskjellige bruksmåter som imøtekommer svært ulike krav og nettverksarkitekturer. Denne boken fokuserer bare på bruken der Samba brukes som en frittstående tjener, men det kan også være en NT4 Hoved domenekontroller (NT4 Domain Controller), eller en full  Active Directory Domain Controller, eller et enkel medlem av et eksisterende domene (som kan være en styrt av en Windows-tjener)."
 
-#, fuzzy
 msgid "<primary>domain controller</primary>"
-msgstr "<primary>domain controller</primary>"
+msgstr "<primary>domenekontroller</primary>"
 
-#, fuzzy
 msgid "<primary>Windows domain</primary>"
-msgstr "<primary>Windows domain</primary>"
+msgstr "<primary>Windows-domene</primary>"
 
 msgid "The <emphasis role=\"pkg\">samba-doc</emphasis> package contains a wealth of commented example files in <filename>/usr/share/doc/samba-doc/examples/</filename>."
-msgstr "<emphasis role=\"pkg\">samba-doc</emphasis>-pakken inneholder et stort utvalg av kommenterte eksempelfiler i  <filename>/usr/share/doc/samba-doc/examples/</filename>."
+msgstr "Pakken <emphasis role=\"pkg\">samba-doc</emphasis> inneholder et stort utvalg av kommenterte eksempelfiler i <filename>/usr/share/doc/samba-doc/examples/</filename>."
 
 msgid "<emphasis>TOOL</emphasis> Authenticating with a Windows Server"
-msgstr "<emphasis>TOOL</emphasis> Autentisering med en Windows-tjener"
+msgstr "<emphasis>VERKTØY</emphasis> Autentisering med en Windows-tjener"
 
 msgid "Winbind gives system administrators the option of using a Windows server as an authentication server. Winbind also integrates cleanly with PAM and NSS. This allows setting up Linux machines where all users of a Windows domain automatically get an account."
-msgstr "Winbind gir systemadministratorer muligheten til å bruke en Windows-server som en godkjenningstjener. Winbind integrerer også rent med PAM og NSS. Dette gjør det mulig å sette opp Linux-maskiner der alle brukere av et Windows-domene automatisk få en konto."
+msgstr "Winbind gir systemadministratorer muligheten til å bruke en Windows-server som en godkjenningstjener. Winbind integrerer også rent med PAM og NSS. Dette gjør det mulig å sette opp Linux-maskiner der alle brukere av et Windows-domene automatisk får en konto."
 
-#, fuzzy
 msgid "<primary>Winbind</primary>"
 msgstr "<primary>Winbind</primary>"
 
@@ -1751,7 +1749,6 @@ msgstr "Den første delen med nødvendig informasjon er navnet på arbeidsgruppe
 msgid "The package also proposes identifying the WINS server from the information provided by the DHCP daemon. The Falcot Corp administrators rejected this option, since they intend to use the Samba server itself as the WINS server."
 msgstr "Pakken foreslår også å identifisere WINS-tjeneren ut fra opplysninger gitt av DHCP-nissen. Falcot Corp-administratorene forkastet dette alternativet, siden de har tenkt å bruke Samba-tjeneren som WINS-tjener."
 
-#, fuzzy
 msgid "<primary>WINS</primary>"
 msgstr "<primary>WINS</primary>"
 
@@ -1762,7 +1759,7 @@ msgid "Changes to <filename>smb.conf</filename>"
 msgstr "Forandringer i <filename>smb.conf</filename>"
 
 msgid "The requirements at Falcot require other options to be modified in the <filename>/etc/samba/smb.conf</filename> configuration file. The following excerpts summarize the changes that were effected in the <literal>[global]</literal> section."
-msgstr "Kravene hos Falcot forutsetter også endringer i  andre valg i <filename>/etc/samba/smb.conf</filename>. Følgende utdrag oppsummerer de endringene som ble berørt i <literal>[global]</literal>-seksjonen."
+msgstr "Kravene hos Falcot forutsetter også endringer i andre valg i <filename>/etc/samba/smb.conf</filename>. Følgende utdrag oppsummerer de endringene som ble berørt i <literal>[global]</literal>-seksjonen."
 
 #, fuzzy
 msgid ""
@@ -1842,50 +1839,46 @@ msgid "Adding Users"
 msgstr "Å legge til brukere"
 
 msgid "Each Samba user needs an account on the server; the Unix accounts must be created first, then the user needs to be registered in Samba's database. The Unix step is done quite normally (using <command>adduser</command> for instance)."
-msgstr "Hver Samba-bruker trenger en konto på tjeneren, Unix-kontoer må opprettes først, deretter må brukeren bli registrert i Sambas database. Unix-trinnet utføres ganske vanlig (ved hjelp <command>adduser</command> for eksempel)."
+msgstr "Hver Samba-bruker trenger en konto på tjeneren; Unix-kontoer må opprettes først, deretter må brukeren bli registrert i Sambas database. Unix-trinnet utføres ganske vanlig (ved hjelp <command>adduser</command> for eksempel)."
 
 msgid "Adding an existing user to the Samba database is a matter of running the <command>smbpasswd -a <replaceable>user</replaceable></command> command; this command asks for the password interactively."
-msgstr "Å legge til en eksisterende bruker til Samba-databasen er et spørsmål om å kjøre <command>smbpasswd -a <replaceable>user</replaceable></command>-kommandoen; denne kommandoen ber interaktivt om passordet."
+msgstr "Å legge til en eksisterende bruker til Samba-databasen er et spørsmål om å kjøre <command>smbpasswd -a <replaceable>bruker</replaceable></command>-kommandoen; denne kommandoen ber interaktivt om passordet."
 
 msgid "A user can be deleted with the <command>smbpasswd -x <replaceable>user</replaceable></command> command. A Samba account can also be temporarily disabled (with <command>smbpasswd -d <replaceable>user</replaceable></command>) and re-enabled later (with <command>smbpasswd -e <replaceable>user</replaceable></command>)."
-msgstr "En bruker kan bli slettet med <command>smbpasswd -x <replaceable>user</replaceable></command>-lkommandoen. En  Samba-konto kan også midlertidig bli deaktivert (med <command>smbpasswd -d <replaceable>user</replaceable></command>) og reaktivert senere (med <command>smbpasswd -e <replaceable>user</replaceable></command>)."
+msgstr "En bruker kan bli slettet med <command>smbpasswd -x <replaceable>bruker</replaceable></command>-kommandoen. En Samba-konto kan også midlertidig bli deaktivert (med <command>smbpasswd -d <replaceable>bruker</replaceable></command>), og reaktivert senere (med <command>smbpasswd -e <replaceable>bruker</replaceable></command>)."
 
 msgid "Samba Client"
 msgstr "Samba-klient"
 
 msgid "The client features in Samba allow a Linux machine to access Windows shares and shared printers. The required programs are available in the <emphasis role=\"pkg\">cifs-utils</emphasis> and <emphasis role=\"pkg\">smbclient</emphasis> packages."
-msgstr "Klient-funksjonene i Sambas tillater en Linux-maskin å få tilgang til Windows-delinger og delte skrivere. De nødvendige programmene er tilgjengelig i <emphasis role=\"pkg\">cifs-utils</emphasis> and <emphasis role=\"pkg\">smbclient</emphasis>-pakkene."
+msgstr "Klient-funksjonene i Samba tillater en Linux-maskin å få tilgang til Windows-delinger og delte skrivere. De nødvendige programmene er tilgjengelig i <emphasis role=\"pkg\">cifs-utils</emphasis> og <emphasis role=\"pkg\">smbclient</emphasis>-pakkene."
 
-#, fuzzy
 msgid "<primary><emphasis>smbclient</emphasis></primary>"
 msgstr "<primary><emphasis>smbclient</emphasis></primary>"
 
-#, fuzzy
 msgid "<primary><emphasis>cifs-utils</emphasis></primary>"
 msgstr "<primary><emphasis>cifs-utils</emphasis></primary>"
 
 msgid "The <command>smbclient</command> Program"
-msgstr "<command>smbclient</command>-programmet"
+msgstr "Programmet <command>smbclient</command>"
 
 msgid "The <command>smbclient</command> program queries SMB servers. It accepts a <literal>-U <replaceable>user</replaceable></literal> option, for connecting to the server under a specific identity. <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> accesses the share in an interactive way similar to the command-line FTP client. <command>smbclient -L <replaceable>server</replaceable></command> lists all available (and visible) shares on a server."
-msgstr "<command>smbclient</command>-programmet forespørr SMB-tjenere. Det aksepterer et <literal>-U <replaceable>user</replaceable></literal>-alternativ. for å koble til tjeneren med en bestemt identitet. <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> åpner for delingen interaktivt på en måte lik kommandolinje FTP-klienten. <command>smbclient -L <replaceable>server</replaceable></command> lister opp alle tilgjengelige (og synlige) delinger på en tjener."
+msgstr "Programmet <command>smbclient</command> forespør SMB-tjenere. Det aksepterer et <literal>-U <replaceable>bruker</replaceable></literal>-alternativ, for å koble til tjeneren med en bestemt identitet. <command>smbclient //<replaceable>server</replaceable>/<replaceable>dele</replaceable></command> åpner for delingen interaktivt på en måte lik kommandolinje FTP-klienten. <command>smbclient -L <replaceable>server</replaceable></command> lister opp alle tilgjengelige (og synlige) delinger på en tjener."
 
 msgid "Mounting Windows Shares"
 msgstr "Montere Windows-delinger"
 
 msgid "The <command>mount</command> command allows mounting a Windows share into the Linux filesystem hierarchy (with the help of <command>mount.cifs</command> provided by <emphasis role=\"pkg\">cifs-utils</emphasis>)."
-msgstr "The <command>mount</command> kommandoen tillater montering av en Windows-deling inn i Linux filsystem-hierarki (ved hjelp av <command>mount.cifs</command> levert av <emphasis role=\"pkg\">cifs-utils</emphasis>)."
+msgstr "Kommandoen <command>mount</command> tillater montering av en Windows-deling inn i Linux-filsystemhierarki (ved hjelp av <command>mount.cifs</command> levert av <emphasis role=\"pkg\">cifs-utils</emphasis>)."
 
-#, fuzzy
 msgid "<primary><command>mount.cifs</command></primary>"
 msgstr "<primary><command>mount.cifs</command></primary>"
 
-#, fuzzy
 msgid "<primary>Windows share, mounting</primary>"
-msgstr "<primary>Windows share, mounting</primary>"
+msgstr "<primary>Windows dele, montering</primary>"
 
 msgid "Mounting a Windows share"
-msgstr "Å montere en Windows deling"
+msgstr "Å montere en Windows-deling"
 
 #, fuzzy
 msgid ""
@@ -1898,7 +1891,7 @@ msgstr ""
 "      -o credentials=/etc/smb-credentials"
 
 msgid "The <filename>/etc/smb-credentials</filename> file (which must not be readable by users) has the following format:"
-msgstr "<filename>/etc/smb-credentials</filename>-fil (som ikke må være lesbar  av brukere) har følgende format:"
+msgstr "Fil <filename>/etc/smb-credentials</filename> (som ikke må være lesbar av brukere) har følgende format:"
 
 #, fuzzy
 msgid ""
@@ -1916,7 +1909,6 @@ msgstr "Andre alternativer kan spesifiseres på kommandolinjen; den fullstendige
 msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab</filename>:"
 msgstr "En montering av en Windows-deling kan også konfigureres i <filename>/etc/fstab</filename>:"
 
-#, fuzzy
 msgid ""
 "\n"
 "//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
@@ -1925,17 +1917,16 @@ msgstr ""
 "//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
 
 msgid "Unmounting a SMB/CIFS share is done with the standard <command>umount</command> command."
-msgstr "Å avmontere en SMB/CIFS-deling er gjort med den standard <command>umount</command>-kommandoen."
+msgstr "Å avmontere en SMB/CIFS-deling er gjort med standarden <command>umount</command>-kommandoen."
 
 msgid "Printing on a Shared Printer"
 msgstr "Å skrive ut på en delt skriver"
 
 msgid "CUPS is an elegant solution for printing from a Linux workstation to a printer shared by a Windows machine. When the <emphasis role=\"pkg\">smbclient</emphasis> is installed, CUPS allows installing Windows shared printers automatically."
-msgstr "CUPS er en elegant løsning for utskrift fra en Linux arbeidsstasjon til en skriver som deles av en Windows-maskin. Når <emphasis role=\"pkg\">smbclient</emphasis> er installert, tillater CUPS automatisk installasjon av Windows-delte skrivere."
+msgstr "CUPS er en elegant løsning for utskrift fra en Linux-arbeidsstasjon til en skriver som deles av en Windows-maskin. Når <emphasis role=\"pkg\">smbclient</emphasis> er installert, tillater CUPS automatisk installasjon av Windows-delte skrivere."
 
-#, fuzzy
 msgid "<primary>printing</primary><secondary>network</secondary>"
-msgstr "<primary>printing</primary><secondary>network</secondary>"
+msgstr "<primary>skrive ut</primary><secondary>nettverk</secondary>"
 
 msgid "Here are the required steps:"
 msgstr "Her er skrittene som kreves:"
@@ -1944,42 +1935,40 @@ msgid "Enter the CUPS configuration interface: <literal>http://localhost:631/adm
 msgstr "Bruk CUPS konfigurasjonsgrensesnittet:<literal>http://localhost:631/admin</literal>"
 
 msgid "Click on “Add Printer”."
-msgstr "Kllipp på \"Add Printer\"."
+msgstr "Klikk på «Legg til skriver»."
 
 msgid "Choose the printer device, pick “Windows Printer via SAMBA”."
-msgstr "Velg skriverenheten, plukk ut \"Windows Printer via SAMBA\"."
+msgstr "Velg skriverenheten, plukk ut «Windows Printer via SAMBA»."
 
 msgid "Enter the connection URI for the network printer. It should look like the following:"
-msgstr "Bruk tilkoblings-URI-en for nettverksskriveren . Den skal se ut som følger:"
+msgstr "Bruk tilkoblings-URI-en (angi URI) for nettverksskriveren. Den skal se ut som følger:"
 
-#, fuzzy
 msgid "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
-msgstr "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
+msgstr "<literal>smb://<replaceable>bruker</replaceable>:<replaceable>passord</replaceable>@<replaceable>server</replaceable>/<replaceable>skriver</replaceable></literal>."
 
 msgid "Enter the name that will uniquely identify this printer. Then enter the description and location of the printer. Those are the strings that will be shown to end users to help them identify the printers."
 msgstr "Skriv inn navnet som unikt identifiserer denne skriveren. Deretter skriver du inn beskrivelsen og plasseringen av skriveren. De er strengene som skal vises til sluttbrukere for å hjelpe dem med å identifisere skriverne."
 
 msgid "Indicate the manufacturer/model of the printer, or directly provide a working printer description file (PPD)."
-msgstr "Indiker produsenten/skrivermodellen, eller lever direkte en skriverbeskrivelsesfil(PPD) som virker."
+msgstr "Indiker produsenten/skrivermodellen, eller lever/gi direkte en skriverbeskrivelsesfil (PPD (PostScript Printer Description)) som virker."
 
 msgid "Voilà, the printer is operational!"
-msgstr "Voilà, printeren er operativ!"
+msgstr "Voilà,skriveren er operativ!"
 
 msgid "HTTP/FTP Proxy"
-msgstr "HTTP/FTP mellomtjener"
+msgstr "HTTP/FTP-mellomtjener"
 
 msgid "An HTTP/FTP proxy acts as an intermediary for HTTP and/or FTP connections. Its role is twofold:"
-msgstr "En HTTP/FTP mellomtjener fungerer som et mellomledd for HTTP- og/eller FTP-tilkoblinger. Dens rolle er todelt:"
+msgstr "En HTTP/FTP-mellomtjener fungerer som et mellomledd for HTTP- og/eller FTP-tilkoblinger. Dens rolle er todelt:"
 
 msgid "Caching: recently downloaded documents are copied locally, which avoids multiple downloads."
-msgstr "Hurtiglager: Nylig nedlastede dokumenter kopieres lokalt, noe som hindrer multiple nedlastinger."
+msgstr "Hurtiglager: Nylig nedlastede dokumenter kopieres lokalt, noe som hindrer flere/multiple nedlastinger."
 
 msgid "Filtering server: if use of the proxy is mandated (and outgoing connections are blocked unless they go through the proxy), then the proxy can determine whether or not the request is to be granted."
 msgstr "Filtreringstjener: Kreves bruk av mellomtjeneren (og utgående tilkoblinger blokkeres med mindre de går gjennom mellomtjeneren), da kan mellomtjeneren avgjøre om forespørselen skal imøtekommes."
 
-#, fuzzy
 msgid "<primary>HTTP/FTP proxy</primary>"
-msgstr "<primary>HTTP/FTP proxy</primary>"
+msgstr "<primary>HTTP/FTP-proxy</primary>"
 
 msgid "<primary>proxy cache</primary>"
 msgstr "<primary>mellomtjener lager</primary>"
@@ -1994,7 +1983,7 @@ msgid "Installing"
 msgstr "Å installere"
 
 msgid "The <emphasis role=\"pkg\">squid3</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
-msgstr "The <emphasis role=\"pkg\">squid3</emphasis> Debian-pakken inneholder bare den modulære (mellomlagrings-) tjener. Å snu den til en filtreringstjener krever installering av tilleggspakken <emphasis role=\"pkg\">squidguard</emphasis>. I tillegg gir , <emphasis role=\"pkg\">squid-cgi</emphasis> et forespørsels- og administrasjonsgrensesnitt for en Squid mellomtjener."
+msgstr "Debian-pakken <emphasis role=\"pkg\">squid3</emphasis> inneholder bare den modulære (mellomlagring/caching) tjener. Å snu den til en filtreringstjener krever installering av tilleggspakken <emphasis role=\"pkg\">squidguard</emphasis>. I tillegg gir <emphasis role=\"pkg\">squid-cgi</emphasis> et forespørsels- og administrasjonsgrensesnitt for en Squid-mellomtjener."
 
 msgid "Prior to installing, care should be taken to check that the system can identify its own complete name: the <command>hostname -f</command> must return a fully-qualified name (including a domain). If it does not, then the <filename>/etc/hosts</filename> file should be edited to contain the full name of the system (for instance, <literal>arrakis.falcot.com</literal>). The official computer name should be validated with the network administrator in order to avoid potential name conflicts."
 msgstr "Før du installerer, er det viktig å ta hensyn til at systemet kan identifisere sitt eget fullstendige navn: <command>hostname -f</command> må returnere et fullt kvalifisert navn (inkludert et domene). Hvis den ikke gjør det, så skal <filename>/etc/hosts</filename>-filen redigeres til å inneholde fullt navn på systemet (for eksempel <literal>arrakis.falcot.com</literal>). Det offisielle navnet på datamaskinen skal godkjennes av nettverksadministratoren for å unngå potensielle navnekonflikter ."
@@ -2003,7 +1992,7 @@ msgid "Configuring a Cache"
 msgstr "Å konfigurere et hurtiglager"
 
 msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid3/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
-msgstr "Å aktivere funksjonen til hurtiglags-tjener er så enkelt som å redigere <filename>/etc/squid3/squid.conf</filename>-konfigurasjonsfilen og la maskinene fra det lokale nettverket kjøre forespørsler gjennom mellomtjeneren. Det følgende eksemplet viser modifikasjonene Falcot Corp-administratorene har gjort:"
+msgstr "Å aktivere funksjonen til hurtiglagstjener er så enkelt som å redigere <filename>/etc/squid3/squid.conf</filename>-konfigurasjonsfilen, og la maskinene fra det lokale nettverket kjøre forespørsler gjennom mellomtjeneren. Det følgende eksemplet viser modifikasjonene Falcot Corp-administratorene har gjort:"
 
 msgid "The <filename>/etc/squid3/squid.conf</filename> file (excerpts)"
 msgstr "<filename>/etc/squid3/squid.conf</filename>-filen (utdrag)"
@@ -2038,9 +2027,8 @@ msgid "Configuring a Filter"
 msgstr "Å sette opp et filter"
 
 msgid "<command>squid</command> itself does not perform the filtering; this action is delegated to <command>squidGuard</command>. The former must then be configured to interact with the latter. This involves adding the following directive to the <filename>/etc/squid3/squid.conf</filename> file:"
-msgstr "<command>squid</command> utfører ikke filtreringen selv; Den er delegert til <command>squidGuard</command>. Den førstnevnte må da være konfigurert til å samvirke med den sistnevnte. Dette innebærer å legge følgende direktiv til <filename>/etc/squid3/squid.conf</filename>-filen:"
+msgstr "<command>squid</command> utfører ikke filtreringen selv; den er delegert til <command>squidGuard</command>. Den førstnevnte må da være konfigurert til å samvirke med den sistnevnte. Dette innebærer å legge følgende direktiv til <filename>/etc/squid3/squid.conf</filename>-filen:"
 
-#, fuzzy
 msgid "<primary><command>squidGuard</command></primary>"
 msgstr "<primary><command>squidGuard</command></primary>"
 
@@ -2053,96 +2041,87 @@ msgstr ""
 "url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf "
 
 msgid "The <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> CGI program also needs to be installed, using <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> as a starting point. Required modifications to this script are the <varname>$proxy</varname> and <varname>$proxymaster</varname> variables (the name of the proxy and the administrator's contact e-mail, respectively). The <varname>$image</varname> and <varname>$redirect</varname> variables should point to existing images representing the rejection of a query."
-msgstr "CGI-programmet <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> trenger også å bli installert, ved å bruke <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> som startpunkt. Nødvendige endringer i dette skriptet er <varname>$proxy</varname> og <varname>$proxymaster</varname>-variablene (navnet på henholdsvis mellomtjener og administratorens kontakt-e-post.)<varname>$image</varname> og <varname>$redirect</varname>-variablene skal peke til eksisterende bilder som viser avvisning av en forespørsel."
+msgstr "CGI-programmet <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> trenger også å bli installert, ved å bruke <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> som startpunkt. Nødvendige endringer i dette skriptet er <varname>$proxy</varname> og <varname>$proxymaster</varname>-variablene (navnet på henholdsvis mellomtjener og administratorens kontakt-e-post). Variablene <varname>$image</varname> og <varname>$redirect</varname> skal peke til eksisterende bilder som viser avvisning av en forespørsel."
 
 msgid "The filter is enabled with the <command>service squid3 reload</command> command. However, since the <emphasis role=\"pkg\">squidguard</emphasis> package does no filtering by default, it is the administrator's task to define the policy. This can be done by creating the <filename>/etc/squid3/squidGuard.conf</filename> file (using <filename>/etc/squidguard/squidGuard.conf.default</filename> as template if required)."
-msgstr "Filteret er aktivert med <command>service squid3 reload</command>-kommandoen. Imidertid, ettersom <emphasis role=\"pkg\">squidguard</emphasis>-pakken utfører ikke filtrering som standard; Det er administratorens oppgave å definere oppgaven. Dette kan gjøres ved å lage <filename>/etc/squid3/squidGuard.conf</filename>-filen (som bruker  <filename>/etc/squidguard/squidGuard.conf.default</filename> som mal hvis det kreves)."
+msgstr "Filteret er aktivert med <command>service squid3 reload</command>-kommandoen. Imidlertid, ettersom <emphasis role=\"pkg\">squidguard</emphasis>-pakken utfører ikke filtrering som standard; er det administratorens oppgave å definere oppgaven. Dette kan gjøres ved å lage <filename>/etc/squid3/squidGuard.conf</filename>-filen (som bruker <filename>/etc/squidguard/squidGuard.conf.default</filename> som mal hvis det kreves)."
 
 msgid "The working database must be regenerated with <command>update-squidguard</command> after each change of the <command>squidGuard</command> configuration file (or one of the lists of domains or URLs it mentions). The configuration file syntax is documented on the following website: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
-msgstr "Den gjeldende databasen må regenereres med <command>update-squidguard</command> etter hver forandring i  <command>squidGuard</command>-konfigurasjonsfilen (eller en av de lister over domener eller nettadresser den nevner). Konfigurasjonsfil-syntaksen er dokumentert på den følgende nettsiden: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
+msgstr "Den gjeldende databasen må regenereres med <command>update-squidguard</command> etter hver forandring i <command>squidGuard</command>-konfigurasjonsfilen (eller en av de lister over domener eller nettadresser den nevner). Konfigurasjonsfilssyntaksen er dokumentert på den følgende nettsiden: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
 
-#, fuzzy
 msgid "<primary><command>update-squidguard</command></primary>"
 msgstr "<primary><command>update-squidguard</command></primary>"
 
-#, fuzzy
 msgid "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
-msgstr "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
+msgstr "<emphasis>ALTERNATIV</emphasis> DansGuardian"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
 
-#, fuzzy
 msgid "<primary>PICS</primary>"
 msgstr "<primary>PICS</primary>"
 
 msgid "The <emphasis role=\"pkg\">dansguardian</emphasis> package is an alternative to <emphasis>squidguard</emphasis>. This software does not simply handle a blacklist of forbidden URLs, but it can take advantage of the PICS system (<emphasis>Platform for Internet Content Selection</emphasis>) to decide whether a page is acceptable by dynamic analysis of its contents."
-msgstr "<emphasis role=\"pkg\">dansguardian</emphasis>-pakken er et alternativ til  <emphasis>squidguard</emphasis>. Denne programvaren håndterer ikke bare en svarteliste med forbudte URL-er, men den kan nyttiggjøre seg PICS-systemet (<emphasis>Platform for Internet Content Selection</emphasis>) for å avgjøre om en side er akseptabel ved en  dynamisk analyse av innholdet."
+msgstr "Pakken <emphasis role=\"pkg\">dansguardian</emphasis> er et alternativ til <emphasis>squidguard</emphasis>. Denne programvaren håndterer ikke bare en svarteliste med forbudte URL-er, men den kan nyttiggjøre seg PICS-systemet (<emphasis>Platform for Internet Content Selection</emphasis>) for å avgjøre om en side er akseptabel ved en dynamisk analyse av innholdet."
 
 msgid "LDAP Directory"
 msgstr "LDAP-mappe"
 
-#, fuzzy
 msgid "<primary>LDAP</primary>"
 msgstr "<primary>LDAP</primary>"
 
-#, fuzzy
 msgid "<primary>OpenLDAP</primary>"
 msgstr "<primary>OpenLDAP</primary>"
 
-#, fuzzy
 msgid "<primary>directory, LDAP</primary>"
-msgstr "<primary>directory, LDAP</primary>"
+msgstr "<primary>mappe, LDAP</primary>"
 
 msgid "OpenLDAP is an implementation of the LDAP protocol; in other words, it is a special-purpose database designed for storing directories. In the most common use case, using an LDAP server allows centralizing management of user accounts and the related permissions. Moreover, an LDAP database is easily replicated, which allows setting up multiple synchronized LDAP servers. When the network and the user base grows quickly, the load can then be balanced across several servers."
 msgstr "OpenLDAP er en implementering av LDAP-protokollen; med andre ord, den er en database med spesialformål å lagre kataloger. I det mest vanlige brukertilfellet, tillater bruk av en LDAP-tjener sentral forvaltning av brukerkontoer og de tilhørende rettighetene. Dessuten er det lett å kopiere LDAP-databasen, som tillater oppsett av flere synkroniserte LDAP-tjenere. Når nettverket og brukerbasen vokser raskt, kan lasten så bli balansert over flere tjenere."
 
 msgid "LDAP data is structured and hierarchical. The structure is defined by “schemas” which describe the kind of objects that the database can store, with a list of all their possible attributes. The syntax used to refer to a particular object in the database is based on this structure, which explains its complexity."
-msgstr "LDAP-data er strukturert og hierarkisk. Strukturen er definert av \"skjemaer\", som beskriver den type objekter at databasen kan lagre, med en liste over alle de mulige egenskapene deres. Syntaksen brukes for å referere til et bestemt objekt i databasen basert på denne strukturen, noe som forklarer kompleksiten."
+msgstr "LDAP-data er strukturert og hierarkisk. Strukturen er definert av «skjemaer», som beskriver den type objekter som databasen kan lagre, med en liste over alle de mulige egenskapene deres. Syntaksen brukes for å referere til et bestemt objekt i databasen basert på denne strukturen, noe som forklarer kompleksiten."
 
 msgid "The <emphasis role=\"pkg\">slapd</emphasis> package contains the OpenLDAP server. The <emphasis role=\"pkg\">ldap-utils</emphasis> package includes command-line tools for interacting with LDAP servers."
-msgstr "<emphasis role=\"pkg\">slapd</emphasis>-pakken inneholder den åpne OpenLDAP-tjeneren. <emphasis role=\"pkg\">ldap-utils</emphasis>-pakken inneholder kommandolinje-verktøy for samhandling med LDAP-tjenere."
+msgstr "Pakken <emphasis role=\"pkg\">slapd</emphasis> inneholder den åpne OpenLDAP-tjeneren. Pakken <emphasis role=\"pkg\">ldap-utils</emphasis> inneholder kommandolinjeverktøy for samhandling med LDAP-tjenere."
 
-#, fuzzy
 msgid "<primary><emphasis>slapd</emphasis></primary>"
 msgstr "<primary><emphasis>slapd</emphasis></primary>"
 
 msgid "Installing <emphasis role=\"pkg\">slapd</emphasis> usually asks very few questions and the resulting database is unlikely to suit your needs. Fortunately a simple <command>dpkg-reconfigure slapd</command> will let you reconfigure the LDAP database with more details:"
-msgstr "Å installere <emphasis role=\"pkg\">slapd</emphasis> stiller vanligvis få spørsmål og det er usannsynlig at den resulterende databasen dekker dine behov. Heldigvis, en enkel <command>dpkg-reconfigure slapd</command> vil la deg konfigurere LDAP-databasen med flere detaljer:"
+msgstr "Å installere <emphasis role=\"pkg\">slapd</emphasis> stiller vanligvis få spørsmål, og det er usannsynlig at den resulterende databasen dekker dine behov. Heldigvis, en enkel <command>dpkg-reconfigure slapd</command> vil la deg konfigurere LDAP-databasen med flere detaljer:"
 
 msgid "Omit OpenLDAP server configuration? No, of course, we want to configure this service."
 msgstr "Utelate OpenLDAP-tjeneroppsettet? Nei, selvfølgelig ønsker vi å konfigurere denne tjenesten."
 
 msgid "DNS domain name: “<literal>falcot.com</literal>”."
-msgstr "DNS-domenenavn: “<literal>falcot.com</literal>”."
+msgstr "DNS-domenenavn: «<literal>falcot.com</literal>»."
 
 msgid "Organization name: “Falcot Corp”."
-msgstr "Organisasjonsnavn: “Falcot Corp”."
+msgstr "Organisasjonsnavn: «Falcot Corp»."
 
 msgid "An administrative passwords needs to be typed in."
 msgstr "Et administrativt passord må skrives inn."
 
+#, fuzzy
 msgid "Database backend to use: “MDB”."
-msgstr "Database-bakstykke å bruke: “MDB”."
+msgstr "Database backend å bruke: «MDB»."
 
 msgid "Do you want the database to be removed when <emphasis role=\"pkg\">slapd</emphasis> is purged? No. No point in risking losing the database in case of a mistake."
 msgstr "Ønsker du at databasen skal fjernes når <emphasis role=\"pkg\">slapd</emphasis> tvinges? Nei. Det er ingen vits i å risikere å miste databasen på grunn av en feil."
 
 msgid "Move old database? This question is only asked when the configuration is attempted while a database already exists. Only answer “yes” if you actually want to start again from a clean database, for instance if you run <command>dpkg-reconfigure slapd</command> right after the initial installation."
-msgstr "Flytte den gamle databasen? Dette spørsmålet blir bare spurt når konfigurasjonen er forsøkt log en database allerede eksisterer. Bare svar \"ja\" hvis du faktisk ønsker å starte på nytt med en ren database; For eksempel hvis du kjører <command>dpkg-reconfigure slapd</command> rett etter den første installasjonen."
+msgstr "Flytte den gamle databasen? Dette spørsmålet blir bare spurt når konfigurasjonen er forsøkt, og en database allerede eksisterer. Bare svar «ja» hvis du faktisk ønsker å starte på nytt med en ren database; for eksempel hvis du kjører <command>dpkg-reconfigure slapd</command> rett etter den første installasjonen."
 
 msgid "Allow LDAPv2 protocol? No, there is no point in that. All the tools we are going to use understand the LDAPv3 protocol."
-msgstr "Tillate LDAPv2 protokoll? Nei, det er ingen vits i det. Alle verktøyene vi skal bruke forstår LDAPv3-protokollen."
+msgstr "Tillate LDAPv2-protokoll? Nei, det er ingen vits i det. Alle verktøyene vi skal bruke forstår LDAPv3-protokollen."
 
-#, fuzzy
 msgid "<emphasis>BACK TO BASICS</emphasis> LDIF format"
-msgstr "<emphasis>BACK TO BASICS</emphasis> LDIF format"
+msgstr "<emphasis>DET GRUNNLEGGENDE</emphasis> LDIF-format"
 
 msgid "An LDIF file (<emphasis>LDAP Data Interchange Format</emphasis>) is a portable text file describing the contents of an LDAP database (or a portion thereof); this can then be used to inject the data into any other LDAP server."
-msgstr "En LDIF-file (<emphasis>LDAP Data Interchange Format</emphasis>) er en flyttbar tekstfil som beskriver innholdet i en LDAP-database (eller en del av den); Denne kan så brukes til å injisere data inn i en hvilken som helst annen LDAP-tjener."
+msgstr "En LDIF-file (<emphasis>LDAP Data Interchange Format</emphasis>) er en flyttbar tekstfil som beskriver innholdet i en LDAP-database (eller en del av den); denne kan så brukes til å injisere data inn i en hvilken som helst annen LDAP-tjener."
 
-#, fuzzy
 msgid "<primary>LDIF</primary>"
 msgstr "<primary>LDIF</primary>"
 
@@ -2224,17 +2203,16 @@ msgid "Filling in the Directory"
 msgstr "Å fylle ut mappen"
 
 msgid "Since an empty database is not particularly useful, we are going to inject into it all the existing directories; this includes the users, groups, services and hosts databases."
-msgstr "Ettersom en tom database er ikke spesielt nyttig, har vi tenkt å injisere i den i alle de eksisterende katalogene; Dette inkluderer brukerne, gruppene, tjenestene og vert-databasene."
+msgstr "Ettersom en tom database ikke er spesielt nyttig, har vi tenkt å injisere i den i alle de eksisterende katalogene; Dette inkluderer brukerne, gruppene, tjenestene og vertsdatabasene."
 
 msgid "The <emphasis role=\"pkg\">migrationtools</emphasis> package provides a set of scripts dedicated to extract data from the standard Unix directories (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> and so on), convert this data, and inject it into the LDAP database."
-msgstr "<emphasis role=\"pkg\">migrationtools</emphasis>-pakken inneholder et sett skript øremerket til å hente ut data fra standard Unix kataloger (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> og så videre), konvertere disse dataene, og sette den inn i LDAP-databasen."
+msgstr "Pakken <emphasis role=\"pkg\">migrationtools</emphasis> inneholder et sett skript øremerket til å hente ut data fra standard Unix-kataloger (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename>, og så videre), konvertere disse dataene, og sette den inn i LDAP-databasen."
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 
 msgid "Once the package is installed, the <filename>/etc/migrationtools/migrate_common.ph</filename> must be edited; the <varname>IGNORE_UID_BELOW</varname> and <varname>IGNORE_GID_BELOW</varname> options need to be enabled (uncommenting them is enough), and <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> need to be updated."
-msgstr "Så snart pakken er installert. må <filename>/etc/migrationtools/migrate_common.ph</filename> redigeres; <varname>IGNORE_UID_BELOW</varname> og <varname>IGNORE_GID_BELOW</varname>-valgene må aktiveres (å avkommentere dem er nok), og <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> trenger oppdatering."
+msgstr "Så snart pakken er installert, må <filename>/etc/migrationtools/migrate_common.ph</filename> redigeres; <varname>IGNORE_UID_BELOW</varname> og <varname>IGNORE_GID_BELOW</varname>-valgene må aktiveres (å avkommentere dem er nok), og <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> trenger oppdatering."
 
 msgid "The actual migration operation is handled by the <command>migrate_all_online.sh</command> command, as follows:"
 msgstr "Selve overføringsoperasjonen håndteres av <command>migrate_all_online.sh</command>-kommandoen, som følger:"
@@ -2264,12 +2242,11 @@ msgstr "Svar"
 msgid "X.500 naming context"
 msgstr "X.500 navnekontekst"
 
-#, fuzzy
 msgid "<literal>dc=falcot,dc=com</literal>"
 msgstr "<literal>dc=falcot,dc=com</literal>"
 
 msgid "LDAP server hostname"
-msgstr "LDAP tjener-vertsnavn"
+msgstr "Vertsnavnet på LDAP-serveren"
 
 #, fuzzy
 msgid "<literal>localhost</literal>"
@@ -2277,14 +2254,13 @@ msgstr "<literal>localhost</literal>"
 
 #, fuzzy
 msgid "Manager DN"
-msgstr "Manager DN"
+msgstr "Manager-DN"
 
-#, fuzzy
 msgid "<literal>cn=admin,dc=falcot,dc=com</literal>"
 msgstr "<literal>cn=admin,dc=falcot,dc=com</literal>"
 
 msgid "Bind credentials"
-msgstr "Tiilknyttingsreferanser"
+msgstr "Tilknytningsreferanser"
 
 msgid "the administrative password"
 msgstr "det administrative passordet"
@@ -2292,38 +2268,37 @@ msgstr "det administrative passordet"
 msgid "Create DUAConfigProfile"
 msgstr "Å lage DUAConfigProfile"
 
+#, fuzzy
 msgid "no"
-msgstr "no"
+msgstr "nei"
 
 msgid "We deliberately ignore migration of the <filename>/etc/aliases</filename> file, since the standard schema as provided by Debian does not include the structures that this script uses to describe email aliases. Should we want to integrate this data into the directory, the <filename>/etc/ldap/schema/misc.schema</filename> file should be added to the standard schema."
-msgstr "Vi lar bevisst være å flytte <filename>/etc/aliases</filename>-filen, siden standard-skjemaet som leveres av Debian ikke inkluderer strukturer som dette skriptet bruker til å beskrive e-post-aliaser. Skulle vi ønske å integrere disse dataene i katalogen, skal <filename>/etc/ldap/schema/misc.schema</filename>-filen legges til standard-skjemaet ."
+msgstr "Vi lar bevisst være å flytte <filename>/etc/aliases</filename>-filen, siden standardskjemaet som leveres av Debian ikke inkluderer strukturer som dette skriptet bruker til å beskrive e-postaliaser. Skulle vi ønske å integrere disse dataene i katalogen, skal <filename>/etc/ldap/schema/misc.schema</filename>-filen legges til standardskjemaet."
 
 msgid "<emphasis>TOOL</emphasis> Browsing an LDAP directory"
-msgstr "<emphasis>TOOL</emphasis> Søke i en LDAP-mappe"
+msgstr "<emphasis>VERKTØY</emphasis> Søke i en LDAP-mappe"
 
 msgid "The <command>jxplorer</command> command (in the package of the same name) is a graphical tool allowing to browse and edit an LDAP database. It is an interesting tool that provides an administrator with a good overview of the hierarchical structure of the LDAP data."
-msgstr "<command>jxplorer</command>-kommandoen (i pakken med samme navn) er et grafisk verktøy som tillater å bla gjennom og redigere en LDAP-database. Dette er et interessant verktøy som gir en administrator en god oversikt over den hierarkiske strukturen i LDAP-dataene."
+msgstr "Kommandoen <command>jxplorer</command> (i pakken med samme navn) er et grafisk verktøy som tillater å bla gjennom og redigere en LDAP-database. Dette er et interessant verktøy som gir en administrator en god oversikt over den hierarkiske strukturen i LDAP-dataene."
 
-#, fuzzy
 msgid "<primary><command>jxplorer</command></primary>"
 msgstr "<primary><command>jxplorer</command></primary>"
 
 msgid "Also note the use of the <literal>-c</literal> option to the <command>ldapadd</command> command; this option requests that processing doesn't stop in case of error. Using this option is required because converting the <filename>/etc/services</filename> often generates a few errors that can safely be ignored."
-msgstr "Legg også merke til bruken av <literal>-c</literal>-valget til <command>ldapadd</command>-kommandoen; Dette alternativet ber om at prosessen ikke stopper i tilfelle feil. Å bruke dette alternativet kreves fordi å konvertere <filename>/etc/services</filename> ofte generer noen få feil som trygt kan ignoreres."
+msgstr "Legg også merke til bruken av <literal>-c</literal>-valget til <command>ldapadd</command>-kommandoen; dette alternativet ber om at prosessen ikke stopper i tilfelle feil. Å bruke dette alternativet kreves fordi å konvertere <filename>/etc/services</filename> ofte generer noen få feil som trygt kan ignoreres."
 
 msgid "Managing Accounts with LDAP"
 msgstr "Å håndtere kontoer med LDAP"
 
 msgid "Now the LDAP database contains some useful information, the time has come to make use of this data. This section focuses on how to configure a Linux system so that the various system directories use the LDAP database."
-msgstr "Nå når LDAP-databasen inneholder en del nyttig informasjon, er tiden kommet for å gjøre bruk av disse dataene. I denne seksjonen skal vi se på hvordan du konfigurerer et Linux-system, slik at de ulike system-mappene bruker LDAP-databasen."
+msgstr "Nå når LDAP-databasen inneholder en del nyttig informasjon, er tiden kommet for å gjøre bruk av disse dataene. I denne seksjonen skal vi se på hvordan du konfigurerer et Linux-system, slik at de ulike systemmappene bruker LDAP-databasen."
 
 msgid "Configuring NSS"
 msgstr "Å sette opp NSS"
 
 msgid "The NSS system (Name Service Switch, see sidebar <xref linkend=\"sidebar.intro-nss\" />) is a modular system designed to define or fetch information for system directories. Using LDAP as a source of data for NSS requires installing the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Its installation asks a few questions; the answers are summarized in <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr "NSS-systemet (Name Service Switch, se sidestolpe <xref linkend=\"sidebar.intro-nss\" />) er et modulært system utformet for å definere eller hente informasjon for system-mapper. Med LDAP som datakilde krever NSS installasjon av <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken. Installasjonen av den stiller noen få spørsmål; svarene er oppsummert i <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
+msgstr "NSS-systemet (Name Service Switch, se sidestolpe <xref linkend=\"sidebar.intro-nss\" />) er et modulært system utformet for å definere eller hente informasjon for systemmapper. Med LDAP som datakilde krever NSS installasjon av <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken. Installasjonen av den stiller noen få spørsmål; svarene er oppsummert i <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
 
-#, fuzzy
 msgid "<primary><emphasis>libnss-ldap</emphasis></primary>"
 msgstr "<primary><emphasis>libnss-ldap</emphasis></primary>"
 
@@ -2333,7 +2308,6 @@ msgstr "Å sette opp <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken"
 msgid "LDAP server Uniform Resource Identifier"
 msgstr "LDAP-tjener Uniform Resource Identifier"
 
-#, fuzzy
 msgid "<literal>ldap://ldap.falcot.com</literal>"
 msgstr "<literal>ldap://ldap.falcot.com</literal>"
 
@@ -2343,7 +2317,6 @@ msgstr "Øremerket navn for søkerbasen"
 msgid "LDAP version to use"
 msgstr "LDAP-versjon som skal brukes"
 
-#, fuzzy
 msgid "<literal>3</literal>"
 msgstr "<literal>3</literal>"
 
@@ -2351,7 +2324,7 @@ msgid "Does the LDAP database require login?"
 msgstr "Krever LDAP-databasen innlogging?"
 
 msgid "Special LDAP privileges for root"
-msgstr "Spesielle LDAP rotprivilegier"
+msgstr "Spesielle LDAP-rotprivilegier"
 
 msgid "yes"
 msgstr "ja"
@@ -2363,13 +2336,13 @@ msgid "LDAP account for root"
 msgstr "LDAP-konto for rot"
 
 msgid "LDAP root account password"
-msgstr "LDAP passord for rotkonto"
+msgstr "LDAP-passord for rotkonto"
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file then needs to be modified, so as to configure NSS to use the freshly-installed <command>ldap</command> module."
-msgstr "<filename>/etc/nsswitch.conf</filename>-filen må deretter endres, for å konfigurere NSS til å bruke den nettopp installerte <command>ldap</command>-modulen."
+msgstr "Filen <filename>/etc/nsswitch.conf</filename> må deretter endres, for å konfigurere NSS til å bruke den nettopp installerte <command>ldap</command>-modulen."
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file"
-msgstr "<filename>/etc/nsswitch.conf</filename>-filen"
+msgstr "Filen <filename>/etc/nsswitch.conf</filename>"
 
 #, fuzzy
 msgid ""
@@ -2416,17 +2389,16 @@ msgstr ""
 "netgroup: ldap files"
 
 msgid "The <command>ldap</command> module is usually inserted before others, and it will therefore be queried first. The notable exception is the <literal>hosts</literal> service since contacting the LDAP server requires consulting DNS first (to resolve <literal>ldap.falcot.com</literal>). Without this exception, a hostname query would try to ask the LDAP server; this would trigger a name resolution for the LDAP server, and so on in an infinite loop."
-msgstr "<command>ldap</command>-modulen er vanligvis satt inn før de andre, og den vil derfor spørres først. Unntaket å merke seg er <literal>hosts</literal>-tjenesten siden å kontakte LDAP-tjeneren krever å kontakte DNS først (for å løse <literal>ldap.falcot.com</literal>). Uten dette unntaket, ville en forespørsel om vertsnavn prøve å spørre LDAP-tjeneren; dette ville utløse et navneoppslag for LDAP-tjeneren, og så videre i en uendelig sløyfe."
+msgstr "Modulen <command>ldap</command> er vanligvis satt inn før de andre, og den vil derfor spørres først. Unntaket å merke seg er <literal>hosts</literal>-tjenesten, siden LDAP-tjeneren krever å kontakte DNS først (for å løse <literal>ldap.falcot.com</literal>). Uten dette unntaket, ville en forespørsel om vertsnavn prøve å spørre LDAP-tjeneren; dette ville utløse et navneoppslag for LDAP-tjeneren, og så videre i en uendelig sløyfe."
 
 msgid "If the LDAP server should be considered authoritative (and the local files used by the <command>files</command> module disregarded), services can be configured with the following syntax:"
-msgstr "Hvis LDAP-tjeneren skal vurderes som autoritative (og de lokale filene som brukes av <command>filer</command>-modulen ignoreres), kan tjenester konfigureres med følgende syntaks:"
+msgstr "Hvis LDAP-tjeneren skal vurderes som autoritative (og de lokale filene som brukes av <command>files</command>-modulen ignoreres), kan tjenester konfigureres med følgende syntaks:"
 
-#, fuzzy
 msgid "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
-msgstr "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
+msgstr "<literal><replaceable>tjeneste</replaceable>: ldap [NOTFOUND=return] files</literal>."
 
 msgid "If the requested entry does not exist in the LDAP database, the query will return a “not existing” reply even if the resource does exist in one of the local files; these local files will only be used when the LDAP service is down."
-msgstr "Hvis den forespurte oppføringen ikke finnes i LDAP-databasen, vil søket returnere et \"ikke eksisterende\" svar, selv om ressursen eksisterer i en av de lokale filene. Disse lokale filene vil bare bli brukt når LDAP-tjenesten er nede."
+msgstr "Hvis den forespurte oppføringen ikke finnes i LDAP-databasen, vil søket returnere et «ikke eksisterende» svar, selv om ressursen eksisterer i en av de lokale filene. Disse lokale filene vil bare bli brukt når LDAP-tjenesten er nede."
 
 msgid "Configuring PAM"
 msgstr "Å sette opp PAM"
@@ -2435,15 +2407,14 @@ msgid "This section describes a PAM configuration (see sidebar <xref linkend=\"s
 msgstr "Denne delen beskriver en PAM-konfigurasjon (se sidestolpe <xref linkend=\"sidebar.intro-pam\" />) som vil tillate programmer å utføre de nødvendige godkjenninger mot LDAP-databasen."
 
 msgid "<emphasis>CAUTION</emphasis> Broken authentication"
-msgstr "<emphasis>CAUTION</emphasis> Brutt godkjenning"
+msgstr "<emphasis>VÆR VARSOM</emphasis> Brutt godkjenning"
 
 msgid "Changing the standard PAM configuration used by various programs is a sensitive operation. A mistake can lead to broken authentication, which could prevent logging in. Keeping a root shell open is therefore a good precaution. If configuration errors occur, they can be then fixed and the services restarted with minimal effort."
-msgstr "Det er en følsom operasjon å endre den standard PAM-konfigurasjonen som brukes av ulike programmer. En feil kan føre til ødelagt godkjenning, noe som kan hindre innlogging. Holde et rotskall åpent, er derfor en god forholdsregel. Hvis konfigurasjonsfeil oppstår, kan de fikses og tjenesten startes igjen med minimal innsats."
+msgstr "Det er en følsom operasjon å endre den standard PAM-konfigurasjonen som brukes av ulike programmer. En feil kan føre til ødelagt godkjenning, noe som kan hindre innlogging. Å holde et rotskall åpent er derfor en god forholdsregel. Hvis konfigurasjonsfeil oppstår, kan de fikses, og tjenesten startes igjen med minimal innsats."
 
 msgid "The LDAP module for PAM is provided by the <emphasis role=\"pkg\">libpam-ldap</emphasis> package. Installing this package asks a few questions very similar to those in <emphasis role=\"pkg\">libnss-ldap</emphasis>; some configuration parameters (such as the URI for the LDAP server) are even actually shared with the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Answers are summarized in <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
 msgstr "LDAP-modulen for PAM leveres av <emphasis role=\"pkg\">libpam-ldap</emphasis>-pakken. Å installere denne pakken stiller noen spørsmål som er svært lik dem i <emphasis role=\"pkg\">libnss-ldap</emphasis>. Noen konfigurasjonsparametere (for eksempel URI for LDAP-tjeneren) er faktisk delt med <emphasis role=\"pkg\">libnss-ldap</emphasis>-pakken. Svarene er er oppsummert i <xref linkend=\"tab-libpam-ldap\" xrefstyle=\"select: label nopage\" />."
 
-#, fuzzy
 msgid "<primary><emphasis>libpam-ldap</emphasis></primary>"
 msgstr "<primary><emphasis>libpam-ldap</emphasis></primary>"
 
@@ -2451,13 +2422,13 @@ msgid "Configuration of <emphasis>libpam-ldap</emphasis>"
 msgstr "Å sette opp <emphasis>libpam-ldap</emphasis>"
 
 msgid "Allow LDAP admin account to behave like local root?"
-msgstr "Tillate LDAP admin-kontoen å oppføre seg som lokal rot?"
+msgstr "Tillate LDAP-administrasjonskontoen å oppføre seg som lokal rot?"
 
 msgid "Yes. This allows using the usual <command>passwd</command> command for changing passwords stored in the LDAP database."
 msgstr "Ja. Dette tilllater å bruke den vanlige <command>passwd</command>-kommandoen for å endre passord lagret i LDAP-databasen."
 
 msgid "Does the LDAP database require logging in?"
-msgstr "Krever lDAP-databasen innlogging?"
+msgstr "Krever LDAP-databasen innlogging?"
 
 msgid "the LDAP database administrative password"
 msgstr "LDAP-databasens administrative passord"
@@ -2465,59 +2436,50 @@ msgstr "LDAP-databasens administrative passord"
 msgid "Local encryption algorithm to use for passwords"
 msgstr "Å bruke lokal krypteringsalgoritme for passord"
 
-#, fuzzy
 msgid "crypt"
-msgstr "crypt"
+msgstr "krypten"
 
 msgid "Installing <emphasis role=\"pkg\">libpam-ldap</emphasis> automatically adapts the default PAM configuration defined in the <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> and <filename>/etc/pam.d/common-account</filename> files. This mechanism uses the dedicated <command>pam-auth-update</command> tool (provided by the <emphasis role=\"pkg\">libpam-runtime</emphasis> package). This tool can also be run by the administrator should they wish to enable or disable PAM modules."
-msgstr "Installering av <emphasis role=\"pkg\">libpam-ldap</emphasis> tilpasser automatisk standard POAM-konfigurasjonen som er definert i <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> og <filename>/etc/pam.d/common-account</filename>-filene. Denne mekanisme bruker det øremerkede <command>pam-auth-update</command>-verktøyet (levert av <emphasis role=\"pkg\">libpam-runtime</emphasis> pakken). Dette verktøyet kan også kjøres av administratoren dersom de ønsker å aktivere eller deaktivere PAM moduler."
+msgstr "Installering av <emphasis role=\"pkg\">libpam-ldap</emphasis> tilpasser automatisk standard PAM-konfigurasjonen som er definert i <filename>/etc/pam.d/common-auth</filename>, <filename>/etc/pam.d/common-password</filename> og <filename>/etc/pam.d/common-account</filename>-filene. Denne mekanisme bruker det øremerkede <command>pam-auth-update</command>-verktøyet (levert av <emphasis role=\"pkg\">libpam-runtime</emphasis>-pakken). Dette verktøyet kan også kjøres av administratoren dersom de ønsker å aktivere eller deaktivere PAM-moduler."
 
-#, fuzzy
 msgid "<primary><filename>common-auth</filename></primary>"
 msgstr "<primary><filename>common-auth</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-auth</filename></primary>"
 msgstr "<primary><filename>/etc/pam.d/common-auth</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>common-password</filename></primary>"
 msgstr "<primary><filename>common-password</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-password</filename></primary>"
 msgstr "<primary><filename>/etc/pam.d/common-password</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>common-account</filename></primary>"
 msgstr "<primary><filename>common-account</filename></primary>"
 
-#, fuzzy
 msgid "<primary><filename>/etc/pam.d/common-account</filename></primary>"
 msgstr "<primary><filename>/etc/pam.d/common-account</filename></primary>"
 
 msgid "Securing LDAP Data Exchanges"
-msgstr "Å sikre LDAP datautveksling"
+msgstr "Å sikre LDAP-datautveksling"
 
-#, fuzzy
 msgid "<primary>LDAP</primary><secondary>secure</secondary>"
-msgstr "<primary>LDAP</primary><secondary>secure</secondary>"
+msgstr "<primary>LDAP</primary><secondary>sikre</secondary>"
 
 msgid "By default, the LDAP protocol transits on the network as cleartext; this includes the (encrypted) passwords. Since the encrypted passwords can be extracted from the network, they can be vulnerable to dictionary-type attacks. This can be avoided by using an extra encryption layer; enabling this layer is the topic of this section."
-msgstr "Som standard transporterer LDAP-protokollen på nettverket i klartekst. Dette inkluderer (krypterte) passord. Ettersom de krypterte passordene kan være hentet fra nettverket, kan de være sårbare for ordbok-type angrep. Dette kan unngås ved hjelp av et ekstra krypteringslag; Å aktivere dette laget er tema for denne seksjonen."
+msgstr "Som standard transporterer LDAP-protokollen på nettverket i klartekst. Dette inkluderer (krypterte) passord. Ettersom de krypterte passordene kan være hentet fra nettverket, kan de være sårbare for type ordbokangrep. Dette kan unngås ved hjelp av et ekstra krypteringslag; å aktivere dette laget er tema for denne seksjonen."
 
 msgid "Configuring the Server"
 msgstr "Å sette opp tjeneren"
 
-#, fuzzy
 msgid "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
-msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>creating keys</secondary>"
+msgstr "<primary><foreignphrase>OpenSSL</foreignphrase></primary><secondary>lage nøkler</secondary>"
 
 msgid "<primary>key pair</primary>"
 msgstr "<primary>nøkkelpar</primary>"
 
 msgid "The first step is to create a key pair (comprising a public key and a private key) for the LDAP server. The Falcot administrators reuse <emphasis>easy-rsa</emphasis> to generate it (see <xref linkend=\"sect.easy-rsa\" />). Running <command>./build-key-server ldap.falcot.com</command> asks a few mundane questions (location, organization name and so on). The answer to the “common name” question <emphasis>must</emphasis> be the fully-qualified hostname for the LDAP server; in our case, <literal>ldap.falcot.com</literal>."
-msgstr "Det første trinnet er å opprette et nøkkelpar (bestående av en offentlig nøkkel og en privat nøkkel) for LDAP-serveren. Falcot-administratorene gjenbruker <emphasis>easy-rsa</emphasis> for å genere det (se <xref linkend=\"sect.easy-rsa\" />). Kjøring av <command>./build-key-server ldap.falcot.com</command> medfører noen dagligdagse spørsmål (plassering, organisasjonsnavn og så videre). Svaret på deet \"vanlig navn\"-spørsmålet <emphasis>must</emphasis> er det fullstendige vertsnavnet for LDAP-tjeneren; i vårt tilfelle, <literal>ldap.falcot.com</literal>."
+msgstr "Det første trinnet er å opprette et nøkkelpar (bestående av en offentlig nøkkel og en privat nøkkel) for LDAP-serveren. Falcot-administratorene gjenbruker <emphasis>easy-rsa</emphasis> for å genere det (se <xref linkend=\"sect.easy-rsa\" />). Kjøring av <command>./build-key-server ldap.falcot.com</command> medfører noen dagligdagse spørsmål (plassering, organisasjonsnavn og så videre). Svaret på spørsmålet «common name»  («vanlig navn»-spørsmålet )<emphasis>må</emphasis> være det fullstendige vertsnavnet for LDAP-tjeneren; i vårt tilfelle, <literal>ldap.falcot.com</literal>."
 
 msgid "This command creates a certificate in the <filename>keys/ldap.falcot.com.crt</filename> file; the corresponding private key is stored in <filename>keys/ldap.falcot.com.key</filename>."
 msgstr "Denne kommandoen oppretter et sertifikat i <filename>keys/ldap.falcot.com.crt</filename>-filen; den samsvarende private nøkkelen er lagret i <filename>keys/ldap.falcot.com.key</filename>."
@@ -2548,7 +2510,7 @@ msgstr ""
 "</userinput>"
 
 msgid "The <command>slapd</command> daemon also needs to be told to use these keys for encryption. The LDAP server configuration is managed dynamically: the configuration can be updated with normal LDAP operations on the <literal>cn=config</literal> object hierarchy, and the server updates <filename>/etc/ldap/slapd.d</filename> in real time to make the configuration persistent. <command>ldapmodify</command> is thus the right tool to update the configuration:"
-msgstr "<command>slapd</command>-nissen må også få beskjed om å bruke disse nøklene tastene til kryptering. LDAP-tjenerkonfigurasjon styres dynamisk: konfigurasjonen kan oppdateres med normale LDAP operasjoner på <literal>cn=config</literal>-objekthierarki, og tjeneroppdateringer på <filename>/etc/ldap/slapd.d</filename> i sann tid for å gjøre konfigurasjonen persistent. <command>ldapmodify</command> er dermed det riktige verktøyet for å oppdatere konfigurasjonen:"
+msgstr "Nissen <command>slapd</command> må også få beskjed om å bruke disse nøklene/tastene til kryptering. LDAP-tjenerkonfigurasjon styres dynamisk: konfigurasjonen kan oppdateres med normale LDAP-operasjoner på <literal>cn=config</literal>-objekthierarki, og tjeneroppdateringer på <filename>/etc/ldap/slapd.d</filename> i sann tid for å gjøre konfigurasjonen persistent. <command>ldapmodify</command> er dermed det riktige verktøyet for å oppdatere konfigurasjonen:"
 
 msgid "Configuring <command>slapd</command> for encryption"
 msgstr "Konfigurering <command>slapd</command> for kryptifisering"
@@ -2590,19 +2552,17 @@ msgstr ""
 "</computeroutput>"
 
 msgid "<emphasis>TOOL</emphasis> <command>ldapvi</command> to edit an LDAP directory"
-msgstr "<emphasis>TOOL</emphasis> <command>ldapvi</command> for å redigere en  LDAP-mappe"
+msgstr "<emphasis>VERKTØY</emphasis> <command>ldapvi</command> for å redigere en LDAP-mappe"
 
-#, fuzzy
 msgid "<primary><command>ldapvi</command></primary>"
 msgstr "<primary><command>ldapvi</command></primary>"
 
 msgid "With <command>ldapvi</command>, you can display an LDIF output of any part of the LDAP directory, make some changes in the text editor, and let the tool do the corresponding LDAP operations for you."
-msgstr "Med <command>ldapvi</command>, kan du vise en LDIF-utskrift for enhver del av LDAP-katalogen, gjøre endringer i tekstredigereren, og la verktøyet gjøre de overensstemmende LDAP-operasjoner for deg."
+msgstr "Med <command>ldapvi</command> kan du vise en LDIF-utskrift for enhver del av LDAP-katalogen, gjøre endringer i tekstredigereren, og la verktøyet gjøre de overensstemmende LDAP-operasjoner for deg."
 
 msgid "It is thus a convenient way to update the configuration of the LDAP server, simply by editing the <literal>cn=config</literal> hierarchy."
 msgstr "Dette er derfor en praktisk måte å oppdatere LDAP-tjenerens oppsett, ganske enkelt ved å redigere <literal>cn=config</literal>-hierarkiet."
 
-#, fuzzy
 msgid ""
 "<computeroutput># </computeroutput><userinput>ldapvi -Y EXTERNAL -h ldapi:/// -b cn=config\n"
 "</userinput>"
@@ -2611,10 +2571,10 @@ msgstr ""
 "</userinput>"
 
 msgid "The last step for enabling encryption involves changing the <varname>SLAPD_SERVICES</varname> variable in the <filename>/etc/default/slapd</filename> file. We'll play it safe and disable unsecured LDAP altogether."
-msgstr "Det siste trinnet for å aktivere kryptering innebærer å endre <varname>SLAPD_SERVICES</varname>-variabelen i <filename>/etc/default/slapd</filename>-filen. Vi skal gjøre det trygt og helt deaktivere usikret LDAP."
+msgstr "Det siste trinnet for å aktivere kryptering innebærer å endre <varname>SLAPD_SERVICES</varname>-variabelen i <filename>/etc/default/slapd</filename>-filen. Vi skal gjøre det trygt, og helt deaktivere usikret LDAP."
 
 msgid "The <filename>/etc/default/slapd</filename> file"
-msgstr "<filename>/etc/default/slapd</filename>-filen"
+msgstr "Filen <filename>/etc/default/slapd</filename>"
 
 #, fuzzy
 msgid ""
@@ -2716,10 +2676,10 @@ msgid "Configuring the Client"
 msgstr "Å sette opp klienten"
 
 msgid "On the client side, the configuration for the <emphasis>libpam-ldap</emphasis> and <emphasis>libnss-ldap</emphasis> modules needs to be modified to use an <literal>ldaps://</literal> URI."
-msgstr "På klientsiden, trenger oppsettet for <emphasis>libpam-ldap</emphasis> og <emphasis>libnss-ldap</emphasis>-modulene å bli modifisert til å bruke en <literal>ldaps://</literal>-URI."
+msgstr "På klientsiden trenger oppsettet for <emphasis>libpam-ldap</emphasis> og <emphasis>libnss-ldap</emphasis>-modulene å bli modifisert til å bruke en <literal>ldaps://</literal>-URI."
 
 msgid "LDAP clients also need to be able to authenticate the server. In a X.509 public key infrastructure, public certificates are signed by the key of a certificate authority (CA). With <emphasis>easy-rsa</emphasis>, the Falcot administrators have created their own CA and they now need to configure the system to trust the signatures of Falcot's CA. This can be done by putting the CA certificate in <filename>/usr/local/share/ca-certificates</filename> and running <command>update-ca-certificates</command>."
-msgstr "LDAP-klienter må også kunne godkjenne serveren. I en X.509 offentlig nøkkel infrastruktur, er offentlige sertifikater signert av nøkkelen til en sertifiseringsinstans (CA). Med <emphasis>easy-rsa</emphasis>, har Falcot-administratorene laget sin egen CA, og nå trenger de å konfigurere systemet til å stole på underskriftene til Falcots CA. Dette kan gjøres ved å sette CA-sertifikatet inn i <filename>/usr/local/share/ca-certificates</filename> og kjøre <command>update-ca-certificates</command>."
+msgstr "LDAP-klienter må også kunne godkjenne serveren. I en X.509 offentlig nøkkelinfrastruktur er offentlige sertifikater signert av nøkkelen til en sertifiseringsinstans (CA). Med <emphasis>easy-rsa</emphasis> har Falcot-administratorene laget sin egen CA, og nå trenger de å konfigurere systemet til å stole på underskriftene til Falcots CA. Dette kan gjøres ved å sette CA-sertifikatet inn i <filename>/usr/local/share/ca-certificates</filename>, og kjøre <command>update-ca-certificates</command>."
 
 #, fuzzy
 msgid ""
@@ -2742,10 +2702,10 @@ msgstr ""
 "</computeroutput>"
 
 msgid "Last but not least, the default LDAP URI and default base DN used by the various command line tools can be modified in <filename>/etc/ldap/ldap.conf</filename>. This will save quite some typing."
-msgstr "Sist men ikke minst, kan standard LDAP URI og standard base DN, brukt av de ulike kommandolinje-verktøyene, endres i <filename>/etc/ldap/ldap.conf</filename>. Dette vil spare ganske lang skrive."
+msgstr "Sist men ikke minst kan standard LDAP URI og standard base DN, brukt av de ulike kommandolinjeverktøyene, endres i <filename>/etc/ldap/ldap.conf</filename>. Dette vil spare ganske mye skriving."
 
 msgid "The <filename>/etc/ldap/ldap.conf</filename> file"
-msgstr "<filename>/etc/ldap/ldap.conf</filename>-filen"
+msgstr "Filen <filename>/etc/ldap/ldap.conf</filename>"
 
 #, fuzzy
 msgid ""
@@ -2787,51 +2747,44 @@ msgid "Real-Time Communication Services"
 msgstr "Sanntids kommunikasjonstjenester"
 
 msgid "Real-Time Communication (RTC) services include voice, video/webcam, instant messaging (IM) and desktop sharing. This chapter gives a brief introduction to three of the services required to operate RTC, including a TURN server, SIP server and XMPP server. Comprehensive details of how to plan, install and manage these services are available in the Real-Time Communications Quick Start Guide which includes examples specific to Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
-msgstr "Real-Time Communication (RTC)-tjenester inkluderer tale, video/nettkamera, lynmelding(IM) og skrivebordsdeling. Dette kapitlet gir en kort innføring i tre av de tjenester som kreves for å drive RTC, omfattende en TURN-tjener, SIP-tjener og XMPP-tjener. Omfattende detaljinformasjon om hvordan planlegge, installere og administrere disse tjenestene er tilgjengelige i Real-Time Communications Quick Start Guide som inneholder eksempler som er spesifikke for Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
+msgstr "Real-Time Communication (RTC)-tjenester (sanntids kommunikasjonstjenester) inkluderer tale, video/nettkamera, lynmelding (IM) og skrivebordsdeling. Dette kapitlet gir en kort innføring i tre av de tjenester som kreves for å drive RTC, omfattende en TURN-tjener, SIP-tjener og XMPP-tjener. Omfattende detaljinformasjon om hvordan planlegge, installere og administrere disse tjenestene er tilgjengelige i Real-Time Communications Quick Start Guide (Hurtigstartveiledning) som inneholder eksempler som er spesifikke for Debian. <ulink type=\"block\" url=\"http://rtcquickstart.org\" />"
 
-#, fuzzy
 msgid "<primary>VoIP</primary><secondary>server</secondary>"
 msgstr "<primary>VoIP</primary><secondary>server</secondary>"
 
-#, fuzzy
 msgid "<primary>RTC</primary><secondary>server</secondary>"
 msgstr "<primary>RTC</primary><secondary>server</secondary>"
 
-#, fuzzy
 msgid "<primary>Instant Messaging</primary><secondary>server</secondary>"
-msgstr "<primary>Instant Messaging</primary><secondary>server</secondary>"
+msgstr "<primary>Instant Messaging (umiddelbare meldinger)</primary><secondary>server</secondary>"
 
-#, fuzzy
 msgid "<primary>Chat</primary><secondary>server</secondary>"
-msgstr "<primary>Chat</primary><secondary>server</secondary>"
+msgstr "<primary>Chat (chatte)</primary><secondary>server</secondary>"
 
 msgid "Both SIP and XMPP can provide the same functionality. SIP is slightly more well known for voice and video while XMPP is traditionally regarded as an IM protocol. In fact, they can both be used for any of these purposes. To maximize connectivity options, it is recommended to run both in parallel."
-msgstr "Både SIP og XMPP kan gi den samme funksjonaliteten. SIP er litt mer kjent for tale og video, mens XMPP er tradisjonelt ansett som en IM-protokoll. Faktisk kan begge anvendes for hvilke som helst av disse formålene. For å maksimere tilkoblingsmuligheter, anbefales det å kjøre begge parallelt."
+msgstr "Både SIP og XMPP kan gi den samme funksjonaliteten. SIP er litt mer kjent for tale og video, mens XMPP er tradisjonelt ansett som en IM-protokoll. Faktisk kan begge anvendes for hvilke som helst av disse formålene. For å maksimere tilkoblingsmuligheter anbefales det å kjøre begge parallelt."
 
-#, fuzzy
 msgid "<primary>SIP</primary>"
 msgstr "<primary>SIP</primary>"
 
-#, fuzzy
 msgid "<primary>XMPP</primary>"
 msgstr "<primary>XMPP</primary>"
 
 msgid "These services rely on X.509 certificates both for authentication and confidentiality purposes. See <xref linkend=\"sect.easy-rsa\" /> for details on how to create them. Alternatively the <emphasis>Real-Time Communications Quick Start Guide</emphasis> also has some useful explanations: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
-msgstr "Disse tjenestene er avhengige av X.509-sertifikater både for autentiserings- og konfidensialitets-formål. Se <xref linkend=\"sect.easy-rsa\" /> for mer informasjon om hvordan du oppretter dem. Alternativt har også <emphasis>Real-Time Communications Quick Start Guide</emphasis> noen nyttige forklaringer: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
+msgstr "Disse tjenestene er avhengige av X.509-sertifikater både for autentiserings- og konfidensialitetsformål. Se <xref linkend=\"sect.easy-rsa\" /> for mer informasjon om hvordan du oppretter dem. Alternativt har også <emphasis>Real-Time Communications Quick Start Guide (Sanntids kommunikasjonstjenesters Hurtigstartveiledning)</emphasis> noen nyttige forklaringer: <ulink type=\"block\" url=\"http://rtcquickstart.org/guide/multi/tls.html\" />"
 
 msgid "DNS settings for RTC services"
-msgstr "DNS-settinger for RTC-tjenester"
+msgstr "DNS-innstillinger for RTC-tjenester"
 
 msgid "RTC services require DNS SRV and NAPTR records. A sample configuration that can be placed in the zone file for <literal>falcot.com</literal>:"
 msgstr "RTC-tjenester krever DNS SRV- og NAPTR-registrering. Ett eksempel på oppsett som kan plasseres i sonefilen for <literal>falcot.com</literal>:"
 
-#, fuzzy
 msgid "<primary>DNS</primary><secondary>SRV record</secondary>"
-msgstr "<primary>DNS</primary><secondary>SRV record</secondary>"
+msgstr "<primary>DNS</primary><secondary>SRV-post</secondary>"
 
 #, fuzzy
 msgid "<primary>DNS</primary><secondary>NAPTR record</secondary>"
-msgstr "<primary>DNS</primary><secondary>NAPTR record</secondary>"
+msgstr "<primary>DNS</primary><secondary>NAPTR-poster</secondary>"
 
 #, fuzzy
 msgid ""
@@ -2897,21 +2850,19 @@ msgid "TURN Server"
 msgstr "TURN-tjener"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
-msgstr "TURN er en tjeneste som hjelper klientene bak NAT-rutere og brannmurer med å finne den mest effektive måten å kommunisere med andre klienter på og for å formidle mediestrømmer hvis ingen direkte mediabane blir funnet. Det anbefales sterkt at TURN-tjeneren installeres før noen av de andre RTC-tjenestene tilbys til sluttbrukere."
+msgstr "TURN er en tjeneste som hjelper klientene bak NAT-rutere og brannmurer med å finne den mest effektive måten å kommunisere med andre klienter på, og for å formidle mediestrømmer hvis ingen direkte mediabane blir funnet. Det anbefales sterkt at TURN-tjeneren installeres før noen av de andre RTC-tjenestene tilbys til sluttbrukere."
 
-#, fuzzy
 msgid "<primary>TURN</primary><secondary>server</secondary>"
 msgstr "<primary>TURN</primary><secondary>server</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
 msgstr "TURN og den tilhørende ICE-protokollen er åpne standarder. For å dra nytte av disse protokollene, maksimere tilkoblingsmuligheter, og minimere brukerfrustrasjon, er det viktig å sikre at alle klientprogramvarene støtter ICE og TURN."
 
-#, fuzzy
 msgid "<primary>ICE</primary>"
 msgstr "<primary>ICE</primary>"
 
 msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
-msgstr "For å få ICE-algoritmene til å fungere effektivt, må tjeneren ha to offentlige IPv4-adresser."
+msgstr "For å få ICE-algoritmene til å fungere effektivt må tjeneren ha to offentlige IPv4-adresser."
 
 msgid "Install the TURN server"
 msgstr "Å installere TURN-tjeneren"
@@ -2959,7 +2910,6 @@ msgstr "Å håndtere TURN-brukerne"
 msgid "Use the htdigest utility to manage the TURN server user list."
 msgstr "Bruk htdigest-verktøyet for å håndtere TURN-tjenestens brukerliste."
 
-#, fuzzy
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
@@ -2967,12 +2917,11 @@ msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/us
 msgstr "Å bruke HUP-signalet til å få tjeneren til å laste <filename>/etc/reTurn/users.txt</filename>-filen på nytt etter å ha endret den, eller aktivere den automatiske gjenopplastingsfunksjonen i <filename>/etc/reTurn/reTurnServer.config</filename>."
 
 msgid "SIP Proxy Server"
-msgstr "SIP mellomtjener"
+msgstr "SIP-mellomtjener"
 
 msgid "A SIP proxy server manages the incoming and outgoing SIP connections between other organizations, SIP trunking providers, SIP PBXes such as Asterisk, SIP phones, SIP-based softphones and WebRTC applications."
-msgstr "En SIP mellomtjener håndterer innkommende og utgående SIP forbindelser mellom andre organisasjoner, SIP kanal-leverandører, SIP PBXer som Asterisk, SIP-telefoner, SIP-baserte PC-telefoner og WebRTC applikasjoner."
+msgstr "En SIP-mellomtjener håndterer innkommende og utgående SIP-forbindelser mellom andre organisasjoner, SIP-kanalleverandører, SIP PBXer som Asterisk, SIP-telefoner, SIP-baserte PC-telefoner og WebRTC-applikasjoner."
 
-#, fuzzy
 msgid "<primary>SIP</primary><secondary>server</secondary>"
 msgstr "<primary>SIP</primary><secondary>server</secondary>"
 
@@ -2980,26 +2929,24 @@ msgstr "<primary>SIP</primary><secondary>server</secondary>"
 msgid "<primary>SIP</primary><secondary>proxy</secondary>"
 msgstr "<primary>SIP</primary><secondary>proxy</secondary>"
 
-#, fuzzy
 msgid "<primary>SIP</primary><secondary>PBX</secondary>"
 msgstr "<primary>SIP</primary><secondary>PBX</secondary>"
 
 #, fuzzy
 msgid "<primary>SIP</primary><secondary>trunk</secondary>"
-msgstr "<primary>SIP</primary><secondary>trunk</secondary>"
+msgstr "<primary>SIP</primary><secondary>stamme</secondary>"
 
 msgid "It is strongly recommended to install and configure the SIP proxy before attempting a SIP PBX setup. The SIP proxy normalizes a lot of the traffic reaching the PBX and provides greater connectivity and resilience."
-msgstr "Det anbefales sterkt å installere og konfigurere SIP mellomtjener før du prøver et SIP PBX oppsett. SIP-mellomtjeneren normaliserer mye av trafikken som når PBX og gir større tilkoblingsmuligheter og elastisitet."
+msgstr "Det anbefales sterkt å installere og konfigurere SIP-mellomtjener før du prøver et SIP PBX-oppsett. SIP-mellomtjeneren normaliserer mye av trafikken som når PBX, og gir større tilkoblingsmuligheter og elastisitet."
 
 msgid "Install the SIP proxy"
-msgstr "Å installere SIP mellomtjener"
+msgstr "Å installere SIP-mellomtjener"
 
 msgid "Install the <emphasis role=\"pkg\">repro</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
 msgstr "Å installere <emphasis role=\"pkg\">repro</emphasis>-pakken. Å bruke pakken fra <emphasis role=\"distribution\">jessie-backports</emphasis> er sterkt anbefalt, ettersom den har de nyeste forbedringene for å maksimere tilkoblingsmuligheter og elastisitet."
 
-#, fuzzy
 msgid "<primary>repro</primary>"
-msgstr "<primary>repro</primary>"
+msgstr "<primary>repro (mellomtjener)</primary>"
 
 msgid "Edit the <filename>/etc/repro/repro.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server. The example below demonstrates how to setup both regular SIP and WebSockets/WebRTC, using TLS, IPv4 and IPv6:"
 msgstr "Å redigere <filename>/etc/repro/repro.config</filename>-oppsettsfilen. Det viktigste å gjøre er å sette inn IP-adressene til tjeneren. Eksempelet nedenfor viser hvordan du setter opp både vanlig SIP og WebSockets/WebRTC, ved hjelp av TLS, IPv4 og IPv6:"
@@ -3125,9 +3072,8 @@ msgstr ""
 "EnableCertificateAuthenticator = True"
 
 msgid "Use the <command>htdigest</command> utility to manage the admin password for the web interface. The username must be <emphasis>admin</emphasis> and the realm name must match the value specified in <filename>repro.config</filename>."
-msgstr "Å bruke <command>htdigest</command>-verktøyet for å administrere admin-passordet for nettgrensesnittet. Brukernavnet må være <emphasis>admin</emphasis> og områdenavnet må samsvare med verdien som er angitt i <filename>repro.config</filename>."
+msgstr "Å bruke <command>htdigest</command>-verktøyet for å administrere admin-passordet for nettgrensesnittet. Brukernavnet må være <emphasis>admin</emphasis>, og områdenavnet må samsvare med verdien som er angitt i <filename>repro.config</filename>."
 
-#, fuzzy
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/repro/users.txt repro admin</userinput>"
 
@@ -3141,35 +3087,33 @@ msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</lit
 msgstr "Gå til nettgrensesnittet på <literal>http://sip-proxy.falcot.com:5080</literal> for å fullføre oppsettet ved å legge til domener, lokale brukere og statiske ruter."
 
 msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
-msgstr "Det første trinnet er å legge det lokale domenet. Prosessen må startes på nytt etter å ha lagt til eller fjernet domener fra listen."
+msgstr "Det første trinnet er å legge til det lokale domenet. Prosessen må startes på nytt etter å ha lagt til, eller fjernet, domener fra listen."
 
+#, fuzzy
 msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
-msgstr "Mellomtjeneren vet hvordan du skal rute samtaler mellom lokale brukere og fulle SIP-adresse. Rute-oppsettet er bare nødvendig for å overstyre standardoppførsel, for eksempel til å gjenkjenne telefonnumre, legge til et prefiks, og rute dem til en SIP-leverandør."
+msgstr "Mellomtjeneren vet hvordan du skal rute samtaler mellom lokale brukere og full SIP-adresse. Ruting-oppsettet er bare nødvendig for å overstyre standardoppførsel, for eksempel til å gjenkjenne telefonnumre, legge til et prefiks, og rute dem til en SIP-leverandør."
 
 msgid "XMPP Server"
 msgstr "XMPP-tjener"
 
 msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
-msgstr "En XMPP-tjener håndterer tilkobling mellom lokale XMPP brukere og XMPP brukere i andre domener på den offentlige Internettet."
+msgstr "En XMPP-tjener håndterer tilkobling mellom lokale XMPP-brukere og XMPP-brukere i andre domener på det offentlige Internettet."
 
-#, fuzzy
 msgid "<primary>XMPP</primary><secondary>server</secondary>"
 msgstr "<primary>XMPP</primary><secondary>server</secondary>"
 
 msgid "<emphasis>VOCABULARY</emphasis> XMPP or Jabber?"
-msgstr "<emphasis>VOCABULARY</emphasis> XMPP eller Jabber?"
+msgstr "<emphasis>ORDFORRÅD</emphasis> XMPP eller Jabber?"
 
-#, fuzzy
 msgid "<primary>Jabber</primary>"
 msgstr "<primary>Jabber</primary>"
 
 msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
-msgstr "XMPP er noen ganger referert til som Jabber. Faktisk er Jabber et varemerke og XMPP er det offisielle navnet på standarden."
+msgstr "XMPP er noen ganger referert til som Jabber. Faktisk er Jabber et varemerke, og XMPP er det offisielle navnet på standarden."
 
 msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
 msgstr "Prosodi er en populær XMPP-tjener som opererer pålitelig på Debian-tjenere."
 
-#, fuzzy
 msgid "<primary>Prosody</primary>"
 msgstr "<primary>Prosody</primary>"
 
@@ -3191,7 +3135,7 @@ msgstr ""
 "admins = { \"joe@falcot.com\" }"
 
 msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
-msgstr "Et individuell konfigurasjonsfil er også nødvendig for hvert domene. Kopier eksemplet fra <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> og bruk det som et startpunkt. Her er <literal>falcot.com.cfg.lua</literal>:"
+msgstr "Et individuell konfigurasjonsfil er også nødvendig for hvert domene. Kopier eksemplet fra <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename>, og bruk det som et startpunkt. Her er <literal>falcot.com.cfg.lua</literal>:"
 
 #, fuzzy
 msgid ""
@@ -3212,9 +3156,8 @@ msgstr ""
 "                }"
 
 msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
-msgstr "For å aktivere domentet, må det være en symlink fra <filename>/etc/prosody/conf.d/</filename>. Lag den på denne måten:"
+msgstr "For å aktivere domenet må det være en symlink fra <filename>/etc/prosody/conf.d/</filename>. Lag den på denne måten:"
 
-#, fuzzy
 msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
 
@@ -3222,9 +3165,8 @@ msgid "Managing the XMPP server"
 msgstr "Å håndtere XMPP-tjeneren"
 
 msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
-msgstr "Noen håndteringsoperasjoner kan utføres ved hjelp av <literal>prosodyctl</literal>-kommandolinje-verktøyet. For eksempel, å legge til administratorkontoen som er angitt i <filename>/etc/prosody/prosody.cfg.lua</filename>:"
+msgstr "Noen håndteringsoperasjoner kan utføres ved hjelp av <literal>prosodyctl</literal>-kommandolinjeverktøyet. For eksempel, å legge til administratorkontoen som er angitt i <filename>/etc/prosody/prosody.cfg.lua</filename>:"
 
-#, fuzzy
 msgid ""
 "\n"
 "# prosodyctl adduser joe@falcot.com"
@@ -3232,62 +3174,57 @@ msgstr ""
 "\n"
 "# prosodyctl adduser joe@falcot.com"
 
+#, fuzzy
 msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
-msgstr "Se <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for mer informasjon om hvordan du kan tilpasse konfigurasjonen."
+msgstr "Se <ulink url=\"http://prosody.im/doc/configure\"> Prosodi elektronisk dokumentasjon (Prosody online documentation)</ulink> for mer informasjon om hvordan du kan tilpasse konfigurasjonen."
 
 msgid "Running services on port 443"
 msgstr "Å kjøre tjenester på port 443"
 
 msgid "Some administrators prefer to run all of their RTC services on port 443. This helps users to connect from remote locations such as hotels and airports where other ports may be blocked or Internet traffic is routed through HTTP proxy servers."
-msgstr "Noen administratorer foretrekker å kjøre alle sine RTC-tjenester på port 443. Dette hjelper brukere å koble til fra eksterne steder, som hoteller og flyplasser, der andre porter kan være blokkert eller Internett-trafikken rutet gjennom HTTP mellomtjenere."
+msgstr "Noen administratorer foretrekker å kjøre alle sine RTC-tjenester på port 443. Dette hjelper brukere å koble til fra eksterne steder, som hoteller og flyplasser, der andre porter kan være blokkert, eller Internett-trafikken rutet gjennom HTTP-mellomtjenere."
 
 msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different IP address. All the services can still be on the same host as Linux supports multiple IP addresses on a single host. The port number, 443, must be specified in the configuration files for each process and also in the DNS SRV records."
-msgstr "For å bruke denne strategien, trenger hver tjeneste (SIP, XMPP og TURN) en ulik IP-adresse. Alle tjenestene kan fortsatt være på samme vert ettersom Linux støtter flere IP-adresser på en enkelt vert. Portnummeret 443, må spesifiseres i konfigurasjonsfilene for hver prosess, og også i DNS SRV-registreringene."
+msgstr "For å bruke denne strategien trenger hver tjeneste (SIP, XMPP og TURN) en ulik IP-adresse. Alle tjenestene kan fortsatt være på samme vert ettersom Linux støtter flere IP-adresser på en enkelt vert. Portnummeret 443 må spesifiseres i konfigurasjonsfilene for hver prosess, og også i DNS SRV-registreringene."
 
 msgid "Adding WebRTC"
 msgstr "Å legge til WebRTC"
 
 msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
-msgstr "Falcot ønsker å la kundene ringe direkte fra nettstedet. Falcot administratorene ønsker også å bruke WebRTC som en del av sin gjenopprettingsplan etter uhell, slik at ansatte kan bruke nettlesere hjemme til å logge inn på selskapets telefonsystem og fungere normalt i en nødsituasjon."
+msgstr "Falcot ønsker å la kundene ringe direkte fra nettstedet. Falcot-administratorene ønsker også å bruke WebRTC som en del av sin gjenopprettingsplan etter uhell, slik at ansatte kan bruke nettlesere hjemme til å logge inn på selskapets telefonsystem, og fungere normalt i en nødsituasjon."
 
-#, fuzzy
 msgid "<primary>WebRTC</primary>"
 msgstr "<primary>WebRTC</primary>"
 
-#, fuzzy
 msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
 msgstr "<primary>SIP</primary><secondary>WebSockets</secondary>"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
-msgstr "<emphasis>IN PRACTICE</emphasis> Prøv WebRTC"
+msgstr "<emphasis>I PRAKSIS</emphasis> Prøv WebRTC"
 
-#, fuzzy
 msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
-msgstr "<primary>WebRTC</primary><secondary>demonstration</secondary>"
+msgstr "<primary>WebRTC</primary><secondary>demonstrasjon</secondary>"
 
 msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 msgstr "Hvis du ikke har prøvd WebRTC før, gir ulike nettsteder en tilkoblet demonstrasjon og testmuligheter. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 
 msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
-msgstr "WebRTC er en teknologi i raskt utvikling, og det er viktig å bruke pakker fra <emphasis role=\"distribution\">jessie-backports</emphasis> eller <emphasis role=\"distribution\">Testing</emphasis>-distribusjonene."
+msgstr "WebRTC er en teknologi i raskt utvikling, og det er viktig å bruke pakker fra <emphasis role=\"distribution\">jessie-backports</emphasis>, eller <emphasis role=\"distribution\">Testing</emphasis>-distribusjonene."
 
 msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
-msgstr "JSCommunicator er en generisk, ikke-varemerket WebRTC-telefon som ikke krever noen tjener-side skripting som PHP. Den er bygget utelukkende med HTML, CSS og Javascript. Den er grunnlaget for mange andre WebRTC-tjenester og moduler til mer avanserte nettpubliserings-rammeprogrammer.<ulink type=\"block\" url=\"http://jscommunicator.org\" />"
+msgstr "JSCommunicator er en generisk, ikke-varemerket WebRTC-telefon som ikke krever noen tjener-side skripting som PHP. Den er bygget utelukkende med HTML, CSS og Javascript. Den er grunnlaget for mange andre WebRTC-tjenester og moduler til mer avanserte nettpubliseringsrammeprogrammer.<ulink type=\"block\" url=\"http://jscommunicator.org\" />"
 
-#, fuzzy
 msgid "<primary>JSCommunicator</primary>"
 msgstr "<primary>JSCommunicator</primary>"
 
 msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
-msgstr "Pakken <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> er den raskeste måten å installere en WebRTC-telefon på i et nettsted. Den krever en SIP-mellomtjener med WebSocket transport. Instruksjonene i <xref linkend=\"sect.sip-server-install\" /> inkluderer de nødvendige opplysninger for å aktivere WebSocket transport i <emphasis role=\"pkg\">repro</emphasis> SIP-mellomtjeneren."
+msgstr "Pakken <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> er den raskeste måten å installere en WebRTC-telefon på i et nettsted. Den krever en SIP-mellomtjener med WebSocket-transport. Instruksjonene i <xref linkend=\"sect.sip-server-install\" /> inkluderer de nødvendige opplysninger for å aktivere WebSocket-transport i <emphasis role=\"pkg\">repro</emphasis> SIP-mellomtjeneren."
 
 msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
-msgstr ""
-"Etter å ha installert <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, er det ulike måter å bruke den på. En enkel strategi er å inkludere eller kopiere konfigurasjonsfilene fra <filename>/etc/jscommunicator-web-phone/apache.conf</filename> i en Apache virtuell\n"
-"vertskonfigurasjon."
+msgstr "Etter å ha installert <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, er det ulike måter å bruke den på. En enkel strategi er å inkludere eller kopiere konfigurasjonsfilene fra <filename>/etc/jscommunicator-web-phone/apache.conf</filename> i en Apache virtuell vertskonfigurasjon."
 
 msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
-msgstr "Når web-telefonfiler er tilgjengelig i nett-tjeneren, tilpass <filename>/etc/jscommunicator-web-phone/config.js</filename> til å peke på TURN-tjeneren og SIP mellomtjeneren. For eksempel:"
+msgstr "Når web-telefonfiler er tilgjengelig i nett-tjeneren, tilpass <filename>/etc/jscommunicator-web-phone/config.js</filename> til å peke på TURN-tjeneren og SIP-mellomtjeneren. For eksempel:"
 
 #, fuzzy
 msgid ""
@@ -3344,9 +3281,8 @@ msgstr ""
 "  ..."
 
 msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
-msgstr "Mer avanserte \"klikk for å ringe\"-nettsider bruker vanligvis tjenerside skripting for å generere <literal>config.js</literal>-filen dynamisk. <ulink url=\"http://drucall.org\">DruCall</ulink>-kildekoden demonstrerer hvordan det kan gjøres med PHP."
+msgstr "Mer avanserte «klikk for å ringe»-nettsider bruker vanligvis tjenerside skripting for å generere <literal>config.js</literal>-filen dynamisk. <ulink url=\"http://drucall.org\">DruCall</ulink>-kildekoden demonstrerer hvordan det kan gjøres med PHP."
 
-#, fuzzy
 msgid "<primary>DruCall</primary>"
 msgstr "<primary>DruCall</primary>"
 
