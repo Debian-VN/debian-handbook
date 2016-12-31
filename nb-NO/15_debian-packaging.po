@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-12-30 02:07+0000\n"
-"Last-Translator: Andreas Nordal <andreas.nordal@gmail.com>\n"
+"PO-Revision-Date: 2016-12-30 21:27+0000\n"
+"Last-Translator: Ole-Erik Yrvin <oeyrvin@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/15_debian-packaging/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgid "The previous command can fail if the <literal>Build-Depends</literal> fie
 msgstr "Den tidligere kommandoen kan mislykkes hvis <literal>Build-Depends</literal>-feltene ikke her blitt oppdatert, eller hvis de relaterte pakker ikke er installert. I dette tilfelle er det mulig å overprøve denne sjekken ved å sende <literal>-d</literal>-valget til <command>dpkg-buildpackage</command>. Men å eksplisitt ignorere disse avhengigheter gir risiko for at byggeprosessen mislykkes på et senere tidspunkt. Verre, kan pakken synes å bli bygget riktig, men klarer ikke å kjøre skikkelig: Noen programmer deaktiverer automatisk noen av sine oppgaver når et nødvendig bibliotek er ikke tilgjengelig på byggetidspunktet."
 
 msgid "More often than not, Debian developers use a higher-level program such as <command>debuild</command>; this runs <command>dpkg-buildpackage</command> as usual, but it also adds an invocation of a program that runs many checks to validate the generated package against the Debian policy. This script also cleans up the environment so that local environment variables do not “pollute” the package build. The <command>debuild</command> command is one of the tools in the <emphasis>devscripts</emphasis> suite, which share some consistency and configuration to make the maintainers' task easier."
-msgstr "Oftere enn ikke bruker Debian-utviklere et høynivå-program som <command>debuild</command>; Dette kjører <command>dpkg-buildpackage</command> til vanlig, men legger også til en påkalling til et program som kjører mange kontroller for å validere den genererte pakken opp mot Debians politikk. Dette skriptet renser også opp i miljøet, slik at lokale miljøvariabler ikke \"forurenser\" pakkebyggingen. <command>debuild</command>-kommandoen er et av verktøyene i <emphasis>devscripts</emphasis>-pakken, som deler noe konsistens og oppsett for å gjøre vedlikeholderens oppgave enklere."
+msgstr "Oftere enn ikke bruker Debian-utviklere et høynivå-program som <command>debuild</command>; Dette kjører <command>dpkg-buildpackage</command> til vanlig, men legger også til en påkalling til et program som kjører mange kontroller for å validere den genererte pakken opp mot Debians retningslinjer. Dette skriptet renser også opp i miljøet, slik at lokale miljøvariabler ikke \"forurenser\" pakkebyggingen. <command>debuild</command>-kommandoen er et av verktøyene i <emphasis>devscripts</emphasis>-pakken, som deler noe konsistens og oppsett for å gjøre vedlikeholderens oppgave enklere."
 
 #, fuzzy
 msgid "<emphasis>QUICK LOOK</emphasis> <command>pbuilder</command>"
@@ -595,7 +595,7 @@ msgid "Rules"
 msgstr "Regler"
 
 msgid "A Debian package must comply with the precise rules compiled in the Debian policy, and each package maintainer must know them. There is no requirement to know them by heart, but rather to know they exist and to refer to them whenever a choice presents a non-trivial alternative. Every Debian maintainer has made mistakes by not knowing about a rule, but this is not a huge problem as long as the error gets fixed when a user reports it as a bug report (which tends to happen fairly soon thanks to advanced users). <ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
-msgstr "En Debian- pakke må være i samsvar de presise regler utarbeidet i Debians politikk, og hver pakkeutvikler må kjenne til dem. Det er ingen krav om å kjenne dem utenat, men heller å vite at de eksisterer og referere til dem når et valg presenterer et ikke-trivielt alternativ. Hver Debian-vedlikeholder har gjort feil ved å ikke kjenne til en regel, men det er ikke et stort problem, så lenge feilen blir fikset når en bruker rapporterer den som en feilrapport (som pleier å skje ganske snart, takket være avanserte brukere). <ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
+msgstr "En Debian-pakke må være i samsvar de presise regler utarbeidet i Debians retningslinjer, og hver pakkeutvikler må kjenne til dem. Det er ingen krav om å kjenne dem utenat, men heller å vite at de eksisterer og referere til dem når et valg presenterer et ikke-trivielt alternativ. Hver Debian-vedlikeholder har gjort feil ved å ikke kjenne til en regel, men det er ikke et stort problem, så lenge feilen blir fikset når en bruker rapporterer den som en feilrapport (som pleier å skje ganske snart, takket være avanserte brukere). <ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
 
 msgid "Procedures"
 msgstr "Prosedyrer"
@@ -621,10 +621,10 @@ msgid "<primary><command>lintian</command></primary>"
 msgstr "<primary><command>lintian</command></primary>"
 
 msgid "This tool is one of the most important: it's the Debian package checker. It is based on a large array of tests created from the Debian policy, and detects quickly and automatically many errors that can then be fixed before packages are released."
-msgstr "Dette verktøyet er en av de viktigste: Det er Debian pakke-sjekkeren. Den bygger på et stort utvalg av tester opprettet fra Debian-politikken, og oppdager raskt og automatisk mange feil som deretter kan rettes før pakkene utgis."
+msgstr "Dette verktøyet er en av de viktigste: Det er Debian pakke-sjekkeren. Den bygger på et stort utvalg av tester opprettet fra Debians retningslinjer, og oppdager raskt og automatisk mange feil som deretter kan rettes før pakkene utgis."
 
 msgid "This tool is only a helper, and it sometimes gets it wrong (for instance, since the Debian policy changes over time, <command>lintian</command> is sometimes outdated). It is also not exhaustive: not getting any Lintian error should not be interpreted as a proof that the package is perfect; at most, it avoids the most common errors."
-msgstr "Dette verktøyet er bare en hjelper, og noen ganger gjør den feil (for eksempel, siden Debian-politikken endrer seg over tid, blir <command>lintian</command>  noen ganger utdatert). Det er heller ikke uttømmende: Å ikke får noen Lintian-feil bør ikke tolkes som et bevis på at pakken er perfekt; i beste fall unngås de  vanligste feilene."
+msgstr "Dette verktøyet er bare en hjelper, og noen ganger gjør den feil (for eksempel, siden Debians retningslinjer endrer seg over tid, blir <command>lintian</command> noen ganger utdatert). Det er heller ikke uttømmende: Å ikke får noen Lintian-feil bør ikke tolkes som et bevis på at pakken er perfekt; i beste fall unngås de  vanligste feilene."
 
 msgid "The <command>piuparts</command> Program"
 msgstr "<command>piuparts</command> programmet"
@@ -668,7 +668,7 @@ msgid "The <emphasis role=\"pkg\">devscripts</emphasis> package contains many pr
 msgstr "<emphasis role=\"pkg\">devscripts</emphasis>-pakken inneholder mange programmer som hjelper til på et stort område i Debian-utviklerens jobb:"
 
 msgid "<command>debuild</command> allows generating a package (with <command>dpkg-buildpackage</command>) and running <command>lintian</command> to check its compliance with the Debian policy afterwards."
-msgstr "<command>debuild</command> tillater å generere en pakke (med <command>dpkg-buildpackage</command>) og kjøre <command>lintian</command> for så å sjekke overensstemmelsen med Debian-politikken."
+msgstr "<command>debuild</command> tillater å generere en pakke (med <command>dpkg-buildpackage</command>) og kjøre <command>lintian</command> for så å sjekke overensstemmelsen med Debians retningsliner."
 
 msgid "<command>debclean</command> cleans a source package after a binary package has been generated."
 msgstr "<command>debclean</command> renser en kildepakke etterat en binærpakke har blitt generert."
@@ -710,7 +710,7 @@ msgid "<primary><emphasis>dh-make</emphasis></primary>"
 msgstr "<primary><emphasis>dh-make</emphasis></primary>"
 
 msgid "Debhelper is a set of scripts easing the creation of policy-compliant packages; these scripts are invoked from <filename>debian/rules</filename>. Debhelper has been widely adopted within Debian, as evidenced by the fact that it is used by the majority of official Debian packages. All the commands it contains have a <command>dh_</command> prefix."
-msgstr "Debhelper er et sett med skript som letter det å lage pakker som holder seg til  retningslinjene; Disse skriptene påkalles fra <filename>debian/rules</filename>. Debhelper er bredt akseptert innen Debian, noe som gjenspeiles av det faktum at den brukes av de fleste offisielle Debian-pakker. Alle kommandoene den inneholder har en <command>dh_</command>-forstavelse."
+msgstr "Debhelper er et sett med skript som letter det å lage pakker som holder seg til retningslinjene; Disse skriptene påkalles fra <filename>debian/rules</filename>. Debhelper er bredt akseptert innen Debian, noe som gjenspeiles av det faktum at den brukes av de fleste offisielle Debian-pakker. Alle kommandoene den inneholder har en <command>dh_</command>-forstavelse."
 
 msgid "The <command>dh_make</command> script (in the <emphasis>dh-make</emphasis> package) creates files required for generating a Debian package in a directory initially containing the sources for a piece of software. As can be guessed from the name of the program, the generated files use debhelper by default."
 msgstr "<command>dh_make</command>-skriptet (i <emphasis>dh-make</emphasis> pakken) lager filer som kreves for å generere Debian-pakke i en katalog som i utgangspunktet inneholder kildene for et stykke programvare. Som det kan gjettes fra navnet på programmet, bruker de genererte filene debhelper som standard."
@@ -734,91 +734,96 @@ msgid "Acceptance Process"
 msgstr "Aksepteringsprosess"
 
 msgid "Becoming a “Debian developer” is not a simple administrative matter. The process comprises several steps, and is as much an initiation as it is a selection process. In any case, it is formalized and well-documented, so anyone can track their progression on the website dedicated to the new member process. <ulink type=\"block\" url=\"https://nm.debian.org/\" />"
-msgstr ""
+msgstr "Å bli en \"Debian-utvikler\" er ikke en enkel administrativ sak. Fremgangsmåten omfatter flere trinn, og er like mye en igangsetting som det er utvelgelsesprosess. I alle fall er det formalisert og godt dokumentert, slik at alle kan spore sin progresjon på nettsiden dedikert til nytt medlem prosessen. <ulink type=\"block\" url=\"https://nm.debian.org/\" />"
 
 msgid "<emphasis>EXTRA</emphasis> Lightweight process for “Debian Maintainers”"
-msgstr ""
+msgstr "<emphasis>EXTRA</emphasis> Lettvektsprosessen for “Debian Maintainers”"
 
 msgid "“Debian Maintainer” is another status that gives less privileges than “Debian developer” but whose associated process is quicker. With this status, the contributors can maintain their own packages only. A Debian developer only needs to perform a check on an initial upload, and issue a statement to the effect that they trust the prospective maintainer with the ability to maintain the package on their own."
-msgstr ""
+msgstr "\"Debian Maitainer\" er en annen status som gir færre privilegier enn \"Debian-Developer\", men tilknytningsprosessen går raskere. Med denne statusen, kan bidragsyterne bare vedlikeholde sine egne pakker. En Debian utvikler trenger bare å utføre en sjekk på en første opplasting, og avgi en uttalelse om at de stoler på den potensielle vedlikeholderens evne til å vedlikeholde pakken på egenhånd."
 
+#, fuzzy
 msgid "<primary>Debian Maintainer</primary>"
-msgstr ""
+msgstr "<primary>Debian Maintainer</primary>"
 
 msgid "Prerequisites"
-msgstr ""
+msgstr "Hjempemidler"
 
 msgid "All candidates are expected to have at least a working knowledge of the English language. This is required at all levels: for the initial communications with the examiner, of course, but also later, since English is the preferred language for most of the documentation; also, package users will be communicating in English when reporting bugs, and they will expect replies in English."
-msgstr ""
+msgstr "Alle kandidater forventes å ha minst arbeidskunnskap om det engelske språket. Dette er nødvendig på alle nivåer: for det første kommunikasjon med den som gjennomgår, selvfølgelig, men også senere, siden engelsk er det foretrukne språket for det meste av dokumentasjon. I tillegg vil pakkebrukerne kommunisere på engelsk ved innrapportering av feil, og de vil forvente svar på engelsk."
 
 msgid "The other prerequisite deals with motivation. Becoming a Debian developer is a process that only makes sense if the candidate knows that their interest in Debian will last for many months. The acceptance process itself may last for several months, and Debian needs developers for the long haul; each package needs permanent maintenance, and not just an initial upload."
-msgstr ""
+msgstr "Den andre forutsetningen omhandler motivasjon. Å bli en Debian-utvikler er en prosess som bare gir mening dersom kandidaten vet at interessen for Debian vil vare i mange måneder. Aksepteringsprosessen kan i seg selv vare flere måneder, og Debian trenger langtids-utviklere; Hver pakke trenger permanent vedlikehold, og ikke bare en første opplasting."
 
 msgid "Registration"
-msgstr ""
+msgstr "Registrering"
 
 msgid "The first (real) step consists in finding a sponsor or advocate; this means an official developer willing to state that they believe that accepting <emphasis>X</emphasis> would be a good thing for Debian. This usually implies that the candidate has already been active within the community, and that their work has been appreciated. If the candidate is shy and their work is not publicly touted, they can try to convince a Debian developer to advocate them by showing their work in a private way."
-msgstr ""
+msgstr "Den første (virkelige) trinnet består i å finne en sponsor eller talsperson; Det betyr en offisiell utvikler som er villig til å si at de tror at å akseptere <emphasis>X</emphasis> vil bli en god ting for Debian. Dette innebærer vanligvis at kandidaten allerede har vært aktiv i community, og at arbeidet deres har blitt verdsatt. Dersom kandidaten er sjenert og deres arbeid er ikke offentlig kjent, kan de prøve å overbevise en Debian-utvikler til å argumentere for dem ved å vise deres arbeid i fortrolighet."
 
 msgid "<primary>key pair</primary>"
 msgstr "<primary>nøkkelpar</primary>"
 
 msgid "At the same time, the candidate must generate a public/private RSA key pair with GnuPG, which should be signed by at least two official Debian developers. The signature authenticates the name on the key. Effectively, during a key signing party, each participant must show an official identification (usually an ID card or passport) together with their key identifiers. This step confirms the link between the human and the keys. This signature thus requires meeting in real life. If you have not yet met any Debian developers in a public free software conference, you can explicitly seek developers living nearby using the list on the following webpage as a starting point. <ulink type=\"block\" url=\"https://wiki.debian.org/Keysigning\" />"
-msgstr ""
+msgstr "Samtidig må kandidaten generere et offentlig/privat RSA-nøkkelpar med GnuPG, som skal være underskrevet av minst to offisielle Debian-utviklere. Signaturen godkjenner navnet på nøkkelen. Faktisk, under et nøkkelsignerings-selskap, må hver deltaker vise en offisiell identifikasjon (vanligvis et ID-kort eller pass) sammen med sine nøkkel-identifiseringer. Dette trinnet bekrefter sammenhengen mellom mennesker og nøklene. Denne signaturen krever dermed at en møtes i det virkelige liv. Hvis du ennå ikke har møtt noen Debian-utviklere på en offentlig fri programvare konferanse, kan du eksplisitt søke utviklere som bor i nærheten ved hjelp av en liste på følgende nettside som utgangspunkt. <ulink type=\"block\" url=\"https://wiki.debian.org/Keysigning\" />"
 
 msgid "Once the registration on <literal>nm.debian.org</literal> has been validated by the advocate, an <emphasis>Application Manager</emphasis> is assigned to the candidate. The application manager will then drive the process through multiple pre-defined steps and checks."
-msgstr ""
+msgstr "Så snart registeringen på <literal>nm.debian.org</literal> er blitt validert av en talsperson, blir en <emphasis>Application Manager</emphasis> tildelt kandidaten. Søknadsbehandleren vil så kjøre prosessen gjennom flere forhåndsdefinerte trinn og sjekker."
 
 msgid "The first verification is an identity check. If you already have a key signed by two Debian developers, this step is easy; otherwise, the application manager will try and guide you in your search for Debian developers close by to organize a meet-up and a key signing."
-msgstr ""
+msgstr "Den første bekreftelsen er en identitetssjekk. Hvis du allerede har en nøkkel signert av to Debian-utviklere, er dette trinnet lett; ellers vil søknadsbehandleren prøve og veilede deg i ditt søk etter Debian-utviklere i nærheten, for å organisere et møte og en nøkkel signering."
 
 msgid "Accepting the Principles"
-msgstr ""
+msgstr "Å akeseptere prinsippene"
 
 msgid "These administrative formalities are followed by philosophical considerations. The point is to make sure that the candidate understands and accepts the social contract and the principles behind Free Software. Joining Debian is only possible if one shares the values that unite the current developers, as expressed in the founding texts (and summarized in <xref linkend=\"the-debian-project\" />)."
-msgstr ""
+msgstr "Disse administrative formaliteter følges ut fra filosofiske betraktninger. Poenget er å sørge for at kandidaten forstår og aksepterer den sosiale kontrakten og prinsippene bak fri programvare. Å bli med i Debian er bare mulig hvis man deler de verdier som forener dagens utviklere, som uttrykt i de grunnleggende tekster (og oppsummert i <xref linkend=\"the-debian-project\" />)."
 
 msgid "In addition, each candidate wishing to join the Debian ranks is expected to know the workings of the project, and how to interact appropriately to solve the problems they will doubtless encounter as time passes. All of this information is generally documented in manuals targeting the new maintainers, and in the Debian developer's reference. An attentive reading of this document should be enough to answer the examiner's questions. If the answers are not satisfactory, the candidate will be informed. They will then have to read (again) the relevant documentation before trying again. In the cases where the existing documentation does not contain the appropriate answer for the question, the candidate can usually reach an answer with some practical experience within Debian, or potentially by discussing with other Debian developers. This mechanism ensures that candidates get involved somewhat in Debian before becoming a full part of it. It is a deliberate policy, by which candidates who eventually join the project are integrated as another piece of an infinitely extensible jigsaw puzzle."
-msgstr ""
+msgstr "I tillegg skal hver kandidat som ønsker å bli med i Debian rekker forventes å kjenne arbeidet i prosjektet, og hvordan de skal samhandle på riktig måte for å løse de problemene de vil utvilsomt vil møte under tiden. All denne informasjonen er vanligvis dokumentert i manualer rettet mot de nye vedlikeholderne, og i Debian utvikler-referanse. En oppmerksom lesing av dette dokumentet bør være nok til å svare på eksaminators spørsmål. Hvis svarene ikke er tilfredsstillende, vil kandidaten bli informert. De vil da måtte lese (igjen) den relevant dokumentasjonen før de prøver igjen. I de tilfeller hvor den eksisterende dokumentasjonen ikke inneholder riktig svar på spørsmålet, kan kandidaten vanligvis kommer et svar fra litt praktisk erfaring innen Debian, eller potensielt ved å diskutere med andre Debian-utviklere. Denne mekanismen sikrer at kandidatene blir noe involvert i Debian, før de blir en full del av det. Dette er en bevisst politikk, der kandidatene som til slutt blir med i prosjektet, er integrert som en del av et uendelig utvidbart puslespill."
 
+#, fuzzy
 msgid "<primary><emphasis>Philosophy &amp; Procedures</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Philosophy &amp; Procedures</emphasis></primary>"
 
 msgid "This step is usually known as the <emphasis>Philosophy &amp; Procedures</emphasis> (P&amp;P for short) in the lingo of the developers involved in the new member process."
-msgstr ""
+msgstr "Dette trinnet er kjent som <emphasis>Philosophy &amp; Procedures</emphasis> (P&amp; P i kortform) i språket til utviklerne som er involvert i nye medlemmer-prosessen."
 
 msgid "Checking Skills"
-msgstr ""
+msgstr "å sjekke ferdigheter"
 
 msgid "Each application to become an official Debian developer must be justified. Becoming a project member requires showing that this status is legitimate, and that it facilitates the candidate's job in helping Debian. The most common justification is that being granted Debian developer status eases maintenance of a Debian package, but it is not the only one. Some developers join the project to contribute to porting to a specific architecture, others want to improve documentation, and so on."
-msgstr ""
+msgstr "Hver søknad om å bli en offisiell Debian-utvikler må begrunnes. Å bli en prosjektdeltaker krever at en viser at denne statusen er legitim, og at den letter kandidatens jobb med å hjelpe Debian. Den vanligste begrunnelsen er, at å ha fått Debian-utvikler status letter vedlikehold av en Debian-pakke, men det er ikke den eneste. Noen utviklere deltar i prosjektet for å bidra til portering til en bestemt arkitektur, andre ønsker å forbedre dokumentasjon, og så videre."
 
 msgid "This step represents the opportunity for the candidate to state what they intend to do within the Debian project and to show what they have already done towards that end. Debian is a pragmatic project and saying something is not enough, if the actions do not match what is announced. Generally, when the intended role within the project is related to package maintenance, a first version of the prospective package will have to be validated technically and uploaded to the Debian servers by a sponsor among the existing Debian developers."
-msgstr ""
+msgstr "Dette trinnet representerer muligheten for kandidaten til å si fra om hva de har tenkt å gjøre i Debian-prosjektet, og for å vise hva de allerede har gjort for dette formålet. Debian er et pragmatisk prosjekt og sier noe er ikke nok, hvis handlinger ikke samsvarer med hva som er annonsert. Vanligvis, når den tiltenkte rolle i prosjektet er knyttet til å pakkevedlikehold, må en første versjon av den potensielle pakken være godkjent teknisk og lastet opp til Debian-tjenere med en sponsor blant de eksisterende Debian-utviklerne."
 
+#, fuzzy
 msgid "<emphasis>COMMUNITY</emphasis> Sponsoring"
-msgstr ""
+msgstr "<emphasis>COMMUNITY</emphasis> Sponsoring"
 
+#, fuzzy
 msgid "<primary>sponsoring</primary>"
-msgstr ""
+msgstr "<primary>sponsoring</primary>"
 
 msgid "Debian developers can “sponsor” packages prepared by someone else, meaning that they publish them in the official Debian repositories after having performed a careful review. This mechanism enables external persons, who have not yet gone through the new member process, to contribute occasionally to the project. At the same time, it ensures that all packages included in Debian have always been checked by an official member."
-msgstr ""
+msgstr "Debian-utviklerne kan være \"sponsor\" for pakker utarbeidet av en annen, noe som betyr at de publiserer dem i de offisielle Debian kildebrønner etter å ha utført en nøye gjennomgang. Denne mekanismen gjør at eksterne personer, som ennå ikke har gått gjennom prosessen for nye medlemmer, fra tid til annen kan bidra til prosjektet. Samtidig sikrer det at alle pakker som er inkludert i Debian alltid har blitt sjekket av et offisielt medlem."
 
 msgid "Finally, the examiner checks the candidate's technical (packaging) skills with a detailed questionnaire. Bad answers are not permitted, but the answer time is not limited. All the documentation is available and several tries are allowed if the first answers are not satisfactory. This step does not intend to discriminate, but to ensure at least a modicum of knowledge common to new contributors."
-msgstr ""
+msgstr "Til slutt kontrollerer eksaminator kandidatens tekniske (pakke-) ferdigheter med et detaljert spørreskjema. Dårlige svar er ikke tillatt, men svartiden er ikke begrenset. All dokumentasjon er tilgjengelig og flere forsøk er tillatt dersom de første svarene er ikke tilfredsstillende. Dette trinnet har ikke til hensikt å diskriminere, men skal sikre minst et minstemål av kunnskap felles for nye bidragsytere."
 
+#, fuzzy
 msgid "<primary><emphasis>Tasks &amp; Skills</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Tasks &amp; Skills</emphasis></primary>"
 
 msgid "This step is known as the <emphasis>Tasks &amp; Skills</emphasis> step (T&amp;S for short) in the examiners' jargon."
-msgstr ""
+msgstr "Dette skrittet er kjent som <emphasis>Tasks &amp; Skills</emphasis> trinnet (T&amp;S for kort) i eksaminator-språket."
 
 msgid "Final Approval"
-msgstr ""
+msgstr "Første godkjenning"
 
 msgid "At the very last step, the whole process is reviewed by a DAM (<emphasis>Debian Account Manager</emphasis>). The DAM will review all the information about the candidate that the examiner collected, and makes the decision on whether or not to create an account on the Debian servers. In cases where extra information is required, the account creation may be delayed. Refusals are rather rare if the examiner does a good job of following the process, but they sometimes happen. They are never permanent, and the candidate is free to try again at a later time."
-msgstr ""
+msgstr "I aller siste trinn blir hele prosessen gjennomgått av en DAM (<emphasis>Debian Account Manager</emphasis>). DAM vil gjennomgå all informasjon om kandidaten som sensor samlet inn, og gjør vedtak om det skal opprettes en konto på Debian-tjenerne. I tilfeller der ekstra informasjon er nødvendig, kan å opprette en konto bli forsinket. Avslag er ganske sjeldne hvis eksaminator gjør en god jobb med å følge prosessen, men kan skje noen ganger. De er aldri permanente, og kandidaten kan gratis prøve igjen på et senere tidspunkt."
 
 msgid "The DAM's decision is authoritative and (almost) without appeal, which explains why the people in that seat have often been criticized in the past."
-msgstr ""
+msgstr "DAMs avgjørelse er autoritativ og (nesten) uten ankemuligheter, noe som forklarer hvorfor folk i det setet ofte har blitt kritisert i det siste."
