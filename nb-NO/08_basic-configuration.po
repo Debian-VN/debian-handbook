@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "POT-Creation-Date: 2016-04-10 09:00+0900\n"
-"PO-Revision-Date: 2016-12-20 22:05+0000\n"
-"Last-Translator: Andreas Nordal <andreas.nordal@gmail.com>\n"
+"PO-Revision-Date: 2017-01-17 14:06+0000\n"
+"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/debian-handbook/08_basic-configuration/nb_NO/>\n"
 "Language: nb-NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 msgid "Configuration"
 msgstr "Konfigurasjon"
@@ -231,7 +231,6 @@ msgstr "I mer komplekse konfigurasjoner, som for eksempel involverer to miljøer
 msgid "As far as file names are concerned, the migration can be relatively simple. The <command>convmv</command> tool (in the package with the same name) was created specifically for this purpose; it allows renaming files from one encoding to another. The use of this tool is relatively simple, but we recommend doing it in two steps to avoid surprises. The following example illustrates a UTF-8 environment containing directory names encoded in ISO-8859-15, and the use of <command>convmv</command> to rename them."
 msgstr "Når det gjelder filnavn, kan migrasjonen være relativt enkel. <command>convmv</command>-verktøyet (i pakken med samme navn) ble opprettet spesielt for dette formålet. Det tillater å døpe om filer fra en koding til en annen. Bruken av verktøyet er relativt enkelt, men vi anbefaler å gjøre det i to trinn for å unngå overraskelser. Følgende eksempel illustrerer et UTF-8-miljø med katalognavn kodet i ISO-8859-15, og bruken av <command>convmv</command> for å gi nye navn."
 
-#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>ls travail/</userinput>\n"
 "<computeroutput>Ic?nes  ?l?ments graphiques  Textes\n"
@@ -392,7 +391,6 @@ msgstr "En «statisk» konfigurasjon må angi nettverksinnstillinger på en best
 msgid "Static configuration"
 msgstr "Statisk konfigurasjon"
 
-#, fuzzy
 msgid ""
 "\n"
 "auto eth0\n"
@@ -505,7 +503,6 @@ msgstr "PPP-forbindelser over ADSL er, per definisjon, periodiske. Siden de vanl
 msgid "The default init system on <emphasis role=\"distribution\">Jessie</emphasis> is <command>systemd</command>. Adding an automatically restarting task for the ADSL connection is a simple matter of creating a “unit file” such as <filename>/etc/systemd/system/adsl-connection.service</filename>, with contents such as the following:"
 msgstr "Standard init-systemet på <emphasis role=\"distribution\">Jessie</emphasis> er <command>systemd</command>. Å legge til en automatisk omstartsoppgave for ADSL-tilkoblingen er en så enkel sak som å lage en «unit file» (enhetsfil), slik som <filename>/etc/systemd/system/adsl-connection.service</filename>, med innhold som det følgende:"
 
-#, fuzzy
 msgid ""
 "[Unit]\n"
 "Description=ADSL connection\n"
@@ -710,7 +707,6 @@ msgstr "For å få tilgang til DNS-informasjon, må en DNS-server være tilgjeng
 msgid "<primary><filename>resolv.conf</filename></primary>"
 msgstr "<primary><filename>resolv.conf</filename></primary>"
 
-#, fuzzy
 msgid "<primary><literal>nameserver</literal></primary>"
 msgstr "<primary><literal>nameserver</literal></primary>"
 
@@ -1317,7 +1313,6 @@ msgstr "Et nytt partisjonstabellformat, kalt GPT, løsner disse begrensningene p
 msgid "It is not always easy to remember what disk is connected to which SATA controller, or in third position in the SCSI chain, especially since the naming of hotplugged hard drives (which includes among others most SATA disks and external disks) can change from one boot to another. Fortunately, <command>udev</command> creates, in addition to <filename>/dev/sd*</filename>, symbolic links with a fixed name, which you could then use if you wished to identify a hard drive in a non-ambiguous manner. These symbolic links are stored in <filename>/dev/disk/by-id</filename>. On a machine with two physical disks, for example, one could find the following:"
 msgstr "Det er ikke alltid lett å huske hvilken disk som er koblet til hvilken SATA-kontroller, eller i tredje posisjon i SCSI-kjeden, spesielt når navngivingen av harddisker med høye ytelser (som inkluderer blant annet de fleste SATA-disker og eksterne disker) kan endre seg fra en oppstart til en annen. Heldigvis lager <command>udev</command>, i tillegg til <filename>/dev/sd*</filename>, symbolske lenker med et fast navn, som du deretter kan bruke hvis du ønsket å identifisere en harddisk på en ikke-tvetydig måte. Disse symbolske lenkene er lagret i <filename>/dev/disk/by-id</filename>. På en maskin med to fysiske disker, for eksempel, kan man finne følgende:"
 
-#, fuzzy
 msgid ""
 "<computeroutput>mirexpress:/dev/disk/by-id# </computeroutput><userinput>ls -l\n"
 "</userinput><computeroutput>total 0\n"
@@ -1397,7 +1392,6 @@ msgstr "LILOs konfigursjonsfil er <filename>/etc/lilo.conf</filename>. En enkel 
 msgid "LILO configuration file"
 msgstr "LILO konfigurasjonsfil"
 
-#, fuzzy
 msgid ""
 "\n"
 "# The disk on which LILO should be installed.\n"
@@ -1492,7 +1486,6 @@ msgstr "Før <command>ybin</command> kjøres, må du først ha et gyldig <filena
 msgid "Yaboot configuration file"
 msgstr "Yaboot konfigurasjonsfil"
 
-#, fuzzy
 msgid ""
 "\n"
 "# bootstrap partition\n"
@@ -1589,9 +1582,8 @@ msgstr "<primary><command>ln</command></primary>"
 msgid "A symbolic link is a pointer to another file. When you access it, the file to which it points is opened. Removal of the link will not cause deletion of the file to which it points. Likewise, it does not have its own set of permissions, but rather retains the permissions of its target. Finally, it can point to any type of file: directories, special files (sockets, named pipes, device files, etc.), even other symbolic links."
 msgstr "En symbolsk lenke er en peker til en annen fil. Når du åpner den, vil filen som den peker til åpnes. Fjerning av linken vil ikke slette filen den peker til. Likeledes har den ikke sitt eget sett med tillatelser, men beholder heller rettighetene til sitt mål. Endelig kan den peke til alle typer filer: Kataloger, spesialfiler (kontakter, navnede kanaler, enhetsfiler, etc.), og til og med andre symbolske lenker."
 
-#, fuzzy
 msgid "The <command>ln -s <replaceable>target</replaceable> <replaceable>link-name</replaceable></command> command creates a symbolic link, named <replaceable>link-name</replaceable>, pointing to <replaceable>target</replaceable>."
-msgstr "<command>ln -s <replaceable>target</replaceable> <replaceable>link-name</replaceable></command>-kommandoen lager en symbolsk lenke, kalt <replaceable>link-name</replaceable>, som peker til <replaceable>target</replaceable>."
+msgstr "<command>ln -s <replaceable>mål</replaceable> <replaceable>lenkenavn</replaceable></command>-kommandoen lager en symbolsk lenke, kalt <replaceable>lenkenavn</replaceable>, som peker til <replaceable>mål</replaceable>."
 
 msgid "If the target does not exist, then the link is “broken” and accessing it will result in an error indicating that the target file does not exist. If the link points to another link, you will have a “chain” of links that turns into a “cycle” if one of the targets points to one of its predecessors. In this case, accessing one of the links in the cycle will result in a specific error (“too many levels of symbolic links”); this means the kernel gave up after several rounds of the cycle."
 msgstr "Hvis målet ikke eksisterer, er koblingen «ødelagt», og forsøke å få tilgang til det vil resultere i en feilmelding om at målfilen ikke eksisterer. Hvis koblingen peker til en annen link, får du en «kjede» av lenker som blir til en «syklus» der ett av målene peker på de foregående. I dette tilfellet vil tilgangen til en av lenkene i syklusen resultere i en bestemt feil («for mange nivåer med symbolske lenker»). Dette betyr at kjernen gir opp etter flere runder med syklusen."
@@ -1623,7 +1615,6 @@ msgstr "Når du trenger å endre tidssonen midlertidig, bruk <varname>TZ</varnam
 msgid "<primary><varname>TZ</varname></primary>"
 msgstr "<primary><varname>TZ</varname></primary>"
 
-#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>date</userinput>\n"
@@ -1844,7 +1835,6 @@ msgstr "sjekke rekkefølge: Dette siste feltet indikerer om integriteten til fil
 msgid "Example <filename>/etc/fstab</filename> file"
 msgstr "Eksempel <filename>/etc/fstab</filename> fil"
 
-#, fuzzy
 msgid ""
 "\n"
 "# /etc/fstab: static file system information.\n"
@@ -1941,11 +1931,9 @@ msgstr "Hvis du velger å kompilere din egen kjerne, må du akseptere konsekvens
 msgid "Recompilation of the kernel is also necessary if you want to use certain features that are only available as patches (and not included in the standard kernel version)."
 msgstr "Rekompilering av kjernen er også nødvendig hvis du ønsker å bruke bestemte funksjoner som bare er tilgjengelig som programfikser (og ikke er med i standardversjonen av kjernen)."
 
-#, fuzzy
 msgid "<emphasis>GOING FURTHER</emphasis> The Debian Kernel Handbook"
-msgstr "<emphasis>GÅR VIDERE</emphasis> Debian Kernel Håndbok"
+msgstr "<emphasis>FOR VIDEREKOMMENDE</emphasis> Debian-kjerne-håndboken"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">debian-kernel-handbook</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">debian-kernel-handbook</emphasis></primary>"
 
@@ -1964,7 +1952,6 @@ msgstr "Oppstrøms Linux-kilder inneholder alt som trengs for å bygge en Debian
 msgid "<emphasis>CULTURE</emphasis> The good old days of <emphasis role=\"pkg\">kernel-package</emphasis>"
 msgstr "<emphasis>KULTUR</emphasis> De gode gamle dager med <emphasis role=\"pkg\">kernel-package</emphasis>"
 
-#, fuzzy
 msgid "<primary><emphasis role=\"pkg\">kernel-package</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">kernel-package</emphasis></primary>"
 
@@ -2070,7 +2057,6 @@ msgstr "Når kjernekonfigurasjonen er klar, vil en enkel<command>make deb-pkg</c
 msgid "The <replaceable>version</replaceable> is defined by the concatenation of the upstream version (as defined by the variables <literal>VERSION</literal>, <literal>PATCHLEVEL</literal>, <literal>SUBLEVEL</literal> and <literal>EXTRAVERSION</literal> in the <filename>Makefile</filename>), of the <literal>LOCALVERSION</literal> configuration parameter, and of the <literal>LOCALVERSION</literal> environment variable. The package version reuses the same version string with an appended revision that is regularly incremented (and stored in <filename>.version</filename>), except if you override it with the <literal>KDEB_PKGVERSION</literal> environment variable."
 msgstr "<replaceable>versjon</replaceable> er definert av sammenkjeding av oppstrøms versjonen (som definert av variablene <literal>VERSION</literal>, <literal>PATCHLEVEL</literal>, <literal>SUBLEVEL</literal>, og <literal>EXTRAVERSION</literal> i <filename>Makefile</filename>), fra <literal>LOCALVERSION</literal>- konfiguasjonsparameteret, og fra <literal>LOCALVERSION</literal>-miljøvariabel. Pakkeversjonen gjenbruker samme versjonsstreng med en tilføyd revisjon som regelmessig økes (og lagres i <filename>.version</filename>), bortsett fra hvis du overstyrer den med <literal>KDEB_PKGVERSION</literal>-miljøvariablen."
 
-#, fuzzy
 msgid ""
 "<computeroutput>$ </computeroutput><userinput>make deb-pkg LOCALVERSION=-falcot KDEB_PKGVERSION=$(make kernelversion)-1\n"
 "</userinput><computeroutput>[...]\n"
@@ -2111,7 +2097,6 @@ msgstr "Disse eksterne pakkene er mange og varierte, og vi vil ikke liste dem al
 msgid "For example, let's look at the <emphasis role=\"pkg\">xtables-addons-source</emphasis> package: after installation, a <filename>.tar.bz2</filename> of the module's sources is stored in <filename>/usr/src/</filename>. While we could manually extract the tarball and build the module, in practice we prefer to automate all this using DKMS. Most modules offer the required DKMS integration in a package ending with a <literal>-dkms</literal> suffix. In our case, installing <emphasis role=\"pkg\">xtables-addons-dkms</emphasis> is all that is needed to compile the kernel module for the current kernel provided that we have the <emphasis role=\"pkg\">linux-headers-*</emphasis> package matching the installed kernel. For instance, if you use <emphasis role=\"pkg\">linux-image-amd64</emphasis>, you would also install <emphasis role=\"pkg\">linux-headers-amd64</emphasis>."
 msgstr "La oss for eksempel se på <emphasis role=\"pkg\">xtables-addons-source</emphasis>-pakken: Etter installasjonen, blir en <filename>.tar.bz2</filename> fra modulens kildekode lagret i  <filename>/usr/src/</filename>. Mens vi manuelt kan trekke ut tar-pakken (tarball) og bygge modulen, foretrekker vi i praksis å automatisere alt dette ved hjelp av DKMS. De fleste moduler gir den nødvendige DKMS-integrering i en pakke som slutter med en <literal>-dkms</literal>-endelse. I vårt tilfelle er å installere  <emphasis role=\"pkg\">xtables-addons-dkms</emphasis> alt som trengs for å kompilere kjernemodulen til den nåværende kjernen, forutsatt at vi har <emphasis role=\"pkg\">linux-headers-*</emphasis>-pakken som samsvarer med den installerte kjernen. For eksempel, hvis du bruker <emphasis role=\"pkg\">linux-image-amd64</emphasis>, ville du også installere <emphasis role=\"pkg\">linux-headers-amd64</emphasis>."
 
-#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>sudo apt install xtables-addons-dkms</userinput>\n"
@@ -2200,7 +2185,6 @@ msgstr "Debian distribuerer noen av disse programfiksene i <emphasis role=\"pkg\
 msgid "To apply one or more of these installed patches, use the <command>patch</command> command in the sources directory then start compilation of the kernel as described above."
 msgstr "Hvis du vil bruke en eller flere av disse installerte programfikser, bruker du <command>patch</command>-kommandoen i kildekatalogen, og starter deretter kompilering av kjernen som beskrevet ovenfor."
 
-#, fuzzy
 msgid ""
 "\n"
 "<computeroutput>$ </computeroutput><userinput>cd ~/kernel/linux-source-3.16</userinput>\n"
