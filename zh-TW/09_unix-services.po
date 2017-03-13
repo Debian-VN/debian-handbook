@@ -1,8 +1,9 @@
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2016-03-24 09:00+0000\n"
-"PO-Revision-Date: 2016-04-07 01:51+0000\n"
+"POT-Creation-Date: 2015-10-06 16:10+0200\n"
+"PO-Revision-Date: 2016-10-04 11:06+0000\n"
 "Last-Translator: mao <mao@lins.fju.edu.tw>\n"
 "Language-Team: Traditional Chinese <https://hosted.weblate.org/projects/debian-handbook/09_unix-services/zh_Hant/>\n"
 "Language: zh-TW\n"
@@ -10,139 +11,139 @@ msgstr ""
 "Content-Type: application/x-publican; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 msgid "System boot"
-msgstr ""
+msgstr "系統啟動"
 
 msgid "Initscripts"
-msgstr ""
+msgstr "初始化腳本"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "Telnet"
-msgstr ""
+msgstr "Telnet"
 
 msgid "Rights"
-msgstr ""
+msgstr "權力"
 
 msgid "Permissions"
-msgstr ""
+msgstr "權限"
 
 msgid "Supervision"
-msgstr ""
+msgstr "監督"
 
 msgid "Inetd"
-msgstr ""
+msgstr "Inetd"
 
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 msgid "Backup"
-msgstr ""
+msgstr "備份"
 
 msgid "Hotplug"
-msgstr ""
+msgstr "熱插拔"
 
 msgid "PCMCIA"
-msgstr ""
+msgstr "PCMCIA"
 
 msgid "APM"
-msgstr ""
+msgstr "APM"
 
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 msgid "Unix Services"
-msgstr ""
+msgstr "Unix 服務"
 
 msgid "This chapter covers a number of basic services that are common to many Unix systems. All administrators should be familiar with them."
-msgstr ""
+msgstr "此章包括若干 Unix 系统共通的服務。管理員應熟悉他們。"
 
 msgid "System Boot"
-msgstr ""
+msgstr "系統啟動"
 
 msgid "<primary>booting</primary><secondary>the system</secondary>"
-msgstr ""
+msgstr "<primary>啟動</primary><secondary>系統</secondary>"
 
 msgid "When you boot the computer, the many messages scrolling by on the console display many automatic initializations and configurations that are being executed. Sometimes you may wish to slightly alter how this stage works, which means that you need to understand it well. That is the purpose of this section."
-msgstr ""
+msgstr "啟動電腦時，螢幕捲動的訊息表示正在自動處理起始化和組態的工作。需要改變此階段的作業時，就必須好好的理解他們。這正是本章的目的所在。"
 
 msgid "First, the BIOS takes control of the computer, detects the disks, loads the <emphasis>Master Boot Record</emphasis>, and executes the bootloader. The bootloader takes over, finds the kernel on the disk, loads and executes it. The kernel is then initialized, and starts to search for and mount the partition containing the root filesystem, and finally executes the first program — <command>init</command>. Frequently, this “root partition” and this <command>init</command> are, in fact, located in a virtual filesystem that only exists in RAM (hence its name, “initramfs”, formerly called “initrd” for “initialization RAM disk”). This filesystem is loaded in memory by the bootloader, often from a file on a hard drive or from the network. It contains the bare minimum required by the kernel to load the “true” root filesystem: this may be driver modules for the hard drive, or other devices without which the system cannot boot, or, more frequently, initialization scripts and modules for assembling RAID arrays, opening encrypted partitions, activating LVM volumes, etc. Once the root partition is mounted, the initramfs hands over control to the real init, and the machine goes back to the standard boot process."
-msgstr ""
+msgstr "首先，BIOS 控制電腦，偵測磁碟機，載入 <emphasis>Master Boot Record</emphasis>，再執行啟動程式。然後，找到磁碟內的核心程式，載入並執行它。先初始化該核心，搜尋並載入包括根檔案系統的分割區，並執行第一個程式 — <command>init</command>。通常，此 “根分割區” 以及 <command>init</command> 命令祗在在 RAM 的虛擬檔案系統內 (所以被稱為，“initramfs”，舊稱 “initrd” 就是 “初始化 RAM 磁碟” 的意思)。通常經由硬式磁碟機或網路，讓啟動程式把此檔案系統載入記憶體。它包括核心所需的最少量 “真正” 的根檔案系統：足以驅動系統無法啟動的硬式磁碟機或其他裝置、或者初始化腳本與模組以建構 RAID 陣列，開啟加密分割區、啟動 LVM 等。一但掛上根分割區， initramfs 就把控制權交給真正的啟動程式，機器回到標準的啟動程序。"
 
 msgid "Boot sequence of a computer running Linux with systemd"
-msgstr ""
+msgstr "執行 systemd 的 Linux 機器的啟動程序"
 
 msgid "The systemd init system"
-msgstr ""
+msgstr "systemd 啟動系統"
 
 msgid "The “real init” is currently provided by <emphasis role=\"pkg\">systemd</emphasis> and this section documents this init system."
-msgstr ""
+msgstr "此 “真正啟動” 是由 <emphasis role=\"pkg\">systemd</emphasis> 提供的，在本節說明該啟動系統。"
 
 msgid "<emphasis>CULTURE</emphasis> Before <command>systemd</command>"
-msgstr ""
+msgstr "<emphasis>文化</emphasis> 首先 <command>systemd</command>"
 
 msgid "<command>systemd</command> is a relatively recent “init system”, and although it was already available, to a certain extent, in <emphasis role=\"distribution\">Wheezy</emphasis>, it has only become the default in Debian <emphasis role=\"distribution\">Jessie</emphasis>. Previous releases relied, by default, on the “System V init” (in the <emphasis role=\"pkg\">sysv-rc</emphasis> package), a much more traditional system. We describe the System V init later on."
-msgstr ""
+msgstr "<command>systemd</command> 是相當新的 “啟動系統”，雖然在 <emphasis role=\"distribution\">Wheezy</emphasis> 裡已經可以使用到某個程度，直到 Debian <emphasis role=\"distribution\">Jessie</emphasis> 才納入預設值。稍最的版本，預設是 “System V init” (在 <emphasis role=\"pkg\">sysv-rc</emphasis> 套件內)，算是傳統的系統。以下描述的是 System V init。"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other boot systems"
-msgstr ""
+msgstr "<emphasis>選擇</emphasis> 其他啟動系統"
 
 msgid "This book describes the boot system used by default in Debian <emphasis role=\"distribution\">Jessie</emphasis> (as implemented by the <emphasis role=\"pkg\">systemd</emphasis> package), as well as the previous default, <emphasis role=\"pkg\">sysvinit</emphasis>, which is derived and inherited from <emphasis>System V</emphasis> Unix systems; there are others."
-msgstr ""
+msgstr "本書描述的是 Debian <emphasis role=\"distribution\">Jessie</emphasis> (如 <emphasis role=\"pkg\">systemd</emphasis> 套件所應用的) 預設的啟動系統，以及更早的預設值，<emphasis role=\"pkg\">sysvinit</emphasis>，源自於 <emphasis>System V</emphasis> Unix 系統；還有若干其他的。"
 
 msgid "<emphasis role=\"pkg\">file-rc</emphasis> is a boot system with a very simple process. It keeps the principle of runlevels, but replaces the directories and symbolic links with a configuration file, which indicates to <command>init</command> the processes that must be started and their launch order."
-msgstr ""
+msgstr "<emphasis role=\"pkg\">file-rc</emphasis> 是程序簡單的啟動系統。祗使用執行層次的原則，但以組態檔取代資料夾與符號連結，做為指示 <command>init</command> 命令處理啟動與後續的順序。"
 
 msgid "The <command>upstart</command> system is still not perfectly tested on Debian. It is event based: init scripts are no longer executed in a sequential order but in response to events such as the completion of another script upon which they are dependent. This system, started by Ubuntu, is present in Debian <emphasis role=\"distribution\">Jessie</emphasis>, but is not the default; it comes, in fact, as a replacement for <emphasis role=\"pkg\">sysvinit</emphasis>, and one of the tasks launched by <command>upstart</command> is to launch the scripts written for traditional systems, especially those from the <emphasis role=\"pkg\">sysv-rc</emphasis> package."
-msgstr ""
+msgstr "此 <command>upstart</command> 系統在 Debian 上仍未完整測試。它以事件為基礎：不再依序執行 init 腳本，但以回應另個依附的腳本。由 Ubuntu 開始的這個系統，列在 Debian <emphasis role=\"distribution\">Jessie</emphasis> 內，但還不是預設；事實上，做為 <emphasis role=\"pkg\">sysvinit</emphasis> 的替代品，由 <command>upstart</command> 啟動的工作，係用來啟動為傳統系統而設的，特別是來自 <emphasis role=\"pkg\">sysv-rc</emphasis> 套件的腳本。"
 
 msgid "There are also other systems and other operating modes, such as <command>runit</command> or <command>minit</command>, but they are relatively specialized and not widespread."
-msgstr ""
+msgstr "作業模式還有其他的系統，例如 <command>runit</command> 或 <command>minit</command>，但都很專門且不普及。"
 
 msgid "<emphasis>SPECIFIC CASE</emphasis> Booting from the network"
-msgstr ""
+msgstr "<emphasis>特例</emphasis> 網路啟動"
 
 msgid "In some configurations, the BIOS may be configured not to execute the MBR, but to seek its equivalent on the network, making it possible to build computers without a hard drive, or which are completely reinstalled on each boot. This option is not available on all hardware and it generally requires an appropriate combination of BIOS and network card."
-msgstr ""
+msgstr "有些組態可以讓 BIOS 不執行 MBR，而從網路尋找等同的裝置，在無硬碟的情況下建立電腦、或完全重新安裝每個啟動。並不是所有硬體都支援此選項，需要 BIOS 與網卡適當地搭配。"
 
 msgid "Booting from the network can be used to launch the <command>debian-installer</command> or FAI (see <xref linkend=\"sect.installation-methods\" />)."
-msgstr ""
+msgstr "可以從網路啟動 <command>debian-installer</command> 或 FAI (見 <xref linkend=\"sect.installation-methods\" />)。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> The process, a program instance"
-msgstr ""
+msgstr "<emphasis>回到基礎</emphasis> 程序，一個程式實例"
 
 msgid "<primary>process</primary>"
-msgstr ""
+msgstr "<primary>程序</primary>"
 
 msgid "A process is the representation in memory of a running program. It includes all of the information necessary for the proper execution of the software (the code itself, but also the data that it has in memory, the list of files that it has opened, the network connections it has established, etc.). A single program may be instantiated into several processes, not necessarily running under different user IDs."
-msgstr ""
+msgstr "程序是在記憶體執行程式的代表。包括適當執行軟體的必要資訊 (程式碼本身、記憶體內的資料、開啟的檔案清單、已建立的網路連結等)。單一程式可能安裝成多個程序，不必在不同的使用者帳號下執行。"
 
 msgid "<emphasis>SECURITY</emphasis> Using a shell as <command>init</command> to gain root rights"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 以 shell 做為 <command>init</command> 取得 root 權限"
 
 msgid "By convention, the first process that is booted is the <command>init</command> program (which is a symbolic link to <filename>/lib/systemd/systemd</filename> by default). However, it is possible to pass an <literal>init</literal> option to the kernel indicating a different program."
-msgstr ""
+msgstr "慣例上，第一個啟動的程序是 <command>init</command> 程式(預設為符號連結至 <filename>/lib/systemd/systemd</filename>)。然而，也可能繞過 <literal>init</literal> 選項直接進入核心使用其他程式。"
 
 msgid "<primary><command>init</command></primary>"
-msgstr ""
+msgstr "<primary><command>init</command></primary>"
 
 msgid "Any person who is able to access the computer can press the <keycap>Reset</keycap> button, and thus reboot it. Then, at the bootloader's prompt, it is possible to pass the <literal>init=/bin/sh</literal> option to the kernel to gain root access without knowing the administrator's password."
-msgstr ""
+msgstr "實際接觸電腦人都可以按下 <keycap>Reset</keycap> 鈕，重新開機。然後，在啟動程式的提示符號下，可能繞過 <literal>init=/bin/sh</literal> 選項不需管理者密碼，就能進入核心取得 root 權限。"
 
 msgid "To prevent this, you can protect the bootloader itself with a password. You might also think about protecting access to the BIOS (a password protection mechanism is almost always available), without which a malicious intruder could still boot the machine on a removable media containing its own Linux system, which they could then use to access data on the computer's hard drives."
-msgstr ""
+msgstr "為了防止此類事件發生，可以加設密碼保護啟動程式。也可以保護進入 BIOS (總是可以找到密碼保護的機制)，可以防止入侵者插入含 Linux 系統的移動媒體，近用電腦硬碟內的資料。"
 
 msgid "Finally, be aware that most BIOS have a generic password available. Initially intended for troubleshooting for those who have forgotten their password, these passwords are now public and available on the Internet (see for yourself by searching for “generic BIOS passwords” in a search engine). All of these protections will thus impede unauthorized access to the machine without being able to completely prevent it. There is no reliable way to protect a computer if the attacker can physically access it; they could dismount the hard drives to connect them to a computer under their own control anyway, or even steal the entire machine, or erase the BIOS memory to reset the password…"
-msgstr ""
+msgstr "最後的叮嚀，大部份的 BIOS 有通用密碼。原來係供忘記密碼的人使用，目前已經在網際網路上公開了 (以 “generic BIOS passwords” 在搜尋引擎查找)。所有的保護都可以阻絕未授權的近用但還不能完全避免。目前沒有任何方法可以保護電腦不受實質接觸電腦者的入侵；入侵者可以卸載電腦的硬碟再納入其控制之下、或者偷者整部機器、或者抹除 BIOS 記憶體重設密碼…"
 
 msgid "Systemd executes several processes, in charge of setting up the system: keyboard, drivers, filesystems, network, services. It does this while keeping a global view of the system as a whole, and the requirements of the components. Each component is described by a “unit file” (sometimes more); the general syntax is derived from the widely-used “*.ini files“ syntax, with <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> pairs grouped between <literal>[<replaceable>section</replaceable>]</literal> headers. Unit files are stored under <filename>/lib/systemd/system/</filename> and <filename>/etc/systemd/system/</filename>; they come in several flavours, but we will focus on “services” and “targets” here."
-msgstr ""
+msgstr "Systemd 執行多個程序，設定系統：鍵盤、驅動程式、檔案系統、網路、服務等。同時全面檢視系統，以及必要的配件。每個配件都視為一個 “單元檔案” (有時為多個)；通用的語法源自於常用的 “*.ini files“ 語法，包括配對的 <literal><replaceable>key</replaceable> = <replaceable>value</replaceable></literal> 列在 <literal>[<replaceable>section</replaceable>]</literal> 標頭內。單元檔案儲存在 <filename>/lib/systemd/system/</filename> 與 <filename>/etc/systemd/system/</filename> 內；以多種風貌呈現，目前專注在 “服務” 與 “目標”。"
 
 msgid "A systemd “service file” describes a process managed by systemd. It contains roughly the same information as old-style init-scripts, but expressed in a declaratory (and much more concise) way. Systemd handles the bulk of the repetitive tasks (starting and stopping the process, checking its status, logging, dropping privileges, and so on), and the service file only needs to fill in the specifics of the process. For instance, here is the service file for SSH:"
-msgstr ""
+msgstr "systemd “服務檔案” 描述被 systemd 管理的程序。包括與舊型的 init-scripts 相同的資料，但以宣告 (同時較為簡潔) 的方式表述。Systemd 處理大量重複的工作 (啟動與終止程序、檢查其狀態、日註記錄、去除特權等)，以及祗供特定程序使用的服務檔案。例如，以下是 SSH 用到的服務檔："
 
 msgid ""
 "[Unit]\n"
@@ -161,27 +162,42 @@ msgid ""
 "WantedBy=multi-user.target\n"
 "Alias=sshd.service"
 msgstr ""
+"[Unit]\n"
+"Description=OpenBSD Secure Shell server\n"
+"After=network.target auditd.service\n"
+"ConditionPathExists=!/etc/ssh/sshd_not_to_be_run\n"
+"\n"
+"[Service]\n"
+"EnvironmentFile=-/etc/default/ssh\n"
+"ExecStart=/usr/sbin/sshd -D $SSHD_OPTS\n"
+"ExecReload=/bin/kill -HUP $MAINPID\n"
+"KillMode=process\n"
+"Restart=on-failure\n"
+"\n"
+"[Install]\n"
+"WantedBy=multi-user.target\n"
+"Alias=sshd.service"
 
 msgid "As you can see, there is very little code in there, only declarations. Systemd takes care of displaying progress reports, keeping track of the processes, and even restarting them when needed."
-msgstr ""
+msgstr "如上文所示，程式碼極少，祗有宣告。Systemd 管理顯示進度報表、追蹤程序、以及必要的重啟。"
 
 msgid "A systemd “target file” describes a state of the system, where a set of services are known to be operational. It can be thought of as an equivalent of the old-style runlevel. One of the targets is <literal>local-fs.target</literal>; when it is reached, the rest of the system can assume that all local filesystems are mounted and accessible. Other targets include <literal>network-online.target</literal> and <literal>sound.target</literal>. The dependencies of a target can be listed either within the target file (in the <literal>Requires=</literal> line), or using a symbolic link to a service file in the <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal> directory. For instance, <filename>/etc/systemd/system/printer.target.wants/</filename> contains a link to <filename>/lib/systemd/system/cups.service</filename>; systemd will therefore ensure CUPS is running in order to reach <literal>printer.target</literal>."
-msgstr ""
+msgstr "systemd 的 “目標檔案” 描述系統的現狀，包括可操作的服務。不妨視為相當於舊型的執行階段作業。其中一個目標是 <literal>local-fs.target</literal>；進入之後，系統的其他部份假設所有的在地檔案系統均己掛載並可近用。其他的目標包括 <literal>network-online.target</literal> 與 <literal>sound.target</literal>。目標的相依性可以列在目標檔案內 (於 <literal>Requires=</literal> 列) 或使用符號連結至在 <literal>/lib/systemd/system/<replaceable>targetname</replaceable>.target.wants/</literal> 資料夾內的服務檔案。例如，<filename>/etc/systemd/system/printer.target.wants/</filename> 包括一個連結至 <filename>/lib/systemd/system/cups.service</filename>；systemd 將確保 CUPS 已執行至 <literal>printer.target</literal>。"
 
 msgid "Since unit files are declarative rather than scripts or programs, they cannot be run directly, and they are only interpreted by systemd; several utilities therefore allow the administrator to interact with systemd and control the state of the system and of each component."
-msgstr ""
+msgstr "單元檔案是宣告性的而不是腳本或程式，不能直接執行，祗能被 systemd 解譯；因些有些工具允許管理者與 systemd 互動且控制系統的狀態與其元件。"
 
 msgid "The first such utility is <command>systemctl</command>. When run without any arguments, it lists all the unit files known to systemd (except those that have been disabled), as well as their status. <command>systemctl status</command> gives a better view of the services, as well as the related processes. If given the name of a service (as in <command>systemctl status ntp.service</command>), it returns even more details, as well as the last few log lines related to the service (more on that later)."
-msgstr ""
+msgstr "第一種這類工具是 <command>systemctl</command>。未使用參數執行時，它列出 systemd  已知的所有單元檔 (除了已經停用的)，及其現況。<command>systemctl status</command> 則以更佳的角度檢視服務，以及相關的程序。若提供服務的名稱 (如 <command>systemctl status ntp.service</command>)，則送回更多詳細的資料，以及與該服務有關的最後幾個日誌檔 (還有更多的)。"
 
 msgid "Starting a service by hand is a simple matter of running <command>systemctl start <replaceable>servicename</replaceable>.service</command>. As one can guess, stopping the service is done with <command>systemctl stop <replaceable>servicename</replaceable>.service</command>; other subcommands include <command>reload</command> and <command>restart</command>."
-msgstr ""
+msgstr "執行 <command>systemctl start <replaceable>servicename</replaceable>.service</command> 就能以人工方式啟動服務。同樣的，執行 <command>systemctl stop <replaceable>servicename</replaceable>.service</command> 就能停止已完成的服務；其他的次命令包括 <command>reload</command> 與 <command>restart</command>。"
 
 msgid "To control whether a service is active (i.e. whether it will get started automatically on boot), use <command>systemctl enable <replaceable>servicename</replaceable>.service</command> (or <command>disable</command>). <command>is-enabled</command> allows checking the status of the service."
-msgstr ""
+msgstr "以 <command>systemctl enable <replaceable>servicename</replaceable>.service</command> (或 <command>disable</command>) 控制啟動服務 (即開機後自動啟動)。<command>is-enabled</command> 可以檢查服務的狀態。"
 
 msgid "An interesting feature of systemd is that it includes a logging component named <command>journald</command>. It comes as a complement to more traditional logging systems such as <command>syslogd</command>, but it adds interesting features such as a formal link between a service and the messages it generates, and the ability to capture error messages generated by its initialisation sequence. The messages can be displayed later on, with a little help from the <command>journalctl</command> command. Without any arguments, it simply spews all log messages that occurred since system boot; it will rarely be used in such a manner. Most of the time, it will be used with a service identifier:"
-msgstr ""
+msgstr "systemd 重要的功能之一是包括登入的組件 <command>journald</command>。做為補充 <command>syslogd</command> 之類傳統登入系統的組件，但加入額外的功能包括在服務與其產生訊息間的正式連結，以及補捉由初始過程產生的錯誤訊息。在 <command>journalctl</command> 命令的協助下，稍後可顯示該等訊息。不需任何參數，它溢出系統啟動後發生的所有日誌訊息；不過很少用到它。多數時間，把它做為服務的辨識器："
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>journalctl -u ssh.service\n"
@@ -195,12 +211,22 @@ msgid ""
 "Mar 31 10:09:32 mirtuel sshd[1151]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>journalctl -u ssh.service\n"
+"</userinput><computeroutput>-- Logs begin at Tue 2015-03-31 10:08:49 CEST, end at Tue 2015-03-31 17:06:02 CEST. --\n"
+"Mar 31 10:08:55 mirtuel sshd[430]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 10:08:55 mirtuel sshd[430]: Server listening on :: port 22.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Received SIGHUP; restarting.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 10:09:00 mirtuel sshd[430]: Server listening on :: port 22.\n"
+"Mar 31 10:09:32 mirtuel sshd[1151]: Accepted password for roland from 192.168.1.129 port 53394 ssh2\n"
+"Mar 31 10:09:32 mirtuel sshd[1151]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
+"</computeroutput>"
 
 msgid "Another useful command-line flag is <command>-f</command>, which instructs <command>journalctl</command> to keep displaying new messages as they are emitted (much in the manner of <command>tail -f <replaceable>file</replaceable></command>)."
-msgstr ""
+msgstr "另個有用的命令列旗標是 <command>-f</command>，用於指示 <command>journalctl</command> 繼續顯示溢出的新增訊息 (大部份是在 <command>tail -f <replaceable>file</replaceable></command> 之內)。"
 
 msgid "If a service doesn't seem to be working as expected, the first step to solve the problem is to check that the service is actually running with <command>systemctl status</command>; if it is not, and the messages given by the first command are not enough to diagnose the problem, check the logs gathered by journald about that service. For instance, assume the SSH server doesn't work:"
-msgstr ""
+msgstr "若服務狀況不如預共，第一個步驟是以 <command>systemctl status</command> 檢查該服務是否真的已啟動；若沒有，則第一個命令給的訊息就不足以診斷問題之所在，檢查 journald 產生的日誌檔。例如，假設 SSH 伺服器未啟動時："
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
@@ -255,1071 +281,1125 @@ msgid ""
 "           └─1222 /usr/sbin/sshd -D\n"
 "# </computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
+"</userinput><computeroutput>● ssh.service - OpenBSD Secure Shell server\n"
+"   Loaded: loaded (/lib/systemd/system/ssh.service; enabled)\n"
+"   Active: failed (Result: start-limit) since Tue 2015-03-31 17:30:36 CEST; 1s ago\n"
+"  Process: 1023 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)\n"
+"  Process: 1188 ExecStart=/usr/sbin/sshd -D $SSHD_OPTS (code=exited, status=255)\n"
+" Main PID: 1188 (code=exited, status=255)\n"
+"\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service start request repeated too quickly, refusing to start.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Failed to start OpenBSD Secure Shell server.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"# </computeroutput><userinput>journalctl -u ssh.service\n"
+"</userinput><computeroutput>-- Logs begin at Tue 2015-03-31 17:29:27 CEST, end at Tue 2015-03-31 17:30:36 CEST. --\n"
+"Mar 31 17:29:27 mirtuel sshd[424]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 17:29:27 mirtuel sshd[424]: Server listening on :: port 22.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Received SIGHUP; restarting.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Server listening on 0.0.0.0 port 22.\n"
+"Mar 31 17:29:29 mirtuel sshd[424]: Server listening on :: port 22.\n"
+"Mar 31 17:30:10 mirtuel sshd[1147]: Accepted password for roland from 192.168.1.129 port 38742 ssh2\n"
+"Mar 31 17:30:10 mirtuel sshd[1147]: pam_unix(sshd:session): session opened for user roland by (uid=0)\n"
+"Mar 31 17:30:35 mirtuel sshd[1180]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:35 mirtuel sshd[1182]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:35 mirtuel sshd[1184]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:35 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel sshd[1186]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel sshd[1188]: /etc/ssh/sshd_config line 28: unsupported option \"yess\".\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service: main process exited, code=exited, status=255/n/a\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: ssh.service start request repeated too quickly, refusing to start.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Failed to start OpenBSD Secure Shell server.\n"
+"Mar 31 17:30:36 mirtuel systemd[1]: Unit ssh.service entered failed state.\n"
+"# </computeroutput><userinput>vi /etc/ssh/sshd_config\n"
+"</userinput><computeroutput># </computeroutput><userinput>systemctl start ssh.service\n"
+"</userinput><computeroutput># </computeroutput><userinput>systemctl status ssh.service\n"
+"</userinput><computeroutput>● ssh.service - OpenBSD Secure Shell server\n"
+"   Loaded: loaded (/lib/systemd/system/ssh.service; enabled)\n"
+"   Active: active (running) since Tue 2015-03-31 17:31:09 CEST; 2s ago\n"
+"  Process: 1023 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)\n"
+" Main PID: 1222 (sshd)\n"
+"   CGroup: /system.slice/ssh.service\n"
+"           └─1222 /usr/sbin/sshd -D\n"
+"# </computeroutput>"
 
 msgid "After checking the status of the service (failed), we went on to check the logs; they indicate an error in the configuration file. After editing the configuration file and fixing the error, we restart the service, then verify that it is indeed running."
-msgstr ""
+msgstr "檢查服務的狀態 (失敗) 後，再檢查日誌檔；它們會指出組態的錯誤。編輯組態檔並修正錯誤後，重啟服務，確認執行中。"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Other types of unit files"
-msgstr ""
+msgstr "<emphasis>下一步</emphasis> 其他類型的單元檔"
 
 msgid "We have only described the most basic of systemd's capabilities in this section. It offers many other interesting features; we will only list a few here:"
-msgstr ""
+msgstr "本區祗描述 systemd 最基本的功能。其他的功能祗能在此列出若干："
 
 msgid "socket activation: a “socket” unit file can be used to describe a network or Unix socket managed by systemd; this means that the socket will be created by systemd, and the actual service may be started on demand when an actual connection attempt comes. This roughly replicates the feature set of <command>inetd</command>. See <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
-msgstr ""
+msgstr "啟用插口：“插口” 單元檔案可用於描述 systemd 管理的網路或 Unix 插口；也就是由 systemd 建立的插口，可以在需要的時候再啟動實際的服務。通常重製 <command>inetd</command> 的功能。見 <citerefentry><refentrytitle>systemd.socket</refentrytitle><manvolnum>5</manvolnum></citerefentry>。"
 
 msgid "timers: a “timer” unit file describes events that occur with a fixed frequency or on specific times; when a service is linked to such a timer, the corresponding task will be executed whenever the timer fires. This allows replicating part of the <command>cron</command> features. See <citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry>."
-msgstr ""
+msgstr "定時器：“定時器” 單元檔案描述定時或在指定時間發生的事件；與定時器連結的服務，其對映的工作將在定時器的要求下才執行。 允許重製 <command>cron</command> 的部份功能。見 <citerefentry><refentrytitle>systemd.timer</refentrytitle><manvolnum>5</manvolnum></citerefentry>。"
 
 msgid "network: a “network“ unit file describes a network interface, which allows configuring such interfaces as well as expressing that a service depends on one particular interface being up."
-msgstr ""
+msgstr "網路：“網路“ 單元檔案描述網路介面，允許組態該等介面以及表述在特定介面的服務。"
 
 msgid "The System V init system"
-msgstr ""
+msgstr "System V 初始系統"
 
 msgid "The System V init system (which we'll call init for brevity) executes several processes, following instructions from the <filename>/etc/inittab</filename> file. The first program that is executed (which corresponds to the <emphasis>sysinit</emphasis> step) is <command>/etc/init.d/rcS</command>, a script that executes all of the programs in the <filename>/etc/rcS.d/</filename> directory. <indexterm><primary><filename>/etc/init.d/rcS</filename></primary></indexterm> <indexterm><primary><filename>rcS</filename></primary></indexterm> <indexterm><primary><filename>/etc/init.d/rcS.d/</filename></primary></indexterm> <indexterm><primary><filename>rcS.d</filename></primary></indexterm>"
-msgstr ""
+msgstr "System V 初始系統 (簡稱初始) 執行若干程序，根據 <filename>/etc/inittab</filename> 檔案的指令做事。第一個執行的程式 (對映於 <emphasis>sysinit</emphasis> 步驟) 是 <command>/etc/init.d/rcS</command>，一個執行在 <filename>/etc/rcS.d/</filename> 資料夾內所有程式的腳本。<indexterm><primary><filename>/etc/init.d/rcS</filename></primary></indexterm> <indexterm><primary><filename>rcS</filename></primary></indexterm> <indexterm><primary><filename>/etc/init.d/rcS.d/</filename></primary></indexterm> <indexterm><primary><filename>rcS.d</filename></primary></indexterm>"
 
 msgid "Among these, you will find successively programs in charge of:"
-msgstr ""
+msgstr "在這些裡面，可找到負責的程式："
 
 msgid "configuring the console's keyboard;"
-msgstr ""
+msgstr "組態終端機的鍵盤；"
 
 msgid "loading drivers: most of the kernel modules are loaded by the kernel itself as the hardware is detected; extra drivers are then loaded automatically when the corresponding modules are listed in <filename>/etc/modules</filename>;"
-msgstr ""
+msgstr "載入驅動程式：大部份的核心模組在偵測到硬體後由核心本身載入；其他的驅動程式在對應模組列在 <filename>/etc/modules</filename> 時，才自動載入；"
 
 msgid "checking the integrity of filesystems;"
-msgstr ""
+msgstr "檢查檔案系織的完整性；"
 
 msgid "mounting local partitions;"
-msgstr ""
+msgstr "掛載在地分區；"
 
 msgid "configuring the network;"
-msgstr ""
+msgstr "組態網路；"
 
 msgid "mounting network filesystems (NFS)."
-msgstr ""
+msgstr "掛載網路檔案系統 (NFS)。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Kernel modules and options"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> 核心模組與選項"
 
 msgid "<primary>modules</primary><secondary>kernel modules</secondary>"
-msgstr ""
+msgstr "<primary>模組</primary><secondary>核心模組</secondary>"
 
 msgid "Kernel modules also have options that can be configured by putting some files in <filename>/etc/modprobe.d/</filename>. These options are defined with directives like this: <literal>options <replaceable>module-name</replaceable> <replaceable>option-name</replaceable>=<replaceable>option-value</replaceable></literal>. Several options can be specified with a single directive if necessary."
-msgstr ""
+msgstr "核心模組也有選項可供置入檔案在 <filename>/etc/modprobe.d/</filename> 內做為組態之用。這些選項設定於：<literal>options <replaceable>module-name</replaceable> <replaceable>option-name</replaceable>=<replaceable>option-value</replaceable></literal>。必要時，部份選項可以指定給單一用途。"
 
 msgid "These configuration files are intended for <command>modprobe</command> — the program that loads a kernel module with its dependencies (modules can indeed call other modules). This program is provided by the <emphasis role=\"pkg\">kmod</emphasis> package."
-msgstr ""
+msgstr "這些組態檔係供 <command>modprobe</command> 使用 — 這個程式載入核心模組及其相依者 (才能直正的呼叫其他模組)。這個程式由 <emphasis role=\"pkg\">kmod</emphasis> 套件提供。"
 
 msgid "<primary><command>modprobe</command></primary>"
-msgstr ""
+msgstr "<primary><command>modprobe</command></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">kmod</emphasis></primary>"
 
 msgid "After this stage, <command>init</command> takes over and starts the programs enabled in the default runlevel (which is usually runlevel 2). It executes <command>/etc/init.d/rc 2</command>, a script that starts all services which are listed in <filename>/etc/rc2.d/</filename> and whose names start with the “S” letter. The two-figures number that follows had historically been used to define the order in which services had to be started, but nowadays the default boot system uses <command>insserv</command>, which schedules everything automatically based on the scripts' dependencies. Each boot script thus declares the conditions that must be met to start or stop the service (for example, if it must start before or after another service); <command>init</command> then launches them in the order that meets these conditions. The static numbering of scripts is therefore no longer taken into consideration (but they must always have a name beginning with “S” followed by two digits and the actual name of the script used for the dependencies). Generally, base services (such as logging with <command>rsyslog</command>, or port assignment with <command>portmap</command>) are started first, followed by standard services and the graphical interface (<command>gdm3</command>)."
-msgstr ""
+msgstr "到了這個地步，<command>init</command> 接手並啟動執行階段預設的程式 (通常是執行階段 2)。它執行 <command>/etc/init.d/rc 2</command>，一個啟動列在 <filename>/etc/rc2.d/</filename> 之內的所有服務並命名為 “S” 字母開頭。接著的兩位數，曾經做為服務啟動的順序，不過現在的預設啟動系統使用 <command>insserv</command>，根據腳本的相依性自動決定其先後順序。每個啟動腳本宣告的情況必須符合啟動或停止服務 (例如，必須在另個服務之前或之後啟動)；<command>init</command> 再依此情況啟動它們。不再考慮靜態的腳本編號 (但仍需按相依性使用 “S” 及兩個數字與實際的腳本名稱)。通常，基本的服務 (諸如以 <command>rsyslog</command> 登入，或以 <command>portmap</command> 指定埠口) 先列出來，然後才是標準服務與圖形介面 (<command>gdm3</command>)。"
 
 msgid "This dependency-based boot system makes it possible to automate re-numbering, which could be rather tedious if it had to be done manually, and it limits the risks of human error, since scheduling is conducted according to the parameters that are indicated. Another benefit is that services can be started in parallel when they are independent from one another, which can accelerate the boot process."
-msgstr ""
+msgstr "這種以相依性為基礎的啟動系統可以自動重新編號，避免人工作業的繁瑣，且限縮可能的人為錯誤，因為其排序係依照參數而訂。另個優點是可以同時啟動多個互相獨立的服務，藉以加速啟動程序。"
 
 msgid "<primary>runlevel</primary>"
-msgstr ""
+msgstr "<primary>執行階層</primary>"
 
 msgid "<primary>level, runlevel</primary>"
-msgstr ""
+msgstr "<primary>階層，執行階層</primary>"
 
 msgid "<command>init</command> distinguishes several runlevels, so it can switch from one to another with the <command>telinit <replaceable>new-level</replaceable></command> command. Immediately, <command>init</command> executes <command>/etc/init.d/rc</command> again with the new runlevel. This script will then start the missing services and stop those that are no longer desired. To do this, it refers to the content of the <filename>/etc/rc<replaceable>X</replaceable>.d</filename> (where <replaceable>X</replaceable> represents the new runlevel). Scripts starting with “S” (as in “Start”) are services to be started; those starting with “K” (as in “Kill”) are the services to be stopped. The script does not start any service that was already active in the previous runlevel."
-msgstr ""
+msgstr "<command>init</command> 區隔多個執行階層，所以可以用 <command>telinit <replaceable>new-level</replaceable></command> 命令切換。立即，<command>init</command> 在新的執行階層再次執行 <command>/etc/init.d/rc</command>。這個腳本可執行缺失的服務並停止不再用到的服務。為了做到這個程度，它參照 <filename>/etc/rc<replaceable>X</replaceable>.d</filename> 的內容 (<replaceable>X</replaceable> 代表新的執行階層)。以 “S” (表示開始 “Start”) 開始的腳本是將啟動的服務；以 “K” (表示砍掉 “Kill”) 開始的腳本是將停止的服務。腳本不會啟動已經在前個執行階層執行的服務。"
 
 msgid "By default, System V init in Debian uses four different runlevels:"
-msgstr ""
+msgstr "預設，Debian 的 System V init 使用四個不同的執行階層："
 
 msgid "Level 0 is only used temporarily, while the computer is powering down. As such, it only contains many “K” scripts."
-msgstr ""
+msgstr "0 層，祗是暫時的，電腦進入關機程序。所以，祗包括若干 “K” 腳本。"
 
 msgid "Level 1, also known as single-user mode, corresponds to the system in degraded mode; it includes only basic services, and is intended for maintenance operations where interactions with ordinary users are not desired."
-msgstr ""
+msgstr "1 層，也稱為單一使用者模式，對應於系統的降級模式；祗包括基本服務，並試圖維護與一般使用者非必要的運作。"
 
 msgid "Level 2 is the level for normal operation, which includes networking services, a graphical interface, user logins, etc."
-msgstr ""
+msgstr "2 層是標準運作，包括網路服務、圖形介面、使用者登入等。"
 
 msgid "Level 6 is similar to level 0, except that it is used during the shutdown phase that precedes a reboot."
-msgstr ""
+msgstr "6 層類似 0 層，除了在重開機之前先執行關機。"
 
 msgid "Other levels exist, especially 3 to 5. By default they are configured to operate the same way as level 2, but the administrator can modify them (by adding or deleting scripts in the corresponding <filename>/etc/rc<replaceable>X</replaceable>.d</filename> directories) to adapt them to particular needs."
-msgstr ""
+msgstr "其他的階層，尤其是 3 至 5 階。它們預設的組態等同於階層 2，但是管理者可以修改它們 (在對應的 <filename>/etc/rc<replaceable>X</replaceable>.d</filename> 資料夾新增或刪除腳本) 以適應特定的需求。"
 
 msgid "Boot sequence of a computer running Linux with System V init"
-msgstr ""
+msgstr "以 System V init 執行 Linux 的啟動程序"
 
 msgid "<primary>initialization script</primary>"
-msgstr ""
+msgstr "<primary>啟始腳本</primary>"
 
 msgid "All the scripts contained in the various <filename>/etc/rc<replaceable>X</replaceable>.d</filename> directories are really only symbolic links — created upon package installation by the <command>update-rc.d</command> program — pointing to the actual scripts which are stored in <filename>/etc/init.d/</filename>. The administrator can fine tune the services available in each runlevel by re-running <command>update-rc.d</command> with adjusted parameters. The <citerefentry><refentrytitle>update-rc.d</refentrytitle><manvolnum>1</manvolnum></citerefentry> manual page describes the syntax in detail. Please note that removing all symbolic links (with the <literal>remove</literal> parameter) is not a good method to disable a service. Instead you should simply configure it to not start in the desired runlevel (while preserving the corresponding calls to stop it in the event that the service runs in the previous runlevel). Since <command>update-rc.d</command> has a somewhat convoluted interface, you may prefer using <command>rcconf</command> (from the <emphasis role=\"pkg\">rcconf</emphasis> package) which provides a more user-friendly interface."
-msgstr ""
+msgstr "在 <filename>/etc/rc<replaceable>X</replaceable>.d</filename> 資料夾內的腳本祗是符號連結 — 安裝套件時由 <command>update-rc.d</command> 程式產生 — 指向儲存在 <filename>/etc/init.d/</filename> l裡的實際腳本。管理者可以使用調整後的參數重新執行 <command>update-rc.d</command> 以微調運行層級的服務。The <citerefentry><refentrytitle>update-rc.d</refentrytitle><manvolnum>1</manvolnum></citerefentry> 手冊詳細地描述其語法。請注意移除所有的符號連結 (使用 <literal>remove</literal> 參數) 不是停用該服務的好方法。應該是，在特定的執行層級組態其為不啟動 (在前個執行層級已有的服務應保留對應的呼叫停止它)。因為 <command>update-rc.d</command> 介面有點麻煩，建議使用較為友善的 <command>rcconf</command> (從 <emphasis role=\"pkg\">rcconf</emphasis> 套件取用) 介面。"
 
 msgid "<primary><command>update-rc.d</command></primary>"
-msgstr ""
+msgstr "<primary><command>update-rc.d</command></primary>"
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> Restarting services"
-msgstr ""
+msgstr "<emphasis>DEBIAN 政策</emphasis> 重啟服務"
 
 msgid "<primary><command>invoke-rc.d</command></primary>"
-msgstr ""
+msgstr "<primary><command>invoke-rc.d</command></primary>"
 
 msgid "<primary>service</primary><secondary>restart</secondary>"
-msgstr ""
+msgstr "<primary>服務</primary><secondary>重啟</secondary>"
 
 msgid "<primary>restarting services</primary>"
-msgstr ""
+msgstr "<primary>重啟服務</primary>"
 
 msgid "The maintainer scripts for Debian packages will sometimes restart certain services to ensure their availability or get them to take certain options into account. The command that controls a service — <command>service <replaceable>service</replaceable> <replaceable>operation</replaceable></command> — doesn't take runlevel into consideration, assumes (wrongly) that the service is currently being used, and may thus initiate incorrect operations (starting a service that was deliberately stopped, or stopping a service that is already stopped, etc.). Debian therefore introduced the <command>invoke-rc.d</command> program: this program must be used by maintainer scripts to run services initialization scripts and it will only execute the necessary commands. Note that, contrary to common usage, the <filename>.d</filename> suffix is used here in a program name, and not in a directory."
-msgstr ""
+msgstr "Debian 套件的維護者腳本將不時重新啟動特定服務以確保其有效性或取得特定的選項。控制服務的命令 — <command>service <replaceable>service</replaceable> <replaceable>operation</replaceable></command> — 未考量執行階層，假設 (錯誤地) 該服務仍在使用中，且可能啟動錯誤的作業 (啟動應該停止的服務，或停止已經停止的服務等)。因此，Debian 有個 <command>invoke-rc.d</command> 程式：必須由維護者的腳本啟動，執行服務的初啟腳本且祗執行必要的命令。注意，不同於常見的用法，在程式名之前使用 <filename>.d</filename> 前置，且不能在資料夾內。"
 
 msgid "Finally, <command>init</command> starts control programs for various virtual consoles (<command>getty</command>). It displays a prompt, waiting for a username, then executes <command>login <replaceable>user</replaceable></command> to initiate a session."
-msgstr ""
+msgstr "最後，<command>init</command> 啟動虛擬終端機 (<command>getty</command>) 的控制程式。顯示提示符號，等待使用者名稱，然後執行 <command>login <replaceable>user</replaceable></command> 啟始一個程序。"
 
 msgid "<primary><command>getty</command></primary>"
-msgstr ""
+msgstr "<primary><command>getty</command></primary>"
 
 msgid "<emphasis>VOCABULARY</emphasis> Console and terminal"
-msgstr ""
+msgstr "<emphasis>字彙</emphasis> 控制臺與終端機"
 
 msgid "The first computers were usually separated into several, very large parts: the storage enclosure and the central processing unit were separate from the peripheral devices used by the operators to control them. These were part of a separate furniture, the “console”. This term was retained, but its meaning has changed. It has become more or less synonymous with “terminal”, being a keyboard and a screen."
-msgstr ""
+msgstr "第一組電腦通常由多個非常大的部份組成：儲存裝置與中央處理單元，以及由作業員控制的獨立週邊裝置。這些部份置於獨立的櫃中，“控制臺”。這個術語使用多年，但代表的義意已經改變。離 “終端機”，即鍵盤與螢幕，愈來愈遠。"
 
 msgid "With the development of computers, operating systems have offered several virtual consoles to allow for several independent sessions at the same time, even if there is only one keyboard and screen. Most GNU/Linux systems offer six virtual consoles (in text mode), accessible by typing the key combinations <keycombo action=\"simul\"> <keycap>Control</keycap> <keycap>Alt</keycap> <keycap>F1</keycap> </keycombo> through <keycombo action=\"simul\"> <keycap>Control</keycap> <keycap>Alt</keycap> <keycap>F6</keycap> </keycombo>."
-msgstr ""
+msgstr "在電腦的發展過程中，作業系統建拉多個虛擬控制臺，同時處理多個獨立的程序，即使祗有一個鍵盤與螢幕也可以。大部份的 GNU/Linux 系統提供 6 個虛擬控制臺 (文字模式)，按下組合鍵 <keycombo action=\"simul\"> <keycap>Control</keycap> <keycap>Alt</keycap> <keycap>F1</keycap> </keycombo> 至 <keycombo action=\"simul\"> <keycap>Control</keycap> <keycap>Alt</keycap> <keycap>F6</keycap> </keycombo> 就能在此 6 個控制臺間切換。"
 
 msgid "By extension, the terms “console” and “terminal” can also refer to a terminal emulator in a graphical X11 session (such as <command>xterm</command>, <command>gnome-terminal</command> or <command>konsole</command>)."
-msgstr ""
+msgstr "廣義來說，“控制臺” 與 “終端機” 也可表示圖形 X11 作業 (如 <command>xterm</command>、<command>gnome-terminal</command> 或 <command>konsole</command>) 的模擬終端機。"
 
 msgid "Remote Login"
-msgstr ""
+msgstr "遠端登入"
 
 msgid "It is essential for an administrator to be able to connect to a computer remotely. Servers, confined in their own room, are rarely equipped with permanent keyboards and monitors — but they are connected to the network."
-msgstr ""
+msgstr "管理者需要遠端連結電腦。伺服器，放在固定的空間內，擁有自己的鍵盤與螢幕 — 但可以經由網路連結進來。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Client, server"
-msgstr ""
+msgstr "<emphasis>回到基礎</emphasis> 客戶、伺服器"
 
 msgid "<primary>client</primary><secondary>client/server architecture</secondary>"
-msgstr ""
+msgstr "<primary>客戶</primary><secondary>主從架構</secondary>"
 
 msgid "<primary>server</primary><secondary>client/server architecture</secondary>"
-msgstr ""
+msgstr "<primary>伺服器</primary><secondary>主從架構</secondary>"
 
 msgid "A system where several processes communicate with each other is often described with the “client/server” metaphor. The server is the program that takes requests coming from a client and executes them. It is the client that controls operations, the server doesn't take any initiative of its own."
-msgstr ""
+msgstr "多個程序彼此溝通的系統通常描述成 “客戶/伺服器” 隱喻。伺服器是接受來自客戶的請求並執行它。客戶控制作業，伺服器沒有辦法發起任何作業。"
 
 msgid "<primary>login</primary><secondary>remote login</secondary>"
-msgstr ""
+msgstr "<primary>登入</primary><secondary>遠程登入</secondary>"
 
 msgid "<primary>remote login</primary>"
-msgstr ""
+msgstr "<primary>遠程登入</primary>"
 
 msgid "Secure Remote Login: SSH"
-msgstr ""
+msgstr "安全遠程登入：SSH"
 
 msgid "<primary>SSH</primary>"
-msgstr ""
+msgstr "<primary>SSH</primary>"
 
 msgid "<primary>Secure Shell</primary>"
-msgstr ""
+msgstr "<primary>Secure Shell</primary>"
 
 msgid "The <emphasis>SSH</emphasis> (Secure SHell) protocol was designed with security and reliability in mind. Connections using SSH are secure: the partner is authenticated and all data exchanges are encrypted."
-msgstr ""
+msgstr "<emphasis>SSH</emphasis> (Secure SHell) 通信協定係以安全與可靠考量。以 SSH 連線是安全的：夥伴需認證且資料交換經過加密。"
 
 msgid "<emphasis>CULTURE</emphasis> Telnet and RSH are obsolete"
-msgstr ""
+msgstr "<emphasis>文化</emphasis> Telnet 與 RSH 已過時"
 
 msgid "<primary><command>telnet</command></primary>"
-msgstr ""
+msgstr "<primary><command>telnet</command></primary>"
 
 msgid "<primary><command>rsh</command></primary>"
-msgstr ""
+msgstr "<primary><command>rsh</command></primary>"
 
 msgid "Before SSH, <emphasis>Telnet</emphasis> and <emphasis>RSH</emphasis> were the main tools used to login remotely. They are now largely obsolete and should no longer be used even if Debian still provides them."
-msgstr ""
+msgstr "SSH 問世前，<emphasis>Telnet</emphasis> 與 <emphasis>RSH</emphasis> 是遠端登入的主要工具。目前已過時，即使 Debian 仍提供此等命令，但已沒有人使用它們。"
 
 msgid "<emphasis>VOCABULARY</emphasis> Authentication, encryption"
-msgstr ""
+msgstr "<emphasis>術語</emphasis> 認證、加密"
 
 msgid "When you need to give a client the ability to conduct or trigger actions on a server, security is important. You must ensure the identity of the client; this is authentication. This identity usually consists of a password that must be kept secret, or any other client could get the password. This is the purpose of encryption, which is a form of encoding that allows two systems to communicate confidential information on a public channel while protecting it from being readable to others."
-msgstr ""
+msgstr "授權客戶使用伺服器，安全是最重要的。必須先辨認客戶；即認證。通常以密碼辨認。以加密方式傳送資料，兩個系統在公共通道傳送秘密的資訊，加密之後就能保障不必第三者知悉其內容。"
 
 msgid "Authentication and encryption are often mentioned together, both because they are frequently used together, and because they are usually implemented with similar mathematical concepts."
-msgstr ""
+msgstr "認認與加密經常相提併論，兩者多半合併使用，它們採用類似皂數學概念。"
 
 msgid "SSH also offers two file transfer services. <command>scp</command> is a command line tool that can be used like <command>cp</command>, except that any path to another machine is prefixed with the machine's name, followed by a colon."
-msgstr ""
+msgstr "SSH 有兩個檔案傳輸服務。<command>scp</command> 是命令列工具，用起來像是 <command>cp</command>，除了對方機器的路徑加上機器的前置名稱，以及冒號。"
 
 msgid "<computeroutput>$ </computeroutput><userinput>scp file machine:/tmp/</userinput>"
-msgstr ""
+msgstr "<computeroutput>$ </computeroutput><userinput>scp file machine:/tmp/</userinput>"
 
 msgid "<command>sftp</command> is an interactive command, similar to <command>ftp</command>. In a single session, <command>sftp</command> can transfer several files, and it is possible to manipulate remote files with it (delete, rename, change permissions, etc.)."
-msgstr ""
+msgstr "<command>sftp</command> 是互動式命令，類似 <command>ftp</command>。在單一程序中，<command>sftp</command> 可以同時傳輸多個檔案，且可以操作遠端的檔案 (刪除、重新命令、改變授權等)。"
 
 msgid "<primary><command>scp</command></primary>"
-msgstr ""
+msgstr "<primary><command>scp</command></primary>"
 
 msgid "<primary><command>sftp</command></primary>"
-msgstr ""
+msgstr "<primary><command>sftp</command></primary>"
 
 msgid "Debian uses OpenSSH, a free version of SSH maintained by the <command>OpenBSD</command> project (a free operating system based on the BSD kernel, focused on security) and fork of the original SSH software developed by the SSH Communications Security Corp company, of Finland. This company initially developed SSH as free software, but eventually decided to continue its development under a proprietary license. The OpenBSD project then created OpenSSH to maintain a free version of SSH."
-msgstr ""
+msgstr "Debian 使用 OpenSSH，由 <command>OpenBSD</command> 計畫 (以 BSD 核心為基礎的自由作業系統，以安全性著稱) 維護的自由版本 SSH 且是芬蘭and fork of the original SSH software developed by the SSH Communications Security Corp 公司發展的 SSH 原版的分歧版本。該公司以自由軟體精神發展 SSH，但後來改變為專屬授權。OpenBSD 計畫另起爐灶發展 OpenSSH 維持 SSH 的自由軟體版本。"
 
 msgid "<primary>OpenSSH</primary>"
-msgstr ""
+msgstr "<primary>OpenSSH</primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> <foreignphrase>Fork</foreignphrase>"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> <foreignphrase>分歧</foreignphrase>"
 
 msgid "<primary>fork</primary>"
-msgstr ""
+msgstr "<primary>分歧</primary>"
 
 msgid "A “fork”, in the software field, means a new project that starts as a clone of an existing project, and that will compete with it. From there on, both software will usually quickly diverge in terms of new developments. A fork is often the result of disagreements within the development team."
-msgstr ""
+msgstr "“分歧”，在軟體領域裡，表示從既有計畫中複製出新的計畫，並與舊計畫競爭。所以，兩個軟體各自發展。分歧多半源自於對發展團隊觀念的不同。"
 
 msgid "The option to fork a project is a direct result of the very nature of free software; a fork is a healthy event when it enables the continuation of a project as free software (for example in case of license changes). A fork arising from technical or personal disagreements is often a waste of human resources; another resolution would be preferable. Mergers of two projects that previously went through a prior fork are not unheard of."
-msgstr ""
+msgstr "對計畫的分歧是自由軟體本質的直接反應；分歧是健康的事件，可以延續原計畫的自由精神 (例如授權方式的改變)。由於技術層面或個人的不同意而有分歧，是人力資源的浪費；其他的結果則是正面的。將分歧的計畫合併則未曾聽說。"
 
 msgid "OpenSSH is split into two packages: the client part is in the <emphasis role=\"pkg\">openssh-client</emphasis> package, and the server is in the <emphasis role=\"pkg\">openssh-server</emphasis> package. The <emphasis role=\"pkg\">ssh</emphasis> meta-package depends on both parts and facilitates installation of both (<command>apt install ssh</command>)."
-msgstr ""
+msgstr "OpenSSH 分裂為兩個套件：客戶端是 <emphasis role=\"pkg\">openssh-client</emphasis> 套件，伺服器端是 <emphasis role=\"pkg\">openssh-server</emphasis> 套件。<emphasis role=\"pkg\">ssh</emphasis> 超套件依賴這兩個部份且需安裝它們 (<command>apt install ssh</command>)。"
 
 msgid "Key-Based Authentication"
-msgstr ""
+msgstr "金鑰認證"
 
 msgid "Each time someone logs in over SSH, the remote server asks for a password to authenticate the user. This can be problematic if you want to automate a connection, or if you use a tool that requires frequent connections over SSH. This is why SSH offers a key-based authentication system."
-msgstr ""
+msgstr "以 SSH 登入時，遠端伺服器要求密碼認證使用者。在此條件下不能自動連結，也不能經常登入 SSH。所以 SSH 提供金鑰認證系統。"
 
 msgid "The user generates a key pair on the client machine with <command>ssh-keygen -t rsa</command>; the public key is stored in <filename>~/.ssh/id_rsa.pub</filename>, while the corresponding private key is stored in <filename>~/.ssh/id_rsa</filename>. The user then uses <command>ssh-copy-id <replaceable>server</replaceable></command> to add their public key to the <filename>~/.ssh/authorized_keys</filename> file on the server. If the private key was not protected with a “passphrase” at the time of its creation, all subsequent logins on the server will work without a password. Otherwise, the private key must be decrypted each time by entering the passphrase. Fortunately, <command>ssh-agent</command> allows us to keep private keys in memory to not have to regularly re-enter the password. For this, you simply use <command>ssh-add</command> (once per work session) provided that the session is already associated with a functional instance of <command>ssh-agent</command>. Debian activates it by default in graphical sessions, but this can be deactivated by changing <filename>/etc/X11/Xsession.options</filename>. For a console session, you can manually start it with <command>eval $(ssh-agent)</command>."
-msgstr ""
+msgstr "使用者以 <command>ssh-keygen -t rsa</command> 命令產生與客戶端機器搭配的金鑰；公鑰儲存在 <filename>~/.ssh/id_rsa.pub</filename>，對應的私鑰則儲存在 <filename>~/.ssh/id_rsa</filename>。使用者以 <command>ssh-copy-id <replaceable>server</replaceable></command> 命令將其公鑰加入伺服器的 <filename>~/.ssh/authorized_keys</filename> 檔案內。若在產生時，以 “passphrase” 保護私鑰，後續登入伺服器則不需要密碼。否則必須每次鍵入 passphrase 解碼才能使用私鑰。幸運的是，<command>ssh-agent</command> 允許把私鑰儲存在記憶體內，所以不必重複鍵入密碼。在此情況下，以 <command>ssh-add</command> (於每個程序做一次) 命令將該程序與 <command>ssh-agent</command> 命令連結。Debian 預設在圖形介面啟用它，但可以改變 <filename>/etc/X11/Xsession.options</filename> 檔案內的選項而停用。在控制臺程序裡，可以 <command>eval $(ssh-agent)</command> 手動啟動它。"
 
 msgid "<emphasis>SECURITY</emphasis> Protection of the private key"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 以私鑰保護"
 
 msgid "Whoever has the private key can login on the account thus configured. This is why access to the private key is protected by a “passphrase”. Someone who acquires a copy of a private key file (for example, <filename>~/.ssh/id_rsa</filename>) still has to know this phrase in order to be able to use it. This additional protection is not, however, impregnable, and if you think that this file has been compromised, it is best to disable that key on the computers in which it has been installed (by removing it from the <filename>authorized_keys</filename> files) and replacing it with a newly generated key."
-msgstr ""
+msgstr "擁有私鑰的人就可以登入並組態電腦。所以私鑰必須以 “passphrase” 保護。取得私鑰檔案的人 (如，<filename>~/.ssh/id_rsa</filename>) 仍需知道此句子才能使用私鑰。不過，多一層保護並不保證固若金湯牢不可破，若認為該檔案已被破解，最好停用該安裝該私鑰 (從 <filename>authorized_keys</filename> 檔案中移除) 並重新產生新的金鑰。"
 
 msgid "<emphasis>CULTURE</emphasis> OpenSSL flaw in Debian <emphasis role=\"distribution\">Etch</emphasis>"
-msgstr ""
+msgstr "<emphasis>文化</emphasis> OpenSSL 缺陷在 Debian <emphasis role=\"distribution\">Etch</emphasis>"
 
 msgid "The OpenSSL library, as initially provided in Debian <emphasis role=\"distribution\">Etch</emphasis>, had a serious problem in its random number generator (RNG). Indeed, the Debian maintainer had made a change so that applications using it would no longer generate warnings when analyzed by memory testing tools like <command>valgrind</command>. Unfortunately, this change also meant that the RNG was employing only one source of entropy corresponding to the process number (PID) whose 32,000 possible values do not offer enough randomness. <ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
-msgstr ""
+msgstr "OpenSSL 程式庫，首先由 Debian <emphasis role=\"distribution\">Etch</emphasis> 提供，在其隨機數值產生器 (random number generator, RNG) 裡有重大缺陷。所以，Debian 維護者修改它，使用 <command>valgrind</command> 之類的記憶體測試工具時，不再產生警示訊息。不幸的是，此種改變讓 RNG 套用一個熵值對應 32,000 個可能的處理編號 (PID)，不足以稱為亂數。<ulink type=\"block\" url=\"http://www.debian.org/security/2008/dsa-1571\" />"
 
 msgid "Specifically, whenever OpenSSL was used to generate a key, it always produced a key within a known set of hundreds of thousands of keys (32,000 multiplied by a small number of key lengths). This affected SSH keys, SSL keys, and X.509 certificates used by numerous applications, such as OpenVPN. A cracker had only to try all of the keys to gain unauthorized access. To reduce the impact of the problem, the SSH daemon was modified to refuse problematic keys that are listed in the <emphasis role=\"pkg\">openssh-blacklist</emphasis> and <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> packages. Additionally, the <command>ssh-vulnkey</command> command allows identification of possibly compromised keys in the system."
-msgstr ""
+msgstr "尤其是，OpenSSL 產生金鑰時，總是從已知的數萬個金鑰中 (32,000 乘以金鑰長度) 選取一個。進而影響 SSH 金鑰、SSL 金鑰與 X.509 認證用到應用程式，如 OpenVPN。駭客祗需測試有限的金鑰就能取得授權。為了減少此問題的影響層面， SSH 後台進程略為修改以拒絕使用列在 <emphasis role=\"pkg\">openssh-blacklist</emphasis> 與 <emphasis role=\"pkg\">openssh-blacklist-extra</emphasis> 套件內的有問題的金鑰。而且 <command>ssh-vulnkey</command> 命令允許辨認糸統內可能的認證漏洞。"
 
 msgid "A more thorough analysis of this incident brings to light that it is the result of multiple (small) problems, both within the OpenSSL project and with the Debian package maintainer. A widely used library like OpenSSL should — without modifications — not generate warnings when tested by <command>valgrind</command>. Furthermore, the code (especially the parts as sensitive as the RNG) should be better commented to prevent such errors. On Debian's side, the maintainer wanted to validate the modifications with the OpenSSL developers, but simply explained the modifications without providing the corresponding patch to review and failed to mention his role within Debian. Finally, the maintenance choices were sub-optimal: the changes made to the original code were not clearly documented; all the modifications were effectively stored in a Subversion repository, but they ended up all lumped into one single patch during creation of the source package."
-msgstr ""
+msgstr "進一步分析這個事件，發現影響多個 (小) 問題，包括 OpenSSL 計畫內與 Debian 套件維護者。像 OpenSSL 這種被廣泛使用程式庫，被 <command>valgrind</command> 測試時，應該 — 未經修改 — 不能產生警示。尤有甚者，其程式碼 (尤其是像 RNG 這麼敏感的部份) 應該有更好的說明以避免這種錯誤。從 Debian 的角度來看，維護者要向 OpenSSL 開發者認證其修改的部份，但單純的解說修改而未提供對應的補丁供檢視，以致 Debian 發生前述的錯誤。最後，維護者的選擇是次要的選項：原始碼的修改沒有清楚的文件；所有的修改都儲存在典藏所的次版本內，但是把所有的修改總結在一個補丁內納入原始套件中。"
 
 msgid "It is difficult under such conditions to find the corrective measures to prevent such incidents from recurring. The lesson to be learned here is that every divergence Debian introduces to upstream software must be justified, documented, submitted to the upstream project when possible, and widely publicized. It is from this perspective that the new source package format (“3.0 (quilt)”) and the Debian sources webservice were developed. <ulink type=\"block\" url=\"http://sources.debian.net\" />"
-msgstr ""
+msgstr "在這種情況下，很難找出正確的方法以避免再發生此類事件。從此得到的教訓，讓每個發散的 Debian 必須儘可能的大量公開，經過調整過、文件充足後，才能上傳軟體。經過此事後，發展出新的原始套件格式 (“3.0 (quilt)”) 與 Debian 原始網頁服務。<ulink type=\"block\" url=\"http://sources.debian.net\" />"
 
 msgid "Using Remote X11 Applications"
-msgstr ""
+msgstr "使用遠端 X11 應用程式"
 
 msgid "The SSH protocol allows forwarding of graphical data (“X11” session, from the name of the most widespread graphical system in Unix); the server then keeps a dedicated channel for those data. Specifically, a graphical program executed remotely can be displayed on the X.org server of the local screen, and the whole session (input and display) will be secure. Since this feature allows remote applications to interfere with the local system, it is disabled by default. You can enable it by specifying <literal>X11Forwarding yes</literal> in the server configuration file (<filename>/etc/ssh/sshd_config</filename>). Finally, the user must also request it by adding the <literal>-X</literal> option to the <command>ssh</command> command-line."
-msgstr ""
+msgstr "SSH 通信協定可以使用圖形資料 (“X11” 程序，取材自 Unix 常用的圖形系統之名)；伺服器開啟專用通道給該等資料。特別的是，遠端執行圖形的問題可以顯示在本地螢幕的 X.org 伺服器，整個程序 (輸入與顯示) 是安全的。因為此功能允許遠端應用程式與在地系統互動，預設是不行的。指明 <literal>X11Forwarding yes</literal> 於伺服器的組態檔 (<filename>/etc/ssh/sshd_config</filename>) 內。最後，使用者必須加入 <literal>-X</literal> 選項於 <command>ssh</command> 命令列。"
 
 msgid "Creating Encrypted Tunnels with Port Forwarding"
-msgstr ""
+msgstr "新增埠映射的加密通道"
 
 msgid "<primary>port forwarding</primary>"
-msgstr ""
+msgstr "<primary>埠映射</primary>"
 
 msgid "Its <literal>-R</literal> and <literal>-L</literal> options allow <command>ssh</command> to create “encrypted tunnels” between two machines, securely forwarding a local TCP port (see sidebar <xref linkend=\"sidebar.tcp-udp\" />) to a remote machine or vice versa."
-msgstr ""
+msgstr "它的 <literal>-R</literal> 和 <literal>-L</literal> 選項允許 <command>ssh</command> 在兩個機器間新增 “加密通道”，把在地 TCP 埠 (見專欄 <xref linkend=\"sidebar.tcp-udp\" />) 映射至遠端機器或反之。"
 
 msgid "<emphasis>VOCABULARY</emphasis> Tunnel"
-msgstr ""
+msgstr "<emphasis>術語</emphasis> 通道"
 
 msgid "<primary>tunnel (SSH)</primary><seealso>VPN</seealso>"
-msgstr ""
+msgstr "<primary>通道 (SSH)</primary><seealso>VPN</seealso>"
 
 msgid "<primary>SSH tunnel</primary><seealso>VPN</seealso>"
-msgstr ""
+msgstr "<primary>SSH 通道</primary><seealso>VPN</seealso>"
 
 msgid "The Internet, and most LANs that are connected to it, operate in packet mode and not in connected mode, meaning that a packet issued from one computer to another is going to be stopped at several intermediary routers to find its way to its destination. You can still simulate a connected operation where the stream is encapsulated in normal IP packets. These packets follow their usual route, but the stream is reconstructed unchanged at the destination. We call this a “tunnel”, analogous to a road tunnel in which vehicles drive directly from the entrance (input) to the exit (output) without encountering any intersections, as opposed to a path on the surface that would involve intersections and changing direction."
-msgstr ""
+msgstr "大部份地區網路 (LAN) 連結的網際網路，以封包模式運作而不是連結模式，封包經由多個中途路由器才到達其終點站。仍可以模擬連結運作讓流量包裝在正常的 IP 封包內。這些封包經由正常途徑，但是在終點站無誤地重組還原流量。我們稱此為 “通道”，就像道路的通道，車流經由入口至出口，沒有任何路口，不像平面道路涉及路口及變換方向。"
 
 msgid "You can use this opportunity to add encryption to the tunnel: the stream that flows through it is then unrecognizable from the outside, but it is returned in decrypted form at the exit of the tunnel."
-msgstr ""
+msgstr "在通道內加密：外界無從辨識其中的流量，祗有到了通道出口經由解密才恢復原來的樣子。"
 
 msgid "<command>ssh -L 8000:server:25 intermediary</command> establishes an SSH session with the <replaceable>intermediary</replaceable> host and listens to local port 8000 (see <xref linkend=\"figure.ssh-L\" />). For any connection established on this port, <command>ssh</command> will initiate a connection from the <replaceable>intermediary</replaceable> computer to port 25 on the <replaceable>server</replaceable>, and will bind both connections together."
-msgstr ""
+msgstr "<command>ssh -L 8000:server:25 intermediary</command> 以 <replaceable>中介</replaceable> 主機建立 SSH 程序並聽在地埠 8000 (見 <xref linkend=\"figure.ssh-L\" />)。建立在這個埠的任何連結，<command>ssh</command> 將從 <replaceable>中介</replaceable> 電腦建立連結至 <replaceable>伺服器</replaceable> 的埠號 25，而且把兩個連結綁在一起。"
 
 msgid "<command>ssh -R 8000:server:25 intermediary</command> also establishes an SSH session to the <replaceable>intermediary</replaceable> computer, but it is on this machine that <command>ssh</command> listens to port 8000 (see <xref linkend=\"figure.ssh-R\" />). Any connection established on this port will cause <command>ssh</command> to open a connection from the local machine on to port 25 of the <replaceable>server</replaceable>, and to bind both connections together."
-msgstr ""
+msgstr "<command>ssh -R 8000:server:25 intermediary</command> 也建立一個 SSH 程序至 <replaceable>中介</replaceable> 電腦，但在該機器以 <command>ssh</command> 聆聽埠號 8000 (見 <xref linkend=\"figure.ssh-R\" />)。建立在該埠的連結將啟動 <command>ssh</command> 開啟本地機器埠號 25 的 <replaceable>伺服器</replaceable>，而且把兩個連結綁在一起。"
 
 msgid "In both cases, connections are made to port 25 on the <replaceable>server</replaceable> host, which pass through the SSH tunnel established between the local machine and the <replaceable>intermediary</replaceable> machine. In the first case, the entrance to the tunnel is local port 8000, and the data move towards the <replaceable>intermediary</replaceable> machine before being directed to the <replaceable>server</replaceable> on the “public” network. In the second case, the input and output in the tunnel are reversed; the entrance is port 8000 on the <replaceable>intermediary</replaceable> machine, the output is on the local host, and the data are then directed to the <replaceable>server</replaceable>. In practice, the server is usually either the local machine or the intermediary. That way SSH secures the connection from one end to the other."
-msgstr ""
+msgstr "這兩個案例裡，都連結至 <replaceable>伺服器</replaceable> 主機的埠號 25，以 SSH 通道連結在地機器與 <replaceable>中介</replaceable> 機器。在第一個案例裡，在 “公共” 網路裡，入口是在地埠 8000，資料移向 <replaceable>中介</replaceable> 機器後再流向 <replaceable>伺服器</replaceable>。在第二個案例裡，入口與出口的通道相反；入口是 <replaceable>中介</replaceable> 機器的埠號 8000，出口是在地主機，且資料直接流向 <replaceable>伺服器</replaceable>。實務上，伺服器是在地機器或中介機器。SSH 保證兩者的安全連結。"
 
 msgid "Forwarding a local port with SSH"
-msgstr ""
+msgstr "以 SSH 轉送在地埠"
 
 msgid "Forwarding a remote port with SSH"
-msgstr ""
+msgstr "以 SSH 轉送遠端埠"
 
 msgid "Using Remote Graphical Desktops"
-msgstr ""
+msgstr "使用遠端圖形桌面"
 
 msgid "VNC (Virtual Network Computing) allows remote access to graphical desktops."
-msgstr ""
+msgstr "虛擬網路計算 (Virtual Network Computing, VNC) 可以近用遠端圖形桌面。"
 
 msgid "<primary>VNC</primary>"
-msgstr ""
+msgstr "<primary>VNC</primary>"
 
 msgid "<primary>Virtual Network Computing</primary>"
-msgstr ""
+msgstr "<primary>虛擬網路算</primary>"
 
 msgid "<primary>graphical desktop</primary><secondary>remote</secondary>"
-msgstr ""
+msgstr "<primary>圖形桌面</primary><secondary>遠端</secondary>"
 
 msgid "<primary>remote graphical desktop</primary>"
-msgstr ""
+msgstr "<primary>遠端圖形桌面</primary>"
 
 msgid "<primary>desktop, remote graphical desktop</primary>"
-msgstr ""
+msgstr "<primary>桌面，遠端圖形桌面</primary>"
 
 msgid "This tool is mostly used for technical assistance; the administrator can see the errors that the user is facing, and show them the correct course of action without having to stand by them."
-msgstr ""
+msgstr "此工具常使用在技術支援；管理者可以看到使用者面對的錯誤，不必到現場就能告知正確的運作。"
 
 msgid "<primary><emphasis role=\"pkg\">vino</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">vino</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">krfb</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">krfb</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">x11vnc</emphasis></primary>"
 
 msgid "First, the user must authorize sharing their session. The GNOME graphical desktop environment in <emphasis role=\"distribution\">Jessie</emphasis> includes that option in its configuration panel (contrary to previous versions of Debian, where the user had to install and run <command>vino</command>). KDE still requires using <command>krfb</command> to allow sharing an existing session over VNC. For other graphical desktop environments, the <command>x11vnc</command> command (from the Debian package of the same name) serves the same purpose; you can make it available to the user with an explicit icon."
-msgstr ""
+msgstr "首先，使用者必須授權共享其程序。在 <emphasis role=\"distribution\">Jessie</emphasis> 組態面版 (不同於稍早的 Debian 版本，使用者必須安裝並執行 <command>vino</command>) 的GNOME 圖形桌面環境已有此選項。KDE 桌面環境仍需使用 <command>krfb</command> 才能經由 VNC 共享既有的程序。其他皂圖形桌面環境，<command>x11vnc</command> 命令 (在同名的 Debian 套件內) 也能達到同樣的結果；以明確的圖示標明。"
 
 msgid "<primary><emphasis role=\"pkg\">vinagre</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">vinagre</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">tsclient</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">tsclient</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">krdc</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">krdc</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">xvnc4viewer</emphasis></primary>"
 
 msgid "When the graphical session is made available by VNC, the administrator must connect to it with a VNC client. GNOME has <command>vinagre</command> and <command>remmina</command> for that, while KDE includes <command>krdc</command> (in the menu at <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice>). There are other VNC clients that use the command line, such as <command>xvnc4viewer</command> in the Debian package of the same name. Once connected, the administrator can see what is going on, work on the machine remotely, and show the user how to proceed."
-msgstr ""
+msgstr "從 VNC 取得圖形程序時，管理者必須連結至 VNC 客戶端。GNOME 有 <command>vinagre</command> 和 <command>remmina</command> 命令連結，而 KDE 使用 <command>krdc</command> (在 <menuchoice> <guimenu>K</guimenu> <guisubmenu>Internet</guisubmenu> <guimenuitem>Remote Desktop Client</guimenuitem></menuchoice> 選單內)。還有使用命令列的其他 VNC 客戶端，諸如 <command>xvnc4viewer</command> 在 Debian 的同名套件內。連結後，管理者可以看到遠端的桌面、操控遠端桌面、並讓遠端使用者知道運作的方式。"
 
 msgid "<emphasis>SECURITY</emphasis> VNC over SSH"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> SSH 的 VNC"
 
 msgid "<primary>SSH tunnel</primary><secondary>VNC</secondary>"
-msgstr ""
+msgstr "<primary>SSH 通道</primary><secondary>VNC</secondary>"
 
 msgid "If you want to connect by VNC, and you don't want your data sent in clear text on the network, it is possible to encapsulate the data in an SSH tunnel (see <xref linkend=\"sect.ssh-port-forwarding\" />). You simply have to know that VNC uses port 5900 by default for the first screen (called “localhost:0”), 5901 for the second (called “localhost:1”), etc."
-msgstr ""
+msgstr "想要經由 VNC 連結，但不想在網路傳輸純文字資料，可以把資料打包在 SSH 通道內 (見 <xref linkend=\"sect.ssh-port-forwarding\" />)。祗需知道 VNC 預設在第一個螢幕使用埠號 5900 (稱為 “localhost:0”)，埠號 5901 用在第二個埠號 (稱為 “localhost:1”)，等等。"
 
 msgid "The <command>ssh -L localhost:5901:localhost:5900 -N -T <replaceable>machine</replaceable></command> command creates a tunnel between local port 5901 in the localhost interface and port 5900 of the <replaceable>machine</replaceable> host. The first “localhost” restricts SSH to listening to only that interface on the local machine. The second “localhost” indicates the interface on the remote machine which will receive the network traffic entering in “localhost:5901”. Thus <command>vncviewer localhost:1</command> will connect the VNC client to the remote screen, even though you indicate the name of the local machine."
-msgstr ""
+msgstr "<command>ssh -L localhost:5901:localhost:5900 -N -T <replaceable>machine</replaceable></command> 命令新增在地埠號 5901 於在地介面和埠號 5900 的 <replaceable>machine</replaceable> 主機。第一個 “localhost” 限制 SSH 聆聽僅限在地機器的介面。第二個 “localhost” 指出接收網路流量 “localhost:5901” 的遠端機器介面。因此 <command>vncviewer localhost:1</command> 將連結 VNC 客戶至遠端螢幕，即使指向在地機器的名稱。"
 
 msgid "When the VNC session is closed, remember to close the tunnel by also quitting the corresponding SSH session."
-msgstr ""
+msgstr "關閉 VNC 程序後，記得再關閉對應的 SSH 程序通道。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Display manager"
-msgstr ""
+msgstr "<emphasis>基本</emphasis> 顯示管理Display manager"
 
 msgid "<primary><command>gdm3</command></primary>"
-msgstr ""
+msgstr "<primary><command>gdm3</command></primary>"
 
 msgid "<primary><command>kdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>kdm</command></primary>"
 
 msgid "<primary><command>xdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>xdm</command></primary>"
 
 msgid "<primary><command>lightdm</command></primary>"
-msgstr ""
+msgstr "<primary><command>lightdm</command></primary>"
 
 msgid "<primary>manager</primary><secondary>display manager</secondary>"
-msgstr ""
+msgstr "<primary>管理者</primary><secondary>顯示管理</secondary>"
 
 msgid "<primary>display manager</primary>"
-msgstr ""
+msgstr "<primary>顯示管理</primary>"
 
 msgid "<command>gdm3</command>, <command>kdm</command>, <command>lightdm</command>, and <command>xdm</command> are Display Managers. They take control of the graphical interface shortly after boot in order to provide the user a login screen. Once the user has logged in, they execute the programs needed to start a graphical work session."
-msgstr ""
+msgstr "<command>gdm3</command>、<command>kdm</command>、<command>lightdm</command>、和 <command>xdm</command> 都是顯示管理者。他們在啟動後不久就控制圖形介面担供登入畫面。使用者登入後，再執行啟動圖形工作程序所需的程式。"
 
 msgid "VNC also works for mobile users, or company executives, who occasionally need to login from their home to access a remote desktop similar to the one they use at work. The configuration of such a service is more complicated: you first install the <emphasis role=\"pkg\">vnc4server</emphasis> package, change the configuration of the display manager to accept <literal>XDMCP Query</literal> requests (for <command>gdm3</command>, this can be done by adding <literal>Enable=true</literal> in the “xdmcp” section of <filename>/etc/gdm3/daemon.conf</filename>), and finally, start the VNC server with <command>inetd</command> so that a session is automatically started when a user tries to login. For example, you may add this line to <filename>/etc/inetd.conf</filename>:"
-msgstr ""
+msgstr "VNC 也可供移動使用者、或公司執行者使用，這些人偶而需要從家中的電腦遠端登入辦公室的桌面電腦。這種組態稍為複雜些：首先安裝 <emphasis role=\"pkg\">vnc4server</emphasis> 套件，改變顯示管理者的組態，以便接受 <literal>XDMCP Query</literal> 請求 (給 <command>gdm3</command>，新增 <literal>Enable=true</literal> 於 <filename>/etc/gdm3/daemon.conf</filename> 的 “xdmcp” 區塊)，然後以 <command>inetd</command> 啟動 VNC 伺服器，接著在使用者試圖登入時，自動開啟程序。例如，可以在 <filename>/etc/inetd.conf</filename> 內加入這一列："
 
 msgid "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query localhost -once -geometry 1024x768 -depth 16 securitytypes=none"
-msgstr ""
+msgstr "5950  stream  tcp  nowait  nobody.tty  /usr/bin/Xvnc Xvnc -inetd -query localhost -once -geometry 1024x768 -depth 16 securitytypes=none"
 
 msgid "Redirecting incoming connections to the display manager solves the problem of authentication, because only users with local accounts will pass the <command>gdm3</command> login screen (or equivalent <command>kdm</command>, <command>xdm</command>, etc.). As this operation allows multiple simultaneous logins without any problem (provided the server is powerful enough), it can even be used to provide complete desktops for mobile users (or for less powerful desktop systems, configured as thin clients). Users simply login to the server's screen with <command>vncviewer <replaceable>server</replaceable>:50</command>, because the port used is 5950."
-msgstr ""
+msgstr "重新定向輸入連結至顯示管理者，解決認證的問題，因為祗有在地帳號的使用者才能通過 <command>gdm3</command> 登入畫面 (或同級的 <command>kdm</command>、<command>xdm</command>等)。當此作業允許同時登入多個使用者 (伺服器夠力是前提)，就能夠提供完整的桌面給遠端使用者 (或稍為不夠力的桌面系統，則需要組態為精簡客戶)。使用祗需以 <command>vncviewer <replaceable>server</replaceable>:50</command> 登入伺服器畫面，因為用到的埠號是 5950。"
 
 msgid "<primary><emphasis role=\"pkg\">vnc4server</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">vnc4server</emphasis></primary>"
 
 msgid "Managing Rights"
-msgstr ""
+msgstr "管理權限"
 
 msgid "Linux is definitely a multi-user system, so it is necessary to provide a permission system to control the set of authorized operations on files and directories, which includes all the system resources and devices (on a Unix system, any device is represented by a file or directory). This principle is common to all Unix systems, but a reminder is always useful, especially as there are some interesting and relatively unknown advanced uses."
-msgstr ""
+msgstr "Linux 是多使用者系統，必須以授權系統控制對檔案與資料夾的合法操作，包括所有的系統資源與設備 (在 Unix 系統裡，任何設備都以檔案或資料夾表示)。此原則適用於所有的 Unix 系統，不過多提醒一次總是好的，尤其碰到有趣相關的不明使用情況。"
 
 msgid "<primary>rights</primary>"
-msgstr ""
+msgstr "<primary>權限</primary>"
 
 msgid "<primary>permissions</primary>"
-msgstr ""
+msgstr "<primary>許可</primary>"
 
 msgid "<primary>user</primary><secondary>owner</secondary>"
-msgstr ""
+msgstr "<primary>使用者</primary><secondary>擁有者</secondary>"
 
 msgid "<primary>group</primary><secondary>owner</secondary>"
-msgstr ""
+msgstr "<primary>群組</primary><secondary>擁有者</secondary>"
 
 msgid "<primary>owner</primary><secondary>user</secondary>"
-msgstr ""
+msgstr "<primary>擁有者</primary><secondary>使用者</secondary>"
 
 msgid "<primary>owner</primary><secondary>group</secondary>"
-msgstr ""
+msgstr "<primary>擁有者</primary><secondary>群組</secondary>"
 
 msgid "Each file or directory has specific permissions for three categories of users:"
-msgstr ""
+msgstr "每個檔案與資料夾都有三組不同權限的使用者："
 
 msgid "its owner (symbolized by <literal>u</literal> as in “user”);"
-msgstr ""
+msgstr "擁有者 (符號為 <literal>u</literal> 取自使用者的英文字 “user”)；"
 
 msgid "its owner group (symbolized by <literal>g</literal> as in “group”), representing all the members of the group;"
-msgstr ""
+msgstr "群組擁有者 (符號為 <literal>g</literal> 取自群組的英文字 “group”)，代表群組內所有的使用者；"
 
 msgid "the others (symbolized by <literal>o</literal> as in “other”)."
-msgstr ""
+msgstr "其他 (符號為 <literal>o</literal> 取自其他的英文字 “other”)。"
 
 msgid "Three types of rights can be combined:"
-msgstr ""
+msgstr "三種權利可以組合成："
 
 msgid "reading (symbolized by <literal>r</literal> as in “read”);"
-msgstr ""
+msgstr "讀取 (符號為 <literal>r</literal> 取自讀取的英文字 “read”)；"
 
 msgid "writing (or modifying, symbolized by <literal>w</literal> as in “write”);"
-msgstr ""
+msgstr "寫入 (或修改，符號為 <literal>w</literal> 取自寫入的英文字 “write”)；"
 
 msgid "executing (symbolized by <literal>x</literal> as in “eXecute”)."
-msgstr ""
+msgstr "執行 (符號為 <literal>x</literal> 取自執行的英文字 “eXecute”)。"
 
 msgid "<primary>read, right</primary>"
-msgstr ""
+msgstr "<primary>讀、權限</primary>"
 
 msgid "<primary>write, right</primary>"
-msgstr ""
+msgstr "<primary>寫、權限</primary>"
 
 msgid "<primary>modification, right</primary>"
-msgstr ""
+msgstr "<primary>修、權限</primary>"
 
 msgid "<primary>execution, right</primary>"
-msgstr ""
+msgstr "<primary>執行、權限</primary>"
 
 msgid "In the case of a file, these rights are easily understood: read access allows reading the content (including copying), write access allows changing it, and execute access allows you to run it (which will only work if it is a program)."
-msgstr ""
+msgstr "以檔案來說，其權利較容易理解：讀取就是允許讀取其內容 (包括複製)、寫入就是允許改變它、而執行就是跑它 (檔案本身必須是程式)。"
 
 msgid "<emphasis>SECURITY</emphasis> <literal>setuid</literal> and <literal>setgid</literal> executables"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> <literal>setuid</literal> 與 <literal>setgid</literal> 可執行"
 
 msgid "Two particular rights are relevant to executable files: <literal>setuid</literal> and <literal>setgid</literal> (symbolized with the letter “s”). Note that we frequently speak of “bit”, since each of these boolean values can be represented by a 0 or a 1. These two rights allow any user to execute the program with the rights of the owner or the group, respectively. This mechanism grants access to features requiring higher level permissions than those you would usually have."
-msgstr ""
+msgstr "有兩個權利與可執行檔有關：<literal>setuid</literal> 和 <literal>setgid</literal> (符號都是字母 “s”)。我們通常都稱 “位元”，因為布林邏輯可以用 0 或 1 代表。這兩個權利允許使用者以擁有者或群組的權限分別執行該程式。此機制把近用權給予需要較高權限的階層。"
 
 msgid "<primary><literal>setuid</literal>, right</primary>"
-msgstr ""
+msgstr "<primary><literal>setuid</literal>，權限</primary>"
 
 msgid "<primary><literal>setgid</literal>, right</primary>"
-msgstr ""
+msgstr "<primary><literal>setgid</literal>，權限</primary>"
 
 msgid "Since a <literal>setuid</literal> root program is systematically run under the super-user identity, it is very important to ensure it is secure and reliable. Indeed, a user who would manage to subvert it to call a command of their choice could then impersonate the root user and have all rights on the system."
-msgstr ""
+msgstr "因為 <literal>setuid</literal> 根程式係在超級使用者的認證下執行，必須確保它的安全與可靠。的確，使用者可能呼叫一個程式，監禁根使用者，並擁有系統的全部權限，並藉此癱瘓整個系統。"
 
 msgid "A directory is handled differently. Read access gives the right to consult the list of its entries (files and directories), write access allows creating or deleting files, and execute access allows crossing through it (especially to go there with the <command>cd</command> command). Being able to cross through a directory without being able to read it gives permission to access the entries therein that are known by name, but not to find them if you do not know their existence or their exact name."
-msgstr ""
+msgstr "資料夾的處理方式略有不同。讀取其款目 (檔案及資料夾)、寫入包括新增與刪除檔案、而執行則是進入它 (尤其是使用 <command>cd</command> 命令)。進入資料夾而不必有讀取權限，執行已知的檔名，若不知其正確的名稱，則無法執行。"
 
 msgid "<emphasis>SECURITY</emphasis> <literal>setgid</literal> directory and <emphasis>sticky bit</emphasis>"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> <literal>setgid</literal> 資料夾和 <emphasis>sticky bit</emphasis>"
 
 msgid "<primary><literal>setgid</literal> directory</primary>"
-msgstr ""
+msgstr "<primary><literal>setgid</literal> 資料夾</primary>"
 
 msgid "The <literal>setgid</literal> bit also applies to directories. Any newly-created item in such directories is automatically assigned the owner group of the parent directory, instead of inheriting the creator's main group as usual. This setup avoids the user having to change its main group (with the <command>newgrp</command> command) when working in a file tree shared between several users of the same dedicated group."
-msgstr ""
+msgstr "<literal>setgid</literal> 位元也適用於資料夾。在該資料夾新增的項目自動賦予上層資料夾的群組擁有者權限，而不是繼承新增者的主要群組權限。與同組其他使用者共享檔案樹時，這種設定避免使用者改變其主要群組 (以 <command>newgrp</command> 命令)。"
 
 msgid "<primary>sticky bit</primary>"
-msgstr ""
+msgstr "<primary>sticky bit</primary>"
 
 msgid "The “sticky” bit (symbolized by the letter “t”) is a permission that is only useful in directories. It is especially used for temporary directories where everybody has write access (such as <filename>/tmp/</filename>): it restricts deletion of files so that only their owner (or the owner of the parent directory) can do it. Lacking this, everyone could delete other users' files in <filename>/tmp/</filename>."
-msgstr ""
+msgstr "“sticky” bit (符號為字母 “t”) 是一種祗適用於資料夾的授權。特別用在大家都能寫入的暫時性的資料夾 (如 <filename>/tmp/</filename>)：但祗限檔案的擁有者 (或上層資料夾的) 才能刪除其檔案。少了這層授權，每個人都能刪除其他人在 <filename>/tmp/</filename> 裡的檔案。"
 
 msgid "Three commands control the permissions associated with a file:"
-msgstr ""
+msgstr "三個命令控制檔案的授權："
 
 msgid "<command>chown <replaceable>user</replaceable> <replaceable>file</replaceable></command> changes the owner of the file;"
-msgstr ""
+msgstr "<command>chown <replaceable>user</replaceable> <replaceable>file</replaceable></command> 改變檔案的擁有者；"
 
 msgid "<command>chgrp <replaceable>group</replaceable> <replaceable>file</replaceable></command> alters the owner group;"
-msgstr ""
+msgstr "<command>chgrp <replaceable>group</replaceable> <replaceable>file</replaceable></command> 改變群組的擁有者；"
 
 msgid "<command>chmod <replaceable>rights</replaceable> <replaceable>file</replaceable></command> changes the permissions for the file."
-msgstr ""
+msgstr "<command>chmod <replaceable>rights</replaceable> <replaceable>file</replaceable></command> 改變檔案的權限。"
 
 msgid "There are two ways of presenting rights. Among them, the symbolic representation is probably the easiest to understand and remember. It involves the letter symbols mentioned above. You can define rights for each category of users (<literal>u</literal>/<literal>g</literal>/<literal>o</literal>), by setting them explicitly (with <literal>=</literal>), by adding (<literal>+</literal>), or subtracting (<literal>-</literal>). Thus the <literal>u=rwx,g+rw,o-r</literal> formula gives the owner read, write, and execute rights, adds read and write rights for the owner group, and removes read rights for other users. Rights not altered by the addition or subtraction in such a command remain unmodified. The letter <literal>a</literal>, for “all”, covers all three categories of users, so that <literal>a=rx</literal> grants all three categories the same rights (read and execute, but not write)."
-msgstr ""
+msgstr "有兩種方法表示權限。其中，符號表示最容易理解和記憶。它使用前述的符號。可以經由 (<literal>u</literal>/<literal>g</literal>/<literal>o</literal>)，經過等於 ( <literal>=</literal>)、加 (<literal>+</literal>)、或減 (<literal>-</literal>) 設定每種使用者的權限類型。因此，<literal>u=rwx,g+rw,o-r</literal> 格式賦予擁有者讀、寫與執行的權限，對群組的擁有者給予讀寫的權限，以及移除其他使用者讀取的權限。命令中未新增或減少的權限不變。字母 <literal>a</literal> 指所有的英文字 “all”，涵蓋三種類型的使用者，所以 <literal>a=rx</literal> 給予三種使用者相同的權限 (讀與執行，但沒有寫)。"
 
 msgid "<primary><command>chmod</command></primary>"
-msgstr ""
+msgstr "<primary><command>chmod</command></primary>"
 
 msgid "<primary><command>chown</command></primary>"
-msgstr ""
+msgstr "<primary><command>chown</command></primary>"
 
 msgid "<primary><command>chgrp</command></primary>"
-msgstr ""
+msgstr "<primary><command>chgrp</command></primary>"
 
 msgid "<primary>octal representation of rights</primary>"
-msgstr ""
+msgstr "<primary>權限的八進位表示法</primary>"
 
 msgid "<primary>rights</primary><secondary>octal representation</secondary>"
-msgstr ""
+msgstr "<primary>權限</primary><secondary>八進位表示法</secondary>"
 
 msgid "The (octal) numeric representation associates each right with a value: 4 for read, 2 for write, and 1 for execute. We associate each combination of rights with the sum of the figures. Each value is then assigned to different categories of users by putting them end to end in the usual order (owner, group, others)."
-msgstr ""
+msgstr "每個權限都可對應一個數值 (8 進位)：4 讀、2 寫、1 執行。這些數值可以加起來表示其權限的組合。每個值依序置於不同使用者的類型之後 (擁有者、群組、其他)。"
 
 msgid "For instance, the <command>chmod 754 <replaceable>file</replaceable></command> command will set the following rights: read, write and execute for the owner (since 7 = 4 + 2 + 1); read and execute for the group (since 5 = 4 + 1); read-only for others. The <literal>0</literal> means no rights; thus <command>chmod 600 <replaceable>file</replaceable></command> allows for read/write rights for the owner, and no rights for anyone else. The most frequent right combinations are <literal>755</literal> for executable files and directories, and <literal>644</literal> for data files."
-msgstr ""
+msgstr "例如，<command>chmod 754 <replaceable>file</replaceable></command> 命令將設定以下的權限：擁有者的讀、寫與執行 (因為 7 = 4 + 2 + 1) 權限；群組的讀與執行 (因為 5 = 4 + 1) 權限；其他的讀權限。<literal>0</literal> 就是沒有權限；因此 <command>chmod 600 <replaceable>file</replaceable></command> 命令讓擁有者的讀/寫權限，其他的使用者沒有任何權限。最常用的權限組合是 <literal>755</literal> 供可執行檔案與資料夾，以及 <literal>644</literal> 供資料檔案。"
 
 msgid "To represent special rights, you can prefix a fourth digit to this number according to the same principle, where the <literal>setuid</literal>, <literal>setgid</literal> and <literal>sticky</literal> bits are 4, 2 and 1, respectively. <command>chmod 4754</command> will associate the <literal>setuid</literal> bit with the previously described rights."
-msgstr ""
+msgstr "還可以設定特別的權限，以同權的原則在原數值之前加入第四個數值，<literal>setuid</literal>、<literal>setgid</literal> 和 <literal>sticky</literal> 的位元數分別是 4、2 和 1。<command>chmod 4754</command> 設置 <literal>setuid</literal> 前述的位元權限。"
 
 msgid "Note that the use of octal notation only allows to set all the rights at once on a file; you cannot use it to simply add a new right, such as read access for the group owner, since you must take into account the existing rights and compute the new corresponding numerical value."
-msgstr ""
+msgstr "八進位標記祗適用於對檔案的一次性設定所有權限；不能以它加入新的權限，如群組擁有者的讀取，因為必須把現在的權限與計算新的數值。"
 
 msgid "<emphasis>TIP</emphasis> Recursive operation"
-msgstr ""
+msgstr "<emphasis>秘訣</emphasis> 遞迴運算"
 
 msgid "Sometimes we have to change rights for an entire file tree. All the commands above have a <literal>-R</literal> option to operate recursively in sub-directories."
-msgstr ""
+msgstr "有時需要改變整個檔案樹的權限。前述的命令可加入 <literal>-R</literal> 選項，在次資料夾內做遞迴運算。"
 
 msgid "The distinction between directories and files sometimes causes problems with recursive operations. That is why the “X” letter has been introduced in the symbolic representation of rights. It represents a right to execute which applies only to directories (and not to files lacking this right). Thus, <command>chmod -R a+X <replaceable>directory</replaceable></command> will only add execute rights for all categories of users (<literal>a</literal>) for all of the sub-directories and files for which at least one category of user (even if their sole owner) already has execute rights."
-msgstr ""
+msgstr "資料夾與檔案的不同，有時造成遞迴運算的問題。所以，在符號式權限裡加入 “X” 字母。它代表祗對資料夾 (不是檔案) 的執行權。因此，<command>chmod -R a+X <replaceable>directory</replaceable></command> 對至少一個範疇使用者 (即使祗有一個擁有者) 已經有執行權的所有次資料夾與檔案，祗對所有範疇使用者加入執行權 (<literal>a</literal>)。"
 
 msgid "<emphasis>TIP</emphasis> Changing the user and group"
-msgstr ""
+msgstr "<emphasis>秘訣</emphasis> 改變使用者和群組"
 
 msgid "Frequently you want to change the group of a file at the same time that you change the owner. The <command>chown</command> command has a special syntax for that: <command>chown <replaceable>user</replaceable>:<replaceable>group</replaceable> <replaceable>file</replaceable></command>"
-msgstr ""
+msgstr "通常在改變擁有者的時候，也要改變檔案的群組。<command>chown</command> 命令有個特別的語法，用在這個時機：<command>chown <replaceable>user</replaceable>:<replaceable>group</replaceable> <replaceable>file</replaceable></command>"
 
 msgid "<emphasis>GOING FURTHER</emphasis> <command>umask</command>"
-msgstr ""
+msgstr "<emphasis>下一步</emphasis> <command>umask</command>"
 
 msgid "When an application creates a file, it assigns indicative permissions, knowing that the system automatically removes certain rights, given by the command <command>umask</command>. Enter <command>umask</command> in a shell; you will see a mask such as <computeroutput>0022</computeroutput>. This is simply an octal representation of the rights to be systematically removed (in this case, the write right for the group and other users)."
-msgstr ""
+msgstr "新增檔案時，給予指示性權限，系統使用 <command>umask</command> 指令調整該檔案的權限。在 shell 鍵入 <command>umask</command> 指令；就可見到 <computeroutput>0022</computeroutput> 之類的回應。以八進位碼表示的權限，可以系統地移除 (在本例中，給予群組與其他使用者寫入的權限)。"
 
 msgid "<primary>umask</primary>"
-msgstr ""
+msgstr "<primary>卸載</primary>"
 
 msgid "<primary>rights</primary><secondary>mask</secondary>"
-msgstr ""
+msgstr "<primary>權限</primary><secondary>mask</secondary>"
 
 msgid "<primary>mask</primary><secondary>rights mask</secondary>"
-msgstr ""
+msgstr "<primary>mask</primary><secondary>權限 mask</secondary>"
 
 msgid "If you give it a new octal value, the <command>umask</command> command modifies the mask. Used in a shell initialization file (for example, <filename>~/.bash_profile</filename>), it will effectively change the default mask for your work sessions."
-msgstr ""
+msgstr "若指定新的八進位值，<command>umask</command> 命令修改 mask。在 shell 初始檔 (如，<filename>~/.bash_profile</filename>)，它改變預設工作階段的 mask。"
 
 msgid "Administration Interfaces"
-msgstr ""
+msgstr "管理介面"
 
 msgid "<primary>interface</primary><secondary>administration interface</secondary>"
-msgstr ""
+msgstr "<primary>介面</primary><secondary>管理介面</secondary>"
 
 msgid "<primary>administration, interfaces</primary>"
-msgstr ""
+msgstr "<primary>管理，介面</primary>"
 
 msgid "Using a graphical interface for administration is interesting in various circumstances. An administrator does not necessarily know all the configuration details for all their services, and doesn't always have the time to go seeking out the documentation on the matter. A graphical interface for administration can thus accelerate the deployment of a new service. It can also simplify the setup of services which are hard to configure."
-msgstr ""
+msgstr "在多種情況下，使用圖形的管理介面極為有趣。管理者不需要知道所有服務的組態細節，也沒有時間搜尋該等事物的文件。管理圖形介面可以加速布署新的服務。簡單設定難以組態的服務。"
 
 msgid "Such an interface is only an aid, and not an end in itself. In all cases, the administrator must master its behavior in order to understand and work around any potential problem."
-msgstr ""
+msgstr "這種介面祗是一種輔助，不能解決問題。任何情況下，管理員必須控制它，才能夠瞭解並解決潛在的問題。"
 
 msgid "Since no interface is perfect, you may be tempted to try several solutions. This is to be avoided as much as possible, since different tools are sometimes incompatible in their work methods. Even if they all aim to be very flexible and try to adopt the configuration file as a single reference, they are not always able to integrate external changes."
-msgstr ""
+msgstr "介面不會完美的，總有其他的解決方案。不過，應儘量避免使用多種解決方案，因為不同的工具彼此間不見得相容。即使宣稱極有彈性且以單一模式使用組態檔，不見得能夠整合所有的外部改變。"
 
 msgid "Administrating on a Web Interface: <command>webmin</command>"
-msgstr ""
+msgstr "管理網頁介面：<command>webmin</command>"
 
 msgid "<primary><emphasis>webmin</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>webmin</emphasis></primary>"
 
 msgid "This is, without a doubt, one of the most successful administration interfaces. It is a modular system managed through a web browser, covering a wide array of areas and tools. Furthermore, it is internationalized and available in many languages."
-msgstr ""
+msgstr "別懷疑，這就是最成功的管理介面。這是經由瀏覽器的模組化管理系統，包括多種區域與工具。而且，已經國際化包括中文在內的介面。"
 
 msgid "Sadly, <command>webmin</command> is no longer part of Debian. Its Debian maintainer — Jaldhar H. Vyas — removed the packages he created because he no longer had the time required to maintain them at an acceptable quality level. Nobody has officially taken over, so <emphasis role=\"distribution\">Jessie</emphasis> does not have the <command>webmin</command> package."
-msgstr ""
+msgstr "不幸的是，<command>webmin</command> 不是 Debian 的一部份。Debian 維護者 — Jaldhar H. Vyas — 移除他自建的套件，因為他沒有時間把該程式維護至相當水準。沒有人正式接手，所以 <emphasis role=\"distribution\">Jessie</emphasis> 沒有 <command>webmin</command> 套件。"
 
 msgid "There is, however, an unofficial package distributed on the <literal>webmin.com</literal> website. Contrary to the original Debian packages, this package is monolithic; all of its configuration modules are installed and activated by default, even if the corresponding service is not installed on the machine."
-msgstr ""
+msgstr "然而，非官方的套件可在 <literal>webmin.com</literal> 網站找到。不同於原自於 Debian 的套件，此套件有點古老；即使沒有安裝對應的服務，仍預設安裝與啟用其組態模組。"
 
 msgid "<emphasis>SECURITY</emphasis> Changing the root password"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 改變 root 密碼"
 
 msgid "On the first login, identification is conducted with the root username and its usual password. It is recommended to change the password used for <command>webmin</command> as soon as possible, so that if it is compromised, the root password for the server will not be involved, even if this confers important administrative rights to the machine."
-msgstr ""
+msgstr "第一次登入時，先辨識  root 的使用者名稱與密碼。建議立即以 <command>webmin</command> 變更密碼，則不會用到伺服器預設的 root 密碼，不再使用該機器預設的密碼。"
 
 msgid "Beware! Since <command>webmin</command> has so many features, a malicious user accessing it could compromise the security of the entire system. In general, interfaces of this kind are not recommended for important systems with strong security constraints (firewall, sensitive servers, etc.)."
-msgstr ""
+msgstr "小心！因為 <command>webmin</command> 功能極多，別有用的使用者近用之後，可能對整個系統產生安全的遺慮。一般而言，這種介面不建議使用於安全要求嚴格的系統 (防火牆、敏感伺服器等)。"
 
 msgid "Webmin is used through a web interface, but it does not require Apache to be installed. Essentially, this software has its own integrated mini web server. This server listens by default on port 10000 and accepts secure HTTP connections."
-msgstr ""
+msgstr "經由網頁介面使用 Webmin，但不需要安裝 Apache。事實上，此軟體有自己的迷您網頁伺服器。該伺服器預設的埠號是 10000 並接受安全的 HTTP 連結。"
 
 msgid "Included modules cover a wide variety of services, among which:"
-msgstr ""
+msgstr "其模組含多種服務，如："
 
 msgid "all base services: creation of users and groups, management of <filename>crontab</filename> files, init scripts, viewing of logs, etc."
-msgstr ""
+msgstr "所有的基本服務：新增使用者與群組、管理 <filename>crontab</filename> 檔案、初始腳本、檢視日誌檔等。"
 
 msgid "bind: DNS server configuration (name service);"
-msgstr ""
+msgstr "bind：DNS 伺服器組態 (名稱服務)；"
 
 msgid "postfix: SMTP server configuration (e-mail);"
-msgstr ""
+msgstr "postfix：SMTP 伺服器組態 (電子郵件)；"
 
 msgid "inetd: configuration of the <command>inetd</command> super-server;"
-msgstr ""
+msgstr "inetd：組態 <command>inetd</command> 超級伺服器；"
 
 msgid "quota: user quota management;"
-msgstr ""
+msgstr "quota：使用者額度管理；"
 
 msgid "dhcpd: DHCP server configuration;"
-msgstr ""
+msgstr "dhcpd：DHCP 伺服器組態；"
 
 msgid "proftpd: FTP server configuration;"
-msgstr ""
+msgstr "proftpd：FTP 伺服器組態；"
 
 msgid "samba: Samba file server configuration;"
-msgstr ""
+msgstr "samba：Samba 檔案伺服器組態；"
 
 msgid "software: installation or removal of software from Debian packages and system updates."
-msgstr ""
+msgstr "軟體：安裝或移除 Debian 套件與系統更新。"
 
 msgid "The administration interface is available in a web browser at <literal>https://localhost:10000</literal>. Beware! Not all the modules are directly usable. Sometimes they must be configured by specifying the locations of the corresponding configuration files and some executable files (program). Frequently the system will politely prompt you when it fails to activate a requested module."
-msgstr ""
+msgstr "從瀏覽器的網址列鍵入 <literal>https://localhost:10000</literal> 就能進入管理介面。小心！並不能直接使用所有的模組。有時必須設定對應的組態檔與執行檔 (程式) 進入特定的位置。通常，系統會有禮貌地提示該等需求。"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> GNOME control center"
-msgstr ""
+msgstr "<emphasis>其他</emphasis> GNOME 控制中心"
 
 msgid "<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">gnome-control-center</emphasis></primary>"
 
 msgid "The GNOME project also provides multiple administration interfaces that are usually accessible via the “Settings” entry in the user menu on the top right. <command>gnome-control-center</command> is the main program that brings them all together but many of the system wide configuration tools are effectively provided by other packages (<emphasis role=\"pkg\">accountsservice</emphasis>, <emphasis role=\"pkg\">system-config-printer</emphasis>, etc.). Although they are easy to use, these applications cover only a limited number of base services: user management, time configuration, network configuration, printer configuration, and so on."
-msgstr ""
+msgstr "GNOME 計畫也提供經由右上角使用者選單 “設定” 的多管理介面。<command>gnome-control-center</command> 是主計畫，還有其他套件提供的組態工具 (<emphasis role=\"pkg\">accountsservice</emphasis>、<emphasis role=\"pkg\">system-config-printer</emphasis>等)。雖然使用簡易，不過祗包括有限的基本服務：使用者管理、時間組態、網路組態、印表機組態等。"
 
 msgid "Configuring Packages: <command>debconf</command>"
-msgstr ""
+msgstr "組態套件：<command>debconf</command>"
 
 msgid "<primary><command>debconf</command></primary>"
-msgstr ""
+msgstr "<primary><command>debconf</command></primary>"
 
 msgid "<primary><command>dpkg-reconfigure</command></primary>"
-msgstr ""
+msgstr "<primary><command>dpkg-reconfigure</command></primary>"
 
 msgid "Many packages are automatically configured after asking a few questions during installation through the Debconf tool. These packages can be reconfigured by running <command>dpkg-reconfigure <replaceable>package</replaceable></command>."
-msgstr ""
+msgstr "很多套件在安裝過程裡，經由 Debconf 工具，詢問幾個問題後，就自動組態。可以執行 <command>dpkg-reconfigure <replaceable>package</replaceable></command> 命令重新組態。"
 
 msgid "For most cases, these settings are very simple; only a few important variables in the configuration file are changed. These variables are often grouped between two “demarcation” lines so that reconfiguration of the package only impacts the enclosed area. In other cases, reconfiguration will not change anything if the script detects a manual modification of the configuration file, in order to preserve these human interventions (because the script can't ensure that its own modifications will not disrupt the existing settings)."
-msgstr ""
+msgstr "大部份情況下，這些設定很簡單；祗需更改組態檔內幾個重要的變數。這些變數集中在兩個 “demarcation” 列內，所以套件的再組態祗影響封閉的區域。在其他的情況，再組態不會改變任何事，除非腳本偵測到人工修改組態檔，而保留這些人工的調整 (因為腳本不確定其組態是否干涉了現有的設定)。"
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> Preserving changes"
-msgstr ""
+msgstr "<emphasis>DEBIAN 政策</emphasis> 保留改變"
 
 msgid "The Debian Policy expressly stipulates that everything should be done to preserve manual changes made to a configuration file, so more and more scripts take precautions when editing configuration files. The general principle is simple: the script will only make changes if it knows the status of the configuration file, which is verified by comparing the checksum of the file against that of the last automatically generated file. If they are the same, the script is authorized to change the configuration file. Otherwise, it determines that the file has been changed and asks what action it should take (install the new file, save the old file, or try to integrate the new changes with the existing file). This precautionary principle has long been unique to Debian, but other distributions have gradually begun to embrace it."
-msgstr ""
+msgstr "Debian 政策規定需保留人工變動的組態檔案，腳本編輯組態檔時更為小心。這個大原則很簡單：祗在知道組態檔現況的前提下才能改變它，檢查檔案的校驗碼就知道了。若是相同的，系統授權腳本修改該組態檔。否則，表示該檔案已經修改過，續問腳本想做什麼 (安裝新檔案、儲存舊檔案、或整合新舊)。Debian 使用這個預警原則多時，其他的 Linux 發行版才正要開始採用它。"
 
 msgid "The <command>ucf</command> program (from the Debian package of the same name) can be used to implement such a behavior."
-msgstr ""
+msgstr "此 <command>ucf</command> 程式 (來自同名的 Debian 套件) 可用於啟動該行為。"
 
 msgid "<primary><command>ucf</command></primary>"
-msgstr ""
+msgstr "<primary><command>ucf</command></primary>"
 
 msgid "<command>syslog</command> System Events"
-msgstr ""
+msgstr "<command>syslog</command> 系統事件"
 
 msgid "<primary><command>rsyslogd</command></primary>"
-msgstr ""
+msgstr "<primary><command>rsyslogd</command></primary>"
 
 msgid "<primary>files</primary><secondary>log files</secondary>"
-msgstr ""
+msgstr "<primary>檔案</primary><secondary>日誌檔案</secondary>"
 
 msgid "<primary>logs</primary><secondary>dispatching</secondary>"
-msgstr ""
+msgstr "<primary>日誌檔</primary><secondary>差遣</secondary>"
 
 msgid "Principle and Mechanism"
-msgstr ""
+msgstr "原則與機制"
 
 msgid "The <command>rsyslogd</command> daemon is responsible for collecting service messages coming from applications and the kernel, then dispatching them into log files (usually stored in the <filename>/var/log/</filename> directory). It obeys the <filename>/etc/rsyslog.conf</filename> configuration file."
-msgstr ""
+msgstr "此 <command>rsyslogd</command> 後台進程負責搜集來自應用程式與核心的服務訊息，然後送至日誌檔內 (通常儲存在 <filename>/var/log/</filename> 資料夾內)。遵守 <filename>/etc/rsyslog.conf</filename> 組態檔案的要求。"
 
 msgid "Each log message is associated with an application subsystem (called “facility” in the documentation):"
-msgstr ""
+msgstr "每個日誌檔內的訊息都與應用程式次系統有關 (文件中稱為 “設施”)："
 
 msgid "<literal>auth</literal> and <literal>authpriv</literal>: for authentication;"
-msgstr ""
+msgstr "<literal>auth</literal> 和 <literal>authpriv</literal>：供認證之用；"
 
 msgid "<literal>cron</literal>: comes from task scheduling services, <command>cron</command> and <command>atd</command>;"
-msgstr ""
+msgstr "<literal>cron</literal>：來自工作排程服務，<command>cron</command> 和 <command>atd</command>；"
 
 msgid "<literal>daemon</literal>: affects a daemon without any special classification (DNS, NTP, etc.);"
-msgstr ""
+msgstr "<literal>daemon</literal>：未受任何特別分類影響的後台進程 (DNS、NTP 等)；"
 
 msgid "<literal>ftp</literal>: concerns the FTP server;"
-msgstr ""
+msgstr "<literal>ftp</literal>：關心 FTP 伺服器；"
 
 msgid "<literal>kern</literal>: message coming from the kernel;"
-msgstr ""
+msgstr "<literal>kern</literal>：來自核心的訊息；"
 
 msgid "<literal>lpr</literal>: comes from the printing subsystem;"
-msgstr ""
+msgstr "<literal>lpr</literal>：來自列印次系統的；"
 
 msgid "<literal>mail</literal>: comes from the e-mail subsystem;"
-msgstr ""
+msgstr "<literal>mail</literal>：來自電子郵件次系統；"
 
 msgid "<literal>news</literal>: Usenet subsystem message (especially from an NNTP — Network News Transfer Protocol — server that manages newsgroups);"
-msgstr ""
+msgstr "<literal>news</literal>：Usenet 次系統的訊息 (尤其是來自管理新聞群組的 NNTP — Network News Transfer Protocol — 伺服器)；"
 
 msgid "<literal>syslog</literal>: messages from the <command>syslogd</command> server, itself;"
-msgstr ""
+msgstr "<literal>syslog</literal>：來自 <command>syslogd</command> 伺服器本身的訊息；"
 
 msgid "<literal>user</literal>: user messages (generic);"
-msgstr ""
+msgstr "<literal>user</literal>：使用者訊息 (一般)；"
 
 msgid "<literal>uucp</literal>: messages from the UUCP server (Unix to Unix Copy Program, an old protocol notably used to distribute e-mail messages);"
-msgstr ""
+msgstr "<literal>uucp</literal>：來自 UUCP 伺服器 (Unix to Unix Copy Program，用於散布電子郵件訊息的通訊協定) 的訊息；"
 
 msgid "<literal>local0</literal> to <literal>local7</literal>: reserved for local use."
-msgstr ""
+msgstr "<literal>local0</literal> 至 <literal>local7</literal>：保留給在地使用。"
 
 msgid "Each message is also associated with a priority level. Here is the list in decreasing order:"
-msgstr ""
+msgstr "每個訊息有其自身的優先層級。以下的遞減的清單："
 
 msgid "<literal>emerg</literal>: “Help!” There is an emergency, the system is probably unusable."
-msgstr ""
+msgstr "<literal>emerg</literal>：“救命！” 緊急狀態，系統可能已掛了。"
 
 msgid "<literal>alert</literal>: hurry up, any delay can be dangerous, action must be taken immediately;"
-msgstr ""
+msgstr "<literal>alert</literal>：趕快，任何延誤可能造成危險，必須立即採取行動；"
 
 msgid "<literal>crit</literal>: conditions are critical;"
-msgstr ""
+msgstr "<literal>crit</literal>：情況嚴重；"
 
 msgid "<literal>err</literal>: error;"
-msgstr ""
+msgstr "<literal>err</literal>：錯誤；"
 
 msgid "<literal>warn</literal>: warning (potential error);"
-msgstr ""
+msgstr "<literal>warn</literal>：警示 (可能的錯誤)；"
 
 msgid "<literal>notice</literal>: conditions are normal, but the message is important;"
-msgstr ""
+msgstr "<literal>notice</literal>：情況正常，但訊息極重要；"
 
 msgid "<literal>info</literal>: informative message;"
-msgstr ""
+msgstr "<literal>info</literal>：資訊性訊息；"
 
 msgid "<literal>debug</literal>: debugging message."
-msgstr ""
+msgstr "<literal>debug</literal>：需要除錯的訊息。"
 
 msgid "The Configuration File"
-msgstr ""
+msgstr "組態檔案"
 
 msgid "The syntax of the <filename>/etc/rsyslog.conf</filename> file is detailed in the <citerefentry><refentrytitle>rsyslog.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page, but there is also HTML documentation available in the <emphasis role=\"pkg\">rsyslog-doc</emphasis> package (<filename>/usr/share/doc/rsyslog-doc/html/index.html</filename>). The overall principle is to write “selector” and “action” pairs. The selector defines all relevant messages, and the actions describes how to deal with them."
-msgstr ""
+msgstr "<filename>/etc/rsyslog.conf</filename> 檔案的語法詳述於 <citerefentry><refentrytitle>rsyslog.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> 手冊內，還有 HTML 文件於 <emphasis role=\"pkg\">rsyslog-doc</emphasis> package (<filename>/usr/share/doc/rsyslog-doc/html/index.html</filename>) 內。總體原則是撰寫 “選擇器” 與 “作為” 的配對。選擇器設定所有相關的訊息，作為描述對應的工作。"
 
 msgid "Syntax of the Selector"
-msgstr ""
+msgstr "選擇器的語法"
 
 msgid "The selector is a semicolon-separated list of <literal><replaceable>subsystem</replaceable>.<replaceable>priority</replaceable></literal> pairs (example: <literal>auth.notice;mail.info</literal>). An asterisk may represent all subsystems or all priorities (examples: <literal>*.alert</literal> or <literal>mail.*</literal>). Several subsystems can be grouped, by separating them with a comma (example: <literal>auth,mail.info</literal>). The priority indicated also covers messages of equal or higher priority; thus <literal>auth.alert</literal> indicates the <literal>auth</literal> subsystem messages of <literal>alert</literal> or <literal>emerg</literal> priority. Prefixed with an exclamation point (!), it indicates the opposite, in other words the strictly lower priorities; <literal>auth.!notice</literal>, thus, indicates messages issued from <literal>auth</literal>, with <literal>info</literal> or <literal>debug</literal> priority. Prefixed with an equal sign (=), it corresponds to precisely and only the priority indicated (<literal>auth.=notice</literal> only concerns messages from <literal>auth</literal> with <literal>notice</literal> priority)."
-msgstr ""
+msgstr "選擇器是分號區隔 <literal><replaceable>次系統</replaceable>.<replaceable>優先層級</replaceable></literal> 配對 (如：<literal>auth.notice;mail.info</literal>) 清單。星號代表所有次系統或優先層級 (如：<literal>*.alert</literal> 或 <literal>mail.*</literal>)。可以用逗點群聚多個次系統，(如：<literal>auth,mail.info</literal>)。優先層級也包括等於或高於的優先訊息；因此 <literal>auth.alert</literal> 表示 <literal>auth</literal> 次系統的 <literal>alert</literal> 或 <literal>emerg</literal> 優先層級。前置驚嘆號 (!) 表示相反的意思，換句話說，就是限於較低的優先層級；<literal>auth.!notice</literal> 表示來自 <literal>auth</literal> 次系統的 <literal>info</literal> 或 <literal>debug</literal> 優先層級。前置等號 (=) 表示祗限該優先層級 (<literal>auth.=notice</literal> 祗限於來自 <literal>auth</literal> 訊息的 <literal>notice</literal> 優先層級)。"
 
 msgid "Each element in the list on the selector overrides previous elements. It is thus possible to restrict a set or to exclude certain elements from it. For example, <literal>kern.info;kern.!err</literal> means messages from the kernel with priority between <literal>info</literal> and <literal>warn</literal>. The <literal>none</literal> priority indicates the empty set (no priorities), and may serve to exclude a subsystem from a set of messages. Thus, <literal>*.crit;kern.none</literal> indicates all the messages of priority equal to or higher than <literal>crit</literal> not coming from the kernel."
-msgstr ""
+msgstr "選擇器清單內的元素，後者權限均高於前者。據以限制或排除特定的元素。例如，<literal>kern.info;kern.!err</literal> 表示來自核心的訊息，其優先權介於 <literal>info</literal> 和 <literal>warn</literal> 之間。<literal>none</literal> 優先權表示空白的集合 (無優先權)，且可做為從訊息集中排除指定的次系統。因此，<literal>*.crit;kern.none</literal> 表示所有來自核心以外的訊息，其優先權均等同於高於 <literal>crit</literal>。"
 
 msgid "Syntax of Actions"
-msgstr ""
+msgstr "行動語法"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> The named pipe, a persistent pipe"
-msgstr ""
+msgstr "<emphasis>基礎</emphasis> 已命名的管線，持續管線"
 
 msgid "<primary>named pipe</primary>"
-msgstr ""
+msgstr "<primary>已命名管線</primary>"
 
 msgid "<primary>pipe, named pipe</primary>"
-msgstr ""
+msgstr "<primary>管線，已命名管線</primary>"
 
 msgid "A named pipe is a particular type of file that operates like a traditional pipe (the pipe that you make with the “|” symbol on the command line), but via a file. This mechanism has the advantage of being able to relate two unrelated processes. Anything written to a named pipe blocks the process that writes until another process attempts to read the data written. This second process reads the data written by the first, which can then resume execution."
-msgstr ""
+msgstr "已命名管線是特定類型的檔案，就像是傳統的管線 (在命名列以 “|” 符號表示資料在管線中流動)，祗是經由檔案流動。此機制的優點是能夠關連兩個無關的程序。寫入已命名管線的資料，在另個程序讀取其內容前，禁止其他程序寫入。先讀取已寫入的資料，以執行它。"
 
 msgid "Such a file is created with the <command>mkfifo</command> command."
-msgstr ""
+msgstr "以 <command>mkfifo</command> 命令新增該等檔案。"
 
 msgid "The various possible actions are:"
-msgstr ""
+msgstr "可能的行動為："
 
 msgid "add the message to a file (example: <filename>/var/log/messages</filename>);"
-msgstr ""
+msgstr "新增訊息至檔案 (如：<filename>/var/log/messages</filename>)；"
 
 msgid "send the message to a remote <command>syslog</command> server (example: <literal>@log.falcot.com</literal>);"
-msgstr ""
+msgstr "新增訊息至遠端 <command>syslog</command> 伺服器 (如：<literal>@log.falcot.com</literal>)；"
 
 msgid "send the message to an existing named pipe (example: <literal>|/dev/xconsole</literal>);"
-msgstr ""
+msgstr "送訊息至已命名的管端 (如：<literal>|/dev/xconsole</literal>)；"
 
 msgid "send the message to one or more users, if they are logged in (example: <literal>root,rhertzog</literal>);"
-msgstr ""
+msgstr "送訊息給一位或多位已登入的使用者 (如：<literal>root,rhertzog</literal>)；"
 
 msgid "send the message to all logged in users (example: <literal>*</literal>);"
-msgstr ""
+msgstr "送訊息給所有已登入的使用者 (如：<literal>*</literal>)；"
 
 msgid "write the message in a text console (example: <literal>/dev/tty8</literal>)."
-msgstr ""
+msgstr "在文字終端機撰寫訊息 (如：<literal>/dev/tty8</literal>)。"
 
 msgid "<emphasis>SECURITY</emphasis> Forwarding logs"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 轉送日誌檔"
 
 msgid "<primary>log</primary><secondary>forwarding</secondary>"
-msgstr ""
+msgstr "<primary>日誌檔</primary><secondary>轉送</secondary>"
 
 msgid "It is a good idea to record the most important logs on a separate machine (perhaps dedicated for this purpose), since this will prevent any possible intruder from removing traces of their intrusion (unless, of course, they also compromise this other server). Furthermore, in the event of a major problem (such as a kernel crash), you have the logs available on another machine, which increases your chances of determining the sequence of events that caused the crash."
-msgstr ""
+msgstr "把重要的日誌檔置於另個機器 (或許專供此用途的機器) 是個好主意，這種方式足以防止入侵者抺除其㾗跡 (當然，除非同時入侵日誌檔機器)。尤有甚者，發生問題時 (如核心損壞)，在另部機器還有日誌檔可用，增加檢視發生損壞的機會。"
 
 msgid "To accept log messages sent by other machines, you must reconfigure <emphasis>rsyslog</emphasis>: in practice, it is sufficient to activate the ready-for-use entries in <filename>/etc/rsyslog.conf</filename> (<literal>$ModLoad imudp</literal> and <literal>$UDPServerRun 514</literal>)."
-msgstr ""
+msgstr "為了把日誌檔訊息置於另部機器，必須組態 <emphasis>rsyslog</emphasis>：實務上，祗需啟用 <filename>/etc/rsyslog.conf</filename> (<literal>$ModLoad imudp</literal> 與 <literal>$UDPServerRun 514</literal>) 內現有的項目就夠了。"
 
 msgid "The <command>inetd</command> Super-Server"
-msgstr ""
+msgstr "The <command>inetd</command> 超級伺服器"
 
 msgid "Inetd (often called “Internet super-server”) is a server of servers. It executes rarely used servers on demand, so that they do not have to run continuously."
-msgstr ""
+msgstr "Inetd (又稱為 “Internet 超級伺服器”) 是伺服器中的伺服器。依需要啟用甚少用到的伺服器，因此不需持續地執行它。"
 
 msgid "<primary><command>inetd</command></primary>"
-msgstr ""
+msgstr "<primary><command>inetd</command></primary>"
 
 msgid "<primary>super-server</primary>"
-msgstr ""
+msgstr "<primary>超級伺服器</primary>"
 
 msgid "The <filename>/etc/inetd.conf</filename> file lists these servers and their usual ports. The <command>inetd</command> command listens to all of them; when it detects a connection to any such port, it executes the corresponding server program."
-msgstr ""
+msgstr "<filename>/etc/inetd.conf</filename> 檔案列出伺服器及其通用的埠號。<command>inetd</command> 命令偵測它們；若發現任何埠號已被連結，則執行對應的程式。"
 
 msgid "<emphasis>DEBIAN POLICY</emphasis> Register a server in <filename>inetd.conf</filename>"
-msgstr ""
+msgstr "<emphasis>DEBIAN 政策</emphasis> 在 <filename>inetd.conf</filename> 登錄伺服器"
 
 msgid "Packages frequently want to register a new server in the <filename>/etc/inetd.conf</filename> file, but Debian Policy prohibits any package from modifying a configuration file that it doesn't own. This is why the <command>update-inetd</command> script (in the package with the same name) was created: It manages the configuration file, and other packages can thus use it to register a new server to the super-server's configuration."
-msgstr ""
+msgstr "套件經常需要在 <filename>/etc/inetd.conf</filename> 檔案登錄新的伺服器，但 Debian 政策禁止任何套件不屬於自身的組態檔。所以有 <command>update-inetd</command> 腳本 (在同名套件內)：管理組態檔案以及其他套件，使其在超級伺服器的組態中登錄新的伺服器。"
 
 msgid "Each significant line of the <filename>/etc/inetd.conf</filename> file describes a server through seven fields (separated by spaces):"
-msgstr ""
+msgstr "<filename>/etc/inetd.conf</filename> 檔案中的每列款目以 7 個欄位 (以空格區分) 描述伺服器："
 
 msgid "The TCP or UDP port number, or the service name (which is mapped to a standard port number with the information contained in the <filename>/etc/services</filename> file)."
-msgstr ""
+msgstr "TCP 或 UDP 埠號，或服務名稱 (以 <filename>/etc/services</filename> 檔案內的資訊對應至標準埠號)。"
 
 msgid "The socket type: <literal>stream</literal> for a TCP connection, <literal>dgram</literal> for UDP datagrams."
-msgstr ""
+msgstr "接口類型：<literal>stream</literal> 供 TCP 連結之用，<literal>dgram</literal> 供 UDP 資料包連結之用。"
 
 msgid "The protocol: <literal>tcp</literal> or <literal>udp</literal>."
-msgstr ""
+msgstr "通信協定：<literal>tcp</literal> 或 <literal>udp</literal>."
 
 msgid "The options: two possible values: <literal>wait</literal> or <literal>nowait</literal>, to tell <command>inetd</command> whether it should wait or not for the end of the launched process before accepting another connection. For TCP connections, easily multiplexable, you can usually use <literal>nowait</literal>. For programs responding over UDP, you should use <literal>nowait</literal> only if the server is capable of managing several connections in parallel. You can suffix this field with a period, followed by the maximum number of connections authorized per minute (the default limit is 256)."
-msgstr ""
+msgstr "選項：兩個可能值：<literal>wait</literal> 或 <literal>nowait</literal>，告訴 <command>inetd</command> 在接受另個連結時，是否該等待或終止已啟用的程序。對 TCP 連結而言，可使用 <literal>nowait</literal>，進入多工。對回應 UDP 的程式而言，祗在伺服器可平行管理多個連結時，才使用 <literal>nowait</literal>。可在這個欄位前加上圓點，以及每分鐘可以開啟的最大連結量 (預設為 256)。"
 
 msgid "The user name of the user under whose identity the server will run."
-msgstr ""
+msgstr "將執行被伺服器認證的使用者名稱。"
 
 msgid "The full path to the server program to execute."
-msgstr ""
+msgstr "執行伺服器程式的完整路徑。"
 
 msgid "The arguments: this is a complete list of the program's arguments, including its own name (<literal>argv[0]</literal> in C)."
-msgstr ""
+msgstr "參數：程式參數的完整清單，包括自身的名稱 (在 C 語言裡是 <literal>argv[0]</literal>)。"
 
 msgid "The following example illustrates the most common cases:"
-msgstr ""
+msgstr "以下的範例說明最常用的例子："
 
 msgid "Excerpt from <filename>/etc/inetd.conf</filename>"
-msgstr ""
+msgstr "取自 <filename>/etc/inetd.conf</filename>"
 
 msgid ""
 "talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
 "finger stream tcp nowait  nobody     /usr/sbin/tcpd     in.fingerd\n"
 "ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i"
 msgstr ""
+"talk   dgram  udp wait    nobody.tty /usr/sbin/in.talkd in.talkd\n"
+"finger stream tcp nowait  nobody     /usr/sbin/tcpd     in.fingerd\n"
+"ident  stream tcp nowait  nobody     /usr/sbin/identd   identd -i"
 
 msgid "<primary><command>tcpd</command></primary>"
-msgstr ""
+msgstr "<primary><command>tcpd</command></primary>"
 
 msgid "The <command>tcpd</command> program is frequently used in the <filename>/etc/inetd.conf</filename> file. It allows limiting incoming connections by applying access control rules, documented in the <citerefentry><refentrytitle>hosts_access</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page, and which are configured in the <filename>/etc/hosts.allow</filename> and <filename>/etc/hosts.deny</filename> files. Once it has been determined that the connection is authorized, <command>tcpd</command> executes the real server (like <command>in.fingerd</command> in our example). It is worth noting that <command>tcpd</command> relies on the name under which it was invoked (that is the first argument, <literal>argv[0]</literal>) to identify the real program to run. So you should not start the arguments list with <literal>tcpd</literal> but with the program that must be wrapped."
-msgstr ""
+msgstr "<command>tcpd</command> 程式常用於 <filename>/etc/inetd.conf</filename> 檔案中。以近用控制規則的方式限制送來的連結數，相關文件在 <citerefentry><refentrytitle>hosts_access</refentrytitle><manvolnum>5</manvolnum></citerefentry> 手冊頁面，並在 <filename>/etc/hosts.allow</filename> 與 <filename>/etc/hosts.deny</filename> 檔案中組態。授權連結後，<command>tcpd</command> 執行真實的伺服器 (在此例中是 <command>in.fingerd</command>)。值得注意的是 <command>tcpd</command> 依靠啟用的名稱 (即第一個參數，<literal>argv[0]</literal>) 辨識真實執行的程式。所以不該啟用 <literal>tcpd</literal> 內的參數清單，應先與程式包裝在一起。"
 
 msgid "<emphasis>COMMUNITY</emphasis> Wietse Venema"
-msgstr ""
+msgstr "<emphasis>社群</emphasis> Wietse Venema"
 
 msgid "<primary>Wietse Venema</primary>"
-msgstr ""
+msgstr "<primary>Wietse Venema</primary>"
 
 msgid "<primary>Venema, Wietse</primary>"
-msgstr ""
+msgstr "<primary>Venema, Wietse</primary>"
 
 msgid "Wietse Venema, whose expertise in security has made him a renowned programmer, is the author of the <command>tcpd</command> program. He is also the main creator of Postfix, the modular e-mail server (SMTP, Simple Mail Transfer Protocol), designed to be safer and more reliable than <command>sendmail</command>, which features a long history of security vulnerabilities."
-msgstr ""
+msgstr "Wietse Venema 在安全的專長使其成為知名的程式設計師，他是 <command>tcpd</command> 程式的著者。也是 Postfix 的主要著者，模組化的電子郵件伺服器 (SMTP, Simple Mail Transfer Protocol) 比易受攻擊的 <command>sendmail</command> 更安全更可靠。"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other <command>inetd</command> commands"
-msgstr ""
+msgstr "<emphasis>其他</emphasis> 異於 <command>inetd</command> 的命令"
 
 msgid "While Debian installs <emphasis role=\"pkg\">openbsd-inetd</emphasis> by default, there is no lack of alternatives: we can mention <emphasis role=\"pkg\">inetutils-inetd</emphasis>, <emphasis role=\"pkg\">micro-inetd</emphasis>, <emphasis role=\"pkg\">rlinetd</emphasis> and <emphasis role=\"pkg\">xinetd</emphasis>."
-msgstr ""
+msgstr "當 Debian 預設安裝 <emphasis role=\"pkg\">openbsd-inetd</emphasis> 後，就有很多選項：可用 <emphasis role=\"pkg\">inetutils-inetd</emphasis>、<emphasis role=\"pkg\">micro-inetd</emphasis>、<emphasis role=\"pkg\">rlinetd</emphasis> 和 <emphasis role=\"pkg\">xinetd</emphasis>。"
 
 msgid "This last incarnation of a super-server offers very interesting possibilities. Most notably, its configuration can be split into several files (stored, of course, in the <filename>/etc/xinetd.d/</filename> directory), which can make an administrator's life easier."
-msgstr ""
+msgstr "超級伺服器的最後一個化身提供很多有趣的可能。最知名的是，它的組態可分為若干檔案 (儲存在 <filename>/etc/xinetd.d/</filename> 資料夾內)，讓管理者的活動更自在。"
 
 msgid "Last but not least, it is even possible to emulate <command>inetd</command>'s behaviour with <command>systemd</command>'s socket-activation mechanism (see <xref linkend=\"sect.systemd\" />)."
-msgstr ""
+msgstr "最後但不是最不重要，甚至可以模擬 <command>inetd</command> 的行為，以 <command>systemd</command> 的插座啟用模式運作 (見 <xref linkend=\"sect.systemd\" />)。"
 
 msgid "Scheduling Tasks with <command>cron</command> and <command>atd</command>"
-msgstr ""
+msgstr "以 <command>cron</command> 和 <command>atd</command> 使用排定的工作"
 
 msgid "<primary><command>cron</command></primary>"
-msgstr ""
+msgstr "<primary><command>cron</command></primary>"
 
 msgid "<primary><command>atd</command></primary>"
-msgstr ""
+msgstr "<primary><command>atd</command></primary>"
 
 msgid "<primary>scheduled commands</primary>"
-msgstr ""
+msgstr "<primary>排定的命令</primary>"
 
 msgid "<primary>command scheduling</primary>"
-msgstr ""
+msgstr "<primary>命令排程</primary>"
 
 msgid "<command>cron</command> is the daemon responsible for executing scheduled and recurring commands (every day, every week, etc.); <command>atd</command> is that which deals with commands to be executed a single time, but at a specific moment in the future."
-msgstr ""
+msgstr "<command>cron</command> 是後台進程，負責執行排定且重複的命令 (每天、每週等)；<command>atd</command> 則執行單一的命令，但在未來的某個特定時間點。"
 
 msgid "In a Unix system, many tasks are scheduled for regular execution:"
-msgstr ""
+msgstr "在 Unix 系統裡，很多工作都需定期規律地執行："
 
 msgid "rotating the logs;"
-msgstr ""
+msgstr "迴轉日誌檔；"
 
 msgid "updating the database for the <command>locate</command> program;"
-msgstr ""
+msgstr "更新資料庫供 <command>locate</command> 程式使用；"
 
 msgid "back-ups;"
-msgstr ""
+msgstr "備份；"
 
 msgid "maintenance scripts (such as cleaning out temporary files)."
-msgstr ""
+msgstr "維護腳本 (諸如清除暫存檔)。"
 
 msgid "By default, all users can schedule the execution of tasks. Each user has thus their own <emphasis>crontab</emphasis> in which they can record scheduled commands. It can be edited by running <command>crontab -e</command> (its content is stored in the <filename>/var/spool/cron/crontabs/<replaceable>user</replaceable></filename> file)."
-msgstr ""
+msgstr "預設所有的使用者都可定期執行工作。每個使用者有自己的 <emphasis>crontab</emphasis> 記錄定期執行的命令。可以使用 <command>crontab -e</command> (其內容儲存在 <filename>/var/spool/cron/crontabs/<replaceable>user</replaceable></filename> 檔案內) 命令編輯它。"
 
 msgid "<emphasis>SECURITY</emphasis> Restricting <command>cron</command> or <command>atd</command>"
-msgstr ""
+msgstr "<emphasis>安全</emphasis> 限制 <command>cron</command> 或 <command>atd</command>"
 
 msgid "You can restrict access to <command>cron</command> by creating an explicit authorization file (whitelist) in <filename>/etc/cron.allow</filename>, in which you indicate the only users authorized to schedule commands. All others will automatically be deprived of this feature. Conversely, to only block one or two troublemakers, you could write their username in the explicit prohibition file (blacklist), <filename>/etc/cron.deny</filename>. This same feature is available for <command>atd</command>, with the <filename>/etc/at.allow</filename> and <filename>/etc/at.deny</filename> files."
-msgstr ""
+msgstr "限制近用 <command>cron</command> 的方法是，新增正面檔案 (白名單) 於 <filename>/etc/cron.allow</filename> 內，祗有經過授權的使用者才能夠定期執行命令。其他的使用者則無此授權。同樣的，可以把使用者的帳號寫入禁止檔案 (黑名單) <filename>/etc/cron.deny</filename>，禁止該等搗蛋鬼來亂。<command>atd</command> 也有此等功能，列在 <filename>/etc/at.allow</filename> 和 <filename>/etc/at.deny</filename> 檔案內。"
 
 msgid "The root user has their own <emphasis>crontab</emphasis>, but can also use the <filename>/etc/crontab</filename> file, or write additional <emphasis>crontab</emphasis> files in the <filename>/etc/cron.d</filename> directory. These last two solutions have the advantage of being able to specify the user identity to use when executing the command."
-msgstr ""
+msgstr "根使用者有自己的 <emphasis>crontab</emphasis>，不過也使用 <filename>/etc/crontab</filename> 檔案，或寫入額外的 <emphasis>crontab</emphasis> 檔案於 <filename>/etc/cron.d</filename> 資料夾內。最後兩個解決方案有其優勢，在執行命令時辦識使用者。"
 
 msgid "The <emphasis>cron</emphasis> package includes by default some scheduled commands that execute:"
-msgstr ""
+msgstr "<emphasis>cron</emphasis> 套件包括預設定期執行的命令："
 
 msgid "programs in the <filename>/etc/cron.hourly/</filename> directory once per hour;"
-msgstr ""
+msgstr "每小時執行在 <filename>/etc/cron.hourly/</filename> 資料夾內的程式；"
 
 msgid "programs in <filename>/etc/cron.daily/</filename> once per day;"
-msgstr ""
+msgstr "每天執行在 <filename>/etc/cron.daily/</filename> 資料夾內的程式；"
 
 msgid "programs in <filename>/etc/cron.weekly/</filename> once per week;"
-msgstr ""
+msgstr "每週執行在 <filename>/etc/cron.weekly/</filename> 資料夾內的程式；"
 
 msgid "programs in <filename>/etc/cron.monthly/</filename> once per month."
-msgstr ""
+msgstr "每月執行在 <filename>/etc/cron.monthly/</filename> 資料夾內的程式。"
 
 msgid "Many Debian packages rely on this service: by putting maintenance scripts in these directories, they ensure optimal operation of their services."
-msgstr ""
+msgstr "很多 Debian 套件依賴此服務：把維護腳本置於此資料夾，確保其服務的最佳運作。"
 
 msgid "Format of a <filename>crontab</filename> File"
-msgstr ""
+msgstr "<filename>crontab</filename> 檔案的格式"
 
 msgid "<primary><filename>crontab</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>crontab</filename></primary>"
 
 msgid "<emphasis>TIP</emphasis> Text shortcuts for <command>cron</command>"
-msgstr ""
+msgstr "<emphasis>秘訣</emphasis> <command>cron</command> 的捷徑"
 
 msgid "<command>cron</command> recognizes some abbreviations which replace the first five fields in a <filename>crontab</filename> entry. They correspond to the most classic scheduling options:"
-msgstr ""
+msgstr "<command>cron</command> 辨認若干縮寫用以取代 <filename>crontab</filename> 款目內的前五個欄位。它們對應最經典的排程選項："
 
 msgid "<literal>@yearly</literal>: once per year (January 1, at 00:00);"
-msgstr ""
+msgstr "<literal>@yearly</literal>：每年一次 (1月1日的 00:00)；"
 
 msgid "<literal>@monthly</literal>: once per month (the 1st of the month, at 00:00);"
-msgstr ""
+msgstr "<literal>@monthly</literal>：每月一次 (每月第一天的 00:00)；"
 
 msgid "<literal>@weekly</literal>: once per week (Sunday at 00:00);"
-msgstr ""
+msgstr "<literal>@weekly</literal>：每週一次 (星期日的 00:00)；"
 
 msgid "<literal>@daily</literal>: once per day (at 00:00);"
-msgstr ""
+msgstr "<literal>@daily</literal>：每天一次 (在 00:00)；"
 
 msgid "<literal>@hourly</literal>: once per hour (at the beginning of each hour)."
-msgstr ""
+msgstr "<literal>@hourly</literal>：每小時一次 (在每小時的開始)。"
 
 msgid "<emphasis>SPECIAL CASE</emphasis> <command>cron</command> and daylight savings time"
-msgstr ""
+msgstr "<emphasis>特例</emphasis> <command>cron</command> 和日光節約時間"
 
 msgid "In Debian, <command>cron</command> takes the time change (for Daylight Savings Time, or in fact for any significant change in the local time) into account as best as it can. Thus, the commands that should have been executed during an hour that never existed (for example, tasks scheduled at 2:30 am during the Spring time change in France, since at 2:00 am the clock jumps directly to 3:00 am) are executed shortly after the time change (thus around 3:00 am DST). On the other hand, in autumn, when commands would be executed several times (2:30 am DST, then an hour later at 2:30 am standard time, since at 3:00 am DST the clock turns back to 2:00 am) are only executed once."
-msgstr ""
+msgstr "在 Debian 裡，<command>cron</command> 以最大的能力管理時間 (日光節約時間、或其他在地時間的要求)。因此，需要按小時執行不曾發生的命令 (如，在 2:30 執行指令，配合法國春季時間，2:00 am 向前撥一小時成為 3:00)，在事情發生後立刻執行 (因此在 3:00 am DST)。到了秋季，該命令執行多次 (2:30 am DST 向後撥一小時， 3:00 am DST 成為 2:00 am)。"
 
 msgid "Be careful, however, if the order in which the different scheduled tasks and the delay between their respective executions matters, you should check the compatibility of these constraints with <command>cron</command>'s behavior; if necessary, you can prepare a special schedule for the two problematic nights per year."
-msgstr ""
+msgstr "然而，還是要小心，外在環境可能突然改變，就該以 <command>cron</command> 命令的行為手動檢查其相容性；必要時，準備特別的時程供每年的這兩個麻煩夜晚。"
 
 msgid "Each significant line of a <emphasis>crontab</emphasis> describes a scheduled command with the six (or seven) following fields:"
-msgstr ""
+msgstr "<emphasis>crontab</emphasis> 每列以六個 (或七個) 欄位描述排定的命令："
 
 msgid "the value for the minute (number from 0 to 59);"
-msgstr ""
+msgstr "分鐘的值 (從 0 到 59)；"
 
 msgid "the value for the hour (from 0 to 23);"
-msgstr ""
+msgstr "小時值 (從 0 到 23)；"
 
 msgid "the value for the day of the month (from 1 to 31);"
-msgstr ""
+msgstr "每月的日數值 (從 1 到 31)；"
 
 msgid "the value for the month (from 1 to 12);"
-msgstr ""
+msgstr "月的值 (從 1 到 12)；"
 
 msgid "the value for the day of the week (from 0 to 7, 1 corresponding to Monday, Sunday being represented by both 0 and 7; it is also possible to use the first three letters of the name of the day of the week in English, such as <literal>Sun</literal>, <literal>Mon</literal>, etc.);"
-msgstr ""
+msgstr "每週的日數值 (從 0 到 7，1 表示星期一，星期天可以是 0 或 7；也可用星期的前三個英文字母表示，如 <literal>Sun</literal>、<literal>Mon</literal>等)；"
 
 msgid "the user name under whose identity the command must be executed (in the <filename>/etc/crontab</filename> file and in the fragments located in <filename>/etc/cron.d/</filename>, but not in the users' own crontab files);"
-msgstr ""
+msgstr "必須以使用者名稱執行 (在 <filename>/etc/crontab</filename> 檔案與其位在 <filename>/etc/cron.d/</filename> 內，但不在使用者自己的 crontab 檔案內)；"
 
 msgid "the command to execute (when the conditions defined by the first five columns are met)."
-msgstr ""
+msgstr "執行的命令 (滿足前五個欄位的條件時)。"
 
 msgid "All these details are documented in the <citerefentry><refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> man page."
-msgstr ""
+msgstr "這些內容的詳情記錄在 <citerefentry><refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> 手冊內。"
 
 msgid "Each value can be expressed in the form of a list of possible values (separated by commas). The syntax <literal>a-b</literal> describes the interval of all the values between <literal>a</literal> and <literal>b</literal>. The syntax <literal>a-b/c</literal> describes the interval with an increment of <literal>c</literal> (example: <literal>0-10/2</literal> means <literal>0,2,4,6,8,10</literal>). An asterisk <literal>*</literal> is a wildcard, representing all possible values."
-msgstr ""
+msgstr "每個值都可以表格的清單方式顯示 (以逗點區隔)。<literal>a-b</literal> 表示在 <literal>a</literal> 和 <literal>b</literal> 之間的值。<literal>a-b/c</literal> 表示以固定增量 <literal>c</literal> 的間隔 (如：<literal>0-10/2</literal> 表示實際狀況是 <literal>0,2,4,6,8,10</literal>)。星號 <literal>*</literal> 為萬用字元，表示所有的可能值。"
 
 msgid "Sample <filename>crontab</filename> file"
-msgstr ""
+msgstr "<filename>crontab</filename> 檔案的範例"
 
 msgid ""
 "#Format\n"
@@ -1334,27 +1414,38 @@ msgid ""
 "# Restart the IRC proxy after each reboot\n"
 "@reboot /usr/bin/dircproxy"
 msgstr ""
+"#Format\n"
+"#min hour day mon dow  command\n"
+"\n"
+"# Download data every night at 7:25 pm\n"
+" 25  19   *   *   *    $HOME/bin/get.pl\n"
+"\n"
+"# 8:00 am, on weekdays (Monday through Friday)\n"
+" 00  08   *   *   1-5  $HOME/bin/dosomething\n"
+"\n"
+"# Restart the IRC proxy after each reboot\n"
+"@reboot /usr/bin/dircproxy"
 
 msgid "<emphasis>TIP</emphasis> Executing a command on boot"
-msgstr ""
+msgstr "<emphasis>秘訣</emphasis> 在根執行命令"
 
 msgid "To execute a command a single time, just after booting the computer, you can use the <literal>@reboot</literal> macro (a simple restart of <command>cron</command> does not trigger a command scheduled with <literal>@reboot</literal>). This macro replaces the first five fields of an entry in the <emphasis>crontab</emphasis>."
-msgstr ""
+msgstr "啟動電腦後，固定執行一次的命令，可以使用 <literal>@reboot</literal> 巨集 (重新啟動 <command>cron</command> 而不必以 <literal>@reboot</literal> 觸動命令排程)。此巨集取代在 <emphasis>crontab</emphasis> 款目的前五個欄位。"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Emulating <command>cron</command> with <command>systemd</command>"
-msgstr ""
+msgstr "<emphasis>其他</emphasis> 模擬 <command>cron</command> 用 <command>systemd</command>"
 
 msgid "It is possible to emulate part of <command>cron</command>'s behaviour with <command>systemd</command>'s timer mechanism (see <xref linkend=\"sect.systemd\" />)."
-msgstr ""
+msgstr "部份 <command>cron</command> 的行為，可以用 <command>systemd</command> 的時間機制模擬 (見 <xref linkend=\"sect.systemd\" />)。"
 
 msgid "Using the <command>at</command> Command"
-msgstr ""
+msgstr "使用 <command>at</command> 命令"
 
 msgid "<primary><command>at</command></primary>"
-msgstr ""
+msgstr "<primary><command>at</command></primary>"
 
 msgid "The <command>at</command> executes a command at a specified moment in the future. It takes the desired time and date as command-line parameters, and the command to be executed in its standard input. The command will be executed as if it had been entered in the current shell. <command>at</command> even takes care to retain the current environment, in order to reproduce the same conditions when it executes the command. The time is indicated by following the usual conventions: <literal>16:12</literal> or <literal>4:12pm</literal> represents 4:12 pm. The date can be specified in several European and Western formats, including <literal>DD.MM.YY</literal> (<literal>27.07.15</literal> thus representing 27 July 2015), <literal>YYYY-MM-DD</literal> (this same date being expressed as <literal>2015-07-27</literal>), <literal>MM/DD/[CC]YY</literal> (ie., <literal>12/25/15</literal> or <literal>12/25/2015</literal> will be December 25, 2015), or simple <literal>MMDD[CC]YY</literal> (so that <literal>122515</literal> or <literal>12252015</literal> will, likewise, represent December 25, 2015). Without it, the command will be executed as soon as the clock reaches the time indicated (the same day, or tomorrow if that time has already passed on the same day). You can also simply write “today” or “tomorrow”, which is self-explanatory."
-msgstr ""
+msgstr "<command>at</command> 在未來的特定時間執行某個命令。以命令列參數的模式在指定的時間與日期執行，並把結果以標準方式鍵入。鍵入當前的 shell 就可以執行該命令。<command>at</command> 甚至保留當前的環境，以便重現執行該命令的情境。以慣例顯示時間：<literal>16:12</literal> 或 <literal>4:12pm</literal> 代表下午 4 點 12 分。日期可以使用歐洲或西方的格式，包括 <literal>DD.MM.YY</literal> (<literal>27.07.15</literal> 表示27日7月2015年)，<literal>YYYY-MM-DD</literal> (等同於 <literal>2015-07-27</literal>)，<literal>MM/DD/[CC]YY</literal> (就是，<literal>12/25/15</literal> 或 <literal>12/25/2015</literal> 指的是12月25日，2015)，或 <literal>MMDD[CC]YY</literal> (即 <literal>122515</literal> 或 <literal>12252015</literal> 代表12月25日，2015)。少了它，則在時間到就執行 (同一天、或若時間已過則是隔天)。也可寫成 “today” 或 “tomorrow”，就是今天或明天。"
 
 msgid ""
 "\n"
@@ -1365,183 +1456,192 @@ msgid ""
 "<computeroutput>warning: commands will be executed using /bin/sh\n"
 "job 31 at Mon Jul 27 09:00:00 2015</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput>$ </computeroutput><userinput>at 09:00 27.07.15 &lt;&lt;END</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>echo \"Don't forget to wish a Happy Birthday to Raphaël!\" \\</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>  | mail lolando@debian.org</userinput>\n"
+"<computeroutput>&gt; </computeroutput><userinput>END</userinput>\n"
+"<computeroutput>warning: commands will be executed using /bin/sh\n"
+"job 31 at Mon Jul 27 09:00:00 2015</computeroutput>"
 
 msgid "An alternative syntax postpones the execution for a given duration: <command>at now + <replaceable>number</replaceable> <replaceable>period</replaceable></command>. The <replaceable>period</replaceable> can be <literal>minutes</literal>, <literal>hours</literal>, <literal>days</literal>, or <literal>weeks</literal>. The <replaceable>number</replaceable> simply indicates the number of said units that must elapse before execution of the command."
-msgstr ""
+msgstr "還有另個方法可以延後執行命令的時間點：<command>at now + <replaceable>數字</replaceable> <replaceable>間隔</replaceable></command>。<replaceable>間隔</replaceable> 可以是 <literal>分</literal>、<literal>小時</literal>、<literal>日</literal>、或 <literal>週</literal>。<replaceable>數字</replaceable> 指明執行命令前的時間。"
 
 msgid "To cancel a task scheduled by <command>cron</command>, simply run <command>crontab -e</command> and delete the corresponding line in the <emphasis>crontab</emphasis> file. For <command>at</command> tasks, it is almost as easy: run <command>atrm <replaceable>task-number</replaceable></command>. The task number is indicated by the <command>at</command> command when you scheduled it, but you can find it again with the <command>atq</command> command, which gives the current list of scheduled tasks."
-msgstr ""
+msgstr "取消 <command>cron</command> 排定的工作，祗需執行 <command>crontab -e</command> 並刪除在 <emphasis>crontab</emphasis> 檔案中對應的列。對於使用 <command>at</command> 的工作，同樣簡單：執行 <command>atrm <replaceable>工作編號</replaceable></command> 就可以了。排定時由 <command>at</command> 命令指定工作編號，可以用 <command>atq</command> 命令列出當前工作的清單，籨而找到該工作編號。"
 
 msgid "<primary><command>atrm</command></primary>"
-msgstr ""
+msgstr "<primary><command>atrm</command></primary>"
 
 msgid "<primary><command>atq</command></primary>"
-msgstr ""
+msgstr "<primary><command>atq</command></primary>"
 
 msgid "Scheduling Asynchronous Tasks: <command>anacron</command>"
-msgstr ""
+msgstr "排定非同步工作：<command>anacron</command>"
 
 msgid "<command>anacron</command> is the daemon that completes <command>cron</command> for computers that are not on at all times. Since regular tasks are usually scheduled for the middle of the night, they will never be executed if the computer is off at that time. The purpose of <command>anacron</command> is to execute them, taking into account periods in which the computer is not working."
-msgstr ""
+msgstr "<command>anacron</command> 適用於無法全天候開機的電腦，用以取代 <command>cron</command> 後台進程。通常半夜執行由於常規的工作，若已關機就無法執行它。<command>anacron</command> 的目的就是考量這種情況，讓該做的工作仍然能執行。"
 
 msgid "<primary><command>anacron</command></primary>"
-msgstr ""
+msgstr "<primary><command>anacron</command></primary>"
 
 msgid "Please note that <command>anacron</command> will frequently execute such activity a few minutes after booting the machine, which can render the computer less responsive. This is why the tasks in the <filename>/etc/anacrontab</filename> file are started with the <command>nice</command> command, which reduces their execution priority and thus limits their impact on the rest of the system. Beware, the format of this file is not the same as that of <filename>/etc/crontab</filename>; if you have particular needs for <command>anacron</command>, see the <citerefentry><refentrytitle>anacrontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
-msgstr ""
+msgstr "機器啟動幾分鐘後，請注意 <command>anacron</command> 將頻頻執行此類活動，可能導致電腦反應遲緩。這也正是 <filename>/etc/anacrontab</filename> 檔案中的工作以 <command>nice</command> 命令開頭的原因，用以減少其執行優先序，進而限制對系統的影響。注意，此檔案的格式與 <filename>/etc/crontab</filename> 不完全相同；若對 <command>anacron</command> 有特殊的需求，參見 <citerefentry><refentrytitle>anacrontab</refentrytitle> <manvolnum>5</manvolnum></citerefentry> 手冊頁面。"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Priorities and <command>nice</command>"
-msgstr ""
+msgstr "<emphasis>回到基礎</emphasis> 優先序與 <command>nice</command>"
 
 msgid "Unix systems (and thus Linux) are multi-tasking and multi-user systems. Indeed, several processes can run in parallel, and be owned by different users: the kernel mediates access to the resources between the different processes. As a part of this task, it has a concept of priority, which allows it to favor certain processes over others, as needed. When you know that a process can run in low priority, you can indicate so by running it with <command>nice <replaceable>program</replaceable></command>. The program will then have a smaller share of the CPU, and will have a smaller impact on other running processes. Of course, if no other processes needs to run, the program will not be artificially held back."
-msgstr ""
+msgstr "Unix 系統 (含 Linux) 是多工多人系統。事實上，可以同時由不同使用者執行多個程序：核心可以隔離並管理不同程序所需的資源。做為工作的一部份，產生優先序的概念，必要時，允許優先處理特定程序。知道某些程序可以在低度優先序執行，就可執行 <command>nice <replaceable>程式</replaceable></command>。指定的程式就分配到較少量的 CPU，對其他執行中的程序影響也較小。當然，若沒有其他程序需執行，此程式就不會被人為地停止。"
 
 msgid "<command>nice</command> works with levels of “niceness”: the positive levels (from 1 to 19) progressively lower the priority, while the negative levels (from -1 to -20) will increase it — but only root can use these negative levels. Unless otherwise indicated (see the <citerefentry><refentrytitle>nice</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page), <command>nice</command> increases the current level by 10."
 msgstr ""
+"<command>nice</command> 添加 “niceness” 優先序：正數層級 (1 至 19) 逐漸減少優先序，負數層級 (-1 至 -20) 則逐漸增加 — 但祗有超級用戶才能使用負數層級。除非特別指明 (見 <citerefentry><refentrytitle>nice</refentrytitle> <manvolnum>1</manvolnum></citerefentry> 手冊頁面)，<command>nice</command> 把現在的執行層級增加 10。\n"
+"nice 会给优先级添加“niceness”：正值优先级（从１到１９）逐渐降低优先级，而负值（从－１到－２０）增加优先级－但是仅有超级用户可以使用负值优先级。除非特别指明（参看 nice(1) 手册）， nice 将当前优先级加１０。"
 
 msgid "If you discover that an already running task should have been started with <command>nice</command> it is not too late to fix it; the <command>renice</command> command changes the priority of an already running process, in either direction (but reducing the “niceness” of a process is reserved for the root user)."
-msgstr ""
+msgstr "若發現已執行的工作應以 <command>nice</command> 啟動，修正它並不算太遲；<command>renice</command> 命令可改變執行中程序的優先序，增加或減少均可 (但減少 “niceness” 是超級使用者的權限)。"
 
 msgid "Installation of the <emphasis role=\"pkg\">anacron</emphasis> package deactivates execution by <command>cron</command> of the scripts in the <filename>/etc/cron.hourly/</filename>, <filename>/etc/cron.daily/</filename>, <filename>/etc/cron.weekly/</filename>, and <filename>/etc/cron.monthly/</filename> directories. This avoids their double execution by <command>anacron</command> and <command>cron</command>. The <command>cron</command> command remains active and will continue to handle the other scheduled tasks (especially those scheduled by users)."
-msgstr ""
+msgstr "安裝 <emphasis role=\"pkg\">anacron</emphasis> 套件可停用 <command>cron</command> 在 <filename>/etc/cron.hourly/</filename>、<filename>/etc/cron.daily/</filename>、<filename>/etc/cron.weekly/</filename>、與 <filename>/etc/cron.monthly/</filename> 資料夾中的腳本。可避免 <command>anacron</command> 與 <command>cron</command>重複執行這些腳本。<command>cron</command> 命令仍可處理其他計畫中的任務 (尤其是其他使用者安排的任務)。"
 
 msgid "Quotas"
-msgstr ""
+msgstr "配額"
 
 msgid "<primary>quota</primary>"
-msgstr ""
+msgstr "<primary>額度</primary>"
 
 msgid "The quota system allows limiting disk space allocated to a user or group of users. To set it up, you must have a kernel that supports it (compiled with the <varname>CONFIG_QUOTA</varname> option) — as is the case with Debian kernels. The quota management software is found in the <emphasis role=\"pkg\">quota</emphasis> Debian package."
-msgstr ""
+msgstr "配額系統可以限制對使用者與群組可用的磁碟空間。設定時，必須有核心支援它 (以 <varname>CONFIG_QUOTA</varname> 選項編譯) — 使用 Debian 核心時。配額管理軟體在 <emphasis role=\"pkg\">quota</emphasis> Debian 套件內。"
 
 msgid "To activate quota in a filesystem, you have to indicate the <literal>usrquota</literal> and <literal>grpquota</literal> options in <filename>/etc/fstab</filename> for the user and group quotas, respectively. Rebooting the computer will then update the quotas in the absence of disk activity (a necessary condition for proper accounting of already used disk space)."
-msgstr ""
+msgstr "在檔案系統內啟用配額時，必須指明e <literal>usrquota</literal> 與 <literal>grpquota</literal> 選項於 <filename>/etc/fstab</filename> 中，分別供使用者與群組使用。重新啟動電腦後，就能在未使用的磁碟空間中更新配額 (必須如此，才能重新計算已使用的磁碟空間)。"
 
 msgid "The <command>edquota <replaceable>user</replaceable></command> (or <command>edquota -g <replaceable>group</replaceable></command>) command allows you to change the limits while examining current disk space usage."
-msgstr ""
+msgstr "<command>edquota <replaceable>user</replaceable></command> (或 <command>edquota -g <replaceable>group</replaceable></command>) 命令允許在仍有磁碟空間的前提下，改變配額。"
 
 msgid "<primary><command>edquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>edquota</command></primary>"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Defining quotas with a script"
-msgstr ""
+msgstr "<emphasis>進階</emphasis> 以腳本設定配額"
 
 msgid "<primary><command>setquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>setquota</command></primary>"
 
 msgid "The <command>setquota</command> program can be used in a script to automatically change many quotas. Its <citerefentry><refentrytitle>setquota</refentrytitle> <manvolnum>8</manvolnum></citerefentry> manual page details the syntax to use."
-msgstr ""
+msgstr "可以在腳本中，使用 <command>setquota</command> 程式自動改變多個配額。在 <citerefentry><refentrytitle>setquota</refentrytitle> <manvolnum>8</manvolnum></citerefentry> 手冊頁面列出詳細的語法。"
 
 msgid "The quota system allows you to set four limits:"
-msgstr ""
+msgstr "配額系統允許您設定四個限制："
 
 msgid "two limits (called “soft” and “hard”) refer to the number of blocks consumed. If the filesystem was created with a block-size of 1 kibibyte, a block contains 1024 bytes from the same file. Unsaturated blocks thus induce losses of disk space. A quota of 100 blocks, which theoretically allows storage of 102,400 bytes, will however be saturated with just 100 files of 500 bytes each, only representing 50,000 bytes in total."
-msgstr ""
+msgstr "兩種限制 (稱為 “軟的” 和 “硬的”) 係指消耗的區塊數。若檔案系統的區塊大小為 1 K，即每個區塊為 1,024 位元組。不飽和的區塊浪費了磁碟空間。配額為 100 區塊，理論上可以儲存 102,400 位元組，可能被 100 個每個祗有 500 位元組的檔案填滿，實際上祗儲存了 50,000 位元組。"
 
 msgid "two limits (soft and hard) refer to the number of inodes used. Each file occupies at least one inode to store information about it (permissions, owner, timestamp of last access, etc.). It is thus a limit on the number of user files."
-msgstr ""
+msgstr "兩個限制 (軟的和硬的) 可用的節點數。每個檔案至少使用一個節點儲存其資訊 (權限、擁有者、最新近用的時間點等)。實際上限制使用者的檔案數。"
 
 msgid "A “soft” limit can be temporarily exceeded; the user will simply be warned that they are exceeding the quota by the <command>warnquota</command> command, which is usually invoked by <command>cron</command>. A “hard” limit can never be exceeded: the system will refuse any operation that will cause a hard quota to be exceeded."
-msgstr ""
+msgstr "“軟的” 限制可以被暫時超越；超過 <command>warnquota</command> 命令指定的配額時，由 <command>cron</command> 命令提出警告。“硬的” 限制必須遵守：系統拒絕任何超出硬配額的操作。"
 
 msgid "<emphasis>VOCABULARY</emphasis> Blocks and inodes"
-msgstr ""
+msgstr "<emphasis>術語</emphasis> 區塊和節點"
 
 msgid "<primary>block (disk)</primary>"
-msgstr ""
+msgstr "<primary>區塊 (磁碟)</primary>"
 
 msgid "<primary>inode</primary>"
-msgstr ""
+msgstr "<primary>節點</primary>"
 
 msgid "The filesystem divides the hard drive into blocks — small contiguous areas. The size of these blocks is defined during creation of the filesystem, and generally varies between 1 and 8 kibibytes."
-msgstr ""
+msgstr "檔案系統把硬式磁碟機切割成若干區塊 — 小塊的連續區域。新增檔案系統時決定這些區塊的大小，通常是 1 至 8 K位元組之間。"
 
 msgid "A block can be used either to store the real data of a file, or for meta-data used by the filesystem. Among this meta-data, you will especially find the inodes. An inode uses a block on the hard drive (but this block is not taken into consideration in the block quota, only in the inode quota), and contains both the information on the file to which it corresponds (name, owner, permissions, etc.) and the pointers to the data blocks that are actually used. For very large files that occupy more blocks than it is possible to reference in a single inode, there is an indirect block system; the inode references a list of blocks that do not directly contain data, but another list of blocks."
-msgstr ""
+msgstr "區塊可以儲存真實資料的檔案，或者檔案系統的元資料。在元資料中，就會找到節點。一個節點使用硬式磁碟機裡的一個區塊 (但此區塊未納入區塊配額中，祗算是節點的配額)，包含節點對應的檔案 (名稱、擁有者、權限等) 以及指向實際使用資料區塊的指針。對於佔用多個區塊的極大檔案，已超出一個指針的索引範圍，就使用間接區塊系統；節點參考至未含資料的區塊清單，而是另個區塊清單。"
 
 msgid "<primary><command>warnquota</command></primary>"
-msgstr ""
+msgstr "<primary><command>warnquota</command></primary>"
 
 msgid "With the <command>edquota -t</command> command, you can define a maximum authorized “grace period” within which a soft limit may be exceeded. After this period, the soft limit will be treated like a hard limit, and the user will have to reduce their disk space usage to within this limit in order to be able to write anything to the hard drive."
-msgstr ""
+msgstr "使用 <command>edquota -t</command> 命令，可以設定超過軟限制的 “寬限期”。寬限期後，軟限制將視為硬限制。使用者將減少其磁碟空間的使用量至配額之內。"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Setting up a default quota for new users"
-msgstr ""
+msgstr "<emphasis>進階</emphasis> 設定新使用者的預設配額"
 
 msgid "To automatically setup a quota for new users, you have to configure a template user (with <command>edquota</command> or <command>setquota</command>) and indicate their user name in the <varname>QUOTAUSER</varname> variable in the <filename>/etc/adduser.conf</filename> file. This quota configuration will then be automatically applied to each new user created with the <command>adduser</command> command."
-msgstr ""
+msgstr "為了自動設定新使用者的配額，必須組態使用者模板 (使用 <command>edquota</command> 或 <command>setquota</command> 命令) 並在 <filename>/etc/adduser.conf</filename> 檔案的 <varname>QUOTAUSER</varname> 變數中指定讓使用者名稱。該配額組態將自動應用於 <command>adduser</command> 命令新增的使用者。"
 
 msgid "Making backups is one of the main responsibilities of any administrator, but it is a complex subject, involving powerful tools which are often difficult to master."
-msgstr ""
+msgstr "備份是管理員的主要責任之一，它是個複雜的主題，涉及難以掌握的強大工具。"
 
 msgid "<primary>backup</primary>"
-msgstr ""
+msgstr "<primary>備份</primary>"
 
 msgid "<primary>restoration</primary>"
-msgstr ""
+msgstr "<primary>復原</primary>"
 
 msgid "Many programs exist, such as <command>amanda</command>, <command>bacula</command>, <command>BackupPC</command>. Those are client/server system featuring many options, whose configuration is rather difficult. Some of them provide user-friendly web interfaces to mitigate this. But Debian contains dozens of other backup software covering all possible use cases, as you can easily confirm with <command>apt-cache search backup</command>."
-msgstr ""
+msgstr "很多程式係供備份之用，如 <command>amanda</command>、<command>bacula</command>、<command>BackupPC</command>。主從架構程式有很多選項，其組態相當困難。部份有親和力強的網頁介面減輕其負擔。但 Debian 還有十多種備份軟體可用，以 <command>apt-cache search backup</command> 命令可搜尋它們。"
 
 msgid "<primary><command>amanda</command></primary>"
-msgstr ""
+msgstr "<primary><command>amanda</command></primary>"
 
 msgid "<primary><command>bacula</command></primary>"
-msgstr ""
+msgstr "<primary><command>bacula</command></primary>"
 
 msgid "<primary><command>BackupPC</command></primary>"
-msgstr ""
+msgstr "<primary><command>BackupPC</command></primary>"
 
 msgid "Rather than detailing some of them, this section will present the thoughts of the Falcot Corp administrators when they defined their backup strategy."
-msgstr ""
+msgstr "與其逐一介紹它們，本章將經由 Falcot 公司管理者的角度，設定備份的策略。"
 
 msgid "At Falcot Corp, backups have two goals: recovering erroneously deleted files, and quickly restoring any computer (server or desktop) whose hard drive has failed."
-msgstr ""
+msgstr "Falcot 公司的備份有兩個目標：無誤地復原被刪除的檔案，以及快速地復原硬碟毀損的電腦 (伺服器或桌面)。"
 
 msgid "Backing Up with <command>rsync</command>"
-msgstr ""
+msgstr "使用 <command>rsync</command> 備份"
 
 msgid "Backups on tape having been deemed too slow and costly, data will be backed up on hard drives on a dedicated server, on which the use of software RAID (see <xref linkend=\"sect.raid-soft\" />) will protect the data from hard drive failure. Desktop computers are not backed up individually, but users are advised that their personal account on their department's file server will be backed up. The <command>rsync</command> command (from the package of the same name) is used daily to back up these different servers."
-msgstr ""
+msgstr "以磁帶備份太慢且太貴，現在採用備份在專屬伺服器的硬碟策略，以 RAID (見 <xref linkend=\"sect.raid-soft\" />) 軟體保護資料在硬碟毀損時不致遺失。桌面電腦沒有個別備份的策略，使用者應在部份的檔案伺服器備份其資料。<command>rsync</command> 命令 (取自同名的套件) 用於逐日備份這些伺服器。"
 
 msgid "<primary><command>rsync</command></primary>"
-msgstr ""
+msgstr "<primary><command>rsync</command></primary>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> The hard link, a second name for the file"
-msgstr ""
+msgstr "<emphasis>回到基礎</emphasis> 硬連結，檔案的第二個名稱"
 
 msgid "<primary>link</primary><secondary>hard link</secondary>"
-msgstr ""
+msgstr "<primary>連結</primary><secondary>硬連結</secondary>"
 
 msgid "<primary>hard link</primary>"
-msgstr ""
+msgstr "<primary>硬連結</primary>"
 
 msgid "A hard link, as opposed to a symbolic link, cannot be differentiated from the linked file. Creating a hard link is essentially the same as giving an existing file a second name. This is why the deletion of a hard link only removes one of the names associated with the file. As long as another name is still assigned to the file, the data therein remain present on the filesystem. It is interesting to note that, unlike a copy, the hard link does not take up additional space on the hard drive."
-msgstr ""
+msgstr "相對於符號連結，硬連結不能自外於被連結檔案。新增的硬連結等於給檔案另個名稱。刪除硬連結等於刪除該檔案的另個名稱。祗要還有另個名稱指定給檔案，則資料仍在檔案系統內。不同於複製，硬連結並未在硬碟裡複製另個空間。"
 
 msgid "A hard link is created with the <command>ln <replaceable>target</replaceable> <replaceable>link</replaceable></command> command. The <replaceable>link</replaceable> file is then a new name for the <replaceable>target</replaceable> file. Hard links can only be created on the same filesystem, while symbolic links are not subject to this limitation."
-msgstr ""
+msgstr "以 <command>ln <replaceable>target</replaceable> <replaceable>link</replaceable></command> 命令新增硬連結。<replaceable>link</replaceable> 檔案是 <replaceable>target</replaceable> 檔案的新名稱。硬連結祗能應用於同個檔案系統，符號連結則不受此限。"
 
 msgid "The available hard drive space prohibits implementation of a complete daily backup. As such, the <command>rsync</command> command is preceded by a duplication of the content of the previous backup with hard links, which prevents usage of too much hard drive space. The <command>rsync</command> process then only replaces files that have been modified since the last backup. With this mechanism a great number of backups can be kept in a small amount of space. Since all backups are immediately available and accessible (for example, in different directories of a given share on the network), you can quickly make comparisons between two given dates."
-msgstr ""
+msgstr "受限於可用的硬碟空間，無法執行完整的逐日備份。所以，<command>rsync</command> 命令優先於以硬連結複製內容，避免使用太多的硬碟空間。<command>rsync</command> 祗處理上次備份後，再被修改的檔案。以這個機制可使用較小的空間備份。因為所有的備份已經立即可得與可用 (例如，在同個網路的不同資料夾共享)，可快速地比對兩個指定日期。"
 
 msgid "<primary>copy, backup copy</primary>"
-msgstr ""
+msgstr "<primary>複本，備份複本</primary>"
 
 msgid "<primary>backup</primary><secondary>copy</secondary>"
-msgstr ""
+msgstr "<primary>備份</primary><secondary>複本</secondary>"
 
 msgid "<primary><emphasis role=\"pkg\">dirvish</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">dirvish</emphasis></primary>"
 
 msgid "This backup mechanism is easily implemented with the <command>dirvish</command> program. It uses a backup storage space (“bank” in its vocabulary) in which it places timestamped copies of sets of backup files (these sets are called “vaults” in the dirvish documentation)."
-msgstr ""
+msgstr "這種備份機制可以輕易地經由 <command>dirvish</command> 程式執行。使用備份的儲存空間 (“空” 的)，放置含時間戳記的備份檔案 (在 dirvish 文件中，這些檔案被稱為 “vaults”)。"
 
 msgid "The main configuration is in the <filename>/etc/dirvish/master.conf</filename> file. It defines the location of the backup storage space, the list of “vaults” to manage, and default values for expiration of the backups. The rest of the configuration is located in the <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename> files and contains the specific configuration for the corresponding set of files."
-msgstr ""
+msgstr "主要的組態在 <filename>/etc/dirvish/master.conf</filename> 檔案內。設定備份儲存空間的位置，管理 “vaults” 清單，以及備份到期的預設值。其他的組態位在 <filename><replaceable>bank</replaceable>/<replaceable>vault</replaceable>/dirvish/default.conf</filename> 檔案內，包括對應檔案集的特殊組態。"
 
 msgid "The <filename>/etc/dirvish/master.conf</filename> file"
-msgstr ""
+msgstr "<filename>/etc/dirvish/master.conf</filename> 檔案"
 
 msgid ""
 "bank:\n"
@@ -1559,18 +1659,32 @@ msgid ""
 "    *   *     1-7 *         1    +1 year\n"
 "    *   *     1-7 1,4,7,10  1"
 msgstr ""
+"bank:\n"
+"    /backup\n"
+"exclude:\n"
+"    lost+found/\n"
+"    core\n"
+"    *~\n"
+"Runall:\n"
+"    root    22:00\n"
+"expire-default: +15 days\n"
+"expire-rule:\n"
+"#   MIN HR    DOM MON       DOW  STRFTIME_FMT\n"
+"    *   *     *   *         1    +3 months\n"
+"    *   *     1-7 *         1    +1 year\n"
+"    *   *     1-7 1,4,7,10  1"
 
 msgid "The <literal>bank</literal> setting indicates the directory in which the backups are stored. The <literal>exclude</literal> setting allows you to indicate files (or file types) to exclude from the backup. The <literal>Runall</literal> is a list of file sets to backup with a time-stamp for each set, which allows you to assign the correct date to the copy, in case the backup is not triggered at precisely the assigned time. You have to indicate a time just before the actual execution time (which is, by default, 10:04 pm in Debian, according to <filename>/etc/cron.d/dirvish</filename>). Finally, the <literal>expire-default</literal> and <literal>expire-rule</literal> settings define the expiration policy for backups. The above example keeps forever backups that are generated on the first Sunday of each quarter, deletes after one year those from the first Sunday of each month, and after 3 months those from other Sundays. Other daily backups are kept for 15 days. The order of the rules does matter, Dirvish uses the last matching rule, or the <literal>expire-default</literal> one if no other <literal>expire-rule</literal> matches."
-msgstr ""
+msgstr "<literal>bank</literal> 設定儲存備份的資料夾。<literal>exclude</literal> 設定不列入備份的檔案 (或檔案類型)。<literal>Runall</literal> 是做為備份時間戳記的檔案清單，若未在指定的時間備份時，還可以其指定的時間複製檔案。可以指定在實際執行時間前 (也就是，預設在 10:04 pm，根據 <filename>/etc/cron.d/dirvish</filename>)。最後，<literal>expire-default</literal> 和 <literal>expire-rule</literal> 設定備份失效政策。以上的範例永遠在每季的第一個星期日執行備份，並在一年後的每月第一個星期日刪除它，以及在三個月後的另個星期日刪除它。其他的逐日備份則保留 15 天。執行的順序有關係，Dirvish 使用最後符合的規則，或 <literal>expire-default</literal> 若無其他的 <literal>expire-rule</literal> 符合。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Scheduled expiration"
-msgstr ""
+msgstr "<emphasis>實踐</emphasis> 定期失效"
 
 msgid "The expiration rules are not used by <command>dirvish-expire</command> to do its job. In reality, the expiration rules are applied when creating a new backup copy to define the expiration date associated with that copy. <command>dirvish-expire</command> simply peruses the stored copies and deletes those for which the expiration date has passed."
-msgstr ""
+msgstr "失效規則未被 <command>dirvish-expire</command> 使用。實際上，在新增備份副本時，設定該複本失效的日期。<command>dirvish-expire</command> 細讀儲存的複本並刪除也達失效日期的檔案。"
 
 msgid "The <filename>/backup/root/dirvish/default.conf</filename> file"
-msgstr ""
+msgstr "<filename>/backup/root/dirvish/default.conf</filename> 檔案"
 
 msgid ""
 "client: rivendell.falcot.com\n"
@@ -1585,204 +1699,215 @@ msgid ""
 "    /var/tmp/**\n"
 "    *.bak"
 msgstr ""
+"client: rivendell.falcot.com\n"
+"tree: /\n"
+"xdev: 1\n"
+"index: gzip\n"
+"image-default: %Y%m%d\n"
+"exclude:\n"
+"    /var/cache/apt/archives/*.deb\n"
+"    /var/cache/man/**\n"
+"    /tmp/**\n"
+"    /var/tmp/**\n"
+"    *.bak"
 
 msgid "The above example specifies the set of files to back up: these are files on the machine <emphasis>rivendell.falcot.com</emphasis> (for local data backup, simply specify the name of the local machine as indicated by <command>hostname</command>), especially those in the root tree (<literal>tree: /</literal>), except those listed in <literal>exclude</literal>. The backup will be limited to the contents of one filesystem (<literal>xdev: 1</literal>). It will not include files from other mount points. An index of saved files will be generated (<literal>index: gzip</literal>), and the image will be named according to the current date (<literal>image-default: %Y%m%d</literal>)."
-msgstr ""
+msgstr "以上的例子指定需備份的檔案：在機器 <emphasis>rivendell.falcot.com</emphasis> (在地備份時，祗由 <command>hostname</command> 命令指定在地機器的名稱) 內的檔案，尤其是在根目錄之下的檔案 (<literal>tree: /</literal>)，除了列在 <literal>exclude</literal> 內的檔案。備份將限制在一個檔案系統的內容 (<literal>xdev: 1</literal>)。將不包括來自掛載點的檔案。將生成一個儲存檔案索引 (<literal>index: gzip</literal>)，以及根據現在日期生成的映像檔 (<literal>image-default: %Y%m%d</literal>)。"
 
 msgid "There are many options available, all documented in the <citerefentry><refentrytitle>dirvish.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> manual page. Once these configuration files are setup, you have to initialize each file set with the <command>dirvish --vault <replaceable>vault</replaceable> --init</command> command. From there on the daily invocation of <command>dirvish-runall</command> will automatically create a new backup copy just after having deleted those that expired."
-msgstr ""
+msgstr "還有很多其他的選項，所有的文件都在 <citerefentry><refentrytitle>dirvish.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry> 手冊頁面。設定這些組態檔案後，可以用 <command>dirvish --vault <replaceable>vault</replaceable> --init</command> 初始化每個檔案設定。每日調用的 <command>dirvish-runall</command> 將在刪除失效檔案後，自動新增備份複本。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Remote backup over SSH"
-msgstr ""
+msgstr "<emphasis>實踐</emphasis> 以 SSH 遠端備份"
 
 msgid "When dirvish needs to save data to a remote machine, it will use <command>ssh</command> to connect to it, and will start <command>rsync</command> as a server. This requires the root user to be able to automatically connect to it. The use of an SSH authentication key allows precisely that (see <xref linkend=\"sect.ssh-key-based-auth\" />)."
-msgstr ""
+msgstr "把資料儲存在遠端機器時，需用 <command>ssh</command> 命令連結它，並啟用 <command>rsync</command> 做為伺服器。需以超級使者的權限才能自動連結。以 SSH 認證碼精確連結 (見 <xref linkend=\"sect.ssh-key-based-auth\" />)。"
 
 msgid "Restoring Machines without Backups"
-msgstr ""
+msgstr "供備份恢復系統"
 
 msgid "Desktop computers, which are not backed up, will be easy to reinstall from custom DVD-ROMs prepared with <emphasis>Simple-CDD</emphasis> (see <xref linkend=\"sect.simple-cdd\" />). Since this performs an installation from scratch, it loses any customization that can have been made after the initial installation. This is fine since the systems are all hooked to a central LDAP directory for accounts and most desktop applications are preconfigured thanks to dconf (see <xref linkend=\"sect.gnome-desktop\" /> for more information about this)."
-msgstr ""
+msgstr "桌面電腦不需要備份，以 <emphasis>Simple-CDD</emphasis> (見 <xref linkend=\"sect.simple-cdd\" />) 燒錄的 DVD-ROM 就能簡單地重新安裝。回到原始的狀態，舊有的設定全部消失。通常連結至中央的 LDAP 資料夾，大部份桌面的設定存在 dconf (見 <xref linkend=\"sect.gnome-desktop\" /> 的詳細資料)。"
 
 msgid "The Falcot Corp administrators are aware of the limits in their backup policy. Since they can't protect the backup server as well as a tape in a fireproof safe, they have installed it in a separate room so that a disaster such as a fire in the server room won't destroy backups along with everything else. Furthermore, they do an incremental backup on DVD-ROM once per week — only files that have been modified since the last backup are included."
-msgstr ""
+msgstr "Falcot Corp 的管理者知道該公司備份政策的限制。未以防火牆保護備份伺服器，而是把它放在另個房間，以免在災難來臨時與主伺服器同歸一燼。而且，每週以 DVD-ROM 做增量備份 — 祗備份修改過的檔案。"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Backing up SQL and LDAP services"
-msgstr ""
+msgstr "<emphasis>進階</emphasis> 備份 SQL 和 LDAP 服務"
 
 msgid "Many services (such as SQL or LDAP databases) cannot be backed up by simply copying their files (unless they are properly interrupted during creation of the backups, which is frequently problematic, since they are intended to be available at all times). As such, it is necessary to use an “export” mechanism to create a “data dump” that can be safely backed up. These are often quite large, but they compress well. To reduce the storage space required, you will only store a complete text file per week, and a <command>diff</command> each day, which is created with a command of the type <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command>. The <command>xdelta</command> program produces incremental differences from binary dumps."
-msgstr ""
+msgstr "很多服務 (諸如 SQL 或 LDAP 資料庫) 不能以複製檔案的方式備份其系統 (unless they are properly interrupted during creation of the backups, which is frequently problematic, since they are intended to be available at all times)。因此，必須以 “匯出” 機制生成 “倒出資料” 才能安全地備份。量很大，妥善地壓縮。為了減少儲存空間，每週祗儲存完成的文字檔，以及每天的 <command>diff</command>，以 <command>diff <replaceable>file_from_yesterday</replaceable> <replaceable>file_from_today</replaceable></command> 命令建立。<command>xdelta</command> 程式從二進位倒出增量的不同資料。"
 
 msgid "<primary><command>xdelta</command></primary>"
-msgstr ""
+msgstr "<primary><command>xdelta</command></primary>"
 
 msgid "<primary><command>diff</command></primary>"
-msgstr "<primary><command>不同</command></primary>"
+msgstr "<primary><command>diff</command></primary>"
 
 msgid "<primary>dump</primary>"
-msgstr ""
+msgstr "<primary>倒出</primary>"
 
 msgid "<emphasis>CULTURE</emphasis> <emphasis>TAR</emphasis>, the standard for tape backups"
-msgstr ""
+msgstr "<emphasis>文化</emphasis> <emphasis>TAR</emphasis>，磁帶備份標準"
 
 msgid "<primary>backup</primary><secondary>on tape</secondary>"
-msgstr ""
+msgstr "<primary>備份</primary><secondary>在磁帶</secondary>"
 
 msgid "<primary>tape, backup</primary>"
-msgstr ""
+msgstr "<primary>磁帶，備份</primary>"
 
 msgid "<primary>TAR</primary>"
-msgstr ""
+msgstr "<primary>TAR</primary>"
 
 msgid "Historically, the simplest means of making a backup on Unix was to store a <emphasis>TAR</emphasis> archive on a tape. The <command>tar</command> command even got its name from “Tape ARchive”."
-msgstr ""
+msgstr "從歷史上看，最簡單的 Unix 備份是儲存在 <emphasis>TAR</emphasis> 檔案的磁帶。<command>tar</command> 命令的意思是 “Tape ARchive”。"
 
 msgid "Hot Plugging: <emphasis>hotplug</emphasis>"
-msgstr ""
+msgstr "熱插拔：<emphasis>hotplug</emphasis>"
 
 msgid "Introduction"
-msgstr ""
+msgstr "介绍"
 
 msgid "The <emphasis>hotplug</emphasis> kernel subsystem dynamically handles the addition and removal of devices, by loading the appropriate drivers and by creating the corresponding device files (with the help of <command>udevd</command>). With modern hardware and virtualization, almost everything can be hotplugged: from the usual USB/PCMCIA/IEEE 1394 peripherals to SATA hard drives, but also the CPU and the memory."
-msgstr ""
+msgstr "<emphasis>hotplug</emphasis> 次系統核心，以動態方式載入適當的驅動程且 (在 <command>udevd</command> 的協助下)新增對應的設備檔案，處理加入與移除設備的作業。當代的硬體與虛擬化，幾乎每個物件都是熱插拔：從常見的 USB/PCMCIA/IEEE 1394 週邊到 SATA 硬碟，以及 CPU 與記憶體。"
 
 msgid "The kernel has a database that associates each device ID with the required driver. This database is used during boot to load all the drivers for the peripheral devices detected on the different buses, but also when an additional hotplug device is connected. Once the device is ready for use, a message is sent to <command>udevd</command> so it will be able to create the corresponding entry in <filename>/dev/</filename>."
-msgstr ""
+msgstr "核心內的資料庫有每個設備的 ID 及其驅動程式。在啟動階段載入此資料庫，偵測各接口的週邊設備，並在運行中偵測熱插入的設備。接收到插入的設備後，送出訊息給 <command>udevd</command>，讓其新增對應的條目於 <filename>/dev/</filename> 內。"
 
 msgid "<primary><emphasis>hotplug</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>熱插拔</emphasis></primary>"
 
 msgid "<primary>hotplug</primary>"
-msgstr ""
+msgstr "<primary>熱插拔</primary>"
 
 msgid "<primary>USB</primary>"
-msgstr ""
+msgstr "<primary>USB</primary>"
 
 msgid "<primary>IEEE 1394</primary>"
-msgstr ""
+msgstr "<primary>IEEE 1394</primary>"
 
 msgid "<primary>PCMCIA</primary>"
-msgstr ""
+msgstr "<primary>PCMCIA</primary>"
 
 msgid "<primary>SATA</primary>"
-msgstr ""
+msgstr "<primary>SATA</primary>"
 
 msgid "The Naming Problem"
-msgstr ""
+msgstr "命名問題"
 
 msgid "Before the appearance of hotplug connections, it was easy to assign a fixed name to a device. It was based simply on the position of the devices on their respective bus. But this is not possible when such devices can come and go on the bus. The typical case is the use of a digital camera and a USB key, both of which appear to the computer as disk drives. The first one connected may be <filename>/dev/sdb</filename> and the second <filename>/dev/sdc</filename> (with <filename>/dev/sda</filename> representing the computer's own hard drive). The device name is not fixed; it depends on the order in which devices are connected."
-msgstr ""
+msgstr "熱插拔技術出現前，很容易為設備指定名稱。根據設備所在的位置命名即可。就是設備所在的接口。但每個接口都能連結設備後，這件事就有點麻煩。以數位相機與 USB 碟為例，對電腦而言，它們都是磁碟機。數位相機可能是 <filename>/dev/sdb</filename> 而 USB 碟可能是 <filename>/dev/sdc</filename> (<filename>/dev/sda</filename> 代表電腦本身的硬式磁碟)。設備名稱不固定；依其連結的順序而命名。"
 
 msgid "Additionally, more and more drivers use dynamic values for devices' major/minor numbers, which makes it impossible to have static entries for the given devices, since these essential characteristics may vary after a reboot."
-msgstr ""
+msgstr "此外，愈來愈多的驅動程式，以動態值指定設備的主要/次要編號，不可能再把固定款目指定給固定的設備，因為重新開機後，一切都變了。"
 
 msgid "<emphasis>udev</emphasis> was created precisely to solve this problem."
-msgstr ""
+msgstr "<emphasis>udev</emphasis> 用以解決此問題。"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Network card management"
-msgstr ""
+msgstr "<emphasis>實踐</emphasis> 網路卡管理"
 
 msgid "Many computers have multiple network cards (sometimes two wired interfaces and a wifi interface), and with <emphasis>hotplug</emphasis> support on most bus types, the Linux kernel does not guarantee fixed naming of network interfaces. But users who want to configure their network in <filename>/etc/network/interfaces</filename> need a fixed name!"
-msgstr ""
+msgstr "當代的電腦有多張網路卡 (兩張網路卡加一個 wifi 介面)，以及在多個接口支援 <emphasis>熱插拔</emphasis>，Linux 核心不保證給這些網路介面固定的名稱。不過，使用者卻需要在組態 <filename>/etc/network/interfaces</filename> 時，需用到固定的名稱！"
 
 msgid "It would be difficult to ask every user to create their own <emphasis>udev</emphasis> rules to address this problem. This is why <emphasis>udev</emphasis> was configured in a rather peculiar manner; on first boot (and, more generally, each time that a new network card appears) it uses the name of the network interface and its MAC address to create new rules that will reassign the same name on subsequent boots. These rules are stored in <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>."
-msgstr ""
+msgstr "很難要求每個使用者建立自己的 <emphasis>udev</emphasis> 規則處理此問題。所以讓 <emphasis>udev</emphasis> 以古怪的態度組態以面對它；第一次啟動時 (以及，出現新的網卡時)，以網路介面的名稱及 MAC 位址新增一個規則，在後續啟動時再指定同樣的名稱。此規則儲存在 <filename>/etc/udev/rules.d/70-persistent-net.rules</filename>。"
 
 msgid "This mechanism has some side effects that you should know about. Let's consider the case of a computer that has only one PCI network card. The network interface is named <literal>eth0</literal>, logically. Now say the card breaks down, and the administrator replaces it; the new card will have a new MAC address. Since the old card was assigned the name, <literal>eth0</literal>, the new one will be assigned <literal>eth1</literal>, even though the <literal>eth0</literal> card is gone for good (and the network will not be functional because <filename>/etc/network/interfaces</filename> likely configures an <literal>eth0</literal> interface). In this case, it is enough to simply delete the <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> file before rebooting the computer. The new card will then be given the expected <literal>eth0</literal> name."
-msgstr ""
+msgstr "此機制有個副作用值得注意。祗有一個 PCI 網卡的電腦。自然把網路介面命名為 <literal>eth0</literal>。然後，網卡壞了，換個新的；新網卡的 MAC 位址當然不同。舊網卡已有名稱，<literal>eth0</literal>，新網卡被命名為 <literal>eth1</literal>，實際上，<literal>eth0</literal> 網卡已經不會再回來了 (且網路不會運作如常，因為 <filename>/etc/network/interfaces</filename> 組態一個 <literal>eth0</literal> 介面)。在此情況下，重新開機前先刪除 <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> 檔案。新的網卡就會取得 <literal>eth0</literal> 名稱。"
 
 msgid "How <emphasis>udev</emphasis> Works"
-msgstr ""
+msgstr "<emphasis>udev</emphasis> 的運作"
 
 msgid "When <emphasis>udev</emphasis> is notified by the kernel of the appearance of a new device, it collects various information on the given device by consulting the corresponding entries in <filename>/sys/</filename>, especially those that uniquely identify it (MAC address for a network card, serial number for some USB devices, etc.)."
-msgstr ""
+msgstr "當 <emphasis>udev</emphasis> 被核心告知有個新的設備，它參考 <filename>/sys/</filename> 裡對應的款目，搜集該設備的資訊，尤其是那些足辨別的獨特資訊 (網卡的 MAC 位址、某些 USB 設備的序號)。"
 
 msgid "Armed with all of this information, <emphasis>udev</emphasis> then consults all of the rules contained in <filename>/etc/udev/rules.d/</filename> and <filename>/lib/udev/rules.d/</filename>. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially (except when a file uses “GOTO” directives). Thus, there may be several rules that correspond to a given event."
-msgstr ""
+msgstr "有了這些資訊後，<emphasis>udev</emphasis> 會查閱 <filename>/etc/udev/rules.d/</filename> 和 <filename>/lib/udev/rules.d/</filename> 中所有的規則。在此過程中，決定如何為設備命名、使用的連結符號 (給個其他名稱)，以及執行的命令。查詢所有檔案後，依序評估該等規則 (除了使用 “GOTO”指令的文件)。如此一來，一個事件就可能對應多個規則。"
 
 msgid "The syntax of rules files is quite simple: each row contains selection criteria and variable assignments. The former are used to select events for which there is a need to react, and the latter defines the action to take. They are all simply separated with commas, and the operator implicitly differentiates between a selection criterion (with comparison operators, such as <literal>==</literal> or <literal>!=</literal>) or an assignment directive (with operators such as <literal>=</literal>, <literal>+=</literal> or <literal>:=</literal>)."
-msgstr ""
+msgstr "規則檔案的語法很簡單；每列有選擇規矩與指定變數。前者用於選擇回應的事件，後者設定採取的行動。都以逗點區隔，以運算元區隔選定的範圍 (使用比較運算元，如 <literal>==</literal> 或 <literal>!=</literal>) 或指定變數 (使用 <literal>=</literal>、<literal>+=</literal> 或 <literal>:=</literal> 運算元)。"
 
 msgid "Comparison operators are used on the following variables:"
-msgstr ""
+msgstr "依下列變數使用比較運算元："
 
 msgid "<literal>KERNEL</literal>: the name that the kernel assigns to the device;"
-msgstr ""
+msgstr "<literal>KERNEL</literal>：核心指定給設備的名稱；"
 
 msgid "<literal>ACTION</literal>: the action corresponding to the event (“add” when a device has been added, “remove” when it has been removed);"
-msgstr ""
+msgstr "<literal>ACTION</literal>：對應於事件的行動 (“add” 新增設備時，“remove” 移除設備時)；"
 
 msgid "<literal>DEVPATH</literal>: the path of the device's <filename>/sys/</filename> entry;"
-msgstr ""
+msgstr "<literal>DEVPATH</literal>：設備在 <filename>/sys/</filename> 裡的路徑；"
 
 msgid "<literal>SUBSYSTEM</literal>: the kernel subsystem which generated the request (there are many, but a few examples are “usb”, “ide”, “net”, “firmware”, etc.);"
-msgstr ""
+msgstr "<literal>SUBSYSTEM</literal>：產生請求的核心次系統 (很多這類次系統，包括“usb”、“ide”、“net”、“firmware”等)；"
 
 msgid "<literal>ATTR{<replaceable>attribute</replaceable>}</literal>: file contents of the <replaceable>attribute</replaceable> file in the <filename>/sys/<replaceable>$devpath</replaceable>/</filename> directory of the device. This is where you find the MAC address and other bus specific identifiers;"
-msgstr ""
+msgstr "<literal>ATTR{<replaceable>屬性</replaceable>}</literal>：<replaceable>屬性</replaceable> 檔案的內容在設備的 <filename>/sys/<replaceable>$devpath</replaceable>/</filename> 資料夾內。可在此找到 MAC 位址及其他辨識用的匯流排；"
 
 msgid "<literal>KERNELS</literal>, <literal>SUBSYSTEMS</literal> and <literal>ATTRS{<replaceable>attributes</replaceable>}</literal> are variations that will try to match the different options on one of the parent devices of the current device;"
-msgstr ""
+msgstr "<literal>KERNELS</literal>、<literal>SUBSYSTEMS</literal> 與 <literal>ATTRS{<replaceable>屬性</replaceable>}</literal> 係用於比較當前設備的選項變數；"
 
 msgid "<literal>PROGRAM</literal>: delegates the test to the indicated program (true if it returns 0, false if not). The content of the program's standard output is stored so that it can be reused by the <literal>RESULT</literal> test;"
-msgstr ""
+msgstr "<literal>PROGRAM</literal>：被測試的程式 (若為真，則送回 0)。程式的內容儲存在標準輸出以便被 <literal>RESULT</literal> 測試使用；"
 
 msgid "<literal>RESULT</literal>: execute tests on the standard output stored during the last call to <literal>PROGRAM</literal>."
-msgstr ""
+msgstr "<literal>RESULT</literal>：對最後一次呼叫的 <literal>PROGRAM</literal> 產生的標準輸入進行測試。"
 
 msgid "The right operands can use pattern expressions to match several values at the same time. For instance, <literal>*</literal> matches any string (even an empty one); <literal>?</literal> matches any character, and <literal>[]</literal> matches the set of characters listed between the square brackets (or the opposite thereof if the first character is an exclamation point, and contiguous ranges of characters are indicated like <literal>a-z</literal>)."
-msgstr ""
+msgstr "右方的運算元可供模式表達同時匹配的多個值。例如，<literal>*</literal> 表示匹配所有的字元 (包括空字元)；<literal>?</literal> 表示匹配一個字元，而 <literal>[]</literal> 表示匹配一組在方括號內的字元 (或若首字元為驚嘆號則做反義的表巧，以 <literal>a-z</literal> 表示連續的字元)。"
 
 msgid "Regarding the assignment operators, <literal>=</literal> assigns a value (and replaces the current value); in the case of a list, it is emptied and contains only the value assigned. <literal>:=</literal> does the same, but prevents later changes to the same variable. As for <literal>+=</literal>, it adds an item to a list. The following variables can be changed:"
-msgstr ""
+msgstr "對於指定的運算元，<literal>=</literal> 指定一個值 (並取代現在的值)；用在清單時，清空原來的值祗剩指定的值。<literal>:=</literal> 功能相同，且不允許再更改原變數。至於 <literal>+=</literal>，新增一個項目在清單內。可以更改以下的變數："
 
 msgid "<literal>NAME</literal>: the device filename to be created in <filename>/dev/</filename>. Only the first assignment counts; the others are ignored;"
-msgstr ""
+msgstr "<literal>NAME</literal>：在 <filename>/dev/</filename> 新增設備名稱。祗計算第一次的名稱；忽略其他的；"
 
 msgid "<literal>SYMLINK</literal>: the list of symbolic links that will point to the same device;"
-msgstr ""
+msgstr "<literal>SYMLINK</literal>：指向同一設備的符號清單；"
 
 msgid "<literal>OWNER</literal>, <literal>GROUP</literal> and <literal>MODE</literal> define the user and group that owns the device, as well as the associated permission;"
-msgstr ""
+msgstr "<literal>OWNER</literal>、<literal>GROUP</literal> 和 <literal>MODE</literal> 擁有設備的使用者及群組，及其他權限；"
 
 msgid "<literal>RUN</literal>: the list of programs to execute in response to this event."
-msgstr ""
+msgstr "<literal>RUN</literal>：回應此事件的執行程式清單。"
 
 msgid "The values assigned to these variables may use a number of substitutions:"
-msgstr ""
+msgstr "指定給這些變數的值可以使用以下的替代品："
 
 msgid "<literal>$kernel</literal> or <literal>%k</literal>: equivalent to <literal>KERNEL</literal>;"
-msgstr ""
+msgstr "<literal>$kernel</literal> 或 <literal>%k</literal>：相當於 <literal>KERNEL</literal>；"
 
 msgid "<literal>$number</literal> or <literal>%n</literal>: the order number of the device, for example, for <literal>sda3</literal>, it would be “3”;"
-msgstr ""
+msgstr "<literal>$number</literal> 或 <literal>%n</literal>：設備的序號，例如，<literal>sda3</literal>，就是 “3”；"
 
 msgid "<literal>$devpath</literal> or <literal>%p</literal>: equivalent to <literal>DEVPATH</literal>;"
-msgstr ""
+msgstr "<literal>$devpath</literal> 或 <literal>%p</literal>：相當於 <literal>DEVPATH</literal>；"
 
 msgid "<literal>$attr{<replaceable>attribute</replaceable>}</literal> or <literal>%s{<replaceable>attribute</replaceable>}</literal>: equivalent to <literal>ATTRS{<replaceable>attribute</replaceable>}</literal>;"
-msgstr ""
+msgstr "<literal>$attr{<replaceable>屬性</replaceable>}</literal> 或 <literal>%s{<replaceable>屬性</replaceable>}</literal>：相當於 <literal>ATTRS{<replaceable>屬性</replaceable>}</literal>；"
 
 msgid "<literal>$major</literal> or <literal>%M</literal>: the kernel major number of the device;"
-msgstr ""
+msgstr "<literal>$major</literal> 或 <literal>%M</literal>：設備的核心主要編號；"
 
 msgid "<literal>$minor</literal> or <literal>%m</literal>: the kernel minor number of the device;"
-msgstr ""
+msgstr "<literal>$minor</literal> 或 <literal>%m</literal>：設備核心的次要編號；"
 
 msgid "<literal>$result</literal> or <literal>%c</literal>: the string output by the last program invoked by <literal>PROGRAM</literal>;"
-msgstr ""
+msgstr "<literal>$result</literal> 或 <literal>%c</literal>：以 <literal>PROGRAM</literal> 最後執行程式的輸出字串；"
 
 msgid "and, finally, <literal>%%</literal> and <literal>$$</literal> for the percent and dollar sign, respectively."
-msgstr ""
+msgstr "最後，<literal>%%</literal> 和 <literal>$$</literal> 分別是百分號及錢號。"
 
 msgid "The above lists are not complete (they include only the most important parameters), but the <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> manual page should be exhaustive."
-msgstr ""
+msgstr "以上的清單仍不完備 (祗包括最重要的參數)，詳細的資料在 <citerefentry><refentrytitle>udev</refentrytitle><manvolnum>7</manvolnum></citerefentry> 手冊頁面。"
 
 msgid "A concrete example"
-msgstr ""
+msgstr "具體的例子"
 
 msgid "Let us consider the case of a simple USB key and try to assign it a fixed name. First, you must find the elements that will identify it in a unique manner. For this, plug it in and run <command>udevadm info -a -n /dev/sdc</command> (replacing <replaceable>/dev/sdc</replaceable> with the actual name assigned to the key)."
-msgstr ""
+msgstr "考慮給予 USB 隨身碟一個固定名稱的情況。首先，必須找到能夠識別的元素。因此，插入它並執行 <command>udevadm info -a -n /dev/sdc</command> (以指定給該隨身碟的實際名稱取代 <replaceable>/dev/sdc</replaceable>)。"
 
 msgid ""
 "<computeroutput># </computeroutput><userinput>udevadm info -a -n /dev/sdc</userinput>\n"
@@ -1835,53 +1960,104 @@ msgid ""
 "[...]\n"
 "</computeroutput>"
 msgstr ""
+"<computeroutput># </computeroutput><userinput>udevadm info -a -n /dev/sdc</userinput>\n"
+"<computeroutput>[...]\n"
+"  looking at device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2/1-2.2:1.0/host9/target9:0:0/9:0:0:0/block/sdc':\n"
+"    KERNEL==\"sdc\"\n"
+"    SUBSYSTEM==\"block\"\n"
+"    DRIVER==\"\"\n"
+"    ATTR{range}==\"16\"\n"
+"    ATTR{ext_range}==\"256\"\n"
+"    ATTR{removable}==\"1\"\n"
+"    ATTR{ro}==\"0\"\n"
+"    ATTR{size}==\"126976\"\n"
+"    ATTR{alignment_offset}==\"0\"\n"
+"    ATTR{capability}==\"53\"\n"
+"    ATTR{stat}==\"      51      100     1208      256        0        0        0        0        0      192      25        6\"\n"
+"    ATTR{inflight}==\"       0        0\"\n"
+"[...]\n"
+"  looking at parent device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2/1-2.2:1.0/host9/target9:0:0/9:0:0:0':\n"
+"    KERNELS==\"9:0:0:0\"\n"
+"    SUBSYSTEMS==\"scsi\"\n"
+"    DRIVERS==\"sd\"\n"
+"    ATTRS{device_blocked}==\"0\"\n"
+"    ATTRS{type}==\"0\"\n"
+"    ATTRS{scsi_level}==\"3\"\n"
+"    ATTRS{vendor}==\"I0MEGA  \"\n"
+"    ATTRS{model}==\"UMni64MB*IOM2C4 \"\n"
+"    ATTRS{rev}==\"    \"\n"
+"    ATTRS{state}==\"running\"\n"
+"[...]\n"
+"    ATTRS{max_sectors}==\"240\"\n"
+"[...]\n"
+"  looking at parent device '/devices/pci0000:00/0000:00:10.3/usb1/1-2/1-2.2':\n"
+"    KERNELS==\"9:0:0:0\"\n"
+"    SUBSYSTEMS==\"usb\"\n"
+"    DRIVERS==\"usb\"\n"
+"    ATTRS{configuration}==\"iCfg\"\n"
+"    ATTRS{bNumInterfaces}==\" 1\"\n"
+"    ATTRS{bConfigurationValue}==\"1\"\n"
+"    ATTRS{bmAttributes}==\"80\"\n"
+"    ATTRS{bMaxPower}==\"100mA\"\n"
+"    ATTRS{urbnum}==\"398\"\n"
+"    ATTRS{idVendor}==\"4146\"\n"
+"    ATTRS{idProduct}==\"4146\"\n"
+"    ATTRS{bcdDevice}==\"0100\"\n"
+"[...]\n"
+"    ATTRS{manufacturer}==\"USB Disk\"\n"
+"    ATTRS{product}==\"USB Mass Storage Device\"\n"
+"    ATTRS{serial}==\"M004021000001\"\n"
+"[...]\n"
+"</computeroutput>"
 
 msgid "To create a new rule, you can use tests on the device's variables, as well as those of one of the parent devices. The above case allows us to create two rules like these:"
-msgstr ""
+msgstr "依照檢測設備變數，以及父設備的變數，新增規則。以上的例子可以新增兩個規則："
 
 msgid ""
 "KERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/disk\"\n"
 "KERNEL==\"sd?[0-9]\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/part%n\""
 msgstr ""
+"KERNEL==\"sd?\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/disk\"\n"
+"KERNEL==\"sd?[0-9]\", SUBSYSTEM==\"block\", ATTRS{serial}==\"M004021000001\", SYMLINK+=\"usb_key/part%n\""
 
 msgid "Once these rules are set in a file, named for example <filename>/etc/udev/rules.d/010_local.rules</filename>, you can simply remove and reconnect the USB key. You can then see that <filename>/dev/usb_key/disk</filename> represents the disk associated with the USB key, and <filename>/dev/usb_key/part1</filename> is its first partition."
-msgstr ""
+msgstr "在文件中設定這些規則後，例如把它命名為 <filename>/etc/udev/rules.d/010_local.rules</filename>，就可以移除和再連結 USB 隨身碟。可看到 <filename>/dev/usb_key/disk</filename> 代表與 USB 隨身碟連結的磁碟，<filename>/dev/usb_key/part1</filename> 是其第一個分區。"
 
 msgid "<emphasis>GOING FURTHER</emphasis> Debugging <emphasis>udev</emphasis>'s configuration"
-msgstr ""
+msgstr "<emphasis>進階</emphasis> 除錯 <emphasis>udev</emphasis> 的組態"
 
 msgid "Like many daemons, <command>udevd</command> stores logs in <filename>/var/log/daemon.log</filename>. But it is not very verbose by default, and it is usually not enough to understand what is happening. The <command>udevadm control --log-priority=info</command> command increases the verbosity level and solves this problem. <command>udevadm control --log-priority=err</command> returns to the default verbosity level."
-msgstr ""
+msgstr "如同其他的後台進程，<command>udevd</command> 把日誌儲存在 <filename>/var/log/daemon.log</filename>。但是預設是不囉唆的，且不足以瞭解發生的事。<command>udevadm control --log-priority=info</command> 命令增加其詳細的內容並可解決此問題。<command>udevadm control --log-priority=err</command> 則回到預設的層次。"
 
 msgid "Power Management: Advanced Configuration and Power Interface (ACPI)"
-msgstr ""
+msgstr "電源管理：進階組態與電源介面 (ACPI)"
 
 msgid "<primary>power management</primary>"
-msgstr ""
+msgstr "<primary>電源管理</primary>"
 
 msgid "<primary>management, power management</primary>"
-msgstr ""
+msgstr "<primary>管理，電源管理</primary>"
 
 msgid "The topic of power management is often problematic. Indeed, properly suspending the computer requires that all the computer's device drivers know how to put them to standby, and that they properly reconfigure the devices upon waking. Unfortunately, there are still a few devices unable to sleep well under Linux, because their manufacturers have not provided the required specifications."
-msgstr ""
+msgstr "電源管理很麻煩。是的，適度的暫停電腦時，需讓其設備的驅動程式知道如何進入待機狀態，而且在喚醒時分，可以適當的組態。不幸的是，在 Linux 之下，還有少數設備無法好好的休眠，因為製造商未提供必要的規格。"
 
 msgid "Linux supports ACPI (Advanced Configuration and Power Interface) — the most recent standard in power management. The <emphasis role=\"pkg\">acpid</emphasis> package provides a daemon that looks for power management related events (switching between AC and battery power on a laptop, etc.) and that can execute various commands in response."
-msgstr ""
+msgstr "Linux 支援 ACPI (進階組態與電源介面) — 電源管理的最新標準。<emphasis role=\"pkg\">acpid</emphasis> 套件提供的後台進程，照顧電源管理的相關事件 (在筆電的交流電與電池電源之間的切換等事宜) 和執行相關的命令。"
 
 msgid "<primary>ACPI</primary>"
-msgstr ""
+msgstr "<primary>ACPI</primary>"
 
 msgid "<primary>Advanced Configuration and Power Interface</primary>"
-msgstr ""
+msgstr "<primary>進階組態與電源介面</primary>"
 
 msgid "<primary><command>acpid</command></primary>"
-msgstr ""
+msgstr "<primary><command>acpid</command></primary>"
 
 msgid "<emphasis>BEWARE</emphasis> Graphics card and standby"
-msgstr ""
+msgstr "<emphasis>小心</emphasis>顯示卡與待機"
 
 msgid "The graphics card driver is often the culprit when standby doesn't work properly. In that case, it is a good idea to test the latest version of the X.org graphics server."
-msgstr ""
+msgstr "無法順利待機時，罪魁禍首多半是顯示卡的驅動程式。碰到這種情況，先測試最新的 X.org 圖形伺服器的最新版本。"
 
 msgid "After this overview of basic services common to many Unix systems, we will focus on the environment of the administered machines: the network. Many services are required for the network to work properly. They will be discussed in the next chapter."
-msgstr ""
+msgstr "介紹這麼多 Unix 系統的基本服務後，接著將關注管理機器的環境：網路。很多服務需要網路才能順利的運作。在下一章討論它們。"

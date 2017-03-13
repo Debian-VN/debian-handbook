@@ -1,6 +1,6 @@
 #
 # AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Ryuunosuke Ayanokouzi <i38w7i3@yahoo.co.jp>, 2015-2016.
+# Ryuunosuke Ayanokouzi <i38w7i3@yahoo.co.jp>, 2015-2017.
 # Kenshi Muto <kmuto@kmuto.jp>, 2015.
 # Yoichi Chonan <cyoichi@maple.ocn.ne.jp>, 2015.
 # Osamu Aoki <osamu@debian.org>, 2016.
@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
-"POT-Creation-Date: 2016-04-18 09:00+0900\n"
-"PO-Revision-Date: 2016-04-18 09:00+0900\n"
+"POT-Creation-Date: 2017-02-05 09:00+0900\n"
+"PO-Revision-Date: 2017-02-05 09:00+0900\n"
 "Last-Translator: AYANOKOUZI, Ryuunosuke <i38w7i3@yahoo.co.jp>\n"
-"Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation_ja/push>\n"
+"Language-Team: Japanese <https://github.com/l/debian-handbook/tree/master/translation/ja_JP/push>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: application/x-publican; charset=UTF-8\n"
@@ -183,7 +183,7 @@ msgstr "<literal>Build-Depends</literal> フィールドが更新されていな
 # Ref: $ man 1 debuild;
 # Tag: L-CFMD;
 msgid "More often than not, Debian developers use a higher-level program such as <command>debuild</command>; this runs <command>dpkg-buildpackage</command> as usual, but it also adds an invocation of a program that runs many checks to validate the generated package against the Debian policy. This script also cleans up the environment so that local environment variables do not “pollute” the package build. The <command>debuild</command> command is one of the tools in the <emphasis>devscripts</emphasis> suite, which share some consistency and configuration to make the maintainers' task easier."
-msgstr "しばしば、Debian 開発者は <command>debuild</command> などの高レベルプログラムを使います。<command>debuild</command> は通常通り <command>dpkg-buildpackage</command> を実行するだけでなく、生成されたパッケージの Debian ポリシーに対する妥当性を確認するプログラムも実行します。<command>debuild</command> スクリプトは、手元の環境変数がパッケージビルドを「汚染」しないように、ビルド環境を整えます。<command>debuild</command> コマンドは <emphasis>devscripts</emphasis> スイートに含まれるツールの 1 つで、メンテナの仕事を簡単にするためのいくつかの一貫性と設定を共有します。"
+msgstr "しばしば、Debian 開発者は <command>debuild</command> などの高レベルプログラムを使います。<command>debuild</command> は通常通り <command>dpkg-buildpackage</command> を実行するだけでなく、生成されたパッケージの Debian ポリシーに対する妥当性を確認するプログラムも実行します。<command>debuild</command> スクリプトは、手元の環境変数がパッケージビルドを「汚染」しないように、ビルド環境を整えます。<command>debuild</command> コマンドは <emphasis>devscripts</emphasis> スイートに含まれるツールの 1 つで、メンテナの作業を簡単にするためのいくつかの一貫性と設定を共有します。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: $ man 8 pbuilder;
@@ -768,7 +768,7 @@ msgstr "<emphasis>SECURITY</emphasis> <command>mini-dinstall</command> とパー
 # Ref: $ man 1 mini-dinstall;
 # Tag: L-CFMD;
 msgid "Since <command>mini-dinstall</command> has been designed to run as a regular user, there's no need to run it as root. The easiest way is to configure everything within the user account belonging to the administrator in charge of creating the Debian packages. Since only this administrator has the required permissions to put files in the <filename>incoming/</filename> directory, we can deduce that the administrator authenticated the origin of each package prior to deployment and <command>mini-dinstall</command> does not need to do it again. This explains the <literal>verify_sigs = 0</literal> parameter (which means that signatures need not be verified). However, if the contents of packages are sensitive, we can reverse the setting and elect to authenticate with a keyring containing the public keys of persons allowed to create packages (configured with the <literal>extra_keyrings</literal> parameter); <command>mini-dinstall</command> will then check the origin of each incoming package by analyzing the signature integrated to the <filename>*.changes</filename> file."
-msgstr "<command>mini-dinstall</command> は標準的なユーザとして実行されるように設計されています。root で実行される必要はありません。最も簡単な方法は Debian パッケージ作成担当の管理者グループに所属するユーザアカウントを使ってすべてを設定することです。<filename>incoming/</filename> ディレクトリへファイルを追加するために必要な権限を与えられているのは Debian パッケージ作成担当の管理者だけなので、パッケージを追加する前に各パッケージの出自の確認は済んでいると考えられますし、<command>mini-dinstall</command> を使って再度パッケージの出自を再確認する必要もなくなります。この理由により、パラメータ <literal>verify_sigs = 0</literal> が設定されています (これは <command>mini-dinstall</command> が署名を確認する必要がないことを意味します)。しかしながら、パッケージの内容が機密に関わるものであれば、この設定を逆にして、パッケージ作成担当者の公開鍵を含む鍵束 (<literal>extra_keyrings</literal> パラメータを使って設定されます) を使ってパッケージの出自を確認するように設定することが可能です。そしてこのように設定した場合、<command>mini-dinstall</command> は <filename>*.changes</filename> ファイルに統合された署名を解析することによってアップロードされた各パッケージの出自を確認します。"
+msgstr "<command>mini-dinstall</command> は標準的なユーザとして実行されるように設計されています。root で実行される必要はありません。最も簡単な方法は Debian パッケージ作成担当の管理者グループに所属するユーザアカウントを使ってすべてを設定することです。<filename>incoming/</filename> ディレクトリへファイルを追加するために必要な権限を与えられているのは Debian パッケージ作成担当の管理者だけなので、パッケージを追加する前に各パッケージの出自の確認は済んでいると考えられますし、<command>mini-dinstall</command> を使ってもう一度パッケージの出自を確認する必要もなくなります。この理由により、パラメータ <literal>verify_sigs = 0</literal> が設定されています (これは <command>mini-dinstall</command> が署名を確認する必要がないことを意味します)。しかしながら、パッケージの内容が機密に関わるものであれば、この設定を逆にして、パッケージ作成担当者の公開鍵を含む鍵束 (<literal>extra_keyrings</literal> パラメータを使って設定されます) を使ってパッケージの出自を確認するように設定することが可能です。そしてこのように設定した場合、<command>mini-dinstall</command> は <filename>*.changes</filename> ファイルに統合された署名を解析することによってアップロードされた各パッケージの出自を確認します。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: $ man 1 mini-dinstall;
@@ -813,7 +813,7 @@ msgstr "規則"
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Tag: L-CFMD;
 msgid "A Debian package must comply with the precise rules compiled in the Debian policy, and each package maintainer must know them. There is no requirement to know them by heart, but rather to know they exist and to refer to them whenever a choice presents a non-trivial alternative. Every Debian maintainer has made mistakes by not knowing about a rule, but this is not a huge problem as long as the error gets fixed when a user reports it as a bug report (which tends to happen fairly soon thanks to advanced users). <ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
-msgstr "Debian パッケージは必ず Debian ポリシーにまとめられた明確な規則に従わなければいけません。各パッケージメンテナはこの規則を知らなければいけません。規則を暗記する必要はありませんが、規則の存在を知り、重要な判断を下す局面では常に規則を参照する必要があります。すべての Debian メンテナは規則をよく知らないことが原因で間違いを犯した経験がありますが、その間違いがバグ報告として報告されて修正される限り (上級ユーザのおかげでバグ報告はかなり素早く報告されることが多いです)、これは大きな問題ではありません。<ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
+msgstr "Debian パッケージは必ず Debian ポリシーにまとめられた明確な規則に従わなければいけません。各パッケージメンテナはこの規則を知らなければいけません。規則を暗記する必要はありませんが、規則の存在を知り、重要な判断を下す局面では常に規則を参照する必要があります。すべての Debian メンテナは規則をよく知らないことが原因で間違いを犯した経験がありますが、その間違いがバグ報告として報告されて修正される限り (熟練ユーザのおかげでバグ報告はかなり素早く報告されることが多いです)、これは大きな問題ではありません。<ulink type=\"block\" url=\"https://www.debian.org/doc/debian-policy/\" />"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Procedures"
@@ -825,7 +825,7 @@ msgstr "<primary>Debian 開発者リファレンス</primary>"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Debian is not a simple collection of individual packages. Everyone's packaging work is part of a collective project; being a Debian developer involves knowing how the Debian project operates as a whole. Every developer will, sooner or later, interact with others. The Debian Developer's Reference (in the <emphasis role=\"pkg\">developers-reference</emphasis> package) summarizes what every developer must know in order to interact as smoothly as possible with the various teams within the project, and to take the best possible advantages of the available resources. This document also enumerates a number of duties a developer is expected to fulfill. <ulink type=\"block\" url=\"https://www.debian.org/doc/manuals/developers-reference/\" />"
-msgstr "Debian は各パッケージを単純に収集しているだけではありません。全員のパッケージング作業は共同プロジェクトの一部です。そして Debian 開発者になるには、Debian プロジェクトが全体としてどのように運営されているかを知る必要があります。すべての Debian 開発者は遅かれ早かれ他人と協力して行動することになるでしょう。Debian 開発者リファレンス (<emphasis role=\"pkg\">developers-reference</emphasis> パッケージに含まれます) では、プロジェクト内のさまざまなチームと可能な限り円滑に一緒に仕事を行ったり利用できる資源を大いに活用するためにすべての開発者が必ず知らなければいけないことを要約しています。また、Debian 開発者リファレンスは管理者が果たすべき数多くの義務も列挙しています。<ulink type=\"block\" url=\"https://www.debian.org/doc/manuals/developers-reference/\" />"
+msgstr "Debian は各パッケージを単純に収集しているだけではありません。全員のパッケージング作業は共同プロジェクトの一部です。そして Debian 開発者になるには、Debian プロジェクトが全体としてどのように運営されているかを知る必要があります。すべての Debian 開発者は遅かれ早かれ他人と協力して行動することになるでしょう。Debian 開発者リファレンス (<emphasis role=\"pkg\">developers-reference</emphasis> パッケージに含まれます) では、プロジェクト内のさまざまなチームと可能な限り円滑に一緒に作業を行ったり利用できる資源を大いに活用するためにすべての開発者が必ず知らなければいけないことを要約しています。また、Debian 開発者リファレンスは管理者が果たすべき数多くの義務も列挙しています。<ulink type=\"block\" url=\"https://www.debian.org/doc/manuals/developers-reference/\" />"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Tools"
@@ -833,7 +833,7 @@ msgstr "ツール"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Many tools help package maintainers in their work. This section describes them quickly, but does not give the full details, since they all have comprehensive documentation of their own."
-msgstr "パッケージメンテナの仕事を手助けする数多くのツールが存在します。この節では、それらのツールを簡単に説明します (詳細は説明しません)。なぜなら、これらのツールには自分自身を解説する総合的な文書が用意されているからです。"
+msgstr "パッケージメンテナの作業を手助けする数多くのツールが存在します。この節では、それらのツールを簡単に説明します (詳細は説明しません)。なぜなら、これらのツールには自分自身を解説する総合的な文書が用意されているからです。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: $ man 1 lintian;
@@ -1116,7 +1116,7 @@ msgstr "次の管理上の手続きでは哲学の検討を行います。ここ
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: https://www.debian.org/devel/join/nm-amchecklist;
 msgid "In addition, each candidate wishing to join the Debian ranks is expected to know the workings of the project, and how to interact appropriately to solve the problems they will doubtless encounter as time passes. All of this information is generally documented in manuals targeting the new maintainers, and in the Debian developer's reference. An attentive reading of this document should be enough to answer the examiner's questions. If the answers are not satisfactory, the candidate will be informed. They will then have to read (again) the relevant documentation before trying again. In the cases where the existing documentation does not contain the appropriate answer for the question, the candidate can usually reach an answer with some practical experience within Debian, or potentially by discussing with other Debian developers. This mechanism ensures that candidates get involved somewhat in Debian before becoming a full part of it. It is a deliberate policy, by which candidates who eventually join the project are integrated as another piece of an infinitely extensible jigsaw puzzle."
-msgstr "加えて、Debian に参加したいと思っている各候補者はプロジェクトの仕組みと時間がたてば間違いなく直面するであろう問題を解決する際に適切に相互協力する方法を知ることを期待されます。これらに関するすべての情報は新しいメンテナ向けのマニュアルと Debian 開発者リファレンスの中で大ざっぱに説明されています。応募管理者からの質問に答えるには、これらの文書を注意深く読むだけで十分です。回答が不十分な場合、候補者はその旨通知されます。候補者は再試験を受ける前に関連する文書を (再度) 読まなければいけません。既存の文書に質問に対する適切な回答が含まれなかった場合、候補者は Debian 内の実務経験を使うか他の Debian 開発者との議論を通じて回答を作成しても構いません。このメカニズムによって、候補者が Debian のすべての部分に参加する前に一部分だけに参加することが保証されます。これは慎重な方針です。この方針によって最終的に Debian プロジェクトに参加する候補者は永久的に広がるジグソーパズルにそのピースの 1 つとして組み込まれます。"
+msgstr "加えて、Debian に参加したいと思っている各候補者はプロジェクトの仕組みと時間がたてば間違いなく直面するであろう問題を解決する際に適切に相互協力する方法を知ることを期待されます。これらに関するすべての情報は新しいメンテナ向けのマニュアルと Debian 開発者リファレンスの中で大ざっぱに説明されています。応募管理者からの質問に答えるには、これらの文書を注意深く読むだけで十分です。回答が不十分な場合、候補者はその旨通知されます。候補者は再試験を受ける前に関連する文書を (もう一度) 読まなければいけません。既存の文書に質問に対する適切な回答が含まれなかった場合、候補者は Debian 内の実務経験を使うか他の Debian 開発者との議論を通じて回答を作成しても構いません。このメカニズムによって、候補者が Debian のすべての部分に参加する前に一部分だけに参加することが保証されます。これは慎重な方針です。この方針によって最終的に Debian プロジェクトに参加する候補者は永久的に広がるジグソーパズルにそのピースの 1 つとして組み込まれます。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: https://www.debian.org/devel/join/nm-amchecklist;
@@ -1136,7 +1136,7 @@ msgstr "能力の確認"
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: https://www.debian.org/devel/join/nm-amchecklist;
 msgid "Each application to become an official Debian developer must be justified. Becoming a project member requires showing that this status is legitimate, and that it facilitates the candidate's job in helping Debian. The most common justification is that being granted Debian developer status eases maintenance of a Debian package, but it is not the only one. Some developers join the project to contribute to porting to a specific architecture, others want to improve documentation, and so on."
-msgstr "公式 Debian 開発者の受け入れ過程への出願は理に適ったものでなければいけません。プロジェクトメンバーになるには、候補者はプロジェクトメンバーの地位を得ることが合理的な要求であり、プロジェクトメンバーの地位を得ることで Debian の手助けに関する自分の仕事が容易になることを示す必要があります。最も一般的な理由付けは Debian 開発者の地位が Debian パッケージのメンテナンスを簡単にするというものです。しかしこれは唯一の理由ではありません。特定のアーキテクチャへの移植に貢献するためにプロジェクトに参加している開発者もいれば、文書を改良したいと思ってプロジェクトに参加している開発者もいます。"
+msgstr "公式 Debian 開発者の受け入れ過程への出願は理に適ったものでなければいけません。プロジェクトメンバーになるには、候補者はプロジェクトメンバーの地位を得ることが合理的な要求であり、プロジェクトメンバーの地位を得ることで Debian の手助けに関する自分の作業が容易になることを示す必要があります。最も一般的な理由付けは Debian 開発者の地位が Debian パッケージのメンテナンスを簡単にするというものです。しかしこれは唯一の理由ではありません。特定のアーキテクチャへの移植に貢献するためにプロジェクトに参加している開発者もいれば、文書を改良したいと思ってプロジェクトに参加している開発者もいます。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Ref: https://www.debian.org/devel/join/nm-amchecklist;
@@ -1165,7 +1165,7 @@ msgstr "<primary><emphasis>Tasks &amp; Skills</emphasis></primary>"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "This step is known as the <emphasis>Tasks &amp; Skills</emphasis> step (T&amp;S for short) in the examiners' jargon."
-msgstr "この段階は応募管理者によって使われる隠語の <emphasis>Tasks &amp; Skills</emphasis> (略して T&amp;S、仕事と技能) として知られています。"
+msgstr "この段階は応募管理者によって使われる隠語の <emphasis>Tasks &amp; Skills</emphasis> (略して T&amp;S、作業と技能) として知られています。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "Final Approval"
@@ -1173,7 +1173,7 @@ msgstr "最後の承認"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 msgid "At the very last step, the whole process is reviewed by a DAM (<emphasis>Debian Account Manager</emphasis>). The DAM will review all the information about the candidate that the examiner collected, and makes the decision on whether or not to create an account on the Debian servers. In cases where extra information is required, the account creation may be delayed. Refusals are rather rare if the examiner does a good job of following the process, but they sometimes happen. They are never permanent, and the candidate is free to try again at a later time."
-msgstr "最後の段階で、DAM (<emphasis>Debian アカウントマネージャ</emphasis>) がすべてのプロセスを再確認します。DAM は応募管理者が集めた候補者に関するすべての情報を再確認し、Debian サーバにアカウントを作成するか否かについて決断を下します。追加的情報が必要な場合、アカウントの作成が遅れるかもしれません。応募管理者がプロセスに従って良い仕事をしていれば、この段階で不合格になることはほとんどありません。しかし、不合格なる場合も時々あります。不合格は永久的なものではありません。候補者はしばらくの後に再試験を受けることが可能です。"
+msgstr "最後の段階で、DAM (<emphasis>Debian アカウントマネージャ</emphasis>) がすべてのプロセスを再確認します。DAM は応募管理者が集めた候補者に関するすべての情報を再確認し、Debian サーバにアカウントを作成するか否かについて決断を下します。追加的情報が必要な場合、アカウントの作成が遅れるかもしれません。応募管理者がプロセスに従って良い作業をしていれば、この段階で不合格になることはほとんどありません。しかし、不合格なる場合も時々あります。不合格は永久的なものではありません。候補者はしばらくの後に再試験を受けることが可能です。"
 
 # Checked-By: Ryuunosuke Ayanokouzi;
 # Checked-By: Osamu Aoki;
