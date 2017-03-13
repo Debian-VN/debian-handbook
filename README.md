@@ -69,13 +69,13 @@ Nhiều người một bản dịch, không sao cả =D
 - 99_backcover.po
 
 
-- 99_website.po
+- 99_website.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
-- Author_Group.po
+- Author_Group.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
-- Book_Info.po
+- Book_Info.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
-- Revision_History.po
+- Revision_History.po ![finish](http://i.imgur.com/dhvg7Gd.png)
