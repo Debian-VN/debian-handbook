@@ -347,7 +347,7 @@ msgid "<primary>pre-dependency</primary>"
 msgstr "<primary>pre-dependency</primary>"
 
 msgid "“Pre-dependencies”, which are listed in the “<literal>Pre-Depends</literal>” field in the package headers, complete the normal dependencies; their syntax is identical. A normal dependency indicates that the package in question must be unpacked and configured before configuration of the package declaring the dependency. A pre-dependency stipulates that the package in question must be unpacked and configured before execution of the pre-installation script of the package declaring the pre-dependency, that is before its installation."
-msgstr "“Pre-dependencies”, mà được liệt kê ở trường “<literal>Pre-Depends</literal>” trong tiêu đề gói, ổn định cho sự phụ thuộc bình thường; cú pháp của là giống hệt nhau. Một phụ thuộc bình thường chỉ ra rằng các gói trong trường cần phải được giải nén và cấu hình trước khi cấu hình của gói tuyên bố sự phụ thuộc. Một tiền phụ thuộc (pre) quy định rằng các gói trong trường của nó cần phải được giải nén và cấu hình trước khi thực hiện các kịch bản cài đặt sẵn của gói tuyên bố  của tiền phụ thuộc, đó là trước khi cài đặt của nó".
+msgstr "“Pre-dependencies”, mà được liệt kê ở trường “<literal>Pre-Depends</literal>” trong tiêu đề gói, ổn định cho sự phụ thuộc bình thường; cú pháp của là giống hệt nhau. Một phụ thuộc bình thường chỉ ra rằng các gói trong trường cần phải được giải nén và cấu hình trước khi cấu hình của gói tuyên bố sự phụ thuộc. Một tiền phụ thuộc (pre) quy định rằng các gói trong trường của nó cần phải được giải nén và cấu hình trước khi thực hiện các kịch bản cài đặt sẵn của gói tuyên bố  của tiền phụ thuộc, đó là trước khi cài đặt của nó."
 
 msgid "A pre-dependency is very demanding for <command>apt</command>, because it adds a strict constraint on the ordering of the packages to install. As such, pre-dependencies are discouraged unless absolutely necessary. It is even recommended to consult other developers on <email>debian-devel@lists.debian.org</email> before adding a pre-dependency. It is generally possible to find another solution as a work-around."
 msgstr "Một phụ thuộc trước là rất cần thiết cho <command>apt</command>, vì nó thêm một hạn chế nghiêm ngặt về thứ tự các gói để cài đặt. Vì vậy, các phụ thuộc trước không được khuyến khích trừ khi thật sự cần thiết. Thậm chí còn khuyến khích tham khảo các ý kiến từ các nhà phát triển trên <email>debian-devel@lists.debian.org</email> trước khi thêm một tiền phụ thuộc. Thường có thể tìm thấy giải pháp khác xung quanh vấn đề đấy."
@@ -366,7 +366,7 @@ msgstr "Trường <literal>Recommends</literal> và <literal>Suggests</literal> 
 
 
 msgid "You should always install the “recommended” packages, unless you know exactly why you do not need them. Conversely, it is not necessary to install “suggested” packages unless you know why you need them."
-msgstr "Bạn nên thường xuyên cài đặt các gói "recommended", trừ khi bạn biết chính xác tại sao bạn không cân chúng. Ngược lại, bạn không cần thiết phải cài đặt các gói "suggested" trừ khi bạn biết tại sao bạn cần chúng."
+msgstr "Bạn nên thường xuyên cài đặt các gói “recommended”, trừ khi bạn biết chính xác tại sao bạn không cần chúng. Ngược lại, bạn không cần thiết phải cài đặt các gói “suggested” trừ khi bạn biết tại sao bạn cần chúng."
 
 msgid "<primary><literal>Enhances</literal>, header field</primary>"
 msgstr "<primary><literal>Enhances</literal>, trường</primary>"
@@ -375,37 +375,37 @@ msgid "The <literal>Enhances</literal> field also describes a suggestion, but in
 msgstr "Trường <literal>Enhances</literal> cũng miêu tả một sự gợi ý, nhưng có một điều khác biệt. Nó thực sự nằm trong các gói gợi ý, và không có các lợi ích từ sự gợi ý này. Quan tâm của nó nằm ở chỗ có thểm thêm các gợi ý mà không sửa đổi các gói phần mềm liên quan. Do đó, tất cả các add-on, plug-ins, và các thành phần mở rộng khác của một chương trình có thể xuất hiện ở trường này. Mặc dầu nó đã tồn tại trong vài năm, nhưng trường này vẫn bị bỏ qua bởi các chương trình như <command>apt</command> hoặc <command>synaptic</command>. Mục đích của nó cho một sự gợi ý từ trường <literal>Enhances</literal> cho người dùng trong tìm ra trường <literal>Enhances</literal>"
 
 msgid "Conflicts: the <literal>Conflicts</literal> field"
-msgstr ""
+msgstr "Xung đột: trường <literal>Conflicts</literal>"
 
 msgid "<primary>conflicts</primary>"
-msgstr ""
+msgstr "<primary>conflicts</primary>"
 
 msgid "<primary><literal>Conflicts</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Conflicts</literal>, trường header</primary>"
 
 msgid "<primary>package</primary><secondary>conflict</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>conflict</secondary>"
 
 msgid "The <literal>Conflicts</literal> field indicates when a package cannot be installed simultaneously with another. The most common reasons for this are that both packages include a file of the same name, or provide the same service on the same TCP port, or would hinder each other's operation."
-msgstr ""
+msgstr "Trường <literal>Conflicts</literal> chỉ ra rằng khi một gói không thể cài đặt trong trường hơp với gói khác. Phần lớn lý do chung cho vấn đề này là cả hai gói đều bao gốm giống tên nhau, hoặc cung cấp các dịch vụ như nhau ở cùng cồng TCP, hoặc sẽ cản trở hoạt động của gói kia."
 
 msgid "<command>dpkg</command> will refuse to install a package if it triggers a conflict with an already installed package, except if the new package specifies that it will “replace” the installed package, in which case <command>dpkg</command> will choose to replace the old package with the new one. <command>apt</command> always follows your instructions: if you choose to install a new package, it will automatically offer to uninstall the package that poses a problem."
-msgstr ""
+msgstr "<command>dpkg</command> sẽ từ chối cài đặt một gói nếu nó gây xung đột với một trong các gói đã cài đặt, ngoại trừ gói mới đặc biệt nó sẽ “thay thế” gói đã cài đặt, trong trường hợp <command>dpkg</command> sẽ chọn để thay thế gói cũ với gói mới, nó sẽ tự động đề nghị gỡ bỏ gói có vẻ có vấn đề"
 
 msgid "Incompatibilities: the <literal>Breaks</literal> Field"
-msgstr ""
+msgstr "Không tương thích: Trường <literal>Breaks</literal>"
 
 msgid "<primary>incompatibilities</primary>"
-msgstr ""
+msgstr "<primary>incompatibilities</primary>"
 
 msgid "<primary><literal>Breaks</literal>, header field</primary>"
-msgstr ""
+msgstr "<primary><literal>Breaks</literal>, header trường</primary>"
 
 msgid "<primary>package</primary><secondary>incompatibility</secondary>"
-msgstr ""
+msgstr "<primary>package</primary><secondary>không tương thích</secondary>"
 
 msgid "The <literal>Breaks</literal> field has an effect similar to that of the <literal>Conflicts</literal> field, but with a special meaning. It signals that the installation of a package will “break” another package (or particular versions of it). In general, this incompatibility between two packages is transitory, and the <literal>Breaks</literal> relationship specifically refers to the incompatible versions."
-msgstr ""
+msgstr "Trường <literal>Breaks</literal> có tác dụng khá giống với trường <literal>Conflicts</literal>, nhưng với một nghĩa đặc biệt. Nó báo hiệu rằng nếu cài đặt gói này sẽ "làm hỏng" gói khác (hoặc cụ thể là phiên bản của nó). Nói chung, sự không thương thích này giữa hai gói là tạm thời, và trường <literal>Breaks</literal> quan hệ đặc biết với các phiên bản không tương thích."
 
 msgid "<command>dpkg</command> will refuse to install a package that breaks an already installed package, and <command>apt</command> will try to resolve the problem by updating the package that would be broken to a newer version (which is assumed to be fixed and, thus, compatible again)."
 msgstr ""
