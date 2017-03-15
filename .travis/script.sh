@@ -10,7 +10,7 @@ configure () {
 	export TZ=GMT;
 
 	readonly CHROOT_POOL_DIR="${HOME}/chroot";
-	readonly CHROOT_SUITE='stretch';
+	readonly CHROOT_SUITE='testing'
 	readonly CHROOT_ARCH='amd64';
 	readonly CHROOT_INFO='build';
 	readonly CHROOT_VARIANT='minbase';
