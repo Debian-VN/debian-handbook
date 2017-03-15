@@ -10,13 +10,13 @@ configure () {
 	export TZ=GMT;
 
 	readonly CHROOT_POOL_DIR="${HOME}/chroot";
-	readonly CHROOT_SUITE='stable';
+	readonly CHROOT_SUITE='stretch';
 	readonly CHROOT_ARCH='amd64';
 	readonly CHROOT_INFO='build';
 	readonly CHROOT_VARIANT='minbase';
 	readonly CHROOT_ID="${CHROOT_SUITE}_${CHROOT_ARCH}_${CHROOT_INFO}";
 	readonly CHROOT_DIR="${CHROOT_POOL_DIR}/${CHROOT_ID}";
-	readonly CHROOT_MIRROR='http://ftp.debian.org/debian';
+	readonly CHROOT_MIRROR='http://deb.debian.org/debian';
 	readonly CURRENT_USER="$(id \
 		--user \
 		--name \
@@ -180,6 +180,7 @@ print_line_separator () {
 build () {
 	local _EXIT_STATUS=0;
 	# setup_build_dir;
+	publican update_pot
 	./build/build-pdf --lang="vi-VN"
 	RESULT=$?
 	echo "DOWNLOAD: $(curl --progress-bar --upload-file publish/vi-VN/Debian/8/pdf/debian-handbook/debian-handbook.pdf https://transfer.sh)"
