@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/Debian-VN/debian-handbook.svg?branch=master)](https://travis-ci.org/Debian-VN/debian-handbook)
 ### Các bài nhận dịch
 Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
-Nhiều người một bản dịch, không sao cả =D
 
 Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [Weblate](https://hosted.weblate.org/languages/vi/debian-handbook) mà không cần làm việc với Git
 
@@ -79,7 +78,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 92_short-remedial-course.po
 
 
-- 99_backcover.po
+- 99_backcover.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
 - 99_website.po ![finish](http://i.imgur.com/dhvg7Gd.png)
