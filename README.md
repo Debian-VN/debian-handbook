@@ -6,40 +6,24 @@ Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa RE
 
 Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [Weblate](https://hosted.weblate.org/languages/vi/debian-handbook) mà không cần làm việc với Git
 
-- 00a_preface.po ![finish](http://i.imgur.com/dhvg7Gd.png)
+- 00a_preface.po ![finish](http://i.imgur.com/dhvg7Gd.png) [Giáp Trần](https://github.com/TxGVNN)
 
-    [Giáp Trần](https://github.com/TxGVNN)
+- 00b_foreword.po   [Bông Bông](https://github.com/MathenJee)
 
-- 00b_foreword.po
+- 01_the-debian-project.po ![finish](http://i.imgur.com/dhvg7Gd.png)  [Mốc Meo](https://github.com/mocmeo)
 
-    [Bông Bông](https://github.com/MathenJee)
+- 02_case-study.po ![finish](http://i.imgur.com/dhvg7Gd.png)   [ManhNT](https://github.com/zer0-x)
 
-- 01_the-debian-project.po ![finish](http://i.imgur.com/dhvg7Gd.png)
+- 03_existing-setup.po ![finish](http://i.imgur.com/dhvg7Gd.png) [ĐẠI ĐV](https://github.com/daikk115)
 
-    [Mốc Meo](https://github.com/mocmeo)
+- 04_installation.po   [ĐẠI ĐV](https://github.com/daikk115)
 
-- 02_case-study.po ![finish](http://i.imgur.com/dhvg7Gd.png)
+- 05_packaging-system.po  [Giáp Trần](https://github.com/TxGVNN)
 
-     [ManhNT](https://github.com/zer0-x)
-
-- 03_existing-setup.po ![finish](http://i.imgur.com/dhvg7Gd.png)
-
-    [ĐẠI ĐV](https://github.com/daikk115)
-
-- 04_installation.po
-
-    [ĐẠI ĐV](https://github.com/daikk115)
-
-- 05_packaging-system.po
-
-    [Giáp Trần](https://github.com/TxGVNN)
-
-- 06_apt.po
+- 06_apt.po   [Thuan VU](https://github.com/thu4nvd)
 
 
-- 07_solving-problems.po
-
-    [Mốc Meo](https://github.com/mocmeo)
+- 07_solving-problems.po  [Mốc Meo](https://github.com/mocmeo)
 
 - 08_basic-configuration.po
 
@@ -50,9 +34,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 10_network-infrastructure.po
 
 
-- 11_network-services.po
-
-    [Đăng Đỗ](https://github.com/dnhdang94)
+- 11_network-services.po   [Đăng Đỗ](https://github.com/dnhdang94)
 
 
 - 12_advanced-administration.po
@@ -61,15 +43,13 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 13_workstation.po
 
 
-- 14_security.po
-
-    [Hoàng Nghiêm](https://github.com/hoangktmm)
+- 14_security.po  [Hoàng Nghiêm](https://github.com/hoangktmm)
 
 
 - 15_debian-packaging.po
 
 
-- 70_conclusion.po
+- 70_conclusion.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
 - 90_derivative-distributions.po
