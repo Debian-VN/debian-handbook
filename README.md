@@ -20,7 +20,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 
 - 05_packaging-system.po  [Giáp Trần](https://github.com/TxGVNN)
 
-- 06_apt.po   [Thuan VU](https://github.com/thu4nvd)
+- 06_apt.po  ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
 
 - 07_solving-problems.po  [Mốc Meo](https://github.com/mocmeo)
