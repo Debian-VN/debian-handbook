@@ -52,7 +52,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 70_conclusion.po ![finish](http://i.imgur.com/dhvg7Gd.png)
 
 
-- 90_derivative-distributions.po
+- 90_derivative-distributions.po  ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
 
 - 92_short-remedial-course.po
