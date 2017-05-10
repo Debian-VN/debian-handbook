@@ -183,7 +183,7 @@ build () {
 	publican update_pot
 	./build/build-pdf --lang="vi-VN"
 	RESULT=$?
-	echo "DOWNLOAD: $(curl --progress-bar --upload-file publish/vi-VN/Debian/8/pdf/debian-handbook/debian-handbook.pdf https://transfer.sh)"
+	curl --upload-file publish/vi-VN/Debian/8/pdf/debian-handbook/debian-handbook.pdf https://transfer.sh
 	return $RESULT;
 }
 

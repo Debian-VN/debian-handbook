@@ -1,6 +1,7 @@
 ### Hướng dẫn dịch xem tại [Debian VN](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
 [![Translation status](https://hosted.weblate.org/widgets/debian-handbook/vi/svg-badge.svg)](https://hosted.weblate.org/engage/debian-handbook/vi/?utm_source=widget)
 [![Build Status](https://travis-ci.org/Debian-VN/debian-handbook.svg?branch=master)](https://travis-ci.org/Debian-VN/debian-handbook)
+#### [READ ONLINE](https://debian-handbook.info/browse/vi-VN/stable/)
 ### Các bài nhận dịch
 Bạn nhận dịch phần nào? Đăng ký dịch bằng cách chỉnh sửa README.md.
 
@@ -18,7 +19,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 
 - 04_installation.po   [ĐẠI ĐV](https://github.com/daikk115)
 
-- 05_packaging-system.po  [Giáp Trần](https://github.com/TxGVNN)
+- 05_packaging-system.po ![finish](http://i.imgur.com/dhvg7Gd.png) [Giáp Trần](https://github.com/TxGVNN)
 
 - 06_apt.po  ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
