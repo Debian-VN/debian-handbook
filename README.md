@@ -32,7 +32,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 09_unix-services.po
 
 
-- 10_network-infrastructure.po
+- 10_network-infrastructure.po  [Thuan VU](https://github.com/thu4nvd)
 
 
 - 11_network-services.po   [Đăng Đỗ](https://github.com/dnhdang94)
@@ -56,7 +56,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 90_derivative-distributions.po  ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
 
-- 92_short-remedial-course.po [Thuan VU](https://github.com/thu4nvd)
+- 92_short-remedial-course.po ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
 
 - 99_backcover.po ![finish](http://i.imgur.com/dhvg7Gd.png)
