@@ -259,52 +259,55 @@ msgid "In general they should only be used for testing purposes, and normal serv
 msgstr "Nhìn chung chúng chỉ nên được sử dụng cho mục đích kiểm tra, và khi hoạt động bình thường phải sử dụng chứng chỉ thực; những chứng chỉ này được tạo ra theo quy trình được mô tả trong <xref linkend=\"sect.easy-rsa\" />."
 
 msgid "Configuring Virtual Domains"
-msgstr ""
+msgstr "Cấu hình các miền ảo (Virtual Domains)"
 
 msgid "<primary>domain</primary><secondary>virtual</secondary>"
-msgstr ""
+msgstr "<primary>Miền</primary><secondary>ảo</secondary>"
 
 msgid "<primary>virtual domain</primary>"
-msgstr ""
+msgstr "<primary>miền ảo</primary>"
 
 msgid "The mail server can receive emails addressed to other domains besides the main domain; these are then known as virtual domains. In most cases where this happens, the emails are not ultimately destined to local users. Postfix provides two interesting features for handling virtual domains."
-msgstr ""
+msgstr "Máy phục vụ thư điện tử có thể nhận các thư gửi đến các miền khác ngoài miền chính; những miền này được biết đến như là miền ảo. Trong đa số các trường hợp mà điều này xảy ra, các thư điện tử thường không gửi tới người dùng nội bộ. Postfix cung cấp hai tính năng hiệu quả để xử lý các miền ảo."
 
 msgid "<emphasis>CAUTION</emphasis> Virtual domains and canonical domains"
-msgstr ""
+msgstr "<emphasis>LƯU Ý</emphasis> Các miền ảo và các miền chính thống"
 
 msgid "None of the virtual domains must be referenced in the <literal>mydestination</literal> variable; this variable only contains the names of the “canonical” domains directly associated to the machine and its local users."
-msgstr ""
+msgstr "Chẳng có miền ảo nào được liệt kê trong tham biến <literal>mydestination</literal>; tham biến này chỉ chứa các tên của các miền "chính thống" trực tiếp liên quan tới máy này và các những người dùng nội bộ của máy này."
 
 msgid "Virtual Alias Domains"
-msgstr ""
+msgstr "Những miền hư danh"
 
 msgid "<primary>alias</primary><secondary>virtual alias domain</secondary>"
-msgstr ""
+msgstr "<primary>danh xưng</primary><secondary>miền hư danh</secondary>"
 
 msgid "<primary>virtual domain</primary><secondary>virtual alias domain</secondary>"
-msgstr ""
+msgstr "<primary>miền ảo</primary><secondary>miền hư danh</secondary>"
 
 msgid "A virtual alias domain only contains aliases, i.e. addresses that only forward emails to other addresses."
-msgstr ""
+msgstr "Một miền hư danh (virtual alias domain) chỉ chứa những danh xưng. Chúng là những địa chỉ dùng để chuyển hướng các thư điện tử tới những địa chỉ khác."
 
 msgid "Such a domain is enabled by adding its name to the <literal>virtual_alias_domains</literal> variable, and referencing an address mapping file in the <literal>virtual_alias_maps</literal> variable."
-msgstr ""
+msgstr "Một miền như vậy được đưa vào sử dụng bằng việc thêm tên của nó vào tham biến <literal>virtual_alias_domains</literal>, và liệt kê tên của một tập tin ánh xạ địa chỉ (address mapping file) vào tham biến <literal>virtual_alias_maps</literal>."
 
 msgid "Directives to add in the <filename>/etc/postfix/main.cf</filename> file"
-msgstr ""
+msgstr "Những dòng được thêm vào tập tin <filename>/etc/postfix/main.cf</filename>"
 
 msgid ""
 "\n"
 "virtual_alias_domains = falcotsbrand.com\n"
 "virtual_alias_maps = hash:/etc/postfix/virtual"
 msgstr ""
+"\n"
+"virtual_alias_domains = falcotsbrand.com\n"
+"virtual_alias_maps = hash:/etc/postfix/virtual"
 
 msgid "The <filename>/etc/postfix/virtual</filename> file describes a mapping with a rather straightforward syntax: each line contains two fields separated by whitespace; the first field is the alias name, the second field is a list of email addresses where it redirects. The special <literal>@domain.com</literal> syntax covers all remaining aliases in a domain."
-msgstr ""
+msgstr "Tập tin <filename>/etc/postfix/virtual</filename> mô tả một ánh xạ bằng một cú pháp đơn giản: mỗi dòng chứa hai trường tách ra bởi một khoảng trắng; trường đầu tiên là danh xưng(alias), trường thứ hai là một danh sách liệt những địa chỉ thư điện tử mà nó sẽ chuyển hướng tới. Địa chỉ đặc biệt <literal>@domain.com</literal> bao gồm tất cả những danh xưng (aliases) trong một miền (domain)."
 
 msgid "Example <filename>/etc/postfix/virtual</filename> file"
-msgstr ""
+msgstr "Ví dụ cho tập tin <filename>/etc/postfix/virtual</filename>"
 
 msgid ""
 "\n"
@@ -316,6 +319,14 @@ msgid ""
 "# falcot.com domain.\n"
 "@falcotsbrand.com           @falcot.com"
 msgstr ""
+"\n"
+"webmaster@falcotsbrand.com  jean@falcot.com\n"
+"contact@falcotsbrand.com    laure@falcot.com, sophie@falcot.com\n"
+"# Danh xưng dưới đây là rất chung chung và bao gồm tất cả những địa chỉ trong\n"
+"# tên miền falcotsbrand.com vốn trên thực tế không được kể đến trong tập tin này.\n"
+"# Những địa chỉ này chuyển hướng thư đến những địa chỉ với cùng tên người dùng trong\n"
+"# miền falcot.com.\n"
+"@falcotsbrand.com           @falcot.com"
 
 msgid "Virtual Mailbox Domains"
 msgstr ""
