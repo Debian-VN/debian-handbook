@@ -387,31 +387,31 @@ msgstr ""
 "sophie@falcot.org falcot.org/sophie"
 
 msgid "Restrictions for Receiving and Sending"
-msgstr ""
+msgstr "Giới hạn cho việc Nhận và Gửi"
 
 msgid "The growing number of unsolicited bulk emails (<emphasis>spam</emphasis>) requires being increasingly strict when deciding which emails a server should accept. This section presents some of the strategies included in Postfix."
-msgstr ""
+msgstr "Sự tăng trưởng về số lượng những thư điện tử gửi với số lượng lớn mà không có yêu cầu (<emphasis>spam</emphasis>) buộc phải nghiêm khắc hơn khi quyết định thư điện tử nào một máy phục vụ nên nhận. Phần này trình bày một số chiến thuật được kèm trong Postfix."
 
 msgid "<emphasis>CULTURE</emphasis> The spam problem"
-msgstr ""
+msgstr "<emphasis>VĂN HÓA</emphasis> Vấn đề spam"
 
 msgid "<primary>spam</primary>"
-msgstr ""
+msgstr "<primary>spam</primary>"
 
 msgid "“Spam” is a generic term used to designate all the unsolicited commercial emails (also known as UCEs) that flood our electronic mailboxes; the unscrupulous individuals sending them are known as spammers. They care little about the nuisance they cause, since sending an email costs very little, and only a very small percentage of recipients need to be attracted by the offers for the spamming operation to make more money than it costs. The process is mostly automated, and any email address made public (for instance, on a web forum, or on the archives of a mailing list, or on a blog, and so on) will be discovered by the spammers' robots, and subjected to a never-ending stream of unsolicited messages."
-msgstr ""
+msgstr "“Spam” là một khái niệm chung bao quát tất cả những thư điện tử mang tính thương mại không có ai yêu cầu nhận (cũng được biết đến là các UCE) vốn làm ngập úng các hộp thư điện tử; các cá nhân vô trách nhiệm gửi chúng ra được gọi là những spammer. Họ quan tâm rất ít về những thứ họ gây ra, bởi việc gửi một thư điện tử tốn rất ít tiền, và chỉ cần có một lượng nhỏ trong những người nhận bị thu hút bởi những lời mời chào này là làm cho công việc gửi thư rác thu nhiều lời hơn là lỗ. Quy trình thì gần như là tự động hoàn toàn, và bất kỳ một địa chỉ thư điện tử nào được sử dụng công cộng (ví dụ như, trên một diễn dàn trên mạng, hoặc trên những kho lưu trữ của một bó thư điện tử (mailing list), hoặc trên một nhật ký điện tử(blog), và vâng vâng) sẽ được khám phá ra bởi những con rô-bốt của những spammer, và sẽ dễ nhận một chuỗi dài vô tận những thông điệp mà không ai yêu cầu."
 
 msgid "All system administrators try to face this nuisance with spam filters, but of course spammers keep adjusting to try to work around these filters. Some even rent networks of machines compromised by a worm from various crime syndicates. Recent statistics estimate that up to 95% of all emails circulating on the Internet are spam!"
-msgstr ""
+msgstr "Những quản trị hệ thống cố gắng đối mặt với vấn đề này bằng các bộ lọc thư rác, nhưng dĩ nhiên những spammer luôn cố gắng xoay sở để vượt qua các bộ lọc này. Một số thậm chí thuê một mạng máy tính nhiễm các loại sâu máy tính (worm) được tạo ra bởi các nhóm tội phạm. Thông số gần đây ước chừng có đến 95% của tất cả thư điện tử di chuyển trên Internet là thư rác (spam)."
 
 msgid "IP-Based Access Restrictions"
-msgstr ""
+msgstr "Những giới hạn truy cập dựa trên IP"
 
 msgid "The <literal>smtpd_client_restrictions</literal> directive controls which machines are allowed to communicate with the email server."
-msgstr ""
+msgstr "Tham biến <literal>smtpd_client_restrictions</literal> kiểm soát những máy nào được cho phép để giao tiếp với máy phục vụ thư điện tử."
 
 msgid "Restrictions Based on Client Address"
-msgstr ""
+msgstr "Những giới hạn dựa trên địa chỉ máy khách"
 
 msgid ""
 "\n"
@@ -421,45 +421,51 @@ msgid ""
 "    reject_rbl_client sbl-xbl.spamhaus.org,\n"
 "    reject_rbl_client list.dsbl.org"
 msgstr ""
+"\n"
+"smtpd_client_restrictions = permit_mynetworks,\n"
+"    warn_if_reject reject_unknown_client,\n"
+"    check_client_access hash:/etc/postfix/access_clientip,\n"
+"    reject_rbl_client sbl-xbl.spamhaus.org,\n"
+"    reject_rbl_client list.dsbl.org"
 
 msgid "When a variable contains a list of rules, as in the example above, these rules are evaluated in order, from the first to the last. Each rule can accept the message, reject it, or leave the decision to a following rule. As a consequence, order matters, and simply switching two rules can lead to a widely different behavior."
-msgstr ""
+msgstr "Khi một tham biến chứa một danh sách những quy tắc, như trong ví dụ ở trên, những quy tắc được thực thi theo thứ tự, từ đầu tiên đến cuối cùng. Mỗi quy tắc có thể nhận một thông điệp, từ chối nó, hoặc để việc quyết định đó cho quy tắc nằm phía sau. Do đó, thứ tự là quan trọng, và đơn giản hoán đổi giữa hai quy tắc có thể dẫn đến cách hoạt động hoàn toàn khác."
 
 msgid "The <literal>permit_mynetworks</literal> directive, used as the first rule, accepts all emails coming from a machine in the local network (as defined by the <emphasis>mynetworks</emphasis> configuration variable)."
-msgstr ""
+msgstr "Chỉ thị <literal>permit_mynetworks</literal>, vốn được sử dụng như quy tắc đầu tiên, chấp nhận tất cả những thư điện tử đến từ một máy tính trong mạng nội bộ (như được định nghĩa trong tham biến cấu hình <emphasis>mynetworks</emphasis>) "
 
 msgid "The second directive would normally reject emails coming from machines without a completely valid DNS configuration. Such a valid configuration means that the IP address can be resolved to a name, and that this name, in turn, resolves to the IP address. This restriction is often too strict, since many email servers do not have a reverse DNS for their IP address. This explains why the Falcot administrators prepended the <literal>warn_if_reject</literal> modifier to the <literal>reject_unknown_client</literal> directive: this modifier turns the rejection into a simple warning recorded in the logs. The administrators can then keep an eye on the number of messages that would be rejected if the rule were actually enforced, and make an informed decision later if they wish to enable such enforcement."
-msgstr ""
+msgstr "Chỉ thị thứ hai thông thường sẽ từ chối những thư điện tử đến từ những máy tính không có cấu hình DNS tuyệt đối hợp lệ. Một cấu hình như vậy nghĩa là địa chỉ IP đó có thể được giải mã sang một tên, và tên này, tới lượt của nó, sẽ được giải mã sang một địa chỉ IP. Sự giới hạn này thông thường quá nghiêm khắc, bởi vì nhiều máy phục vụ thư điện tử không có một DNS phiên mã ngược cho địa chỉ IP. Điều này giải thích vì sau các nhà quản trị hệ thống của Falcot thêm từ bổ nghĩa <literal>warn_if_reject</literal> vào phía trước chỉ thị <literal>reject_unknown_client</literal>: từ bổ nghĩa này chuyển sự từ chối đó thành một cảnh báo đơn giản ghi lại trong các nhật ký. Những nhà quản trị hệ thống có thể theo dõi số lượng thông điệp đáng lẽ sẽ bị từ chối nếu quy tắc này được đưa vào hoạt động, và ra một quyết định đúng đắn sau đó nếu họ thực sự muốn điều đó hay không."
 
 msgid "<emphasis>TIP</emphasis> <emphasis>access</emphasis> tables"
-msgstr ""
+msgstr "<emphasis>THÔNG TIN THÊM</emphasis> Những bảng <emphasis>truy cập</emphasis>"
 
 msgid "The restriction criteria include administrator-modifiable tables listing combinations of senders, IP addresses, and allowed or forbidden hostnames. These tables can be created from an uncompressed copy of the <filename>/usr/share/doc/postfix-doc/examples/access.gz</filename> file. This model is self-documented in its comments, which means each table describes its own syntax."
-msgstr ""
+msgstr "Các điều kiện giới hạn bao gồm các bảng, điều chỉnh được bởi nhà quản trị hệ thống, liệt kê những xâu chuỗi thông tin của những người gửi, địa chỉ IP, và những tên của những máy cho phép hay bị cấm. Những bảng này có thể được tạo ra từ một bản sao đã được giải nén của tập tin <filename>/usr/share/doc/postfix-doc/examples/access.gz</filename>. Bản mẫu này được mô tả trong những ghi chú của nó, nghĩa là từng bảng mô tả cú pháp riêng của nó."
 
 msgid "The <filename>/etc/postfix/access_clientip</filename> table lists IP addresses and networks; <filename>/etc/postfix/access_helo</filename> lists domain names; <filename>/etc/postfix/access_sender</filename> contains sender email addresses. All these files need to be turned into hash-tables (a format optimized for fast access) after each change, with the <command>postmap /etc/postfix/<replaceable>file</replaceable></command> command."
-msgstr ""
+msgstr "Bảng <filename>/etc/postfix/access_clientip</filename> liệt kê những địa chỉ IP và những mạng máy tính; <filename>/etc/postfix/access_helo</filename> liệt kê những tên miền; <filename>/etc/postfix/access_sender</filename> chứa những địa chỉ thư điện tử người gửi. Tất cả những tập tin này cần phải được chuyển thành những bảng hash (một định dạng được tối ưu hóa cho truy cập tức thời) sau mỗi thay đổi, với lệnh <command>postmap /etc/postfix/<replaceable>file</replaceable></command>"
 
 msgid "The third directive allows the administrator to set up a blacklist and a whitelist of email servers, stored in the <filename>/etc/postfix/access_clientip</filename> file. Servers in the whitelist are considered as trusted, and the emails coming from there therefore do not go through the following filtering rules."
-msgstr ""
+msgstr "Chỉ thị thứ ba cho phép quản trị hệ thống sắp đặt một danh sách đen và một danh sách trắng (cho phép) những máy phục vụ thư điện tử, lưu trong tập tin <filename>/etc/postfix/access_clientip</filename>. Các máy phục vụ trong danh sách trắng được xem là đáng tin cậy, và những thư điện tử đến từ những nơi này không cần phải đi qua các quy tắc lọc sau đây."
 
 msgid "The last two rules reject any message coming from a server listed in one of the indicated blacklists. RBL is an acronym for <emphasis>Remote Black List</emphasis>; there are several such lists, but they all list badly configured servers that spammers use to relay their emails, as well as unexpected mail relays such as machines infected with worms or viruses."
-msgstr ""
+msgstr "Hai quy tắc cuối từ chối bất kỳ thông điệp nào đến từ một máy phục vụ được kể đến trong một trong các danh sách đen được liệt kê. RBL là một từ viết tắt cho <emphasis>Danh sách Đen Từ xa (Remote Black List)</emphasis>; có một vài danh sách như vậy, nhưng chúng đều liệt kê các máy phục vụ được cấu hình sai mà các spammer sử dụng để chuyển phát các thư điện tử của chúng, cũng như các máy chuyển phát thư điện tử không ngờ tới khác như là các máy bị nhiễm sâu máy tính hay vi-rút."
 
 msgid "<primary>RBL</primary>"
-msgstr ""
+msgstr "<primary>RBL</primary>"
 
 msgid "<primary>Remote Black List</primary>"
-msgstr ""
+msgstr "<primary>Danh sách Đen Từ xa</primary>"
 
 msgid "<emphasis>TIP</emphasis> White list and RBLs"
-msgstr ""
+msgstr "<emphasis>Thông tin thêm</emphasis> Danh sách trắng và RBLs"
 
 msgid "Blacklists sometimes include a legitimate server that has been suffering an incident. In these situations, all emails coming from one of these servers would be rejected unless the server is listed in a whitelist defined by <filename>/etc/postfix/access_clientip</filename>."
-msgstr ""
+msgstr "Các danh sách đen thỉnh thoảng bao gồm một máy phục vụ hợp pháp vừa mới trải qua một tai nạn. Trong những trường hợp như thế này, tất cả những thư điện tử đến từ một trong những máy phục vụ như thế sẽ bị từ chối trừ khi máy phục vụ đó được liệt kê trong danh sách trắng trong <filename>/etc/postfix/access_clientip</filename>."
 
 msgid "Prudence therefore recommends including in the whitelist all the trusted servers from which many emails are usually received."
-msgstr ""
+msgstr "Để tránh hậu họa về sau, danh sách trắng được khuyến cáo nên bao gồm tất cả những máy phục vụ tin tưởng được mà từ đó nhiều thư điện tử thường xuyên được nhận."
 
 msgid "Checking the Validity of the <literal>EHLO</literal> or <literal>HELO</literal> Commands"
 msgstr ""
