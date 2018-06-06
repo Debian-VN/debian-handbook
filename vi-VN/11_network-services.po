@@ -468,19 +468,19 @@ msgid "Prudence therefore recommends including in the whitelist all the trusted 
 msgstr "Để tránh hậu họa về sau, danh sách trắng được khuyến cáo nên bao gồm tất cả những máy phục vụ tin tưởng được mà từ đó nhiều thư điện tử thường xuyên được nhận."
 
 msgid "Checking the Validity of the <literal>EHLO</literal> or <literal>HELO</literal> Commands"
-msgstr ""
+msgstr "Kiểm tra Sự hợp lệ của các lệnh <literal>EHLO</literal> hay <literal>HELO</literal>"
 
 msgid "Each SMTP exchange starts with a <literal>HELO</literal> (or <literal>EHLO</literal>) command, followed by the name of the sending email server; checking the validity of this name can be interesting."
-msgstr ""
+msgstr "Mỗi giao tiếp SMTP bắt đầu bằng một lệnh <literal>HELO</literal> (or <literal>EHLO</literal>), theo sau bởi tên của một máy phục vụ thư điện tử gửi tới; kiểm tra sự hợp lệ của tên này có thể thú vị."
 
 msgid "<primary><literal>HELO</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>HELO</literal></primary>"
 
 msgid "<primary><literal>EHLO</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>EHLO</literal></primary>"
 
 msgid "Restrictions on the name announced in <literal>EHLO</literal>"
-msgstr ""
+msgstr "Giới hạn về tên được công bố trong <literal>EHLO</literal>"
 
 msgid ""
 "\n"
@@ -490,30 +490,36 @@ msgid ""
 "    reject_non_fqdn_hostname,\n"
 "    warn_if_reject reject_unknown_hostname"
 msgstr ""
+"\n"
+"smtpd_helo_restrictions = permit_mynetworks,\n"
+"    reject_invalid_hostname,\n"
+"    check_helo_access hash:/etc/postfix/access_helo,\n"
+"    reject_non_fqdn_hostname,\n"
+"    warn_if_reject reject_unknown_hostname"
 
 msgid "The first <literal>permit_mynetworks</literal> directive allows all machines on the local network to introduce themselves freely. This is important, because some email programs do not respect this part of the SMTP protocol adequately enough, and they can introduce themselves with nonsensical names."
-msgstr ""
+msgstr "Chỉ thị đầu tiên <literal>permit_mynetworks</literal> cho phép tất cả các máy tính trên mạng nội bộ được tự giới thiệu một cách thoải mái. Đó là điều quan trọng, bởi vì một vài chương trình thư điện tử không tôn trọng phần này của nghi thức SMTP một cách đủ nghiêm túc, và họ có thể tự trình diện với những tên không hợp lệ."
 
 msgid "The <literal>reject_invalid_hostname</literal> rule rejects emails when the <literal>EHLO</literal> announce lists a syntactically incorrect hostname. The <literal>reject_non_fqdn_hostname</literal> rule rejects messages when the announced hostname is not a fully-qualified domain name (including a domain name as well as a host name). The <literal>reject_unknown_hostname</literal> rule rejects messages if the announced name does not exist in the DNS. Since this last rule unfortunately leads to too many rejections, the administrators turned its effect to a simple warning with the <literal>warn_if_reject</literal> modifier as a first step; they may decide to remove this modifier at a later stage, after auditing the results of this rule."
-msgstr ""
+msgstr "Quy tắc <literal>reject_invalid_hostname</literal> từ chối những thư điện tử khi <literal>EHLO</literal> công bố cho các danh sách một tên máy tính sai cú pháp. Quy tắc <literal>reject_non_fqdn_hostname</literal> từ chối những thông điệp khi tên máy tính được công bố không phải là một tên miền hoàn toàn đầy đủ và hợp lệ (bao gồm một tên miền và và một tên máy). Quy tắc <literal>reject_unknown_hostname</literal> từ chối những thông điệp nếu tên được công bố không tồn tại trong dns. Vì quy tắc cuối này không may dẫn đến quá nhiều sự từ chối, các nhà quản trị hệ thống thay hệ quả của nó bằng một cảnh báo đơn giản với tiền tố này <literal>warn_if_reject</literal> như là bước đầu tiên; họ có thể quyết định xóa bỏ tiền tố này ở các bước sau đó sau khi theo dõi những những kết quả của quy tắc này."
 
 msgid "Using <literal>permit_mynetworks</literal> as the first rule has an interesting side effect: the following rules only apply to hosts outside the local network. This allows blacklisting all hosts that announce themselves as part of the <literal>falcot.com</literal>, for instance by adding a <literal>falcot.com REJECT You are not in our network!</literal> line to the <filename>/etc/postfix/access_helo</filename> file."
-msgstr ""
+msgstr "Sử dụng <literal>permit_mynetworks</literal> như là quy tắc đầu tiên có một tác dụng phụ thú vị: những quy tắc đứng phía sau chỉ chỉ áp dụng được với những máy tính nằm ngoài mạng nội bộ. Điều này cho phép đưa vào danh sách đen tất cả những máy tính công bố với bên ngoài rằng chúng là một phần của <literal>falcot.com</literal>, ví dụ như bằng cách thêm dòng <literal>falcot.com REJECT You are not in our network!</literal> vào tập tin <filename>/etc/postfix/access_helo</filename>."
 
 msgid "Accepting or Refusing Based on the Announced Sender"
-msgstr ""
+msgstr "Chấp nhận hoặc Từ chối dựa trên Người gửi Được công bố"
 
 msgid "Every message has a sender, announced by the <literal>MAIL FROM</literal> command of the SMTP protocol; again, this information can be validated in several different ways."
-msgstr ""
+msgstr "Mỗi tin nhắn có một người gửi, được thông báo bởi lệnh <literal>MAIL FROM</literal> của giao thức SMTP; một lần nữa, thông tin này có thể được kiểm tra bằng nhiều cách."
 
 msgid "<primary><literal>MAIL FROM</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>MAIL FROM</literal></primary>"
 
 msgid "<primary>email</primary><secondary>filtering on the sender</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>lọc dựa trên người gửi</secondary>"
 
 msgid "Sender checks"
-msgstr ""
+msgstr "Kiểm tra dựa trên người gửi"
 
 msgid ""
 "\n"
@@ -522,15 +528,20 @@ msgid ""
 "    reject_unknown_sender_domain, reject_unlisted_sender,\n"
 "    reject_non_fqdn_sender"
 msgstr ""
+"\n"
+"smtpd_sender_restrictions = \n"
+"    check_sender_access hash:/etc/postfix/access_sender,\n"
+"    reject_unknown_sender_domain, reject_unlisted_sender,\n"
+"    reject_non_fqdn_sender"
 
 msgid "The <filename>/etc/postfix/access_sender</filename> table maps some special treatment to some senders. This usually means listing some senders into a white list or a black list."
-msgstr ""
+msgstr "Bảng <filename>/etc/postfix/access_sender</filename> ánh xạ một số cách xử lý đặc biệt với một số người gửi."
 
 msgid "The <literal>reject_unknown_sender_domain</literal> rule requires a valid sender domain, since it is needed for a valid address. The <literal>reject_unlisted_sender</literal> rule rejects local senders if the address does not exist; this prevents emails from being sent from an invalid address in the <literal>falcot.com</literal> domain, and messages emanating from <literal>joe.bloggs@falcot.com</literal> are only accepted if such an address really exists."
-msgstr ""
+msgstr "Quy tắc <literal>reject_unknown_sender_domain</literal> buộc phải có một miền người gửi hợp lệ, bởi vì điều là cần thiết cho một điạ chỉ hợp lệ. Quy tắc <literal>reject_unlisted_sender</literal> từ chối những người gửi nội bộ nếu địa chỉ đó không tồn tại; điều này chống các thư điện tử khỏi việc bị gửi từ một địa chỉ không hợp lệ trong miền <literal>falcot.com</literal>, và những thông điệp xuất phát từ <literal>joe.bloggs@falcot.com</literal> chỉ được nhận nếu địa chỉ đó thực sự tồn tại."
 
 msgid "Finally, the <literal>reject_non_fqdn_sender</literal> rule rejects emails purporting to come from addresses without a fully-qualified domain name. In practice, this means rejecting emails coming from <literal>user@machine</literal>: the address must be announced as either <literal>user@machine.example.com</literal> or <literal>user@example.com</literal>."
-msgstr ""
+msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố như <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
 
 msgid "Accepting or Refusing Based on the Recipient"
 msgstr ""
