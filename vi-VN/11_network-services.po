@@ -544,19 +544,19 @@ msgid "Finally, the <literal>reject_non_fqdn_sender</literal> rule rejects email
 msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố như <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
 
 msgid "Accepting or Refusing Based on the Recipient"
-msgstr ""
+msgstr "Chấp nhận hoặc từ chối dựa trên người nhận"
 
 msgid "Each email has at least one recipient, announced with the <literal>RCPT TO</literal> command in the SMTP protocol. These addresses also warrant validation, even if that may be less relevant than the checks made on the sender address."
-msgstr ""
+msgstr "Mỗi thư điện tử có ít nhất một người nhận, được công bố bằng lệnh <literal>RCPT TO</literal> của giao thức SMTP. Những địa chỉ này cũng đảm bảo tính hợp lệ, ngay cả khi việc kiểm tra nó ít liên quan hơn việc kiểm tra dựa trên địa chỉ người gửi."
 
 msgid "<primary>RCPT TO</primary>"
-msgstr ""
+msgstr "<primary>RCPT TO</primary>"
 
 msgid "<primary>email</primary><secondary>filtering on the recipient</secondary>"
-msgstr ""
+msgstr "<primary>email</primary><secondary>lọc dựa trên người nhận </secondary>"
 
 msgid "Recipient checks"
-msgstr ""
+msgstr "Các kiểm tra trên người nhận"
 
 msgid ""
 "\n"
@@ -564,12 +564,16 @@ msgid ""
 "    reject_unauth_destination, reject_unlisted_recipient, \n"
 "    reject_non_fqdn_recipient"
 msgstr ""
+"\n"
+"smtpd_recipient_restrictions = permit_mynetworks, \n"
+"    reject_unauth_destination, reject_unlisted_recipient, \n"
+"    reject_non_fqdn_recipient"
 
 msgid "<literal>reject_unauth_destination</literal> is the basic rule that requires outside messages to be addressed to us; messages sent to an address not served by this server are rejected. Without this rule, a server becomes an open relay that allows spammers to send unsolicited emails; this rule is therefore mandatory, and it will be best included near the beginning of the list, so that no other rules may authorize the message before its destination has been checked."
-msgstr ""
+msgstr "<literal>reject_unauth_destination</literal> là quy tắc cơ bản vốn buộc những thông điệp bên ngoài phải được gửi đến chúng ta; những thông điệp được gửi đến một địa chỉ không được phục vụ bởi máy phục vụ này sẽ bị từ chối. Nếu không có quy tắc này, một máy phục vụ trở thành một điểm trung chuyển mở cho phép những spammer gửi các thư điện tư mà không ai yêu cầu; vì thế quy tắc này là bắt buộc, và nó nên được thêm vào ở gần cuối của danh sách, để không có quy tắc nào khác cho phép những thông điệp như thế này qua trước khi điểm đến đã được kiểm tra."
 
 msgid "The <literal>reject_unlisted_recipient</literal> rule rejects messages sent to non-existing local users, which makes sense. Finally, the <literal>reject_non_fqdn_recipient</literal> rule rejects non-fully-qualified addresses; this makes it impossible to send an email to <literal>jean</literal> or <literal>jean@machine</literal>, and requires using the full address instead, such as <literal>jean@machine.falcot.com</literal> or <literal>jean@falcot.com</literal>."
-msgstr ""
+msgstr "Quy tắc <literal>reject_unlisted_recipient</literal> từ chối những thông điệp được gửi đến những người dùng nội bộ không có tồn tại, vốn nghe rất có lý. Cuối cùng, quy tắc <literal>reject_non_fqdn_recipient</literal> từ chối các địa chỉ không đúng chuẩn; và điều này chặn việc gửi một thư điện tử tới <literal>jean</literal> hay <literal>jean@machine</literal>, và buộc phải sử dụng địa chỉ đầy đủ, ví dụ như <literal>jean@machine.falcot.com</literal> hoặc <literal>jean@falcot.com</literal>."
 
 msgid "Restrictions Associated with the <literal>DATA</literal> Command"
 msgstr ""
