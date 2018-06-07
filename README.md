@@ -35,7 +35,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 10_network-infrastructure.po  [Thuan VU](https://github.com/thu4nvd)
 
 
-- 11_network-services.po   [Đăng Đỗ](https://github.com/dnhdang94)
+- 11_network-services.po   [Khang Nguyen](https://github.com/ngtrongkhang/debian-handbook/tree/github-fork), [Đăng Đỗ](https://github.com/dnhdang94)
 
 
 - 12_advanced-administration.po
