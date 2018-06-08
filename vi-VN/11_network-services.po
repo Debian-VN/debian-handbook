@@ -792,70 +792,73 @@ msgstr ""
 "falcot.com             greylisting"
 
 msgid "Integrating an Antivirus"
-msgstr ""
+msgstr "Tích hợp một trình diệt vi-rút"
 
 msgid "<primary>antivirus</primary>"
-msgstr ""
+msgstr "<primary>antivirus</primary>"
 
 msgid "The many viruses circulating as attachments to emails make it important to set up an antivirus at the entry point of the company network, since despite an awareness campaign, some users will still open attachments from obviously shady messages."
-msgstr ""
+msgstr "Rất nhiều vi-rút di chuyển dưới dạng tài liệu đính kèm trong những thư điện tử khiến cho việc cài đặt một trình diệt vi-rút ở cổng vào của mạng công ty rất quan trọng, bởi dù có một chiến dịch tăng cường sự hiểu biết, một số người sử dụng sẽ vẫn mở các tài liệu đính kèm từ những thông điệp này dù thoạt nhìn rất đáng nghi."
 
 msgid "The Falcot administrators selected <command>clamav</command> for their free antivirus. The main package is <emphasis role=\"pkg\">clamav</emphasis>, but they also installed a few extra packages such as <emphasis role=\"pkg\">arj</emphasis>, <emphasis role=\"pkg\">unzoo</emphasis>, <emphasis role=\"pkg\">unrar</emphasis> and <emphasis role=\"pkg\">lha</emphasis>, since they are required for the antivirus to analyze attachments archived in one of these formats."
-msgstr ""
+msgstr "Các nhà quản trị hệ thống Falcot đã lựa chọn <command>clamav</command> làm trình duyệt vi-rút miễn phí của họ. Gói phần mềm chủ lực là <emphasis role=\"pkg\">clamav</emphasis>, nhưng họ cũng đã cài một vài gói phần mềm thêm như <emphasis role=\"pkg\">arj</emphasis>, <emphasis role=\"pkg\">unzoo</emphasis>, <emphasis role=\"pkg\">unrar</emphasis> và <emphasis role=\"pkg\">lha</emphasis>, bởi chúng được cần tới bởi trình duyệt vi-rút để rà soát các tài liệu đính kèm lưu dưới một trong các định dạng này."
 
 msgid "<primary><command>clamav</command></primary>"
-msgstr ""
+msgstr "<primary><command>clamav</command></primary>"
 
 msgid "<primary><command>clamav-milter</command></primary>"
-msgstr ""
+msgstr "<primary><command>clamav-milter</command></primary>"
 
 msgid "The task of interfacing between antivirus and the email server goes to <command>clamav-milter</command>. A <emphasis>milter</emphasis> (short for <emphasis>mail filter</emphasis>) is a filtering program specially designed to interface with email servers. A milter uses a standard application programming interface (API) that provides much better performance than filters external to the email servers. Milters were initially introduced by <emphasis>Sendmail</emphasis>, but <emphasis>Postfix</emphasis> soon followed suit."
-msgstr ""
+msgstr "Công việc kết nối trình diệt vi-rút và máy phục vụ thư điện tử thuộc về <command>clamav-milter</command>. Một <emphasis>milter</emphasis> (viết tắt của <emphasis>mail filter(bộ lọc thư)</emphasis>) là một chương trình lọc được thiết kế riêng để giao tiếp với các máy phục vụ thư điện tử. Một milter(bộ lọc thư) sử dụng một chuẩn kết nối lập trình ứng dụng(API) vốn cung cấp hiệu suất cao hơn các bộ lọc nằm bên ngoài các máy phục vụ thư điện tử. Các bộ lọc thư này đầu tiên được giới thiệu bởi <emphasis>Sendmail</emphasis>, nhưng <emphasis>Postfix</emphasis> sớm đuổi theo xu hướng."
 
 msgid "<emphasis>QUICK LOOK</emphasis> A milter for Spamassassin"
-msgstr ""
+msgstr "<emphasis>SƠ LƯỢC</emphasis> Một bộ lọc thư(milter) cho Spamassasin"
 
 msgid "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">spamass-milter</emphasis></primary>"
 
 msgid "The <emphasis role=\"pkg\">spamass-milter</emphasis> package provides a milter based on <emphasis>SpamAssassin</emphasis>, the famous unsolicited email detector. It can be used to flag messages as probable spams (by adding an extra header) and/or to reject the messages altogether if their “spamminess” score goes beyond a given threshold."
-msgstr ""
+msgstr "Gói phần mềm <emphasis role=\"pkg\">spamass-milter</emphasis> cung cấp một bộ lọc thư dựa trên <emphasis>SpamAssassin</emphasis>, một chương trình nổi tiếng phát hiện thư điện tử được gửi không ai yêu cầu. Nó có thể được sử dụng để đánh dấu các thông điệp có thể là thư rác (bằng cách thêm một tiêu đề thêm) và/hoặc từ chối hết những thư điện tử nếu điểm “thư rác“ của chúng vượt qua một mức điểm cho trước."
 
 msgid "Once the <emphasis role=\"pkg\">clamav-milter</emphasis> package is installed, the milter should be reconfigured to run on a TCP port rather than on the default named socket. This can be achieved with <command>dpkg-reconfigure clamav-milter</command>. When prompted for the “Communication interface with Sendmail”, answer “<literal>inet:10002@127.0.0.1</literal>”."
-msgstr ""
+msgstr "Khi gói phần mềm <emphasis role=\"pkg\">clamav-milter</emphasis> được cài đặt, bộ lọc thư đó nên được cấu hình lại để chạy trên cổng TCP hơn là trên một socket chuẩn. Điều này có thể đạt được bằng <command>dpkg-reconfigure clamav-milter</command>. Khi được hỏi về “Cách kết nối giao tiếp với Sendmail (Communication interface with Sendmail)”, trả lời “<literal>inet:10002@127.0.0.1</literal>”."
 
 msgid "<emphasis>NOTE</emphasis> Real TCP port vs named socket"
-msgstr ""
+msgstr "<emphasis>GHI CHÚ</emphasis> Cổng TCP thật và socket có tên"
 
 msgid "The reason why we use a real TCP port rather than the named socket is that the postfix daemons often run chrooted and do not have access to the directory hosting the named socket. You could also decide to keep using a named socket and pick a location within the chroot (<filename>/var/spool/postfix/</filename>)."
-msgstr ""
+msgstr "Lý do chúng tôi sử dụng cổng TCP thật thì vì một socket có tên là vì các tiến trình nền postfix thường chạy với thư mục gốc được đổi và không có truy cập tới thư mục chứa socket có tên. Bạn có thể quyết sử dụng một socket có tên và chọn một vị trí trong môi trường đã thay đổi thư mục gốc (<filename>/var/spool/postfix/</filename>)."
 
 msgid "The standard ClamAV configuration fits most situations, but some important parameters can still be customized with <command>dpkg-reconfigure clamav-base</command>."
-msgstr ""
+msgstr "Cấu hình ClamAV chuẩn phù hợp cho đa số các trường hợp, nhưng một số tham số quan trọng có thể được tùy chỉnh với lệnh <command>dpkg-reconfigure clamav-base</command>."
 
 msgid "The last step involves telling Postfix to use the recently-configured filter. This is a simple matter of adding the following directive to <filename>/etc/postfix/main.cf</filename>:"
-msgstr ""
+msgstr "Bước cuối cùng liên quan tới việc bảo Postfix sử dụng bộ lọc được cấu hình gần đây nhất. Đây đơn giản được thực hiện bằng cách thêm chỉ thị sau vào tập tin <filename>/etc/postfix/main.cf</filename>:"
 
 msgid ""
 "\n"
 "# Virus check with clamav-milter\n"
 "smtpd_milters = inet:[127.0.0.1]:10002"
 msgstr ""
+"\n"
+"# Virus check with clamav-milter\n"
+"smtpd_milters = inet:[127.0.0.1]:10002"
 
 msgid "If the antivirus causes problems, this line can be commented out, and <command>service postfix reload</command> should be run so that this change is taken into account."
-msgstr ""
+msgstr "Nếu chương trình diệt vi-rút gây ra vấn đề, dòng sau có thể được chuyển thành ghi chú, và lệnh <command>service postfix reload</command> nên được chạy để thay đổi này được áp dụng."
 
 msgid "<emphasis>IN PRACTICE</emphasis> Testing the antivirus"
-msgstr ""
+msgstr "<emphasis>TRÊN THỰC TẾ</emphasis> Kiểm tra chương trình diệt vi-rút"
 
 msgid "Once the antivirus is set up, its correct behavior should be tested. The simplest way to do that is to send a test email with an attachment containing the <filename>eicar.com</filename> (or <filename>eicar.com.zip</filename>) file, which can be downloaded online: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
-msgstr ""
+msgstr "Một khi trình diệt vi-rút được cài đặt, hành vi đúng của nó nên được thử nghiệm. Cách đơn giản nhất để làm điều đó là gửi một thư điện tử kiểm tra với một tài liệu đính kèm chứa tập tin <filename>eicar.com</filename> (hay <filename>eicar.com.zip</filename>) vốn có thể được tải về từ mạng: <ulink type=\"block\" url=\"http://www.eicar.org/86-0-Intended-use.html\" />"
 
 msgid "This file is not a true virus, but a test file that all antivirus software on the market diagnose as a virus to allow checking installations."
-msgstr ""
+msgstr "Tập tin này không phải là một vi-rút thật sự, nhưng là một tập tin thử nghiệm mà tất cả chương trình diệt vi-rút trên thị trường chẩn đoán là một vi-rút để cho phép kiểm tra các bản cài đặt chương trình diệt vi-rút."
 
 msgid "All messages handled by Postfix now go through the antivirus filter."
-msgstr ""
+msgstr "Tất cả các thông điệp được xử lý bởi Postfix sẽ đi qua bộ lọc diệt vi-rút."
 
 msgid "Authenticated SMTP"
 msgstr ""
