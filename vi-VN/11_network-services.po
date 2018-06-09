@@ -1041,52 +1041,52 @@ msgid "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
 msgstr "<primary><emphasis>Bí mật Chiều đi Hoàn hảo(Perfect Forward Secrecy)</emphasis></primary>"
 
 msgid "Configuring Virtual Hosts"
-msgstr ""
+msgstr "Cấu hình các máy ảo"
 
 msgid "A virtual host is an extra identity for the web server."
-msgstr ""
+msgstr "Một máy ảo là một danh xưng thêm cho một máy phục vụ."
 
 msgid "<primary>virtual host</primary>"
-msgstr ""
+msgstr "<primary>máy ảo</primary>"
 
 msgid "Apache considers two different kinds of virtual hosts: those that are based on the IP address (or the port), and those that rely on the domain name of the web server. The first method requires allocating a different IP address (or port) for each site, whereas the second one can work on a single IP address (and port), and the sites are differentiated by the hostname sent by the HTTP client (which only works in version 1.1 of the HTTP protocol — fortunately that version is old enough that all clients use it already)."
-msgstr ""
+msgstr "Apache có hai loại máy ảo khác nhau: một loại dựa trên địa chỉ IP (hoặc cổng), và một loại dựa trên tên miền của máy phục vụ web. Phương thức đầu tiên cần tạo một địa chỉ IP khác nhau (hay cổng) cho mỗi trang, trong khi phương thức số hai có thể hoạt động với một địa chỉ IP (và cổng) duy nhất, và những trang phân biệt bởi tên máy gửi bởi chương trình khách HTTP (vốn chỉ hoạt động tốt với phiên bản 1.1 của nghi thức HTTP - may mắn rằng phiên bản này đủ lâu để tất cả các chương trình khách đã sử dụng nó lâu rồi)."
 
 msgid "The (increasing) scarcity of IPv4 addresses usually favors the second method; however, it is made more complex if the virtual hosts need to provide HTTPS too, since the SSL protocol hasn't always provided for name-based virtual hosting; the SNI extension (<emphasis>Server Name Indication</emphasis>) that allows such a combination is not handled by all browsers. When several HTTPS sites need to run on the same server, they will usually be differentiated either by running on a different port or on a different IP address (IPv6 can help there)."
-msgstr ""
+msgstr "Sự khan hiếm ngày càng tăng của các địa chỉ IPv4 dẫn đến sự ưu tiên của phương thức số hai; tuy nhiên, nó được làm cho phức tạp hơn nếu các máy ảo cần cung cung cấp HTTPS, bởi vì giao thức SSL không luôn luôn cung cấp lưu trữ ảo dựa trên tên; phần mở rộng SNI (<emphasis>Tín hiệu chọn tên (Server Name Indication)</emphasis>) vốn cho phép một sự kết hợp như vậy không được xử lý bởi tất cả trình duyệt. Khi vào trang HTTPS cần chạy trên cùng một máy phục vụ, chúng sẽ được phân biệt bằng việc chạy trên một cổng riêng biệt hoặc chạy trên một địa chỉ IP riêng biệt (IPv6 có thể giúp ích ở đây)."
 
 msgid "The default configuration for Apache 2 enables name-based virtual hosts. In addition, a default virtual host is defined in the <literal>/etc/apache2/sites-enabled/000-default.conf</literal> file; this virtual host will be used if no host matching the request sent by the client is found."
-msgstr ""
+msgstr "Cấu hình ngầm định của Apache 2 cho phép các máy ảo dựa trên tên. Hơn nữa, một máy phục vụ ngầm định được định nghĩa trong tập tin <literal>/etc/apache2/sites-enabled/000-default.conf</literal>; máy ảo này sẽ được sử dụng nếu không máy được tìm thấy nào hợp với yêu cầu gửi bởi khách. "
 
 msgid "<emphasis>CAUTION</emphasis> First virtual host"
-msgstr ""
+msgstr "<emphasis>CẢNH BÁO</emphasis> Máy ảo đầu tiên"
 
 msgid "Requests concerning unknown virtual hosts will always be served by the first defined virtual host, which is why we defined <literal>www.falcot.com</literal> first here."
-msgstr ""
+msgstr "Những yêu cầu liên quan tới những máy ảo sẽ luôn được phục vụ bởi máy ảo ngầm định đầu tiên. Đó là lý do chúng ta định nghĩa <literal>www.falcot.com</literal> đầu tiên ở đây."
 
 msgid "<emphasis>QUICK LOOK</emphasis> Apache supports SNI"
-msgstr ""
+msgstr "<emphasis>SƠ LƯỢC</emphasis> Apache hỗ trợ SNI"
 
 msgid "<primary>Server Name Indication</primary>"
-msgstr ""
+msgstr "<primary>Tín hiệu chọn tên (Server Name Indication)</primary>"
 
 msgid "The Apache server supports an SSL protocol extension called <emphasis>Server Name Indication</emphasis> (SNI). This extension allows the browser to send the hostname of the web server during the establishment of the SSL connection, much earlier than the HTTP request itself, which was previously used to identify the requested virtual host among those hosted on the same server (with the same IP address and port). This allows Apache to select the most appropriate SSL certificate for the transaction to proceed."
-msgstr ""
+msgstr "Máy phục vụ Apache hỗ trợ một phần mở rộng của nghi thức SSL được gọi là <emphasis>Tín hiệu chọn tên(Server Name Indication)</emphasis> (SNI). Phần mở rộng cho phép trình duyệt gửi tên máy của một máy phục vụ trong quá trình thiết lập kết nối SSL, sớm hơn nhiều so với chính yêu cầu HTTP, vốn được sử dụng trước đó để nhận dạng máy ảo được yêu cầu trong những máy được lưu trữ trên cùng một máy phục vụ (với cùng một địa chỉ IP và cổng). Điều này cho phép Apache chọn chứng chỉ SSL phù hợp nhất để tiếp tục giao dịch."
 
 msgid "Before SNI, Apache would always use the certificate defined in the default virtual host. Clients trying to access another virtual host would then display warnings, since the certificate they received didn't match the website they were trying to access. Fortunately, most browsers now work with SNI; this includes Microsoft Internet Explorer starting with version 7.0 (starting on Vista), Mozilla Firefox starting with version 2.0, Apple Safari since version 3.2.1, and all versions of Google Chrome."
-msgstr ""
+msgstr "Trước SNI, Apache sẽ luôn sử dụng chứng chỉ được định nghĩa trong máy ảo ngầm định. Các máy khách cố gắng truy cập một máy ảo khác sẽ hiển thị các cảnh báo, bởi chứng chỉ chúng nhận được không hợp với trang web họ đang cố gắng truy cập. May mắn thay, đa số trình duyệt bây giờ làm việc với SNI; chúng bao gồm Microsoft Internet Explorer bắt đầu với phiên bản 7.0 (trên Vista), Mozilla Firefox bắt đầu với phiên bản 2.0, Apple Safari từ phiên bản 3.2.1, và tất cả các phiên bản của Google Chrome."
 
 msgid "The Apache package provided in Debian is built with support for SNI; no particular configuration is therefore needed."
-msgstr ""
+msgstr "Gói phần mềm Apache cung cấp bởi Debian được xây dựng với hỗ trợ cho SNI; vì thế không cấu hình cụ thể nào là cần thiết."
 
 msgid "Care should also be taken to ensure that the configuration for the first virtual host (the one used by default) does enable TLSv1, since Apache uses the parameters of this first virtual host to establish secure connections, and they had better allow them!"
-msgstr ""
+msgstr "Phải cẩn thận hơn trong việc đảm bảo rằng cấu hình cho máy ảo đầu tiên (cái được sử dụng ngầm định) kích hoạt TLSv1, bởi Apache dùng các tham số của máy ảo ngầm định đầu tiên để thiết lập các kết nối an toàn, và các kết nối này tốt hơn là nên cho phép chúng."
 
 msgid "Each extra virtual host is then described by a file stored in <filename>/etc/apache2/sites-available/</filename>. Setting up a website for the <literal>falcot.org</literal> domain is therefore a simple matter of creating the following file, then enabling the virtual host with <command>a2ensite www.falcot.org</command>."
-msgstr ""
+msgstr "Mỗi máy ảo thêm được mô tả bởi một tập tin được lưu trong <filename>/etc/apache2/sites-available/</filename>. Vì thế, cài đặt một trang web cho miền <literal>falcot.org</literal> đơn giản chỉ là tạo một tập tin sau, sau đó kích hoạt máy ảo với lệnh <command>a2ensite www.falcot.org</command>."
 
 msgid "The <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename> file"
-msgstr ""
+msgstr "Tập tin <filename>/etc/apache2/sites-available/www.falcot.org.conf</filename>"
 
 msgid ""
 "\n"
@@ -1096,12 +1096,18 @@ msgid ""
 "DocumentRoot /srv/www/www.falcot.org\n"
 "&lt;/VirtualHost&gt;"
 msgstr ""
+"\n"
+"&lt;VirtualHost *:80&gt;\n"
+"ServerName www.falcot.org\n"
+"ServerAlias falcot.org\n"
+"DocumentRoot /srv/www/www.falcot.org\n"
+"&lt;/VirtualHost&gt;"
 
 msgid "The Apache server, as configured so far, uses the same log files for all virtual hosts (although this could be changed by adding <literal>CustomLog</literal> directives in the definitions of the virtual hosts). It therefore makes good sense to customize the format of this log file to have it include the name of the virtual host. This can be done by creating a <filename>/etc/apache2/conf-available/customlog.conf</filename> file that defines a new format for all log files (with the <literal>LogFormat</literal> directive) and by enabling it with <command>a2enconf customlog</command>. The <literal>CustomLog</literal> line must also be removed (or commented out) from the <filename>/etc/apache2/sites-available/000-default.conf</filename> file."
-msgstr ""
+msgstr "Máy phục vụ Apache, như được cấu hình như trước đây, sử dụng chung những tập tin nhật ký cho tất cả các máy ảo (mặc dù điều này có thể được thay đổi bằng việc thêm các chỉ thị <literal>CustomLog</literal> vào các định nghĩa của các máy ảo). Vì thế sẽ có lý khi tùy chỉnh định dạng của tập tin nhật ký này để nhờ nó đính kèm tên của máy ảo. Điều này có thể được thực hiện bằng việc tạo một <filename>/etc/apache2/conf-available/customlog.conf</filename> vốn định nghĩa một định dạng mới cho tất cả các tập tin nhật ký (với chỉ thị <literal>LogFormat</literal>) và bằng việc kích hoạt nó với lệnh <command>a2enconf customlog</command>. Dòng <literal>CustomLog</literal> phải được xóa bỏ (hay chuyển thành ghi chú) khỏi tập tin <filename>/etc/apache2/sites-available/000-default.conf</filename>."
 
 msgid "The <filename>/etc/apache2/conf.d/customlog.conf</filename> file"
-msgstr ""
+msgstr "Tập tin <filename>/etc/apache2/conf.d/customlog.conf</filename>"
 
 msgid ""
 "\n"
@@ -1111,6 +1117,12 @@ msgid ""
 "# Now let's use this \"vhost\" format by default\n"
 "CustomLog /var/log/apache2/access.log vhost"
 msgstr ""
+"\n"
+"# Định dạng nhật ký mới bao gồm tên máy (ảo)\n"
+"LogFormat \"%v %h %l %u %t \\\"%r\\\" %&gt;s %b \\\"%{Referer}i\\\" \\\"%{User-Agent}i\\\"\" vhost\n"
+"\n"
+"# Bây giờ hãy sử dụng định dạng \"vhost\" cho lựa chọn ngầm định\n"
+"CustomLog /var/log/apache2/access.log vhost"
 
 msgid "Common Directives"
 msgstr ""
