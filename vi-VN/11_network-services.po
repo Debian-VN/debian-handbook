@@ -945,100 +945,100 @@ msgid "As for all Postfix maps, this file must be turned into <filename>/etc/pos
 msgstr "Giống như tất cả các ánh xạ Postfix(Postfix maps), tập tin này phải được chuyển thành <filename>/etc/postfix/sasl_passwd.db</filename> với lệnh <command>postmap</command>."
 
 msgid "Web Server (HTTP)"
-msgstr ""
+msgstr "Máy phục vụ Web (HTTP)"
 
 msgid "The Falcot Corp administrators decided to use the Apache HTTP server, included in Debian <emphasis role=\"distribution\">Jessie</emphasis> at version 2.4.10."
-msgstr ""
+msgstr "Những nhà quản trị của công ty Falcot quyết định sử dụng máy phục vụ HTTP Apache, có sẵn trong Debian <emphasis role=\"distribution\">Jessie</emphasis> tại phiên bản 2.4.10."
 
 msgid "<primary><command>apache</command></primary>"
-msgstr ""
+msgstr "<primary><command>apache</command></primary>"
 
 msgid "<primary>server</primary><secondary>web</secondary>"
-msgstr ""
+msgstr "<primary>máy phục vụ</primary><secondary>web</secondary>"
 
 msgid "<primary>web server</primary>"
-msgstr ""
+msgstr "<primary>máy phục vụ web</primary>"
 
 msgid "<primary>server</primary><secondary>HTTP</secondary>"
-msgstr ""
+msgstr "<primary>máy phục vụ</primary><secondary>HTTP</secondary>"
 
 msgid "<primary>HTTP</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>HTTP</primary><secondary>máy phục vụ</secondary>"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Other web servers"
-msgstr ""
+msgstr "<emphasis>LỰA CHỌN THAY THẾ</emphasis> Những máy phục vụ web khác"
 
 msgid "Apache is merely the most widely-known (and widely-used) web server, but there are others; they can offer better performance under certain workloads, but this has its counterpart in the smaller number of available features and modules. However, when the prospective web server is built to serve static files or to act as a proxy, the alternatives, such as <emphasis role=\"pkg\">nginx</emphasis> and <emphasis role=\"pkg\">lighttpd</emphasis>, are worth investigating."
-msgstr ""
+msgstr "Apache chỉ là một máy phục vụ web được biết đến khá nhiều (và được sử dụng rộng rãi), nhưng có những nhà cung cấp khác; họ có thể cung cấp hiệu suất cao dưới một lượng tải nhất định nào đó, nhưng lựa chọn này bị cân bằng lại bởi ít tính năng và mô-đun hơn. Tuy nhiên, khi máy phục vụ web sẽ được lựa chọn để cung cấp các tập tin tĩnh hay để hoạt động như một trạm chuyển hướng, những lựa chọn khác, như là <emphasis role=\"pkg\">nginx</emphasis> và <emphasis role=\"pkg\">lighttpd</emphasis>, rất đáng để xem xét."
 
 msgid "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">nginx</emphasis></primary>"
 
 msgid "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">lighttpd</emphasis></primary>"
 
 msgid "Installing Apache"
-msgstr ""
+msgstr "Cài đặt Apache"
 
 msgid "Installing the <emphasis role=\"pkg\">apache2</emphasis> package is all that is needed. It contains all the modules, including the <emphasis>Multi-Processing Modules</emphasis> (MPMs) that affect how Apache handles parallel processing of many requests (those used to be provided in separate <emphasis role=\"pkg\">apache2-mpm-*</emphasis> packages). It will also pull <emphasis role=\"pkg\">apache2-utils</emphasis> containing the command line utilities that we will discover later."
-msgstr ""
+msgstr "Cài đặt gói phần mềm <emphasis role=\"pkg\">apache2</emphasis> là tất cả những gì cần thiết. Nó chứa tất cả các mô-đun, bao gồm <emphasis>Những Mô-đun đa xử lý(Multi-Processing Modules)</emphasis> (MPMs) kiểm soát việc Apache thực hiện việc xử lý song song những yêu cầu (những mô-đun trước đây được cung cấp dưới hình thức các gói phần mềm <emphasis role=\"pkg\">apache2-mpm-*</emphasis> rời rạc). Nó sẽ kéo về gói phần mềm <emphasis role=\"pkg\">apache2-utils</emphasis> vốn chứa những tiện ích dòng lệnh mà chúng ta sẽ khám phá sau."
 
 msgid "The MPM in use affects significantly the way Apache will handle concurrent requests. With the <emphasis>worker</emphasis> MPM, it uses <emphasis>threads</emphasis> (lightweight processes), whereas with the <emphasis>prefork</emphasis> MPM it uses a pool of processes created in advance. With the <emphasis>event</emphasis> MPM it also uses threads, but the inactive connections (notably those kept open by the HTTP <emphasis>keep-alive</emphasis> feature) are handed back to a dedicated management thread."
-msgstr ""
+msgstr "MPM khi đang hoạt động ảnh hưởng lớn đến cách Apache xử lý các yêu cầu cùng lúc. Với MPM <emphasis>worker</emphasis>, nó sử dụng các <emphasis>thread</emphasis> (các tiến trình nhỏ và nhẹ), trong khi MPM <emphasis>prefork</emphasis> sử dụng một kho tiến trình được tạo sẵn từ trước. Với MPM <emphasis>event</emphasis>, nó cũng sử dụng các thread, nhưng các kết nối không có tín hiệu gì (đặc biệt những cái được giữ chạy bởi tính năng HTTP <emphasis>keep-alive</emphasis>) được gửi lại cho một thread riêng quản lý."
 
 msgid "The Falcot administrators also install <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> so as to include the PHP support in Apache. This causes the default <emphasis>event</emphasis> MPM to be disabled, and <emphasis>prefork</emphasis> to be used instead, since PHP only works under that particular MPM."
-msgstr ""
+msgstr "Các nhà quản trị hệ thống Falcot cũng cài <emphasis role=\"pkg\">libapache2-mod-php5</emphasis> để đưa hỗ trợ PHP vào trong Apache. Điều này làm cho MPM <emphasis>event</emphasis> ngầm định bị tắt đi, và <emphasis>prefork</emphasis> được đưa vào sử dụng thay thế, bởi PHP chỉ hoạt động với MPM đó mà thôi."
 
 msgid "<emphasis>SECURITY</emphasis> Execution under the <literal>www-data</literal> user"
-msgstr ""
+msgstr "<emphasis>AN NINH</emphasis> Thực thi dưới người dùng <literal>www-data</literal> "
 
 msgid "<primary><literal>www-data</literal></primary>"
-msgstr ""
+msgstr "<primary><literal>www-data</literal></primary>"
 
 msgid "<primary>suexec</primary>"
-msgstr ""
+msgstr "<primary>suexec</primary>"
 
 msgid "By default, Apache handles incoming requests under the identity of the <literal>www-data</literal> user. This means that a security vulnerability in a CGI script executed by Apache (for a dynamic page) won't compromise the whole system, but only the files owned by this particular user."
-msgstr ""
+msgstr "Theo ngầm định, Apache xử lý các yêu cầu đến dưới quyền người dùng của tài khoản <literal>www-data</literal>. Điều này nghĩa là một lỗ hổng bảo mật trong một đoạn mã kịch bản CGI thực thi bởi Apache (cho một trang web động) sẽ không làm lộ cả một hệ thống, nhưng chỉ nhưng tập tin được sở hữu bởi người sử dụng này."
 
 msgid "Using the <emphasis>suexec</emphasis> modules allows bypassing this rule so that some CGI scripts are executed under the identity of another user. This is configured with a <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> directive in the Apache configuration."
-msgstr ""
+msgstr "Sử dụng các mô-đun <emphasis>suexec</emphasis> cho phép vượt qua quy tắc này để một số đoạn mã CGI được thực thi dưới quyền người dùng của một tài khoản khác. Điều này được cấu hình bởi chỉ thị <literal>SuexecUserGroup <replaceable>user</replaceable><replaceable>group</replaceable></literal> trong cấu hình Apache."
 
 msgid "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">libapache2-mpm-itk</emphasis></primary>"
 
 msgid "Another possibility is to use a dedicated MPM, such as the one provided by <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. This particular one has a slightly different behavior: it allows “isolating” virtual hosts (actually, sets of pages) so that they each run as a different user. A vulnerability in one website therefore cannot compromise files belonging to the owner of another website."
-msgstr ""
+msgstr "Một khả năng khác là sử dụng một MPM chuyên dụng, như là cái được cung cấp bởi <emphasis role=\"pkg\">libapache2-mpm-itk</emphasis>. Cái này có một hành vi hoàn toàn khác: nó cho phép “cách ly“ các máy ảo(virtual hosts) (thực ra, những tập hợp các trang) để mỗi cái trong số đó chạy dưới một người sử dụng khác nhau. Một lỗ hổng khác trong một trang web vì thế sẽ không thể làm lộ các tập tin thuộc về người sở hữu của trang web khác."
 
 msgid "<emphasis>QUICK LOOK</emphasis> List of modules"
-msgstr ""
+msgstr "<emphasis>SƠ LƯỢC</emphasis> Danh sách các mô-đun"
 
 msgid "The full list of Apache standard modules can be found online. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
-msgstr ""
+msgstr "Danh sách đầy đủ của các mô-đun chuẩn của Apache có thể tìm thấy trên mạng. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/index.html\" />"
 
 msgid "Apache is a modular server, and many features are implemented by external modules that the main program loads during its initialization. The default configuration only enables the most common modules, but enabling new modules is a simple matter of running <command>a2enmod <replaceable>module</replaceable></command>; to disable a module, the command is <command>a2dismod <replaceable>module</replaceable></command>. These programs actually only create (or delete) symbolic links in <filename>/etc/apache2/mods-enabled/</filename>, pointing at the actual files (stored in <filename>/etc/apache2/mods-available/</filename>)."
-msgstr ""
+msgstr "Apache là một máy phục vụ cấu thành bởi nhiều mô-đun, và nhiều tính năng của nó được tạo ra bởi những mô-đun bên ngoài mà chương trình chính sẽ thực thi trong quá trình khởi động. Cấu hình ngầm định chỉ kích hoạt các mô-đun phổ biến nhất, nhưng để kích hoạt các mô-đun mới này chỉ cần đơn giản chạy lệnh <command>a2enmod <replaceable>module</replaceable></command>; để tắt một mô-đun, lệnh là <command>a2dismod <replaceable>module</replaceable></command>. Những chương trình này thực ra chỉ tạo (hoặc xóa) các đường link tượng trưng(symbolic links) trong <filename>/etc/apache2/mods-enabled/</filename>, vốn chỉ đến những tập tin thực sự (lưu trong <filename>/etc/apache2/mods-available/</filename>)."
 
 msgid "With its default configuration, the web server listens on port 80 (as configured in <filename>/etc/apache2/ports.conf</filename>), and serves pages from the <filename>/var/www/html/</filename> directory (as configured in <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
-msgstr ""
+msgstr "Với cấu hình ngầm định của nó, máy phục vụ web lắng nghe trên cổng 80 (như được cấu hình trong tập tin <filename>/etc/apache2/ports.conf</filename>), và phục vụ các trang  nằm trong thư mục <filename>/var/www/html/</filename> (như được cấu hình trong tập tin <filename>/etc/apache2/sites-enabled/000-default.conf</filename>)."
 
 msgid "<emphasis>GOING FURTHER</emphasis> Adding support for SSL"
-msgstr ""
+msgstr "<emphasis>TÌM HIỂU THÊM</emphasis> Thêm hỗ trợ cho SSL"
 
 msgid "<primary>HTTPS</primary>"
-msgstr ""
+msgstr "<primary>HTTPS</primary>"
 
 msgid "<primary>HTTP</primary><secondary>secure</secondary>"
-msgstr ""
+msgstr "<primary>HTTP</primary><secondary>an ninh</secondary>"
 
 msgid "Apache 2.4 includes the SSL module required for secure HTTP (HTTPS) out of the box. It just needs to be enabled with <command>a2enmod ssl</command>, then the required directives have to be added to the configuration files. A configuration example is provided in <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
-msgstr ""
+msgstr "Apache 2.4 có sẵn một mô-đun SSL buộc phải có để hỗ trợ HTTP an toàn (HTTPS). Nó chỉ cần được kích hoạt với lệnh <command>a2enmod ssl</command>, sau đó các chỉ thị buộc phải có phải được thêm vào các tập tin cấu hình. Một ví dụ cấu hình được cung cấp trong <filename>/etc/apache2/sites-available/default-ssl.conf</filename>. <ulink type=\"block\" url=\"http://httpd.apache.org/docs/2.4/mod/mod_ssl.html\" />"
 
 msgid "Some extra care must be taken if you want to favor SSL connections with <emphasis>Perfect Forward Secrecy</emphasis> (those connections use ephemeral session keys ensuring that a compromission of the server's secret key does not result in the compromission of old encrypted traffic that could have been stored while sniffing on the network). Have a look at Mozilla's recommandations in particular: <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
-msgstr ""
+msgstr "Phải cẩn thận hơn nếu bạn muốn ưu tiên các kết nối SSL với <emphasis>Bí mật Chiều đi Hoàn hảo(Perfect Forward Secrecy)</emphasis> (những kết nối sử dụng các mã phiên làm việc tạm thời để đảm bảo rằng việc lộ mã bí mật của máy phục vụ không dẫn đến việc lộ thông tin cũ đã được mã hóa vốn có thể bị lưu lại trước đây khi có ai nghe lén trên đường truyền). Quan sát các đề xuất của Mozilla, cụ thể là ở <ulink type=\"block\" url=\"https://wiki.mozilla.org/Security/Server_Side_TLS#Apache\" />"
 
 msgid "<primary><emphasis>Perfect Forward Secrecy</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Bí mật Chiều đi Hoàn hảo(Perfect Forward Secrecy)</emphasis></primary>"
 
 msgid "Configuring Virtual Hosts"
 msgstr ""
