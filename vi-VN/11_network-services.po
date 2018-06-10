@@ -1206,16 +1206,16 @@ msgid "The <literal>AllowOverride</literal> directive lists all the options that
 msgstr "Chỉ thị <literal>AllowOverride</literal> liệt kê tất cả những lựa chọn được kích hoạt hay được tắt bởi tập tin <filename>.htaccess</filename>. Một mục đích sử dụng của lựa chọn này là để giới hạn <literal>ExecCGI</literal>, để cho nhà quản trị hệ thống lựa chọn những người sử dụng nào được cho phép chạy các chương trình dưới danh xưng của máy phục vụ web (tài khoản <literal>www-data</literal>)."
 
 msgid "Requiring Authentication"
-msgstr ""
+msgstr "Ràng buộc Chứng thực"
 
 msgid "<primary>web authentication</primary>"
-msgstr ""
+msgstr "<primary>chứng thực web</primary>"
 
 msgid "In some circumstances, access to part of a website needs to be restricted, so only legitimate users who provide a username and a password are granted access to the contents."
-msgstr ""
+msgstr "Trong một số trường hợp, truy cập tới một phần của một trang web cần phải được giới hạn, để chỉ có những người sử dụng hợp lệ có tên tài khoản và mật mã mới được cho phép truy cập nội dung."
 
 msgid "<filename>.htaccess</filename> file requiring authentication"
-msgstr ""
+msgstr "Tập tin <filename>.htaccess</filename> bắt buộc chứng thực"
 
 msgid ""
 "\n"
@@ -1224,15 +1224,20 @@ msgid ""
 "AuthType Basic\n"
 "AuthUserFile /etc/apache2/authfiles/htpasswd-private"
 msgstr ""
+"\n"
+"Require valid-user\n"
+"AuthName \"Private directory\"\n"
+"AuthType Basic\n"
+"AuthUserFile /etc/apache2/authfiles/htpasswd-private"
 
 msgid "<emphasis>SECURITY</emphasis> No security"
-msgstr ""
+msgstr "<emphasis>AN NINH</emphasis> Không an toàn"
 
 msgid "The authentication system used in the above example (<literal>Basic</literal>) has minimal security as the password is sent in clear text (it is only encoded as <emphasis>base64</emphasis>, which is a simple encoding rather than an encryption method). It should also be noted that the documents “protected” by this mechanism also go over the network in the clear. If security is important, the whole HTTP connection should be encrypted with SSL."
-msgstr ""
+msgstr "Hệ thống chứng thực sử dụng trong ví dụ trên (<literal>Basic</literal>) có độ an toàn rất thấp bởi mật mã được gửi đi dưới dạng chữ (nó chỉ được mã hóa dưới dạng  <emphasis>base64</emphasis>, vốn là một dạng mã đơn giản hơn là một phương thức mã hóa). Cũng cần phải ghi chú rằng những tài liệu “được bảo vệ” bởi cơ chế này cũng di chuyển trên mạng không có ai trông coi. Nếu an ninh cần được coi trọng, toàn bộ kết nối HTTP nên được mã hóa với SSL."
 
 msgid "The <filename>/etc/apache2/authfiles/htpasswd-private</filename> file contains a list of users and passwords; it is commonly manipulated with the <command>htpasswd</command> command. For example, the following command is used to add a user or change their password: <indexterm><primary><command>htpasswd</command></primary></indexterm>"
-msgstr ""
+msgstr "Tập tin <filename>/etc/apache2/authfiles/htpasswd-private</filename> chứa một danh sách các tên tài khoản và mật mã; nó thường được chỉnh sửa bởi lệnh <command>htpasswd</command>. Ví dụ, lệnh sau được sử dụng để thêm một tài khoản hoặc thay đổi mật mã: <indexterm><primary><command>htpasswd</command></primary></indexterm>"
 
 msgid ""
 "\n"
@@ -1242,6 +1247,12 @@ msgid ""
 "Adding password for user <replaceable>user</replaceable>\n"
 "</computeroutput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>htpasswd /etc/apache2/authfiles/htpasswd-private <replaceable>user</replaceable>\n"
+"</userinput><computeroutput>Mật mã mới:\n"
+"Nhập lại mật mã mới:\n"
+"Thêm mật mã cho tài khoản <replaceable>user</replaceable>\n"
+"</computeroutput>"
 
 msgid "Restricting Access"
 msgstr ""
