@@ -1459,28 +1459,28 @@ msgid "Note also that the log files created by <command>logrotate</command> need
 msgstr "Ghi chú rằng các tập tin nhật ký tạo ra bởi lệnh <command>logrotate</command> cần có thể được đọc bởi mọi người, đặc biệt là AWStats. Trong ví dụ trên, điều này được đảm bảo bằng dòng <literal>create 644 root adm</literal> (thay vì mã truy cập <literal>640</literal> ngầm định)."
 
 msgid "FTP File Server"
-msgstr ""
+msgstr "Máy phục vụ Tập tin FTP"
 
 msgid "<primary>FTP (<emphasis>File Transfer Protocol</emphasis>)</primary>"
-msgstr ""
+msgstr "<primary>FTP (<emphasis>Giao thức chuyển tải tập tin</emphasis>)</primary>"
 
 msgid "FTP (<emphasis>File Transfer Protocol</emphasis>) is one of the first protocols of the Internet (RFC 959 was issued in 1985!). It was used to distribute files before the Web was even born (the HTTP protocol was created in 1990, and formally defined in its 1.0 version by RFC 1945, issued in 1996)."
-msgstr ""
+msgstr "FTP (<emphasis>Giao thức Chuyển tải Tập tin</emphasis>) là một trong những giao thức Internet (RFC 959 được tung ra vào năm 1985!). Nó được dùng để phân phối các tập tin trước khi Web được sinh ra (giao thức HTTP được tạo ra vào năm 1990, và được định nghĩa chính thức trong phiên bản 1.0 trong RFC 1945, tung ra năm 1996)."
 
 msgid "This protocol allows both file uploads and file downloads; for this reason, it is still widely used to deploy updates to a website hosted by one's Internet service provider (or any other entity hosting websites). In these cases, secure access is enforced with a user identifier and password; on successful authentication, the FTP server grants read-write access to that user's home directory."
-msgstr ""
+msgstr "Giao thức này cho phép cả tải lên và tải xuống; vì lí do này, nó vẫn được sử dụng rộng rãi để phân phối các bản cập nhật cho một trang web lưu trên nhà cung cấp dịch vụ Internet của một cá nhân nào đó(hoặc bất kì các trang web lưu trữ khác). Trong các trường hợp này, truy cập an toàn được đảm bảo với một tên tài khoản và mật mã; khi đăng nhập thành công, máy phục vụ FTP cho phép truy cập đọc-viết vào thư mục nhà của người sử dụng đó."
 
 msgid "Other FTP servers are mainly used to distribute files for public downloading; Debian packages are a good example. The contents of these servers is fetched from other, geographically remote, servers; it is then made available to less distant users. This means that client authentication is not required; as a consequence, this operating mode is known as “anonymous FTP”. To be perfectly correct, the clients do authenticate with the <literal>anonymous</literal> username; the password is often, by convention, the user's email address, but the server ignores it."
-msgstr ""
+msgstr "Các máy phục vụ FTP khác được sử dụng nhằm để phân phối các tập tin để tải xuống công cộng; các gói phần mềm Debian là một ví dụ tốt. Nội dung của những máy phục vụ được lấy về từ các máy phục vụ từ xa; sau đó nó được cung cấp cho các người dùng ít xa xôi hơn. Điều này nghĩa là chứng thực chương trình khách là không cần thiết; vì thế, chế độ hoạt động này được biết đến là “FTP ẩn danh“. Để nói cho thực sự chính xác, các khách hàng xác thực với tên tài khoản <literal>anonymous</literal>; mật mã thường là địa chỉ email của người sử dụng, nhưng máy phục vụ thường phớt lờ nó."
 
 msgid "Many FTP servers are available in Debian (<emphasis role=\"pkg\">ftpd</emphasis>, <emphasis role=\"pkg\">proftpd-basic</emphasis>, <emphasis role=\"pkg\">pyftpd</emphasis> and so on). The Falcot Corp administrators picked <emphasis role=\"pkg\">vsftpd</emphasis> because they only use the FTP server to distribute a few files (including a Debian package repository); since they don't need advanced features, they chose to focus on the security aspects."
-msgstr ""
+msgstr "Nhiều máy phục vụ FTP hiện đang có sẵn trong Debian (<emphasis role=\"pkg\">ftpd</emphasis>, <emphasis role=\"pkg\">proftpd-basic</emphasis>, <emphasis role=\"pkg\">pyftpd</emphasis> và vâng vâng). Các nhà quản trị hê thống của Công ty Falcot chọn <emphasis role=\"pkg\">vsftpd</emphasis> bởi họ chỉ sử dụng máy phục vụ FTP để phân phối một vài tập tin (bao gồm một kho gói phần mềm Debian); do họ không cần các tính năng phức tạp, họ chọn tập trung vào các mặt an ninh."
 
 msgid "<primary><emphasis role=\"pkg\">vsftpd</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">vsftpd</emphasis></primary>"
 
 msgid "Installing the package creates an <literal>ftp</literal> system user. This account is always used for anonymous FTP connections, and its home directory (<filename>/srv/ftp/</filename>) is the root of the tree made available to users connecting to this service. The default configuration (in <filename>/etc/vsftpd.conf</filename>) requires some changes to cater to the simple need of making big files available for public downloads: anonymous access needs to be enabled (<literal>anonymous_enable=YES</literal>) and read-only access of local users needs to be disabled (<literal>local_enable=NO</literal>). The latter is particularly important since the FTP protocol doesn't use any form of encryption and the user password could be intercepted over the wire."
-msgstr ""
+msgstr "Cài đặt gói phần mềm đó tạo một tài khoản hệ thống <literal>ftp</literal>. Tài khoản này luôn được sử dụng cho các kết nối FTP ẩn danh, và thư mục nhà của nó (<filename>/srv/ftp/</filename>) là gốc của cây thư mục được tạo sẵn cho các người sử dụng kết nối đến dịch vụ này. Cấu hình ngầm định (trong <filename>/etc/vsftpd.conf</filename>) buộc một vài thay đổi để hỗ trợ nhu cầu tạo ra các tập tin lớn để tải xuống công cộng: các kết nối ẩn danh cần được kích hoạt (<literal>anonymous_enable=YES</literal>) và kết nối chỉ đọc cho các người dùng cục bộ cần phải được tắt (<literal>local_enable=NO</literal>). Phần sau chỉ đặc biệt quan trọng bởi giao thức FTP không sử dụng bất cứ hình thức mã hóa nào và mật mã tài khoản có thể bị can thiệp trên đường truyền."
 
 msgid "NFS File Server"
 msgstr ""
