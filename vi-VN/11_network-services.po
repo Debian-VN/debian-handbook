@@ -1255,52 +1255,52 @@ msgstr ""
 "</computeroutput>"
 
 msgid "Restricting Access"
-msgstr ""
+msgstr "Giới hạn truy cập"
 
 msgid "<primary>web access restriction</primary>"
-msgstr ""
+msgstr "<primary>Giới hạn truy cập web</primary>"
 
 msgid "The <literal>Require</literal> directive controls access restrictions for a directory (and its subdirectories, recursively)."
-msgstr ""
+msgstr "Chỉ thị <literal>Require</literal> kiểm soát các giới hạn truy cập cho một thư mục (và những thư mục con, và tiếp tục như vậy cho chúng)."
 
 msgid "<primary><literal>Require</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Require</literal>, chỉ thị Apache</primary>"
 
 msgid "It can be used to restrict access based on many criteria; we will stop at describing access restriction based on the IP address of the client, but it can be made much more powerful than that, especially when several <literal>Require</literal> directives are combined within a <literal>RequireAll</literal> block."
-msgstr ""
+msgstr "Nó có thể được sử dụng để giới hạn truy cập dựa trên nhiều điều kiện; chúng ta sẽ ngưng tại việc mô tả giới hạn truy cập dựa trên địa chỉ IP của chương trình khách, nhưng nó có thể được làm cho mạnh hơn thế, đặc biệt khi vài chỉ thị <literal>Require</literal> được kết hợp trong một khối <literal>RequireAll</literal>."
 
 msgid "Only allow from the local network"
-msgstr ""
+msgstr "Chỉ cho phép từ mạng nội bộ"
 
 msgid "Require ip 192.168.0.0/16"
-msgstr ""
+msgstr "Require ip 192.168.0.0/16"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> Old syntax"
-msgstr ""
+msgstr "<emphasis>LỰA CHỌN THAY THẾ</emphasis> Cú pháp cũ"
 
 msgid "The <literal>Require</literal> syntax is only available in Apache 2.4 (the version in <emphasis role=\"distribution\">Jessie</emphasis>). For users of <emphasis role=\"distribution\">Wheezy</emphasis>, the Apache 2.2 syntax is different, and we describe it here mainly for reference, although it can also be made available in Apache 2.4 using the <literal>mod_access_compat</literal> module."
-msgstr ""
+msgstr "Cú pháp <literal>Require</literal> chỉ tồn tại trong Apache 2.4 (phiên bản có trong <emphasis role=\"distribution\">Jessie</emphasis>). Với những người sử dụng của <emphasis role=\"distribution\">Wheezy</emphasis>, cú pháp Apache 2.2 rất khác biệt, và chúng ta mô tả nó ở đây chủ yếu để tham khảo, mặc dù nó có thể được hỗ trợ trong Apache 2.4 bằng mô-đun <literal>mod_access_compat</literal>."
 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives control access restrictions for a directory (and its subdirectories, recursively)."
-msgstr ""
+msgstr "Các chỉ thị <literal>Allow from</literal> và <literal>Deny from</literal> kiểm soát các giới hạn truy cập cho một thư mục (và các thư mục con, và lại tiếp tục như vậy)."
 
 msgid "<primary><literal>Allow from</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Allow from</literal>, chỉ thị Apache</primary>"
 
 msgid "<primary><literal>Deny from</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Deny from</literal>, chỉ thị Apache</primary>"
 
 msgid "<primary><literal>Order</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Order</literal>, chỉ thị Apache</primary>"
 
 msgid "The <literal>Order</literal> directive tells the server of the order in which the <literal>Allow from</literal> and <literal>Deny from</literal> directives are applied; the last one that matches takes precedence. In concrete terms, <literal>Order deny,allow</literal> allows access if no <literal>Deny from</literal> applies, or if an <literal>Allow from</literal> directive does. Conversely, <literal>Order allow,deny</literal> rejects access if no <literal>Allow from</literal> directive matches (or if a <literal>Deny from</literal> directive applies)."
-msgstr ""
+msgstr "Chỉ thị <literal>Order</literal> cho máy phục vụ biết rằng thứ tự thực thi các chỉ thị <literal>Allow from</literal> và <literal>Deny from</literal>; chỉ thị nằm cuối cùng và phải khớp được ưu tiên trước. Cụ thể hơn, <literal>Order deny,allow</literal> cho phép truy cập nếu không có <literal>Deny from</literal> nào áp dụng được, hoặc nếu một chỉ thị <literal>Allow from</literal> áp dụng được. Ngược lại, <literal>Order allow,deny</literal> từ chối truy cập nếu không có chỉ thị <literal>Allow from</literal> nào khớp (hoặc nếu một chỉ thị <literal>Deny from</literal> áp dụng được)."
 
 msgid "The <literal>Allow from</literal> and <literal>Deny from</literal> directives can be followed by an IP address, a network (such as <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> or even <literal>192.168.0</literal>), a hostname or a domain name, or the <literal>all</literal> keyword, designating everyone."
-msgstr ""
+msgstr "Các chỉ thị <literal>Allow from</literal> và <literal>Deny from</literal> có thể được theo sau bởi một địa chỉ IP, một dãy số cho vùng mạng (như là <literal>192.168.0.0/255.255.255.0</literal>, <literal>192.168.0.0/24</literal> or even <literal>192.168.0</literal>), một tên máy hoặc một tên miền, hoặc từ khóa <literal>all</literal>, ám chỉ bất cứ ai."
 
 msgid "For instance, to reject connections by default but allow them from the local network, you could use this:"
-msgstr ""
+msgstr "Ví dụ, để từ chối các kết nối theo ngầm định nhưng cho phép chúng từ mạng nội bộ, bạn có thể làm như sau:"
 
 msgid ""
 "\n"
@@ -1308,6 +1308,10 @@ msgid ""
 "Allow from 192.168.0.0/16\n"
 "Deny from all"
 msgstr ""
+"\n"
+"Order deny,allow\n"
+"Allow from 192.168.0.0/16\n"
+"Deny from all"
 
 msgid "Log Analyzers"
 msgstr ""
