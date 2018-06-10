@@ -1125,28 +1125,28 @@ msgstr ""
 "CustomLog /var/log/apache2/access.log vhost"
 
 msgid "Common Directives"
-msgstr ""
+msgstr "Các chỉ thị phổ biến"
 
 msgid "This section briefly reviews some of the commonly-used Apache configuration directives."
-msgstr ""
+msgstr "Phần này ôn lại một số chỉ thị của các chỉ thị cấu hình thường sử dụng của Apache."
 
 msgid "<primary>Apache directives</primary>"
-msgstr ""
+msgstr "<primary>Các chỉ thị Apache</primary>"
 
-msgid "<primary>directives, Apache</primary>"
-msgstr ""
+msgid "<primary>directive, Apache</primary>"
+msgstr "<primary>chỉ thị, Apache</primary>"
 
 msgid "The main configuration file usually includes several <literal>Directory</literal> blocks; they allow specifying different behaviors for the server depending on the location of the file being served. Such a block commonly includes <literal>Options</literal> and <literal>AllowOverride</literal> directives."
-msgstr ""
+msgstr "Tập tin cấu hình chính thường bao gồm các khối <literal>Directory</literal>; chúng cho phép chỉ định những hành vi khác nhau cho một máy phục vụ tùy theo địa chỉ của tập tin sẽ được phục vụ. Một khối như vậy thường bao gồm các chỉ thị <literal>Options</literal> và các chỉ thị <literal>AllowOverride</literal>."
 
 msgid "<primary><literal>Options</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>Options</literal>, chỉ thị Apache</primary>"
 
 msgid "<primary><literal>AllowOverride</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>AllowOverride</literal>, chỉ thị Apache</primary>"
 
 msgid "Directory block"
-msgstr ""
+msgstr "Khối thư mục (Directory block)"
 
 msgid ""
 "\n"
@@ -1156,48 +1156,54 @@ msgid ""
 "DirectoryIndex index.php index.html index.htm\n"
 "&lt;/Directory&gt;"
 msgstr ""
+"\n"
+"&lt;Directory /var/www&gt;\n"
+"Options Includes FollowSymlinks\n"
+"AllowOverride All\n"
+"DirectoryIndex index.php index.html index.htm\n"
+"&lt;/Directory&gt;"
 
 msgid "The <literal>DirectoryIndex</literal> directive contains a list of files to try when the client request matches a directory. The first existing file in the list is used and sent as a response."
-msgstr ""
+msgstr "Chỉ thị <literal>DirectoryIndex</literal> bao gồm một danh sách các tập tin để thử khi yêu cầu từ chương trình khách hợp với một thư mục. Tập tin đầu tiên tồn tại trong danh sách sẽ được sử dụng và gửi đi như là một câu trả lời."
 
 msgid "<primary><literal>DirectoryIndex</literal>, Apache directive</primary>"
-msgstr ""
+msgstr "<primary><literal>DirectoryIndex</literal>, chỉ thị Apache</primary>"
 
 msgid "The <literal>Options</literal> directive is followed by a list of options to enable. The <literal>None</literal> value disables all options; correspondingly, <literal>All</literal> enables them all except <literal>MultiViews</literal>. Available options include:"
-msgstr ""
+msgstr "Chỉ thị <literal>Options</literal> được theo sau bởi một danh sách các lựa chọn để kích hoạt. Giá trị <literal>None</literal> tắt hết các lựa chọn; tương ứng, <literal>All</literal> kích hoạt tất cả ngoại trừ <literal>MultiViews</literal>. Các lựa chọn có sẵn bao gồm:"
 
 msgid "<literal>ExecCGI</literal> indicates that CGI scripts can be executed. <indexterm><primary><literal>ExecCGI</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>ExecCGI</literal> báo rằng các mã kịch bản CGI có thể được thực thi.  <indexterm><primary><literal>ExecCGI</literal>, chỉ thị Apache</primary></indexterm>"
 
 msgid "<literal>FollowSymlinks</literal> tells the server that symbolic links can be followed, and that the response should contain the contents of the target of such links. <indexterm><primary><literal>FollowSymlinks</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>FollowSymlinks</literal> cho máy phục vụ biết là các đường link tượng trưng (symbolic links) có thể dùng để tìm ra địa điểm, và câu trả lời nên chứa những nội dung ở địa điểm của các đường link đó.<indexterm><primary><literal>FollowSymlinks</literal>, chỉ thị Apache</primary></indexterm>"
 
 msgid "<literal>SymlinksIfOwnerMatch</literal> also tells the server to follow symbolic links, but only when the link and the its target have the same owner. <indexterm><primary><literal>SymlinksIfOwnerMatch</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>SymlinksIfOwnerMatch</literal> cũng bảo máy phục vụ đi theo các đường dẫn tượng trưng (symbolic links), nhưng chỉ khi đường dẫn và đích của nó có chung một người sở hữu. <indexterm><primary><literal>SymlinksIfOwnerMatch</literal>, chỉ thị Apache</primary></indexterm>"
 
 msgid "<literal>Includes</literal> enables <emphasis>Server Side Includes</emphasis> (<emphasis>SSI</emphasis> for short). These are directives embedded in HTML pages and executed on the fly for each request. <indexterm><primary><literal>Includes</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>Includes</literal> kích hoạt <emphasis>Các Hướng dẫn Kèm tập tin bên Máy phục vụ(Server Side Includes)</emphasis>(ngắn gọn là <emphasis>SSI</emphasis>). Những chỉ thị này được nhúng vào các trang HTML và thực thi theo yêu cầu. <indexterm><primary><literal>Includes</literal>, Apache directive</primary></indexterm>"
 
 msgid "<literal>Indexes</literal> tells the server to list the contents of a directory if the HTTP request sent by the client points at a directory without an index file (ie, when no files mentioned by the <literal>DirectoryIndex</literal> directive exists in this directory). <indexterm><primary><literal>Indexes</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>Indexes</literal> bảo máy phục vụ liệt kê nội dung của một thư mục nếu yêu cầu HTTP gửi bởi một chương trình khách chỉ đến một thư mục mà không có tập tin chỉ mục (index file) (nghĩa là khi không có tập tin nào được đề cập đến trong chỉ thị <literal>DirectoryIndex</literal> tồn tại trong thư mục này). <indexterm><primary><literal>Indexes</literal>, chỉ thị Apache</primary></indexterm>"
 
 msgid "<literal>MultiViews</literal> enables content negotiation; this can be used by the server to return a web page matching the preferred language as configured in the browser. <indexterm><primary><literal>MultiViews</literal>, Apache directive</primary></indexterm>"
-msgstr ""
+msgstr "<literal>MultiViews</literal> kích hoạt việc đàm phán về nội dung; điều này có thể được sử dụng bởi một máy phục vụ để trả về một trang web hợp với ngôn ngữ ưu tiên được cấu hình trong trình duyệt. <indexterm><primary><literal>MultiViews</literal>, chỉ thị Apache</primary></indexterm>"
 
 msgid "<emphasis>BACK TO BASICS</emphasis> <filename>.htaccess</filename> file"
-msgstr ""
+msgstr "<emphasis>TRỞ VỀ CƠ BẢN</emphasis> tập tin <filename>.htaccess</filename>"
 
 msgid "The <filename>.htaccess</filename> file contains Apache configuration directives enforced each time a request concerns an element of the directory where it is stored. The scope of these directives also recurses to all the subdirectories within."
-msgstr ""
+msgstr "Tập tin <filename>.htaccess</filename> chứa các chỉ thị cấu hình Apache được thực thi mỗi lần một yêu cầu cần đến một phần tử của một thư mục nơi nó được lưu. Phạm vi của những chỉ thị này sẽ đi sâu xuống các thư mục con bên trong nó."
 
 msgid "<primary><filename>.htaccess</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>.htaccess</filename></primary>"
 
 msgid "Most of the directives that can occur in a <literal>Directory</literal> block are also legal in a <filename>.htaccess</filename> file."
-msgstr ""
+msgstr "Đa số những chỉ thị có thể xảy ra trong khối <literal>Directory</literal> cũng hợp lệ trong tập tin <filename>.htaccess</filename>."
 
 msgid "The <literal>AllowOverride</literal> directive lists all the options that can be enabled or disabled by way of a <filename>.htaccess</filename> file. A common use of this option is to restrict <literal>ExecCGI</literal>, so that the administrator chooses which users are allowed to run programs under the web server's identity (the <literal>www-data</literal> user)."
-msgstr ""
+msgstr "Chỉ thị <literal>AllowOverride</literal> liệt kê tất cả những lựa chọn được kích hoạt hay được tắt bởi tập tin <filename>.htaccess</filename>. Một mục đích sử dụng của lựa chọn này là để giới hạn <literal>ExecCGI</literal>, để cho nhà quản trị hệ thống lựa chọn những người sử dụng nào được cho phép chạy các chương trình dưới danh xưng của máy phục vụ web (tài khoản <literal>www-data</literal>)."
 
 msgid "Requiring Authentication"
 msgstr ""
