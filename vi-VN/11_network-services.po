@@ -1483,64 +1483,64 @@ msgid "Installing the package creates an <literal>ftp</literal> system user. Thi
 msgstr "Cài đặt gói phần mềm đó tạo một tài khoản hệ thống <literal>ftp</literal>. Tài khoản này luôn được sử dụng cho các kết nối FTP ẩn danh, và thư mục nhà của nó (<filename>/srv/ftp/</filename>) là gốc của cây thư mục được tạo sẵn cho các người sử dụng kết nối đến dịch vụ này. Cấu hình ngầm định (trong <filename>/etc/vsftpd.conf</filename>) buộc một vài thay đổi để hỗ trợ nhu cầu tạo ra các tập tin lớn để tải xuống công cộng: các kết nối ẩn danh cần được kích hoạt (<literal>anonymous_enable=YES</literal>) và kết nối chỉ đọc cho các người dùng cục bộ cần phải được tắt (<literal>local_enable=NO</literal>). Phần sau chỉ đặc biệt quan trọng bởi giao thức FTP không sử dụng bất cứ hình thức mã hóa nào và mật mã tài khoản có thể bị can thiệp trên đường truyền."
 
 msgid "NFS File Server"
-msgstr ""
+msgstr "Máy phục vụ tập tin NFS"
 
 msgid "NFS (<emphasis>Network File System</emphasis>) is a protocol allowing remote access to a filesystem through the network. All Unix systems can work with this protocol; when Windows systems are involved, Samba must be used instead."
-msgstr ""
+msgstr "NFS ("<emphasis>Hệ thống Tập tin Mạng(Network File System)</emphasis>) là một giao thức cho phép truy cập từ xa tới một hệ thống tập tin thông qua mạng. Tất cả các hệ thống Unix có thể làm việc với giao thức này; khi các hệ thống Windows có liên quan, Samba phải được sử dụng thay thế." 
 
 msgid "<primary>NFS</primary>"
-msgstr ""
+msgstr "<primary>NFS</primary>"
 
 msgid "<primary><emphasis>Network</emphasis></primary><secondary><emphasis>File System</emphasis></secondary>"
-msgstr ""
+msgstr "<primary><emphasis>Mạng</emphasis></primary><secondary><emphasis>Hệ thống Tập tin</emphasis></secondary>"
 
 msgid "<primary>filesystem</primary><secondary>network</secondary>"
-msgstr ""
+msgstr "<primary>Hệ thống tập tin</primary><secondary>mạng</secondary>"
 
 msgid "<primary>file</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>tập tin</primary><secondary>máy phục vụ</secondary>"
 
 msgid "<primary>server</primary><secondary>file</secondary>"
-msgstr ""
+msgstr "<primary>máy phục vụ</primary><secondary>tập tin</secondary>"
 
 msgid "NFS is a very useful tool but, historically, it has suffered from many limitations, most of which have been addressed with version 4 of the protocol. The downside is that the latest version of NFS is harder to configure when you want to make use of basic security features such as authentication and encryption since it relies on Kerberos for those parts. And without those, the NFS protocol must be restricted to a trusted local network since data goes over the network unencrypted (a <emphasis>sniffer</emphasis> can intercept it) and access rights are granted based on the client's IP address (which can be spoofed)."
-msgstr ""
+msgstr "NFS là một công cụ hữu dụng nhưng, theo lịch sử, nó đã hứng chịu nhiều giới hạn, đa số được giải quyết với phiên bản số 4 của giao thức này. Ngược lại, phiên bản mới nhất của NFS khó cấu hình hơn khi bạn muốn sử dụng các tính năng an ninh đơn giản ví dụ như xác thực và mã hóa bởi nó dựa trên Kerberos cho những thành phần đó. Và nếu không có những thứ trên, giao thức NFS phải được giới hạn lại trong một mạng lưới nội bộ đáng tin cậy bởi dữ liệu di chuyển trên mạng nội bộ mà không được mã hóa (một <emphasis>kẻ nghe lén(sniffer)</emphasis> có thể can thiệp nó) và quyền truy cập được cung cấp dựa trên địa chỉ IP của khách (vốn có thể được làm giả)."
 
 msgid "<emphasis>DOCUMENTATION</emphasis> NFS HOWTO"
-msgstr ""
+msgstr "<emphasis>TÀI LIỆU HƯỚNG DẪN</emphasis> HƯỚNG DẪN NFS"
 
 msgid "Good documentation to deploy NFSv4 is rather scarce. Here are some pointers with content of varying quality but that should at least give some hints on what should be done. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
-msgstr ""
+msgstr "Tài liệu hướng dẫn có chất lượng để chạy NFSv4 thì khá khan hiếm. Đây là một vài nguồn với những nội dung có mức độ chi tiết khác nhau nhưng đó ít nhất sẽ cho bạn một số thông tin về những gì cần phải làm. <ulink type=\"block\" url=\"https://help.ubuntu.com/community/NFSv4Howto\" /> <ulink type=\"block\" url=\"http://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration\" />"
 
 msgid "Securing NFS"
-msgstr ""
+msgstr "Đảm bảo an ninh cho NFS"
 
 msgid "<primary>NFS</primary><secondary>security</secondary>"
-msgstr ""
+msgstr "<primary>NFS</primary><secondary>an ninh</secondary>"
 
 msgid "If you don't use the Kerberos-based security features, it is vital to ensure that only the machines allowed to use NFS can connect to the various required RPC servers, because the basic protocol trusts the data received from the network. The firewall must also block <emphasis>IP spoofing</emphasis> so as to prevent an outside machine from acting as an inside one, and access to the appropriate ports must be restricted to the machines meant to access the NFS shares."
-msgstr ""
+msgstr "Nếu bạn không sử dụng các tính năng an ninh dựa trên Kerberos, sẽ rất quan trọng để đảm bảo rằng chỉ những máy được cho phép sử dụng NFS mới có thể kết nối tới các máy phục vụ RPC cần thiết, bởi giao thức NFS về cơ bản luôn tin tưởng dữ liệu nhận được từ mạng. Tường lửa cũng chặn <emphasis>việc làm giả IP</emphasis> để phòng ngừa việc một máy bên ngoài hành động như một máy bên trong, và truy cập tới các cổng tương ứng phải được giới hạn lại những máy chỉ dùng để truy cập các chia sẻ NFS."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> RPC"
-msgstr ""
+msgstr "<emphasis>TRỞ VỀ CƠ BẢN</emphasis> RPC"
 
 msgid "RPC (<emphasis>Remote Procedure Call</emphasis>) is a Unix standard for remote services. NFS is one such service."
-msgstr ""
+msgstr "RPC (<emphasis>Remote Procedure Call(Thực thi Hàm Từ xa)</emphasis>) là một chuẩn Unix cho các dịch vụ chạy từ xa. NFS là một dịch vụ như vậy."
 
 msgid "<primary>RPC</primary>"
-msgstr ""
+msgstr "<primary>RPC</primary>"
 
 msgid "<primary><emphasis>Remote Procedure Call</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>Thực thi Hàm Từ xa (Remote Procedure Call)</emphasis></primary>"
 
 msgid "RPC services register to a directory known as the <emphasis>portmapper</emphasis>. A client wishing to perform an NFS query first addresses the <emphasis>portmapper</emphasis> (on port 111, either TCP or UDP), and asks for the NFS server; the reply usually mentions port 2049 (the default for NFS). Not all RPC services necessarily use a fixed port."
-msgstr ""
+msgstr "Các dịch vụ RPC đăng ký với một danh bạ được biết đến như là <emphasis>danh bạ cổng (portmapper)</emphasis>. Một máy khách có ý muốn thực hiện một yêu cầu liên quan tới NFS trước tiên tìm đến <emphasis>danh bạ cổng (portmapper)</emphasis> (ở cổng 111, hoặc TCP hoặc UDP), và hỏi tìm máy phục vụ NFS; câu trả lời thường đề cập cổng 2049 (ngầm định cho NFS). Không phải tất cả các dịch vụ RPC cần sử dụng một cổng cố định."
 
 msgid "Older versions of the protocol required other RPC services which used dynamically assigned ports. Fortunately, with NFS version 4, only port 2049 (for NFS) and 111 (for the portmapper) are needed and they are thus easy to firewall."
-msgstr ""
+msgstr "Các phiên phản cũ hơn của giao thức buộc sự hiện diện của các dịch vụ RPC khác vốn dùng các cổng được gán linh động. May mắn thay, với phiên bản NFS 4, chỉ cổng 2049 (cho NFS) và 111 (cho danh bạ cổng) là cần thiết và tường lửa dễ dàng được cài đặt hơn."
 
 msgid "<primary><command>portmapper</command></primary>"
-msgstr ""
+msgstr "<primary><command>danh bạ cổng (portmapper)</command></primary>"
 
 msgid "NFS Server"
 msgstr ""
