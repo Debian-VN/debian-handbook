@@ -1543,59 +1543,63 @@ msgid "<primary><command>portmapper</command></primary>"
 msgstr "<primary><command>danh bạ cổng (portmapper)</command></primary>"
 
 msgid "NFS Server"
-msgstr ""
+msgstr "Máy phục vụ NFS"
 
 msgid "The NFS server is part of the Linux kernel; in kernels provided by Debian it is built as a kernel module. If the NFS server is to be run automatically on boot, the <emphasis role=\"pkg\">nfs-kernel-server</emphasis> package should be installed; it contains the relevant start-up scripts."
-msgstr ""
+msgstr "Máy phục vụ NFS là một phần của nhân(kernel) Linux; trong những nhân(kernel) được cung cấp bởi Debian nó được xây dựng như một mô-đun của nhân. Nếu máy phục vụ NFS được chạy tự động khi khởi động máy, gói phần mềm <emphasis role=\"pkg\">nfs-kernel-server</emphasis> nên được cài đặt; nó chứa các đoạn mã kịch bản khởi động có liên quan."
 
 msgid "The NFS server configuration file, <filename>/etc/exports</filename>, lists the directories that are made available over the network (<emphasis>exported</emphasis>). For each NFS share, only the given list of machines is granted access. More fine-grained access control can be obtained with a few options. The syntax for this file is quite simple:"
-msgstr ""
+msgstr "Tập tin cấu hình máy phục vụ NFS, <filename>/etc/exports</filename>, liệt kê những thư mục được tạo sẵn trên mạng (<emphasis>được xuất khẩu (exported)</emphasis>). Với mỗi chia sẻ NFS, chỉ có một danh sách các máy cho trước là được cung cấp truy cập. Kiểm soát truy cập chi tiết hơn có thể được đạt được với một vài lựa chọn. Cú pháp của tập tin này thì khá đơn giản:"
 
 msgid "<primary><filename>exports</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>exports</filename></primary>"
 
 msgid "<primary><filename>/etc/exports</filename></primary>"
-msgstr ""
+msgstr "<primary><filename>/etc/exports</filename></primary>"
 
 msgid ""
 "\n"
 "/directory/to/share machine1(option1,option2,...) machine2(...) ..."
 msgstr ""
+"\n"
+"/đường_dẫn/tới/thư_mục_được_chia_sẻ máy-số_1(lựa_chọn_1,lựa_chọn_2,...) máy_số_2(...) ..."
 
 msgid "Note that with NFSv4, all exported directories must be part of a single hierarchy and that the root directory of that hierarchy must be exported and identified with the option <literal>fsid=0</literal> or <literal>fsid=root</literal>."
-msgstr ""
+msgstr "Ghi chú rằng với NFSv4, tất cả các thư mục được xuất khẩu phải là một phần của một cây duy nhất và thư mục gốc của cây đó phải được xuất ra và nhận dạng với lựa chọn <literal>fsid=0</literal> hoặc <literal>fsid=root</literal>."
 
 msgid "Each machine can be identified either by its DNS name or its IP address. Whole sets of machines can also be specified using either a syntax such as <literal>*.falcot.com</literal> or an IP address range such as <literal>192.168.0.0/255.255.255.0</literal> or <literal>192.168.0.0/24</literal>."
-msgstr ""
+msgstr "Mỗi máy có thể được nhận dạng bởi tên miền DNS của nó hoặc địa chỉ IP của nó. Các tập hợp đầy đủ các máy tính cũng có thể được chỉ định bằng cú pháp như <literal>*.falcot.com</literal> hoặc một vùng các địa chỉ IP như <literal>192.168.0.0/255.255.255.0</literal> hoặc <literal>192.168.0.0/24</literal>."
 
 msgid "Directories are made available as read-only by default (or with the <literal>ro</literal> option). The <literal>rw</literal> option allows read-write access. NFS clients typically connect from a port restricted to root (in other words, below 1024); this restriction can be lifted by the <literal>insecure</literal> option (the <literal>secure</literal> option is implicit, but it can be made explicit if needed for clarity)."
-msgstr ""
+msgstr "Các thư mục được tạo sẵn chỉ để đọc theo ngầm định (hoặc với lựa chọn <literal>ro</literal>). Lựa chọn <literal>rw</literal> cho phép truy cập đọc-viết. Những chương trình khách NFS thường kết nối từ một cổng giới hạn dành cho quản trị viên (root) (nói cách khác, dưới 1024); giới hạn này có thể được xóa bỏ bởi lựa chọn <literal>insecure</literal> (lựa chọn <literal>insecure</literal> luôn được ám chỉ, nhưng có thể được công khai nếu cần phải làm rõ)"
 
 msgid "<primary>NFS</primary><secondary>options</secondary>"
-msgstr ""
+msgstr "<primary>NFS</primary><secondary>Các lựa chọn</secondary>"
 
 msgid "By default, the server only answers an NFS query when the current disk operation is complete (<literal>sync</literal> option); this can be disabled with the <literal>async</literal> option. Asynchronous writes increase performance a bit, but they decrease reliability since there is a data loss risk in case of the server crashing between the acknowledgment of the write and the actual write on disk. Since the default value changed recently (as compared to the historical value of NFS), an explicit setting is recommended."
-msgstr ""
+msgstr "Theo ngầm định, máy phục vụ chỉ trả lời một yêu cầu NFS khi một tác vụ hiện thời trên đĩa là hoàn tất (lựa chọn <literal>sync</literal>); điều này có thể được tắt bằng lựa chọn <literal>async</literal>. Các lần ghi không đồng bộ giúp tăng hiệu suất một chút, nhưng chúng giảm độ tin cậy bởi có nguy cơ mất dữ liệu trong trường hợp máy phục vụ gặp sự cố giữa lúc xác nhận việc ghi dữ liệu và hành động ghi dữ liệu thật sự lên đĩa cứng. Bởi giá trị ngầm định thay đổi trong thời gian gần đây (so với giá trị trước đây của NFS), một cài đặt công khai rõ ràng luôn được khuyến khích."
 
 msgid "In order to not give root access to the filesystem to any NFS client, all queries appearing to come from a root user are considered by the server as coming from the <literal>nobody</literal> user. This behavior corresponds to the <literal>root_squash</literal> option, and is enabled by default. The <literal>no_root_squash</literal> option, which disables this behavior, is risky and should only be used in controlled environments. The <literal>anonuid=<replaceable>uid</replaceable></literal> and <literal>anongid=<replaceable>gid</replaceable></literal> options allow specifying another fake user to be used instead of UID/GID 65534 (which corresponds to user <literal>nobody</literal> and group <literal>nogroup</literal>)."
-msgstr ""
+msgstr "Để tránh cho phép bất cứ chương trình khách NFS nào truy cập dưới quyền quản trị viên vào hệ thống tập tin, tất cả các truy cập trông như đến từ một tài khoản quyền quản trị viên được xem bởi máy phục vụ như là đến từ một tài khoản <literal>nobody</literal>. Hành vi này tương ứng với lựa chọn <literal>root_squash</literal>, và được kích hoạt theo ngầm định. Lựa chọn <literal>no_root_squash</literal>, vốn tắt hành vi này, là mạo hiểm và chỉ nên được sử dụng trong môi trường được kiểm soát. Lựa chọn <literal>anonuid=<replaceable>uid</replaceable></literal> và <literal>anongid=<replaceable>gid</replaceable></literal> cho phép việc chỉ định một tài khoản người dùng giả khác để được sử dụng thay cho UID/GID 65534 (vốn tương ứng với tài khoản <literal>nobody</literal> và nhóm <literal>nogroup</literal>)."
 
 msgid "With NFSv4, you can add a <literal>sec</literal> option to indicate the security level that you want: <literal>sec=sys</literal> is the default with no special security features, <literal>sec=krb5</literal> enables authentication only, <literal>sec=krb5i</literal> adds integrity protection, and <literal>sec=krb5p</literal> is the most complete level which includes privacy protection (with data encryption). For this to work you need a working Kerberos setup (that service is not covered by this book)."
-msgstr ""
+msgstr "Với NFSv4, bạn có thể thêm lựa chọn <literal>sec</literal> để chỉ định mức an ninh mà bạn muốn: <literal>sec=sys</literal> là mức ngầm định mà không có tính năng an ninh đặc biệt nào cả, <literal>sec=krb5</literal> chỉ kích hoạt xác thực, <literal>sec=krb5i</literal> thêm sự bảo vệ tính chặt chẽ, và <literal>sec=krb5p</literal> là mức hoàn thiện nhất vốn kèm cả sự bảo vệ tính riêng tư (với mã hóa dữ liệu). Để điều này hoạt động tốt bạn cần có một bản cài đặt Kerberos chạy tốt(dịch vụ đó không được giải thích bởi cuốn sách này)."
 
 msgid "Other options are available; they are documented in the <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> manual page."
-msgstr ""
+msgstr "Các lựa chọn khác cũng có sẵn; chúng được ghi lại trong trang <citerefentry><refentrytitle>exports</refentrytitle> <manvolnum>5</manvolnum></citerefentry> của tài liệu hướng dẫn."
 
 msgid "<emphasis>CAUTION</emphasis> First installation"
-msgstr ""
+msgstr "<emphasis>CẢNH BÁO</emphasis> Lần cài đặt đầu tiên"
 
 msgid "The <filename>/etc/init.d/nfs-kernel-server</filename> boot script only starts the server if the <filename>/etc/exports</filename> lists one or more valid NFS shares. On initial configuration, once this file has been edited to contain valid entries, the NFS server must therefore be started with the following command:"
-msgstr ""
+msgstr "Kịch bản khởi động <filename>/etc/init.d/nfs-kernel-server</filename> chỉ khởi động máy phục vụ nếu <filename>/etc/exports</filename> liệt kê một hoặc nhiều chia sẻ NFS hợp lệ. Với cấu hình ban đầu, một khi tập tin này được chỉnh sửa để chứa các chỉ mục hợp lệ, khi đó máy phục vụ NFS phải được khởi động với lệnh sau:"
 
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>service nfs-kernel-server start</userinput>"
 
 msgid "NFS Client"
 msgstr ""
