@@ -1916,46 +1916,46 @@ msgid "Voilà, the printer is operational!"
 msgstr "Voilà, máy in đã hoạt động!"
 
 msgid "HTTP/FTP Proxy"
-msgstr ""
+msgstr "Trạm chuyển hướng HTTP/FTP"
 
 msgid "An HTTP/FTP proxy acts as an intermediary for HTTP and/or FTP connections. Its role is twofold:"
-msgstr ""
+msgstr "Một trạm chuyển hướng HTTP/FTP hoạt động như một bên trung gian cho các kết nối HTTP và/hoặc FTP. Vai trò của nó có hai mặt:"
 
 msgid "Caching: recently downloaded documents are copied locally, which avoids multiple downloads."
-msgstr ""
+msgstr "Bộ nhớ tạm thời: các tài liệu được tải về gần đây được sao chép nội bộ, vốn tránh được sự trùng lặp trong việc tải xuống."
 
 msgid "Filtering server: if use of the proxy is mandated (and outgoing connections are blocked unless they go through the proxy), then the proxy can determine whether or not the request is to be granted."
-msgstr ""
+msgstr "Máy phục vụ cho việc lọc: nếu bắt buộc phải dùng trạm chuyển hướng (và các kết nối đi ra bên ngoài bị chặn trừ khi chúng đi thông qua trạm chuyển hướng), trạm chuyển hướng có thể quyết định một yêu cầu có được chấp thuận hay không."
 
 msgid "<primary>HTTP/FTP proxy</primary>"
-msgstr ""
+msgstr "<primary>HTTP/FTP proxy</primary>"
 
 msgid "<primary>proxy cache</primary>"
-msgstr ""
+msgstr "<primary>bộ nhớ tạm thời của trạm chuyển hướng</primary>"
 
 msgid "Falcot Corp selected Squid as their proxy server."
-msgstr ""
+msgstr "Công ty Falcot đã lựa chọn Squid làm máy phục vụ trạm chuyển hướng của họ."
 
 msgid "<primary>Squid</primary>"
-msgstr ""
+msgstr "<primary>Squid</primary>"
 
 msgid "Installing"
-msgstr ""
+msgstr "Cài đặt"
 
 msgid "The <emphasis role=\"pkg\">squid3</emphasis> Debian package only contains the modular (caching) proxy. Turning it into a filtering server requires installing the additional <emphasis role=\"pkg\">squidguard</emphasis> package. In addition, <emphasis role=\"pkg\">squid-cgi</emphasis> provides a querying and administration interface for a Squid proxy."
-msgstr ""
+msgstr "Gói phần mềm Debian <emphasis role=\"pkg\">squid3</emphasis> chỉ chứa trạm chuyển hướng có cấu hình mô-đun (có bộ nhớ tạm). Biến nó thành một máy phục vụ lọc buộc phải cài đặt thêm gói phần mềm <emphasis role=\"pkg\">squidguard</emphasis>. Ngoài ra, <emphasis role=\"pkg\">squid-cgi</emphasis> cung cấp một giao diện truy xuất và quản trị cho một trạm trung chuyển Squid."
 
 msgid "Prior to installing, care should be taken to check that the system can identify its own complete name: the <command>hostname -f</command> must return a fully-qualified name (including a domain). If it does not, then the <filename>/etc/hosts</filename> file should be edited to contain the full name of the system (for instance, <literal>arrakis.falcot.com</literal>). The official computer name should be validated with the network administrator in order to avoid potential name conflicts."
-msgstr ""
+msgstr "Trước khi cài đặt, phải cẩn thận kiểm tra xem hệ thống có nhận diện được tên đầy đủ của nó không: lệnh <command>hostname -f</command> phải trả về một tên đầy đủ (bao gồm cả tên miền). Nếu không, tập tin <filename>/etc/hosts</filename> phải được sửa đổi để chứa tên đầy đủ của hệ thống (ví dụ, <literal>arrakis.falcot.com</literal>). Tên chính thức của máy tính nên được kiểm tra với nhà quản trị mạng để tránh xung đột tên có thể có."
 
 msgid "Configuring a Cache"
-msgstr ""
+msgstr "Cấu hình một Bộ nhớ tạm thời"
 
 msgid "Enabling the caching server feature is a simple matter of editing the <filename>/etc/squid3/squid.conf</filename> configuration file and allowing machines from the local network to run queries through the proxy. The following example shows the modifications made by the Falcot Corp administrators:"
-msgstr ""
+msgstr "Kích hoạt tính năng bộ nhớ tạm thời chỉ đơn giản là chỉnh sửa tập tin cấu hình <filename>/etc/squid3/squid.conf</filename> và cho phép các máy tính từ miền nội bộ chạy các truy xuất thông qua trạm chuyển hướng. Ví dụ sau cho thấy những thay đổi được tạo ra bởi các nhà quản trị hệ thống của Công ty Falcot:"
 
 msgid "The <filename>/etc/squid3/squid.conf</filename> file (excerpts)"
-msgstr ""
+msgstr "Tập tin <filename>/etc/squid3/squid.conf</filename> (những trích đoạn)"
 
 msgid ""
 "\n"
@@ -1970,44 +1970,57 @@ msgid ""
 "# And finally deny all other access to this proxy\n"
 "http_access deny all"
 msgstr ""
+"\n"
+"# CHÈN NHỮNG QUY TẮC CỦA BẠN VÀO ĐÂY ĐỂ CHO PHÉP CÁC CHƯƠNG TRÌNH KHÁCH TRUY CẬP\n"
+"\n"
+"# Quy tắc ví dụ cho phép truy cập từ những mạng nội bộ. Chỉnh sửa nó\n"
+"# để liệt kê các mạng IP nội bộ của bạn nơi mà hành động duyệt nên được\n"
+"# cho phép\n"
+"acl our_networks src 192.168.1.0/24 192.168.2.0/24\n"
+"http_access allow our_networks\n"
+"http_access allow localhost\n"
+"# Và cuối cùng từ chối tất các truy cập khác đến trạm chuyển hướng này\n"
+"http_access deny all"
 
 msgid "Configuring a Filter"
-msgstr ""
+msgstr "Cấu hình một Bộ lọc"
 
 msgid "<command>squid</command> itself does not perform the filtering; this action is delegated to <command>squidGuard</command>. The former must then be configured to interact with the latter. This involves adding the following directive to the <filename>/etc/squid3/squid.conf</filename> file:"
-msgstr ""
+msgstr "<command>squid</command> bản thân nó không thực hiện lọc; hành động này được chuyển cho <command>squidGuard</command>. Cái đầu tiên phải được cấu hình để tương tác với cái sau. Điều này bao gồm thêm chỉ thị sau vào tập tin <filename>/etc/squid3/squid.conf</filename>:"
 
 msgid "<primary><command>squidGuard</command></primary>"
-msgstr ""
+msgstr "<primary><command>squidGuard</command></primary>"
 
 msgid ""
 "\n"
 "url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf "
 msgstr ""
+"\n"
+"url_rewrite_program /usr/bin/squidGuard -c /etc/squid3/squidGuard.conf "
 
 msgid "The <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> CGI program also needs to be installed, using <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> as a starting point. Required modifications to this script are the <varname>$proxy</varname> and <varname>$proxymaster</varname> variables (the name of the proxy and the administrator's contact e-mail, respectively). The <varname>$image</varname> and <varname>$redirect</varname> variables should point to existing images representing the rejection of a query."
-msgstr ""
+msgstr "Chương trình CGI <filename>/usr/lib/cgi-bin/squidGuard.cgi</filename> cũng cần được cài đặt, sử dụng <filename>/usr/share/doc/squidguard/examples/squidGuard.cgi.gz</filename> làm điểm khởi động. Các điều chỉnh bắt buộc với đoạn kịch bản này là các biến <varname>$proxy</varname> và <varname>$proxymaster</varname> (tên của trạm chuyển hướng và địa chỉ thư điện tử của nhà quản trị, theo thứ tự). Các biến <varname>$image</varname> và <varname>$redirect</varname> nên chỉ đến các tấm hình đại diện cho sự từ chối yêu cầu."
 
 msgid "The filter is enabled with the <command>service squid3 reload</command> command. However, since the <emphasis role=\"pkg\">squidguard</emphasis> package does no filtering by default, it is the administrator's task to define the policy. This can be done by creating the <filename>/etc/squid3/squidGuard.conf</filename> file (using <filename>/etc/squidguard/squidGuard.conf.default</filename> as template if required)."
-msgstr ""
+msgstr "Bộ lọc phải được kích hoạt với lệnh <command>service squid3 reload</command>. Tuy nhiên, bởi gói phần mềm <emphasis role=\"pkg\">squidguard</emphasis> không thực hiện lọc theo ngầm định, ra chính sách là nhiệm vụ của nhà quản trị. Điều này có thể được thực hiện bằng việc tạo tập tin <filename>/etc/squid3/squidGuard.conf</filename> (sử dụng <filename>/etc/squidguard/squidGuard.conf.default</filename> như một bản mẫu nếu bị buộc)."
 
 msgid "The working database must be regenerated with <command>update-squidguard</command> after each change of the <command>squidGuard</command> configuration file (or one of the lists of domains or URLs it mentions). The configuration file syntax is documented on the following website: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
-msgstr ""
+msgstr "Cơ sở dữ liệu hiện tại phải được tái tạo lại với <command>update-squidguard</command> sau khi bất kỳ thay đổi nào của tập tin cấu hình <command>squidGuard</command> (hoặc một trong những miền máy tính hoặc các URL nó đề cập). Cú pháp của tập tin cấu hình được ghi lại trong trang web sau: <ulink type=\"block\" url=\"http://www.squidguard.org/Doc/configure.html\" />"
 
 msgid "<primary><command>update-squidguard</command></primary>"
-msgstr ""
+msgstr "<primary><command>update-squidguard</command></primary>"
 
 msgid "<emphasis>ALTERNATIVE</emphasis> DansGuardian"
-msgstr ""
+msgstr "<emphasis>LỰA CHỌN THAY THẾ</emphasis> DansGuardian"
 
 msgid "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">dansguardian</emphasis></primary>"
 
 msgid "<primary>PICS</primary>"
-msgstr ""
+msgstr "<primary>PICS</primary>"
 
 msgid "The <emphasis role=\"pkg\">dansguardian</emphasis> package is an alternative to <emphasis>squidguard</emphasis>. This software does not simply handle a blacklist of forbidden URLs, but it can take advantage of the PICS system (<emphasis>Platform for Internet Content Selection</emphasis>) to decide whether a page is acceptable by dynamic analysis of its contents."
-msgstr ""
+msgstr "Gói phần mềm <emphasis role=\"pkg\">dansguardian</emphasis> là một lựa chọn thay thế cho <emphasis>squidguard</emphasis>. Phần mềm này không đơn giản là xử lý một danh sách đen của các URL bị cấm, nhưng nó có thể tận dụng hệ thống PICS (<emphasis>Nền tảng cho Việc Lựa chọn Nội dung InternetPlatform for Internet Content Selection</emphasis>) để quyết định một trang web có thể chấp nhận được bởi quá trình phân tích động của những nội dung của nó."
 
 msgid "LDAP Directory"
 msgstr ""
