@@ -1779,7 +1779,7 @@ msgstr ""
 "# (classic backup domain controller)\", \"trạm điều khiển miền máy tính active directory \n"
 "# (active directory domain controller)\".\n"
 "#\n"
-"# Đa số người dùng sẽ muốn\"máy phục vụ đơn độc\" hoặc \"máy phục vụ thành viên\".\n"
+"# Đa số người dùng sẽ muốn \"máy phục vụ đơn độc\" hoặc \"máy phục vụ thành viên\".\n"
 "# Chạy như \"trạm điều khiển miền máy tính active directory\" sẽ buộc trước tiên\n"
 "# chạy \"samba-tool domain provision\" để xóa sạch các cơ sở dữ liệu và tạo một miền máy tính\n"
 "# mới.\n"
@@ -1798,114 +1798,122 @@ msgid "This is the default value for this parameter; however, since it is centra
 msgstr "Đây là giá trị ngầm định cho tham biến này; tuy nhiên, bởi nó là cốt lõi trong cấu hình Samba, điền giá trị vào một cách công khai được khuyến cáo. Mỗi người sử dụng phải xác thực trước khi truy cập một chia sẻ nào."
 
 msgid "Adding Users"
-msgstr ""
+msgstr "Thêm các người dùng"
 
 msgid "Each Samba user needs an account on the server; the Unix accounts must be created first, then the user needs to be registered in Samba's database. The Unix step is done quite normally (using <command>adduser</command> for instance)."
-msgstr ""
+msgstr "Mỗi một người sử dụng Samba cần một tài khoản trên máy phục vụ; các tài khoản Unix phải được tạo trước, sau đó mỗi người sử dụng cần phải được đăng ký vào cơ sở dữ liệu của Samba. Bước Unix được thực hiện như bình thường (ví dụ, sử dụng lệnh <command>adduser</command>)."
 
 msgid "Adding an existing user to the Samba database is a matter of running the <command>smbpasswd -a <replaceable>user</replaceable></command> command; this command asks for the password interactively."
-msgstr ""
+msgstr "Thêm một người dùng đã tồn tại vào cơ sở dữ liệu Samba chỉ cần chạy lệnh <command>smbpasswd -a <replaceable>user</replaceable></command>; lệnh này hỏi mật mã theo cách tương tác trực tiếp."
 
 msgid "A user can be deleted with the <command>smbpasswd -x <replaceable>user</replaceable></command> command. A Samba account can also be temporarily disabled (with <command>smbpasswd -d <replaceable>user</replaceable></command>) and re-enabled later (with <command>smbpasswd -e <replaceable>user</replaceable></command>)."
-msgstr ""
+msgstr "Một người sử dụng có thể bị xóa với lệnh <command>smbpasswd -x <replaceable>user</replaceable></command>. Một tài khoản Samba có thể bị tắt đi tạm thời (với lệnh <command>smbpasswd -d <replaceable>user</replaceable></command>) và được kích hoạt lại sau đó (với lệnh <command>smbpasswd -e <replaceable>user</replaceable></command>)."
 
 msgid "Samba Client"
-msgstr ""
+msgstr "Chương trình khách Samba"
 
 msgid "The client features in Samba allow a Linux machine to access Windows shares and shared printers. The required programs are available in the <emphasis role=\"pkg\">cifs-utils</emphasis> and <emphasis role=\"pkg\">smbclient</emphasis> packages."
-msgstr ""
+msgstr "Các tính năng của chương trình khách trong Samba cho phép một máy tính Linux truy cập các chia sẻ và các máy in được chia sẻ của Windows. Các chương trình bắt buộc đã có sẵn trong các gói phần mềm <emphasis role=\"pkg\">cifs-utils</emphasis> và <emphasis role=\"pkg\">smbclient</emphasis>."
 
 msgid "<primary><emphasis>smbclient</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>smbclient</emphasis></primary>"
 
 msgid "<primary><emphasis>cifs-utils</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>cifs-utils</emphasis></primary>"
 
 msgid "The <command>smbclient</command> Program"
-msgstr ""
+msgstr "Chương trình <command>smbclient</command> "
 
 msgid "The <command>smbclient</command> program queries SMB servers. It accepts a <literal>-U <replaceable>user</replaceable></literal> option, for connecting to the server under a specific identity. <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> accesses the share in an interactive way similar to the command-line FTP client. <command>smbclient -L <replaceable>server</replaceable></command> lists all available (and visible) shares on a server."
-msgstr ""
+msgstr "Chương trình <command>smbclient</command> truy xuất các máy phục vụ SMB. Nó chấp nhận lựa chọn <literal>-U <replaceable>user</replaceable></literal>, để kết nối tới máy phục vụ dưới một danh tính cụ thể nào đó. Lệnh <command>smbclient //<replaceable>server</replaceable>/<replaceable>share</replaceable></command> truy cập chia sẻ đó theo một cách có tương tác tương tự như chương trình khách FTP trên dòng lệnh. Lệnh <command>smbclient -L <replaceable>server</replaceable></command> liệt kê tất cả các chia sẻ có sẵn (và nhìn thấy được) trên một máy phục vụ."
 
 msgid "Mounting Windows Shares"
-msgstr ""
+msgstr "Kết nối các chia sẻ Windows"
 
 msgid "The <command>mount</command> command allows mounting a Windows share into the Linux filesystem hierarchy (with the help of <command>mount.cifs</command> provided by <emphasis role=\"pkg\">cifs-utils</emphasis>)."
-msgstr ""
+msgstr "Lệnh <command>mount</command> cho phép kết nối một chia sẻ Windows vào một cây hệ thống tập tin Linux (với sự giúp đỡ của <command>mount.cifs</command> được cung cấp bởi <emphasis role=\"pkg\">cifs-utils</emphasis>)."
 
 msgid "<primary><command>mount.cifs</command></primary>"
-msgstr ""
+msgstr "<primary><command>mount.cifs</command></primary>"
 
 msgid "<primary>Windows share, mounting</primary>"
-msgstr ""
+msgstr "<primary>Chia sẻ Windows, kết nối</primary>"
 
 msgid "Mounting a Windows share"
-msgstr ""
+msgstr "Kết nối một chia sẻ Windows"
 
 msgid ""
 "\n"
 "mount -t cifs //arrakis/shared /shared \\\n"
 "      -o credentials=/etc/smb-credentials"
 msgstr ""
+"\n"
+"mount -t cifs //arrakis/shared /shared \\\n"
+"      -o credentials=/etc/smb-credentials"
 
 msgid "The <filename>/etc/smb-credentials</filename> file (which must not be readable by users) has the following format:"
-msgstr ""
+msgstr "Tập tin <filename>/etc/smb-credentials</filename> (vốn phải không đọc được bởi người sử dụng) có định dạng sau:"
 
 msgid ""
 "\n"
 "username = <replaceable>user</replaceable>\n"
 "password = <replaceable>password</replaceable>"
 msgstr ""
+"\n"
+"username = <replaceable>user</replaceable>\n"
+"password = <replaceable>password</replaceable>"
 
 msgid "Other options can be specified on the command-line; their full list is available in the <citerefentry><refentrytitle>mount.cifs</refentrytitle> <manvolnum>1</manvolnum></citerefentry> manual page. Two options in particular can be interesting: <literal>uid</literal> and <literal>gid</literal> allow forcing the owner and group of files available on the mount, so as not to restrict access to root."
-msgstr ""
+msgstr "Các lựa chọn khác có thể được chỉ định trên dòng lệnh; danh sách đầy đủ của chúng có sẵn trong trang hướng dẫn sử dụng <citerefentry><refentrytitle>mount.cifs</refentrytitle> <manvolnum>1</manvolnum></citerefentry>. Hai lựa chọn cụ thể có thể thú vị: <literal>uid</literal> và <literal>gid</literal> cho phép ép buộc người sở hữu và danh sách các tập tin sẽ được hiện ra trên kết nối, để khỏi phải giới hạn truy cập chỉ cho tài khoản quản trị."
 
 msgid "A mount of a Windows share can also be configured in <filename>/etc/fstab</filename>:"
-msgstr ""
+msgstr "Một chia sẻ Windows cũng có thể được cấu hình trong <filename>/etc/fstab</filename>:"
 
 msgid ""
 "\n"
 "//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
 msgstr ""
+"\n"
+"//<replaceable>server</replaceable>/shared /shared cifs credentials=/etc/smb-credentials"
 
 msgid "Unmounting a SMB/CIFS share is done with the standard <command>umount</command> command."
-msgstr ""
+msgstr "Bỏ kết nối SMB/CIFS được thực hiện với lệnh <command>umount</command>."
 
 msgid "Printing on a Shared Printer"
-msgstr ""
+msgstr "In ấn trên một máy in được chia sẻ"
 
 msgid "CUPS is an elegant solution for printing from a Linux workstation to a printer shared by a Windows machine. When the <emphasis role=\"pkg\">smbclient</emphasis> is installed, CUPS allows installing Windows shared printers automatically."
-msgstr ""
+msgstr "CUPS là một giải pháp tiện lợi cho in ấn từ một máy trạm Linux sang một máy in được chia sẻ bởi một máy Windows. Khi <emphasis role=\"pkg\">smbclient</emphasis> được cài đặt, CUPS cho phép cài đặt các máy in được chia sẻ bởi Windows một cách tự động."
 
 msgid "<primary>printing</primary><secondary>network</secondary>"
-msgstr ""
+msgstr "<primary>printing</primary><secondary>network</secondary>"
 
 msgid "Here are the required steps:"
-msgstr ""
+msgstr "Đây là các bước bắt buộc:"
 
 msgid "Enter the CUPS configuration interface: <literal>http://localhost:631/admin</literal>"
-msgstr ""
+msgstr "Nhập vào địa chỉ của giao diện cấu hình CUPS: <literal>http://localhost:631/admin</literal>"
 
 msgid "Click on “Add Printer”."
-msgstr ""
+msgstr "Nhấn chuộc vào “Thêm Máy In (Add Printer)”."
 
 msgid "Choose the printer device, pick “Windows Printer via SAMBA”."
-msgstr ""
+msgstr "Chọn thiết bị in, chọn “Máy in Windows thông qua SAMBA“."
 
 msgid "Enter the connection URI for the network printer. It should look like the following:"
-msgstr ""
+msgstr "Nhập đường dẫn URI cho kết nối đến máy in mạng. Nó giống như sau:"
 
 msgid "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
-msgstr ""
+msgstr "<literal>smb://<replaceable>user</replaceable>:<replaceable>password</replaceable>@<replaceable>server</replaceable>/<replaceable>printer</replaceable></literal>."
 
 msgid "Enter the name that will uniquely identify this printer. Then enter the description and location of the printer. Those are the strings that will be shown to end users to help them identify the printers."
-msgstr ""
+msgstr "Nhập tên vốn sẽ nhận diện được ngay máy in này. Sau đó nhập mô tả và địa điểm của máy in. Đó là những chuỗi ký tự sẽ được xuất ra cho những người dùng cuối để giúp họ nhận ra các máy in."
 
 msgid "Indicate the manufacturer/model of the printer, or directly provide a working printer description file (PPD)."
-msgstr ""
+msgstr "Báo nhà sản xuất/mô-đen của máy in hoặc trực tiếp cung cấp một tập tin mô tả máy in đang chạy tốt (Printer Description file - PPD)."
 
 msgid "Voilà, the printer is operational!"
-msgstr ""
+msgstr "Voilà, máy in đã hoạt động!"
 
 msgid "HTTP/FTP Proxy"
 msgstr ""
