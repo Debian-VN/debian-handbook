@@ -2159,7 +2159,7 @@ msgid "Filling in the Directory"
 msgstr "Điền vào Danh bạ"
 
 msgid "Since an empty database is not particularly useful, we are going to inject into it all the existing directories; this includes the users, groups, services and hosts databases."
-msgstr "Bởi một cơ sở dữ liệu trống không thực sự tiện dụng, chúng ta sẽ chèn tất cả các thư mục hiện có vào nó; điều này bao gồm những người sử dụng, các nhóm, các dịch vũ và các cơ sở dữ liệu về máy tính."
+msgstr "Bởi một cơ sở dữ liệu trống không thực sự tiện dụng, chúng ta sẽ chèn tất cả các thư mục hiện có vào nó; điều này bao gồm những người sử dụng, các nhóm, các dịch vụ và các cơ sở dữ liệu về máy tính."
 
 msgid "The <emphasis role=\"pkg\">migrationtools</emphasis> package provides a set of scripts dedicated to extract data from the standard Unix directories (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> and so on), convert this data, and inject it into the LDAP database."
 msgstr "Gói phần mềm <emphasis role=\"pkg\">migrationtools</emphasis> cung cấp một tập hợp các kịch bản dành để trích xuất dữ liệu từ các thư mục Unix chuẩn (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> và vâng vâng), chuyển đổi dữ liệu này và chèn nó vào cơ sở dữ liệu LDAP."
@@ -2168,7 +2168,7 @@ msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 msgstr "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 
 msgid "Once the package is installed, the <filename>/etc/migrationtools/migrate_common.ph</filename> must be edited; the <varname>IGNORE_UID_BELOW</varname> and <varname>IGNORE_GID_BELOW</varname> options need to be enabled (uncommenting them is enough), and <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> need to be updated."
-msgstr "Một khi gói phần mềm đã được cài đặt, <filename>/etc/migrationtools/migrate_common.ph</filename> phải được chỉnh sửa; các lựa chọn <varname>IGNORE_UID_BELOW</varname> và <varname>IGNORE_GID_BELOW</varname> cần phản được kích hoạt (làm cho chúng không phải ghi chú nữa là đủ), và <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> cần phải được cập nhật."
+msgstr "Một khi gói phần mềm đã được cài đặt, <filename>/etc/migrationtools/migrate_common.ph</filename> phải được chỉnh sửa; các lựa chọn <varname>IGNORE_UID_BELOW</varname> và <varname>IGNORE_GID_BELOW</varname> cần phải được kích hoạt (làm cho chúng không phải ghi chú nữa là đủ), và <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> cần phải được cập nhật."
 
 msgid "The actual migration operation is handled by the <command>migrate_all_online.sh</command> command, as follows:"
 msgstr "Hành động di chuyển thực sự được thực hiện bởi lệnh <command>migrate_all_online.sh</command>, như sau:"
@@ -2240,61 +2240,61 @@ msgid "Also note the use of the <literal>-c</literal> option to the <command>lda
 msgstr "Cũng ghi chú rằng mục đích của lựa chọn <literal>-c</literal> cho lệnh <command>ldapadd</command>; lựa chọn này yêu cầu rằng việc xử lý không bị dừng lại khi gặp lỗi. Sử dụng lựa chọn này là bắt buộc bởi việc chuyển đổi <filename>/etc/services</filename> thường tạo ra nhiều lỗi vốn có thể được bỏ qua mà không gây ảnh hưởng gì."
 
 msgid "Managing Accounts with LDAP"
-msgstr ""
+msgstr "Quản lý các Tài khoản với LDAP"
 
 msgid "Now the LDAP database contains some useful information, the time has come to make use of this data. This section focuses on how to configure a Linux system so that the various system directories use the LDAP database."
-msgstr ""
+msgstr "Bây giờ cơ sở dữ liệu LDAP chứa một thông tin hữu dụng, đã đến thời điểm để tận dụng dữ liệu này. Phần này tập trung vào làm sao để cấu hình một hệ thống Linux để các thư mục hệ thống có thể tận dung cơ sở dữ liệu LDAP."
 
 msgid "Configuring NSS"
-msgstr ""
+msgstr "Cấu hình NSS"
 
 msgid "The NSS system (Name Service Switch, see sidebar <xref linkend=\"sidebar.intro-nss\" />) is a modular system designed to define or fetch information for system directories. Using LDAP as a source of data for NSS requires installing the <emphasis role=\"pkg\">libnss-ldap</emphasis> package. Its installation asks a few questions; the answers are summarized in <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
-msgstr ""
+msgstr "Hệ thống NSS (Chuyển đổi Dịch vụ Tên, xem ở thanh bên cạnh <xref linkend=\"sidebar.intro-nss\" />) là một hệ thống có cấu trúc mô-đun được thiết kế để định nghĩa hoặc truy xuất thông tin về các thư mục hệ thống. Sử dụng LDAP như một nguồn thông tin cho NSS cần cài đặt gói phần mềm <emphasis role=\"pkg\">libnss-ldap</emphasis>. Quá trình cài đặt của nó hỏi một số câu hỏi; các câu hỏi được tóm tắt trong <xref linkend=\"tab-libnss-ldap\" xrefstyle=\"select: label nopage\" />."
 
 msgid "<primary><emphasis>libnss-ldap</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis>libnss-ldap</emphasis></primary>"
 
 msgid "Configuring the <emphasis role=\"pkg\">libnss-ldap</emphasis> package"
-msgstr ""
+msgstr "Cấu hình gói phần mềm <emphasis role=\"pkg\">libnss-ldap</emphasis>"
 
 msgid "LDAP server Uniform Resource Identifier"
-msgstr ""
+msgstr "Định danh thống nhất cho Tài nguyên (Uniform Resource Identifier) máy phục vụ LDAP"
 
 msgid "<literal>ldap://ldap.falcot.com</literal>"
-msgstr ""
+msgstr "<literal>ldap://ldap.falcot.com</literal>"
 
 msgid "Distinguished name of the search base"
-msgstr ""
+msgstr "Tên đặc biệt của nơi bắt đầu tìm kiếm"
 
 msgid "LDAP version to use"
-msgstr ""
+msgstr "Phiên bản LDAP để sử dụng"
 
 msgid "<literal>3</literal>"
-msgstr ""
+msgstr "<literal>3</literal>"
 
 msgid "Does the LDAP database require login?"
-msgstr ""
+msgstr "Cơ sở dữ liệu LDAP có đòi hỏi đăng nhập?"
 
 msgid "Special LDAP privileges for root"
-msgstr ""
+msgstr "Các quyền LDAP đặc biệt cho quản trị viên"
 
 msgid "yes"
-msgstr ""
+msgstr "đồng ý"
 
 msgid "Make the configuration file readable/writeable by its owner only"
-msgstr ""
+msgstr "Tạo một tập tin cấu hình đọc được/ghi được chỉ bởi người chủ của nó"
 
 msgid "LDAP account for root"
-msgstr ""
+msgstr "Tài khoản LDAP cho quản trị viên"
 
 msgid "LDAP root account password"
-msgstr ""
+msgstr "Mật mã tài khoản quản trị viên LDAP"
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file then needs to be modified, so as to configure NSS to use the freshly-installed <command>ldap</command> module."
-msgstr ""
+msgstr "Tập tin <filename>/etc/nsswitch.conf</filename> sau đó cần phải được chỉnh sửa, để cấu hình NSS để sử dụng mô-đun mới được cài đặt <command>ldap</command>."
 
 msgid "The <filename>/etc/nsswitch.conf</filename> file"
-msgstr ""
+msgstr "Tập tin <filename>/etc/nsswitch.conf</filename>"
 
 msgid ""
 "\n"
@@ -2318,18 +2318,38 @@ msgid ""
 "\n"
 "netgroup: ldap files"
 msgstr ""
+"\n"
+"# /etc/nsswitch.conf\n"
+"#\n"
+"# Ví dụ cấu hình của tính năng Chuyển đổi Dịch vụ Tên của GNU (GNU Name Service Switch).\n"
+"# Nếu bạn có các gói phần mềm `glibc-doc' và `info' được cài đặt, hãy thử:\n"
+"# `info libc \"Name Service Switch\"' để biết thêm về tập tin này.\n"
+"\n"
+"passwd: ldap compat\n"
+"group: ldap compat\n"
+"shadow: ldap compat\n"
+"\n"
+"hosts: files dns ldap\n"
+"networks: ldap files\n"
+"\n"
+"protocols: ldap db files\n"
+"services: ldap db files\n"
+"ethers: ldap db files\n"
+"rpc: ldap db files\n"
+"\n"
+"netgroup: ldap files"
 
 msgid "The <command>ldap</command> module is usually inserted before others, and it will therefore be queried first. The notable exception is the <literal>hosts</literal> service since contacting the LDAP server requires consulting DNS first (to resolve <literal>ldap.falcot.com</literal>). Without this exception, a hostname query would try to ask the LDAP server; this would trigger a name resolution for the LDAP server, and so on in an infinite loop."
-msgstr ""
+msgstr "Mô-đun <command>ldap</command> thường được chèn trước những mô-đun khác, và vì thế nó sẽ được hỏi trước. Ngoại lệ đáng chú ý là dịch vụ <literal>hosts</literal> bởi liên lạc với máy phục vụ LDAP cần phải hỏi DNS trước (để giải mã tên <literal>ldap.falcot.com</literal>). Không có ngoại lệ, một truy xuất tên máy tính sẽ cố gắng hỏi máy phục vụ LDAP; điều này sẽ kích hoạt giải mã tên miền cho máy phục vụ LDAP, và vâng vâng trong một vòng lặp vô hạn."
 
 msgid "If the LDAP server should be considered authoritative (and the local files used by the <command>files</command> module disregarded), services can be configured with the following syntax:"
-msgstr ""
+msgstr "Nếu máy phục vụ LDAP nên được xem như nguồn thông tin chính xác (và các tập tin nội bộ được sử dụng bởi mô-đun <command>files</command> bị bỏ qua), các dịch vụ có thể được cấu hình với cú pháp sau:"
 
 msgid "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
-msgstr ""
+msgstr "<literal><replaceable>service</replaceable>: ldap [NOTFOUND=return] files</literal>."
 
 msgid "If the requested entry does not exist in the LDAP database, the query will return a “not existing” reply even if the resource does exist in one of the local files; these local files will only be used when the LDAP service is down."
-msgstr ""
+msgstr "Nếu mục được yêu cầu không tồn tại trong cơ sở dữ liệu LDAP, truy xuất sẽ trả về một câu trả lời “không tồn tại“ thậm chí nếu tài nguyên đó có tồn tại trong một trong các tập tin nội bộ; các tập tin nội bộ này sẽ chỉ được sử dụng nếu dịch vụ LDAP bị sập."
 
 msgid "Configuring PAM"
 msgstr ""
