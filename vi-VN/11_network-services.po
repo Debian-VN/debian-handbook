@@ -2156,85 +2156,88 @@ msgid "The query returned two objects: the organization itself, and the administ
 msgstr "Truy xuất trả về hai đối tượng: tổ chức và người dùng quản trị."
 
 msgid "Filling in the Directory"
-msgstr ""
+msgstr "Điền vào Danh bạ"
 
 msgid "Since an empty database is not particularly useful, we are going to inject into it all the existing directories; this includes the users, groups, services and hosts databases."
-msgstr ""
+msgstr "Bởi một cơ sở dữ liệu trống không thực sự tiện dụng, chúng ta sẽ chèn tất cả các thư mục hiện có vào nó; điều này bao gồm những người sử dụng, các nhóm, các dịch vũ và các cơ sở dữ liệu về máy tính."
 
 msgid "The <emphasis role=\"pkg\">migrationtools</emphasis> package provides a set of scripts dedicated to extract data from the standard Unix directories (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> and so on), convert this data, and inject it into the LDAP database."
-msgstr ""
+msgstr "Gói phần mềm <emphasis role=\"pkg\">migrationtools</emphasis> cung cấp một tập hợp các kịch bản dành để trích xuất dữ liệu từ các thư mục Unix chuẩn (<filename>/etc/passwd</filename>, <filename>/etc/group</filename>, <filename>/etc/services</filename>, <filename>/etc/hosts</filename> và vâng vâng), chuyển đổi dữ liệu này và chèn nó vào cơ sở dữ liệu LDAP."
 
 msgid "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
-msgstr ""
+msgstr "<primary><emphasis role=\"pkg\">migrationtools</emphasis></primary>"
 
 msgid "Once the package is installed, the <filename>/etc/migrationtools/migrate_common.ph</filename> must be edited; the <varname>IGNORE_UID_BELOW</varname> and <varname>IGNORE_GID_BELOW</varname> options need to be enabled (uncommenting them is enough), and <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> need to be updated."
-msgstr ""
+msgstr "Một khi gói phần mềm đã được cài đặt, <filename>/etc/migrationtools/migrate_common.ph</filename> phải được chỉnh sửa; các lựa chọn <varname>IGNORE_UID_BELOW</varname> và <varname>IGNORE_GID_BELOW</varname> cần phản được kích hoạt (làm cho chúng không phải ghi chú nữa là đủ), và <varname>DEFAULT_MAIL_DOMAIN</varname>/<varname>DEFAULT_BASE</varname> cần phải được cập nhật."
 
 msgid "The actual migration operation is handled by the <command>migrate_all_online.sh</command> command, as follows:"
-msgstr ""
+msgstr "Hành động di chuyển thực sự được thực hiện bởi lệnh <command>migrate_all_online.sh</command>, như sau:"
 
 msgid ""
 "\n"
 "<computeroutput># </computeroutput><userinput>cd /usr/share/migrationtools</userinput>\n"
 "<computeroutput># </computeroutput><userinput>LDAPADD=\"/usr/bin/ldapadd -c\" ETC_ALIASES=/dev/null ./migrate_all_online.sh</userinput>"
 msgstr ""
+"\n"
+"<computeroutput># </computeroutput><userinput>cd /usr/share/migrationtools</userinput>\n"
+"<computeroutput># </computeroutput><userinput>LDAPADD=\"/usr/bin/ldapadd -c\" ETC_ALIASES=/dev/null ./migrate_all_online.sh</userinput>"
 
 msgid "The <command>migrate_all_online.sh</command> asks a few questions about the LDAP database into which the data is to be migrated. <xref linkend=\"tab-migrate-all\" xrefstyle=\"select: label nopage\" /> summarizes the answers given in the Falcot use-case."
-msgstr ""
+msgstr "Lệnh <command>migrate_all_online.sh</command> hỏi một số câu hỏi về cơ sở dữ liệu LDAP mà dữ liệu sẽ được di chuyển vào. <xref linkend=\"tab-migrate-all\" xrefstyle=\"select: label nopage\" /> tóm tắt các câu hỏi được đưa ra trong trường hợp của Falcot."
 
 msgid "Answers to questions asked by the <command>migrate_all_online.sh</command> script"
-msgstr ""
+msgstr "Các câu trả lời cho những câu hỏi được hỏi bởi kịch bản <command>migrate_all_online.sh</command>"
 
 msgid "Question"
-msgstr ""
+msgstr "Câu hỏi"
 
 msgid "Answer"
-msgstr ""
+msgstr "Câu trả lời"
 
 msgid "X.500 naming context"
-msgstr ""
+msgstr "Ngữ cảnh đặt tên X.500"
 
 msgid "<literal>dc=falcot,dc=com</literal>"
-msgstr ""
+msgstr "<literal>dc=falcot,dc=com</literal>"
 
 msgid "LDAP server hostname"
-msgstr ""
+msgstr "Tên máy phục vụ LDAP"
 
 msgid "<literal>localhost</literal>"
-msgstr ""
+msgstr "<literal>localhost</literal>"
 
 msgid "Manager DN"
-msgstr ""
+msgstr "DN của nhà quản lý"
 
 msgid "<literal>cn=admin,dc=falcot,dc=com</literal>"
-msgstr ""
+msgstr "<literal>cn=admin,dc=falcot,dc=com</literal>"
 
 msgid "Bind credentials"
-msgstr ""
+msgstr "Bind credentials"
 
 msgid "the administrative password"
-msgstr ""
+msgstr "mật mã của quản trị viên"
 
 msgid "Create DUAConfigProfile"
-msgstr ""
+msgstr "Tạo DUAConfigProfile"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "We deliberately ignore migration of the <filename>/etc/aliases</filename> file, since the standard schema as provided by Debian does not include the structures that this script uses to describe email aliases. Should we want to integrate this data into the directory, the <filename>/etc/ldap/schema/misc.schema</filename> file should be added to the standard schema."
-msgstr ""
+msgstr "Chúng ta chủ ý phớt lờ việc chuyển dời của tập tin <filename>/etc/aliases</filename>, bởi sơ đồ (schema) chuẩn cung cấp bởi Debian không bao gồm các cấu trúc mà kịch bản này sử dụng để mô tả các danh xưng (alias) thư điện tử. Nếu bạn muốn tích hợp dữ liệu này vào một thư mục, tập tin <filename>/etc/ldap/schema/misc.schema</filename> nên được thêm vào sơ đồ (schema) chuẩn."
 
 msgid "<emphasis>TOOL</emphasis> Browsing an LDAP directory"
-msgstr ""
+msgstr "<emphasis>CÔNG CỤ</emphasis> Duyệt qua một thư mục LDAP"
 
 msgid "The <command>jxplorer</command> command (in the package of the same name) is a graphical tool allowing to browse and edit an LDAP database. It is an interesting tool that provides an administrator with a good overview of the hierarchical structure of the LDAP data."
-msgstr ""
+msgstr "Lệnh <command>jxplorer</command> (trong gói phần mềm cùng tên) là một công cụ có giao diện đồ hoạ cho phép duyệt và chỉnh sửa một cơ sở dữ liệu LDAP. Đây là một công cụ thú vị cung cấp cho quản trị viên một cái nhìn chung tốt về cấu trúc tầng lớp của dữ liệu LDAP."
 
 msgid "<primary><command>jxplorer</command></primary>"
-msgstr ""
+msgstr "<primary><command>jxplorer</command></primary>"
 
 msgid "Also note the use of the <literal>-c</literal> option to the <command>ldapadd</command> command; this option requests that processing doesn't stop in case of error. Using this option is required because converting the <filename>/etc/services</filename> often generates a few errors that can safely be ignored."
-msgstr ""
+msgstr "Cũng ghi chú rằng mục đích của lựa chọn <literal>-c</literal> cho lệnh <command>ldapadd</command>; lựa chọn này yêu cầu rằng việc xử lý không bị dừng lại khi gặp lỗi. Sử dụng lựa chọn này là bắt buộc bởi việc chuyển đổi <filename>/etc/services</filename> thường tạo ra nhiều lỗi vốn có thể được bỏ qua mà không gây ảnh hưởng gì."
 
 msgid "Managing Accounts with LDAP"
 msgstr ""
