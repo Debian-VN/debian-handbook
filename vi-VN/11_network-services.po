@@ -541,7 +541,7 @@ msgid "The <literal>reject_unknown_sender_domain</literal> rule requires a valid
 msgstr "Quy tắc <literal>reject_unknown_sender_domain</literal> buộc phải có một miền người gửi hợp lệ, bởi vì điều đó là cần thiết cho một điạ chỉ hợp lệ. Quy tắc <literal>reject_unlisted_sender</literal> từ chối những người gửi nội bộ nếu địa chỉ đó không tồn tại; điều này chống các thư điện tử khỏi việc bị gửi từ một địa chỉ không hợp lệ trong miền <literal>falcot.com</literal>, và những thông điệp xuất phát từ <literal>joe.bloggs@falcot.com</literal> chỉ được nhận nếu địa chỉ đó thực sự tồn tại."
 
 msgid "Finally, the <literal>reject_non_fqdn_sender</literal> rule rejects emails purporting to come from addresses without a fully-qualified domain name. In practice, this means rejecting emails coming from <literal>user@machine</literal>: the address must be announced as either <literal>user@machine.example.com</literal> or <literal>user@example.com</literal>."
-msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố nh�� <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
+msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố như <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
 
 msgid "Accepting or Refusing Based on the Recipient"
 msgstr "Chấp nhận hoặc từ chối dựa trên người nhận"
@@ -2856,7 +2856,7 @@ msgstr "Sử dụng công cụ htdigest để quản lý danh sách ngườ
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
-msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
+msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.configfilename>."</
 msgstr "Sử dụng tín hiệu HUP để buộc máy phục vụ tự cập nhật tập tin <filename>/etc/reTurn/users.txt</filename> sau khi chỉnh sửa nó hoặc kích hoạt tính năng tự động cập nhật trong <filename>/etc/reTurn/reTurnServer.config</filename>."
 
 msgid "SIP Proxy Server"
@@ -3027,7 +3027,7 @@ msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</lit
 msgstr "Chuyển đến giao diện web tại <literal>http://sip-proxy.falcot.com:5080</literal> để hoàn tất cấu hình bằng việc thêm các miền máy tính, các người dùng nội bộ và các định tuyến tĩnh(static routes)."
 
 msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
-msgstr "Bước đầu tiên là th��m một miền máy tính nội bộ. Tiến trình phải được khởi động lại sau khi thêm hoặc bỏ đi những miền máy tính khỏi danh sách này."
+msgstr "Bước đầu tiên là thêm một miền máy tính nội bộ. Tiến trình phải được khởi động lại sau khi thêm hoặc bỏ đi những miền máy tính khỏi danh sách này."
 
 msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
 msgstr "Trạm chuyển phát biết cách để định tuyến các cuộc gọi giữa các người sử dụng nội bộ và địa chỉ SIP đầy đủ, cấu hình định tuyến này chỉ thực sự cần thiết để từ chối (override) hành vi ngầm định, ví dụ, để nhận dạng các số điện thoại và thêm một tiền tố và định tuyến nó đến một nhà cung cấp SIP."
@@ -3124,43 +3124,43 @@ msgid "To use this strategy, each service (SIP, XMPP and TURN) needs a different
 msgstr "Để xử dụng chiến thuật này, mỗi dịch vụ (SIP, XMPP và TURN) cần một địa chỉ IP riêng biệt. Tất cả các dịch vụ này có thể nằm trên cùng một máy bởi Linux hỗ trợ nhiều địa chỉ IP cho một máy tính duy nhất. Cổng số 443 phải được chỉ định trong các tập tin cấu hình cho mỗi tiến trình và cũng như trong các mẩu tin DNS SRV."
 
 msgid "Adding WebRTC"
-msgstr ""
+msgstr "Thêm tính năng WebRTC"
 
 msgid "Falcot wants to let customers make phone calls directly from the web site. The Falcot administrators also want to use WebRTC as part of their disaster recovery plan, so staff can use web browsers at home to log in to the company phone system and work normally in an emergency."
-msgstr ""
+msgstr "Falcot muốn để các khách hàng gọi điện thoại trực tiếp từ trang web. Các quản trị viên của Falcot cũng muốn sử dụng WebRTC là một phần trong kế hoạch phục hồi sau thảm họa của họ, để các nhân viên có thể sử dụng các trình duyệt web tại nhà để đăng nhập vào hệ thống điện thoại của công ty và làm việc bình thường trong trường hợp khẩn cấp."
 
 msgid "<primary>WebRTC</primary>"
-msgstr ""
+msgstr "<primary>WebRTC</primary>"
 
 msgid "<primary>SIP</primary><secondary>WebSockets</secondary>"
-msgstr ""
+msgstr "<primary>SIP</primary><secondary>WebSockets</secondary>"
 
 msgid "<emphasis>IN PRACTICE</emphasis> Try WebRTC"
-msgstr ""
+msgstr "<emphasis>THỰC TẾ</emphasis> Hãy thử WebRTC"
 
 msgid "<primary>WebRTC</primary><secondary>demonstration</secondary>"
-msgstr ""
+msgstr "<primary>WebRTC</primary><secondary>trình bày</secondary>"
 
 msgid "If you have not tried WebRTC before, there are various sites that give an online demonstration and test facilities. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
-msgstr ""
+msgstr "Nếu bạn chưa sử dụng WebRTC trước đây, có nhiều trang thông tin điện tử trình diễn trực tuyến và kiểm tra các hệ thống cho bạn. <ulink type=\"block\" url=\"http://www.sip5060.net/test-calls\" />"
 
 msgid "WebRTC is a rapidly evolving technology and it is essential to use packages from the <emphasis role=\"distribution\">jessie-backports</emphasis> or <emphasis role=\"distribution\">Testing</emphasis> distributions."
-msgstr ""
+msgstr "WebRTC là một công nghệ tiến hóa rất nhanh và việc sử dụng các gói phần mềm từ các bản phân phối <emphasis role=\"distribution\">jessie-backports</emphasis> hoặc <emphasis role=\"distribution\">Testing</emphasis> là rất quan trọng."
 
 msgid "JSCommunicator is a generic, unbranded WebRTC phone that does not require any server-side scripting such as PHP. It is built exclusively with HTML, CSS and JavaScript. It is the basis for many other WebRTC services and modules for more advanced web publishing frameworks. <ulink type=\"block\" url=\"http://jscommunicator.org\" />"
-msgstr ""
+msgstr "JSCommunicator là một điện thoại WebRTC ít kén chọn, không mang một thương hiệu, vốn không buộc phải có các mã kịch bản bên máy phục vụ ví dụ như PHP. Nó được xây dựng chỉ dành cho HTML, CSS và JavaScript. Nó là cơ sở cho rất nhiều các dịch vụ và các mô-đun WebRTC khác để hỗ trợ các bộ công cụ phát triển phức tạp cho xuất bản điện tử(web publishing framework)."
 
 msgid "<primary>JSCommunicator</primary>"
-msgstr ""
+msgstr "<primary>JSCommunicator</primary>"
 
 msgid "The package <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> is the quickest way to install a WebRTC phone into a web site. It requires a SIP proxy with a WebSocket transport. The instructions in <xref linkend=\"sect.sip-server-install\" /> include the necessary details to enable the WebSocket transport in the <emphasis role=\"pkg\">repro</emphasis> SIP proxy."
-msgstr ""
+msgstr "Gói phần mềm <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis> là con đường nhanh nhất để cài đặt một điện thoại WebRTC vào một trang thông tin điện tử. Nó đòi hỏi phải có một trạm chuyển hướng SIP (SIP Proxy) cùng với một phương thức di chuyển dữ liệu WebSocket. Các hướng dẫn trong <xref linkend=\"sect.sip-server-install\" /> bao gồm các chi tiết cần thiết để kích hoạt phương thức di chuyển dữ liệu WebSocket trong trạm chuyển hướng SIP <emphasis role=\"pkg\">repro</emphasis>."
 
 msgid "After installing <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, there are various ways to use it. A simple strategy is to include or copy the configuration from <filename>/etc/jscommunicator-web-phone/apache.conf</filename> into an Apache virtual host configuration."
-msgstr ""
+msgstr "Sau khi cài đặt <emphasis role=\"pkg\">jscommunicator-web-phone</emphasis>, có nhiều cách để sử dụng nó. Một phương thức đơn giản là đính kèm hoặc sao chép cấu hình từ <filename>/etc/jscommunicator-web-phone/apache.conf</filename> vào một cấu hình máy ảo(virtual host) Apache."
 
 msgid "Once the web-phone files are available in the web server, customize the <filename>/etc/jscommunicator-web-phone/config.js</filename> to point at the TURN server and SIP proxy. For example:"
-msgstr ""
+msgstr "Một khi các tập tin điện thoại-mạng (web-phone) có sẵn trong máy phục vụ web, tùy chỉnh <filename>/etc/jscommunicator-web-phone/config.js</filename> để chỉ đến máy phục vụ TURN hay trạm chuyển hướng SIP. Ví dụ:"
 
 msgid ""
 "\n"
@@ -3189,12 +3189,37 @@ msgid ""
 "\n"
 "  ..."
 msgstr ""
+"\n"
+"JSCommSettings = {\n"
+"\n"
+"  // Môi trường máy phục vụ Web\n"
+"  webserver: {\n"
+"    url_prefix: null            // Nếu được bật, tiền tố được sử dụng để xây dựng các URL dễ đọc URLs\n"
+"  },\n"
+"\n"
+"  // Các trạm chuyển phát thông tin đa phương tiện (media relays) STUN/TURN\n"
+"  stun_servers: [],\n"
+"  turn_servers: [\n"
+"    { server:\"turn:turn-server.falcot.com?transport=udp\", username:\"joe\", password:\"j0Ep455d\" }\n"
+"  ],\n"
+"\n"
+"  // Kết nối WebSocket\n"
+"  websocket: {\n"
+"      // Chú ý rằng chúng ta sử dụng chứng chỉ miền falcot.com và cổng 8443\n"
+"      // Điều này khớp với ví dụ Transport3 và Transport4 trong\n"
+"      // tập tin repro.config của falcot.com\n"
+"    servers: 'wss://falcot.com:8443',\n"
+"    connection_recovery_min_interval: 2,\n"
+"    connection_recovery_max_interval: 30\n"
+"  },\n"
+"\n"
+"  ..."
 
 msgid "More advanced click-to-call web sites typically use server-side scripting to generate the <literal>config.js</literal> file dynamically. The <ulink url=\"http://drucall.org\">DruCall</ulink> source code demonstrates how to do this with PHP."
-msgstr ""
+msgstr "Các trang thông tin điện tử phức tạp có tính năng nhấn chuột-để-gọi thường sử dụng kịch bản bên máy phục vụ để tạo ra tập tin <literal>config.js</literal>. Mã nguồn <ulink url=\"http://drucall.org\">DruCall</ulink> cho thấy cách làm điều này như thế nào với PHP."
 
 msgid "<primary>DruCall</primary>"
-msgstr ""
+msgstr "<primary>DruCall</primary>"
 
 msgid "This chapter sampled only a fraction of the available server software; however, most of the common network services were described. Now it is time for an even more technical chapter: we'll go into deeper detail for some concepts, describe massive deployments and virtualization."
-msgstr ""
+msgstr "Chương này làm mẫu chỉ một phần nhỏ của những phần mềm có sẵn cho máy phục vụ; tuy nhiên, đa số các dịch vụ mạng thông thường đã được mô tả. Bây giờ là lúc để cho một chương có nhiều tính kĩ thuật hơn: chúng ta sẽ đi sâu hơn về các khái niệm, mô tả các sự triển khai và ảo hóa ở quy mô lớn hơn."
