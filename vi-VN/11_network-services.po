@@ -2791,31 +2791,31 @@ msgstr ""
 "_xmpp-server._tcp  IN     SRV    5 0 5269 xmpp-gw.falcot.com."
 
 msgid "TURN Server"
-msgstr ""
+msgstr "Máy phục vụ TURN"
 
 msgid "TURN is a service that helps clients behind NAT routers and firewalls to discover the most efficient way to communicate with other clients and to relay the media streams if no direct media path can be found. It is highly recommended that the TURN server is installed before any of the other RTC services are offered to end users."
-msgstr ""
+msgstr "TURN là một dịch vụ giúp các chương trình khách phía sau các router NAT và tường lửa tìm được cách hiệu quả nhất để giao tiếp với các chương trình khách khác và để chuyển phát các luồng thông tin nếu không có đường đi trực tiếp cho các thông tin đó. Máy phục vụ TURN được khuyến cáo cài đặt trước khi bất kỳ một trong các dịch vụ RTC khác được cung cấp cho các người dùng cuối."
 
 msgid "<primary>TURN</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>TURN</primary><secondary>server</secondary>"
 
 msgid "TURN and the related ICE protocol are open standards. To benefit from these protocols, maximizing connectivity and minimizing user frustration, it is important to ensure that all client software supports ICE and TURN."
-msgstr ""
+msgstr "TURN và giao thức ICE liên quan là các tiêu chuẩn mở. Để có lợi được từ những giao thức này, nghĩa là tối đa hóa đường kết nối và giảm thiểu sự phiền phức cho người sử dụng, việc đảm bảo rằng các chương trình khách hỗ trợ ICE và TURN là rất quan trọng."
 
 msgid "<primary>ICE</primary>"
-msgstr ""
+msgstr "<primary>ICE</primary>"
 
 msgid "For the ICE algorithm to work effectively, the server must have two public IPv4 addresses."
-msgstr ""
+msgstr "Để thuật toán ICE hoạt động hiệu quả, máy phục vụ phải có hai địa chỉ công cộng IPv4."
 
 msgid "Install the TURN server"
-msgstr ""
+msgstr "Cài đặt máy phục vụ TURN"
 
 msgid "Install the <emphasis role=\"pkg\">resiprocate-turn-server</emphasis> package."
-msgstr ""
+msgstr "Cài đặt gói phần mềm <emphasis role=\"pkg\">resiprocate-turn-server</emphasis>."
 
 msgid "Edit the <filename>/etc/reTurn/reTurnServer.config</filename> configuration file. The most important thing to do is insert the IP addresses of the server."
-msgstr ""
+msgstr "Chỉnh sửa tập tin cấu hình <filename>/etc/reTurn/reTurnServer.config</filename>. Điều quan trọng nhất là chèn vào đó các địa chỉ IP của máy phục vụ."
 
 msgid ""
 "\n"
@@ -2831,21 +2831,33 @@ msgid ""
 "UserDatabaseFile = /etc/reTurn/users.txt\n"
 "UserDatabaseHashedPasswords = true"
 msgstr ""
+"\n"
+"# các địa chỉ IP của bạn đặt vào đây:\n"
+"TurnAddress = 198.51.100.19\n"
+"TurnV6Address = 2001:DB8:1000:2000::19\n"
+"AltStunAddress = 198.51.100.20\n"
+"# miền máy tính của bạn đặt vào đây, nó phải khớp với giá trị được sử dụng\n"
+"# để mã hóa các mật mã của bạn nếu chúng đã được mã hóa\n"
+"# bằng thuật toán HA1:\n"
+"AuthenticationRealm = myrealm\n"
+"\n"
+"UserDatabaseFile = /etc/reTurn/users.txt\n"
+"UserDatabaseHashedPasswords = true"
 
 msgid "Restart the service."
-msgstr ""
+msgstr "Khởi động lại dịch vụ này"
 
 msgid "Managing the TURN users"
-msgstr ""
+msgstr "Quản lý các người sử dụng TURN"
 
 msgid "Use the htdigest utility to manage the TURN server user list."
-msgstr ""
+msgstr "Sử dụng công cụ htdigest để quản lý danh sách người sử dụng của máy phục vụ TURN"
 
 msgid "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
-msgstr ""
+msgstr "<computeroutput># </computeroutput><userinput>htdigest /etc/reTurn/users.txt myrealm joe</userinput>"
 
 msgid "Use the HUP signal to make the server reload the <filename>/etc/reTurn/users.txt</filename> file after changing it or enable the automatic reload feature in <filename>/etc/reTurn/reTurnServer.config</filename>."
-msgstr ""
+msgstr "Sử dụng tín hiệu HUP để buộc máy phục vụ tự cập nhật tập tin <filename>/etc/reTurn/users.txt</filename> sau khi chỉnh sửa nó hoặc kích hoạt tính năng tự động cập nhật trong <filename>/etc/reTurn/reTurnServer.config</filename>."
 
 msgid "SIP Proxy Server"
 msgstr ""
