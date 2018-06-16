@@ -541,7 +541,7 @@ msgid "The <literal>reject_unknown_sender_domain</literal> rule requires a valid
 msgstr "Quy tắc <literal>reject_unknown_sender_domain</literal> buộc phải có một miền người gửi hợp lệ, bởi vì điều đó là cần thiết cho một điạ chỉ hợp lệ. Quy tắc <literal>reject_unlisted_sender</literal> từ chối những người gửi nội bộ nếu địa chỉ đó không tồn tại; điều này chống các thư điện tử khỏi việc bị gửi từ một địa chỉ không hợp lệ trong miền <literal>falcot.com</literal>, và những thông điệp xuất phát từ <literal>joe.bloggs@falcot.com</literal> chỉ được nhận nếu địa chỉ đó thực sự tồn tại."
 
 msgid "Finally, the <literal>reject_non_fqdn_sender</literal> rule rejects emails purporting to come from addresses without a fully-qualified domain name. In practice, this means rejecting emails coming from <literal>user@machine</literal>: the address must be announced as either <literal>user@machine.example.com</literal> or <literal>user@example.com</literal>."
-msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố như <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
+msgstr "Cuối cùng, quy tắc <literal>reject_non_fqdn_sender</literal> từ chối những thư điện tử tự cho là xuất phát từ những địa chỉ không có một tên miền đầy đủ và hợp lệ. Trên thực tế, điều này đồng nghĩa với việc từ chối những thư điện tử đến từ <literal>user@machine</literal>: địa chỉ phải được công bố nh�� <literal>user@machine.example.com</literal> hay <literal>user@example.com</literal>."
 
 msgid "Accepting or Refusing Based on the Recipient"
 msgstr "Chấp nhận hoặc từ chối dựa trên người nhận"
@@ -3027,51 +3027,53 @@ msgid "Go to the web interface at <literal>http://sip-proxy.falcot.com:5080</lit
 msgstr "Chuyển đến giao diện web tại <literal>http://sip-proxy.falcot.com:5080</literal> để hoàn tất cấu hình bằng việc thêm các miền máy tính, các người dùng nội bộ và các định tuyến tĩnh(static routes)."
 
 msgid "The first step is to add the local domain. The process must be restarted after adding or removing domains from the list."
-msgstr "Bước đầu tiên là thêm một miền máy tính nội bộ. Tiến trình phải được khởi động lại sau khi thêm hoặc bỏ đi những miền máy tính khỏi danh sách này."
+msgstr "Bước đầu tiên là th��m một miền máy tính nội bộ. Tiến trình phải được khởi động lại sau khi thêm hoặc bỏ đi những miền máy tính khỏi danh sách này."
 
 msgid "The proxy knows how to route calls between local users and full SIP address, the routing configuration is only necessary for overriding default behavior, for example, to recognize phone numbers, add a prefix and route them to a SIP provider."
 msgstr "Trạm chuyển phát biết cách để định tuyến các cuộc gọi giữa các người sử dụng nội bộ và địa chỉ SIP đầy đủ, cấu hình định tuyến này chỉ thực sự cần thiết để từ chối (override) hành vi ngầm định, ví dụ, để nhận dạng các số điện thoại và thêm một tiền tố và định tuyến nó đến một nhà cung cấp SIP."
 
 msgid "XMPP Server"
-msgstr ""
+msgstr "Máy phục vụ XMPP"
 
 msgid "An XMPP server manages connectivity between local XMPP users and XMPP users in other domains on the public Internet."
-msgstr ""
+msgstr "Một máy phục vụ XMPP quản lý kết nối giữa các người sử dụng XMPP nội bộ và những người sử dụng XMPP ở những miền máy tính khác trên mạng Internet công cộng."
 
 msgid "<primary>XMPP</primary><secondary>server</secondary>"
-msgstr ""
+msgstr "<primary>XMPP</primary><secondary>máy phục vụ</secondary>"
 
 msgid "<emphasis>VOCABULARY</emphasis> XMPP or Jabber?"
-msgstr ""
+msgstr "<emphasis>TỪ VỰNG</emphasis> XMPP hay Jabber?"
 
 msgid "<primary>Jabber</primary>"
-msgstr ""
+msgstr "<primary>Jabber</primary>"
 
 msgid "XMPP is sometimes referred to as Jabber. In fact, Jabber is a trademark and XMPP is the official name of the standard."
-msgstr ""
+msgstr "XMPP thỉnh thoảng được biết tới như là Jabber. Thực ra, Jabber là một thương hiệu và XMPP là tên chính thức của một tiêu chuẩn."
 
 msgid "Prosody is a popular XMPP server that operates reliably on Debian servers."
-msgstr ""
+msgstr "Prosody là một máy phục vụ XMPP vốn hoạt động ổn định trên các máy phục vụ Debian."
 
 msgid "<primary>Prosody</primary>"
-msgstr ""
+msgstr "<primary>Prosody</primary>"
 
 msgid "Install the XMPP server"
-msgstr ""
+msgstr "Cài đặt máy phục vụ XMPP"
 
 msgid "Install the <emphasis role=\"pkg\">prosody</emphasis> package. Using the package from <emphasis role=\"distribution\">jessie-backports</emphasis> is highly recommended, as it has the latest improvements for maximizing connectivity and resilience."
-msgstr ""
+msgstr "Cài đặt gói phần mềm <emphasis role=\"pkg\">prosody</emphasis>. Sử dụng gói phần mềm này từ <emphasis role=\"distribution\">jessie-backports</emphasis> là rất được khuyến cáo, bởi nó có những tiến bộ mới nhất để tối đa hóa kết nối và khả năng phục hồi khi gặp sự cố."
 
 msgid "Review the <filename>/etc/prosody/prosody.cfg.lua</filename> configuration file. The most important thing to do is insert JIDs of the users who are permitted to manage the server."
-msgstr ""
+msgstr "Xem tập tin cấu hình <filename>/etc/prosody/prosody.cfg.lua</filename>. Điều quan trọng nhất để làm là chèn những JID của những người sử dụng được cho phép quản lý máy phục vụ."
 
 msgid ""
 "\n"
 "admins = { \"joe@falcot.com\" }"
 msgstr ""
+"\n"
+"admins = { \"joe@falcot.com\" }"
 
 msgid "An individual configuration file is also needed for each domain. Copy the sample from <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> and use it as a starting point. Here is <literal>falcot.com.cfg.lua</literal>:"
-msgstr ""
+msgstr "Một tập tin cấu hình cũng cần thiết cho mỗi miền máy tính. Sao chép mẫu sau từ <filename>/etc/prosody/conf.avail/example.com.cfg.lua</filename> và sử dụng nó như một điểm khởi động. Đây là <literal>falcot.com.cfg.lua</literal>:"
 
 msgid ""
 "\n"
@@ -3082,26 +3084,35 @@ msgid ""
 "                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
 "                }"
 msgstr ""
+"\n"
+"VirtualHost \"falcot.com\"\n"
+"        enabled = true\n"
+"        ssl = {\n"
+"                key = \"/etc/ssl/private/falcot.com-key.pem\";\n"
+"                certificate = \"/etc/ssl/public/falcot.com.pem\";\n"
+"                }"
 
 msgid "To enable the domain, there must be a symlink from <filename>/etc/prosody/conf.d/</filename>. Create it that way:"
-msgstr ""
+msgstr "Để kích hoạt miền máy tính, phải có một đường dẫn tượng trưng (symbolic link) xuất phát từ <filename>/etc/prosody/conf.d/</filename>. Hãy tạo nó theo cách đó:"
 
 msgid "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
-msgstr ""
+msgstr "<computeroutput># </computeroutput><userinput>ln -s /etc/prosody/conf.avail/falcot.com.cfg.lua /etc/prosody/conf.d/</userinput>"
 
 msgid "Managing the XMPP server"
-msgstr ""
+msgstr "Quản lý một máy phục vụ XMPP"
 
 msgid "Some management operations can be performed using the <literal>prosodyctl</literal> command line utility. For example, to add the administrator account specified in <filename>/etc/prosody/prosody.cfg.lua</filename>:"
-msgstr ""
+msgstr "Một số tác vụ quản lý có thể được thực hiện bằng tiện ích dòng lệnh <literal>prosodyctl</literal>. Ví dụ, để thêm một tài khoản quản trị viên vốn được chỉ định trong <filename>/etc/prosody/prosody.cfg.lua</filename>:"
 
 msgid ""
 "\n"
 "# prosodyctl adduser joe@falcot.com"
 msgstr ""
+"\n"
+"# prosodyctl adduser joe@falcot.com"
 
 msgid "See the <ulink url=\"http://prosody.im/doc/configure\"> Prosody online documentation</ulink> for more details about how to customize the configuration."
-msgstr ""
+msgstr "Xem <ulink url=\"http://prosody.im/doc/configure\"> Tài liệu hướng dẫn trên mạng của Prosody</ulink>  để biết thêm chi tiết về cách để tùy chỉnh cấu hình này."
 
 msgid "Running services on port 443"
 msgstr ""
