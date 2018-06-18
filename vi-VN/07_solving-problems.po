@@ -282,7 +282,9 @@ msgid "Many such tutorials are managed by the Linux Documentation Project (LDP),
 msgstr "Rất nhiều hướng dẫn từng bước như vậy được quản lý bởi Dự án Tài liệu Hướng dẫn Linux (Linux Documentation Project (LDP)). Trang thông tin điện tử của họ chứa tất cả những tài liệu này: <ulink type=\"block\" url=\"http://www.tldp.org/\" />"
 
 msgid "<primary>LDP</primary>"
+
 msgstr "<primary>LDP</primary>"
+
 
 msgid "<primary>Linux Documentation Project</primary>"
 msgstr "<primary>Dự án Tài liệu Hướng dẫn Linu(Linux Documentation Project)</primary>"
@@ -336,61 +338,61 @@ msgid "All examples must be installed in the <filename>/usr/share/doc/<replaceab
 msgstr "Tất cả các ví dụ phải được cài đặt vào thư mục <filename>/usr/share/doc/<replaceable>gói-phần-mềm</replaceable>/examples/</filename>. Đây có thể là một tập tin cấu hình, mã nguồn chương trình (một ví dụ về cách sử dụng một thư viện) hoặc một kịch bản chuyển đổi dữ liệu mà quản trị viên có thể sử dụng trong một số trường hợp nhất định (như là khởi động một cơ sở dữ liệu). Nếu ví dụ đó chỉ liên quan tới một kiến trúc máy tính nào đó, nó nên được cài đặt vào <filename>/usr/lib/<replaceable>package</replaceable>/examples/</filename> và phải có một đường dẫn chỉ đến tập tin đó trong thư mục <filename>/usr/share/doc/<replaceable>gói-phần-mềm</replaceable>/examples/</filename>."
 
 msgid "Monitoring What Daemons Are Doing"
-msgstr ""
+msgstr "Theo dõi Hoạt động của Các dịch vụ nền"
 
 msgid "Understanding what a daemon does is somewhat more complicated, since it does not interact directly with the administrator. To check that a daemon is actually working, you need to test it. For example, to check the Apache (web server) daemon, test it with an HTTP request."
-msgstr ""
+msgstr "Hiểu những gì một dịch vụ chạy nền đang làm thì có một chút phức tạp, bởi nó không tương tác trực tiếp với quản trị viên. Để kiểm tra rằng một dịch vụ nền đang thực sự chạy, bạn cần phải kiểm tra nó. Ví dụ, để kiểm tra dịch vụ chạy nền Apache (máy phục vụ web), hãy kiểm tra nó với một yêu cầu HTTP."
 
 msgid "To allow such tests, each daemon generally records everything that it does, as well as any errors that it encounters, in what are called “log files” or “system logs”. Logs are stored in <filename>/var/log/</filename> or one of its subdirectories. To know the precise name of a log file for each daemon, see its documentation. Note: a single test is not always sufficient if it does not cover all the possible usage cases; some problems only occur in particular circumstances."
-msgstr ""
+msgstr "Để cho phép những bài kiểm tra đó, mỗi dịch vụ chạy nền nhìn chung ghi lại tất cả những gì nó làm, và cả những lỗi nó gặp phải, vào những thứ được gọi là “các tập tin nhật ký” hoặc “các nhật ký hệ thống”. Các nhật ký được lưu trong <filename>/var/log/</filename> hoặc một trong các thư mục con của nó. Để biết tên cụ thể của tập tin nhật ký của mỗi dịch vụ nền, hãy xem tài liệu hướng dẫn của nó. Chú ý: một bài kiểm tra luôn không đủ để bao phủ hết tất cả các trường hợp; một vài vấn đề chỉ xảy ra trong các trường hợp đặc biệt."
 
 msgid "<emphasis>TOOL</emphasis> The <command>rsyslogd</command> daemon"
-msgstr ""
+msgstr "<emphasis>CÔNG CỤ</emphasis> Dịch vụ nền <command>rsyslogd</command>"
 
 msgid "<primary><command>syslogd</command></primary>"
-msgstr ""
+msgstr "<primary><command>syslogd</command></primary>"
 
 msgid "<primary>logs</primary><secondary>files</secondary>"
-msgstr ""
+msgstr "<primary>các nhật ký</primary><secondary>các tập tin</secondary>"
 
 msgid "<primary>files</primary><secondary>logs</secondary>"
-msgstr ""
+msgstr "<primary>các tập tin</primary><secondary>các nhật ký</secondary>"
 
 msgid "<command>rsyslogd</command> is special: it collects logs (internal system messages) that are sent to it by other programs. Each log entry is associated with a subsystem (e-mail, kernel, authentication, etc.) and a priority; <command>rsyslogd</command> processes these two pieces of information to decide on what to do. The log message may be recorded in various log files, and/or sent to an administration console. The details are defined in the <filename>/etc/rsyslog.conf</filename> configuration file (documented in the manual page of the same name)."
-msgstr ""
+msgstr "<command>rsyslogd</command> rất đặc biệt: nó thu thập các thông điệp nhật ký (các thông điệp nội bộ hệ thống) vốn được gửi tới nó bởi các chương trình khác. Mỗi chỉ mục trong nhật ký được liên kết với một hệ thống nhỏ (thư điện tử, nhân(kernel), xác thực, vâng vâng) và một mức ưu tiên; <command>rsyslogd</command> xử lý hai mẩu thông tin này để quyết định phải làm gì. Thông điệp nhật ký có thể được lưu lại trong các tập tin nhật ký, và/hoặc gửi đến một cửa sổ dòng lệnh cho quản trị viên.  Chi tiết được định nghĩa trong tập tin cấu hình <filename>/etc/rsyslog.conf</filename> (được hướng dẫn trong trang hướng dẫn sử dụng có cùng tên)."
 
 msgid "Certain C functions, which are specialized in sending logs, simplify the use of the <command>rsyslogd</command> daemon. However some daemons manage their own log files (this is the case, for example, of <command>samba</command>, that implements Windows shares on Linux)."
-msgstr ""
+msgstr "Một vài hàm C, vốn chuyên để gửi đi các thông điệp nhật ký, đơn giản hóa việc sử dụng dịch vụ nền <command>rsyslogd</command>. Tuy nhiên, một vài dịch vụ nền quản lý các tập tin nhật ký riêng của chúng (đây là trường hợp, ví dụ, của <command>samba</command>, vốn hiện thực hóa các chia sẻ Windows trên Linux)."
 
 msgid "Note that when <command>systemd</command> is in use, the logs are actually collected by <command>systemd</command> before being forwarded to <command>rsyslogd</command>. They are thus also available via <command>systemd</command>'s journal and can be consulted with <command>journalctl</command> (see <xref linkend=\"sect.systemd\" /> for details)."
-msgstr ""
+msgstr "Ghi chú rằng khi <command>systemd</command> đang hoạt động, các thông điệp nhật ký được thu thập bởi <command>systemd</command> trước khi được chuyển tới <command>rsyslogd</command>. Vì thế chúng cũng có thể được truy cập thông qua nhật ký <command>systemd</command> và có thể tham khảo với <command>journalctl</command> (xem <xref linkend=\"sect.systemd\" /> để biết thêm chi tiết)."
 
 msgid "<emphasis>BACK TO BASICS</emphasis> Daemon"
-msgstr ""
+msgstr "<emphasis>TRỞ VỀ CƠ BẢN</emphasis> Dịch vụ chạy nền"
 
 msgid "<primary>daemon</primary>"
-msgstr ""
+msgstr "<primary>dịch vụ chạy nền</primary>"
 
 msgid "A daemon is a program that is not explicitly invoked by the user and that stays in the background, waiting for a certain condition to be met before performing a task. Many server programs are daemons, a term that explains that the letter “d” is frequently present at the end of their name (<command>sshd</command>, <command>smtpd</command>, <command>httpd</command>, etc.)."
-msgstr ""
+msgstr "Một dịch vụ chạy nền là một chương trình không được khởi động trực tiếp bởi người sử dụng và tiếp tục chạy nền, chờ cho một điều kiện nào đó được thỏa để thực hiện một tác vụ. Nhiều chương trình máy phục vụ là các dịch vụ chạy nền, một cụm từ giải thích tốt hơn là ký tự “d” thường xuất hiện ở cuối tên của chúng (<command>sshd</command>, <command>smtpd</command>, <command>httpd</command>, vâng vâng)."
 
 msgid "As a preventive operation, the administrator should regularly read the most relevant server logs. They can thus diagnose problems before they are even reported by disgruntled users. Indeed users may sometimes wait for a problem to occur repeatedly over several days before reporting it. In many cases, there are specific tools to analyze the contents of the larger log files. In particular, such utilities exist for web servers (such as <command>analog</command>, <command>awstats</command>, <command>webalizer</command> for Apache), for FTP servers, for proxy/cache servers, for firewalls, for e-mail servers, for DNS servers, and even for print servers. Some of these utilities operate in a modular manner and allow analysis of several types of log files. This is the case of <command>lire</command>. Other tools, such as <command>logcheck</command> (a software discussed in <xref linkend=\"security\" />), scan these files in search of alerts to be dealt with."
-msgstr ""
+msgstr "Như là một biện pháp phòng chống, quản trị viên nên thường xuyên đọc những nhật ký máy phục vụ có liên quan nhất. Chúng có thể giúp chẩn đoán được các vấn đề trước khi chúng bị báo cáo bởi các người sử dụng đầy giận dữ. Thực vậy, những người sử dụng có thể thỉnh thoảng chờ để một vấn đề xảy ra lặp đi lặp lại qua vài ngày trước khi báo cáo nó. Trong nhiều trường hợp, có nhiều công cụ cụ thể để phân tích nội dung của các tập tin nhật ký lớn hơn. Cụ thể hơn, các tiện ích này tồn tại cho các máy phục vụ web (như là <command>analog</command>, <command>awstats</command>, <command>webalizer</command> cho Apache), cho các máy phục vụ FTP, cho các máy phục vụ trạm chuyển hướng(proxy)/bộ nhớ tạm(cache), cho các tường lửa, cho các máy phục vụ thư điện tử, cho các máy phục vụ DNS, và thậm chí cho các máy phục vụ in ấn. Một số trong những tiện ích trên hoạt động dựa trên nhiều mô-đun và cho phép phân tích nhiều loại tập tin nhật ký. Đây là trường hợp của <command>lire</command>. Các công cụ khác, như là <command>logcheck</command> (một phần mềm được thảo luận ở <xref linkend=\"security\" />), quét qua các tập tin này để tìm kiếm các cảnh báo và xử lý chúng."
 
 msgid "<primary><command>analog</command></primary>"
-msgstr ""
+msgstr "<primary><command>analog</command></primary>"
 
 msgid "<primary><command>awtats</command></primary>"
-msgstr ""
+msgstr "<primary><command>awtats</command></primary>"
 
 msgid "<primary><command>webalizer</command></primary>"
-msgstr ""
+msgstr "<primary><command>webalizer</command></primary>"
 
 msgid "<primary><command>logcheck</command></primary>"
-msgstr ""
+msgstr "<primary><command>logcheck</command></primary>"
 
 msgid "<primary><command>lire</command></primary>"
-msgstr ""
+msgstr "<primary><command>lire</command></primary>"
 
 msgid "Asking for Help on a Mailing List"
 msgstr ""
