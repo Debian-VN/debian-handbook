@@ -24,7 +24,7 @@ Bạn có thể đóng góp bản dịch hay cập nhật trực tiếp qua [W
 - 06_apt.po  ![finish](http://i.imgur.com/dhvg7Gd.png) [Thuan VU](https://github.com/thu4nvd)
 
 
-- 07_solving-problems.po  [Mốc Meo](https://github.com/mocmeo)
+- 07_solving-problems.po  [Khang Nguyen](https://github.com/ngtrongkhang/debian-handbook), [Mốc Meo](https://github.com/mocmeo)
 
 - 08_basic-configuration.po
 
